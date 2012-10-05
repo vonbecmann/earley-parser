@@ -10,6 +10,6 @@ baseline100: spec
 				package: 'EarleyParser-Core';
 				package: 'EarleyParser-Tests' with: [ spec requires: 'EarleyParser-Core' ].
 			spec
-				group: 'default' with: #('Core');
+				group: 'default' with: #('Core' 'Tests');
 				group: 'Core' with: #('EarleyParser-Core');
 				group: 'Tests' with: #('EarleyParser-Tests') ]

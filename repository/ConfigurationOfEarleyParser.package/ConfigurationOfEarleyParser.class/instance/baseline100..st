@@ -5,7 +5,7 @@ baseline100: spec
 		for: #pharo
 		do: [ 
 			spec blessing: #baseline.
-			spec repository: 'http://ss3.gemstone.com/ss/crappy-code'.
+			spec repository: 'http://smalltalkhub.com/mc/vonbecmann/earley-parser/main'.
 			spec
 				package: 'EarleyParser-Core';
 				package: 'EarleyParser-Tests' with: [ spec requires: 'EarleyParser-Core' ].

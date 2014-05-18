@@ -1,5 +1,4 @@
 initialization
-initializeGrammar: aCollection 
+initializeGrammar: aGrammar
 	super initialize.
-	grammar := aCollection.
-	
+	grammar := aGrammar

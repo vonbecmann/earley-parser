@@ -1,0 +1,4 @@
+public
+accepts: aString 
+	^ true
+	

@@ -1,4 +1,4 @@
 initialization
 initializeGrammar: aGrammar
-	super initialize.
+	self initialize.
 	grammar := aGrammar

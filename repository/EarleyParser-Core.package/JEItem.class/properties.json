@@ -1,0 +1,15 @@
+{
+	"commentStamp" : "BernardoContreras 6/25/2014 02:52",
+	"super" : "Object",
+	"category" : "EarleyParser-Core",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"classvars" : [ ],
+	"instvars" : [
+		"rule",
+		"dotPosition",
+		"itemset"
+	],
+	"name" : "JEItem",
+	"type" : "normal"
+}

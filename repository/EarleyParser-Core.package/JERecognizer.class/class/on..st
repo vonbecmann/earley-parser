@@ -1,3 +1,3 @@
-as yet unclassified
-on: aGrammar 
-  ^ self basicNew initializeGrammar: aGrammar
+instance creation
+on: aGrammar
+	^ self basicNew initializeGrammar: aGrammar

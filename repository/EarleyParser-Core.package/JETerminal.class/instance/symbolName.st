@@ -1,0 +1,3 @@
+accessing
+symbolName
+	^ symbolName

@@ -1,0 +1,13 @@
+{
+	"commentStamp" : "BernardoContreras 7/29/2014 23:51",
+	"super" : "Object",
+	"category" : "EarleyParser-Core",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"classvars" : [ ],
+	"instvars" : [
+		"symbolName"
+	],
+	"name" : "JENonterminal",
+	"type" : "normal"
+}

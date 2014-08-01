@@ -1,4 +1,4 @@
-as yet unclassified
+tests
 testX
 	| spec terminals nonterminals alphabet rules |
 	spec := #(

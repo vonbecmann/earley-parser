@@ -1,3 +1,3 @@
 as yet unclassified
-for: aString
-	^ self basicNew initializeSymbol: aString
+for: aSymbol
+	^ self basicNew initializeSymbol: aSymbol

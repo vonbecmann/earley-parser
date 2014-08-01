@@ -1,3 +1,3 @@
 instance creation
-for: aString
-	^ self basicNew initializeSymbol: aString
+for: aSymbol
+	^ self basicNew initializeSymbol: aSymbol

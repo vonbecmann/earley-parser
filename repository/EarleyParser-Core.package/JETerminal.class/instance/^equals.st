@@ -1,3 +1,3 @@
 comparing
 = aSymbol
-	 ^ symbolName = aSymbol symbolName
+	 ^ symbol = aSymbol symbol

@@ -1,3 +1,3 @@
 initialization
-initializeSymbol: aString
-	symbolName := aString
+initializeSymbol: aSymbol
+	symbol := aSymbol

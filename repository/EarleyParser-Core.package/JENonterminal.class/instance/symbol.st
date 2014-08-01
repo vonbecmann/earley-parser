@@ -1,3 +1,3 @@
 accessing
-key
+symbol
 	^ symbol

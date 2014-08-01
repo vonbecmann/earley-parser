@@ -1,3 +1,3 @@
 comparing
 hash
-	^ symbolName hash
+	^ symbol hash

@@ -6,7 +6,7 @@
 	"pools" : [ ],
 	"classvars" : [ ],
 	"instvars" : [
-		"symbolName"
+		"symbol"
 	],
 	"name" : "JETerminal",
 	"type" : "normal"

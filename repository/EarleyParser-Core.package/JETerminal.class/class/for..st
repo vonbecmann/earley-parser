@@ -1,3 +1,3 @@
-as yet unclassified
+instance creation
 for: aSymbol
 	^ self basicNew initializeSymbol: aSymbol

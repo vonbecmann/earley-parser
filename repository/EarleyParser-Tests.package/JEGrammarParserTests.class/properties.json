@@ -1,11 +1,13 @@
 {
-	"commentStamp" : "",
+	"commentStamp" : "BernardoContreras 8/2/2014 22:34",
 	"super" : "TestCase",
 	"category" : "EarleyParser-Tests",
 	"classinstvars" : [ ],
 	"pools" : [ ],
 	"classvars" : [ ],
-	"instvars" : [ ],
-	"name" : "JEGrammarBuilderTests",
+	"instvars" : [
+		"parser"
+	],
+	"name" : "JEGrammarParserTests",
 	"type" : "normal"
 }

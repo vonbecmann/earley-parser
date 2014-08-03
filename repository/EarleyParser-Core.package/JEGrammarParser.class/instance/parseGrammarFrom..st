@@ -11,9 +11,5 @@ parseGrammarFrom: spec
 						ifFalse: [ terminals add: (JETerminal for: another) ] ] ].
 	alphabet := (nonterminals , terminals) asDictionary.
 	rules := spec
-		collect: [ :each | 
-			| left right |
-			left := alphabet at: each first.
-			right := each second collect: [ :another | alphabet at: another ].
-			JERule left: left right: right ].
+		collect: [ :each | JERule left: (alphabet at: each first) right: (each second collect: [ :another | alphabet at: another ]) ].
 	^ JEGrammar nonterminals: nonterminals terminals: terminals rules: rules

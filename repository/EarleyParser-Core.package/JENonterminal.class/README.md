@@ -1,1 +1,1 @@
-a nonterminal
+a nonterminal symbol

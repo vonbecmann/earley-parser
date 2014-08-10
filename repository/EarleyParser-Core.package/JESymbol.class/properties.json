@@ -1,0 +1,13 @@
+{
+	"commentStamp" : "BernardoContreras 8/10/2014 22:43",
+	"super" : "Object",
+	"category" : "EarleyParser-Core",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"classvars" : [ ],
+	"instvars" : [
+		"symbol"
+	],
+	"name" : "JESymbol",
+	"type" : "normal"
+}

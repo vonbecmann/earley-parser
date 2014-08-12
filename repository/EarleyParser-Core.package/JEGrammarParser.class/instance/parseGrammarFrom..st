@@ -7,5 +7,6 @@ parseGrammarFrom: spec
 		thenCollect: [ :each | JETerminal for: each ].
 	alphabet := (nonterminals , terminals) asDictionary.
 	rules := spec
-		collect: [ :each | JERule left: (alphabet at: each first) right: (each second collect: [ :another | alphabet at: another ]) ].
+		collect: [ :each | JERule left: (alphabet at: each first) right: (each second collect: [ :another | alphabet at: another ]) ]
+		as: Set.
 	^ JEGrammar nonterminals: nonterminals terminals: terminals rules: rules

@@ -1,6 +1,12 @@
 public
 accepts: aString
-	| itemsets |
+	| i itemsets firstRule |
 	itemsets := (0 to: aString size) collect: [ :index | Set new ].
-	(itemsets at: 1) add: (JEItem rule: #(S (E)) dotAt: 1 itemsetAt: 1).
+	firstRule := JERule left: (JENonterminal for: #Start) right: {(grammar startSymbol)}.
+	(itemsets at: 1) add: (JEItem rule: firstRule itemsetAt: 1).
+	i := 1.
+	(itemsets at: i) asOrderedCollection
+		do: [ :each | 
+			(each isFinal not and: [ each symbolAtDot isNonTerminal ])
+				ifTrue: [ grammar altenativesOf: each symbolAtDot ] ].
 	^ true

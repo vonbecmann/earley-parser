@@ -1,10 +1,10 @@
 printing
 printOn: aStream
-	"left -> right"
+	"left ::= right"
 
 	left printOn: aStream.
 	aStream
 		space;
-		nextPutAll: '->';
+		nextPutAll: '::=';
 		space.
 	right do: [ :each | each printOn: aStream ]

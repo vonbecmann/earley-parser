@@ -1,19 +1,32 @@
 public
-accepts: aString
-	| itemsets itemset firstRule processed input |
-	itemsets := (0 to: aString size) collect: [ :index | Set new ].
-	firstRule := JERule left: (JENonterminal for: #Start) right: {(grammar startSymbol)}.
-	(itemsets at: 1) add: (JEItem rule: firstRule itemsetAt: 1).
-	1 to: aString size + 1 do: [ :i | 
-		itemset := itemsets at: i.
-		input := (aString at: i) asString.
+accepts: words
+	| itemsets |
+	itemsets := (0 to: words size) collect: [ :index | Set new ].
+	(itemsets at: 1)
+		add: (JEItem rule: (JERule left: (JENonterminal for: #Start) right: {(grammar startSymbol)}) itemsetAt: 1).
+	1 to: itemsets size do: [ :index | (itemsets at: index) inspectWithLabel: 'itemset [' , index asString , ']' ].
+	1 to: words size + 1 do: [ :i | 
+		| processed itemset |
 		processed := Set new.
+		itemset := itemsets at: i.
 		[ 
 		(itemset difference: processed)
 			do: [ :item | 
 				item isPredicted
 					ifTrue: [ itemset addAll: ((grammar alternativesOf: item symbolAtDot) collect: [ :rule | JEItem rule: rule itemsetAt: i ]) ].
-				((item isFinal not and: [ item symbolAtDot isTerminal ]) and: [ item symbolAtDot equals: input ])
+				(((item isFinal not and: [ item symbolAtDot isTerminal ]) and: [ i <= words size ])
+					and: [ item symbolAtDot equals: (words at: i) ])
 					ifTrue: [ (itemsets at: i + 1) add: item moveDotForward ].
+				item isFinal
+					ifTrue: [ 
+						itemset
+							addAll:
+								(((itemsets at: item itemset) select: [ :anItem | anItem symbolAtDot = item rule left ])
+									collect: [ :anItem | anItem moveDotForward ]) ].
 				processed add: item ] ] doWhileFalse: [ (itemset difference: processed) isEmpty ] ].
-	^ true
+	^ (itemsets at: words size + 1)
+		includes:
+			(JEItem
+				rule: (JERule left: (JENonterminal for: #Start) right: {(grammar startSymbol)})
+				dotAt: words size + 1
+				itemsetAt: 1)

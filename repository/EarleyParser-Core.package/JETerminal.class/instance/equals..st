@@ -1,3 +1,3 @@
 comparing
-equals: aString 
-	^ symbol asString = aString
+equals: aSymbol
+	^ symbol = aSymbol

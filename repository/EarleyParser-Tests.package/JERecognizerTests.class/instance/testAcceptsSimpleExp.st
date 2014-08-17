@@ -1,3 +1,3 @@
 tests
 testAcceptsSimpleExp
-	self assert: (recognizer accepts: 'a')
+	self assert: (recognizer accepts: #(a))

@@ -14,8 +14,8 @@ accepts: words
 			do: [ :item | 
 				item isPredicted
 					ifTrue: [ itemset addAll: ((grammar alternativesOf: item symbolAtDot) collect: [ :rule | JEItem rule: rule itemsetAt: i ]) ].
-				(((item isFinal not and: [ item symbolAtDot isTerminal ]) and: [ i <= words size ])
-					and: [ item symbolAtDot equals: (words at: i) ])
+				(item isFinal not
+					and: [ item symbolAtDot isTerminal and: [ i <= words size and: [ item symbolAtDot equals: (words at: i) ] ] ])
 					ifTrue: [ (itemsets at: i + 1) add: item moveDotForward ].
 				item isFinal
 					ifTrue: [ 

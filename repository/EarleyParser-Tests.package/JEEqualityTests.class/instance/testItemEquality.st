@@ -3,8 +3,7 @@ testItemEquality
 	| one another |
 	one := JEItem
 		rule:
-			(JERule
-				head: (JENonterminal for: #T)
+			((JENonterminal for: #T)
 				body:
 					{(JENonterminal for: #T).
 					(JETerminal for: #+).
@@ -13,8 +12,7 @@ testItemEquality
 		itemsetAt: 2.
 	another := JEItem
 		rule:
-			(JERule
-				head: (JENonterminal for: #T)
+			((JENonterminal for: #T)
 				body:
 					{(JENonterminal for: #T).
 					(JETerminal for: #+).

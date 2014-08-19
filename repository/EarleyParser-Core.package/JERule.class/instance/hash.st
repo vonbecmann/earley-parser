@@ -1,3 +1,3 @@
 comparing
 hash
-	^ left hash bitXor: right hash
+	^ head hash bitXor: body hash

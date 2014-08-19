@@ -1,3 +1,3 @@
 accessing
 symbolAtDot
-	^ rule right at: dotPosition 
+	^ rule body at: dotPosition 

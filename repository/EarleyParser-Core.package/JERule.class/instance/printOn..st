@@ -1,10 +1,10 @@
 printing
 printOn: aStream
-	"left ::= right"
+	"head -> body"
 
-	left printOn: aStream.
+	head printOn: aStream.
 	aStream
 		space;
-		nextPutAll: '::=';
+		nextPutAll: '->';
 		space.
-	right do: [ :each | each printOn: aStream ]
+	body do: [ :each | each printOn: aStream ]

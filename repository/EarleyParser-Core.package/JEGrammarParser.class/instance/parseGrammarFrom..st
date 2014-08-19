@@ -9,6 +9,6 @@ parseGrammarFrom: spec
 	self assert: (nonterminals & terminals) isEmpty.
 	alphabet := (nonterminals , terminals) asDictionary.
 	rules := spec
-		collect: [ :each | JERule left: (alphabet at: each first) right: (each second collect: [ :another | alphabet at: another ]) ]
+		collect: [ :each | JERule head: (alphabet at: each first) body: (each second collect: [ :another | alphabet at: another ]) ]
 		as: Set.
 	^ JEGrammar nonterminals: nonterminals terminals: terminals rules: rules startSymbol: startSymbol 

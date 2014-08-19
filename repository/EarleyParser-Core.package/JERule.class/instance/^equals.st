@@ -1,7 +1,7 @@
 comparing
 = aRule
-	left = aRule left
+	head = aRule head
 		ifFalse: [ ^ false ].
-	right = aRule right
+	body = aRule body
 		ifFalse: [ ^ false ].
 	^ true

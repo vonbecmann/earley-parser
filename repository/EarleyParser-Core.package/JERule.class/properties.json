@@ -1,13 +1,13 @@
 {
-	"commentStamp" : "BernardoContreras 7/30/2014 21:38",
+	"commentStamp" : "BernardoContreras 8/19/2014 21:46",
 	"super" : "Object",
 	"category" : "EarleyParser-Core",
 	"classinstvars" : [ ],
 	"pools" : [ ],
 	"classvars" : [ ],
 	"instvars" : [
-		"left",
-		"right"
+		"head",
+		"body"
 	],
 	"name" : "JERule",
 	"type" : "normal"

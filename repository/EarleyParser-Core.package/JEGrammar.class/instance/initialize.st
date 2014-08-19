@@ -1,4 +1,4 @@
 initialization
 initialize
 	alternatives := Dictionary new.
-	nonterminals do: [ :each | alternatives at: each put: (rules asArray select: [ :rule | rule left = each ]) ]
+	nonterminals do: [ :each | alternatives at: each put: (rules asArray select: [ :rule | rule head = each ]) ]

@@ -2,14 +2,14 @@ tests
 testRuleEquality
 	| one another |
 	one := JERule
-		left: (JENonterminal for: #T)
-		right:
+		head: (JENonterminal for: #T)
+		body:
 			{(JENonterminal for: #T).
 			(JETerminal for: #+).
 			(JENonterminal for: #P)}.
 	another := JERule
-		left: (JENonterminal for: #T)
-		right:
+		head: (JENonterminal for: #T)
+		body:
 			{(JENonterminal for: #T).
 			(JETerminal for: #+).
 			(JENonterminal for: #P)}.

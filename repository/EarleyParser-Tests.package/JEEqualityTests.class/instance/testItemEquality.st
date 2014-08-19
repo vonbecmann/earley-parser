@@ -4,8 +4,8 @@ testItemEquality
 	one := JEItem
 		rule:
 			(JERule
-				left: (JENonterminal for: #T)
-				right:
+				head: (JENonterminal for: #T)
+				body:
 					{(JENonterminal for: #T).
 					(JETerminal for: #+).
 					(JENonterminal for: #P)})
@@ -14,8 +14,8 @@ testItemEquality
 	another := JEItem
 		rule:
 			(JERule
-				left: (JENonterminal for: #T)
-				right:
+				head: (JENonterminal for: #T)
+				body:
 					{(JENonterminal for: #T).
 					(JETerminal for: #+).
 					(JENonterminal for: #P)})

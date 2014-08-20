@@ -3,7 +3,15 @@ accepts: words
 	| itemsets |
 	itemsets := (0 to: words size) collect: [ :index | Set new ].
 	(itemsets at: 1) add: (JEItem rule: ((JENonterminal for: #Start) body: {(grammar startSymbol)}) itemsetAt: 1).
-	1 to: itemsets size do: [ :index | (itemsets at: index) inspectWithLabel: 'itemset [' , index asString , ']' ].
+	1 to: itemsets size do: [ :index | 
+		(itemsets at: index)
+			inspectWithLabel:
+				(String
+					streamContents: [ :s | 
+						s
+							nextPutAll: 'itemset [';
+							nextPutAll: index asString;
+							nextPutAll: ']' ]) ].
 	1 to: words size + 1 do: [ :i | 
 		| processed itemset |
 		processed := Set new.

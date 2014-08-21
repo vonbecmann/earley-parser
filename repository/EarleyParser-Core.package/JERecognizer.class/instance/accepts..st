@@ -1,8 +1,9 @@
 public
 accepts: words
-	| itemsets |
+	| itemsets firstRule |
 	itemsets := (0 to: words size) collect: [ :index | Set new ].
-	(itemsets at: 1) add: (JEItem rule: ((JENonterminal for: #Start) body: {(grammar startSymbol)}) itemsetAt: 1).
+	firstRule := (JENonterminal for: #Start) body: {(grammar startSymbol)}.
+	(itemsets at: 1) add: (JEItem rule: firstRule itemsetAt: 1).
 	1 to: itemsets size do: [ :index | 
 		(itemsets at: index)
 			inspectWithLabel:
@@ -33,6 +34,4 @@ accepts: words
 										(((itemsets at: item itemset) select: [ :anItem | anItem symbolAtDot = item rule head ])
 											collect: [ :anItem | anItem moveDotForward ]) ].
 						item ]) ] doWhileFalse: [ (itemset difference: processed) isEmpty ] ].
-	^ (itemsets at: words size + 1)
-		includes:
-			(JEItem rule: ((JENonterminal for: #Start) body: {(grammar startSymbol)}) dotAt: words size + 1 itemsetAt: 1)
+	^ (itemsets at: words size + 1) includes: (JEItem rule: firstRule dotAt: firstRule body size + 1 itemsetAt: 1)

@@ -1,3 +1,3 @@
 instance creation
 on: aGrammarSpec
-	^ self basicNew initializeGrammar: (JEGrammarParser parse: aGrammarSpec)
+	^ self basicNew initializeGrammar: (JEGrammar on: aGrammarSpec)

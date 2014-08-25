@@ -4,7 +4,7 @@ accepts: words
 	itemsets := (0 to: words size) collect: [ :index | Set new ].
 	firstRule := (JENonterminal for: #Start) body: {(grammar startSymbol)}.
 	(itemsets at: 1) add: (JEItem rule: firstRule dotAtBeginningWithItemsetAt: 1).
-	1 to: itemsets size do: [ :index | 
+	"1 to: itemsets size do: [ :index | 
 		(itemsets at: index)
 			inspectWithLabel:
 				(String
@@ -12,7 +12,7 @@ accepts: words
 						s
 							nextPutAll: 'itemset [';
 							nextPutAll: index asString;
-							nextPutAll: ']' ]) ].
+							nextPutAll: ']' ]) ]."
 	1 to: words size + 1 do: [ :i | 
 		| processed itemset |
 		processed := Set new.
@@ -22,7 +22,7 @@ accepts: words
 			addAll:
 				((itemset difference: processed)
 					collect: [ :item | 
-						item isPredicted
+						(item isFinal not and: [ item symbolAtDot isNonTerminal ])
 							ifTrue: [ 
 								itemset
 									addAll:

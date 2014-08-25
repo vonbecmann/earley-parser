@@ -7,7 +7,6 @@
 	"classvars" : [ ],
 	"instvars" : [
 		"nonterminals",
-		"terminals",
 		"rules",
 		"startSymbol",
 		"alternatives"

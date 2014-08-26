@@ -29,15 +29,16 @@ accepts: words
 										(((itemsets at: item itemset) select: [ :anItem | anItem symbolAtDot = item rule head ])
 											collect: [ :anItem | anItem moveDotForward ]) ]
 							ifFalse: [ 
-								item symbolAtDot isNonTerminal
+								item symbolAtDot isTerminal
 									ifTrue: [ 
+										(i <= words size and: [ item symbolAtDot equals: (words at: i) ])
+											ifTrue: [ 
+												"scan"
+												(itemsets at: i + 1) add: item moveDotForward ] ]
+									ifFalse: [ 
 										"predict"
 										itemset
 											addAll:
-												((grammar alternativesOf: item symbolAtDot) collect: [ :rule | JEItem rule: rule dotAtBeginningWithItemsetAt: i ]) ].
-								(item symbolAtDot isTerminal and: [ i <= words size and: [ item symbolAtDot equals: (words at: i) ] ])
-									ifTrue: [ 
-										"scan"
-										(itemsets at: i + 1) add: item moveDotForward ] ].
+												((grammar alternativesOf: item symbolAtDot) collect: [ :rule | JEItem rule: rule dotAtBeginningWithItemsetAt: i ]) ] ].
 						item ]) ] doWhileFalse: [ (itemset difference: processed) isEmpty ] ].
 	^ (itemsets at: words size + 1) includes: (JEItem rule: firstRule dotAtEndWithItemsetAt: 1)

@@ -1,7 +1,3 @@
 Jay Earley Recognizer
 
-Instance Variables
-	grammar:		<Object>
-
-grammar
-	- context free grammar
+look-ahead will not be considered

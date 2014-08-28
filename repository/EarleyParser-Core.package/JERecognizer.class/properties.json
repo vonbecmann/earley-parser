@@ -6,7 +6,8 @@
 	"pools" : [ ],
 	"classvars" : [ ],
 	"instvars" : [
-		"grammar"
+		"grammar",
+		"debugOn"
 	],
 	"name" : "JERecognizer",
 	"type" : "normal"

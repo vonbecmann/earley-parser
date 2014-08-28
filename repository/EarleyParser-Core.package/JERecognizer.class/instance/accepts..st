@@ -3,16 +3,18 @@ accepts: words
 	| itemsets firstRule |
 	itemsets := (0 to: words size) collect: [ :index | JEItemSet new ].
 	firstRule := (JENonterminal for: #Start) body: {(grammar startSymbol)}.
-	(itemsets at: 1) add: (JEItem rule: firstRule dotAtBeginningWithItemsetAt: 1).	
-	"1 to: itemsets size do: [ :index | 
-		(itemsets at: index)
-			inspectWithLabel:
-				(String
-					streamContents: [ :s | 
-						s
-							nextPutAll: 'itemset [';
-							nextPutAll: index asString;
-							nextPutAll: ']' ]) ]."
+	(itemsets at: 1) add: (JEItem rule: firstRule dotAtBeginningWithItemsetAt: 1).
+	debugOn
+		ifTrue: [ 
+			1 to: itemsets size do: [ :index | 
+				(itemsets at: index)
+					inspectWithLabel:
+						(String
+							streamContents: [ :s | 
+								s
+									nextPutAll: 'itemset [';
+									nextPutAll: index asString;
+									nextPutAll: ']' ]) ] ].
 	1 to: words size + 1 do: [ :i | 
 		| itemset |
 		itemset := itemsets at: i.

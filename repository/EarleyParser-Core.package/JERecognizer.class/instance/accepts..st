@@ -1,9 +1,10 @@
 public
 accepts: words
 	| itemsets firstRule |
-	itemsets := (0 to: words size) collect: [ :index | Set new ].
+	itemsets := (0 to: words size) collect: [ :index | JEItemSet new ].
 	firstRule := (JENonterminal for: #Start) body: {(grammar startSymbol)}.
-	(itemsets at: 1) add: (JEItem rule: firstRule dotAtBeginningWithItemsetAt: 1).	"1 to: itemsets size do: [ :index | 
+	(itemsets at: 1) add: (JEItem rule: firstRule dotAtBeginningWithItemsetAt: 1).	
+	"1 to: itemsets size do: [ :index | 
 		(itemsets at: index)
 			inspectWithLabel:
 				(String
@@ -13,32 +14,27 @@ accepts: words
 							nextPutAll: index asString;
 							nextPutAll: ']' ]) ]."
 	1 to: words size + 1 do: [ :i | 
-		| processed itemset |
-		processed := Set new.
+		| itemset |
 		itemset := itemsets at: i.
-		[ 
-		processed
-			addAll:
-				((itemset difference: processed)
-					collect: [ :item | 
-						item isFinal
+		itemset
+			do: [ :item | 
+				item isFinal
+					ifTrue: [ 
+						"complete"
+						itemset
+							addAll:
+								(((itemsets at: item itemset) select: [ :anItem | anItem symbolAtDot = item rule head ])
+									collect: [ :anItem | anItem moveDotForward ]) ]
+					ifFalse: [ 
+						item symbolAtDot isTerminal
 							ifTrue: [ 
-								"complete"
+								(i <= words size and: [ item symbolAtDot equals: (words at: i) ])
+									ifTrue: [ 
+										"scan"
+										(itemsets at: i + 1) add: item moveDotForward ] ]
+							ifFalse: [ 
+								"predict"
 								itemset
 									addAll:
-										(((itemsets at: item itemset) select: [ :anItem | anItem symbolAtDot = item rule head ])
-											collect: [ :anItem | anItem moveDotForward ]) ]
-							ifFalse: [ 
-								item symbolAtDot isTerminal
-									ifTrue: [ 
-										(i <= words size and: [ item symbolAtDot equals: (words at: i) ])
-											ifTrue: [ 
-												"scan"
-												(itemsets at: i + 1) add: item moveDotForward ] ]
-									ifFalse: [ 
-										"predict"
-										itemset
-											addAll:
-												((grammar alternativesOf: item symbolAtDot) collect: [ :rule | JEItem rule: rule dotAtBeginningWithItemsetAt: i ]) ] ].
-						item ]) ] doWhileFalse: [ (itemset difference: processed) isEmpty ] ].
+										((grammar alternativesOf: item symbolAtDot) collect: [ :rule | JEItem rule: rule dotAtBeginningWithItemsetAt: i ]) ] ] ] ].
 	^ (itemsets at: words size + 1) includes: (JEItem rule: firstRule dotAtEndWithItemsetAt: 1)

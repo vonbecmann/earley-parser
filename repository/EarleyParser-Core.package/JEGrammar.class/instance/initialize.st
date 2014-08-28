@@ -1,5 +1,6 @@
 initialization
 initialize
+	| nonterminals |
 	nonterminals := rules collect: [ :each | each head ] as: Set.
 	startSymbol := rules first head.
 	alternatives := Dictionary new.

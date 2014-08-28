@@ -1,4 +1,3 @@
 accessing
-alternativesOf: aNonterminal 
-	self assert: (nonterminals includes: aNonterminal).
-	^ alternatives at: aNonterminal 
+alternativesOf: aNonterminal
+	^ alternatives at: aNonterminal ifAbsent: [ self error: 'no alternatives for ' , aNonterminal asString]

@@ -1,15 +1,3 @@
-an Earley item
+an Earley item or state 
 
-Instance Variables
-	dotPosition:		<Object>
-	itemset:		<Object>
-	rule:		<Object>
-
-dotPosition
-	- xxxxx
-
-itemset
-	- xxxxx
-
-rule
-	- xxxxx
+ [ rule, dotPosition, chart ]

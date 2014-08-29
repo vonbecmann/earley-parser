@@ -1,31 +1,31 @@
 public
 accepts: words
-	| itemsets firstRule |
-	itemsets := (0 to: words size) collect: [ :index | JEItemSet new ].
+	| charts firstRule |
+	charts := (0 to: words size) collect: [ :index | JEChart new ].
 	firstRule := (JENonterminal for: #Start) body: {(grammar startSymbol)}.
-	(itemsets at: 1) add: (JEItem rule: firstRule dotAtBeginningWithItemsetAt: 1).
+	(charts at: 1) add: (JEItem rule: firstRule dotAtBeginningWithChartAt: 1).
 	debugOn
 		ifTrue: [ 
-			1 to: itemsets size do: [ :index | 
-				(itemsets at: index)
+			1 to: charts size do: [ :index | 
+				(charts at: index)
 					inspectWithLabel:
 						(String
 							streamContents: [ :s | 
 								s
-									nextPutAll: 'itemset [';
+									nextPutAll: 'chart [';
 									nextPutAll: index asString;
 									nextPutAll: ']' ]) ] ].
 	1 to: words size + 1 do: [ :i | 
-		| itemset |
-		itemset := itemsets at: i.
-		itemset
+		| chart |
+		chart := charts at: i.
+		chart
 			do: [ :item | 
 				item isFinal
 					ifTrue: [ 
 						"complete"
-						itemset
+						chart
 							addAll:
-								(((itemsets at: item itemset) select: [ :anItem | anItem symbolAtDot = item rule head ])
+								(((charts at: item chart) select: [ :anItem | anItem symbolAtDot = item rule head ])
 									collect: [ :anItem | anItem moveDotForward ]) ]
 					ifFalse: [ 
 						item symbolAtDot isTerminal
@@ -33,10 +33,10 @@ accepts: words
 								(i <= words size and: [ item symbolAtDot equals: (words at: i) ])
 									ifTrue: [ 
 										"scan"
-										(itemsets at: i + 1) add: item moveDotForward ] ]
+										(charts at: i + 1) add: item moveDotForward ] ]
 							ifFalse: [ 
 								"predict"
-								itemset
+								chart
 									addAll:
-										((grammar alternativesOf: item symbolAtDot) collect: [ :rule | JEItem rule: rule dotAtBeginningWithItemsetAt: i ]) ] ] ] ].
-	^ (itemsets at: words size + 1) includes: (JEItem rule: firstRule dotAtEndWithItemsetAt: 1)
+										((grammar alternativesOf: item symbolAtDot) collect: [ :rule | JEItem rule: rule dotAtBeginningWithChartAt: i ]) ] ] ] ].
+	^ (charts at: words size + 1) includes: (JEItem rule: firstRule dotAtEndWithChartAt: 1)

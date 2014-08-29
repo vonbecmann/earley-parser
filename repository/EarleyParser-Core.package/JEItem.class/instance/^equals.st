@@ -2,7 +2,7 @@ comparing
 = anItem
 	dotPosition = anItem dotPosition
 		ifFalse: [ ^ false ].
-	itemset = anItem itemset
+	chart = anItem chart
 		ifFalse: [ ^ false ].
 	rule = anItem rule
 		ifFalse: [ ^ false ].

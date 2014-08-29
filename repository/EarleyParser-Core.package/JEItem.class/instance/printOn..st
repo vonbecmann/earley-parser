@@ -1,6 +1,6 @@
 printing
 printOn: aStream
-	"[ rule, dotPosition, itemset ]"
+	"[ rule, dotPosition, chart ]"
 
 	aStream nextPut: $[.
 	rule printOn: aStream.
@@ -11,5 +11,5 @@ printOn: aStream
 	aStream
 		nextPut: $,;
 		space.
-	itemset printOn: aStream.
+	chart printOn: aStream.
 	aStream nextPut: $]

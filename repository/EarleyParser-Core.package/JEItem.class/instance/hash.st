@@ -1,3 +1,3 @@
 comparing
 hash
-	^ (rule hash bitXor: dotPosition hash) bitXor: itemset hash
+	^ (rule hash bitXor: dotPosition hash) bitXor: chart hash

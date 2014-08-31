@@ -1,6 +1,7 @@
 tests
 testItemEquality
-	| one another |
+	| one another chart |
+	chart := JEChart new.
 	one := JEItem
 		rule:
 			((JENonterminal for: #T)
@@ -9,7 +10,7 @@ testItemEquality
 					(JETerminal for: #+).
 					(JENonterminal for: #P)})
 		dotAt: 2
-		chartAt: 2.
+		chartAt: chart.
 	another := JEItem
 		rule:
 			((JENonterminal for: #T)
@@ -18,6 +19,6 @@ testItemEquality
 					(JETerminal for: #+).
 					(JENonterminal for: #P)})
 		dotAt: 2
-		chartAt: 2.
+		chartAt: chart.
 	self assert: one = another.
 	self assert: one hash = another hash

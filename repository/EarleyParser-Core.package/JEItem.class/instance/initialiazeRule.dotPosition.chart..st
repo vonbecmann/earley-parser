@@ -1,6 +1,6 @@
 initialization
-initialiazeRule: aRule dotPosition: position chart: index
+initialiazeRule: aRule dotPosition: position chart: aChart
 	self initialize.
 	rule := aRule.
 	dotPosition := position.
-	chart := index
+	chart := aChart

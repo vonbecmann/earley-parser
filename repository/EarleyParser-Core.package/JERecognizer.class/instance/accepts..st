@@ -1,20 +1,11 @@
 public
 accepts: words
 	| charts firstRule |
-	charts := (0 to: words size) collect: [ :index | JEChart new ].
+	charts := (1 to: words size + 1) collect: [ :index | JEChart number: index ].
 	firstRule := (JENonterminal for: #Start) body: {(grammar startSymbol)}.
-	(charts at: 1) add: (JEItem rule: firstRule dotAtBeginningWithChartAt: 1).
+	(charts at: 1) add: (JEItem rule: firstRule dotAtBeginningWithChartAt: (charts at: 1)).
 	debugOn
-		ifTrue: [ 
-			1 to: charts size do: [ :index | 
-				(charts at: index)
-					inspectWithLabel:
-						(String
-							streamContents: [ :s | 
-								s
-									nextPutAll: 'chart [';
-									nextPutAll: index asString;
-									nextPutAll: ']' ]) ] ].
+		ifTrue: [ charts do: [ :chart | chart inspectWithLabel: chart asString ] ].
 	1 to: words size + 1 do: [ :i | 
 		| chart |
 		chart := charts at: i.
@@ -25,8 +16,7 @@ accepts: words
 						"complete"
 						chart
 							addAll:
-								(((charts at: item chart) select: [ :anItem | anItem symbolAtDot = item rule head ])
-									collect: [ :anItem | anItem moveDotForward ]) ]
+								((item chart select: [ :anItem | anItem symbolAtDot = item rule head ]) collect: [ :anItem | anItem moveDotForward ]) ]
 					ifFalse: [ 
 						item symbolAtDot isTerminal
 							ifTrue: [ 
@@ -38,5 +28,5 @@ accepts: words
 								"predict"
 								chart
 									addAll:
-										((grammar alternativesOf: item symbolAtDot) collect: [ :rule | JEItem rule: rule dotAtBeginningWithChartAt: i ]) ] ] ] ].
-	^ (charts at: words size + 1) includes: (JEItem rule: firstRule dotAtEndWithChartAt: 1)
+										((grammar alternativesOf: item symbolAtDot) collect: [ :rule | JEItem rule: rule dotAtBeginningWithChartAt: chart ]) ] ] ] ].
+	^ (charts at: words size + 1) includes: (JEItem rule: firstRule dotAtEndWithChartAt: (charts at: 1))

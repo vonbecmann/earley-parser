@@ -1,6 +1,6 @@
 {
 	"commentStamp" : "<historical>",
-	"super" : "Object",
+	"super" : "PackageManifest",
 	"category" : "EarleyParser-Core",
 	"classinstvars" : [ ],
 	"pools" : [ ],

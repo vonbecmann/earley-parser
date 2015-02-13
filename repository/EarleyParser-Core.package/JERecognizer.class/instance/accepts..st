@@ -5,7 +5,7 @@ accepts: words
 	firstRule := (JENonterminal for: #Start) body: {(grammar startSymbol)}.
 	charts first add: (JEItem rule: firstRule dotAtBeginningWithChart: charts first).
 	debugOn
-		ifTrue: [ charts do: [ :chart | chart inspectWithLabel: chart asString ] ].
+		ifTrue: [ charts inspectWithLabel: 'All charts' ].
 	1 to: words size + 1 do: [ :i | 
 		| chart |
 		chart := charts at: i.
@@ -16,7 +16,7 @@ accepts: words
 						"complete"
 						chart
 							addAll:
-								((item chart select: [ :anItem | anItem symbolAtDot = item rule head ]) collect: [ :anItem | anItem moveDotForward ]) ]
+								((item chart select: [ :anItem | anItem isFinal not and: [anItem symbolAtDot = item rule head] ]) collect: [ :anItem | anItem moveDotForward ]) ]
 					ifFalse: [ 
 						item symbolAtDot isTerminal
 							ifTrue: [ 

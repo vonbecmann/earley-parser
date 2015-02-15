@@ -1,5 +1,5 @@
 {
-	"commentStamp" : "BernardoContreras 8/26/2014 00:21",
+	"commentStamp" : "BernardoContreras 2/15/2015 23:50",
 	"super" : "TestCase",
 	"category" : "EarleyParser-Tests",
 	"classinstvars" : [ ],
@@ -8,6 +8,6 @@
 	"instvars" : [
 		"recognizer"
 	],
-	"name" : "JERecognizerTests",
+	"name" : "JEAERecognizerTests",
 	"type" : "normal"
 }

@@ -1,4 +1,4 @@
-tests
+running
 setUp
 	recognizer := JERecognizer
 		on: {

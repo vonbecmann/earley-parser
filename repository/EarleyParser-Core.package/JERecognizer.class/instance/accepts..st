@@ -1,9 +1,8 @@
 public
 accepts: words
-	| charts firstRule |
+	| charts |
 	charts := (1 to: words size + 1) collect: [ :index | JEChart number: index ].
-	firstRule := (JENonterminal for: #Start) body: {(grammar startSymbol)}.
-	charts first add: (JEItem rule: firstRule dotAtBeginningWithChart: charts first).
+	charts first add: (JEItem rule: grammar startRule dotAtBeginningWithChart: charts first).
 	debugOn
 		ifTrue: [ charts inspectWithLabel: 'All charts' ].
 	1 to: words size + 1 do: [ :i | 
@@ -16,7 +15,8 @@ accepts: words
 						"complete"
 						chart
 							addAll:
-								((item chart select: [ :anItem | anItem isFinal not and: [anItem symbolAtDot = item rule head] ]) collect: [ :anItem | anItem moveDotForward ]) ]
+								((item chart select: [ :anItem | anItem isFinal not and: [ anItem symbolAtDot = item rule head ] ])
+									collect: [ :anItem | anItem moveDotForward ]) ]
 					ifFalse: [ 
 						item symbolAtDot isTerminal
 							ifTrue: [ 
@@ -29,4 +29,4 @@ accepts: words
 								chart
 									addAll:
 										((grammar alternativesOf: item symbolAtDot) collect: [ :rule | JEItem rule: rule dotAtBeginningWithChart: chart ]) ] ] ] ].
-	^ charts last includes: (JEItem rule: firstRule dotAtEndWithChart: charts first)
+	^ charts last includes: (JEItem rule: grammar startRule dotAtEndWithChart: charts first)

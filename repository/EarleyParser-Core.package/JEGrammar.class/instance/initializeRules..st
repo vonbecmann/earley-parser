@@ -1,5 +1,7 @@
 initialization
 initializeRules: aCollection
-	rules := OrderedCollection new.
+	| nonterminals |
+	self initialize.
 	rules addAll: aCollection.
-	self initialize 
+	nonterminals := rules collect: [ :each | each head ] as: Set.
+	nonterminals do: [ :each | alternatives at: each put: (rules asArray select: [ :rule | rule head = each ]) ]

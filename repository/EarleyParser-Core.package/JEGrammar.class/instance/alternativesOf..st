@@ -1,3 +1,5 @@
 accessing
 alternativesOf: aNonterminal
-	^ alternatives at: aNonterminal ifAbsent: [ self error: 'no alternatives for ' , aNonterminal asString]
+	^ alternatives 
+		at: aNonterminal 
+		ifAbsent: [ self error: 'no alternatives for ' , aNonterminal asString ]

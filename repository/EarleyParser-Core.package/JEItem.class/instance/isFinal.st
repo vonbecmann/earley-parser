@@ -1,3 +1,3 @@
 testing
 isFinal
-	^ dotPosition > rule body size
+	^ dotIndex > rule body size

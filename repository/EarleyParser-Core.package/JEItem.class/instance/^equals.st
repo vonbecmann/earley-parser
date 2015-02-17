@@ -1,6 +1,6 @@
 comparing
 = anItem
-	dotPosition = anItem dotPosition
+	dotIndex = anItem dotIndex
 		ifFalse: [ ^ false ].
 	chart = anItem chart
 		ifFalse: [ ^ false ].

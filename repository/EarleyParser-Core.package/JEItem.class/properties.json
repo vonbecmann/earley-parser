@@ -1,5 +1,5 @@
 {
-	"commentStamp" : "BernardoContreras 2/17/2015 04:39",
+	"commentStamp" : "BernardoContreras 2/17/2015 09:02",
 	"super" : "Object",
 	"category" : "EarleyParser-Core",
 	"classinstvars" : [ ],
@@ -7,8 +7,8 @@
 	"classvars" : [ ],
 	"instvars" : [
 		"rule",
-		"dotPosition",
-		"chart"
+		"chart",
+		"dotIndex"
 	],
 	"name" : "JEItem",
 	"type" : "normal"

@@ -1,0 +1,11 @@
+{
+	"commentStamp" : "",
+	"super" : "JETerminal",
+	"category" : "EarleyParser-Trash",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"classvars" : [ ],
+	"instvars" : [ ],
+	"name" : "JELiteralTerminal",
+	"type" : "normal"
+}

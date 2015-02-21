@@ -4,6 +4,7 @@ setUp
 		on:
 {
 (JENonterminal for: #Syntax) body: {(JENonterminal for: #Rule)}.
+(JENonterminal for: #Syntax) body: {(JENonterminal for: #Rule). (JENonterminal for: #Syntax)}.
 
 (JENonterminal for: #Rule) body: {(JENonterminal for: #Rulename). (JENonterminal for: #Assign). (JENonterminal for: #Expression). (JETerminal for: #'.')}.
 
@@ -16,5 +17,7 @@ setUp
 
 (JENonterminal for: #Term) body: {(JENonterminal for: #Rulename).}.
 (JENonterminal for: #Term) body: {(JENonterminal for: #Literal).}.			
+	
+(JENonterminal for: #Literal) body: {(JELiteralTerminal new).}.			
 				
 }

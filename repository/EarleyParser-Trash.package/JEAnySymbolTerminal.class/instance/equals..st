@@ -1,3 +1,3 @@
 comparing
-equals: aSymbol
-	^ Symbol subclasses includes: aSymbol class
+equals: anObject
+	^ (Symbol subclasses includes: anObject class) and: [ anObject first isLetter and: [ anObject first isUppercase  ]  ]

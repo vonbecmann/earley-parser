@@ -1,1 +1,1 @@
-a terminal symbol
+a terminal 

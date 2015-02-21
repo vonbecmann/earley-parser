@@ -1,7 +1,7 @@
 printing
 printOn: aStream
-	"{symbol}"
+	"{description}"
 
 	aStream nextPut: ${.
-	symbol asString printOn: aStream.
+	self description printOn: aStream.
 	aStream nextPut: $}

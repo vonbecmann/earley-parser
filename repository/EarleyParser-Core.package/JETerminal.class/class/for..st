@@ -1,3 +1,3 @@
 instance creation
-for: aSymbol
-	^ self basicNew initializeSymbol: aSymbol
+for: anObject
+	^ JESymbolTerminal for: anObject

@@ -1,3 +1,3 @@
-comparing
-equals: anObject
+private
+description
 	self subclassResponsibility

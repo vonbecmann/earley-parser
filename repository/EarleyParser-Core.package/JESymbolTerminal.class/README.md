@@ -1,0 +1,1 @@
+a symbol as a terminal

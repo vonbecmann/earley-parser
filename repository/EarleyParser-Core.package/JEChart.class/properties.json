@@ -7,7 +7,8 @@
 	"classvars" : [ ],
 	"instvars" : [
 		"items",
-		"number"
+		"number",
+		"itemsByChart"
 	],
 	"name" : "JEChart",
 	"type" : "normal"

@@ -1,3 +1,4 @@
 initialization
 initialize
-	items := LinkedList new
+	items := LinkedList new.
+	itemsByChart := Dictionary new

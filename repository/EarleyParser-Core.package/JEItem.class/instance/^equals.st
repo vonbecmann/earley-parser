@@ -1,8 +1,8 @@
 comparing
 = anItem
-	dotIndex = anItem dotIndex
-		ifFalse: [ ^ false ].
 	chart = anItem chart
+		ifFalse: [ ^ false ].
+	dotIndex = anItem dotIndex
 		ifFalse: [ ^ false ].
 	rule = anItem rule
 		ifFalse: [ ^ false ].

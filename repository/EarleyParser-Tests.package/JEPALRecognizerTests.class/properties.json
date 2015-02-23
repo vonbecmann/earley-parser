@@ -1,0 +1,13 @@
+{
+	"commentStamp" : "BernardoContreras 2/23/2015 12:02",
+	"super" : "TestCase",
+	"category" : "EarleyParser-Tests",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"classvars" : [ ],
+	"instvars" : [
+		"recognizer"
+	],
+	"name" : "JEPALRecognizerTests",
+	"type" : "normal"
+}

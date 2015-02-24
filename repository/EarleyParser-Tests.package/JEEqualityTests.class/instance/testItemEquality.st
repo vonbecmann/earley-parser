@@ -1,7 +1,7 @@
 tests
 testItemEquality
 	| one another chart |
-	chart := JEChart new.
+	chart := JEChart number: 1.
 	one := JEItem
 		rule:
 			((JENonterminal for: #T)

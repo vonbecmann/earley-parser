@@ -1,3 +1,3 @@
 accessing
 symbolAtDot
-	^ rule symbolAtDot
+	^ dottedRule symbolAtDot

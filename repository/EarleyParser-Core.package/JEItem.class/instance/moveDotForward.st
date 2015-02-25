@@ -1,3 +1,3 @@
 accessing
 moveDotForward
-	^ self class rule: rule moveDotForward chart: chart
+	^ self class rule: dottedRule moveDotForward chart: chart

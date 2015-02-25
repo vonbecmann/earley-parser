@@ -1,3 +1,3 @@
 comparing
 hash
-	^ rule hash bitXor: chart hash
+	^ dottedRule hash bitXor: chart hash

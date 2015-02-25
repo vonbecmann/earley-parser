@@ -1,3 +1,4 @@
 accessing
 rule
-	^ rule
+	^ dottedRule
+	

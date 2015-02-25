@@ -3,7 +3,7 @@ printOn: aStream
 	"[ dotted rule, chart ]"
 
 	aStream nextPut: $[.
-	rule printOn: aStream.
+	dottedRule printOn: aStream.
 	aStream
 		nextPut: $,;
 		space.

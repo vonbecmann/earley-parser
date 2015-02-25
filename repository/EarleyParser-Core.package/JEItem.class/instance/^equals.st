@@ -2,6 +2,6 @@ comparing
 = anItem
 	chart = anItem chart
 		ifFalse: [ ^ false ].
-	rule = anItem rule
+	dottedRule = anItem rule
 		ifFalse: [ ^ false ].
 	^ true

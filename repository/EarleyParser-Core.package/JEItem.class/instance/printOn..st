@@ -1,9 +1,9 @@
 printing
 printOn: aStream
-	"[ rule with dot inside, chart ]"
+	"[ dotted rule, chart ]"
 
 	aStream nextPut: $[.
-	rule printOn: aStream withDotAt: dotIndex.
+	rule printOn: aStream.
 	aStream
 		nextPut: $,;
 		space.

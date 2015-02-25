@@ -4,6 +4,7 @@ gtInspectorItemsIn: composite
 	^ composite table
 		title: self size asString , ' items';
 		display: items;
-		column: 'Rule with dot' evaluated: [ :each | each ruleWithDot ];
+		column: 'Dotted Rule' evaluated: [ :each | each rule ];
 		column: 'Chart' evaluated: [ :each | each chart ];
-		showOnly: 50
+		showOnly: 50;
+		yourself

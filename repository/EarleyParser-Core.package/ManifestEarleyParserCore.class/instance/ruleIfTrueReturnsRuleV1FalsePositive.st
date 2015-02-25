@@ -1,3 +1,3 @@
 code-critics
 ruleIfTrueReturnsRuleV1FalsePositive
-^ #(#(#(#RGMethodDefinition #(#JEItem #= #false)) #'2015-02-13T02:15:44.904019-03:00') #(#(#RGMethodDefinition #(#JERule #= #false)) #'2015-02-24T12:30:40.359083-03:00') )
+^ #(#(#(#RGMethodDefinition #(#JEItem #= #false)) #'2015-02-13T02:15:44.904019-03:00') #(#(#RGMethodDefinition #(#JERule #= #false)) #'2015-02-24T12:30:40.359083-03:00') #(#(#RGMethodDefinition #(#JEDottedRule #= #false)) #'2015-02-25T12:36:15.366458-03:00') )

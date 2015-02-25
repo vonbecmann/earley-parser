@@ -1,5 +1,5 @@
 initialization
 initializeRule: aRule dotAt: index
-	super initialize.
+	self initialize.
 	rule := aRule.
 	dotIndex := index

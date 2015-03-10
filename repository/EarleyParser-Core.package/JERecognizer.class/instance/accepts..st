@@ -8,7 +8,7 @@ accepts: words
 	1 to: words size + 1 do: [ :i | 
 		| chart |
 		chart := charts at: i.
-		chart
+		chart copy
 			do: [ :item | 
 				item isFinal
 					ifTrue: [ 

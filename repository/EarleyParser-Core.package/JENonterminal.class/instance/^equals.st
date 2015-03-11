@@ -1,3 +1,3 @@
 comparing
 = aSymbol
-	 ^ symbol = aSymbol symbol
+	^ self class = aSymbol class and: [ symbol = aSymbol symbol ]

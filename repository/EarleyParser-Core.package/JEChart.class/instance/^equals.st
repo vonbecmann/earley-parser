@@ -1,3 +1,7 @@
 comparing
 = aChart
-	^ number = aChart number
+	self class == aChart class
+		ifFalse: [ ^ false ].
+	number = aChart number
+		ifFalse: [ ^ false ].
+	^ true

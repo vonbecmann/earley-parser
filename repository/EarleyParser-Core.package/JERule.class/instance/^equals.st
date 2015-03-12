@@ -1,5 +1,7 @@
 comparing
 = aRule
+	self class == aRule class
+		ifFalse: [ ^ false ].
 	body size = aRule body size
 		ifFalse: [ ^ false ].
 	body

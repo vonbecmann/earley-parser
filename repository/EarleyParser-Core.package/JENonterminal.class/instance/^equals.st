@@ -1,3 +1,7 @@
 comparing
 = aSymbol
-	^ self class = aSymbol class and: [ symbol = aSymbol symbol ]
+	self class == aSymbol class
+		ifFalse: [ ^ false ].
+	symbol = aSymbol symbol
+		ifFalse: [ ^ false ].
+	^ true

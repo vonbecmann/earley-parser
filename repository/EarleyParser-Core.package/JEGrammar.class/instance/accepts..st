@@ -2,7 +2,7 @@ public
 accepts: words
 	| charts |
 	charts := (1 to: words size + 1) collect: [ :index | JEChart number: index ].
-	charts first addPredictedItem: grammar startRule.
+	charts first addPredictedItem: self startRule.
 	debugOn
 		ifTrue: [ charts inspectWithLabel: 'All charts' ].
 	1 to: words size + 1 do: [ :i | 
@@ -23,5 +23,5 @@ accepts: words
 										(charts at: i + 1) add: item moveDotForward ] ]
 							ifFalse: [ 
 								"predict"
-								chart addAllPredictedItems: (grammar alternativesOf: item symbolAtDot) ] ] ] ].
-	^ charts last includes: (JEItem rule: grammar startRule dotAtEndWithChart: charts first)
+								chart addAllPredictedItems: (self alternativesOf: item symbolAtDot) ] ] ] ].
+	^ charts last includes: (JEItem rule: self startRule dotAtEndWithChart: charts first)

@@ -13,7 +13,7 @@ accepts: words
 				item isFinal
 					ifTrue: [ 
 						"complete"
-						chart addAll: ((item chart predictionItemsWithDotAt: item rule head) collect: [ :anItem | anItem moveDotForward ]) ]
+						chart addAll: (item collectPredictionItemsUsing: [ :anItem | anItem moveDotForward ]) ]
 					ifFalse: [ 
 						item symbolAtDot isTerminal
 							ifTrue: [ 

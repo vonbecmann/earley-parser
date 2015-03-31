@@ -8,6 +8,6 @@
 	"instvars" : [
 		"grammar"
 	],
-	"name" : "JEUBDARecognizerTests",
+	"name" : "JEUBDAGrammarTests",
 	"type" : "normal"
 }

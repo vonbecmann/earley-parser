@@ -8,6 +8,6 @@
 	"instvars" : [
 		"grammar"
 	],
-	"name" : "JEPALRecognizerTests",
+	"name" : "JEAEGrammarTests",
 	"type" : "normal"
 }

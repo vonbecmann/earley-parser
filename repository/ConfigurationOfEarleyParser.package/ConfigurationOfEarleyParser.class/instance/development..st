@@ -2,4 +2,4 @@ symbolic versions
 development: spec
 	<symbolicVersion: #'development'>
 
-	spec for: #'pharo' version: '1.0'.
+	spec for: #'pharo' version: '1.0-baseline'.

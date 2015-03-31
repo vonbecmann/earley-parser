@@ -1,4 +1,4 @@
 tests
 testAcceptsTwoXs
-	self assert: (recognizer accepts: #(x x))
+	self assert: (grammar accepts: #(x x))
 	

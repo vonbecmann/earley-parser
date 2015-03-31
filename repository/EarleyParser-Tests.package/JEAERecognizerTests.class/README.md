@@ -1,4 +1,4 @@
-tests for the Arithmetic Expressions Recognizer.
+tests for the Arithmetic Expressions Grammar.
 root: 
 	E -> T | E + T
 	T -> P | T * P

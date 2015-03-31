@@ -1,12 +1,12 @@
 {
-	"commentStamp" : "BernardoContreras 2/15/2015 23:50",
+	"commentStamp" : "BernardoContreras 3/31/2015 21:46",
 	"super" : "TestCase",
 	"category" : "EarleyParser-Tests",
 	"classinstvars" : [ ],
 	"pools" : [ ],
 	"classvars" : [ ],
 	"instvars" : [
-		"recognizer"
+		"grammar"
 	],
 	"name" : "JEAERecognizerTests",
 	"type" : "normal"

@@ -1,12 +1,12 @@
 {
-	"commentStamp" : "BernardoContreras 2/15/2015 23:51",
+	"commentStamp" : "BernardoContreras 3/31/2015 21:45",
 	"super" : "TestCase",
 	"category" : "EarleyParser-Tests",
 	"classinstvars" : [ ],
 	"pools" : [ ],
 	"classvars" : [ ],
 	"instvars" : [
-		"recognizer"
+		"grammar"
 	],
 	"name" : "JEUBDARecognizerTests",
 	"type" : "normal"

@@ -1,4 +1,4 @@
 tests
 testAcceptsOneX
-	self assert: (recognizer accepts: #(x))
+	self assert: (grammar accepts: #(x))
 	

@@ -1,4 +1,4 @@
 tests
 testAcceptsThreeXs
-	self assert: (recognizer accepts: #(x x x))
+	self assert: (grammar accepts: #(x x x))
 	

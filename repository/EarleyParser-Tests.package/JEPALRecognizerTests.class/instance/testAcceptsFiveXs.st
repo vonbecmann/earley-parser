@@ -1,4 +1,4 @@
 tests
 testAcceptsFiveXs
-	self assert: (recognizer accepts: #(x x x x x))
+	self assert: (grammar accepts: #(x x x x x))
 	

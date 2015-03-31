@@ -1,6 +1,6 @@
 running
 setUp
-	recognizer := JEGrammar
+	grammar := JEGrammar
 		on: 
 {
 	((JENonterminal for: #A) body: {(JETerminal for: #x)}).

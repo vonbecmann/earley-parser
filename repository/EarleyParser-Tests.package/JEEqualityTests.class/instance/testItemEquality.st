@@ -21,4 +21,6 @@ testItemEquality
 		dotAt: 2
 		chart: chart.
 	self assert: one = another.
-	self assert: one hash = another hash
+	self assert: one hash = another hash.
+	self assert: another = one.
+	self assert: another hash = one hash

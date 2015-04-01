@@ -18,4 +18,6 @@ testDottedRuleEquality
 					(JENonterminal for: #P)})
 		withDotAt: 2.
 	self assert: one = another.
-	self assert: one hash = another hash
+	self assert: one hash = another hash.
+	self assert: another = one.
+	self assert: another hash = one hash

@@ -2,7 +2,7 @@ tests
 testDottedRuleEquality
 	| one another |
 	one := JEDottedRule
-		rule:
+		given:
 			((JENonterminal for: #T)
 				body:
 					{(JENonterminal for: #T).
@@ -10,7 +10,7 @@ testDottedRuleEquality
 					(JENonterminal for: #P)})
 		withDotAt: 2.
 	another := JEDottedRule
-		rule:
+		given:
 			((JENonterminal for: #T)
 				body:
 					{(JENonterminal for: #T).

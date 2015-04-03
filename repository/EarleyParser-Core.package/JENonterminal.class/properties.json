@@ -1,7 +1,7 @@
 {
 	"commentStamp" : "BernardoContreras 3/10/2015 19:21",
 	"super" : "JESymbol",
-	"category" : "EarleyParser-Core",
+	"category" : "EarleyParser-Core-Public",
 	"classinstvars" : [ ],
 	"pools" : [ ],
 	"classvars" : [ ],

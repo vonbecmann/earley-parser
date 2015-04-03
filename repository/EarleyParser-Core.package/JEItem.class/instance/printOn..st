@@ -1,11 +1,12 @@
 printing
 printOn: aStream
-	"[ dotted rule, chart ]"
+	"[ dotted rule @ chart number ]"
 
 	aStream nextPut: $[.
 	dottedRule printOn: aStream.
 	aStream
-		nextPut: $,;
+		space;
+		nextPut: $@;
 		space.
-	chart printOn: aStream.
+	chart shortPrintOn: aStream.
 	aStream nextPut: $]

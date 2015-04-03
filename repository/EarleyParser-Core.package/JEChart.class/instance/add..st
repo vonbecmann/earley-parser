@@ -2,6 +2,6 @@ adding
 add: anItem
 	(self includes: anItem)
 		ifFalse: [ 
-			(itemsByChart at: anItem chart) add: anItem.
+			(itemsByChart at: anItem startChart) add: anItem.
 			items addLast: anItem ].
 	^ anItem

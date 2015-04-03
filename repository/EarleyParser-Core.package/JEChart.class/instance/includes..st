@@ -1,3 +1,3 @@
 testing
 includes: anItem
-	^ (itemsByChart at: anItem chart ifAbsentPut: [ OrderedCollection new ]) includes: anItem
+	^ (itemsByChart at: anItem startChart ifAbsentPut: [ OrderedCollection new ]) includes: anItem

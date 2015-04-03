@@ -2,7 +2,7 @@ comparing
 = anItem
 	self class == anItem class
 		ifFalse: [ ^ false ].
-	chart = anItem chart
+	startChart = anItem startChart
 		ifFalse: [ ^ false ].
 	dottedRule = anItem rule
 		ifFalse: [ ^ false ].

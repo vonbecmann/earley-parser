@@ -1,3 +1,3 @@
 instance creation
-rule: aRule withDotAt: index
+given: aRule withDotAt: index
 	^ self basicNew initializeRule: aRule dotAt: index

@@ -1,3 +1,5 @@
 instance creation
 dotAtEnd
-	^ JEDottedRule rule: self withDotAt: body size + 1
+	"a dotted rule of myself with dot at the end"
+
+	^ JEDottedRule given: self withDotAt: body size + 1

@@ -1,3 +1,4 @@
 instance creation
 dotAt: index
-	^ JEDottedRule rule: self withDotAt: index
+	"a dotted rule of myself with dot at index"
+	^ JEDottedRule given: self withDotAt: index

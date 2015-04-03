@@ -1,3 +1,5 @@
 accessing
 moveDotForward
-	^ self class rule: rule withDotAt: dotIndex + 1
+	"a dotted rule of myself with dot move forward"
+
+	^ self class given: rule withDotAt: dotIndex + 1

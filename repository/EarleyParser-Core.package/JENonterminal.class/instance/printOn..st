@@ -3,5 +3,5 @@ printOn: aStream
 	"<symbol>"
 
 	aStream nextPut: $<.
-	symbol asString printOn: aStream.
+	symbol asString do: [ :each | aStream nextPut: each ].
 	aStream nextPut: $>

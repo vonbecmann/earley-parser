@@ -4,21 +4,19 @@ testItemEquality
 	chart := JEChart number: 1.
 	one := JEItem
 		rule:
-			((JENonterminal for: #T)
+			(((JENonterminal for: #T)
 				body:
 					{(JENonterminal for: #T).
 					(JETerminal for: #+).
-					(JENonterminal for: #P)})
-		dotAt: 2
+					(JENonterminal for: #P)}) dotAt: 2)
 		chart: chart.
 	another := JEItem
 		rule:
-			((JENonterminal for: #T)
+			(((JENonterminal for: #T)
 				body:
 					{(JENonterminal for: #T).
 					(JETerminal for: #+).
-					(JENonterminal for: #P)})
-		dotAt: 2
+					(JENonterminal for: #P)}) dotAt: 2)
 		chart: chart.
 	self assert: one = another.
 	self assert: one hash = another hash.

@@ -2,16 +2,16 @@ tests
 testItemEquality
 	| one another chart |
 	chart := JEChart number: 1.
-	one := (((JENonterminal for: #T)
+	one := (((JENonterminal named: #T)
 		body:
-			{(JENonterminal for: #T).
+			{(JENonterminal named: #T).
 			(JETerminal for: #+).
-			(JENonterminal for: #P)}) dotAt: 2) startedAt: chart.
-	another := (((JENonterminal for: #T)
+			(JENonterminal named: #P)}) dotAt: 2) startedAt: chart.
+	another := (((JENonterminal named: #T)
 		body:
-			{(JENonterminal for: #T).
+			{(JENonterminal named: #T).
 			(JETerminal for: #+).
-			(JENonterminal for: #P)}) dotAt: 2) startedAt: chart.
+			(JENonterminal named: #P)}) dotAt: 2) startedAt: chart.
 	self assert: one = another.
 	self assert: one hash = another hash.
 	self assert: another = one.

@@ -1,16 +1,16 @@
 tests
 testDottedRuleEquality
 	| one another |
-	one := ((JENonterminal for: #T)
+	one := ((JENonterminal named: #T)
 		body:
-			{(JENonterminal for: #T).
+			{(JENonterminal named: #T).
 			(JETerminal for: #+).
-			(JENonterminal for: #P)}) dotAt: 2.
-	another := ((JENonterminal for: #T)
+			(JENonterminal named: #P)}) dotAt: 2.
+	another := ((JENonterminal named: #T)
 		body:
-			{(JENonterminal for: #T).
+			{(JENonterminal named: #T).
 			(JETerminal for: #+).
-			(JENonterminal for: #P)}) dotAt: 2.
+			(JENonterminal named: #P)}) dotAt: 2.
 	self assert: one = another.
 	self assert: one hash = another hash.
 	self assert: another = one.

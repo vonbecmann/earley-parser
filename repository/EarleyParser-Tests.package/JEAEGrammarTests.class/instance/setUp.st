@@ -1,10 +1,18 @@
 running
 setUp
-	grammar := JEGrammar 
-		on: {
-((JENonterminal for: #E) body: {(JENonterminal for: #T)}).
-((JENonterminal for: #E) body: {(JENonterminal for: #E). (JETerminal for: #+).(JENonterminal for: #T)}).
-((JENonterminal for: #T) body: {(JENonterminal for: #P)}).
-((JENonterminal for: #T) body: {(JENonterminal for: #T). (JETerminal for: #*). (JENonterminal for: #P)}).
-((JENonterminal for: #P) body: {(JETerminal for: #a)})
+	| E T P plus star a |
+	E := JENonterminal named: #E.
+	T := JENonterminal named: #T.
+	P := JENonterminal named: #P.
+	plus := JETerminal for: #+.
+	star := JETerminal for: #*.
+	a := JETerminal for: #a.
+	grammar := JEGrammar
+		on:
+{
+E body: { T }.
+E body: { E. plus. T }.
+T body: { P }.
+T body: { T. star. P }.
+P body: { a }
 }

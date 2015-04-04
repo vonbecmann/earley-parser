@@ -1,8 +1,11 @@
 running
 setUp
+	| A x |
+	A := JENonterminal named: #A.
+	x := JETerminal for: #x.
 	grammar := JEGrammar
-		on: 
+		on:
 {
-	((JENonterminal for: #A) body: {(JETerminal for: #x)}).
-	((JENonterminal for: #A) body: {(JETerminal for: #x).(JENonterminal for: #A).(JETerminal for: #x)}).
+A body: { x }.
+A body: { x. A. x }
 }

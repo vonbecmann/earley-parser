@@ -1,16 +1,16 @@
 tests
 testRuleEquality
 	| one another |
-	one := (JENonterminal for: #T)
+	one := (JENonterminal named: #T)
 		body:
-			{(JENonterminal for: #T).
+			{(JENonterminal named: #T).
 			(JETerminal for: #+).
-			(JENonterminal for: #P)}.
-	another := (JENonterminal for: #T)
+			(JENonterminal named: #P)}.
+	another := (JENonterminal named: #T)
 		body:
-			{(JENonterminal for: #T).
+			{(JENonterminal named: #T).
 			(JETerminal for: #+).
-			(JENonterminal for: #P)}.
+			(JENonterminal named: #P)}.
 	self assert: one = another.
 	self assert: one hash = another hash.
 	self assert: another = one.

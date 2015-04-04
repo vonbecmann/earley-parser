@@ -1,13 +1,15 @@
 public
 ubdaBenchmark
-	| n words grammar |
+	| n words grammar A x|
 	n := 400.
 	words := Array new: n.
 	words from: 1 to: n put: #x.
+	A := JENonterminal named: #A.
+	x := JETerminal for: #x.
 	grammar := JEGrammar
 		on:
-	{
-	(JENonterminal for: #A) body: {(JETerminal for: #x)}.
-	(JENonterminal for: #A)	body:	{(JENonterminal for: #A). (JENonterminal for: #A)}
-	}.
+{
+A body: { x }.
+A body: { A. A }
+}.
 	grammar accepts: words

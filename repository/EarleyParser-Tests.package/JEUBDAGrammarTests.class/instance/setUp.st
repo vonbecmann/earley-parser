@@ -1,11 +1,10 @@
 running
 setUp
-	| A x |
+	grammar :=
+[ 	| A x |
 	A := JENonterminal named: #A.
 	x := JETerminal for: #x.
-	grammar := JEGrammar
-		on:
-{
-A body: { x }.
-A body: { A. A }
-}
+	JEGrammar
+		basedOn:
+		{ A body: { x }.
+		  A body: { A. A } } ] value

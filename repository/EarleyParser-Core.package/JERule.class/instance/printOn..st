@@ -1,10 +1,10 @@
 printing
 printOn: aStream
-	"head -> body"
+	"head ::= body"
 
 	head printOn: aStream.
 	aStream
 		space;
-		nextPutAll: '->';
+		nextPutAll: '::=';
 		space.
 	body do: [ :each | each printOn: aStream ]

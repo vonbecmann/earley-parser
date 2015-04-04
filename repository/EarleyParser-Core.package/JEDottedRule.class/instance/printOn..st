@@ -1,11 +1,11 @@
 printing
 printOn: aStream
-	"head -> body with dot"
+	"head ::= body with dot"
 
 	rule head printOn: aStream.
 	aStream
 		space;
-		nextPutAll: '->';
+		nextPutAll: '::=';
 		space.
 	rule body
 		withIndexDo: [ :each :index | 

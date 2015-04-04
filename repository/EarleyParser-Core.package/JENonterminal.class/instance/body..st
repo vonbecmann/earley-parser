@@ -1,5 +1,5 @@
 instance creation
-body: aCollection 
-	" self -> aCollection "
-	^ JERule head: self body: aCollection 
-	
+body: aCollection
+	" self ::= aCollection "
+
+	^ JERule head: self body: aCollection

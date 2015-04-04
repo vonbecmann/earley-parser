@@ -1,3 +1,3 @@
 instance creation
-for: aSymbol
+named: aSymbol
 	^ self basicNew initializeSymbol: aSymbol

@@ -1,0 +1,13 @@
+{
+	"commentStamp" : "BernardoContreras 4/5/2015 20:30",
+	"super" : "TestCase",
+	"category" : "EarleyParser-Tests",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"classvars" : [ ],
+	"instvars" : [
+		"grammar"
+	],
+	"name" : "JEGREGrammarTests",
+	"type" : "normal"
+}

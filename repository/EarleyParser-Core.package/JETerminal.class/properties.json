@@ -1,6 +1,6 @@
 {
 	"commentStamp" : "BernardoContreras 2/21/2015 11:32",
-	"super" : "JESymbol",
+	"super" : "Object",
 	"category" : "EarleyParser-Core-Public",
 	"classinstvars" : [ ],
 	"pools" : [ ],

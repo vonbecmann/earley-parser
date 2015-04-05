@@ -1,7 +1,7 @@
 {
 	"commentStamp" : "BernardoContreras 3/31/2015 21:45",
 	"super" : "TestCase",
-	"category" : "EarleyParser-Tests",
+	"category" : "EarleyParser-Tests-Grammar",
 	"classinstvars" : [ ],
 	"pools" : [ ],
 	"classvars" : [ ],

@@ -1,4 +1,3 @@
 adding
 addAll: aCollection
-	aCollection do: [ :each | self add: each ].
-	^ aCollection
+	^ aCollection collect: [ :each | self add: each ]

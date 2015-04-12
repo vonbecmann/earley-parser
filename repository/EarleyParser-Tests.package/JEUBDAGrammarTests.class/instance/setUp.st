@@ -2,7 +2,7 @@ running
 setUp
 	grammar :=
 [ 	| A x |
-	A := JENonterminal named: #A.
+	A := JENonterminal named: 'A'.
 	x := JETerminal for: #x.
 	JEGrammar
 		basedOn:

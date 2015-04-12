@@ -2,9 +2,9 @@ running
 setUp
 	grammar :=
 [ 	| E T P plus star a |
-	E := JENonterminal named: #E.
-	T := JENonterminal named: #T.
-	P := JENonterminal named: #P.
+	E := JENonterminal named: 'E'.
+	T := JENonterminal named: 'T'.
+	P := JENonterminal named: 'P'.
 	plus := JETerminal for: #+.
 	star := JETerminal for: #*.
 	a := JETerminal for: #a.

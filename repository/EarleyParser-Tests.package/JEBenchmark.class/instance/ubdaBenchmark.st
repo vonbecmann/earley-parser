@@ -5,7 +5,7 @@ ubdaBenchmark
 	words := Array new: n.
 	words from: 1 to: n put: #x.
 	grammar := [ | A x |
-	A := JENonterminal named: #A.
+	A := JENonterminal named: 'A'.
 	x := JETerminal for: #x.
 	JEGrammar
 		basedOn:

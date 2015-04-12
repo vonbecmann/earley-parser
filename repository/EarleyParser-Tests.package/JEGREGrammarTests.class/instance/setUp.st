@@ -2,8 +2,8 @@ running
 setUp
 	grammar :=
 [ 	| X Y a b e d |
-	X := JENonterminal named: #X.
-	Y := JENonterminal named: #Y.
+	X := JENonterminal named: 'X'.
+	Y := JENonterminal named: 'Y'.
 	a := JETerminal for: #a.
 	b := JETerminal for: #b.
 	e := JETerminal for: #e.

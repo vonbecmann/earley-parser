@@ -1,7 +1,7 @@
 printing
 printOn: aStream
-	"<symbol>"
+	"<name>"
 
 	aStream nextPut: $<.
-	symbol asString do: [ :each | aStream nextPut: each ].
+	name do: [ :each | aStream nextPut: each ].
 	aStream nextPut: $>

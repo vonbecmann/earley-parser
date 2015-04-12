@@ -1,3 +1,3 @@
 instance creation
-named: aSymbol
-	^ self basicNew initializeSymbol: aSymbol
+named: aNameString
+	^ self basicNew initializeName: aNameString

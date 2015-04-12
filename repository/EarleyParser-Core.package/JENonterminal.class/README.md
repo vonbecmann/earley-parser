@@ -1,2 +1,5 @@
-a symbol as nonterminal.
-it's the easiest way.
+a nonterminal.
+	name: like 'E'.
+	
+example:
+JENonterminal named: 'E'

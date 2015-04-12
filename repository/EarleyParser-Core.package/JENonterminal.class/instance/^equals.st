@@ -1,7 +1,7 @@
 comparing
-= aSymbol
-	self class == aSymbol class
+= anObject
+	self class == anObject class
 		ifFalse: [ ^ false ].
-	symbol = aSymbol symbol
+	name = anObject named
 		ifFalse: [ ^ false ].
 	^ true

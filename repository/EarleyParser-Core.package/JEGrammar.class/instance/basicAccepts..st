@@ -3,8 +3,6 @@ basicAccepts: words
 	| charts |
 	charts := (1 to: words size + 1) collect: [ :index | JEChart number: index ].
 	self predict: startSymbol at: charts first.
-	debugOn
-		ifTrue: [ charts inspectWithLabel: 'All charts' ].
 	1 to: words size + 1 do: [ :i | 
 		| chart |
 		chart := charts at: i.

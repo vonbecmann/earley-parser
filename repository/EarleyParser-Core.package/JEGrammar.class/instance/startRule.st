@@ -1,3 +1,3 @@
 private
 startRule
-	^ (JENonterminal named: 'Start') body: {(rules first head)}
+	^ startSymbol body: {(rules first head)}

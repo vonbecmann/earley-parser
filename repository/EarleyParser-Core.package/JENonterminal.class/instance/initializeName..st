@@ -1,4 +1,4 @@
 initialization
 initializeName: aNameString
 	self initialize.
-	name := aNameString
+	name := aNameString asSymbol 

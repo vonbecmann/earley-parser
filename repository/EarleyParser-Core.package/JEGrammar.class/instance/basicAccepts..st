@@ -2,7 +2,7 @@ private
 basicAccepts: words
 	| charts |
 	charts := (1 to: words size + 1) collect: [ :index | JEChart number: index ].
-	charts first add: (self startRule dotAtBeginning startedAt: charts first).
+	self predict: startSymbol at: charts first.
 	debugOn
 		ifTrue: [ charts inspectWithLabel: 'All charts' ].
 	1 to: words size + 1 do: [ :i | 
@@ -17,5 +17,5 @@ basicAccepts: words
 							ifTrue: [ 
 								(i <= words size and: [ item symbolAtDot equals: (words at: i) ])
 									ifTrue: [ self scan: item at: (charts at: i + 1) ] ]
-							ifFalse: [ self predict: item at: chart ] ] ] ].
+							ifFalse: [ self predict: item symbolAtDot at: chart ] ] ] ].
 	^ charts

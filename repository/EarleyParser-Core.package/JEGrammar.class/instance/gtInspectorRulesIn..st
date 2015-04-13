@@ -3,10 +3,7 @@ gtInspectorRulesIn: composite
 	<gtInspectorPresentationOrder: 0>
 	^ composite table
 		title: rules size asString , ' rules';
-		display:
-				(rules copy
-						addFirst: self startRule;
-						yourself);
+		display: rules;
 		column: 'Rules' evaluated: [ :each | each ];
 		showOnly: 50;
 		yourself

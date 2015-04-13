@@ -11,19 +11,11 @@ basicAccepts: words
 		chart items
 			do: [ :item | 
 				item isFinal
-					ifTrue: [ 
-						"complete"
-						chart addAll: (item collectPredictionItemsUsing: [ :anItem | anItem moveDotForward ]) ]
+					ifTrue: [ self complete: item at: chart ]
 					ifFalse: [ 
 						item symbolAtDot isTerminal
 							ifTrue: [ 
 								(i <= words size and: [ item symbolAtDot equals: (words at: i) ])
-									ifTrue: [ 
-										"scan"
-										(charts at: i + 1) add: item moveDotForward ] ]
-							ifFalse: [ 
-								"predict: add all respective predicted items for the given collection of rules"
-								chart
-									addAll: (	(self alternativesOf: item symbolAtDot) 
-													collect: [ :rule | rule dotAtBeginning startedAt: chart ]) ] ] ] ].
+									ifTrue: [ self scan: item at: (charts at: i + 1) ] ]
+							ifFalse: [ self predict: item at: chart ] ] ] ].
 	^ charts

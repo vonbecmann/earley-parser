@@ -1,3 +1,0 @@
-private
-description
-	^ symbol asString

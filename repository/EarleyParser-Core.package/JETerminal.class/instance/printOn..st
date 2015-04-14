@@ -3,5 +3,5 @@ printOn: aStream
 	"{description}"
 
 	aStream nextPut: ${.
-	self description printOn: aStream.
+	self descriptionPrintOn: aStream.
 	aStream nextPut: $}

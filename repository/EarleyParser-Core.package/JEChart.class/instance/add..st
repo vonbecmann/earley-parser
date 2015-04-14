@@ -1,8 +1,10 @@
 adding
 add: anItem
-	(self includes: anItem)
-		ifFalse: [ 
-			(itemsByChart at: anItem startChart) add: anItem.
+	^ (self itemsAt: anItem startChart)
+		detect: [ :each | each = anItem ]
+		ifFound: [ :found | found ]
+		ifNone: [ 
+			self itemsAt: anItem startChart put: anItem.
 			items addLast: anItem.
-			anItem chart: self ].
-	^ anItem
+			anItem chart: self.
+			anItem ]

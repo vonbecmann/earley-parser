@@ -5,12 +5,12 @@ testItemEquality
 	one := (((JENonterminal named: 'T')
 		body:
 			{(JENonterminal named: 'T').
-			(JETerminal for: #+).
+			(JETerminal symbol: #+).
 			(JENonterminal named: 'P')}) dotAt: 2) startedAt: chart.
 	another := (((JENonterminal named: 'T')
 		body:
 			{(JENonterminal named: 'T').
-			(JETerminal for: #+).
+			(JETerminal symbol: #+).
 			(JENonterminal named: 'P')}) dotAt: 2) startedAt: chart.
 	self assert: one = another.
 	self assert: one hash = another hash.

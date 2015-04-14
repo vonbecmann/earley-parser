@@ -4,12 +4,12 @@ testDottedRuleEquality
 	one := ((JENonterminal named: 'T')
 		body:
 			{(JENonterminal named: 'T').
-			(JETerminal for: #+).
+			(JETerminal symbol: #+).
 			(JENonterminal named: 'P')}) dotAt: 2.
 	another := ((JENonterminal named: 'T')
 		body:
 			{(JENonterminal named: 'T').
-			(JETerminal for: #+).
+			(JETerminal symbol: #+).
 			(JENonterminal named: 'P')}) dotAt: 2.
 	self assert: one = another.
 	self assert: one hash = another hash.

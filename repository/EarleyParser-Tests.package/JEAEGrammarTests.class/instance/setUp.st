@@ -5,9 +5,9 @@ setUp
 	E := JENonterminal named: 'E'.
 	T := JENonterminal named: 'T'.
 	P := JENonterminal named: 'P'.
-	plus := JETerminal for: #+.
-	star := JETerminal for: #*.
-	a := JETerminal for: #a.
+	plus := JETerminal symbol: #+.
+	star := JETerminal symbol: #*.
+	a := JETerminal symbol: #a.
 	JEGrammar
 		basedOn:
 		{ E body: { T }.

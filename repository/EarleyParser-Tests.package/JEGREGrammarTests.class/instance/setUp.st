@@ -4,10 +4,10 @@ setUp
 [ 	| X Y a b e d |
 	X := JENonterminal named: 'X'.
 	Y := JENonterminal named: 'Y'.
-	a := JETerminal for: #a.
-	b := JETerminal for: #b.
-	e := JETerminal for: #e.
-	d := JETerminal for: #d.
+	a := JETerminal symbol: #a.
+	b := JETerminal symbol: #b.
+	e := JETerminal symbol: #e.
+	d := JETerminal symbol: #d.
 	JEGrammar
 		basedOn:
 		{	X body: { a }.

@@ -7,7 +7,7 @@ palBenchmark
 	words from: 1 to: maxOdd put: #x.
 	grammar := [	| A x |
 	A := JENonterminal named: 'A'.
-	x := JETerminal for: #x.
+	x := JETerminal symbol: #x.
 	JEGrammar
 		basedOn: 
 		{ A body: { x }.

@@ -6,7 +6,7 @@ ubdaBenchmark
 	words from: 1 to: n put: #x.
 	grammar := [ | A x |
 	A := JENonterminal named: 'A'.
-	x := JETerminal for: #x.
+	x := JETerminal symbol: #x.
 	JEGrammar
 		basedOn:
 		{ A body: { x }.

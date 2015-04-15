@@ -1,6 +1,6 @@
 adding
 addLast: anObject
-	"Add a link to the end of the receiver's list. Answer a link."
+	"Add a link to the end of the receiver's list."
 
 	| link |
 	link := JELink value: anObject.
@@ -8,4 +8,4 @@ addLast: anObject
 		ifTrue: [ firstLink := link ]
 		ifFalse: [ lastLink nextLink: link ].
 	lastLink := link.
-	^ link
+	^ anObject

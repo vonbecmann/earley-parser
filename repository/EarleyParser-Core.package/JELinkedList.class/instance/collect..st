@@ -4,11 +4,7 @@ collect: aBlock
 	Collect the resulting values into a collection like the receiver. Answer  
 	the new collection."
 
-	| aLink newCollection |
+	| newCollection |
 	newCollection := self class new.
-	aLink := firstLink.
-	[ aLink isNil ]
-		whileFalse: [ 
-			newCollection add: (aBlock value: aLink value).
-			aLink := aLink nextLink ].
+	self do: [ :each | newCollection add: (aBlock value: each) ].
 	^ newCollection

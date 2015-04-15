@@ -5,4 +5,5 @@ gtInspectorItemsIn: composite
 		title: 'Items';
 		display: self asArray;
 		format: [ :each | GTObjectPrinter new asTruncatedTextFrom: each ];
-		showOnly: 50
+		showOnly: 50;
+		yourself

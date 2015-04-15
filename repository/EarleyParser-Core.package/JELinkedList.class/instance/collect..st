@@ -7,7 +7,7 @@ collect: aBlock
 	| aLink newCollection |
 	newCollection := self class new.
 	aLink := firstLink.
-	[ aLink == nil ]
+	[ aLink isNil ]
 		whileFalse: [ 
 			newCollection add: (aBlock value: aLink value).
 			aLink := aLink nextLink ].

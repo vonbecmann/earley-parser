@@ -1,4 +1,4 @@
-inspector
+gt-inspector-extension
 gtInspectorRulesIn: composite
 	<gtInspectorPresentationOrder: 0>
 	^ composite table

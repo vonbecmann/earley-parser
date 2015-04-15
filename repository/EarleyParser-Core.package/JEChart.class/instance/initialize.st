@@ -1,4 +1,4 @@
 initialization
 initialize
-	items := LinkedList new.
+	items := JELinkedList new.
 	itemsByChart := Dictionary new

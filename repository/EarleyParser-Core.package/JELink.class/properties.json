@@ -1,0 +1,14 @@
+{
+	"commentStamp" : "BernardoContreras 4/15/2015 20:33",
+	"super" : "Object",
+	"category" : "EarleyParser-Core-LinkedList",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"classvars" : [ ],
+	"instvars" : [
+		"value",
+		"nextLink"
+	],
+	"name" : "JELink",
+	"type" : "normal"
+}

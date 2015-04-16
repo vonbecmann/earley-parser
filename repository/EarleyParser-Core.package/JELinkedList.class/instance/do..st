@@ -1,8 +1,8 @@
 enumerating
 do: aBlock
-	| aLink |
-	aLink := firstLink.
-	[ aLink isNil ]
+	| current |
+	current := firstLink.
+	[ current isNil ]
 		whileFalse: [ 
-			aBlock value: aLink value.
-			aLink := aLink nextLink ]
+			aBlock value: current value.
+			current := current nextLink ]

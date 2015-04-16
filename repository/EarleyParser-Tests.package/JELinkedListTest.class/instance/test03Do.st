@@ -1,4 +1,4 @@
-tests-adding
+tests
 test03Do
 	| sum |
 	sum := 0.

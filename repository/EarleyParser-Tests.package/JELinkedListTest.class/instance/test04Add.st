@@ -1,5 +1,5 @@
 tests
-test01AddLast
+test04Add
 	self assert: list isEmpty.
-	list addLast: 1.
+	list add: 1.
 	self deny: list isEmpty

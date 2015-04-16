@@ -4,6 +4,6 @@ comparing
 		ifFalse: [ ^ false ].
 	dotIndex == aDottedRule dotIndex
 		ifFalse: [ ^ false ].
-	rule = aDottedRule rule
+	rule == aDottedRule rule
 		ifFalse: [ ^ false ].
 	^ true

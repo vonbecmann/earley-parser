@@ -1,3 +1,3 @@
 comparing
 hash
-	^ rule hash bitXor: dotIndex hash
+	^ rule identityHash bitXor: dotIndex hash

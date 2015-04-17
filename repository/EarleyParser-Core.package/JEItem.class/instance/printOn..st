@@ -2,7 +2,7 @@ printing
 printOn: aStream
 	"[ dotted rule @ start chart number ]"
 
-	"[ dotted rule @  [start chart number, chart number ] ]"
+	"[ dotted rule @  [start chart number, end chart number ] ]"
 
 	aStream nextPut: $[.
 	dottedRule printOn: aStream.
@@ -10,7 +10,7 @@ printOn: aStream
 		space;
 		nextPut: $@;
 		space.
-	chart isNil
+	endChart isNil
 		ifTrue: [ startChart shortPrintOn: aStream ]
 		ifFalse: [ 
 			aStream nextPut: $[.
@@ -18,6 +18,6 @@ printOn: aStream
 			aStream
 				space;
 				nextPut: $,.
-			chart shortPrintOn: aStream.
+			endChart shortPrintOn: aStream.
 			aStream nextPut: $] ].
 	aStream nextPut: $]

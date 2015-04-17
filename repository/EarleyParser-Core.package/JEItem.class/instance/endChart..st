@@ -1,5 +1,5 @@
 accessing
-chart: aChart
+endChart: aChart
 	"the chart that contains this item"
 
-	chart := aChart
+	endChart := aChart

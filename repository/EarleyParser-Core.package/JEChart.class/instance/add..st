@@ -6,5 +6,5 @@ add: anItem
 		ifNone: [ 
 			self itemsAt: anItem startChart put: anItem.
 			items addLast: anItem.
-			anItem chart: self.
+			anItem endChart: self.
 			anItem ]

@@ -1,5 +1,5 @@
 accessing
-chart
+endChart
 	"the chart that contains this item or nil"
 
-	^ chart
+	^ endChart

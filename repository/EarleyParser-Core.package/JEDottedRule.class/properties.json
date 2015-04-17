@@ -1,5 +1,5 @@
 {
-	"commentStamp" : "BernardoContreras 2/25/2015 11:23",
+	"commentStamp" : "BernardoContreras 4/17/2015 00:19",
 	"super" : "Object",
 	"category" : "EarleyParser-Core-Implementation",
 	"classinstvars" : [ ],
@@ -7,7 +7,8 @@
 	"classvars" : [ ],
 	"instvars" : [
 		"dotIndex",
-		"rule"
+		"rule",
+		"final"
 	],
 	"name" : "JEDottedRule",
 	"type" : "normal"

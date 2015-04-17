@@ -12,5 +12,5 @@ printOn: aStream
 			index = dotIndex
 				ifTrue: [ aStream nextPut: $* ].
 			each printOn: aStream ].
-	rule body size < dotIndex
+	self isFinal
 		ifTrue: [ aStream nextPut: $* ]

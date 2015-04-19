@@ -2,4 +2,6 @@ private
 scan: item at: chart
 	"scan"
 
-	chart add: item moveDotForward
+	| forwardedItem |
+	forwardedItem := chart add: item moveDotForward.
+	forwardedItem addEdgeLabeled: item symbolAtDot to: item

@@ -1,6 +1,6 @@
 printing
 printOn: aStream
-	label printOn: aStream.
+	self printDescriptionLabelOn: aStream.
 	aStream
 		space;
 		nextPut: $(.

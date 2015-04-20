@@ -4,7 +4,8 @@ gtInspectorEdgesIn: composite
 	^ composite table
 		title: edges size asString , ' edges';
 		display: edges;
-		column: 'Label (From, To)' evaluated: [ :each | each ];
+		column: 'Label' evaluated: [ :each | each descriptionLabel ];
+		column: 'To' evaluated: [ :each | each to ];
 		send: [ :each | each to ];
 		showOnly: 50;
 		yourself

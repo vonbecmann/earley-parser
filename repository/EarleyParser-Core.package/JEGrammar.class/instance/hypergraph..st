@@ -7,5 +7,5 @@ hypergraph: words
 	(charts last includes: finalItem)
 		ifTrue: [ 
 			builder addNodeLabeled: startSymbol from: charts first to: charts last.
-			self buildNodes: builder startingAt: (charts last at: finalItem) ].
+			self buildNodes: builder startingAt: (charts last like: finalItem) ].
 	^ builder build

@@ -1,0 +1,15 @@
+{
+	"commentStamp" : "BernardoContreras 4/21/2015 22:37",
+	"super" : "Object",
+	"category" : "EarleyParser-Core-Hypergraph",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"classvars" : [ ],
+	"instvars" : [
+		"nodes",
+		"edges",
+		"accumulatedNodes"
+	],
+	"name" : "JEHypergraphBuilder",
+	"type" : "normal"
+}

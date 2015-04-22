@@ -1,0 +1,1 @@
+a hypergraph's node.

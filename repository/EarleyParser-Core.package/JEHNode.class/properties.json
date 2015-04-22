@@ -1,0 +1,15 @@
+{
+	"commentStamp" : "BernardoContreras 4/21/2015 20:24",
+	"super" : "Object",
+	"category" : "EarleyParser-Core-Hypergraph",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"classvars" : [ ],
+	"instvars" : [
+		"label",
+		"from",
+		"to"
+	],
+	"name" : "JEHNode",
+	"type" : "normal"
+}

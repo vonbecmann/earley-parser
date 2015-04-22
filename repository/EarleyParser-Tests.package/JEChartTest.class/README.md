@@ -1,0 +1,1 @@
+A JEChartTest is a test class for testing the behavior of JEChart

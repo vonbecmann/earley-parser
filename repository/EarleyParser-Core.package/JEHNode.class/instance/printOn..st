@@ -5,9 +5,9 @@ printOn: aStream
 	aStream
 		nextPut: $,;
 		space.
-	from printOn: aStream.
+	from shortPrintOn: aStream.
 	aStream
 		nextPut: $,;
 		space.
-	to printOn: aStream.
+	to shortPrintOn: aStream.
 	aStream nextPut: $)

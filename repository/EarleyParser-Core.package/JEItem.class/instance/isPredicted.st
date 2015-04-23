@@ -1,0 +1,3 @@
+testing
+isPredicted
+	^ dottedRule isDotAtBeginning

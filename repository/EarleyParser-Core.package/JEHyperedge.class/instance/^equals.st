@@ -2,6 +2,6 @@ comparing
 = anObject
 	self class == anObject class
 		ifFalse: [ ^ false ].
-	self nodes size = anObject nodes size
+	self size = anObject size
 		ifFalse: [ ^ false ].
 	^ self nodes allSatisfy: [ :each | anObject includes: each ]

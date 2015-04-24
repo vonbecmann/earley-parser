@@ -1,4 +1,4 @@
-private 
+private
 forest: words 
 	| graph |
 	graph := self hypergraph: words.

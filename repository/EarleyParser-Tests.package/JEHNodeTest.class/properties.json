@@ -1,0 +1,11 @@
+{
+	"commentStamp" : "BernardoContreras 4/24/2015 02:39",
+	"super" : "TestCase",
+	"category" : "EarleyParser-Tests",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"classvars" : [ ],
+	"instvars" : [ ],
+	"name" : "JEHNodeTest",
+	"type" : "normal"
+}

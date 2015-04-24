@@ -1,0 +1,11 @@
+{
+	"commentStamp" : "BernardoContreras 4/24/2015 15:12",
+	"super" : "JELinkedList",
+	"category" : "EarleyParser-Core-LinkedList",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"classvars" : [ ],
+	"instvars" : [ ],
+	"name" : "JEStack",
+	"type" : "normal"
+}

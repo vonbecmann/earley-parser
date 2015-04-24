@@ -5,6 +5,5 @@ gtInspectorNodesIn: composite
 		title: nodes size asString , ' nodes';
 		display: nodes asOrderedCollection sort;
 		column: 'Node (label, start chart, end chart)' evaluated: [ :each | each ];
-		send: [ :each | self edgesFor: each ];
 		showOnly: 50;
 		yourself

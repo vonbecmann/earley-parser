@@ -1,8 +1,9 @@
 copying
 postCopy
-	| aLink |
+	| link |
 	super postCopy.
-	firstLink ifNotNil: [
-		aLink := firstLink := firstLink copy.
-		[aLink nextLink isNil] whileFalse: [aLink nextLink: (aLink := aLink nextLink copy)].
-		lastLink := aLink].
+	firstLink
+		ifNotNil: [ 
+			link := firstLink := firstLink copy.
+			[ link nextLink isNil ] whileFalse: [ link nextLink: (link := link nextLink copy) ].
+			lastLink := link ]

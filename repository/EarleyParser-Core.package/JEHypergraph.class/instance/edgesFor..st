@@ -1,3 +1,3 @@
 private
-edgesFor: aNode
-	^ edges select: [ :edge | edge includes: aNode ]
+edgesFor: node
+	^ edges select: [ :edge | edge includes: node ]

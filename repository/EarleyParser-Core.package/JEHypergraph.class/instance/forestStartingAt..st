@@ -13,7 +13,7 @@ forestStartingAt: aNode
 			(visitedNodes includes: currentNode)
 				ifFalse: [ 
 					| nodeEdges |
-					nodeEdges := (self edgesFor: currentNode) difference: visitedEdges.
+					nodeEdges := (self edgesForSource: currentNode) difference: visitedEdges.
 					forest add: currentNode.
 					visitedNodes add: currentNode.
 					nodeEdges

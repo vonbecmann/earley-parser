@@ -10,6 +10,6 @@
 		"from",
 		"to"
 	],
-	"name" : "JEEdge",
+	"name" : "JEDirectedEdge",
 	"type" : "normal"
 }

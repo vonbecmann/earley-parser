@@ -10,8 +10,8 @@ testEdgeEquality
 			(JENonterminal named: 'P')}.
 	to := (rule dotAt: 2) startedAt: chart.
 	from := (rule dotAt: 3) startedAt: chart.
-	one := JEEdge labeled: plus from: from to: to.
-	another := JEEdge labeled: plus from: from to: to.
+	one := JEDirectedEdge labeled: plus from: from to: to.
+	another := JEDirectedEdge labeled: plus from: from to: to.
 	self assert: one = another.
 	self assert: one hash = another hash.
 	self assert: another = one.

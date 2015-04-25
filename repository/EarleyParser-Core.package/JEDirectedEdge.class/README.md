@@ -12,4 +12,9 @@ or a predecessor
 
 	predecessor {x} 	from: 	[<A> ::= {x}* @ [3 ,4]]
 					to: 		[<A> ::= *{x} @ [3 ,3]]
+
+	predecessor <A> 	from:	[<A> ::= <A><A>* @ [1 ,4]]
+					to:		[<A> ::= <A>*<A> @ [1 ,3]]
+
+
 						

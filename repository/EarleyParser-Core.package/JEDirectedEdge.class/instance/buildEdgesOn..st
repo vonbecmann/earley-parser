@@ -22,6 +22,6 @@ buildEdgesOn: builder
 		ifFalse: [ 
 			"predecessor"
 			builder gatherNodeLabeled: self label from: self to endChart to: self from endChart.
-			self to isPredicted not
-				ifTrue: [ builder gatherNodeLabeled: self to rule from: self to startChart to: self to endChart ] ].
+			self to isPredicted
+				ifFalse: [ builder gatherNodeLabeled: self to rule from: self to startChart to: self to endChart ] ].
 	builder addEdge

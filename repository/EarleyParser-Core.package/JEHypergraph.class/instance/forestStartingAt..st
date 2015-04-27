@@ -6,18 +6,9 @@ forestStartingAt: aNode
 	visitedNodes := Set new.
 	stack := Stack new.
 	stack push: aNode.
-	[ stack isEmpty ]
-		whileFalse: [ 
-			| currentNode |
-			currentNode := stack pop.
-			(visitedNodes includes: currentNode)
-				ifFalse: [ 
-					| nodeEdges |
-					nodeEdges := (self edgesForSource: currentNode) difference: visitedEdges.
-					forest add: currentNode.
-					visitedNodes add: currentNode.
-					nodeEdges
-						do: [ :each | 
-							visitedEdges add: each.
-							(each nodes difference: visitedNodes) asOrderedCollection sort reverseDo: [ :eachNode | stack push: eachNode ] ] ] ].
+	self
+		forest: forest
+		stack: stack
+		nodes: visitedNodes
+		edges: visitedEdges.
 	^ forest

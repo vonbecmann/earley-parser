@@ -1,19 +1,17 @@
 tests
 testHyperEdgeEquality02
-	| Start P T startChart endChart one another |
+	| Start P T first fourth one another |
 	Start := JENonterminal named: 'Start'.
 	P := JENonterminal named: 'P'.
 	T := JENonterminal named: 'T'.
-	startChart := JEChart number: 1.
-	endChart := JEChart number: 4.
+	first := JEChart number: 1.
+	fourth := JEChart number: 4.
 	one := JEHyperedge
-		nodes:
-			{(JEHNode labeled: Start from: startChart to: endChart).
-			(JEHNode labeled: P from: startChart to: endChart)} asSet.
+		sourceNodes: {(JEHNode labeled: P from: first to: fourth)} asSet
+		targetNode: (JEHNode labeled: Start from: first to: fourth).
 	another := JEHyperedge
-		nodes:
-			{(JEHNode labeled: Start from: startChart to: endChart).
-			(JEHNode labeled: T from: startChart to: endChart)} asSet.
+		sourceNodes: {(JEHNode labeled: T from: first to: fourth)} asSet
+		targetNode: (JEHNode labeled: Start from: first to: fourth).
 	self deny: one = another.
 	self deny: one hash = another hash.
 	self deny: another = one.

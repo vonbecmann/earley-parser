@@ -7,12 +7,11 @@ testAddEdge02
 	A := JENonterminal named: 'A'.
 	from := JEChart number: 1.
 	to := JEChart number: 2.
-	builder gatherNodeLabeled: S from: from to: to.
-	builder gatherNodeLabeled: S from: from to: to.
-	builder gatherNodeLabeled: A from: from to: to.
+	builder gatherTargetNodeLabeled: S from: from to: to.
+	builder gatherSourceNodeLabeled: A from: from to: to.
 	builder addEdge.
-	builder gatherNodeLabeled: S from: from to: to.
-	builder gatherNodeLabeled: A from: from to: to.
+	builder gatherTargetNodeLabeled: S from: from to: to.
+	builder gatherSourceNodeLabeled: A from: from to: to.
 	builder addEdge.
 	graph := builder build.
 	self assert: graph nodes isEmpty not.

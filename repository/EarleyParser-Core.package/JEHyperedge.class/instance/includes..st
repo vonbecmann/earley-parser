@@ -1,3 +1,3 @@
 testing
-includes: aNode
-	^ nodes includes: aNode
+includes: aNode 
+	^ sourceNodes includes: aNode 

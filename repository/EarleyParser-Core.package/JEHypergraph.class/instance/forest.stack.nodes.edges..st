@@ -4,7 +4,7 @@ forest: forest stack: stack nodes: visitedNodes edges: visitedEdges
 		whileFalse: [ 
 			| currentNode nodeEdges |
 			currentNode := stack pop.
-			nodeEdges := ((self edgesForSource: currentNode) difference: visitedEdges) asOrderedCollection.
+			nodeEdges := ((self edgesFor: currentNode) difference: visitedEdges) asOrderedCollection.
 			forest add: currentNode.
 			visitedNodes add: currentNode.
 			nodeEdges isEmpty
@@ -15,9 +15,8 @@ forest: forest stack: stack nodes: visitedNodes edges: visitedEdges
 							nodeEdge := nodeEdges first.
 							visitedEdges add: nodeEdge.
 							(nodeEdge nodes difference: visitedNodes) asOrderedCollection sort
-								reverseDo: [ :eachNode | stack push: eachNode ] ].
-					nodeEdges size > 1
-						ifTrue: [ 
+								reverseDo: [ :eachNode | stack push: eachNode ] ]
+						ifFalse: [ 
 							nodeEdges
 								do: [ :each | 
 									| newStack |
@@ -28,5 +27,5 @@ forest: forest stack: stack nodes: visitedNodes edges: visitedEdges
 									self
 										forest: forest
 										stack: newStack
-										nodes: visitedNodes
-										edges: visitedEdges ] ] ] ]
+										nodes: visitedNodes copy
+										edges: visitedEdges copy ] ] ] ]

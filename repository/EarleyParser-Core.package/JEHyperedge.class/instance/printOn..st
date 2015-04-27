@@ -1,10 +1,16 @@
 printing
 printOn: aStream
+	aStream nextPut: $(.
 	aStream nextPut: ${.
-	nodes
+	sourceNodes
 		do: [ :each | each printOn: aStream ]
 		separatedBy: [ 
 			aStream
 				nextPut: $,;
 				space ].
-	aStream nextPut: $}
+	aStream
+		nextPut: $};
+		nextPut: $,;
+		space.
+	targetNode printOn: aStream.
+	aStream nextPut: $)

@@ -14,7 +14,5 @@ testAddEdge02
 	builder gatherSourceNodeLabeled: A from: from to: to.
 	builder addEdge.
 	graph := builder build.
-	self assert: graph nodes isEmpty not.
-	self assert: graph nodes size equals: 2.
-	self assert: graph edges isEmpty not.
-	self assert: graph edges size equals: 1
+	self assert: graph nodesSize equals: 2.
+	self assert: graph edgesSize equals: 1

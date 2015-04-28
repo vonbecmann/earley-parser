@@ -9,6 +9,5 @@ testAddNode02
 	builder addNodeLabeled: label from: from to: to.
 	builder addNodeLabeled: label from: from to: to.
 	graph := builder build.
-	self assert: graph nodes isEmpty not.
-	self assert: graph nodes size equals: 1.
-	self assert: graph edges isEmpty
+	self assert: graph nodesSize equals: 1.
+	self assert: graph edgesIsEmpty

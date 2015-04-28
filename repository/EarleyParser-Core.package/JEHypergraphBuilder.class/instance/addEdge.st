@@ -1,6 +1,6 @@
 adding edges
 addEdge
-	"adds a new edge with the accumulated source nodes up to now and the target node"
+	"adds a new hyperedge with the accumulated source nodes up to now and the target node"
 
 	accumulatedSourceNodes isEmpty
 		ifTrue: [ ^ Error signal: 'a hyperedge''s source nodes cannot be empty' ].

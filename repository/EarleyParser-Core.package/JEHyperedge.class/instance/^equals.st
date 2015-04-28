@@ -4,6 +4,6 @@ comparing
 		ifFalse: [ ^ false ].
 	self targetNode = anObject targetNode
 		ifFalse: [ ^ false ].
-	self nodes size = anObject nodes size
+	self sourceNodes size = anObject sourceNodes size
 		ifFalse: [ ^ false ].
-	^ self nodes allSatisfy: [ :each | anObject includes: each ]
+	^ self sourceNodes allSatisfy: [ :each | anObject includes: each ]

@@ -14,7 +14,7 @@ forest: forest stack: stack nodes: visitedNodes edges: visitedEdges
 							| nodeEdge |
 							nodeEdge := nodeEdges first.
 							visitedEdges add: nodeEdge.
-							(nodeEdge nodes difference: visitedNodes) asOrderedCollection sort
+							(nodeEdge sourceNodes difference: visitedNodes) asOrderedCollection sort
 								reverseDo: [ :eachNode | stack push: eachNode ] ]
 						ifFalse: [ 
 							nodeEdges
@@ -22,7 +22,7 @@ forest: forest stack: stack nodes: visitedNodes edges: visitedEdges
 									| newStack |
 									newStack := stack copy.
 									visitedEdges add: each.
-									(each nodes difference: visitedNodes) asOrderedCollection sort
+									(each sourceNodes difference: visitedNodes) asOrderedCollection sort
 										reverseDo: [ :eachNode | newStack push: eachNode ].
 									self
 										forest: forest

@@ -1,5 +1,5 @@
 {
-	"commentStamp" : "BernardoContreras 4/28/2015 00:50",
+	"commentStamp" : "BernardoContreras 4/28/2015 01:01",
 	"super" : "Object",
 	"category" : "EarleyParser-Core-Hypergraph",
 	"classinstvars" : [ ],
@@ -9,6 +9,6 @@
 		"sourceNodes",
 		"targetNode"
 	],
-	"name" : "JEHyperedge",
+	"name" : "JEDirectedHyperedge",
 	"type" : "normal"
 }

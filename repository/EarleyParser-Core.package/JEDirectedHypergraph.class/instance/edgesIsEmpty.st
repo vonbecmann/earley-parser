@@ -1,0 +1,3 @@
+accessing
+edgesIsEmpty
+	^ edges isEmpty 

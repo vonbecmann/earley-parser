@@ -1,3 +1,3 @@
 private
-edgesFor: node
+edgesForTarget: node
 	^ edges select: [ :edge | edge targetNode = node ]

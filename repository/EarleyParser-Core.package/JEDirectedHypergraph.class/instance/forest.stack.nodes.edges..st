@@ -4,7 +4,7 @@ forest: forest stack: stack nodes: visitedNodes edges: visitedEdges
 		whileFalse: [ 
 			| currentNode nodeEdges |
 			currentNode := stack pop.
-			nodeEdges := ((self edgesFor: currentNode) difference: visitedEdges) asOrderedCollection.
+			nodeEdges := ((self edgesForTarget: currentNode) difference: visitedEdges) asOrderedCollection.
 			forest add: currentNode.
 			visitedNodes add: currentNode.
 			nodeEdges isEmpty

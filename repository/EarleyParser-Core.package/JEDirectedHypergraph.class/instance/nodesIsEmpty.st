@@ -1,0 +1,3 @@
+accessing
+nodesIsEmpty
+	^ nodes isEmpty 

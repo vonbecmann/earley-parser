@@ -7,10 +7,10 @@ testHyperEdgeEquality02
 	first := JEChart number: 1.
 	fourth := JEChart number: 4.
 	one := JEDirectedHyperedge
-		sourceNodes: {(JEHNode labeled: P from: first to: fourth)} asSet
+		sourceNodes: {(JEHNode labeled: P from: first to: fourth)} asOrderedCollection
 		targetNode: (JEHNode labeled: Start from: first to: fourth).
 	another := JEDirectedHyperedge
-		sourceNodes: {(JEHNode labeled: T from: first to: fourth)} asSet
+		sourceNodes: {(JEHNode labeled: T from: first to: fourth)} asOrderedCollection
 		targetNode: (JEHNode labeled: Start from: first to: fourth).
 	self deny: one = another.
 	self deny: one hash = another hash.

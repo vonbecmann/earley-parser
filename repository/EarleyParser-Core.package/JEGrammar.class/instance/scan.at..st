@@ -4,4 +4,4 @@ scan: item at: chart
 
 	| forwardedItem |
 	forwardedItem := chart add: item moveDotForward.
-	forwardedItem addEdgeLabeled: item symbolAtDot to: item
+	chart addEdgeLabeled: item symbolAtDot from: forwardedItem to: item

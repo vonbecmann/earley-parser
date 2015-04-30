@@ -9,5 +9,5 @@ complete: item at: chart
 		collectPredictionItemsUsing: [ :anItem | 
 			| forwardedItem |
 			forwardedItem := chart add: anItem moveDotForward.
-			forwardedItem addEdgeLabeled: anItem symbolAtDot to: anItem.
-			forwardedItem addEdgeLabeled: item rule head to: item ]
+			chart addEdgeLabeled: anItem symbolAtDot from: forwardedItem to: anItem.
+			chart addEdgeLabeled: item rule head from: forwardedItem to: item ]

@@ -4,6 +4,7 @@ gtInspectorEdgesIn: composite
 	^ composite table
 		title: edges size asString , ' hyperedges';
 		display: edges asArray;
-		column: 'Hyperedge' evaluated: [ :each | each ];
+		column: 'Target Node' evaluated: [ :each | each targetNode ];
+		column: 'Source Nodes' evaluated: [ :each | each sourceNodes ];
 		showOnly: 50;
 		yourself

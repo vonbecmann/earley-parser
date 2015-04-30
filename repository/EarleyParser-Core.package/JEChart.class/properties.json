@@ -8,7 +8,8 @@
 	"instvars" : [
 		"items",
 		"itemsByChart",
-		"number"
+		"number",
+		"edges"
 	],
 	"name" : "JEChart",
 	"type" : "normal"

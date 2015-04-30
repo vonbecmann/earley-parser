@@ -3,7 +3,7 @@ gtInspectorSourceNodesIn: composite
 	<gtInspectorPresentationOrder: 0>
 	^ composite table
 		title: 'Source Nodes';
-		display: sourceNodes asOrderedCollection sort;
+		display: sourceNodes;
 		column: 'Node (label, start, end)' evaluated: [ :each | each ];
 		showOnly: 50;
 		yourself

@@ -1,5 +1,5 @@
 initialization
-initializeSourceNodes: aNodeSet targetNode: node 
+initializeSourceNodes: aNodeCollection targetNode: node 
 	self initialize.
-	sourceNodes := aNodeSet.
+	sourceNodes := aNodeCollection.
 	targetNode := node 

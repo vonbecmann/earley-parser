@@ -1,6 +1,6 @@
 enumerating
 select: selectBlock thenCollect: collectBlock
-	"Optimized version of SequenceableCollection>>#select:thenCollect:"
+	"Utility method to improve readability."
 
 	| newCollection |
 	newCollection := self class new.

@@ -1,4 +1,4 @@
 private
 itemsAt: chart put: anItem
-	(itemsByChart at: chart) add: anItem.
+	(itemsByChart at: chart number) add: anItem.
 	^ anItem

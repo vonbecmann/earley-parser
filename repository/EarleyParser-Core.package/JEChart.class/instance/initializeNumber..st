@@ -1,4 +1,5 @@
 initialization
-initializeNumber: anInteger 
+initializeNumber: anInteger
 	self initialize.
-	number := anInteger 
+	number := anInteger.
+	itemsByChart := Array new: number withAll: JELinkedList new

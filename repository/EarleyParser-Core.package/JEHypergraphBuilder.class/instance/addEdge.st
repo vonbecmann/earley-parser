@@ -7,7 +7,7 @@ addEdge
 	targetNode isNil
 		ifTrue: [ ^ Error signal: 'target node cannot be nil' ].
 	edges add: (JEDirectedHyperedge 
-						sourceNodes: accumulatedSourceNodes asOrderedCollection sort 
-						targetNode: targetNode).
+							sourceNodes: accumulatedSourceNodes asArray sort 
+							targetNode: targetNode).
 	targetNode := nil.
 	accumulatedSourceNodes := Set new

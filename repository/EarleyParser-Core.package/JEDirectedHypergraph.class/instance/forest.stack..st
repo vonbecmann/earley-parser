@@ -14,9 +14,18 @@ forest: forest stack: stack
 							nodeEdge := nodeEdges first.
 							nodeEdge sourceNodes asOrderedCollection sort reverseDo: [ :eachNode | stack push: eachNode ] ]
 						ifFalse: [ 
+							| allNewForest |
+							allNewForest := OrderedCollection new.
 							nodeEdges
 								do: [ :each | 
-									| newStack |
+									| newStack newForest |
 									newStack := stack copy.
+									newForest := forest copy.
 									each sourceNodes asOrderedCollection sort reverseDo: [ :eachNode | newStack push: eachNode ].
-									self forest: forest stack: newStack ] ] ] ]
+									self forest: newForest stack: newStack.
+									(newForest anySatisfy: [ :elem | elem isCollection ])
+										ifTrue: [ newForest do: [ :elem | allNewForest add: elem ] ]
+										ifFalse: [ allNewForest add: newForest ] ].
+							[ stack isEmpty ] whileFalse: [ stack pop ].
+							forest removeAll.
+							forest addAll: allNewForest ] ] ]

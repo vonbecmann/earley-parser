@@ -4,8 +4,4 @@ detect: aBlock ifNone: exceptionBlock
 	Answer the first element for which aBlock evaluates to true. If none  
 	evaluate to true, then evaluate the argument, exceptionBlock."
 
-	self
-		do: [ :each | 
-			(aBlock value: each)
-				ifTrue: [ ^ each ] ].
-	^ exceptionBlock value
+	^ self detect: aBlock ifFound: [ :element | element ] ifNone: exceptionBlock

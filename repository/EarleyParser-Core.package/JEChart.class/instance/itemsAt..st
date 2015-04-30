@@ -1,3 +1,3 @@
 private
 itemsAt: chart
-	^ itemsByChart at: chart ifAbsentPut: [ OrderedCollection new ]
+	^ itemsByChart at: chart ifAbsentPut: [ JELinkedList new ]

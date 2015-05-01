@@ -1,3 +1,3 @@
 testing
 isPredicted
-	^ dottedRule isDotAtBeginning
+	^ dottedRule isPredicted

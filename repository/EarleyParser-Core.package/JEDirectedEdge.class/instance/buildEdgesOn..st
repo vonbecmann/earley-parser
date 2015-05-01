@@ -11,17 +11,23 @@ buildEdgesOn: builder
 		to: self from endChart.
 	self isReduction
 		ifTrue: [ 
-			"reduction"
-			builder gatherSourceNodeLabeled: self label from: self to startChart to: self to endChart.
-			self from isFinal
-				ifTrue: [ 
-					| previous |
-					previous := self from rule moveDotBackward.
-					previous isDotAtBeginning not
-						ifTrue: [ builder gatherSourceNodeLabeled: previous from: self from startChart to: self to startChart ] ] ]
+			| previous |
+			builder
+				gatherSourceNodeLabeled: self label 
+				from: self to startChart 
+				to: self to endChart.
+			previous := self from moveDotBackward.
+			previous isPredicted
+				ifFalse: [ builder gatherSourceNodeLabeled: previous rule
+										from: self from startChart 
+										to: self to startChart ] ]
 		ifFalse: [ 
-			"predecessor"
-			builder gatherSourceNodeLabeled: self label from: self to endChart to: self from endChart.
+			builder
+				gatherSourceNodeLabeled: self label 
+				from: self to endChart 
+				to: self from endChart.
 			self to isPredicted
-				ifFalse: [ builder gatherSourceNodeLabeled: self to rule from: self to startChart to: self to endChart ] ].
+				ifFalse: [ builder	gatherSourceNodeLabeled: self to rule 
+										from: self to startChart 
+										to: self to endChart ] ].
 	builder addEdge

@@ -5,5 +5,6 @@ gtInspectorItemsIn: composite
 		title: self size asString , ' items';
 		display: items asArray;
 		column: 'Dotted Rule @ Chart' evaluated: [ :each | each ];
+		send: [ :each | self edgesFor: each ];
 		showOnly: 50;
 		yourself

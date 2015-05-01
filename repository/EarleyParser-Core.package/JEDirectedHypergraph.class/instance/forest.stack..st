@@ -26,6 +26,6 @@ forest: forest stack: stack
 									(newForest anySatisfy: [ :elem | elem isCollection ])
 										ifTrue: [ newForest do: [ :elem | allNewForest add: elem ] ]
 										ifFalse: [ allNewForest add: newForest ] ].
-							[ stack isEmpty ] whileFalse: [ stack pop ].
+							stack removeAll.
 							forest removeAll.
 							forest addAll: allNewForest ] ] ]

@@ -1,4 +1,4 @@
-as yet unclassified
+public
 parse: words
 	| graph |
 	graph := self hypergraph: words.

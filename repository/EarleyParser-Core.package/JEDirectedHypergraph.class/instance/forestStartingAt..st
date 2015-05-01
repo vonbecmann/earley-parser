@@ -24,21 +24,17 @@ forestStartingAt: aNode
 					nodeEdges isEmpty
 						ifFalse: [ 
 							nodeEdges size = 1
-								ifTrue: [ 
-									| nodeEdge |
-									nodeEdge := nodeEdges first.
-									nodeEdge sourceNodes reverseDo: [ :eachNode | stack push: eachNode ] ]
+								ifTrue: [ nodeEdges first sourceNodes reverseDo: [ :eachNode | stack push: eachNode ] ]
 								ifFalse: [ 
 									nodeEdges
 										do: [ :each | 
-											| newStack newTree |
+											| newStack |
 											newStack := stack copy.
-											newTree := tree copy.
 											each sourceNodes reverseDo: [ :eachNode | newStack push: eachNode ].
 											derivationStack
 												push:
 													{newStack.
-													newTree} ].
+													(tree copy)} ].
 									stack removeAll.
 									tree removeAll ] ] ].
 			tree isEmpty

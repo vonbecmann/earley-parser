@@ -1,6 +1,6 @@
 running
 setUp
-	| builder A x firstRule secondRule first second third fourth |
+	| builder firstRule secondRule first second third fourth |
 	builder := JEHypergraphBuilder new.
 	start := JENonterminal named: 'Start'.
 	A := JENonterminal named: 'A'.

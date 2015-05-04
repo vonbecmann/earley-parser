@@ -7,7 +7,9 @@
 	"classvars" : [ ],
 	"instvars" : [
 		"graph",
-		"start"
+		"start",
+		"A",
+		"x"
 	],
 	"name" : "JEHypergraphTest",
 	"type" : "normal"

@@ -1,4 +1,4 @@
-running
+tests
 testForestStartingAtNodelLabeledStart
 	| forest |
 	forest := graph forestStartingAtNodeLabeled: start.

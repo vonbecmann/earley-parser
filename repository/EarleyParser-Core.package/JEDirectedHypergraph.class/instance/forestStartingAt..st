@@ -8,7 +8,7 @@ forestStartingAt: aNode
 			{(JEStack new
 				push: aNode;
 				yourself).
-			(OrderedCollection new)}.
+			(JELinkedList new)}.
 	[ derivationStack isEmpty ]
 		whileFalse: [ 
 			| derivation stack tree |
@@ -38,5 +38,5 @@ forestStartingAt: aNode
 									stack removeAll.
 									tree removeAll ] ] ].
 			tree isEmpty
-				ifFalse: [ forest add: tree ] ].
+				ifFalse: [ forest add: tree asArray ] ].
 	^ forest

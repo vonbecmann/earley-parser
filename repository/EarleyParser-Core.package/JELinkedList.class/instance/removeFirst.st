@@ -7,9 +7,7 @@ removeFirst
 	self emptyCheck.
 	oldLink := firstLink.
 	firstLink == lastLink
-		ifTrue: [ 
-			firstLink := nil.
-			lastLink := nil ]
+		ifTrue: [ firstLink := lastLink := nil ]
 		ifFalse: [ firstLink := oldLink nextLink ].
 	oldLink nextLink: nil.
 	^ oldLink value

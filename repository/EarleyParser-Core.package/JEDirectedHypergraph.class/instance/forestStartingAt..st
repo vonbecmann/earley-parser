@@ -19,7 +19,7 @@ forestStartingAt: aNode
 				whileFalse: [ 
 					| currentNode nodeEdges |
 					currentNode := stack pop.
-					nodeEdges := self edgesForTarget: currentNode.
+					nodeEdges := currentNode edges.
 					tree add: currentNode.
 					nodeEdges isEmpty
 						ifFalse: [ 

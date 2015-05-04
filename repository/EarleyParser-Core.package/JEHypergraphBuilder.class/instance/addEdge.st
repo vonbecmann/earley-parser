@@ -6,8 +6,7 @@ addEdge
 		ifTrue: [ ^ Error signal: 'a hyperedge''s source nodes cannot be empty' ].
 	targetNode isNil
 		ifTrue: [ ^ Error signal: 'target node cannot be nil' ].
-	edges add: (JEDirectedHyperedge 
-							sourceNodes: accumulatedSourceNodes asArray sort 
-							targetNode: targetNode).
+	edges add: (self	makeEdgeWithSourceNodes: accumulatedSourceNodes asArray sort 
+						  	targetNode: targetNode).
 	targetNode := nil.
 	accumulatedSourceNodes := Set new

@@ -8,7 +8,8 @@
 	"instvars" : [
 		"label",
 		"from",
-		"to"
+		"to",
+		"edges"
 	],
 	"name" : "JEHNode",
 	"type" : "normal"

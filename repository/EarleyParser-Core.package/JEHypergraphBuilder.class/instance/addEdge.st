@@ -9,4 +9,4 @@ addEdge
 	edges add: (self	makeEdgeWithSourceNodes: accumulatedSourceNodes asArray sort 
 						  	targetNode: targetNode).
 	targetNode := nil.
-	accumulatedSourceNodes := Set new
+	accumulatedSourceNodes := IdentitySet new

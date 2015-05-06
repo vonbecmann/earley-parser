@@ -8,11 +8,11 @@ testHyperEdgeEquality02
 	fourth := JEChart number: 4.
 	root := JEHNode labeled: Start from: first to: fourth.
 	one := JEDirectedHyperedge
-		sourceNodes: {(JEHNode labeled: P from: first to: fourth)} asOrderedCollection
-		targetNode: root.
+					sourceNodes: {(JEHNode labeled: P from: first to: fourth)}
+					targetNode: root.
 	another := JEDirectedHyperedge
-		sourceNodes: {(JEHNode labeled: T from: first to: fourth)} asOrderedCollection
-		targetNode: root.
+					sourceNodes: {(JEHNode labeled: T from: first to: fourth)}
+					targetNode: root.
 	self deny: one = another.
 	self deny: one hash = another hash.
 	self deny: another = one.

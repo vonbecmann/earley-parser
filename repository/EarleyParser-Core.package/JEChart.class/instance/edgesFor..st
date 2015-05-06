@@ -1,3 +1,3 @@
 accessing
 edgesFor: anItem
-	^ edges select: [ :each | each from = anItem ]
+	^ edges at: anItem ifAbsent: [ JELinkedList new ]

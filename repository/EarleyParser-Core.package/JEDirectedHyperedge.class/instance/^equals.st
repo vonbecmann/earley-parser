@@ -6,4 +6,9 @@ comparing
 		ifFalse: [ ^ false ].
 	self sourceNodes size = anObject sourceNodes size
 		ifFalse: [ ^ false ].
-	^ self sourceNodes allSatisfy: [ :each | anObject includes: each ]
+	self sourceNodes
+		with: anObject sourceNodes
+		do: [ :first :second | 
+			first == second
+				ifFalse: [ ^ false ] ].
+	^ true

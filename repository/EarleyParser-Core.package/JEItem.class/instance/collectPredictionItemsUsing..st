@@ -1,3 +1,3 @@
 accessing
 collectPredictionItemsUsing: collectBlock
-	^ self startChart collectPredictionItemsWithDotAt: self rule head using: collectBlock
+	^ self startChart collectPredictionItemsWithDotAt: self head using: collectBlock

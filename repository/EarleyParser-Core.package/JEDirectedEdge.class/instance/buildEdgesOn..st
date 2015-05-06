@@ -5,7 +5,7 @@ buildEdgesOn: builder
 	builder
 		gatherTargetNodeLabeled:
 			(self from isFinal
-				ifTrue: [ self from rule head ]
+				ifTrue: [ self from head ]
 				ifFalse: [ self from rule ])
 		from: self from startChart
 		to: self from endChart.

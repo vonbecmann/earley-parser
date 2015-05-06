@@ -17,20 +17,20 @@ forestStartingAt: aNode
 			tree := derivation second.
 			[ stack isEmpty ]
 				whileFalse: [ 
-					| currentNode nodeEdges |
+					| currentNode sourceNodes |
 					currentNode := stack pop.
-					nodeEdges := currentNode edges.
+					sourceNodes := currentNode sourceNodes.
 					tree add: currentNode.
-					nodeEdges isEmpty
+					sourceNodes isEmpty
 						ifFalse: [ 
-							nodeEdges size = 1
-								ifTrue: [ nodeEdges first sourceNodes reverseDo: [ :eachNode | stack push: eachNode ] ]
+							sourceNodes size = 1
+								ifTrue: [ sourceNodes first reverseDo: [ :eachNode | stack push: eachNode ] ]
 								ifFalse: [ 
-									nodeEdges
+									sourceNodes
 										do: [ :each | 
 											| newStack |
 											newStack := stack copy.
-											each sourceNodes reverseDo: [ :eachNode | newStack push: eachNode ].
+											each reverseDo: [ :eachNode | newStack push: eachNode ].
 											derivationStack
 												push:
 													{newStack.

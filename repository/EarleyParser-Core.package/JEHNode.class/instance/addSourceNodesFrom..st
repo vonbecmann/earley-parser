@@ -1,0 +1,3 @@
+adding
+addSourceNodesFrom: aDirectedHyperedge
+	sourceNodes add: aDirectedHyperedge sourceNodes

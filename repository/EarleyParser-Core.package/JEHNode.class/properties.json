@@ -9,7 +9,7 @@
 		"label",
 		"from",
 		"to",
-		"edges"
+		"sourceNodes"
 	],
 	"name" : "JEHNode",
 	"type" : "normal"

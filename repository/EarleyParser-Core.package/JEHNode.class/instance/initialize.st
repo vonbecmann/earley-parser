@@ -1,3 +1,3 @@
 initialization
 initialize
-	edges := JELinkedList new
+	sourceNodes := JELinkedList new

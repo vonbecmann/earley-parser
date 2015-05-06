@@ -1,4 +1,3 @@
 tests
 testAccepts5Xs
-	self assert: (grammar accepts: #(x x x x x))
-	
+	self assert: (grammar accepts: 'xxxxx')

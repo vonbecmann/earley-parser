@@ -4,7 +4,7 @@ RR
 	
 	^ [| A x |
 		A := JENonterminal named: 'A'.
-		x := JETerminal symbol: #x.
+		x := JETerminal character: $x.
 		JEGrammar
 			basedOn:
 			{	A body: { x }.

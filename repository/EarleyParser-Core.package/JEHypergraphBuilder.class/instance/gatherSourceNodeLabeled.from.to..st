@@ -4,5 +4,10 @@ gatherSourceNodeLabeled: anObject from: startChart to: endChart
 
 	| newNode |
 	newNode := self makeNodeLabeled: anObject from: startChart to: endChart.
-	nodes add: newNode.
-	accumulatedSourceNodes add: (nodes like: newNode)
+	accumulatedSourceNodes
+		add:
+			(nodes
+				like: newNode
+				ifAbsent: [ 
+					nodes add: newNode.
+					newNode ])

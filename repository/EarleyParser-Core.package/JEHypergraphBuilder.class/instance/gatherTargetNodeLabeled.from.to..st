@@ -6,6 +6,9 @@ gatherTargetNodeLabeled: anObject from: startChart to: endChart
 		ifTrue: [ 
 			| newNode |
 			newNode := self makeNodeLabeled: anObject from: startChart to: endChart.
-			nodes add: newNode.
-			targetNode := nodes like: newNode ]
+			targetNode := nodes
+				like: newNode
+				ifAbsent: [ 
+					nodes add: newNode.
+					newNode ] ]
 		ifFalse: [ ^ Error signal: 'target node is already set: ' , targetNode asString ]

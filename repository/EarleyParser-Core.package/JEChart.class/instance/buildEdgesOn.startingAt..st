@@ -2,12 +2,9 @@ hypergraph
 buildEdgesOn: builder startingAt: anItem
 	"build the hyperedges starting at an item like the given one"
 
-	| queue visited givenItem |
+	| queue |
 	queue := JELinkedList new.
-	visited := Set new.
-	givenItem := self like: anItem.
-	queue addLast: givenItem.
-	visited add: givenItem.
+	queue addLast: (self like: anItem).
 	[ queue isEmpty ]
 		whileFalse: [ 
 			| item |
@@ -15,5 +12,4 @@ buildEdgesOn: builder startingAt: anItem
 			item edges
 				do: [ :edge | 
 					edge buildEdgesOn: builder.
-					(visited includes: edge to)
-						ifFalse: [ queue addLast: edge to ] ] ]
+					queue addLast: edge to ] ]

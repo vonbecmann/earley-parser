@@ -9,4 +9,5 @@ gtInspectorAlternativesIn: composite
 			evaluated: [ :each | GTObjectPrinter new asTruncatedTextFrom: each key ];
 		column: 'Dotted Rules' 
 			evaluated: [ :each | GTObjectPrinter new asTruncatedTextFrom: each value ];
-		showOnly: 50
+		showOnly: 50;
+		yourself

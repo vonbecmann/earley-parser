@@ -3,5 +3,5 @@ printOn: aStream
 	"<name>"
 
 	aStream nextPut: $<.
-	name do: [ :each | aStream nextPut: each ].
+	self named do: [ :each | aStream nextPut: each ].
 	aStream nextPut: $>

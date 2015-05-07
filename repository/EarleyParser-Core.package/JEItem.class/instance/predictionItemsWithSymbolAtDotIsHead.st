@@ -1,0 +1,3 @@
+accessing
+predictionItemsWithSymbolAtDotIsHead
+	^ self startChart predictionItemsWithSymbolAtDotIs: self head

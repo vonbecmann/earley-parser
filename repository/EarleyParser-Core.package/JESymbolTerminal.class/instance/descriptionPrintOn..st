@@ -1,3 +1,3 @@
 private
 descriptionPrintOn: aStream
-	symbol do: [ :each | aStream nextPut: each ]
+	self symbol do: [ :each | aStream nextPut: each ]

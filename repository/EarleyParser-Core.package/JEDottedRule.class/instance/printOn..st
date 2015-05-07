@@ -2,14 +2,14 @@ printing
 printOn: aStream
 	"head ::= body with dot"
 
-	rule head printOn: aStream.
+	self head printOn: aStream.
 	aStream
 		space;
 		nextPutAll: '::=';
 		space.
-	rule body
+	self rule body
 		withIndexDo: [ :each :index | 
-			index = dotIndex
+			index = self dotIndex
 				ifTrue: [ aStream nextPut: $* ].
 			each printOn: aStream ].
 	self isFinal

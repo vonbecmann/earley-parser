@@ -2,8 +2,8 @@ comparing
 = aDottedRule
 	self class == aDottedRule class
 		ifFalse: [ ^ false ].
-	dotIndex == aDottedRule dotIndex
+	self dotIndex == aDottedRule dotIndex
 		ifFalse: [ ^ false ].
-	rule == aDottedRule rule
+	self rule == aDottedRule rule
 		ifFalse: [ ^ false ].
 	^ true

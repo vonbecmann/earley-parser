@@ -2,4 +2,4 @@ testing
 isPredicted
 	"when dot is at the beginning of the rule"
 
-	^ dotIndex = 1
+	^ self dotIndex = 1

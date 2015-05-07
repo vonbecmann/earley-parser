@@ -1,3 +1,3 @@
 accessing
 symbolAtDot
-	^ rule body at: dotIndex
+	^ self rule body at: self dotIndex

@@ -1,3 +1,3 @@
 comparing
 hash
-	^ self class hash bitXor: symbol hash
+	^ self class hash bitXor: self symbol hash

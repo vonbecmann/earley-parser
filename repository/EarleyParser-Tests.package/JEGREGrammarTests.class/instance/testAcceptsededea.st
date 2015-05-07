@@ -1,4 +1,4 @@
 tests
 testAcceptsededea
-	self assert: (grammar accepts: #(e d e d e a))
+	self assert: (grammar accepts: 'ededea')
 	

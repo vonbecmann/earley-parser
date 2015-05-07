@@ -2,13 +2,13 @@ comparing
 = aRule
 	self class == aRule class
 		ifFalse: [ ^ false ].
-	body size == aRule body size
+	self body size == aRule body size
 		ifFalse: [ ^ false ].
-	body
+	self body
 		with: aRule body
 		do: [ :first :second | 
 			first = second
 				ifFalse: [ ^ false ] ].
-	head = aRule head
+	self head = aRule head
 		ifFalse: [ ^ false ].
 	^ true

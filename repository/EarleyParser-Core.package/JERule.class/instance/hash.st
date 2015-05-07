@@ -1,3 +1,3 @@
 comparing
 hash
-	^ head hash bitXor: body hash
+	^ self head hash bitXor: self body hash

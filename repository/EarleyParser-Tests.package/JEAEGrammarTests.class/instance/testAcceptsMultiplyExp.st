@@ -1,3 +1,3 @@
 tests
 testAcceptsMultiplyExp
-	self assert: (grammar accepts: #(a * a))
+	self assert: (grammar accepts: 'a*a')

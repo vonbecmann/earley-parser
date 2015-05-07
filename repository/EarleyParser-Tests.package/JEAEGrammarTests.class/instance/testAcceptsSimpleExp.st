@@ -1,3 +1,3 @@
 tests
 testAcceptsSimpleExp
-	self assert: (grammar accepts: #(a))
+	self assert: (grammar accepts: 'a')

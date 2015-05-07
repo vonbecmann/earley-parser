@@ -5,9 +5,9 @@ AE
 		E := JENonterminal named: 'E'.
 		T := JENonterminal named: 'T'.
 		P := JENonterminal named: 'P'.
-		plus := JETerminal symbol: #+.
-		star := JETerminal symbol: #*.
-		a := JETerminal symbol: #a.
+		plus := JETerminal character: $+.
+		star := JETerminal character: $*.
+		a := JETerminal character: $a.
 		JEGrammar
 			basedOn:
 			{	E body: { T }.

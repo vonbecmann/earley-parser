@@ -6,7 +6,7 @@ testEdgeEquality02
 	rule := (JENonterminal named: 'T')
 		body:
 			{(JENonterminal named: 'T').
-			(JETerminal symbol: #+).
+			(JETerminal character: $+).
 			P}.
 	to := (rule dotAt: 3) startedAt: chart.
 	from := rule dotAtEnd startedAt: chart.

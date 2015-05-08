@@ -2,7 +2,7 @@ tests
 testEdgeEquality
 	| chart plus rule to from one another |
 	chart := JEChart number: 1.
-	plus := JETerminal symbol: #+.
+	plus := JETerminal character: $+.
 	rule := (JENonterminal named: 'T')
 		body:
 			{(JENonterminal named: 'T').

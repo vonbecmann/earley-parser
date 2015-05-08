@@ -4,7 +4,7 @@ testNodeEquality02
 	rule := (JENonterminal named: 'T')
 		body:
 			{(JENonterminal named: 'T').
-			(JETerminal symbol: #+).
+			(JETerminal character: $+).
 			(JENonterminal named: 'P')}.
 	startChart := JEChart number: 1.
 	endChart := JEChart number: 4.

@@ -4,12 +4,12 @@ testRuleEquality
 	one := (JENonterminal named: 'T')
 		body:
 			{(JENonterminal named: 'T').
-			(JETerminal symbol: #+).
+			(JETerminal character: $+).
 			(JENonterminal named: 'P')}.
 	another := (JENonterminal named: 'T')
 		body:
 			{(JENonterminal named: 'T').
-			(JETerminal symbol: #+).
+			(JETerminal character: $+).
 			(JENonterminal named: 'P')}.
 	self assert: one = another.
 	self assert: one hash = another hash.

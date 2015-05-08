@@ -4,7 +4,7 @@ setUp
 	builder := JEHypergraphBuilder new.
 	start := JENonterminal named: 'Start'.
 	A := JENonterminal named: 'A'.
-	x := JETerminal symbol: #x.
+	x := JETerminal character: $x.
 	firstRule := A body: {x}.
 	secondRule := A body:	{ A. A}.
 	first := JEChart number: 1.

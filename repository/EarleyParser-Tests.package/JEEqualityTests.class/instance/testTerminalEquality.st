@@ -1,9 +1,9 @@
 tests
 testTerminalEquality
 	| one another |
-	one := JETerminal symbol: #+.
-	another := JETerminal symbol: #+.
+	one := JETerminal character: $+.
+	another := JETerminal character: $+.
 	self assert: one = another.
 	self assert: one hash = another hash.
-	self deny: (JETerminal symbol: #+) = (JENonterminal named: '+').
-	self deny: (JETerminal symbol: #+) hash = (JENonterminal named: '+') hash
+	self deny: (JETerminal character: $+) = (JENonterminal named: '+').
+	self deny: (JETerminal character: $+) hash = (JENonterminal named: '+') hash

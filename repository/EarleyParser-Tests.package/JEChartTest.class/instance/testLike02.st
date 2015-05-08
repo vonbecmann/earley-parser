@@ -5,7 +5,7 @@ testLike02
 	rule := (JENonterminal named: 'T')
 		body:
 			{(JENonterminal named: 'T').
-			(JETerminal symbol: #+).
+			(JETerminal character: $+).
 			(JENonterminal named: 'P')}.
 	one := (rule dotAt: 2) startedAt: firstChart.
 	chart add: one.

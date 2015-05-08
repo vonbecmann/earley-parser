@@ -1,3 +1,3 @@
 comparing
 <= aNode
-	^ from <= aNode from and: [ to <= aNode to ]
+	^ self from <= aNode from and: [ self to <= aNode to ]

@@ -1,3 +1,3 @@
 comparing
 hash
-	^ self class hash bitXor: (label hash bitXor: (from identityHash bitXor: to identityHash))
+	^ self class hash bitXor: (self label hash bitXor: (self from identityHash bitXor: self to identityHash))

@@ -4,7 +4,7 @@ UBDA
 	 It has unbounded direct ambiguity and no saving grace"
 	^ [ | A x |
 		A := JENonterminal named: 'A'.
-		x := JETerminal symbol: #x.
+		x := JETerminal character: $x.
 		JEGrammar
 			basedOn:
 			{	A body: { x }.

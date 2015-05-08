@@ -1,7 +1,7 @@
 tests
 testParse6Xs
 	| forest |
-	forest := grammar parse: #(x x x x x x).
+	forest := grammar parse: 'xxxxxx'.
 	self deny: forest isEmpty.
 	self assert: forest size equals: 42.
 	self assert: (forest allSatisfy: [ :each | each size = 23 ])

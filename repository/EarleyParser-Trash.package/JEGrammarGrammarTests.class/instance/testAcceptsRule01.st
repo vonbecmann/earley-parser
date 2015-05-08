@@ -1,3 +1,3 @@
 tests
-testAcceptsSimpleRule
+testAcceptsRule01
 	self assert: (grammar accepts: '<E>::=<T>')

@@ -1,11 +1,12 @@
 running
 setUp
 	grammar := [ 
-	| Rule Rulename Assignment Expression Term Literal |
-	Rule := JENonterminal named: 'Rule'.
-	Rulename := JENonterminal named: 'Rulename'.
-	Assignment := JENonterminal named: 'Assignment'.
-	Expression := JENonterminal named: 'Expression'.
+	| Rule Rulename Letter Assignment Expression Term Literal |
+	Rule := JENonterminal named: #Rule.
+	Rulename := JENonterminal named: #Rulename.
+	Letter := JENonterminal named: #Letter.
+	Assignment := JENonterminal named: #Assignment.
+	Expression := JENonterminal named: #Expression.
 	Term := JENonterminal named: #Term.
 	Literal := JENonterminal named: #Literal.
 	JEGrammar
@@ -13,7 +14,9 @@ setUp
 (Rule	body: { Rulename. Assignment. Expression }).
 
 (Rulename 
-	body: { (JETerminal character: $<). (JETerminal character: $A). (JETerminal character: $>) }).
+	body: { (JETerminal character: $<). Letter. (JETerminal character: $>) }).
+	
+(Letter body: {JERegexTerminal regex: '[A-Z]'.}).
 
 (Assignment	
 	body: 	{ (JETerminal character: $:). (JETerminal character: $:). (JETerminal character: $=) }).
@@ -24,4 +27,4 @@ setUp
 (Term body: { Rulename }).
 (Term body: { Literal }).
 
-(Literal body: { (JELiteralTerminal new) }) } ] value
+(Literal body: { (JERegexTerminal regex: '[A-Za-z0-9+-/\\*~=@,%|&?!]') }) } ] value

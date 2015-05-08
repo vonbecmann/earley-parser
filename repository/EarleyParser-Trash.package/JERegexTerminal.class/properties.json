@@ -1,11 +1,14 @@
 {
-	"commentStamp" : "BernardoContreras 5/8/2015 02:46",
+	"commentStamp" : "BernardoContreras 5/8/2015 03:47",
 	"super" : "JETerminal",
 	"category" : "EarleyParser-Trash",
 	"classinstvars" : [ ],
 	"pools" : [ ],
 	"classvars" : [ ],
-	"instvars" : [ ],
-	"name" : "JELiteralTerminal",
+	"instvars" : [
+		"regex",
+		"matcher"
+	],
+	"name" : "JERegexTerminal",
 	"type" : "normal"
 }

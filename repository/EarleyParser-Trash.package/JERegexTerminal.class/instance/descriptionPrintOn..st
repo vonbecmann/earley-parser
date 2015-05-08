@@ -1,3 +1,3 @@
 private
 descriptionPrintOn: aStream
-	self description printOn: aStream
+	regex printOn: aStream

@@ -5,8 +5,8 @@ testHyperEdgeEquality
 	P := JENonterminal named: 'P'.
 	first := JEChart number: 1.
 	fourth := JEChart number: 4.
-	root := JEHNode labeled: Start from: first to: fourth.
-	sourceNode := JEHNode labeled: P from: first to: fourth.
+	root := JEHypernode labeled: Start from: first to: fourth.
+	sourceNode := JEHypernode labeled: P from: first to: fourth.
 	one := JEDirectedHyperedge 
 					sourceNodes: {sourceNode} 
 					targetNode: root.

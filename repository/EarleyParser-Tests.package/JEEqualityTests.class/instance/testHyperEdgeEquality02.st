@@ -6,12 +6,12 @@ testHyperEdgeEquality02
 	T := JENonterminal named: 'T'.
 	first := JEChart number: 1.
 	fourth := JEChart number: 4.
-	root := JEHNode labeled: Start from: first to: fourth.
+	root := JEHypernode labeled: Start from: first to: fourth.
 	one := JEDirectedHyperedge
-					sourceNodes: {(JEHNode labeled: P from: first to: fourth)}
+					sourceNodes: {(JEHypernode labeled: P from: first to: fourth)}
 					targetNode: root.
 	another := JEDirectedHyperedge
-					sourceNodes: {(JEHNode labeled: T from: first to: fourth)}
+					sourceNodes: {(JEHypernode labeled: T from: first to: fourth)}
 					targetNode: root.
 	self deny: one = another.
 	self deny: one hash = another hash.

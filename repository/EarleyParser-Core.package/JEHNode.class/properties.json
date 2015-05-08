@@ -8,8 +8,7 @@
 	"instvars" : [
 		"label",
 		"from",
-		"to",
-		"sourceNodes"
+		"to"
 	],
 	"name" : "JEHNode",
 	"type" : "normal"

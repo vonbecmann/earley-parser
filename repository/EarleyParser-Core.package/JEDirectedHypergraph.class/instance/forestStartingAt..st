@@ -19,7 +19,7 @@ forestStartingAt: aNode
 				whileFalse: [ 
 					| currentNode sourceNodes |
 					currentNode := stack pop.
-					sourceNodes := currentNode sourceNodes.
+					sourceNodes := self sourceNodesAt: currentNode.
 					tree add: currentNode.
 					sourceNodes isEmpty
 						ifFalse: [ 

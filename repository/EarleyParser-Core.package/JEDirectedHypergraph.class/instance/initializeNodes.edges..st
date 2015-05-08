@@ -1,5 +1,6 @@
 initialization
-initializeNodes: aNodesSet edges: anEdgesSet
+initializeNodes: aNodeCollection edges: anEdgeCollection
 	self initialize.
-	nodes := aNodesSet.
-	edges := anEdgesSet
+	nodes := aNodeCollection.
+	edges := anEdgeCollection.
+	edges do: [ :each | self sourceNodesAt: each targetNode put: each sourceNodes ]

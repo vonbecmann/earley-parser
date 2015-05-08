@@ -1,3 +1,3 @@
 instance creation
-nodes: aNodesSet hyperedges: anEdgesSet
-	^ self basicNew initializeNodes: aNodesSet edges: anEdgesSet
+nodes: aNodeCollection hyperedges: anEdgeCollection
+	^ self basicNew initializeNodes: aNodeCollection edges: anEdgeCollection

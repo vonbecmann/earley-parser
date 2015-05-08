@@ -27,4 +27,4 @@ setUp
 (Term body: { Rulename }).
 (Term body: { Literal }).
 
-(Literal body: { (JERegexTerminal regex: '[A-Za-z0-9+-/\\*~=@,%|&?!]') }) } ] value
+(Literal body: { (JERegexTerminal regex: '[\w\d+-/\\*~=@,%|&?!]') }) } ] value

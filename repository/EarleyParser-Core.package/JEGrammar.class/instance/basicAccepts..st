@@ -14,6 +14,6 @@ basicAccepts: words
 						item symbolAtDot isTerminal
 							ifTrue: [ 
 								(i <= words size and: [ item symbolAtDot equals: (words at: i) ])
-									ifTrue: [ self scan: item at: (charts at: i + 1) ] ]
+									ifTrue: [ self scan: item with: (words at: i) at: (charts at: i + 1) ] ]
 							ifFalse: [ self predict: item symbolAtDot at: chart ] ] ] ].
 	^ charts

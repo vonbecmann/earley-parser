@@ -1,0 +1,13 @@
+{
+	"commentStamp" : "BernardoContreras 2/21/2015 10:36",
+	"super" : "JETerminal",
+	"category" : "EarleyParser-Trash",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"classvars" : [ ],
+	"instvars" : [
+		"symbol"
+	],
+	"name" : "JESymbolTerminal",
+	"type" : "normal"
+}

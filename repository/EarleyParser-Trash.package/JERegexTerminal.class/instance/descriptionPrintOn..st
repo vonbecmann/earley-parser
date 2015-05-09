@@ -1,3 +1,5 @@
 private
 descriptionPrintOn: aStream
-	regex printOn: aStream
+	aStream nextPutAll: 'regex('.
+	regex printOn: aStream.
+	aStream nextPut: $)

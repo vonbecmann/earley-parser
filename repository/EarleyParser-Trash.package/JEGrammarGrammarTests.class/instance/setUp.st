@@ -1,35 +1,40 @@
 running
 setUp
 	grammar := [ 
-	| Rule Rulename Letter Assignment Expression Term Literal |
-	Rule := JENonterminal named: #Rule.
-	Rulename := JENonterminal named: #Rulename.
-	Letter := JENonterminal named: #Letter.
-	Assignment := JENonterminal named: #Assignment.
-	Expression := JENonterminal named: #Expression.
-	Term := JENonterminal named: #Term.
-	Literal := JENonterminal named: #Literal.
+	| rule rulename identifier letter assignment expression term literal |
+	rule := JENonterminal named: 'rule'.
+	rulename := JENonterminal named: 'rulename'.
+	identifier := JENonterminal named: 'identifier'.
+	letter := JENonterminal named: 'letter'.
+	assignment := JENonterminal named: 'assignment'.
+	expression := JENonterminal named: 'expression'.
+	term := JENonterminal named: 'term'.
+	literal := JENonterminal named: 'literal'.
 	JEGrammar
 		basedOn: {
-(Rule	body: { Rulename. Assignment. Expression }).
 
-(Rulename 
-	body: { (JETerminal character: $<). Letter. (JETerminal character: $>) }).
+(rule	body: { rulename. assignment. expression }).
+
+(rulename 
+	body: { (JETerminal character: $<). identifier. (JETerminal character: $>) }).
+
+(identifier body: { letter. }).
+(identifier body: { letter. identifier }).	
 	
-(Letter body: {JERegexTerminal regex: '[A-Z]'.}).
+(letter body: { JERegexTerminal regex: '[a-zA-Z]'. }).
 
-(Assignment	
-	body: 	{ (JETerminal character: $:). (JETerminal character: $:). (JETerminal character: $=) }).
+(assignment	
+	body: 	{ (JETerminal character: $=) }).
 
-(Expression body: { Term }).
-(Expression body: { Term. Expression }).
+(expression body: { term }).
+(expression body: { term. expression }).
 
-(Term body: { Rulename }).
-(Term body: { Literal }).
+(term body: { rulename }).
+(term body: { literal }).
 
-(Literal 
+(literal 
 	body: { 	(JETerminal character: $'). 
-				(JERegexTerminal regex: '[\w\d+-/\\*~=@,%|&?!]').
+				(JERegexTerminal regex: '[\w\d+-/\\*~=@,%|&?!<>]').
 				(JETerminal character: $') })
 	
 	 } ] value

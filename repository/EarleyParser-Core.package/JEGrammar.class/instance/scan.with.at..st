@@ -2,6 +2,7 @@ private
 scan: item with: word at: chart
 	"scan"
 
-	| forwardedItem |
+	| forwardedItem match |
+	match := JETerminalMatch this: word matches: item symbolAtDot.
 	forwardedItem := chart add: item moveDotForward.
-	chart addEdgeLabeled: (item symbolAtDot -> word) from: forwardedItem to: item
+	chart addEdgeLabeled: match from: forwardedItem to: item

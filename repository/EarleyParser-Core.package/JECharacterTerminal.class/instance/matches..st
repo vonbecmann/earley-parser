@@ -1,3 +1,3 @@
 comparing
-equals: anObject
+matches: anObject
 	^ Character = anObject class and: [ self character = anObject ]

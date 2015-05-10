@@ -1,3 +1,3 @@
 comparing
-equals: anObject
+matches: anObject
 	^ matcher matches: anObject asString

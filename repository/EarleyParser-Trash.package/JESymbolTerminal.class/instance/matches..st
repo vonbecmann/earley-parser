@@ -1,3 +1,3 @@
 comparing
-equals: anObject
+matches: anObject
 	^ (Symbol subclasses includes: anObject class) and: [ self symbol = anObject ]

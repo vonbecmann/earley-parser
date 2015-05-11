@@ -11,10 +11,10 @@ buildEdgesOn: builder startingAt: anItem
 			| item |
 			item := queue removeFirst.
 			visited add: item.
-			item edges
-				do: [ :edge | 
-					edge buildEdgesOn: builder.
-					(edge to isPredicted or: [ visited includes: edge to ])
-						ifFalse: [ queue addLast: edge to ].
-					(edge down isNil or: [ visited includes: edge down ])
-						ifFalse: [ queue addLast: edge down ] ] ]
+			item pointers
+				do: [ :pointer | 
+					pointer buildEdgesOn: builder.
+					(pointer to isPredicted or: [ visited includes: pointer to ])
+						ifFalse: [ queue addLast: pointer to ].
+					(pointer down isNil or: [ visited includes: pointer down ])
+						ifFalse: [ queue addLast: pointer down ] ] ]

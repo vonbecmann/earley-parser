@@ -2,5 +2,5 @@ initialization
 initialize
 	super initialize.
 	items := JELinkedList new.
-	edges := IdentityDictionary new.
+	pointers := IdentityDictionary new.
 	predictionItemsByNonterminal := Dictionary new

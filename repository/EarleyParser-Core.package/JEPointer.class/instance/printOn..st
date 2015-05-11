@@ -3,16 +3,15 @@ printOn: aStream
 	label printOn: aStream.
 	aStream
 		space;
-		nextPut: $(.
+		nextPutAll: 'from:'.
 	from printOn: aStream.
 	aStream
-		nextPut: $,;
-		space.
+		space;
+		nextPutAll: 'back to:'.
 	to printOn: aStream.
 	down isNil
 		ifFalse: [ 
 			aStream
-				nextPut: $,;
-				space.
-			down printOn: aStream ].
-	aStream nextPut: $)
+				space;
+				nextPutAll: 'down to:'.
+			down printOn: aStream ]

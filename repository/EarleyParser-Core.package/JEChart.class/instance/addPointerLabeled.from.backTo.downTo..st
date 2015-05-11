@@ -1,7 +1,8 @@
 adding
 addPointerLabeled: aJESymbol from: anItem backTo: aPreviousItem downTo: aChildItem
-	(edges at: anItem ifAbsentPut: [ JELinkedList new ])
-		add:
+	self
+		pointersAt: anItem
+		put:
 			(JEPointer
 				labeled: aJESymbol
 				from: anItem

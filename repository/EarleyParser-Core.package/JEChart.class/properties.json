@@ -9,8 +9,8 @@
 		"items",
 		"itemsByChart",
 		"number",
-		"edges",
-		"predictionItemsByNonterminal"
+		"predictionItemsByNonterminal",
+		"pointers"
 	],
 	"name" : "JEChart",
 	"type" : "normal"

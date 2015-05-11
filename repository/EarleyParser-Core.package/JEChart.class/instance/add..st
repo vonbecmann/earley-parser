@@ -1,7 +1,7 @@
 adding
 add: anItem
 	^ (self itemsAt: anItem startChart)
-		detect: [ :each | each like: anItem ]
+		detect: [ :each | each equals: anItem ]
 		ifFound: [ :found | found ]
 		ifNone: [ 
 			self itemsAt: anItem startChart put: anItem.

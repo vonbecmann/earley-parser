@@ -1,5 +1,5 @@
 comparing
-like: anItem
+equals: anItem
 	self class == anItem class
 		ifFalse: [ ^ false ].
 	startChart = anItem startChart

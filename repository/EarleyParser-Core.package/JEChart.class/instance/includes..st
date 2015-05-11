@@ -1,3 +1,3 @@
 testing
 includes: anObject
-	^ items anySatisfy: [ :each | each like: anObject ]
+	^ items anySatisfy: [ :each | each equals: anObject ]

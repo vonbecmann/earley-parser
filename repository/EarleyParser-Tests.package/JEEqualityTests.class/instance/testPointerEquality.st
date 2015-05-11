@@ -1,5 +1,5 @@
 tests
-testEdgeEquality
+testPointerEquality
 	| chart plus rule to from one another |
 	chart := JEChart number: 1.
 	plus := JETerminal character: $+.

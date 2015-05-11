@@ -11,6 +11,6 @@
 		"to",
 		"down"
 	],
-	"name" : "JEDirectedEdge",
+	"name" : "JEPointer",
 	"type" : "normal"
 }

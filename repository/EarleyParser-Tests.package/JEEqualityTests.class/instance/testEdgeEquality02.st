@@ -10,8 +10,8 @@ testEdgeEquality02
 			P}.
 	to := (rule dotAt: 3) startedAt: chart.
 	from := rule dotAtEnd startedAt: chart.
-	one := JEDirectedEdge labeled: P from: from to: to.
-	another := JEDirectedEdge labeled: P from: from to: to.
+	one := JEDirectedEdge labeled: P from: from backTo: to.
+	another := JEDirectedEdge labeled: P from: from backTo: to.
 	self assert: one = another.
 	self assert: one hash = another hash.
 	self assert: another = one.

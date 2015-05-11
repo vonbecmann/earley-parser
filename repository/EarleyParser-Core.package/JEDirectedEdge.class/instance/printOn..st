@@ -1,6 +1,6 @@
 printing
 printOn: aStream
-	self printDescriptionLabelOn: aStream.
+	label printOn: aStream.
 	aStream
 		space;
 		nextPut: $(.
@@ -9,4 +9,10 @@ printOn: aStream
 		nextPut: $,;
 		space.
 	to printOn: aStream.
+	down isNil
+		ifFalse: [ 
+			aStream
+				nextPut: $,;
+				space.
+			down printOn: aStream ].
 	aStream nextPut: $)

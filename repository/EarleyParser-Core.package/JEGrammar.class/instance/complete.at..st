@@ -9,5 +9,8 @@ complete: item at: chart
 		do: [ :anItem | 
 			| forwardedItem |
 			forwardedItem := chart add: anItem moveDotForward.
-			chart addEdgeLabeled: anItem symbolAtDot from: forwardedItem to: anItem.
-			chart addEdgeLabeled: item head from: forwardedItem to: item ]
+			chart
+				addPointerLabeled: anItem symbolAtDot
+				from: forwardedItem
+				backTo: anItem
+				downTo: item ]

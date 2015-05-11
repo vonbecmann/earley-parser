@@ -8,7 +8,8 @@
 	"instvars" : [
 		"label",
 		"from",
-		"to"
+		"to",
+		"down"
 	],
 	"name" : "JEDirectedEdge",
 	"type" : "normal"

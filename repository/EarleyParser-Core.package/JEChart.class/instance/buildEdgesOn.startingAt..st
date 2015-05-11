@@ -15,4 +15,6 @@ buildEdgesOn: builder startingAt: anItem
 				do: [ :edge | 
 					edge buildEdgesOn: builder.
 					(edge to isPredicted or: [ visited includes: edge to ])
-						ifFalse: [ queue addLast: edge to ] ] ]
+						ifFalse: [ queue addLast: edge to ].
+					(edge down isNil or: [ visited includes: edge down ])
+						ifFalse: [ queue addLast: edge down ] ] ]

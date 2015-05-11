@@ -1,3 +1,3 @@
 testing
-includes: anItem
-	^ (self itemsAt: anItem startChart) includes: anItem
+includes: anObject
+	^ items anySatisfy: [ :each | each like: anObject ]

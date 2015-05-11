@@ -1,15 +1,11 @@
 comparing
-= anItem
+like: anItem
 	self class == anItem class
 		ifFalse: [ ^ false ].
 	startChart = anItem startChart
 		ifFalse: [ ^ false ].
 	dottedRule = anItem rule
 		ifFalse: [ ^ false ].
-	(endChart isNil and: [ anItem endChart isNil not ])
-		ifTrue: [ ^ false ].
-	(endChart isNil not and: [ anItem endChart isNil ])
-		ifTrue: [ ^ false ].
 	(endChart isNil or: [ anItem endChart isNil ])
 		ifFalse: [ 
 			endChart = anItem endChart

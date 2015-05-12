@@ -1,3 +1,3 @@
 accessing
-pointersFrom: anItem
+pointersAt: anItem
 	^ pointers at: anItem ifAbsent: [ JELinkedList new ]

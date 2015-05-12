@@ -1,3 +1,3 @@
 accessing
 pointers
-	^ endChart pointersFrom: self
+	^ endChart pointersAt: self

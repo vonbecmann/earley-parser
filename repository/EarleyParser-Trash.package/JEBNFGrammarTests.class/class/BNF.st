@@ -1,5 +1,6 @@
 as yet unclassified
 BNF
+	" my own BNF "
  ^ [ 
 	| rule rulename identifier letter assignment expression term literal |
 	rule := JENonterminal named: 'rule'.
@@ -21,7 +22,7 @@ BNF
 (identifier body: { letter. }).
 (identifier body: { letter. identifier }).	
 	
-(letter body: { JERegexTerminal regex: '[a-zA-Z]'. }).
+(letter body: { JETerminal regex: '[a-zA-Z]'. }).
 
 (assignment	
 	body: 	{	(JETerminal character: $:).
@@ -36,7 +37,7 @@ BNF
 
 (literal 
 	body: { 	(JETerminal character: $"). 
-				(JERegexTerminal regex: '[\w\d+-/\\*~=@,%|&?!<>]').
+				(JETerminal regex: '[\w\d+-/\\*~=@,%|&?!<>]').
 				(JETerminal character: $") })
 	
 	 } ] value

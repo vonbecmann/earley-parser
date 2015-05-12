@@ -1,0 +1,1 @@
+a regular expression as a terminal.

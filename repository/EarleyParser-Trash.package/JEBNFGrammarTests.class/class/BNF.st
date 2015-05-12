@@ -1,6 +1,6 @@
-running
-setUp
-	grammar := [ 
+as yet unclassified
+BNF
+ ^ [ 
 	| rule rulename identifier letter assignment expression term literal |
 	rule := JENonterminal named: 'rule'.
 	rulename := JENonterminal named: 'rulename'.
@@ -24,7 +24,9 @@ setUp
 (letter body: { JERegexTerminal regex: '[a-zA-Z]'. }).
 
 (assignment	
-	body: 	{ (JETerminal character: $=) }).
+	body: 	{	(JETerminal character: $:).
+				(JETerminal character: $:).
+				(JETerminal character: $=) }).
 
 (expression body: { term }).
 (expression body: { term. expression }).
@@ -33,8 +35,8 @@ setUp
 (term body: { literal }).
 
 (literal 
-	body: { 	(JETerminal character: $'). 
+	body: { 	(JETerminal character: $"). 
 				(JERegexTerminal regex: '[\w\d+-/\\*~=@,%|&?!<>]').
-				(JETerminal character: $') })
+				(JETerminal character: $") })
 	
 	 } ] value

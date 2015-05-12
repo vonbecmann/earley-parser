@@ -1,3 +1,3 @@
 instance creation
-regex: aString
-	^ self basicNew initializeRegex: aString
+regex: aRegexString
+	^ self basicNew initializeRegex: aRegexString

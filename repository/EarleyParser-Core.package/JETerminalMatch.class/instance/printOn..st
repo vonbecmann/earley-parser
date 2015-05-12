@@ -2,6 +2,6 @@ printing
 printOn: aStream
 	"terminal = word"
 
-	terminal printOn: aStream.
+	self terminal printOn: aStream.
 	aStream nextPut: $=.
-	word printOn: aStream
+	self word printOn: aStream

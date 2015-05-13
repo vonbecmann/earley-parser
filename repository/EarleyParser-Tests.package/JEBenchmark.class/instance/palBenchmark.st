@@ -6,4 +6,4 @@ palBenchmark
 	words := String new: maxOdd.
 	words from: 1 to: maxOdd put: $x.
 	grammar := JEExemplar PAL.
-	grammar accepts: words
+	grammar parse: words

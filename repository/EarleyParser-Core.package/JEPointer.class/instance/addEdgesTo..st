@@ -1,6 +1,6 @@
 hypergraph
-buildEdgesOn: builder
-	"build a hyperedge with its source nodes and target node"
+addEdgesTo: builder
+	"add a hyperedge with its source nodes and target node"
 
 	builder
 		gatherTargetNodeLabeled:

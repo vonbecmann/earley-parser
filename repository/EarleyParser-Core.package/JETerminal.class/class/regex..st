@@ -1,3 +1,5 @@
 instance creation
-regex: aRegexString 
-	^ JERegexTerminal regex: aRegexString 
+regex: aRegex
+	"a regular expression that defines a character class or set"
+
+	^ JERegexTerminal regex: aRegex

@@ -1,5 +1,5 @@
 {
-	"commentStamp" : "BernardoContreras 5/13/2015 01:36",
+	"commentStamp" : "BernardoContreras 5/13/2015 01:44",
 	"super" : "JETerminal",
 	"category" : "EarleyParser-Core-Public",
 	"classinstvars" : [ ],
@@ -9,6 +9,6 @@
 		"regex",
 		"matcher"
 	],
-	"name" : "JERegexTerminal",
+	"name" : "JECharacterSetTerminal",
 	"type" : "normal"
 }

@@ -9,8 +9,7 @@
 		"items",
 		"itemsByChart",
 		"number",
-		"predictionItemsByNonterminal",
-		"pointers"
+		"predictionItemsByNonterminal"
 	],
 	"name" : "JEChart",
 	"type" : "normal"

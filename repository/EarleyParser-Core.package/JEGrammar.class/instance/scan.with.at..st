@@ -5,5 +5,4 @@ scan: item with: word at: chart
 	| forwardedItem match |
 	match := JETerminalMatch this: word matches: item symbolAtDot.
 	forwardedItem := chart add: item moveDotForward.
-	"chart addPointerLabeled: match from: forwardedItem backTo: item."
-	self addEdgeLabeled: match from: forwardedItem to: item.
+	self addEdgeLabeled: match from: forwardedItem to: item

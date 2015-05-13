@@ -1,6 +1,6 @@
 initialization
 initialize
 	super initialize.
-	startSymbol := JENonterminal named: 'Start'.
+	startSymbol := JENonterminal named: 'START'.
 	rules := OrderedCollection new.
 	alternatives := Dictionary new

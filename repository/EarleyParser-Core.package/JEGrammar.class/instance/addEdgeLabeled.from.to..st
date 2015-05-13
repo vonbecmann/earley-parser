@@ -1,10 +1,14 @@
 private
 addEdgeLabeled: anObject from: fromItem to: previousItem 
-	builder
+	"builder
 		gatherTargetNodeLabeled:
 			(fromItem isFinal
 				ifTrue: [ fromItem head ]
 				ifFalse: [ fromItem rule ])
+		from: fromItem startChart
+		to: fromItem endChart."
+	builder
+		gatherTargetNodeLabeled: fromItem 
 		from: fromItem startChart
 		to: fromItem endChart.
 	builder 
@@ -14,7 +18,7 @@ addEdgeLabeled: anObject from: fromItem to: previousItem
 	previousItem isPredicted
 		ifFalse: [ 
 			builder 
-				gatherSourceNodeLabeled: previousItem rule 
+				gatherSourceNodeLabeled: previousItem  
 				from: previousItem startChart 
 				to: previousItem endChart ].
 	builder addEdge

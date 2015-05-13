@@ -9,4 +9,5 @@ test03Do
 		addLast: 3.
 	list do: [ :each | sum := sum + each ].
 	self deny: list isEmpty.
-	self assert: sum equals: 6
+	self assert: sum equals: 6.
+	self assert: list size equals: 3

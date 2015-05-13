@@ -22,4 +22,5 @@ test06removeFirst
 	self assert: list first equals: 4.
 	
 	list removeFirst.
-	self assert: list isEmpty
+	self assert: list isEmpty.
+	self assert: list size equals: 0

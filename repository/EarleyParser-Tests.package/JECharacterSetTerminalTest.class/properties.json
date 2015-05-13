@@ -6,6 +6,6 @@
 	"pools" : [ ],
 	"classvars" : [ ],
 	"instvars" : [ ],
-	"name" : "JERegexTerminalTest",
+	"name" : "JECharacterSetTerminalTest",
 	"type" : "normal"
 }

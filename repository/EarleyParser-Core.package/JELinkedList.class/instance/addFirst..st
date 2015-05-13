@@ -8,4 +8,5 @@ addFirst: anObject
 		ifTrue: [ lastLink := link ].
 	link nextLink: firstLink.
 	firstLink := link.
+	tally := tally + 1.
 	^ anObject

@@ -7,7 +7,8 @@
 	"classvars" : [ ],
 	"instvars" : [
 		"firstLink",
-		"lastLink"
+		"lastLink",
+		"tally"
 	],
 	"name" : "JELinkedList",
 	"type" : "normal"

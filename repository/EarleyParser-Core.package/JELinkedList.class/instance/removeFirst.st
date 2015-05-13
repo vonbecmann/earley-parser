@@ -10,4 +10,5 @@ removeFirst
 		ifTrue: [ lastLink := nil ]
 		ifFalse: [ oldLink nextLink ].
 	oldLink nextLink: nil.
+	tally := tally - 1.
 	^ oldLink value

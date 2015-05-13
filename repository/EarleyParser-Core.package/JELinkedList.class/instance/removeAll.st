@@ -2,4 +2,5 @@ removing
 removeAll
 	"Implementation note: this has to be fast"
 
-	firstLink := lastLink := nil
+	firstLink := lastLink := nil.
+	tally := 0

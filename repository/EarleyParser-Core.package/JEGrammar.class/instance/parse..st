@@ -1,5 +1,9 @@
 public
 parse: words
-	| graph |
-	graph := self hypergraph: words.
-	^ graph forestStartingAtNodeLabeled: startSymbol
+	| charts graph finalItem |
+	charts := self basicAccepts: words.
+	graph := builder build.
+	finalItem := self startRule dotAtEnd startedAt: charts first.
+	^ (charts last includes: finalItem)
+		ifTrue: [ graph forestStartingAtNodeLike: (charts last like: finalItem) ]
+		ifFalse: [ OrderedCollection new ]

@@ -2,13 +2,10 @@ public
 forestStartingAt: aNode
 	| forest derivationStack |
 	forest := OrderedCollection new.
-	derivationStack := JEStack new.
-	derivationStack
-		push:
-			{(JEStack new
-				push: aNode;
-				yourself).
-			(JELinkedList new)}.
+	derivationStack := JEStack
+		with:
+			{	(JEStack with: aNode).
+				(JELinkedList new) }.
 	[ derivationStack isEmpty ]
 		whileFalse: [ 
 			| derivation stack tree |

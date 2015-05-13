@@ -4,8 +4,7 @@ buildEdgesOn: builder startingAt: anItem
 
 	| visited queue |
 	visited := Set new.
-	queue := JELinkedList new.
-	queue addLast: (self like: anItem).
+	queue := JELinkedList with: (self like: anItem).
 	[ queue isEmpty ]
 		whileFalse: [ 
 			| item |

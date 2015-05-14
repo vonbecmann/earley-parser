@@ -7,8 +7,14 @@ setUp
 	x := JETerminal character: $x.
 	startRule := (start body: {A}) dotAtEnd.
 	firstRule := (A body: {x}) dotAtEnd.
-	secondRule := (A body: {A. A}) dotAtEnd.
-	thirdRule := (A body: {A. A}) dotAt: 2.
+	secondRule := (A
+		body:
+			{A.
+			A}) dotAtEnd.
+	thirdRule := (A
+		body:
+			{A.
+			A}) dotAt: 2.
 	first := JEChart number: 1.
 	second := JEChart number: 2.
 	third := JEChart number: 3.
@@ -19,7 +25,7 @@ setUp
 		addEdge.
 	builder
 		gatherTargetNode: (secondRule startedAt: first andEndedAt: fourth);
-		gatherSourceNode: (thirdRule  startedAt: first andEndedAt: second);
+		gatherSourceNode: (thirdRule startedAt: first andEndedAt: second);
 		gatherSourceNode: (secondRule startedAt: second andEndedAt: fourth);
 		addEdge.
 	builder
@@ -32,9 +38,9 @@ setUp
 		gatherSourceNode: (firstRule startedAt: first andEndedAt: third);
 		addEdge.
 	builder
-		gatherTargetNodeLabeled: A from: first to: third;
-		gatherSourceNodeLabeled: (thirdRule) from: first to: second;
-		gatherSourceNodeLabeled: A from: second to: third;
+		gatherTargetNode: (secondRule startedAt: first andEndedAt: third);
+		gatherSourceNode: (thirdRule startedAt: first andEndedAt: second);
+		gatherSourceNode: (firstRule startedAt: second andEndedAt: third);
 		addEdge.
 	builder
 		gatherTargetNodeLabeled: (secondRule dotAt: 2) from: first to: second;
@@ -58,7 +64,7 @@ setUp
 		gatherSourceNodeLabeled: A from: third to: fourth;
 		addEdge.
 	builder
-		gatherTargetNodeLabeled: (secondRule dotAt: 2) from: second to: third;
-		gatherSourceNodeLabeled: A from: second to: third;
+		gatherTargetNode: (thirdRule startedAt: second endedAt: third);
+		gatherSourceNode: (firstRule startedAt: second endedAt: third);
 		addEdge.
 	graph := builder build

@@ -1,70 +1,70 @@
 running
 setUp
-	| builder startRule firstRule secondRule first second third fourth thirdRule |
+	| builder A x aThenX aThenAA aThenADotA first second third fourth firstX secondX thirdX |
 	builder := JEHypergraphBuilder new.
-	start := JENonterminal named: 'START'.
 	A := JENonterminal named: 'A'.
 	x := JETerminal character: $x.
-	startRule := (start body: {A}) dotAtEnd.
-	firstRule := (A body: {x}) dotAtEnd.
-	secondRule := (A
-		body:
-			{A.
-			A}) dotAtEnd.
-	thirdRule := (A
-		body:
-			{A.
-			A}) dotAt: 2.
+	aThenX := (A body: {x}) dotAtEnd.
+	aThenAA := (A body: {A.	A}) dotAtEnd.
+	aThenADotA := (A body: {A. A}) dotAt: 2.
 	first := JEChart number: 1.
 	second := JEChart number: 2.
 	third := JEChart number: 3.
 	fourth := JEChart number: 4.
+	startNode := (JENonterminal start body: {A}) dotAtEnd startedAt: first andEndedAt: fourth.
+	firstX := JETerminalMatch 
+						this: $x matches: x between: first and: second.
+	secondX := JETerminalMatch
+						this: $x	matches: x between: second and: third.
+	thirdX := JETerminalMatch
+						this: $x 	matches: x between: third and: fourth.
+				
 	builder
-		gatherTargetNode: (startRule startedAt: first andEndedAt: fourth);
-		gatherSourceNode: (secondRule startedAt: first andEndedAt: fourth);
+		gatherTargetNode: startNode;
+		gatherSourceNode: (aThenAA startedAt: first andEndedAt: fourth);
 		addEdge.
 	builder
-		gatherTargetNode: (secondRule startedAt: first andEndedAt: fourth);
-		gatherSourceNode: (thirdRule startedAt: first andEndedAt: second);
-		gatherSourceNode: (secondRule startedAt: second andEndedAt: fourth);
+		gatherTargetNode: (aThenAA startedAt: first andEndedAt: fourth);
+		gatherSourceNode: (aThenADotA startedAt: first andEndedAt: second);
+		gatherSourceNode: (aThenAA startedAt: second andEndedAt: fourth);
 		addEdge.
 	builder
-		gatherTargetNode: (secondRule startedAt: first andEndedAt: fourth);
-		gatherSourceNode: (thirdRule startedAt: first andEndedAt: third);
-		gatherSourceNode: (firstRule startedAt: third andEndedAt: fourth);
+		gatherTargetNode: (aThenAA startedAt: first andEndedAt: fourth);
+		gatherSourceNode: (aThenADotA startedAt: first andEndedAt: third);
+		gatherSourceNode: (aThenX startedAt: third andEndedAt: fourth);
 		addEdge.
 	builder
-		gatherTargetNode: (thirdRule startedAt: first andEndedAt: third);
-		gatherSourceNode: (firstRule startedAt: first andEndedAt: third);
+		gatherTargetNode: (aThenADotA startedAt: first andEndedAt: third);
+		gatherSourceNode: (aThenAA startedAt: first andEndedAt: third);
 		addEdge.
 	builder
-		gatherTargetNode: (secondRule startedAt: first andEndedAt: third);
-		gatherSourceNode: (thirdRule startedAt: first andEndedAt: second);
-		gatherSourceNode: (firstRule startedAt: second andEndedAt: third);
+		gatherTargetNode: (aThenAA startedAt: first andEndedAt: third);
+		gatherSourceNode: (aThenADotA startedAt: first andEndedAt: second);
+		gatherSourceNode: (aThenX startedAt: second andEndedAt: third);
 		addEdge.
 	builder
-		gatherTargetNodeLabeled: (secondRule dotAt: 2) from: first to: second;
-		gatherSourceNodeLabeled: A from: first to: second;
+		gatherTargetNode: (aThenADotA startedAt: first andEndedAt: second);
+		gatherSourceNode: (aThenX startedAt: first andEndedAt: second);
 		addEdge.
 	builder
-		gatherTargetNodeLabeled: A from: first to: second;
-		gatherSourceNodeLabeled: x from: first to: second;
+		gatherTargetNode: (aThenX startedAt: first andEndedAt: second);
+		gatherSourceNode: firstX;
 		addEdge.
 	builder
-		gatherTargetNodeLabeled: A from: second to: third;
-		gatherSourceNodeLabeled: x from: second to: third;
+		gatherTargetNode: (aThenX startedAt: second andEndedAt: third);
+		gatherSourceNode: secondX;
 		addEdge.
 	builder
-		gatherTargetNodeLabeled: A from: third to: fourth;
-		gatherSourceNodeLabeled: x from: third to: fourth;
+		gatherTargetNode: (aThenX startedAt: third andEndedAt: fourth);
+		gatherSourceNode: thirdX;
 		addEdge.
 	builder
-		gatherTargetNodeLabeled: A from: second to: fourth;
-		gatherSourceNodeLabeled: (secondRule dotAt: 2) from: second to: third;
-		gatherSourceNodeLabeled: A from: third to: fourth;
+		gatherTargetNode: (aThenAA startedAt: second andEndedAt: fourth);
+		gatherSourceNode: (aThenADotA startedAt: second andEndedAt: third);
+		gatherSourceNode: (aThenX startedAt: third andEndedAt: fourth);
 		addEdge.
 	builder
-		gatherTargetNode: (thirdRule startedAt: second endedAt: third);
-		gatherSourceNode: (firstRule startedAt: second endedAt: third);
+		gatherTargetNode: (aThenADotA startedAt: second andEndedAt: third);
+		gatherSourceNode: (aThenX startedAt: second andEndedAt: third);
 		addEdge.
 	graph := builder build

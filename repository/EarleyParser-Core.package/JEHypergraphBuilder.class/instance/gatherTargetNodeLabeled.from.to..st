@@ -1,4 +1,4 @@
-adding edges
+to be removed
 gatherTargetNodeLabeled: anObject from: startChart to: endChart
 	"set the target node for a new edge"
 

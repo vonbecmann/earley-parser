@@ -9,4 +9,4 @@ complete: item at: chart
 		do: [ :anItem | 
 			| forwardedItem |
 			forwardedItem := chart add: anItem moveDotForward.
-			self addEdgeLabeled: item from: forwardedItem to: anItem ]
+			self addEdgeTarget: forwardedItem source: item and: anItem ]

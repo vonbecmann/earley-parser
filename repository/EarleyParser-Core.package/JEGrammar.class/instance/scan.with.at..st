@@ -9,4 +9,4 @@ scan: item with: word at: chart
 		matches: item symbolAtDot
 		between: item endChart
 		and: forwardedItem endChart.
-	self addEdgeLabeled: match from: forwardedItem to: item
+	self addEdgeTarget: forwardedItem source: match and: item

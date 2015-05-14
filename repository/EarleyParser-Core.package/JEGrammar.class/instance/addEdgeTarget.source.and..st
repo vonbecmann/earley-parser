@@ -1,5 +1,5 @@
 private
-addEdgeLabeled: anObject from: fromItem to: previousItem
+addEdgeTarget: fromItem source: anObject and: previousItem
 	builder gatherTargetNode: fromItem.
 	builder gatherSourceNode: anObject.
 	previousItem isPredicted

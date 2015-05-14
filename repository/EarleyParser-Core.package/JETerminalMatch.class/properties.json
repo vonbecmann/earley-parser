@@ -8,8 +8,8 @@
 	"instvars" : [
 		"terminal",
 		"word",
-		"start",
-		"end"
+		"startChart",
+		"endChart"
 	],
 	"name" : "JETerminalMatch",
 	"type" : "normal"

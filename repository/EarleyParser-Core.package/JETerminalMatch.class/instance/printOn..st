@@ -10,9 +10,9 @@ printOn: aStream
 		nextPut: $@;
 		space;
 		nextPut: $[.
-	self start shortPrintOn: aStream.
+	self startChart shortPrintOn: aStream.
 	aStream
 		space;
 		nextPut: $,.
-	self end shortPrintOn: aStream.
+	self endChart shortPrintOn: aStream.
 	aStream nextPut: $]

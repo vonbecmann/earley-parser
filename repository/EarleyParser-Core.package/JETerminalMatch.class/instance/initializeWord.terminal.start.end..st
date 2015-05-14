@@ -1,7 +1,7 @@
 initialization
-initializeWord: aWord terminal: aTerminal start: startChart end: endChart
+initializeWord: aWord terminal: aTerminal start: aChart end: anotherChart
 	self initialize.
 	word := aWord.
 	terminal := aTerminal.
-	start := startChart.
-	end := endChart
+	startChart := aChart.
+	endChart := anotherChart

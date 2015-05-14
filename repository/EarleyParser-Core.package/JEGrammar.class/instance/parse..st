@@ -5,5 +5,5 @@ parse: words
 	graph := builder build.
 	finalItem := self startRule dotAtEnd startedAt: charts first.
 	^ (charts last includes: finalItem)
-		ifTrue: [ graph forestStartingAtNodeLike: (charts last like: finalItem) ]
+		ifTrue: [ graph forestStartingAtNodeLabeled: (charts last like: finalItem) ]
 		ifFalse: [ OrderedCollection new ]

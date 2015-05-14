@@ -1,5 +1,5 @@
 printing
 printOn: aStream
 	aStream nextPut: $(.
-	self label printOn: aStream.
+	self value printOn: aStream.
 	aStream nextPut: $)

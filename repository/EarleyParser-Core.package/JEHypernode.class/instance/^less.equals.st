@@ -1,3 +1,3 @@
 comparing
 <= aNode
-	^ self label <= aNode label
+	^ self value <= aNode value

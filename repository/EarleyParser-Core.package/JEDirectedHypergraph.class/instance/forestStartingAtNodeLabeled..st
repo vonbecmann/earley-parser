@@ -1,3 +1,5 @@
 public
 forestStartingAtNodeLabeled: anObject
-	^ (nodes select: [ :each | each label = anObject ]) flatCollect: [ :each | self forestStartingAt: each ]
+	^ (nodes 
+			select: [ :each | each value = anObject ]) 
+				flatCollect: [ :each | self forestStartingAt: each ]

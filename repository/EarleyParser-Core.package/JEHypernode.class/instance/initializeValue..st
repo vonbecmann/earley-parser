@@ -1,4 +1,4 @@
 initialization
 initializeValue: anObject
 	self initialize.
-	label := anObject
+	value := anObject

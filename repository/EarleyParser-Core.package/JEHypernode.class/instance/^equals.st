@@ -2,6 +2,6 @@ comparing
 = anObject
 	self class == anObject class
 		ifFalse: [ ^ false ].
-	self label = anObject label
+	self value = anObject value
 		ifFalse: [ ^ false ].
 	^ true

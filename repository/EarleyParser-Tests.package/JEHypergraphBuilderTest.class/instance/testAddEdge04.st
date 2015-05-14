@@ -2,9 +2,10 @@ running
 testAddEdge04
 	"add edge with out target node"
 
-	| S from to |
+	| S first second source |
 	S := JENonterminal named: 'S'.
-	from := JEChart number: 1.
-	to := JEChart number: 2.
-	builder gatherSourceNodeLabeled: S from: from to: to.
+	first := JEChart number: 1.
+	second := JEChart number: 2.
+	source := (S body: {S}) dotAtEnd startedAt: first andEndedAt: second.
+	builder gatherSourceNode: source.
 	self should: [ builder addEdge ] raise: Error

@@ -8,7 +8,7 @@ addEdge
 	targetNode isNil
 		ifTrue: [ ^ Error signal: 'target node cannot be nil' ].
 	sourceNodes := SortedCollection sortBlock: [ :a :b | a <= b ].
-	sourceNodes addAll: accumulatedSourceNodes.
-	edges add: (self makeEdgeWithSourceNodes: sourceNodes asArray targetNode: targetNode).
+"	sourceNodes addAll: accumulatedSourceNodes."
+	edges add: (self makeEdgeWithSourceNodes: accumulatedSourceNodes asArray targetNode: targetNode).
 	targetNode := nil.
 	accumulatedSourceNodes := IdentitySet new

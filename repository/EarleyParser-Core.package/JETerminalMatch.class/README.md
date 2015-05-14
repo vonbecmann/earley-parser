@@ -1,1 +1,1 @@
-a word matches a terminal.
+a word matches a terminal between start and end.

@@ -1,3 +1,3 @@
 instance creation
-labeled: anObject from: startChart to: endChart
+value: anObject
 	^ self basicNew initializeValue: anObject

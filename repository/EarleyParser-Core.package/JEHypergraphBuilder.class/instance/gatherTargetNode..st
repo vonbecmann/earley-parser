@@ -1,5 +1,5 @@
 adding edges
-gatherTargetNodeLabeled: anObject from: startChart to: endChart
+gatherTargetNode: anObject
 	"set the target node for a new edge"
 
 	targetNode isNil

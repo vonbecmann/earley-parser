@@ -6,12 +6,6 @@ comparing
 		ifFalse: [ ^ false ].
 	dottedRule = anItem rule
 		ifFalse: [ ^ false ].
-	(endChart isNil and: [ anItem endChart isNil not ])
-		ifTrue: [ ^ false ].
-	(endChart isNil not and: [ anItem endChart isNil ])
-		ifTrue: [ ^ false ].
-	(endChart isNil or: [ anItem endChart isNil ])
-		ifFalse: [ 
-			endChart = anItem endChart
-				ifFalse: [ ^ false ] ].
+	endChart = anItem endChart
+		ifFalse: [ ^ false ].
 	^ true

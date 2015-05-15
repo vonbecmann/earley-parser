@@ -1,5 +1,5 @@
 private
-addEdgeTarget: fromItem source: anObject and: previousItem
+addEdgeTarget: fromItem source: previousItem and: anObject
 	builder gatherTargetNode: fromItem.
 	previousItem isPredicted
 		ifFalse: [ builder gatherSourceNode: previousItem ].

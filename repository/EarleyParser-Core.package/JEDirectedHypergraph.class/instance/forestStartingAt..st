@@ -4,8 +4,8 @@ forestStartingAt: aNode
 	forest := OrderedCollection new.
 	derivationStack := JEStack
 		with:
-			{	(JEStack with: aNode).
-				(JELinkedList new) }.
+			{(JEStack with: aNode).
+			(JELinkedList new)}.
 	[ derivationStack isEmpty ]
 		whileFalse: [ 
 			| derivation stack tree |
@@ -17,7 +17,8 @@ forestStartingAt: aNode
 					| currentNode sourceNodes |
 					currentNode := stack pop.
 					sourceNodes := self sourceNodesAt: currentNode.
-					tree add: currentNode.
+					currentNode value isFinal
+						ifTrue: [ tree add: currentNode ].
 					sourceNodes isEmpty
 						ifFalse: [ 
 							sourceNodes size = 1

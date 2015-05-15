@@ -12,7 +12,7 @@ printOn: aStream
 		nextPut: $[.
 	self startChart shortPrintOn: aStream.
 	aStream
-		space;
-		nextPut: $,.
+		nextPut: $,;
+		space.
 	self endChart shortPrintOn: aStream.
 	aStream nextPut: $]

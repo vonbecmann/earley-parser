@@ -16,8 +16,8 @@ printOn: aStream
 			aStream nextPut: $[.
 			startChart shortPrintOn: aStream.
 			aStream
-				space;
-				nextPut: $,.
+				nextPut: $,;
+				space.
 			endChart shortPrintOn: aStream.
 			aStream nextPut: $] ].
 	aStream nextPut: $]

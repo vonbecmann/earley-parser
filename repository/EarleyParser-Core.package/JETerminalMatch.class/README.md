@@ -1,2 +1,3 @@
-a word matches a terminal between start and end.
-acts as a leaf node 
+a word matches a terminal.
+acts as a fake dottedRule in a  leaf item.
+

@@ -2,11 +2,9 @@ private
 scan: item with: word at: chart
 	"scan"
 
-	| forwardedItem match |
+	| forwardedItem terminalItem |
 	forwardedItem := chart add: item moveDotForward.
-	match := JETerminalMatch
-		this: word
-		matches: item symbolAtDot
-		between: item endChart
-		and: forwardedItem endChart.
-	self addEdgeTarget: forwardedItem source: item and: match
+	terminalItem := (JETerminalMatch this: word matches: item symbolAtDot)
+		startedAt: item endChart
+		andEndedAt: forwardedItem endChart.
+	self addEdgeTarget: forwardedItem source: item and: terminalItem

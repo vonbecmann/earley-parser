@@ -6,8 +6,4 @@ comparing
 		ifFalse: [ ^ false ].
 	self terminal = anObject terminal
 		ifFalse: [ ^ false ].
-	self startChart = anObject startChart
-		ifFalse: [ ^ false ].
-	self endChart = anObject endChart
-		ifFalse: [ ^ false ].
 	^ true

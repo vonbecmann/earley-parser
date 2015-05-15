@@ -1,18 +1,7 @@
 printing
 printOn: aStream
-	"terminal = word @ [start, end]"
+	"terminal = word"
 
 	self terminal printOn: aStream.
 	aStream nextPut: $=.
-	self word printOn: aStream.
-	aStream
-		space;
-		nextPut: $@;
-		space;
-		nextPut: $[.
-	self startChart shortPrintOn: aStream.
-	aStream
-		nextPut: $,;
-		space.
-	self endChart shortPrintOn: aStream.
-	aStream nextPut: $]
+	self word printOn: aStream

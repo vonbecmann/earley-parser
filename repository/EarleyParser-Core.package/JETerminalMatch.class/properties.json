@@ -1,5 +1,5 @@
 {
-	"commentStamp" : "BernardoContreras 5/15/2015 14:28",
+	"commentStamp" : "BernardoContreras 5/15/2015 19:15",
 	"super" : "Object",
 	"category" : "EarleyParser-Core-Implementation",
 	"classinstvars" : [ ],
@@ -7,9 +7,7 @@
 	"classvars" : [ ],
 	"instvars" : [
 		"terminal",
-		"word",
-		"startChart",
-		"endChart"
+		"word"
 	],
 	"name" : "JETerminalMatch",
 	"type" : "normal"

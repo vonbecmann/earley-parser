@@ -6,7 +6,8 @@ complete: item at: chart
 	add (Y -> a X * b, i) to S(k)."
 
 	item predictionItemsWithSymbolAtDotIsHead
-		do: [ :anItem | 
-			| forwardedItem |
-			forwardedItem := chart add: anItem moveDotForward.
-			self addEdgeTarget: forwardedItem source: anItem and: item ]
+		do: [ :previous | 
+			| next |
+			next := chart add: previous moveDotForward.
+			self addEdgeSourceNodes: previous and: item toTargetNode: next.
+			self ]

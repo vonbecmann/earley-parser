@@ -12,13 +12,10 @@ setUp
 	third := JEChart number: 3.
 	fourth := JEChart number: 4.
 	startNode := (JENonterminal start body: {A}) dotAtEnd startedAt: first andEndedAt: fourth.
-	firstX := JETerminalMatch 
-						this: $x matches: x between: first and: second.
-	secondX := JETerminalMatch
-						this: $x	matches: x between: second and: third.
-	thirdX := JETerminalMatch
-						this: $x 	matches: x between: third and: fourth.
-				
+	firstX := (JETerminalMatch this: $x matches: x) startedAt: first andEndedAt: second.
+	secondX := (JETerminalMatch	this: $x	matches: x) startedAt: second andEndedAt: third.
+	thirdX := (JETerminalMatch this: $x matches: x) startedAt: third andEndedAt: fourth.
+	
 	builder
 		gatherTargetNode: startNode;
 		gatherSourceNode: (aThenAA startedAt: first andEndedAt: fourth);

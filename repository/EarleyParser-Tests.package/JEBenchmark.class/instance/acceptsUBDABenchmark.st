@@ -1,7 +1,7 @@
 public
-ubdaBenchmark
+acceptsUBDABenchmark
 	| n words grammar |
-	n := 400.
+	n := 60.
 	words := String new: n.
 	words from: 1 to: n put: $x.
 	grammar := JEExemplar UBDA.

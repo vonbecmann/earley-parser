@@ -4,4 +4,4 @@ testParse3Xs
 	forest := grammar parse: 'xxx'.
 	self deny: forest isEmpty.
 	self assert: forest size equals: 2.
-	self assert: (forest allSatisfy: [ :each | each size = 11 ])
+	self assert: (forest allSatisfy: [ :each | each size = 9 ])

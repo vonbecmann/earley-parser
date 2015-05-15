@@ -3,8 +3,5 @@ printOn: aStream
 	"head ::= body"
 
 	self head printOn: aStream.
-	aStream
-		space;
-		nextPutAll: '::=';
-		space.
+	aStream nextPutAll: ' ::= '.
 	self body do: [ :each | each printOn: aStream ]

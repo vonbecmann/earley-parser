@@ -3,10 +3,7 @@ printOn: aStream
 	"head ::= body with dot"
 
 	self head printOn: aStream.
-	aStream
-		space;
-		nextPutAll: '::=';
-		space.
+	aStream nextPutAll: ' ::= '.
 	self rule body
 		withIndexDo: [ :each :index | 
 			index = self dotIndex

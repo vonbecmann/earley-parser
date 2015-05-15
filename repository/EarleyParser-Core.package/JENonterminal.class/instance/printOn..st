@@ -1,7 +1,5 @@
 printing
 printOn: aStream
-	"<name>"
+	"name"
 
-	aStream nextPut: $<.
-	self named do: [ :each | aStream nextPut: each ].
-	aStream nextPut: $>
+	self named do: [ :each | aStream nextPut: each ]

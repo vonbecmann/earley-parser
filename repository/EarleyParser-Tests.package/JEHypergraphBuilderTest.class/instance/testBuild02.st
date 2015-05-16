@@ -16,5 +16,4 @@ testBuild02
 	self assert: graph nodesSize equals: 2.
 	self assert: graph edgesSize equals: 1.
 	newGraph := builder build.
-	self assert: newGraph nodesIsEmpty.
-	self assert: newGraph edgesIsEmpty
+	self assert: newGraph isEmpty.

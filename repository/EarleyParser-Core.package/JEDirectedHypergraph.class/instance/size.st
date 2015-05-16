@@ -1,0 +1,3 @@
+testing
+size
+	^ edges size

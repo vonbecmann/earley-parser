@@ -6,5 +6,5 @@ parse: words
 	^ (charts last includes: finalItem)
 		ifTrue: [ 
 			graph := builder build.
-			graph forestStartingAtNodeLabeled: (charts last like: finalItem) ]
+			"graph forestStartingAtNodeLabeled: (charts last like: finalItem)" ]
 		ifFalse: [ OrderedCollection new ]

@@ -9,5 +9,4 @@ complete: item at: chart
 		do: [ :previous | 
 			| next |
 			next := chart add: previous moveDotForward.
-			self addEdgeSourceNodes: previous and: item toTargetNode: next.
-			self ]
+			self addEdgeSourceNodes: previous and: item toTargetNode: next ]

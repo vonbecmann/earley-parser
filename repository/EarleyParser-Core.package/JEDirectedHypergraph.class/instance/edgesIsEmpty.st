@@ -1,3 +1,3 @@
-accessing
+testing
 edgesIsEmpty
 	^ edges isEmpty 

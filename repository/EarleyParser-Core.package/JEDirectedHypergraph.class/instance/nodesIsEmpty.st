@@ -1,3 +1,3 @@
-accessing
+testing
 nodesIsEmpty
 	^ nodes isEmpty 

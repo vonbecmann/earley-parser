@@ -2,3 +2,9 @@ While graph edges are pairs of nodes, hyperedges are arbitrary sets of nodes, an
 
 Each directed hyperedge is an ordered pair (S, t)  from an arbitrary nonempty set S (source nodes) to a single node t (target node)
 
+A directed hyperedge or hyperarc is an ordered pair, E = (X, Y); X is the tail of E while Y is its head. The tail and the head of hyperarc E will be denoted by T(E) and H(E), respectively.
+
+A backward hyperarc, or simply B-arc, is a hyperarc E = (T(E), H(E)) with |H(E)| = 1
+
+I'm a backward hyperarc.
+

@@ -1,0 +1,13 @@
+{
+	"commentStamp" : "BernardoContreras 5/18/2015 20:03",
+	"super" : "Error",
+	"category" : "EarleyParser-Core-Implementation",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"classvars" : [ ],
+	"instvars" : [
+		"position"
+	],
+	"name" : "JEFailure",
+	"type" : "normal"
+}

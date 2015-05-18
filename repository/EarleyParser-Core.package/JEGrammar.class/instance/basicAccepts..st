@@ -6,6 +6,8 @@ basicAccepts: words
 	1 to: words size + 1 do: [ :i | 
 		| chart |
 		chart := charts at: i.
+		chart isEmpty
+			ifTrue: [ JEFailure atPosition: i ].
 		chart items
 			do: [ :item | 
 				item isFinal

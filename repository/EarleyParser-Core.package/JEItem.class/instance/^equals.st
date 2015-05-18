@@ -4,7 +4,7 @@ comparing
 		ifFalse: [ ^ false ].
 	startChart = anItem startChart
 		ifFalse: [ ^ false ].
-	dottedRule = anItem rule
+	dottedRule = anItem dottedRule
 		ifFalse: [ ^ false ].
 	endChart = anItem endChart
 		ifFalse: [ ^ false ].

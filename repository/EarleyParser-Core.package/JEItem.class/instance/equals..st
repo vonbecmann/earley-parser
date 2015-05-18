@@ -4,6 +4,6 @@ equals: anItem
 		ifFalse: [ ^ false ].
 	startChart = anItem startChart
 		ifFalse: [ ^ false ].
-	dottedRule = anItem rule
+	dottedRule = anItem dottedRule
 		ifFalse: [ ^ false ].
 	^ true

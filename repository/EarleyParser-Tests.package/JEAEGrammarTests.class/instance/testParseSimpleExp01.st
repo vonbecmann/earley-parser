@@ -1,5 +1,5 @@
 tests
-testParseSimpleExp
+testParseSimpleExp01
 	| forest |
 	forest := grammar parse: 'a'.
 	self deny: forest isEmpty.

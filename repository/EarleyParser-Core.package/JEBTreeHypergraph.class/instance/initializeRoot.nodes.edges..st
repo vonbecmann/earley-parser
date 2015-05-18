@@ -1,6 +1,7 @@
 initialization
-initializeNodes: aNodeCollection edges: anEdgeCollection
+initializeRoot: aNode nodes: aNodeCollection edges: anEdgeCollection
 	self initialize.
+	root := aNode.
 	nodes := aNodeCollection.
 	edges := anEdgeCollection.
 	edges

@@ -3,4 +3,4 @@ testParseMixedExp
 	| forest |
 	forest := grammar parse: 'a+a*a+a*a'.
 	self deny: forest isEmpty.
-	self assert: forest size equals: 78.
+	self assert: forest size equals: 52.

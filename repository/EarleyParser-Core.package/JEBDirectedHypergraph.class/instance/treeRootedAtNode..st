@@ -1,22 +1,20 @@
 private
 treeRootedAtNode: aNode
-	| queue visitedNodes visitedEdges |
-	visitedNodes := Set with: aNode.
+	| visitedEdges visitedNodes queue |
 	visitedEdges := Set new.
+	visitedNodes := Set with: aNode.
 	queue := JELinkedList with: aNode.
 	[ queue isEmpty ]
 		whileFalse: [ 
 			| current |
 			current := queue removeFirst.
 			(self backwardStarAt: current)
-				do: [ :edge | 
-					(visitedEdges includes: edge)
-						ifFalse: [ 
-							visitedEdges add: edge.
-							edge sourceNodes
-								do: [ :sourceNode | 
-									(visitedNodes includes: sourceNode)
-										ifFalse: [ 
-											visitedNodes add: sourceNode.
-											queue addLast: sourceNode ] ] ] ] ].
+				reject: [ :edge | visitedEdges includes: edge ]
+				thenDo: [ :edge | 
+					visitedEdges add: edge.
+					edge sourceNodes
+						reject: [ :node | visitedNodes includes: node ]
+						thenDo: [ :node | 
+							visitedNodes add: node.
+							queue addLast: node ] ] ].
 	^ JEBTreeHypergraph root: aNode nodes: visitedNodes asArray hyperedges: visitedEdges asArray

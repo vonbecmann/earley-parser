@@ -1,7 +1,7 @@
 public
 treeRootedAt: anObject
-	| rootNode |
-	rootNode := nodes
+	| aNode |
+	aNode := nodes
 		detect: [ :each | each value = anObject ]
 		ifNone: [ self error: anObject asString , ' is not a node of the hypergraph' ].
-	^ self treeRootedAtNode: rootNode
+	^ self treeRootedAtNode: aNode

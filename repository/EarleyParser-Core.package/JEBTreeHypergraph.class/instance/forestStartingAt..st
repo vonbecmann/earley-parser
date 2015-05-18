@@ -1,4 +1,4 @@
-public
+private
 forestStartingAt: aNode
 	| forest derivationStack |
 	forest := OrderedCollection new.

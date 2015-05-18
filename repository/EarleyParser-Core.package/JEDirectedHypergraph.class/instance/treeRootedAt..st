@@ -22,4 +22,4 @@ treeRootedAt: anObject
 										ifFalse: [ 
 											visitedNodes add: sourceNode.
 											queue addLast: sourceNode ] ] ] ] ].
-	^ JEBTreeHypergraph root: anObject nodes: visitedNodes asArray hyperedges: visitedEdges asArray
+	^ JEBTreeHypergraph root: rootNode nodes: visitedNodes asArray hyperedges: visitedEdges asArray

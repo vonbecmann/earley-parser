@@ -3,4 +3,5 @@ initialize
 	super initialize.
 	nodes := Set new.
 	edges := Set new.
-	self initializeTargetAndSourceNodes
+	targetNode := nil.
+	accumulatedSourceNodes := SortedCollection sortBlock: [ :a :b | a <= b ]

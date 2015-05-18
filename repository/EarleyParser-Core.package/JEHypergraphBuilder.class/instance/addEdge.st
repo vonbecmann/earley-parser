@@ -7,4 +7,4 @@ addEdge
 	targetNode isNil
 		ifTrue: [ ^ Error signal: 'target node cannot be nil' ].
 	edges add: (self makeEdgeWithSourceNodes: accumulatedSourceNodes asArray targetNode: targetNode).
-	self initializeTargetAndSourceNodes
+	self resetTargetAndSourceNodes

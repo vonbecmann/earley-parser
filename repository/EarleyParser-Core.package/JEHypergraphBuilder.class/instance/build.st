@@ -4,5 +4,5 @@ build
 
 	| graph |
 	graph := JEBDirectedHypergraph nodes: nodes asArray hyperedges: edges asArray.
-	self initialize.
+	self reset.
 	^ graph

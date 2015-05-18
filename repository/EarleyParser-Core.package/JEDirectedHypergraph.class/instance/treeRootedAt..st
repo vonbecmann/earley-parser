@@ -1,9 +1,12 @@
 public
-treeRootedAt: aNode
-	| visitedNodes visitedEdges queue |
-	visitedNodes := Set with: aNode.
+treeRootedAt: anObject
+	| rootNode visitedNodes visitedEdges queue |
+	rootNode := nodes
+		detect: [ :each | each value = anObject ]
+		ifNone: [ self error: anObject asString , ' is not a node of the hypergraph' ].
+	visitedNodes := Set with: rootNode.
 	visitedEdges := Set new.
-	queue := JELinkedList with: aNode.
+	queue := JELinkedList with: rootNode.
 	[ queue isEmpty ]
 		whileFalse: [ 
 			| current |
@@ -19,4 +22,4 @@ treeRootedAt: aNode
 										ifFalse: [ 
 											visitedNodes add: sourceNode.
 											queue addLast: sourceNode ] ] ] ] ].
-	^ JEBTreeHypergraph root: aNode nodes: visitedNodes asArray hyperedges: visitedEdges asArray
+	^ JEBTreeHypergraph root: anObject nodes: visitedNodes asArray hyperedges: visitedEdges asArray

@@ -5,7 +5,9 @@ parse: words
 	finalItem := self startRule dotAtEnd startedAt: charts first.
 	^ (charts last includes: finalItem)
 		ifTrue: [ 
-			| graph |
+			| graph treeGraph |
 			graph := builder build.
-			graph treeRootedAt: (charts last like: finalItem) ]
+			treeGraph := graph treeRootedAt: (charts last like: finalItem).
+			charts do: [ :each | each removeAll ].
+			treeGraph ]
 		ifFalse: [ OrderedCollection new ]

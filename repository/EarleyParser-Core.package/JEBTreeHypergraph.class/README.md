@@ -1,1 +1,1 @@
-Backward Tree Hypergraph.
+Backward Directed Tree Hypergraph.

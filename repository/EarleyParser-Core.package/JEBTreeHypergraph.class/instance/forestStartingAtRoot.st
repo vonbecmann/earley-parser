@@ -1,3 +1,3 @@
 public
 forestStartingAtRoot
-	^ self forestStartingAt: root
+	^ self forestStartingAtNode: root

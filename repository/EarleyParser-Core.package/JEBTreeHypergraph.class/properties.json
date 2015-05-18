@@ -7,8 +7,7 @@
 	"classvars" : [ ],
 	"instvars" : [
 		"root",
-		"sourceNodesByTarget",
-		"backwardStar"
+		"sourceNodesByTarget"
 	],
 	"name" : "JEBTreeHypergraph",
 	"type" : "normal"

@@ -5,9 +5,7 @@
 	"classinstvars" : [ ],
 	"pools" : [ ],
 	"classvars" : [ ],
-	"instvars" : [
-		"backwardStar"
-	],
+	"instvars" : [ ],
 	"name" : "JEDirectedHypergraph",
 	"type" : "normal"
 }

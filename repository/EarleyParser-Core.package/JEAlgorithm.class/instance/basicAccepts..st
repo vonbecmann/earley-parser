@@ -7,7 +7,7 @@ basicAccepts: words
 		| chart |
 		chart := charts at: i.
 		chart isEmpty
-			ifTrue: [ self failedAtPosition: i ].
+			ifTrue: [ ^ self failedAtPosition: i ].
 		chart items
 			do: [ :item | 
 				item isFinal

@@ -6,6 +6,6 @@
 	"pools" : [ ],
 	"classvars" : [ ],
 	"instvars" : [ ],
-	"name" : "JETerminalMatchTest",
+	"name" : "JETokenTest",
 	"type" : "normal"
 }

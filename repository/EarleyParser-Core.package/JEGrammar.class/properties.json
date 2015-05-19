@@ -1,5 +1,5 @@
 {
-	"commentStamp" : "BernardoContreras 3/31/2015 21:32",
+	"commentStamp" : "BernardoContreras 5/19/2015 18:55",
 	"super" : "Object",
 	"category" : "EarleyParser-Core-Public",
 	"classinstvars" : [ ],
@@ -8,8 +8,7 @@
 	"instvars" : [
 		"rules",
 		"alternatives",
-		"startSymbol",
-		"builder"
+		"startSymbol"
 	],
 	"name" : "JEGrammar",
 	"type" : "normal"

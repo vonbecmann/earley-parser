@@ -3,5 +3,4 @@ initialize
 	super initialize.
 	startSymbol := JENonterminal start.
 	rules := OrderedCollection new.
-	alternatives := Dictionary new.
-	builder := JEHypergraphBuilder new
+	alternatives := Dictionary new

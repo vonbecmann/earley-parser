@@ -2,7 +2,7 @@ private
 basicAccepts: words
 	| charts |
 	charts := (1 to: words size + 1) collect: [ :index | JEChart number: index ].
-	self predict: startSymbol at: charts first.
+	self predict: grammar startSymbol at: charts first.
 	1 to: words size + 1 do: [ :i | 
 		| chart |
 		chart := charts at: i.

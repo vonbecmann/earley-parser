@@ -10,4 +10,4 @@ parse: words
 			treeGraph := builder build treeRootedAt: (charts last like: finalItem).
 			charts do: [ :each | each removeAll ].
 			treeGraph ]
-		ifFalse: [ JEFailure atPosition: charts last number ]
+		ifFalse: [ self failedAtPosition: charts last number ]

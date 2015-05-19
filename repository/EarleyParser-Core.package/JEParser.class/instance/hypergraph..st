@@ -12,4 +12,4 @@ hypergraph: words
 			graph := builder build.
 			charts do: [ :each | each removeAll ].
 			graph ]
-		ifFalse: [ JEFailure atPosition: charts last number ]
+		ifFalse: [ self failedAtPosition: charts last number ]

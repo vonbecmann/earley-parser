@@ -9,6 +9,6 @@
 		"terminal",
 		"word"
 	],
-	"name" : "JETerminalMatch",
+	"name" : "JEToken",
 	"type" : "normal"
 }

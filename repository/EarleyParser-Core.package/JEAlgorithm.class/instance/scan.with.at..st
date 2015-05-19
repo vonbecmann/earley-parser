@@ -4,6 +4,6 @@ scan: item with: word at: chart
 
 	| next terminal |
 	next := chart add: item moveDotForward.
-	terminal := (JETerminalMatch this: word matches: item symbolAtDot) 
+	terminal := (JEToken this: word matches: item symbolAtDot) 
 							startedAt: item endChart andEndedAt: next endChart.
 	self addEdgeSourceNodes: item and: terminal toTargetNode: next

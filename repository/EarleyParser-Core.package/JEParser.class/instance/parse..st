@@ -1,6 +1,5 @@
 public
 parse: words
-	[ 
 	| charts finalItem |
 	builder := JEHypergraphBuilder new.
 	charts := self basicAccepts: words.
@@ -11,5 +10,4 @@ parse: words
 			treeGraph := builder build treeRootedAt: (charts last like: finalItem).
 			charts do: [ :each | each removeAll ].
 			treeGraph ]
-		ifFalse: [ JEFailure atPosition: charts last number ] ]
-		ensure: [ builder reset ]
+		ifFalse: [ JEFailure atPosition: charts last number ]

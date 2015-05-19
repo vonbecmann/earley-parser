@@ -2,7 +2,6 @@ private
 hypergraph: words
 	"the full hypergraph of the parsing of the words"
 
-	[ 
 	| charts finalItem |
 	builder := JEHypergraphBuilder new.
 	charts := self basicAccepts: words.
@@ -13,5 +12,4 @@ hypergraph: words
 			graph := builder build.
 			charts do: [ :each | each removeAll ].
 			graph ]
-		ifFalse: [ JEFailure atPosition: charts last number ] ]
-		ensure: [ builder reset ]
+		ifFalse: [ JEFailure atPosition: charts last number ]

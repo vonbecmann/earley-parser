@@ -4,6 +4,8 @@ comparing
 		ifFalse: [ ^ false ].
 	self targetNode == anObject targetNode
 		ifFalse: [ ^ false ].
+	self label = anObject label
+		ifFalse: [ ^ false ].
 	self sourceNodes size = anObject sourceNodes size
 		ifFalse: [ ^ false ].
 	self sourceNodes

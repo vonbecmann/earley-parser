@@ -7,7 +7,10 @@ printOn: aStream
 	self rule body
 		withIndexDo: [ :each :index | 
 			index = self dotIndex
-				ifTrue: [ aStream nextPut: $* ].
+				ifTrue: [ aStream nextPut: $* ]
+				ifFalse: [ 
+					index = 1
+						ifFalse: [ aStream space ] ].
 			each printOn: aStream ].
 	self isFinal
 		ifTrue: [ aStream nextPut: $* ]

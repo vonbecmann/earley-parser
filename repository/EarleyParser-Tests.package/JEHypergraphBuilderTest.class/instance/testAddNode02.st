@@ -4,7 +4,7 @@ testAddNode02
 
 	| S node graph |
 	S := JENonterminal named: 'S'.
-	node := JEConstituent value: S start: 1 end: 2.
+	node := S startedAt: 1 andEndedAt: 2.
 	builder addNode: node.
 	builder addNode: node.
 	graph := builder build.

@@ -4,9 +4,9 @@ testHyperEdgeEquality02
 	Start := JENonterminal start.
 	P := JENonterminal named: 'P'.
 	T := JENonterminal named: 'T'.
-	root := JEConstituent value: Start start: 1 end: 4.
-	sourceNode := JEConstituent value: P start: 1 end: 4.
-	sourceNode2 := JEConstituent value: T start: 1 end: 4.
+	root := Start startedAt: 1 andEndedAt: 4.
+	sourceNode := P startedAt: 1 andEndedAt: 4.
+	sourceNode2 := T startedAt: 1 andEndedAt: 4.
 	one := JEDirectedHyperedge 
 				labeled: (Start body: {P}) 
 				sourceNodes: {sourceNode} 

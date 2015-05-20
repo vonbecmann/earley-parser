@@ -1,5 +1,5 @@
-accessing
-startedAt: aChart andEndedAt: anotherChart
-	"an item of myself that started and ended at the given charts"
+converting
+startedAt: startPosition andEndedAt: endPosition
+	"a constituent of myself that started and ended at the given positions"
 
-	^ JEItem given: self startedAt: aChart andEndedAt: anotherChart
+	^ JEConstituent value: self start: startPosition end: endPosition

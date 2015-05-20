@@ -17,8 +17,7 @@ forestStartingAtNode: aNode
 					| currentNode sourceNodes |
 					currentNode := stack pop.
 					sourceNodes := self sourceNodesAt: currentNode.
-					currentNode value isFinal
-						ifTrue: [ tree add: currentNode ].
+					tree add: currentNode value.
 					sourceNodes isEmpty
 						ifFalse: [ 
 							sourceNodes size = 1

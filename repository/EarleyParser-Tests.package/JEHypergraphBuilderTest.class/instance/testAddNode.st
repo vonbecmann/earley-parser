@@ -1,11 +1,8 @@
 running
 testAddNode
-	| first second item graph |
-	first := JEChart number: 1.
-	second := JEChart number: 2.
-	item := ((JENonterminal named: 'S') 
-					body: {(JETerminal character: $?)}) dotAtEnd startedAt: first andEndedAt: second.
-	builder addNode: item.
+	| S graph |
+	S := JENonterminal named: 'S'.
+	builder addNode: (JEConstituent value: S start: 1 end: 2).
 	graph := builder build.
 	self deny: graph nodesIsEmpty.
 	self assert: graph nodesSize equals: 1.

@@ -2,15 +2,15 @@ printing
 printOn: aStream
 	" value @  [start, end]"
 
-	value printOn: aStream.
+	self value printOn: aStream.
 	aStream
 		space;
 		nextPut: $@;
 		space.
 	aStream nextPut: $[.
-	start printOn: aStream.
+	self start printOn: aStream.
 	aStream
 		nextPut: $,;
 		space.
-	end printOn: aStream.
+	self end printOn: aStream.
 	aStream nextPut: $]

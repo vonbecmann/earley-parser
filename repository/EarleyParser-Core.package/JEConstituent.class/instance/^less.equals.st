@@ -1,3 +1,3 @@
 comparing
-<= anObject 
-	^ start <= anObject start and: [end <= anObject end]
+<= anObject
+	^ self start <= anObject start and: [ self end <= anObject end ]

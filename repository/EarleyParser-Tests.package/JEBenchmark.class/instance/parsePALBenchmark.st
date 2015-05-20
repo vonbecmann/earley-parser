@@ -1,7 +1,7 @@
 public
 parsePALBenchmark
 	| n words grammar maxOdd |
-	n := 200.
+	n := 150.
 	maxOdd := ((1 to: n) select: [ :each | each odd ]) detectMax: [ :each | each ].
 	words := String new: maxOdd.
 	words from: 1 to: maxOdd put: $x.

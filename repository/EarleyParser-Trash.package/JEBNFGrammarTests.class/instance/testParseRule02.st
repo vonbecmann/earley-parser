@@ -4,5 +4,4 @@ testParseRule02
 	forest := grammar parse: '<E>::=<E>"+"<T>'.
 	
 	self deny: forest isEmpty.
-	self assert: forest size equals: 1.
-	self assert: forest first size equals: 48
+	self assert: forest size equals: 80.

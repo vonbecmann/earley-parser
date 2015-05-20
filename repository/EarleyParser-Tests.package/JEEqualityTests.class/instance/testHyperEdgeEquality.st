@@ -1,16 +1,18 @@
 tests
 testHyperEdgeEquality
-	| Start P first fourth firstRule secondRule root sourceNode one another |
+	| Start P root sourceNode one another |
 	Start := JENonterminal start.
 	P := JENonterminal named: 'P'.
-	first := JEChart number: 1.
-	fourth := JEChart number: 4.
-	firstRule := (Start body: {P}) dotAtEnd startedAt: first andEndedAt: fourth.
-	secondRule := (P body: {P}) dotAtEnd startedAt: first andEndedAt: fourth.
-	root := JEHypernode value: firstRule.
-	sourceNode := JEHypernode value: secondRule.
-	one := JEDirectedHyperedge sourceNodes: {sourceNode} targetNode: root.
-	another := JEDirectedHyperedge sourceNodes: {sourceNode} targetNode: root.
+	root := JEHypernode value: (JEConstituent value: Start start: 1 end: 4).
+	sourceNode := JEHypernode value: (JEConstituent value: P start: 1 end: 4).
+	one := JEDirectedHyperedge 
+					labeled: (Start body: {P}) 
+					sourceNodes: {sourceNode} 
+					targetNode: root.
+	another := JEDirectedHyperedge 
+					labeled: (Start body: {P}) 
+					sourceNodes: {sourceNode} 
+					targetNode: root.
 	self assert: one = another.
 	self assert: one hash = another hash.
 	self assert: another = one.

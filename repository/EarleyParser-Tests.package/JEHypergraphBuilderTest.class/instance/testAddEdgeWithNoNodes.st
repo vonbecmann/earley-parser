@@ -1,3 +1,6 @@
 running
 testAddEdgeWithNoNodes
-	self should: [ builder addEdge ] raise: Error
+	| S A |
+	S := JENonterminal named: 'S'.
+	A := JENonterminal named: 'A'.
+	self should: [ builder addEdgeLabeled: (S body: {A}) ] raise: Error

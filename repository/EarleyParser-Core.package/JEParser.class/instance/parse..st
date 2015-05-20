@@ -7,7 +7,7 @@ parse: words
 	^ (charts last includes: finalItem)
 		ifTrue: [ 
 			| treeGraph |
-			treeGraph := builder build treeRootedAt: (charts last like: finalItem).
+			treeGraph := builder build treeRootedAt: (JEConstituent value: grammar startSymbol start: 1 end: charts last number).
 			charts do: [ :each | each removeAll ].
 			treeGraph ]
 		ifFalse: [ self failedAtPosition: charts last number ]

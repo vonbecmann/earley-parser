@@ -4,6 +4,6 @@ gtInspectorSourceNodesIn: composite
 	^ composite table
 		title: 'Source Nodes';
 		display: sourceNodes;
-		column: 'Node (label, start, end)' evaluated: [ :each | each ];
+		column: 'Node' evaluated: [ :each | each ];
 		showOnly: 50;
 		yourself

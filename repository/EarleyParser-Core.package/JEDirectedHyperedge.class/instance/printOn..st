@@ -1,6 +1,5 @@
 printing
 printOn: aStream
-	aStream nextPut: $(.
 	aStream nextPut: ${.
 	sourceNodes
 		do: [ :each | each printOn: aStream ]
@@ -10,7 +9,14 @@ printOn: aStream
 				space ].
 	aStream
 		nextPut: $};
-		nextPut: $,;
+		nextPut: $=;
+		nextPut: $=;
 		space.
-	targetNode printOn: aStream.
-	aStream nextPut: $)
+	label printOn: aStream.
+	aStream
+		space;
+		nextPut: $=;
+		nextPut: $=;
+		nextPut: $>;
+		space.
+	targetNode printOn: aStream

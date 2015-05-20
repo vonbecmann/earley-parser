@@ -4,5 +4,5 @@ gtInspectorTargetNodeIn: composite
 	^ composite table
 		title: 'Target Node';
 		display: targetNode;
-		column: 'Node (label, start, end)' evaluated: [ :each | each ];
+		column: 'Node' evaluated: [ :each | each ];
 		yourself

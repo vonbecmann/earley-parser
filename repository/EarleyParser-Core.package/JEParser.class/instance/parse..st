@@ -8,6 +8,5 @@ parse: words
 		ifTrue: [ 
 			| treeGraph |
 			treeGraph := builder build treeRootedAt: (JEConstituent value: grammar startSymbol start: 1 end: charts last number).
-			charts do: [ :each | each removeAll ].
 			treeGraph ]
 		ifFalse: [ self failedAtPosition: charts last number ]

@@ -1,4 +1,4 @@
-private
+private operations
 scan: item with: word at: chart
 	"scan"
 

@@ -1,4 +1,4 @@
-private
+private operations
 addEdgeSourceNodes: firstItem and: secondItem toTargetNode: targetItem
 	firstItem isPredicted
 		ifFalse: [ builder gatherSourceNode: firstItem asConstituent ].

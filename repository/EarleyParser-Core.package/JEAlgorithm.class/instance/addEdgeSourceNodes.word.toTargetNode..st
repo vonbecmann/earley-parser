@@ -1,3 +1,3 @@
-private
+private operations
 addEdgeSourceNodes: firstItem word: word toTargetNode: targetItem
-	"nothing"
+	"do nothing hook"

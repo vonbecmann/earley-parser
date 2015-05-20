@@ -1,4 +1,4 @@
-private
+private operations
 complete: item at: chart
 	"complete: 
 	For every state in S(k) of the form (X -> y *, j), 

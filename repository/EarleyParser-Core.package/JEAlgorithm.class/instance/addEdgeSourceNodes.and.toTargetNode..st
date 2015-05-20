@@ -1,3 +1,3 @@
-private
+private operations
 addEdgeSourceNodes: firstItem and: secondItem toTargetNode: targetItem
-	"nothing"
+	"do nothing hook"

@@ -8,5 +8,12 @@ setUp
 	char := JEObjectTerminal object: $..
 	rule := JENonterminal named: 'rule'.
 	JEGrammar basedOn: { 
-		rule body: { symbol. string. number. char.}.
+		rule body: 
+			{ 	symbol. 
+				string. 
+				number. 
+				char. 
+				JEObjectTerminal true. 
+				JEObjectTerminal false.
+				JEObjectTerminal nil	}.
 	} ] value.

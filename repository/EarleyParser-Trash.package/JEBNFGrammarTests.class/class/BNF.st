@@ -1,4 +1,4 @@
-as yet unclassified
+example
 BNF
 	" my own BNF "
  ^ [ 
@@ -17,7 +17,7 @@ BNF
 (rule	body: { rulename. assignment. expression }).
 
 (rulename 
-	body: { (JETerminal character: $<). identifier. (JETerminal character: $>) }).
+	body: { identifier. }).
 
 (identifier body: { letter. }).
 (identifier body: { letter. identifier }).	
@@ -30,7 +30,7 @@ BNF
 				(JETerminal character: $=) }).
 
 (expression body: { term }).
-(expression body: { term. expression }).
+(expression body: { term. (JETerminal character: $,). expression }).
 
 (term body: { rulename }).
 (term body: { literal }).

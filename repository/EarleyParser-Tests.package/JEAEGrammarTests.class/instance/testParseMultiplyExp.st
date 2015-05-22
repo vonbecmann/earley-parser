@@ -3,4 +3,4 @@ testParseMultiplyExp
 	| forest |
 	forest := grammar parse: 'a*a'.
 	self deny: forest isEmpty.
-	self assert: forest size equals: 18.
+	self assert: forest size equals: 24.

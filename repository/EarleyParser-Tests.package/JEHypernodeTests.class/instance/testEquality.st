@@ -1,13 +1,8 @@
 tests
 testEquality
-	| Start A first fourth item one another |
-	Start := JENonterminal start.
-	A := JENonterminal named: 'A'.
-	first := JEChart number: 1.
-	fourth := JEChart number: 4.
-	item := (Start body: {A}) dotAtEnd startedAt: first andEndedAt: fourth.
-	one := JEHypernode value: item.
-	another := JEHypernode value: item.
+	| one another |
+	one := JEHypernode value: (JENonterminal start startedAt: 1 andEndedAt: 4).
+	another := JEHypernode value: (JENonterminal start startedAt: 1 andEndedAt: 4).
 	self assert: one = another.
 	self assert: one hash = another hash.
 	self assert: another = one.

@@ -1,19 +1,20 @@
 running
 setUp
 	grammar := [ 
-	|rule symbol string number char|
-	symbol := JEObjectTerminal object: #add.
-	string := JEObjectTerminal object: 'add'.
-	number := JEObjectTerminal object: 1.
-	char := JEObjectTerminal object: $..
+	| rule addSymbol addString one dot |
+	addSymbol := JEObjectTerminal object: #add.
+	addString := JEObjectTerminal object: 'add'.
+	one := JEObjectTerminal object: 1.
+	dot := JEObjectTerminal object: $..
 	rule := JENonterminal named: 'rule'.
-	JEGrammar basedOn: { 
-		rule body: 
-			{ 	symbol. 
-				string. 
-				number. 
-				char. 
-				JEObjectTerminal true. 
-				JEObjectTerminal false.
-				JEObjectTerminal nil	}.
-	} ] value.
+	JEGrammar
+		basedOn:
+			{(rule
+				body:
+					{addSymbol.
+					addString.
+					one.
+					dot.
+					(JEObjectTerminal true).
+					(JEObjectTerminal false).
+					(JEObjectTerminal nil)})} ] value

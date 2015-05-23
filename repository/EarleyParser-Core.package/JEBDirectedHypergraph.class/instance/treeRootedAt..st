@@ -1,7 +1,7 @@
 public
-treeRootedAt: anObject
+treeRootedAt: node
 	| aNode |
 	aNode := nodes
-		detect: [ :each | each = anObject ]
-		ifNone: [ self error: anObject asString , ' is not a node of the hypergraph' ].
+		detect: [ :each | each = node ]
+		ifNone: [ self error: node asString , ' is not a node of the hypergraph' ].
 	^ self treeRootedAtNode: aNode

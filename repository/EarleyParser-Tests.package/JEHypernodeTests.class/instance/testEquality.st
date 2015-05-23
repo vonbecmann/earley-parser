@@ -1,8 +1,8 @@
 tests
 testEquality
 	| one another |
-	one := JEHypernode value: (JENonterminal start startedAt: 1 andEndedAt: 4).
-	another := JEHypernode value: (JENonterminal start startedAt: 1 andEndedAt: 4).
+	one := (JENonterminal start startedAt: 1 andEndedAt: 4).
+	another := (JENonterminal start startedAt: 1 andEndedAt: 4).
 	self assert: one = another.
 	self assert: one hash = another hash.
 	self assert: another = one.

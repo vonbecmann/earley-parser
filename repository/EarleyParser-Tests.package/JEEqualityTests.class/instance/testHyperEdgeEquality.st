@@ -3,8 +3,8 @@ testHyperEdgeEquality
 	| Start P root sourceNode one another |
 	Start := JENonterminal start.
 	P := JENonterminal named: 'P'.
-	root := JEHypernode value: (Start startedAt: 1 andEndedAt: 4).
-	sourceNode := JEHypernode value: (P startedAt: 1 andEndedAt: 4).
+	root := (Start startedAt: 1 andEndedAt: 4).
+	sourceNode := (P startedAt: 1 andEndedAt: 4).
 	one := JEDirectedHyperedge 
 					labeled: (Start body: {P}) 
 					sourceNodes: {sourceNode} 

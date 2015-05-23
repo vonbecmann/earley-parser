@@ -6,8 +6,8 @@ testEquality02
 			{(JENonterminal named: 'T').
 			(JETerminal character: $+).
 			(JENonterminal named: 'P')}.
-	one := JEHypernode value: (JEConstituent value: (rule dotAt: 2) start: 1 end: 4).
-	another := JEHypernode value: (JEConstituent value: (rule dotAt: 2) start: 1 end: 4).
+	one := JEHypernode value: (rule dotAt: 2) start: 1 end: 4.
+	another := JEHypernode value: (rule dotAt: 2) start: 1 end: 4.
 	self assert: one = another.
 	self assert: one hash = another hash.
 	self assert: another = one.

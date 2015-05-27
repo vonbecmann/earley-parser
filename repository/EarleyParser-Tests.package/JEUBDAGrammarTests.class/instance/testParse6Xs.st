@@ -3,4 +3,4 @@ testParse6Xs
 	| forest |
 	forest := grammar parse: 'xxxxxx'.
 	self deny: forest isEmpty.
-	self assert: forest size equals: 161.
+	self assert: forest size equals: 131.

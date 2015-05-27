@@ -3,9 +3,7 @@ forestStartingAtNode: aNode
 	| forest derivationStack |
 	forest := OrderedCollection new.
 	derivationStack := JEStack
-		with:
-			{(JEStack with: aNode).
-			(JELinkedList new)}.
+		with: { (JEStack with: aNode). (JELinkedList new) }.
 	[ derivationStack isEmpty ]
 		whileFalse: [ 
 			| derivation stack tree |
@@ -29,9 +27,7 @@ forestStartingAtNode: aNode
 											newStack := stack copy.
 											each reverseDo: [ :eachNode | newStack push: eachNode ].
 											derivationStack
-												push:
-													{newStack.
-													(tree copy)} ].
+												push: { newStack. (tree copy) } ].
 									stack removeAll.
 									tree removeAll ] ] ].
 			tree isEmpty

@@ -1,9 +1,11 @@
 private
 makeFlatEdgeWith: anEdge
+	"intermediate nodes have one edge, in other words the source nodes
+	at an intermediate node is a collection with one element"
+	
 	| newSourceNodes stack |
 	newSourceNodes := OrderedCollection new.
-	stack := JEStack new.
-	stack addAll: anEdge sourceNodes.
+	stack := JEStack withAll: anEdge sourceNodes.
 	[ stack isEmpty ]
 		whileFalse: [ 
 			| aNode |

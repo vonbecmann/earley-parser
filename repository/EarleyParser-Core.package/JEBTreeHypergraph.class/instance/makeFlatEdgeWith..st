@@ -1,5 +1,5 @@
 private
-makeSingleNodesEdgeWith: anEdge
+makeFlatEdgeWith: anEdge
 	| newSourceNodes stack |
 	newSourceNodes := OrderedCollection new.
 	stack := JEStack new.

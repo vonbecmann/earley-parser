@@ -1,19 +1,19 @@
 private
-makeFlatEdgeWith: anEdge
+makeFlatEdgeFrom: anEdge
 	"intermediate nodes have one edge, in other words the source nodes
 	at an intermediate node is a collection with one element"
 	
-	| newSourceNodes stack |
-	newSourceNodes := OrderedCollection new.
+	| flatSourceNodes stack |
+	flatSourceNodes := JELinkedList new.
 	stack := JEStack withAll: anEdge sourceNodes.
 	[ stack isEmpty ]
 		whileFalse: [ 
 			| aNode |
 			aNode := stack pop.
 			aNode isSingle
-				ifTrue: [ newSourceNodes add: aNode ]
+				ifTrue: [ flatSourceNodes add: aNode ]
 				ifFalse: [ (self sourceNodesAt: aNode) first reverseDo: [ :each | stack push: each ] ] ].
 	^ JEDirectedHyperedge 
 			labeled: anEdge label 
-			sourceNodes: newSourceNodes asArray 
+			sourceNodes: flatSourceNodes asArray 
 			targetNode: anEdge targetNode

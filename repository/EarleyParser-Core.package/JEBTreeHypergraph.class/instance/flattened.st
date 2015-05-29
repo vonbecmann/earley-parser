@@ -13,4 +13,4 @@ flattened
 				thenCollect: [ :edge | 
 					(edge sourceNodes allSatisfy: [ :each | each isSingle ])
 						ifTrue: [ edge ]
-						ifFalse: [ self makeFlatEdgeWith: edge ] ])
+						ifFalse: [ self makeFlatEdgeFrom: edge ] ])

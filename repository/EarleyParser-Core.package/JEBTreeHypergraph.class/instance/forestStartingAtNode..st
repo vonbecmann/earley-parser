@@ -3,7 +3,9 @@ forestStartingAtNode: aNode
 	| forest derivationStack |
 	forest := OrderedCollection new.
 	derivationStack := JEStack
-		with: { (JEStack with: aNode). (JELinkedList new) }.
+		with:
+			{(JEStack with: aNode).
+			(JELinkedList new)}.
 	[ derivationStack isEmpty ]
 		whileFalse: [ 
 			| derivation stack tree |
@@ -14,22 +16,21 @@ forestStartingAtNode: aNode
 				whileFalse: [ 
 					| currentNode sourceNodes |
 					currentNode := stack pop.
-					sourceNodes := self sourceNodesAt: currentNode.
 					tree add: currentNode.
+					sourceNodes := self sourceNodesAt: currentNode.
 					sourceNodes isEmpty
 						ifFalse: [ 
-							sourceNodes size = 1
-								ifTrue: [ sourceNodes first reverseDo: [ :eachNode | stack push: eachNode ] ]
-								ifFalse: [ 
-									sourceNodes
-										do: [ :each | 
-											| newStack |
-											newStack := stack copy.
-											each reverseDo: [ :eachNode | newStack push: eachNode ].
-											derivationStack
-												push: { newStack. (tree copy) } ].
-									stack removeAll.
-									tree removeAll ] ] ].
+							sourceNodes
+								do: [ :each | 
+									| newStack |
+									newStack := stack copy.
+									each reverseDo: [ :eachNode | newStack push: eachNode ].
+									derivationStack
+										push:
+											{newStack.
+											(tree copy)} ].
+							stack removeAll.
+							tree removeAll ] ].
 			tree isEmpty
 				ifFalse: [ forest add: tree asArray ] ].
 	^ forest

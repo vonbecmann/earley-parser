@@ -8,7 +8,7 @@ treeRootedAtNode: aNode
 		whileFalse: [ 
 			| current |
 			current := queue removeFirst.
-			(self backwardStarAt: current)
+			(self backwardStarOf: current)
 				reject: [ :edge | visitedEdges includes: edge ]
 				thenDo: [ :edge | 
 					visitedEdges add: edge.

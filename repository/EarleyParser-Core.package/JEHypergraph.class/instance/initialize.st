@@ -1,4 +1,4 @@
 initialization
 initialize
 	super initialize.
-	backwardStar := IdentityDictionary new
+	backwardStar := JEMultiValuedDictionary dictionary: IdentityDictionary collection: JELinkedList

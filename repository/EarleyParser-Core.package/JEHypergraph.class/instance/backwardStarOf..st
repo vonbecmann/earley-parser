@@ -1,3 +1,3 @@
 private
 backwardStarOf: aNode
-	^ self backwardStarAt: aNode
+	^ backwardStar at: aNode

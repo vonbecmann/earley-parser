@@ -1,3 +1,3 @@
 accessing
 at: key
-	^ dictionary at: key ifAbsentPut: [ collectionClass new ]
+	^ self privateAt: key

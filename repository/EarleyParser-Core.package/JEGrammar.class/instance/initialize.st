@@ -3,4 +3,4 @@ initialize
 	super initialize.
 	startSymbol := JENonterminal start.
 	rules := OrderedCollection new.
-	alternatives := Dictionary new
+	alternatives := JEMultiValuedDictionary dictionary: Dictionary collection: OrderedCollection

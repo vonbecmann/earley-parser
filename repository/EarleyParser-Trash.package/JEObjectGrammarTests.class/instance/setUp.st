@@ -9,12 +9,13 @@ setUp
 	rule := JENonterminal named: 'rule'.
 	JEGrammar
 		basedOn:
-			{(rule
-				body:
-					{addSymbol.
-					addString.
-					one.
-					dot.
-					(JEObjectTerminal true).
-					(JEObjectTerminal false).
-					(JEObjectTerminal nil)})} ] value
+			{
+(rule
+		body:
+			addSymbol,
+			addString,
+			one,
+			dot,
+			(JEObjectTerminal true),
+			(JEObjectTerminal false),
+			(JEObjectTerminal nil))} ] value

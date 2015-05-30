@@ -1,7 +1,8 @@
 example
 BNF
 	" my own BNF "
- ^ [ 
+
+	^ [ 
 	| rule rulename identifier letter assignment expression term literal |
 	rule := JENonterminal named: 'rule'.
 	rulename := JENonterminal named: 'rulename'.
@@ -12,32 +13,30 @@ BNF
 	term := JENonterminal named: 'term'.
 	literal := JENonterminal named: 'literal'.
 	JEGrammar
-		basedOn: {
+		basedOn:
+			{
+(rule body: rulename, assignment, expression).
 
-(rule	body: { rulename. assignment. expression }).
+(rulename body: identifier).
 
-(rulename 
-	body: { identifier. }).
+(identifier body: letter).
+(identifier body: letter, identifier).
 
-(identifier body: { letter. }).
-(identifier body: { letter. identifier }).	
-	
-(letter body: { JETerminal regex: '[a-zA-Z]'. }).
+(letter body: (JETerminal regex: '[a-zA-Z]')).
+(assignment 
+	body: 
+		(JETerminal character: $:), 
+		(JETerminal character: $:), 
+		(JETerminal character: $=)).
 
-(assignment	
-	body: 	{	(JETerminal character: $:).
-				(JETerminal character: $:).
-				(JETerminal character: $=) }).
+(expression body: term).
+(expression body: term, (JETerminal character: $,), expression).
 
-(expression body: { term }).
-(expression body: { term. (JETerminal character: $,). expression }).
+(term body: rulename).
+(term body: literal).
 
-(term body: { rulename }).
-(term body: { literal }).
-
-(literal 
-	body: { 	(JETerminal character: $"). 
-				(JETerminal regex: '[\w\d+-/\\*~=@,%|&?!<>]').
-				(JETerminal character: $") })
-	
-	 } ] value
+(literal
+	body: 
+		(JETerminal character: $"), 
+		(JETerminal regex: '[\w\d+-/\\*~=@,%|&?!<>]'),
+		(JETerminal character: $"))} ]	value

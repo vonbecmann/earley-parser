@@ -5,6 +5,6 @@ gtInspectorSourceNodesIn: composite
 		title: 'Source Nodes';
 		display: nodes;
 		column: 'Node' evaluated: [ :each | each ];
-		send: [ :each | (self sourceNodesAt: each) asArray ];
+		send: [ :each | (sourceNodesByTarget at: each) asArray ];
 		showOnly: 50;
 		yourself

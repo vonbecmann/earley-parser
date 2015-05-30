@@ -1,5 +1,5 @@
 instance creation
-body: aSymbolSequence
-	" self ::= aSymbolSequence "
+body: aSymbolOrSequence
+	" self ::= aSymbolOrSequence "
 
-	^ aSymbolSequence head: self
+	^ aSymbolOrSequence head: self

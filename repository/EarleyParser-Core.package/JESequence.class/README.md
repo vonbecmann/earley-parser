@@ -1,0 +1,1 @@
+a sequence of symbols

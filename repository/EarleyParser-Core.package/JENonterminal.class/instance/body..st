@@ -1,5 +1,5 @@
 instance creation
-body: aCollection
-	" self ::= aCollection "
+body: aSymbolSequence
+	" self ::= aSymbolSequence "
 
-	^ JERule head: self body: aCollection
+	^ aSymbolSequence head: self

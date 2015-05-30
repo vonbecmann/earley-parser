@@ -1,11 +1,11 @@
 {
-	"commentStamp" : "BernardoContreras 2/21/2015 11:32",
-	"super" : "JESymbol",
+	"commentStamp" : "BernardoContreras 5/30/2015 03:26",
+	"super" : "Object",
 	"category" : "EarleyParser-Core-Public",
 	"classinstvars" : [ ],
 	"pools" : [ ],
 	"classvars" : [ ],
 	"instvars" : [ ],
-	"name" : "JETerminal",
+	"name" : "JESymbol",
 	"type" : "normal"
 }

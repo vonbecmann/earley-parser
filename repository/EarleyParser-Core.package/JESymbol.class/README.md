@@ -1,0 +1,1 @@
+a symbol of the grammar

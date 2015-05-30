@@ -2,4 +2,4 @@ initialization
 initialize
 	super initialize.
 	items := JELinkedList new.
-	predictionItemsByNonterminal := Dictionary new
+	predictionItemsByNonterminal := JEMultiValuedDictionary dictionary: Dictionary collection: JELinkedList

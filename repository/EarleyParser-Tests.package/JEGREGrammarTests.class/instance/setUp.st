@@ -10,8 +10,8 @@ setUp
 	d := JETerminal character: $d.
 	JEGrammar
 		basedOn:
-		{	X body: { a }.
-			X body: { X. b }.
-			X body: { Y. a }.
-			Y body: { e }.
-			Y body: { Y. d. Y } } ] value
+		{	X body: a.
+			X body: X, b.
+			X body: Y, a.
+			Y body: e.
+			Y body: Y, d, Y } ] value

@@ -6,11 +6,11 @@ testHyperEdgeEquality
 	root := (Start startedAt: 1 andEndedAt: 4).
 	sourceNode := (P startedAt: 1 andEndedAt: 4).
 	one := JEDirectedHyperedge 
-					labeled: (Start body: {P}) 
+					labeled: (Start body: P) 
 					sourceNodes: {sourceNode} 
 					targetNode: root.
 	another := JEDirectedHyperedge 
-					labeled: (Start body: {P}) 
+					labeled: (Start body: P) 
 					sourceNodes: {sourceNode} 
 					targetNode: root.
 	self assert: one = another.

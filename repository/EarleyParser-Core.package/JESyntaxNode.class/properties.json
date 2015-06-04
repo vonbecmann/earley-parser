@@ -1,0 +1,15 @@
+{
+	"commentStamp" : "BernardoContreras 6/4/2015 01:59",
+	"super" : "Object",
+	"category" : "EarleyParser-Core-Implementation",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"classvars" : [ ],
+	"instvars" : [
+		"value",
+		"start",
+		"end"
+	],
+	"name" : "JESyntaxNode",
+	"type" : "normal"
+}

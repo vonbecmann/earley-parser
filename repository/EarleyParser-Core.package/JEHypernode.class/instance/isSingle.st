@@ -1,3 +1,3 @@
 testing
 isSingle
-	^ self value class ~~ JEDottedRule
+	^ self value isSingle

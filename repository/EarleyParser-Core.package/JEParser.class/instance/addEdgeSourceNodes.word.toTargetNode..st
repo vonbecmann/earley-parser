@@ -6,7 +6,7 @@ addEdgeSourceNodes: firstItem word: word toTargetNode: targetItem
 						andEndedAt: targetItem endChart number.
 	builder 
 		gatherSourceNode: 
-			(JEHypernode 
+			(JESyntaxNode  
 				value: word 
 				start: firstItem endChart number 
 				end: targetItem endChart number).

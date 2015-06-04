@@ -1,6 +1,6 @@
 converting
 asNode
-	^ JEHypernode
+	^ JESyntaxNode 
 		value:
 			(self isFinal
 				ifTrue: [ self head ]

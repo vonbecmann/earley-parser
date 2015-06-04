@@ -6,9 +6,7 @@
 	"pools" : [ ],
 	"classvars" : [ ],
 	"instvars" : [
-		"value",
-		"start",
-		"end"
+		"value"
 	],
 	"name" : "JEHypernode",
 	"type" : "normal"

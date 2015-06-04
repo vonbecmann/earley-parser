@@ -1,3 +1,3 @@
 comparing
 <= aNode
-	^ self start <= aNode start and: [ self end <= aNode end ]
+	^ self value <= aNode value

@@ -1,4 +1,4 @@
-private
+*EarleyParser-Trash
 forestStartingAtNode: aNode
 	| forest derivationStack |
 	forest := OrderedCollection new.

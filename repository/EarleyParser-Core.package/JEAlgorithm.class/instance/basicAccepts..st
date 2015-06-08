@@ -8,8 +8,8 @@ basicAccepts: words
 		chart := charts at: i.
 		chart isEmpty
 			ifTrue: [ ^ self failedAtPosition: i ].
-		chart items
-			do: [ :item | 
+		chart
+			itemsDo: [ :item | 
 				item isFinal
 					ifTrue: [ self complete: item at: chart ]
 					ifFalse: [ 

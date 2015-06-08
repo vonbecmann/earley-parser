@@ -6,9 +6,7 @@ treeRootedAtNode: aNode
 	queue := JELinkedList with: aNode.
 	[ queue isEmpty ]
 		whileFalse: [ 
-			| current |
-			current := queue removeFirst.
-			(self backwardStarOf: current)
+			(self backwardStarOf: queue removeFirst)
 				reject: [ :edge | visitedEdges includes: edge ]
 				thenDo: [ :edge | 
 					visitedEdges add: edge.

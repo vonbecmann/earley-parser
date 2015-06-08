@@ -1,4 +1,4 @@
-public
+*EarleyParser-Trash
 flattened
 	"a backward directed tree with all backward path from the root node but 
 	it is no longer a binary shared packed parse forest. it doesn't have the

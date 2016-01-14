@@ -1,3 +1,3 @@
 comparing
 hash
-	^ self class hash bitXor: (self value hash bitXor: self nextLink identityHash)
+	^ (self class hash + (self value hash + self nextLink identityHash) hashMultiply) hashMultiply

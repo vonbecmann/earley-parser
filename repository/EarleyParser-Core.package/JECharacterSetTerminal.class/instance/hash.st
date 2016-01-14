@@ -1,3 +1,3 @@
 comparing
 hash
-	^ self class hash bitXor: self regex hash
+	^ (self class hash + self regex hash) hashMultiply

@@ -1,3 +1,3 @@
 comparing
 hash
-	^ self head hash bitXor: self body hash
+	^ (self head hash + self body hash) hashMultiply

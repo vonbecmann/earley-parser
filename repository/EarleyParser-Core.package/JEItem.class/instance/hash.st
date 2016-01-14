@@ -1,3 +1,3 @@
 comparing
 hash
-	^ ((self class hash bitXor: dottedRule hash) bitXor: startChart hash) bitXor: endChart hash
+	^ (((self class hash + dottedRule hash) hashMultiply + startChart hash) hashMultiply + endChart hash) hashMultiply

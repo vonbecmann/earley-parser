@@ -1,0 +1,13 @@
+{
+	"commentStamp" : "",
+	"super" : "TestCase",
+	"category" : "EarleyParser-Tests",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"classvars" : [ ],
+	"instvars" : [
+		"emptyRule"
+	],
+	"name" : "JEEmptyRuleTests",
+	"type" : "normal"
+}

@@ -1,0 +1,3 @@
+tests
+testEmptyRuleWithDotAtEndIsFinal
+	self assert: emptyRule dotAtEnd isFinal

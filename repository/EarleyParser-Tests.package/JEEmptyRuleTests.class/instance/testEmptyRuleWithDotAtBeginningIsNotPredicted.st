@@ -1,0 +1,3 @@
+tests
+testEmptyRuleWithDotAtBeginningIsNotPredicted
+	self deny: emptyRule dotAtBeginning isPredicted

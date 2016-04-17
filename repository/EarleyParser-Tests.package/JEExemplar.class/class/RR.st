@@ -7,5 +7,5 @@ RR
 		x := JETerminal character: $x.
 		JEGrammar
 			basedOn:
-			{	A body: x.
-				A body: x, A } ] value
+			{	A is: x.
+				A is: x, A } ] value

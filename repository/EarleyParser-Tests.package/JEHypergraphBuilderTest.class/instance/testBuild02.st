@@ -9,7 +9,7 @@ testBuild02
 	source := A startedAt: 1 andEndedAt: 2.
 	builder gatherTargetNode: target.
 	builder gatherSourceNode: source.
-	builder addEdgeLabeled: (S body: A).
+	builder addEdgeLabeled: (S is: A).
 	graph := builder build.
 	self assert: graph nodesSize equals: 2.
 	self assert: graph edgesSize equals: 1.

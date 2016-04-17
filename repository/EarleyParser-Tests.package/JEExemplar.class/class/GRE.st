@@ -10,8 +10,8 @@ GRE
 	d := JETerminal character: $d.
 	JEGrammar
 		basedOn:
-			{ X body: a.
-			  X body: X , b.
- 			  X body: Y , a.
-			  Y body: e.
-			  Y body: Y , d , Y } ] value
+			{ X is: a.
+			  X is: X , b.
+ 			  X is: Y , a.
+			  Y is: e.
+			  Y is: Y , d , Y } ] value

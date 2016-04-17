@@ -1,5 +1,6 @@
 instance creation
 define: aNonTerminal
-	"aNonTerminal ::= self"
+	" a sequence with self define a nonterminal
+	  aNonTerminal ::= self"
 
 	^ JESequence new , self define: aNonTerminal

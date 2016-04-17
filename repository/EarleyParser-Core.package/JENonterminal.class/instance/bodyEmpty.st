@@ -3,4 +3,4 @@ bodyEmpty
 	" self ::= empty.
 	  self ::= epsilon "
 
-	^ JESequence new head: self
+	^ JESequence new define: self

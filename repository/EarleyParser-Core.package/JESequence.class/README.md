@@ -1,1 +1,2 @@
-a sequence of symbols
+a sequence of symbols (terminals or nonterminals).
+

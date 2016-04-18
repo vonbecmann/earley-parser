@@ -1,8 +1,8 @@
 tests
 testEquality01
 	| one another |
-	one := JETerminal regex: '[\w]'.
-	another := JETerminal regex: '[\W]'.
+	one := JETerminal charset: '[\w]'.
+	another := JETerminal charset: '[\W]'.
 	self deny: one = another.
 	self deny: one hash = another hash.
 	self deny: another = one.

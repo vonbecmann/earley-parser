@@ -24,7 +24,7 @@ BNF
 (identifier is: letter).
 (identifier is: letter, identifier).
 
-(letter is: (JETerminal regex: '[a-zA-Z]')).
+(letter is: (JETerminal charset: '[a-zA-Z]')).
 (assignment 
 	is: colon, colon, (JETerminal character: $=)).
 
@@ -37,5 +37,5 @@ BNF
 (literal
 	is: 
 		(JETerminal character: $"), 
-		(JETerminal regex: '[\w\d+-/\\*~=@,%|&?!<>]'),
+		(JETerminal charset: '[\w\d+-/\\*~=@,%|&?!<>]'),
 		(JETerminal character: $"))} ]	value

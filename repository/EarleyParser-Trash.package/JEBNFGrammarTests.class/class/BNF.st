@@ -3,7 +3,7 @@ BNF
 	" my own BNF "
 
 	^ [ 
-	| rule rulename identifier letter assignment expression term literal |
+	| rule rulename identifier letter assignment expression term literal colon comma |
 	rule := JENonterminal named: 'rule'.
 	rulename := JENonterminal named: 'rulename'.
 	identifier := JENonterminal named: 'identifier'.
@@ -12,6 +12,8 @@ BNF
 	expression := JENonterminal named: 'expression'.
 	term := JENonterminal named: 'term'.
 	literal := JENonterminal named: 'literal'.
+	colon := JETerminal character: $:.
+	comma := JETerminal character: $,.
 	JEGrammar
 		basedOn:
 			{
@@ -24,13 +26,10 @@ BNF
 
 (letter is: (JETerminal regex: '[a-zA-Z]')).
 (assignment 
-	is: 
-		(JETerminal character: $:), 
-		(JETerminal character: $:), 
-		(JETerminal character: $=)).
+	is: colon, colon, (JETerminal character: $=)).
 
 (expression is: term).
-(expression is: term, (JETerminal character: $,), expression).
+(expression is: term, comma, expression).
 
 (term is: rulename).
 (term is: literal).

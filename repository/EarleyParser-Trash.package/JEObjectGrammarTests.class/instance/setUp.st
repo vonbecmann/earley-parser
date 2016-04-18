@@ -11,7 +11,7 @@ setUp
 		basedOn:
 			{
 (rule
-		body:
+		is:
 			addSymbol,
 			addString,
 			one,

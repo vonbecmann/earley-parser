@@ -15,28 +15,28 @@ BNF
 	JEGrammar
 		basedOn:
 			{
-(rule body: rulename, assignment, expression).
+(rule is: rulename, assignment, expression).
 
-(rulename body: identifier).
+(rulename is: identifier).
 
-(identifier body: letter).
-(identifier body: letter, identifier).
+(identifier is: letter).
+(identifier is: letter, identifier).
 
-(letter body: (JETerminal regex: '[a-zA-Z]')).
+(letter is: (JETerminal regex: '[a-zA-Z]')).
 (assignment 
-	body: 
+	is: 
 		(JETerminal character: $:), 
 		(JETerminal character: $:), 
 		(JETerminal character: $=)).
 
-(expression body: term).
-(expression body: term, (JETerminal character: $,), expression).
+(expression is: term).
+(expression is: term, (JETerminal character: $,), expression).
 
-(term body: rulename).
-(term body: literal).
+(term is: rulename).
+(term is: literal).
 
 (literal
-	body: 
+	is: 
 		(JETerminal character: $"), 
 		(JETerminal regex: '[\w\d+-/\\*~=@,%|&?!<>]'),
 		(JETerminal character: $"))} ]	value

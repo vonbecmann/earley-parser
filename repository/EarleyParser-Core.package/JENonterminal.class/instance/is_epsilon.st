@@ -1,5 +1,5 @@
 instance creation
-bodyEmpty
+is_epsilon
 	" self ::= empty.
 	  self ::= epsilon "
 

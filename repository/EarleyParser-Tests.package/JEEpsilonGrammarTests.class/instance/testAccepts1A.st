@@ -1,3 +1,3 @@
 tests
 testAccepts1A
-	self deny: (grammar accepts: 'a')
+	self assert: (grammar accepts: 'a')

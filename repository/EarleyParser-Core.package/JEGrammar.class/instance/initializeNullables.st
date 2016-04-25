@@ -1,7 +1,7 @@
 initialization
 initializeNullables
 	| changed possibleRules |
-	nullables := (nonterminals collect: [ :each | each -> false ]) asDictionary.
+	nullables := OrderedDictionary newFrom: (nonterminals collect: [ :each | each -> false ]).
 	rules select: [ :each | each isEmpty ] thenDo: [ :each | nullables at: each head put: true ].
 	possibleRules := rules reject: [ :each | each isEmpty or: [ each couldBeNullable not ] ].
 	[ 

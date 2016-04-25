@@ -1,6 +1,6 @@
 initialization
 initializeRules: aCollection
-	| nonterminals index |
+	| index |
 	self initialize.
 	rules addAll: aCollection.
 	rules addFirst: (startSymbol is: rules first head).
@@ -11,4 +11,5 @@ initializeRules: aCollection
 		do: [ :nonterminal | 
 			alternatives
 				at: nonterminal
-				putAll: (rules select: [ :rule | rule head = nonterminal ] thenCollect: [ :rule | rule dotAtBeginning ]) ]
+				putAll: (rules select: [ :rule | rule head = nonterminal ] thenCollect: [ :rule | rule dotAtBeginning ]) ].
+	self initializeNullables 

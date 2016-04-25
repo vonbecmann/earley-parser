@@ -17,5 +17,8 @@ basicAccepts: words
 							ifTrue: [ 
 								(i <= words size and: [ item symbolAtDot matches: (words at: i) ])
 									ifTrue: [ self scan: item with: (words at: i) at: (charts at: i + 1) ] ]
-							ifFalse: [ self predict: item symbolAtDot at: chart ] ] ] ].
+							ifFalse: [ 
+								self predict: item symbolAtDot at: chart.
+								(grammar isNullable: item symbolAtDot)
+									ifTrue: [ chart add: item moveDotForward ] ] ] ] ].
 	^ charts

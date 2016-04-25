@@ -8,7 +8,9 @@
 	"instvars" : [
 		"rules",
 		"alternatives",
-		"startSymbol"
+		"startSymbol",
+		"nullables",
+		"nonterminals"
 	],
 	"name" : "JEGrammar",
 	"type" : "normal"

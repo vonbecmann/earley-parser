@@ -2,9 +2,11 @@ running
 testAddEdge03
 	"add edge with out source nodes"
 
-	| S A target |
+	| S target graph |
 	S := JENonterminal named: 'S'.
-	A := JENonterminal named: 'A'.
-	target := S startedAt: 1 andEndedAt: 2.
+	target := S startedAt: 1 andEndedAt: 1.
 	builder gatherTargetNode: target.
-	self should: [ builder addEdgeLabeled: (S is: A) ] raise: Error
+	builder addEdgeLabeled: S is_epsilon.
+	graph := builder build.
+	self assert: graph nodesSize equals: 1.
+	self assert: graph edgesSize equals: 1

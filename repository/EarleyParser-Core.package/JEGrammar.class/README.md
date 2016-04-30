@@ -1,2 +1,2 @@
-a grammar.
+a context free grammar.
 

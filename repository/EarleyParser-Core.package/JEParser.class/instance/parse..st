@@ -5,5 +5,5 @@ parse: words
 	charts := self basicAccepts: words.
 	finalItem := grammar startRule dotAtEnd startedAt: charts first andEndedAt: charts last.
 	^ (charts last includes: finalItem)
-		ifTrue: [ (builder build treeRootedAt: finalItem asNode) ]
+		ifTrue: [ JEParseForest given: (builder build treeRootedAt: finalItem asNode) of: grammar ]
 		ifFalse: [ self failedAtPosition: charts last number ]

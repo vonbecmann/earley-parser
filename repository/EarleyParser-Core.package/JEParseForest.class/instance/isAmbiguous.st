@@ -1,3 +1,3 @@
 testing
 isAmbiguous
-	^ syntaxTree nodes anySatisfy: [ :each | (syntaxTree backwardStarOf: each) size > 1 ]
+	^ syntaxTree nodes anySatisfy: [ :each | (syntaxTree indegreeOf: each) > 1 ]

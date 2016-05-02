@@ -4,3 +4,4 @@ testParse1X
 	forest := grammar parse: 'x'.
 	self deny: forest isEmpty.
 	self assert: forest size equals: 6.
+	self deny: forest isAmbiguous

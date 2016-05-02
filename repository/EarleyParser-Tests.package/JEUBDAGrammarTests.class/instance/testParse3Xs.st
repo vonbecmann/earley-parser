@@ -1,7 +1,5 @@
 tests
 testParse3Xs
-	| forest |
 	forest := grammar parse: 'xxx'.
-	self deny: forest isEmpty.
-	self assert: forest size equals: 32.
-	self assert: forest isAmbiguous
+	self assert: forest isAmbiguous.
+	self assert: forest size equals: 32

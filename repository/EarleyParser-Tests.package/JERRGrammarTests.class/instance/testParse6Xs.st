@@ -1,6 +1,5 @@
 tests
 testParse6Xs
-	| forest |
 	forest := grammar parse: 'xxxxxx'.
-	self deny: forest isEmpty.
-	self assert: forest size equals: 41.
+	self deny: forest isAmbiguous.
+	self assert: forest size equals: 41

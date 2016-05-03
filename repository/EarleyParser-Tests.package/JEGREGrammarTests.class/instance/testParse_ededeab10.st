@@ -4,5 +4,5 @@ testParse_ededeab10
 
 	| forest |
 	forest := grammar parse: 'ededeabbbbbbbbbb'.
-	self deny: forest isEmpty.
+	self assert: forest isAmbiguous.
 	self assert: forest size equals: 122

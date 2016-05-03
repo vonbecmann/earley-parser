@@ -11,4 +11,4 @@ testExample2
 			(S is: b)} ] value.
 	self assert: (grammar accepts: 'bbb').
 	forest := grammar parse: 'bbb'.
-	self deny: forest isEmpty
+	self assert: forest isAmbiguous

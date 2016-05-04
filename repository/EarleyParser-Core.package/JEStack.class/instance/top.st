@@ -2,4 +2,4 @@ accessing
 top
 	"Answer the first element of the stack without removing it."
 
-	^ self first
+	^ firstLink valueIfEmptyDo: [ Error signal: 'collection is empty!' ]

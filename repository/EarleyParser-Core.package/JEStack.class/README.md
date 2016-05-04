@@ -1,1 +1,4 @@
-I implement a simple Stack. #push: adds a new object of any kind on top of the stack. #pop returns the first element and remove it from the stack. #top answer the first element of the stack without removing it.
+I implement a simple Stack. 
+#push: adds a new object of any kind on top of the stack. 
+#pop returns the first element and remove it from the stack. 
+#top answer the first element of the stack without removing it.

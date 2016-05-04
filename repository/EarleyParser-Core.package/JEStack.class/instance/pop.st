@@ -2,4 +2,7 @@ removing
 pop
 	"Returns the first element and remove it from the stack."
 
-	^ self removeFirst
+	| firstElement |
+	firstElement := self top.
+	firstLink := firstLink nextLink.
+	^ firstElement

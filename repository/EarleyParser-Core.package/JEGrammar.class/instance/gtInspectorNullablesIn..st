@@ -4,8 +4,7 @@ gtInspectorNullablesIn: composite
 	^ composite table
 		title: 'Nullables';
 		display: [ nullables associations ];
-		send: [ :each | each value ];
-		column: 'Nonterminal' evaluated: [ :each | GTObjectPrinter new asTruncatedTextFrom: each key ];
+		column: 'Nonterminal' evaluated: [ :each | each key ];
 		column: 'Nullable?' evaluated: [ :each | each value ];
 		showOnly: 50;
 		yourself

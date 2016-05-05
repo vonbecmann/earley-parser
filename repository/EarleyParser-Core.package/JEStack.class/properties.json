@@ -6,7 +6,8 @@
 	"pools" : [ ],
 	"classvars" : [ ],
 	"instvars" : [
-		"firstLink"
+		"firstLink",
+		"tally"
 	],
 	"name" : "JEStack",
 	"type" : "normal"

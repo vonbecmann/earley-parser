@@ -1,4 +1,5 @@
 initialization
 initialize
 	super initialize.
-	firstLink := nil
+	firstLink := nil.
+	tally := 0

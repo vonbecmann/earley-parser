@@ -3,10 +3,8 @@ addFirst: anObject
 	"Add a link to the beginning of the receiver's list."
 
 	| link |
-	link := JELink value: anObject.
-	self isEmpty
-		ifTrue: [ lastLink := link ].
-	link nextLink: firstLink.
+	link := JELink value: anObject next: firstLink.
+	firstLink ifNil: [ lastLink := link ].
 	firstLink := link.
 	tally := tally + 1.
 	^ anObject

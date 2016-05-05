@@ -4,9 +4,7 @@ addLast: anObject
 
 	| link |
 	link := JELink value: anObject.
-	self isEmpty
-		ifTrue: [ firstLink := link ]
-		ifFalse: [ lastLink nextLink: link ].
+	firstLink ifNil: [ firstLink := link ] ifNotNil: [ lastLink nextLink: link ].
 	lastLink := link.
 	tally := tally + 1.
 	^ anObject

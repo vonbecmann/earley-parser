@@ -1,3 +1,3 @@
 testing
 isEmpty
-	^ firstLink isEmpty
+	^ firstLink isNil

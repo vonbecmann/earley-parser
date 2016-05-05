@@ -1,3 +1,3 @@
 adding nodes
 addNode: anObject
-	^ nodes jeAdd: (JEHypernode value: anObject) ifPresentDo: [ :elem | elem ]
+	^ nodes jeAdd: (JEHypernode value: anObject)

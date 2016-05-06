@@ -15,4 +15,4 @@ treeRootedAtNode: aNode
 						thenDo: [ :node | 
 							visitedNodes add: node.
 							queue addLast: node ] ] ].
-	^ JEBTreeHypergraph root: aNode nodes: visitedNodes asArray hyperedges: visitedEdges asArray
+	^ JEBTreeHypergraph root: aNode nodes: visitedNodes hyperedges: visitedEdges

@@ -1,5 +1,5 @@
 private
 reset
-	nodes removeAll.
-	edges removeAll.
+	nodes := Set new.
+	edges := Set new.
 	self resetTargetAndSourceNodes

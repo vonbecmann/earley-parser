@@ -1,5 +1,6 @@
 private
 dvisitFrom: aNode
+	" TOO EXPENSIVE for large graphs "
 	"depth visit from a node. return a collection of nodes in the order that they are visited"
 
 	| visitedNodes stack |

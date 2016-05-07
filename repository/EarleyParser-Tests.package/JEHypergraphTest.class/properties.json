@@ -1,0 +1,14 @@
+{
+	"commentStamp" : "",
+	"super" : "TestCase",
+	"category" : "EarleyParser-Tests",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"classvars" : [ ],
+	"instvars" : [
+		"builder",
+		"treegraph"
+	],
+	"name" : "JEHypergraphTest",
+	"type" : "normal"
+}

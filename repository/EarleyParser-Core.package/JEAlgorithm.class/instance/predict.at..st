@@ -1,5 +1,5 @@
 private operations
-predict: nonterminal at: chart
+predict: item at: chart
 	"
 	Prediction:
 		For every state in S(k) of the form (X -> a * Y b, j),
@@ -9,4 +9,6 @@ predict: nonterminal at: chart
 	i.e. add all respective predicted items for the given collection of dotted rules
 	"
 
-	(grammar alternativesOf: nonterminal) do: [ :dottedRule | chart add: (dottedRule startedAt: chart) ]
+	self predictNonterminal: item symbolAtDot at: chart.
+	item finalItemsWithHeadIsSymbolAtDot 
+		do: [ :again | self complete: again at: chart ]

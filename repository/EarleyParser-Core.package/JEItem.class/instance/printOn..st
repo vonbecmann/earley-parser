@@ -6,18 +6,6 @@ printOn: aStream
 
 	aStream nextPut: $[.
 	dottedRule printOn: aStream.
-	aStream
-		space;
-		nextPut: $@;
-		space.
-	endChart isNil
-		ifTrue: [ startChart shortPrintOn: aStream ]
-		ifFalse: [ 
-			aStream nextPut: $[.
-			startChart shortPrintOn: aStream.
-			aStream
-				nextPut: $,;
-				space.
-			endChart shortPrintOn: aStream.
-			aStream nextPut: $] ].
+	aStream nextPutAll: ' @ '.
+	self printChartOn: aStream.
 	aStream nextPut: $]

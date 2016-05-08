@@ -11,5 +11,4 @@ initializeRules: aCollection
 		do: [ :nonterminal | 
 			alternatives
 				at: nonterminal
-				putAll: (rules select: [ :rule | rule head = nonterminal ] thenCollect: [ :rule | rule dotAtBeginning ]) ].
-	self initializeNullables 
+				putAll: (rules select: [ :rule | rule head = nonterminal ] thenCollect: [ :rule | rule dotAtBeginning ]) ]

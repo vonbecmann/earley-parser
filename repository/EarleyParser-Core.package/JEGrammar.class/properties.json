@@ -9,7 +9,6 @@
 		"rules",
 		"alternatives",
 		"startSymbol",
-		"nullables",
 		"nonterminals"
 	],
 	"name" : "JEGrammar",

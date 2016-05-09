@@ -10,10 +10,13 @@ add: anItem
 			each dottedRule = anItem dottedRule
 				ifTrue: [ ^ each ] ].
 	self itemsAt: anItem startChart put: anItem.
-	(anItem isFinal or: [ anItem symbolAtDot isTerminal ])
-		ifFalse: [ predictionItemsByNonterminal at: anItem symbolAtDot put: anItem ].
-	(anItem isFinal and: [ anItem startChart = self ])
-		ifTrue: [ finalItemsByNonterminal at: anItem head put: anItem ].
+	anItem isFinal
+		ifTrue: [ 
+			anItem startChart = self
+				ifTrue: [ finalItemsByNonterminal at: anItem head put: anItem ] ]
+		ifFalse: [ 
+			anItem symbolAtDot isTerminal
+				ifFalse: [ predictionItemsByNonterminal at: anItem symbolAtDot put: anItem ] ].
 	items addLast: anItem.
 	anItem endChart: self.
 	^ anItem

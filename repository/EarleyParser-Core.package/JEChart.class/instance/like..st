@@ -1,3 +1,3 @@
 accessing
-like: anObject
-	^ items detect: [ :each | each equals: anObject ] ifNone: [ nil ]
+like: anItem
+	^ items detect: [ :each | each equals: anItem ] ifNone: [ nil ]

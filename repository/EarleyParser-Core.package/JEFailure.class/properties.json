@@ -6,7 +6,8 @@
 	"pools" : [ ],
 	"classvars" : [ ],
 	"instvars" : [
-		"position"
+		"position",
+		"charts"
 	],
 	"name" : "JEFailure",
 	"type" : "normal"

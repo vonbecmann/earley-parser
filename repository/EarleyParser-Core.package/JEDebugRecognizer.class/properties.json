@@ -1,0 +1,11 @@
+{
+	"commentStamp" : "BernardoContreras 5/11/2016 19:02",
+	"super" : "JEAlgorithm",
+	"category" : "EarleyParser-Core-Implementation",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"classvars" : [ ],
+	"instvars" : [ ],
+	"name" : "JEDebugRecognizer",
+	"type" : "normal"
+}

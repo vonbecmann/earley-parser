@@ -1,6 +1,10 @@
 public
 acceptsUBDABenchmark
-	" 11 May 2016 - timeToRun: 0:00:00:04.974"
+	" 
+| date        | time to run    |
+| 11 May 2016 | 0:00:00:04.974 |
+	"
+
 	| n words grammar |
 	n := 400.
 	words := String new: n.

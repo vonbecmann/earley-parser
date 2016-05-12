@@ -1,7 +1,7 @@
 {
 	"commentStamp" : "",
 	"super" : "TestCase",
-	"category" : "EarleyParser-Tests",
+	"category" : "EarleyParser-Tests-Hypergraph",
 	"classinstvars" : [ ],
 	"pools" : [ ],
 	"classvars" : [ ],

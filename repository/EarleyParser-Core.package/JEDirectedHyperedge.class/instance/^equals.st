@@ -1,10 +1,10 @@
 comparing
 = anObject
+	"label is not part of my identity."
+
 	self class == anObject class
 		ifFalse: [ ^ false ].
 	self targetNode == anObject targetNode
-		ifFalse: [ ^ false ].
-	self label = anObject label
 		ifFalse: [ ^ false ].
 	self sourceNodes size = anObject sourceNodes size
 		ifFalse: [ ^ false ].

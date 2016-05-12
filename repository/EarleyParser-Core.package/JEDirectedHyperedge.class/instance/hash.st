@@ -1,6 +1,8 @@
 comparing
 hash
+	"label is not part of my identity."
+
 	| hash |
-	hash := (self class hash + (targetNode identityHash + label hash) hashMultiply) hashMultiply.
+	hash := ((self class hash + targetNode identityHash) hashMultiply + sourceNodes size hash) hashMultiply.
 	sourceNodes do: [ :elem | hash := (hash + elem identityHash) hashMultiply ].
-	^ (hash + sourceNodes size hash) hashMultiply
+	^ hash

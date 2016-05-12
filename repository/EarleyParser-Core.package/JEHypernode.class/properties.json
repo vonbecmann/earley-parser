@@ -1,12 +1,13 @@
 {
-	"commentStamp" : "BernardoContreras 6/8/2015 11:51",
+	"commentStamp" : "BernardoContreras 5/12/2016 12:00",
 	"super" : "Object",
 	"category" : "EarleyParser-Core-Hypergraph",
 	"classinstvars" : [ ],
 	"pools" : [ ],
 	"classvars" : [ ],
 	"instvars" : [
-		"value"
+		"value",
+		"backwardStar"
 	],
 	"name" : "JEHypernode",
 	"type" : "normal"

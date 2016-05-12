@@ -2,4 +2,4 @@ adding edges
 gatherSourceNode: anObject
 	"accumulate source nodes for a new edge"
 
-	accumulatedSourceNodes add: (self addNode: anObject)
+	accumulatedSourceNodes addLast: (self addNode: anObject)

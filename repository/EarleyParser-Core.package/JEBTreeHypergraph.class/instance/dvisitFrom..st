@@ -1,6 +1,7 @@
 private
 dvisitFrom: aNode
 	" TOO EXPENSIVE for large graphs "
+
 	"depth visit from a node. return a collection of nodes in the order that they are visited"
 
 	| visitedNodes stack |
@@ -11,5 +12,5 @@ dvisitFrom: aNode
 			| currentNode |
 			currentNode := stack pop.
 			visitedNodes add: currentNode.
-			(self backwardStarOf: currentNode) do: [ :edge | edge sourceNodes reverseDo: [ :node | stack push: node ] ] ].
+			currentNode backwardStar do: [ :edge | edge sourceNodes reverseDo: [ :node | stack push: node ] ] ].
 	^ visitedNodes

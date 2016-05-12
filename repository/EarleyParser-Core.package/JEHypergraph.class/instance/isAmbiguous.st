@@ -1,3 +1,3 @@
 testing
 isAmbiguous
-	^ nodes anySatisfy: [ :each | (self indegreeOf: each) > 1 ]
+	^ nodes anySatisfy: [ :each | each indegree > 1 ]

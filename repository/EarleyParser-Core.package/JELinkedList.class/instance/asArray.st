@@ -1,4 +1,9 @@
 converting
 asArray
-	^ Array streamContents: [ :out |
-		self do: [ :each | out nextPut: each ] ]
+	"Optimized for efficiency"
+
+	| newArray index |
+	newArray := Array new: self size.
+	index := 0.
+	self do: [ :each | newArray at: (index := index + 1) put: each ].
+	^ newArray

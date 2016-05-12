@@ -7,8 +7,7 @@
 	"classvars" : [ ],
 	"instvars" : [
 		"nodes",
-		"edges",
-		"backwardStar"
+		"edges"
 	],
 	"name" : "JEHypergraph",
 	"type" : "normal"

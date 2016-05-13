@@ -1,9 +1,9 @@
 initialization
-initializeRules: aCollection
+initializeRules: aCollection startNonterminal: aNonterminal
 	| index |
 	self initialize.
+	rules add: (startSymbol is: aNonterminal).
 	rules addAll: aCollection.
-	rules addFirst: (startSymbol is: rules first head).
 	nonterminals := rules collect: [ :each | each head ] as: Set.
 	index := (nonterminals collect: [ :each | each -> (rules findFirst: [ :rule | rule head = each ]) ]) asDictionary.
 	nonterminals := nonterminals sorted: [ :a :b | (index at: a) <= (index at: b) ].

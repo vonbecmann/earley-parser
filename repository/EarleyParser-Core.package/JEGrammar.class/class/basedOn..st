@@ -1,5 +1,6 @@
 instance creation
 basedOn: aCollectionOfRules
-	"a grammar based on a collection of rules"
+	"a grammar based on a collection of rules, starting at the first rule's left hand."
 
-	^ self basicNew initializeRules: aCollectionOfRules
+	self assert: aCollectionOfRules isEmpty not.
+	^ self basicNew initializeRules: aCollectionOfRules startNonterminal: aCollectionOfRules first head

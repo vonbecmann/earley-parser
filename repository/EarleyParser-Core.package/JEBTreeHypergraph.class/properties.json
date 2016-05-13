@@ -6,8 +6,7 @@
 	"pools" : [ ],
 	"classvars" : [ ],
 	"instvars" : [
-		"root",
-		"sourceNodesByTarget"
+		"root"
 	],
 	"name" : "JEBTreeHypergraph",
 	"type" : "normal"

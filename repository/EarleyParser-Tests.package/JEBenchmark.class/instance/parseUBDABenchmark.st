@@ -3,6 +3,7 @@ parseUBDABenchmark
 	"
 | date        | time to run    |
 | 12 May 2016 | 0:00:00:06.49  |
+| 13 May 2016 | 0:00:00:04.279 |
 	"
 
 	| n words grammar |

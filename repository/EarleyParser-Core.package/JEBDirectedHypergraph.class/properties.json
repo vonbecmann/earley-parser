@@ -1,6 +1,6 @@
 {
 	"commentStamp" : "BernardoContreras 5/18/2015 15:13",
-	"super" : "JEHypergraph",
+	"super" : "JEBHypergraph",
 	"category" : "EarleyParser-Core-Hypergraph",
 	"classinstvars" : [ ],
 	"pools" : [ ],

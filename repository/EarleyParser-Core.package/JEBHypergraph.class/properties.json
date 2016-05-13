@@ -1,5 +1,5 @@
 {
-	"commentStamp" : "BernardoContreras 5/18/2015 13:08",
+	"commentStamp" : "BernardoContreras 5/13/2016 15:45",
 	"super" : "Object",
 	"category" : "EarleyParser-Core-Hypergraph",
 	"classinstvars" : [ ],
@@ -9,6 +9,6 @@
 		"nodes",
 		"edges"
 	],
-	"name" : "JEHypergraph",
+	"name" : "JEBHypergraph",
 	"type" : "normal"
 }

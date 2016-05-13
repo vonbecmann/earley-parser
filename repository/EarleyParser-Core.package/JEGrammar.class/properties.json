@@ -9,7 +9,8 @@
 		"rules",
 		"alternatives",
 		"startSymbol",
-		"nonterminals"
+		"nonterminals",
+		"startRule"
 	],
 	"name" : "JEGrammar",
 	"type" : "normal"

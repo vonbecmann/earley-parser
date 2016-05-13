@@ -2,5 +2,5 @@ initialization
 initialize
 	super initialize.
 	startSymbol := JENonterminal start.
-	rules := OrderedCollection new.
+	rules := Set new.
 	alternatives := JEMultiValuedDictionary dictionary: OrderedDictionary collection: JELinkedList

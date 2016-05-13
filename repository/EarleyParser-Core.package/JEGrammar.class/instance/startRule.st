@@ -1,3 +1,3 @@
 private
 startRule
-	^ rules first
+	^ startRule

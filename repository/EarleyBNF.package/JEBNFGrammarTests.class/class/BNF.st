@@ -3,39 +3,33 @@ BNF
 	" my own BNF "
 
 	^ [ 
-	| rule rulename identifier letter assignment expression term literal colon comma |
+	| rule nonterminal letter_digit_underscore_star definitionList grammar_symbol comma_grammar_symbol_star literal letter_symbol letter_digit_underscore_symbol comma_symbol equals_symbol dot_symbol |
 	rule := JENonterminal named: 'rule'.
-	rulename := JENonterminal named: 'rulename'.
-	identifier := JENonterminal named: 'identifier'.
-	letter := JENonterminal named: 'letter'.
-	assignment := JENonterminal named: 'assignment'.
-	expression := JENonterminal named: 'expression'.
-	term := JENonterminal named: 'term'.
+	nonterminal := JENonterminal named: 'nonterminal'.
+	letter_digit_underscore_star := JENonterminal named: 'letter_digit_underscore_star'.
+	definitionList := JENonterminal named: 'definition_list'.
+	grammar_symbol := JENonterminal named: 'grammar_symbol'.
+	comma_grammar_symbol_star := JENonterminal named: 'comma_grammar_symbol_star'.
 	literal := JENonterminal named: 'literal'.
-	colon := JETerminal character: $:.
-	comma := JETerminal character: $,.
+	letter_symbol := JENonterminal named: 'letter_symbol'.
+	letter_digit_underscore_symbol := JENonterminal named: 'letter_digit_underscore_symbol'.
+	comma_symbol := JETerminal character: $,.
+	equals_symbol := JETerminal character: $=.
+	dot_symbol := JETerminal character: $..
 	JEGrammar
 		basedOn:
-			{
-(rule is: rulename, assignment, expression).
-
-(rulename is: identifier).
-
-(identifier is: letter).
-(identifier is: letter, identifier).
-
-(letter is: (JETerminal charset: '[a-zA-Z]')).
-(assignment 
-	is: colon, colon, (JETerminal character: $=)).
-
-(expression is: term).
-(expression is: term, comma, expression).
-
-(term is: rulename).
-(term is: literal).
-
-(literal
-	is: 
-		(JETerminal character: $"), 
-		(JETerminal charset: '[\w\d+-/\\*~=@,%|&?!<>]'),
-		(JETerminal character: $"))} ]	value
+			{(rule is: nonterminal , equals_symbol , definitionList , dot_symbol).
+			(definitionList is_epsilon).
+			(definitionList is: grammar_symbol , comma_grammar_symbol_star).
+			(comma_grammar_symbol_star is: comma_symbol , grammar_symbol , comma_grammar_symbol_star).
+			(comma_grammar_symbol_star is_epsilon).
+			(nonterminal is: letter_symbol , letter_digit_underscore_star).
+			(letter_digit_underscore_star is: letter_digit_underscore_symbol , letter_digit_underscore_star).
+			(letter_digit_underscore_star is_epsilon).
+			(letter_symbol is: (JETerminal charset: '[a-zA-Z]')).
+			(letter_digit_underscore_symbol is: (JETerminal charset: '[a-zA-Z0-9_]')).
+			(grammar_symbol is: nonterminal).
+			(grammar_symbol is: literal).
+			(literal
+				is: (JETerminal character: $") , (JETerminal charset: '[\w\d+-/\\*~=@,%|&?!<>]') , (JETerminal character: $"))} ]
+		value

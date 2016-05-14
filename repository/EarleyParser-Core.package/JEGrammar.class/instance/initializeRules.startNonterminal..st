@@ -5,7 +5,8 @@ initializeRules: aCollection startNonterminal: aNonterminal
 	aRuleCollection := (OrderedCollection with: (startSymbol is: aNonterminal))
 		addAll: aCollection;
 		yourself.
-	nonterminals := aRuleCollection collect: [ :each | each head ] as: Set.
+	nonterminals addAll: (aRuleCollection collect: [ :each | each head ]).
+	terminals addAll: (aRuleCollection flatCollect: [ :each | each body select: [ :symbol | symbol isTerminal ] ]).
 	rules
 		addAll:
 			(aRuleCollection
@@ -16,7 +17,7 @@ initializeRules: aCollection startNonterminal: aNonterminal
 							(rule body
 								collect: [ :symbol | 
 									symbol isTerminal
-										ifTrue: [ symbol ]
+										ifTrue: [ terminals like: symbol ]
 										ifFalse: [ nonterminals like: symbol ifAbsent: [ self unknowNonterminal: symbol in: rule ] ] ]) ]).
 	startRule := rules like: (startSymbol is: aNonterminal).
 	nonterminals

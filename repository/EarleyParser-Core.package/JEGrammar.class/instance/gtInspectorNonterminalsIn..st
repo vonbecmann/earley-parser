@@ -1,6 +1,6 @@
 gt-inspector-extension
 gtInspectorNonterminalsIn: composite
-	<gtInspectorPresentationOrder: 3>
+	<gtInspectorPresentationOrder: 2>
 	^ composite table
 		title: nonterminals size asString , ' nonterminals';
 		display: nonterminals;

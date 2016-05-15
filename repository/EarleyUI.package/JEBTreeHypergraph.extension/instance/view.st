@@ -1,7 +1,9 @@
 *EarleyUI
 view
+	" returns a roassal view of myself"
+
 	| b assoc |
-	b := RTMondrianViewBuilder new.
+	b := RTMondrian new.
 	b shape label.
 	b
 		nodes:
@@ -10,11 +12,14 @@ view
 				addAll: self edges;
 				yourself).
 	assoc := OrderedCollection new.
-	self edges
-		do: [ :each | 
-			assoc add: each -> each targetNode.
-			each sourceNodes do: [ :node | assoc add: node -> each ] ].
-	b edgesFromAssociations: assoc.
+	assoc
+		addAll:
+			(self edges
+				flatCollect: [ :edge | 
+					(OrderedCollection with: (edge -> edge targetNode))
+						addAll: (edge sourceNodes collect: [ :node | node -> edge ]);
+						yourself ]).
+	b edges useAssociations: assoc.
 	b treeLayout.
 	b build.
 	^ b view

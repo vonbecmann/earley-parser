@@ -8,8 +8,7 @@ treeRootedAtNode: aNode
 	visitedNodes := JELinkedList with: aNode.
 	queue := JELinkedList with: aNode.
 	[ queue isEmpty ]
-		whileFalse: [ 
-			queue removeFirst backwardStar
+		whileFalse: [ queue removeFirst backwardStar
 				do: [ :edge | 
 					visitedEdges addLast: edge.
 					edge sourceNodes
@@ -18,4 +17,4 @@ treeRootedAtNode: aNode
 							visited at: node put: true.
 							visitedNodes add: node.
 							queue addLast: node ] ] ].
-	^ JEBTreeHypergraph root: aNode nodes: visitedNodes asArray hyperedges: visitedEdges asArray
+	^ JEBTreeHypergraph root: aNode nodes: visitedNodes hyperedges: visitedEdges

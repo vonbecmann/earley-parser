@@ -4,7 +4,8 @@ build
 
 	| graph edges |
 	edges := JELinkedList new.
-	nodes do: [ :node | node backwardStar do: [ :edge | edges addLast: edge ] ].
-	graph := JEBDirectedHypergraph nodes: nodes asArray hyperedges: edges asArray.
+	nodes
+		do: [ :node | node backwardStar do: [ :edge | edges addLast: edge ] ].
+	graph := JEBDirectedHypergraph nodes: nodes hyperedges: edges.
 	self reset.
 	^ graph

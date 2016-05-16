@@ -1,6 +1,6 @@
 initialization
-initializeLabel: anObject sourceNodes: aNodeCollection targetNode: node
+initializeLabel: anObject sourceNodes: aNodeCollection targetNode: aNode
 	self initialize.
 	label := anObject.
-	sourceNodes := aNodeCollection.
-	targetNode := node
+	sourceNodes := aNodeCollection asArray.
+	targetNode := aNode

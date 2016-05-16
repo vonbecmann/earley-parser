@@ -4,8 +4,9 @@ addEdgeLabeled: anObject
 
 	targetNode ifNil: [ ^ Error signal: 'target node cannot be nil' ].
 	targetNode
-		addBackwardEdge: (JEDirectedHyperedge 
-							labeled: anObject 
-							sourceNodes: accumulatedSourceNodes asArray 
-							targetNode: targetNode).
+		addBackwardEdge:
+			(JEDirectedHyperedge
+				labeled: anObject
+				sourceNodes: accumulatedSourceNodes
+				targetNode: targetNode).
 	self resetTargetAndSourceNodes

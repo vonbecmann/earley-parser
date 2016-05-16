@@ -1,3 +1,3 @@
 instance creation
-labeled: anObject sourceNodes: aNodeCollection targetNode: node
-	^ self basicNew initializeLabel: anObject sourceNodes: aNodeCollection targetNode: node
+labeled: anObject sourceNodes: aNodeCollection targetNode: aNode
+	^ self basicNew initializeLabel: anObject sourceNodes: aNodeCollection targetNode: aNode

@@ -9,3 +9,9 @@ A backward hyperarc, or simply B-arc, is a hyperarc E = (T(E), H(E)) with |H(E)|
 
 I'm a backward hyperarc.
 
+targetNode is an hypernode.
+sourceNodes is an array of hypernodes.
+label is an object.
+
+sourceNodes  == label ==> targetNode.
+                             

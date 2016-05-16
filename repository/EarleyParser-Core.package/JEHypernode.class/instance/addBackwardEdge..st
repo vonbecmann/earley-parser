@@ -1,3 +1,3 @@
 accessing
 addBackwardEdge: aBackwardEdge
-	^ backwardStar add: aBackwardEdge
+	backwardStar add: aBackwardEdge

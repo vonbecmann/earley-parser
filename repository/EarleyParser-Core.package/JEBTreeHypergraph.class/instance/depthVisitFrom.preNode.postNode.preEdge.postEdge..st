@@ -22,4 +22,6 @@ depthVisitFrom: aNode preNode: preNodeBlock postNode: postNodeBlock preEdge: pre
 						ifFalse: [ visited at: element put: true.
 							preEdgeBlock ifNotNil: [ preEdgeBlock value: element ].
 							element sourceNodes
-								reverseDo: [ :node | visitStack push: node ] ] ] ]
+								reverseDo: [ :node | 
+									(visited at: node)
+										ifFalse: [ visitStack push: node ] ] ] ] ]

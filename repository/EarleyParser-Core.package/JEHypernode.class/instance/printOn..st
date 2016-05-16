@@ -1,5 +1,5 @@
 printing
 printOn: aStream
 	aStream nextPut: $(.
-	self value printOn: aStream.
+	self model printOn: aStream.
 	aStream nextPut: $)

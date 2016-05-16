@@ -1,5 +1,7 @@
 a hypergraph's node.
 
+model - an object.
+
 backwardStar -
 	BackwardStar (node) = { e belongs to Edges : node belongs to head(e)}
 	

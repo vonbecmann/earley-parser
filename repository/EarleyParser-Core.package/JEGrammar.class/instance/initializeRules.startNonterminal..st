@@ -19,9 +19,7 @@ initializeRules: aCollection startNonterminal: aNonterminal
 									symbol isTerminal
 										ifTrue: [ terminals like: symbol ]
 										ifFalse: [ nonterminals like: symbol ifAbsent: [ self unknowNonterminal: symbol in: rule ] ] ]) ]).
-	startRule := rules like: (startSymbol is: aNonterminal).
+	startRule := rules detect: [ :each | startSymbol = each head ].
 	nonterminals
-		do: [ :nonterminal | 
-			alternatives
-				at: nonterminal
-				putAll: (rules select: [ :rule | rule head = nonterminal ] thenCollect: [ :rule | rule dotAtBeginning ]) ]
+		do:
+			[ :nonterminal | alternatives at: nonterminal putAll: (rules select: [ :rule | rule head = nonterminal ] thenCollect: [ :rule | rule dotAtBeginning ]) ]

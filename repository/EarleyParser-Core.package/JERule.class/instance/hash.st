@@ -1,3 +1,3 @@
 comparing
 hash
-	^ (self head hash + self body hash) hashMultiply
+	^ ((self class hash + self head hash) hashMultiply + self body hash) hashMultiply

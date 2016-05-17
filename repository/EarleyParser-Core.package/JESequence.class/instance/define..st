@@ -1,6 +1,5 @@
 instance creation
-define: aJENonterminal
+define: aNonterminal
 	" a sequence of symbols define a nonterminal "
 
-	self assert: aJENonterminal isTerminal not.
-	^ JERule head: aJENonterminal body: symbols
+	^ JEUserRule head: aNonterminal body: symbols

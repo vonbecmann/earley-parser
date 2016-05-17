@@ -1,4 +1,4 @@
-a rule of the grammar.
+a rule of the given grammar used by the algorithm. (it has many optimizations) .
 	
 	head ::= body.
 

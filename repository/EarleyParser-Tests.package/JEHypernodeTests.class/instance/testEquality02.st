@@ -9,7 +9,7 @@ testEquality02
 			(JENonterminal named: 'P')}.
 	one := JEHypernode model: (JESyntaxNode value: (rule dotAt: 2) start: 1 end: 4).
 	another := JEHypernode model: (JESyntaxNode value: (rule dotAt: 2) start: 1 end: 4).
-	self assert: one = another.
-	self assert: one hash = another hash.
-	self assert: another = one.
-	self assert: another hash = one hash
+	self assert: one equals: another.
+	self assert: one hash equals: another hash.
+	self assert: another equals: one.
+	self assert: another hash equals: one hash

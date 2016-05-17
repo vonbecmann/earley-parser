@@ -3,7 +3,7 @@ testEquality
 	| one another |
 	one := JETerminal character: $+.
 	another := JETerminal character: $+.
-	self assert: one = another.
-	self assert: one hash = another hash.
-	self assert: another = one.
-	self assert: another hash = one hash
+	self assert: one equals: another.
+	self assert: one hash equals: another hash.
+	self assert: another equals: one.
+	self assert: another hash equals: one hash

@@ -6,9 +6,10 @@
 	"pools" : [ ],
 	"classvars" : [ ],
 	"instvars" : [
-		"dotIndex",
 		"rule",
-		"final"
+		"dotIndex",
+		"final",
+		"predicted"
 	],
 	"name" : "JEDottedRule",
 	"type" : "normal"

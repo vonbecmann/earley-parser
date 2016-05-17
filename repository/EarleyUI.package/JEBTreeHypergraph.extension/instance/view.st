@@ -6,16 +6,17 @@ view
 	b := RTMondrian new.
 	b shape rectangle withTextOnTheLeft: [ :node | node model ].
 	b nodes: self nodes.
-	b shape circle withTextAbove: [ :edge | edge label ].
+	b shape circle
+		withBorder;
+		withTextAbove: [ :edge | edge label ].
 	b nodes: self edges.
-	b shape line.
+	b shape arrowedLine.
 	b edges useAssociations: (self edges collect: [ :edge | edge targetNode -> edge ]).
-	b shape line.
+	b shape arrowedLine.
 	b edges
 		useAssociations:
 			(self edges
-				flatCollect:
-					[ :edge | OrderedCollection withAll: (edge sourceNodes collect: [ :node | edge -> node ]) ]).
+				flatCollect: [ :edge | OrderedCollection withAll: (edge sourceNodes collect: [ :node | edge -> node ]) ]).
 	b treeLayout.
 	b build.
 	^ b view

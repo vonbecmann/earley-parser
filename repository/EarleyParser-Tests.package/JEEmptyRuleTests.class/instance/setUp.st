@@ -1,4 +1,4 @@
 running
 setUp
 	super setUp.
-	emptyRule := (JENonterminal named: 'T') is_epsilon 
+	emptyRule := JERule head: (JENonterminal named: 'T') body: {}

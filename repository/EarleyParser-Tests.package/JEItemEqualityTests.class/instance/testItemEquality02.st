@@ -1,11 +1,15 @@
 tests
-testItemEquality04
+testItemEquality02
 	| one another first rule |
 	first := JEChart number: 1.
-	rule := (JENonterminal named: 'T')
-		is: (JENonterminal named: 'T'),	(JETerminal character: $+), (JENonterminal named: 'P').
+	rule := JERule
+		head: (JENonterminal named: 'T')
+		body:
+			{(JENonterminal named: 'T').
+			(JETerminal character: $+).
+			(JENonterminal named: 'P')}.
 	one := (rule dotAt: 2) startedAt: first andEndedAt: (JEChart number: 3).
-	another := ((rule dotAt: 2) startedAt: first).
+	another := (rule dotAt: 2) startedAt: first andEndedAt: (JEChart number: 4).
 	self deny: one = another.
 	self deny: one hash = another hash.
 	self deny: another = one.

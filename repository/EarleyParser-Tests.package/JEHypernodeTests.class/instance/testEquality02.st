@@ -1,8 +1,12 @@
 tests
 testEquality02
 	| rule one another |
-	rule := (JENonterminal named: 'T')
-		is: (JENonterminal named: 'T') , (JETerminal character: $+) , (JENonterminal named: 'P').
+	rule := JERule
+		head: (JENonterminal named: 'T')
+		body:
+			{(JENonterminal named: 'T').
+			(JETerminal character: $+).
+			(JENonterminal named: 'P')}.
 	one := JEHypernode model: (JESyntaxNode value: (rule dotAt: 2) start: 1 end: 4).
 	another := JEHypernode model: (JESyntaxNode value: (rule dotAt: 2) start: 1 end: 4).
 	self assert: one = another.

@@ -5,7 +5,7 @@ add: anItem
 			then return it 
 			else add it last"
 
-	(self itemsAt: anItem startChart)
+	(itemsByChart at: anItem startChart)
 		do: [ :each | 
 			each dottedRule = anItem dottedRule
 				ifTrue: [ ^ each ] ].

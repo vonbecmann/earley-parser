@@ -1,3 +1,3 @@
 private
 itemsAt: chart
-	^ itemsByChart at: chart number
+	^ itemsByChart at: chart

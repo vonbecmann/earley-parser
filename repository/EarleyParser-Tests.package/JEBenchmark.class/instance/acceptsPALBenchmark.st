@@ -4,6 +4,7 @@ acceptsPALBenchmark
 | date        | time to run    |
 | 11 May 2016 | 0:00:00:05.916 |
 | 13 May 2016 | 0:00:00:03.747 | 
+| 18 May 2016 | 0:00:00:06.052 |
 	"
 
 	| n words grammar maxOdd |

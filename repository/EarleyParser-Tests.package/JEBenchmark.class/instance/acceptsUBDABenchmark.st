@@ -4,6 +4,7 @@ acceptsUBDABenchmark
 | date        | time to run    |
 | 11 May 2016 | 0:00:00:04.974 |
 | 13 May 2016 | 0:00:00:04.386 |
+| 18 May 2016 | 0:00:00:09.899 |
 	"
 
 	| n words grammar |

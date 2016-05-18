@@ -7,7 +7,7 @@ add: anItem
 
 	(itemsByChart at: anItem startChart)
 		do: [ :each | 
-			each dottedRule = anItem dottedRule
+			each dottedRule == anItem dottedRule
 				ifTrue: [ ^ each ] ].
 	itemsByChart at: anItem startChart put: anItem.
 	anItem isFinal

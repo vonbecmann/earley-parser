@@ -9,6 +9,8 @@ body or right hand-side.
 	body could be empty when you have a empty or epsilon rule. (A ::= epsilon).
 	is an array for performance  reasons.
 	
+dottedRules - its associated dotted rules. a dotted rule for each position on the body.
+	
 they should be unique objects, because the algorithm compare rules by identity.
 in the same way nonterminals should be unique.
 

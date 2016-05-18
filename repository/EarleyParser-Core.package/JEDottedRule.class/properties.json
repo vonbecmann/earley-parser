@@ -1,5 +1,5 @@
 {
-	"commentStamp" : "BernardoContreras 5/17/2016 19:58",
+	"commentStamp" : "BernardoContreras 5/18/2016 12:38",
 	"super" : "Object",
 	"category" : "EarleyParser-Core-Implementation",
 	"classinstvars" : [ ],
@@ -8,6 +8,7 @@
 	"instvars" : [
 		"rule",
 		"dotIndex",
+		"symbolAtDot",
 		"final",
 		"predicted"
 	],

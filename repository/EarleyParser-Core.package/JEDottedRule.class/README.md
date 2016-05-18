@@ -3,8 +3,11 @@ a dotted rule is final if the dot is at the end.
 a dotted rule is predicted if the dot is at the beginning.
 
 they are unique objects due to performance reasons.
+once a dotted rule is instantianted cannot be changed.
 
 rule - an instance of JERule.
 dotIndex - indicates where's the dot in the rule, ie how much has been done.
+symbolAtDot - what symbol is at the right side of the dot.
+                                nil if it is final(completed).
 
 

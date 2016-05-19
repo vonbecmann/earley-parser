@@ -3,6 +3,7 @@ parseBKBenchmark
 	" 
 | date        | time to run    |
 | 17 May 2016 | 0:00:00:02.043 |
+| 19 May 2016 | 0:00:00:02.713 |
 	"
 
 	| n words grammar |

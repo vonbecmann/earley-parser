@@ -5,6 +5,7 @@ parsePALBenchmark
 | 12 May 2016 | 0:00:00:06.561 |
 | 13 May 2016 | 0:00:00:05.963 |
 | 18 May 2016 | 0:00:00:04.037 |
+| 19 May 2016 | 0:00:00:05.931 |
 	"
 
 	| n words grammar maxOdd |

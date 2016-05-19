@@ -1,6 +1,7 @@
 *EarleyUI
 gtInspectorAlternativesIn: composite
-	<gtInspectorPresentationOrder: 1>
+	<gtInspectorPresentationOrder: 4>
 	^ (alternatives gtInspectorItemsIn: composite)
-		title: 'Alternatives';
+		title: [ 'Alternatives' ];
+		display: [ alternatives associations sorted: [ :a :b | nonterminalSort value: a key value: b key ] ];
 		yourself

@@ -3,9 +3,8 @@ addEdgeSourceNodes: firstItem word: word toTargetNode: targetItem
 	| terminal |
 	terminal := firstItem symbolAtDot 
 							startedAt: firstItem endChart number andEndedAt: targetItem endChart number.
-	builder gatherSourceNode: word.
 	builder gatherTargetNode: terminal.
-	builder addEdgeLabeled: #matches.
+	builder addEdgeLabeled: word.
 	firstItem isPredicted
 		ifFalse: [ builder gatherSourceNode: firstItem asNode ].
 	builder gatherSourceNode: terminal.

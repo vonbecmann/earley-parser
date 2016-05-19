@@ -1,3 +1,3 @@
 private
 alternativesOf: aNonterminal
-	^ alternatives at: aNonterminal
+	^ dottedAlternatives at: aNonterminal

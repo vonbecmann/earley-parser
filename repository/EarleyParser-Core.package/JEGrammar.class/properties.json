@@ -11,7 +11,12 @@
 		"rules",
 		"startSymbol",
 		"startRule",
-		"alternatives"
+		"alternatives",
+		"dottedAlternatives",
+		"nonterminalIndex",
+		"nonterminalSort",
+		"ruleIndex",
+		"ruleSort"
 	],
 	"name" : "JEGrammar",
 	"type" : "normal"

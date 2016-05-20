@@ -1,5 +1,5 @@
 {
-	"commentStamp" : "BernardoContreras 5/18/2015 15:13",
+	"commentStamp" : "BernardoContreras 5/20/2016 19:14",
 	"super" : "JEBHypergraph",
 	"category" : "EarleyParser-Core-Hypergraph",
 	"classinstvars" : [ ],

@@ -5,6 +5,6 @@ treeRootedAt: anObject
 
 	| aNode |
 	aNode := nodes
-		detect: [ :each | each value = anObject ]
+		detect: [ :each | each model = anObject ]
 		ifNone: [ self error: anObject asString , ' is not a node of the hypergraph' ].
 	^ self treeRootedAtNode: aNode

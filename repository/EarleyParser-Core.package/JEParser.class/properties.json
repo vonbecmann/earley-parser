@@ -6,7 +6,7 @@
 	"pools" : [ ],
 	"classvars" : [ ],
 	"instvars" : [
-		"builder"
+		"terminalNodes"
 	],
 	"name" : "JEParser",
 	"type" : "normal"

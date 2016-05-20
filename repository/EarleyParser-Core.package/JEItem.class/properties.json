@@ -8,7 +8,8 @@
 	"instvars" : [
 		"dottedRule",
 		"startChart",
-		"endChart"
+		"endChart",
+		"node"
 	],
 	"name" : "JEItem",
 	"type" : "normal"

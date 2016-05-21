@@ -1,5 +1,7 @@
 comparing
 = aRule
+	self == aRule
+		ifTrue: [ ^ true ].
 	self class == aRule class
 		ifFalse: [ ^ false ].
 	self head = aRule head

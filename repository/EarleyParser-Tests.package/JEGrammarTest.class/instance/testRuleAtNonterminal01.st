@@ -6,9 +6,8 @@ testRuleAtNonterminal01
 			(JENonterminal named: 'A') is_epsilon}.
 	self assert: grammar rulesSize equals: 3.
 	self
-		assert: (grammar ruleAt: 'A')
+		assert: (grammar ruleAt: 'A'->1)
 		equals: ((JENonterminal named: 'A') is: (JENonterminal named: 'A')).
-	self
-		assert: (grammar ruleAt: 'A' at: 1)
-		equals: ((JENonterminal named: 'A') is: (JENonterminal named: 'A')).
-	self assert: (grammar ruleAt: 'A' at: 2) equals: (JENonterminal named: 'A') is_epsilon
+	self 
+		assert: (grammar ruleAt: 'A'->2) 
+		equals: (JENonterminal named: 'A') is_epsilon

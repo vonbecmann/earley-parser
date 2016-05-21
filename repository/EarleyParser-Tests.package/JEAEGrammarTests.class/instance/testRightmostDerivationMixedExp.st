@@ -6,17 +6,19 @@ testRightmostDerivationMixedExp
 	self assert: forest numberOfTrees equals: 1.
 	self
 		assertCollection:
-			{(grammar ruleAt: 'E' at: 2).
-			(grammar ruleAt: 'T' at: 2).
-			(grammar ruleAt: 'P').
-			(grammar ruleAt: 'T').
-			(grammar ruleAt: 'P').
-			(grammar ruleAt: 'E' at: 2).
-			(grammar ruleAt: 'T' at: 2).
-			(grammar ruleAt: 'P').
-			(grammar ruleAt: 'T').
-			(grammar ruleAt: 'P').
-			(grammar ruleAt: 'E').
-			(grammar ruleAt: 'T').
-			(grammar ruleAt: 'P')}
+			(grammar
+				rulesAtAll:
+					{('E' -> 2).
+					('T' -> 2).
+					('P' -> 1).
+					('T' -> 1).
+					('P' -> 1).
+					('E' -> 2).
+					('T' -> 2).
+					('P' -> 1).
+					('T' -> 1).
+					('P' -> 1).
+					('E' -> 1).
+					('T' -> 1).
+					('P' -> 1)})
 		equals: forest rightmostDerivation

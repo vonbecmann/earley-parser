@@ -6,7 +6,9 @@ testRightmostDerivationSimpleExp01
 	self assert: forest numberOfTrees equals: 1.
 	self
 		assertCollection:
-			{(grammar ruleAt: 'E').
-			(grammar ruleAt: 'T').
-			(grammar ruleAt: 'P')}
+			(grammar
+				rulesAtAll:
+					{('E' -> 1).
+					('T' -> 1).
+					('P' -> 1)})
 		equals: forest rightmostDerivation

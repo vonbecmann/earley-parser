@@ -10,7 +10,7 @@ addEdgeSourceNodes: firstItem and: secondItem toTargetNode: targetItem
 	builder gatherTargetNode: targetItem asNode.
 	builder addEdgeLabeled: targetItem rule"
 
-	secondItem isEmpty
+	secondItem isEpsilon
 		ifTrue: [ secondItem addEdgeWithSources: #() ].
 	targetItem
 		addEdgeWithSources:

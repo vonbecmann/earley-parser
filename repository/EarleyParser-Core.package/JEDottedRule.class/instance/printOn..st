@@ -5,7 +5,7 @@ printOn: aStream
 
 	self head printOn: aStream.
 	aStream nextPutAll: ' ::= '.
-	self rule isEmpty
+	self isEpsilon 
 		ifTrue: [ aStream nextPutAll: 'epsilon' ]
 		ifFalse: [ 
 			self rule body

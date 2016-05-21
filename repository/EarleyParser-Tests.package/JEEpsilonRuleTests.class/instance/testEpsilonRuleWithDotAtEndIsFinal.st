@@ -1,0 +1,3 @@
+tests
+testEpsilonRuleWithDotAtEndIsFinal
+	self assert: epsilonRule dotAtEnd isFinal

@@ -6,8 +6,8 @@
 	"pools" : [ ],
 	"classvars" : [ ],
 	"instvars" : [
-		"emptyRule"
+		"epsilonRule"
 	],
-	"name" : "JEEmptyRuleTests",
+	"name" : "JEEpsilonRuleTests",
 	"type" : "normal"
 }

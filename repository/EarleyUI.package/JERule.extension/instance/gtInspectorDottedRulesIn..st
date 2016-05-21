@@ -1,6 +1,6 @@
 *EarleyUI
 gtInspectorDottedRulesIn: composite
-	<gtInspectorPresentationOrder: 0>
+	<gtInspectorPresentationOrder: 2>
 	^ composite table
 		title: [ 'Dotted Rules' ];
 		display: [ dottedRules ];

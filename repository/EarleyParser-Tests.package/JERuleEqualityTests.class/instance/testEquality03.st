@@ -1,13 +1,7 @@
 tests
-testEquality
+testEquality03
 	| one another |
-	one := JERule
-		head: (JENonterminal named: 'T')
-		body:
-			{(JENonterminal named: 'T').
-			(JETerminal character: $+).
-			(JENonterminal named: 'P')}.
-	another := JERule
+	one := another := JERule
 		head: (JENonterminal named: 'T')
 		body:
 			{(JENonterminal named: 'T').
@@ -17,4 +11,4 @@ testEquality
 	self assert: one hash equals: another hash.
 	self assert: another equals: one.
 	self assert: another hash equals: one hash.
-	self deny: one == another
+	self assert: one == another

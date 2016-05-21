@@ -1,5 +1,7 @@
 comparing
 = anItem
+	self == anItem
+		ifTrue: [ ^ true ].
 	self class == anItem class
 		ifFalse: [ ^ false ].
 	startChart = anItem startChart

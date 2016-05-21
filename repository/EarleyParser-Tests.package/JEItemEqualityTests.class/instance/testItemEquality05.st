@@ -1,5 +1,5 @@
 tests
-testItemEquality
+testItemEquality05
 	| one another first rule |
 	first := JEChart number: 1.
 	rule := JERule
@@ -8,10 +8,9 @@ testItemEquality
 			{(JENonterminal named: 'T').
 			(JETerminal character: $+).
 			(JENonterminal named: 'P')}.
-	one := (rule dotAt: 2) startedAt: first.
-	another := (rule dotAt: 2) startedAt: first.
+	one := another := (rule dotAt: 2) startedAt: first.
 	self assert: one equals: another.
 	self assert: one hash equals: another hash.
 	self assert: another equals: one.
 	self assert: another hash equals: one hash.
-	self deny: one == another
+	self assert: one == another

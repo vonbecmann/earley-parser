@@ -9,6 +9,7 @@
 		"dottedRule",
 		"startChart",
 		"endChart",
+		"key",
 		"node"
 	],
 	"name" : "JEItem",

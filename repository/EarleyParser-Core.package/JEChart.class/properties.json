@@ -6,11 +6,11 @@
 	"pools" : [ ],
 	"classvars" : [ ],
 	"instvars" : [
-		"items",
-		"itemsByChart",
 		"number",
+		"items",
 		"predictionItemsByNonterminal",
-		"finalItemsByNonterminal"
+		"finalItemsByNonterminal",
+		"itemsByKey"
 	],
 	"name" : "JEChart",
 	"type" : "normal"

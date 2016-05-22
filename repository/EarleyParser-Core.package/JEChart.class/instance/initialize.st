@@ -7,4 +7,5 @@ initialize
 		collection: JELinkedList.
 	finalItemsByNonterminal := JEMultiValuedDictionary
 		dictionary: IdentityDictionary
-		collection: JELinkedList
+		collection: JELinkedList.
+	itemsByKey := Dictionary new

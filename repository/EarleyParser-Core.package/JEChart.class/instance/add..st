@@ -5,11 +5,8 @@ add: anItem
 			then return it 
 			else add it last"
 
-	(itemsByChart at: anItem startChart number)
-		do: [ :each | 
-			each dottedRule == anItem dottedRule
-				ifTrue: [ ^ each ] ].
-	(itemsByChart at: anItem startChart number) add: anItem.
+	itemsByKey jeAt: anItem key ifPresent: [:found | ^ found ] ifAbsentPut: anItem.
+	
 	anItem isFinal
 		ifTrue: [ 
 			anItem startChart = self

@@ -7,4 +7,5 @@ initializeRule: aRule dotAt: index
 	predicted := dotIndex = 1 and: [ final not ].
 	symbolAtDot := final
 		ifTrue: [ nil ]
-		ifFalse: [ rule body at: dotIndex ]
+		ifFalse: [ rule body at: dotIndex ].
+	key := self hash

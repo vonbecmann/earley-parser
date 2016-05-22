@@ -1,3 +1,3 @@
 testing
 includes: anItem
-	^ (self itemsAt: anItem startChart) anySatisfy: [ :each | each equals: anItem ]
+	^ items anySatisfy: [ :each | each equals: anItem ]

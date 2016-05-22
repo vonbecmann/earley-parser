@@ -2,4 +2,5 @@ initialization
 initializeDottedRule: aRule startChart: aChart
 	self initialize.
 	dottedRule := aRule.
-	startChart := aChart
+	startChart := aChart.
+	key := JEPair first: startChart number second: dottedRule key

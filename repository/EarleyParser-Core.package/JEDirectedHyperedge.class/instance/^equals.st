@@ -2,6 +2,8 @@ comparing
 = anObject
 	"label is not part of my identity."
 
+	self == anObject
+		ifTrue: [ ^ true ].
 	self class == anObject class
 		ifFalse: [ ^ false ].
 	self targetNode == anObject targetNode

@@ -1,7 +1,6 @@
 public
 parse: words
 	| charts finalItem |
-	terminalNodes := Set new.
 	charts := self basicAccepts: words.
 	finalItem := grammar startRule dotAtEnd startedAt: charts first andEndedAt: charts last.
 	^ (charts last includes: finalItem)

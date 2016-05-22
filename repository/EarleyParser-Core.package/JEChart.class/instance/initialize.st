@@ -8,4 +8,5 @@ initialize
 	finalItemsByNonterminal := JEMultiValuedDictionary
 		dictionary: IdentityDictionary
 		collection: JELinkedList.
-	itemsByKey := Dictionary new
+	itemsByKey := Dictionary new.
+	terminalNodes := Set new

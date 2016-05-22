@@ -10,7 +10,8 @@
 		"items",
 		"predictionItemsByNonterminal",
 		"finalItemsByNonterminal",
-		"itemsByKey"
+		"itemsByKey",
+		"terminalNodes"
 	],
 	"name" : "JEChart",
 	"type" : "normal"

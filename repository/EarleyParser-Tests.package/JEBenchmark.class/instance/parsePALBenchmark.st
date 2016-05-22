@@ -8,11 +8,12 @@ parsePALBenchmark
 | 19 May 2016 | 0:00:00:05.931 |
 | 20 May 2016 | 0:00:00:00.478 |
 | 21 May 2016 | 0:00:00:00.73  |
+| 22 May 2016 | 0:00:00:00.417 |
 	"
 
 	| n words grammar maxOdd |
 	n := 400.
-	maxOdd := ((1 to: n) select: [ :each | each odd ]) detectMax: [ :each | each ].
+	maxOdd := (n to: 1 by: -1) detect: [ :each | each odd ].
 	words := String new: maxOdd.
 	words from: 1 to: maxOdd put: $x.
 	grammar := JEExemplar PAL.

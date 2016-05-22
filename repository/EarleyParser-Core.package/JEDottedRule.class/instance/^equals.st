@@ -4,8 +4,4 @@ comparing
 		ifTrue: [ ^ true ].
 	self class == aDottedRule class
 		ifFalse: [ ^ false ].
-	self dotIndex == aDottedRule dotIndex
-		ifFalse: [ ^ false ].
-	self rule == aDottedRule rule
-		ifFalse: [ ^ false ].
-	^ true
+	^ self dotIndex == aDottedRule dotIndex and: [ self rule == aDottedRule rule ]

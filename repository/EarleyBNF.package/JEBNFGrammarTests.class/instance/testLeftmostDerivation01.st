@@ -10,11 +10,11 @@ testLeftmostDerivation01
 				rulesAtAll:
 					{('rule' -> 1).
 					('nonterminal' -> 1).
-					('letter_symbol' -> 1).
-					('letter_digit_underscore_star' -> 2).
-					('definition_list' -> 2).
-					('grammar_symbol' -> 1).
+					('letter symbol' -> 1).
+					('letter digit underscore star' -> 2).
+					('definition list' -> 2).
+					('grammar symbol' -> 1).
 					('nonterminal' -> 1).
-					('letter_symbol' -> 1).
-					('letter_digit_underscore_star' -> 2).
-					('comma_grammar_symbol_star' -> 2)})
+					('letter symbol' -> 1).
+					('letter digit underscore star' -> 2).
+					('comma symbol grammar symbol star' -> 2)})

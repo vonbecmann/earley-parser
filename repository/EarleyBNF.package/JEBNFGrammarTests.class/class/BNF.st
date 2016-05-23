@@ -6,13 +6,13 @@ BNF
 	| rule nonterminal letter_digit_underscore_star definitionList grammar_symbol comma_grammar_symbol_star literal letter_symbol letter_digit_underscore_symbol comma_symbol equals_symbol dot_symbol |
 	rule := JENonterminal named: 'rule'.
 	nonterminal := JENonterminal named: 'nonterminal'.
-	letter_digit_underscore_star := JENonterminal named: 'letter_digit_underscore_star'.
-	definitionList := JENonterminal named: 'definition_list'.
-	grammar_symbol := JENonterminal named: 'grammar_symbol'.
-	comma_grammar_symbol_star := JENonterminal named: 'comma_grammar_symbol_star'.
+	letter_digit_underscore_star := JENonterminal named: 'letter digit underscore star'.
+	definitionList := JENonterminal named: 'definition list'.
+	grammar_symbol := JENonterminal named: 'grammar symbol'.
+	comma_grammar_symbol_star := JENonterminal named: 'comma symbol grammar symbol star'.
 	literal := JENonterminal named: 'literal'.
-	letter_symbol := JENonterminal named: 'letter_symbol'.
-	letter_digit_underscore_symbol := JENonterminal named: 'letter_digit_underscore_symbol'.
+	letter_symbol := JENonterminal named: 'letter symbol'.
+	letter_digit_underscore_symbol := JENonterminal named: 'letter digit underscore symbol'.
 	comma_symbol := JETerminal character: $,.
 	equals_symbol := JETerminal character: $=.
 	dot_symbol := JETerminal character: $..

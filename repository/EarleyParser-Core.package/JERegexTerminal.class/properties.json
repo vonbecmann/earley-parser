@@ -9,6 +9,6 @@
 		"regex",
 		"matcher"
 	],
-	"name" : "JECharacterSetTerminal",
+	"name" : "JERegexTerminal",
 	"type" : "normal"
 }

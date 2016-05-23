@@ -1,5 +1,5 @@
 instance creation
-charset: aRegex
+regex: aRegex
 	"a regular expression that defines a character class or set"
 
-	^ JECharacterSetTerminal regex: aRegex
+	^ JERegexTerminal regex: aRegex

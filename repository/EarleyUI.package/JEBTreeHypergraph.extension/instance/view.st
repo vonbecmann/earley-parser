@@ -11,12 +11,12 @@ view
 		withTextAbove: [ :edge | edge label ].
 	b nodes: self edges.
 	b shape arrowedLine.
-	b edges useAssociations: (self edges collect: [ :edge | edge targetNode -> edge ]).
+	b edges useAssociations: (self edges collect: [ :edge | edge -> edge targetNode ]).
 	b shape arrowedLine.
 	b edges
 		useAssociations:
 			(self edges
-				flatCollect: [ :edge | OrderedCollection withAll: (edge sourceNodes collect: [ :node | edge -> node ]) ]).
-	b treeLayout.
+				flatCollect: [ :edge | OrderedCollection withAll: (edge sourceNodes collect: [ :node | node -> edge ]) ]).
+	b layout dominanceTree.
 	b build.
 	^ b view

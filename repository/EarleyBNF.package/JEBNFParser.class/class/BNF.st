@@ -26,10 +26,10 @@ BNF
 			(nonterminal is: letter_symbol , letter_digit_underscore_star).
 			(letter_digit_underscore_star is: letter_digit_underscore_symbol , letter_digit_underscore_star).
 			(letter_digit_underscore_star is_epsilon).
-			(letter_symbol is: (JETerminal charset: '[a-zA-Z]')).
-			(letter_digit_underscore_symbol is: (JETerminal charset: '[a-zA-Z0-9_]')).
+			(letter_symbol is: (JETerminal regex: '[a-zA-Z]')).
+			(letter_digit_underscore_symbol is: (JETerminal regex: '[a-zA-Z0-9_]')).
 			(lexical_element is: nonterminal).
 			(lexical_element is: literal).
 			(literal
-				is: (JETerminal character: $") , (JETerminal charset: '[\w\d+-/\\*~=@,%|&?!<>]') , (JETerminal character: $"))} ]
+				is: (JETerminal character: $") , (JETerminal regex: '[\w\d+-/\\*~=@,%|&?!<>]') , (JETerminal character: $"))} ]
 		value

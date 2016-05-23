@@ -1,0 +1,13 @@
+{
+	"commentStamp" : "BernardoContreras 5/23/2016 16:18",
+	"super" : "JETerminal",
+	"category" : "EarleyParser-Core-Public",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"classvars" : [ ],
+	"instvars" : [
+		"charset"
+	],
+	"name" : "JECharacterSetTerminal",
+	"type" : "normal"
+}

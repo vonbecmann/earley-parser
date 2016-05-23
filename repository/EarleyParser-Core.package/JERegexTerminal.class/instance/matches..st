@@ -1,3 +1,3 @@
 comparing
-matches: anObject
-	^ matcher matches: anObject asString
+matches: aCharacter
+	^ matcher matches: (String with: aCharacter)

@@ -1,3 +1,3 @@
 comparing
-matches: anObject
+matches: aCharacter
 	self subclassResponsibility

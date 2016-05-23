@@ -1,7 +1,3 @@
 comparing
 = anObject
-	self class = anObject class
-		ifFalse: [ ^ false ].
-	self regex = anObject regex
-		ifFalse: [ ^ false ].
-	^ true
+	^ self class = anObject class and: [ self regex = anObject regex ]

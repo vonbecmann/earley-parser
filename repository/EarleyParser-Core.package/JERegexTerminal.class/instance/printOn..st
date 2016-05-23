@@ -1,4 +1,4 @@
 printing
 printOn: aStream
-	regex printOn: aStream.
+	self regex printOn: aStream.
 	aStream nextPutAll: 'regex'

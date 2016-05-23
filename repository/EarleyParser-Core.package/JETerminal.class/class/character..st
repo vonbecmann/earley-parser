@@ -1,3 +1,5 @@
 instance creation
-character: aCharacter 
-	^ JECharacterTerminal character: aCharacter 
+character: aCharacter
+	" a character defines a terminal "
+
+	^ JECharacterTerminal character: aCharacter

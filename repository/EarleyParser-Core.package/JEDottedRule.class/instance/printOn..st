@@ -1,20 +1,19 @@
 printing
 printOn: aStream
 	"head ::= body with dot
-	 head ::= epsilon*"
+	 head ::= epsilon*. "
 
 	self head printOn: aStream.
-	aStream nextPutAll: ' ::= '.
-	self isEpsilon 
+	aStream nextPutAll: ' = '.
+	self isEpsilon
 		ifTrue: [ aStream nextPutAll: 'epsilon' ]
-		ifFalse: [ 
-			self rule body
+		ifFalse: [ self rule body
 				withIndexDo: [ :each :index | 
+					index = 1
+						ifFalse: [ aStream nextPutAll: ', ' ].
 					index = self dotIndex
-						ifTrue: [ aStream nextPut: $* ]
-						ifFalse: [ 
-							index = 1
-								ifFalse: [ aStream space ] ].
+						ifTrue: [ aStream nextPut: $* ].
 					each printOn: aStream ] ].
 	self isFinal
-		ifTrue: [ aStream nextPut: $* ]
+		ifTrue: [ aStream nextPut: $* ].
+	aStream nextPut: $.

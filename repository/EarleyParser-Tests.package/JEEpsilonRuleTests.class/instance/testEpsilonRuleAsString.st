@@ -1,3 +1,3 @@
 tests
 testEpsilonRuleAsString
-	self assert: epsilonRule asString equals: 'T ::= epsilon'
+	self assert: epsilonRule asString equals: 'T = epsilon.'

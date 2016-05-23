@@ -1,4 +1,4 @@
-example
+grammar
 BNF
 	" my own BNF "
 

@@ -1,0 +1,11 @@
+{
+	"commentStamp" : "BernardoContreras 5/23/2016 11:43",
+	"super" : "Object",
+	"category" : "EarleyBNF-Core",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"classvars" : [ ],
+	"instvars" : [ ],
+	"name" : "JEBNFParser",
+	"type" : "normal"
+}

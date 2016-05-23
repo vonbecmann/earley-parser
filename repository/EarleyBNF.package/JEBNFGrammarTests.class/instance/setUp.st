@@ -1,3 +1,3 @@
 running
 setUp
-	grammar := self class BNF
+	grammar := JEBNFParser BNF

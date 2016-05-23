@@ -1,3 +1,0 @@
-private
-descriptionPrintOn: aStream
-	self subclassResponsibility

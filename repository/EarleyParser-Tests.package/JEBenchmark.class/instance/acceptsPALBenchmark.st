@@ -9,6 +9,7 @@ acceptsPALBenchmark
 | 20 May 2016 | 0:00:00:09.169 |
 | 21 May 2016 | 0:00:00:04.958 |
 | 22 May 2016 | 0:00:00:03.475 |
+| 24 May 2016 | 0:00:00:03.9   |
 	"
 
 	| n words grammar maxOdd |

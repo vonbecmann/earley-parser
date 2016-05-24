@@ -1,4 +1,3 @@
 environment
 openBrowserInEarleyEnvironment
-	^ (Smalltalk tools browser browsedEnvironment: self earleyEnvironment)
-		open
+	^ (Smalltalk tools browser browsedEnvironment: self earleyEnvironment) open

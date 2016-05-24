@@ -6,6 +6,6 @@
 	"pools" : [ ],
 	"classvars" : [ ],
 	"instvars" : [ ],
-	"name" : "EarleyUI",
+	"name" : "JEEarleyUI",
 	"type" : "normal"
 }

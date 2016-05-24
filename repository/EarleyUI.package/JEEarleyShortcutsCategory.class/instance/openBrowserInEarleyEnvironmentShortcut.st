@@ -4,4 +4,4 @@ openBrowserInEarleyEnvironmentShortcut
 	^ KMKeymap
 		named: 'openSystemBrowserInEarley'
 		shortcut: $o alt unix , $e alt unix , $b alt unix
-		action: [ self openBrowserInEarleyEnvironment ]
+		action: [ JEEarleyUI openBrowserInEarleyEnvironment ]

@@ -25,8 +25,8 @@ BNF
 			(nonterminal is: letter_symbol , letter_digit_underscore_star).
 			(letter_digit_underscore_star is: letter_digit_underscore_symbol , letter_digit_underscore_star).
 			letter_digit_underscore_star is_epsilon.
-			(letter_symbol is: (JETerminal charset: ($a to: $z) , ($A to: $Z))).
-			(letter_digit_underscore_symbol is: (JETerminal charset: ($a to: $z) , ($A to: $Z) , '_')).
+			(letter_symbol is: (JETerminal regex: '[a-zA-Z]')).
+			(letter_digit_underscore_symbol is: (JETerminal regex: '[a-zA-Z_]')).
 			(lexical_element is: nonterminal).
 			(lexical_element is: literal).
 			(literal

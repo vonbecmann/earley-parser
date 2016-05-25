@@ -17,7 +17,7 @@ forestStartingAtNode: aNode
 					| currentNode sourceNodes |
 					currentNode := stack pop.
 					tree add: currentNode.
-					sourceNodes := sourceNodesByTarget at: currentNode.
+					sourceNodes := currentNode backwardStar.
 					sourceNodes isEmpty
 						ifFalse: [ 
 							sourceNodes

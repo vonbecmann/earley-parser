@@ -8,18 +8,19 @@ depthVisitFrom: aNode preNode: preNodeBlock postNode: postNodeBlock preEdge: pre
 	[ visitStack isEmpty ]
 		whileFalse: [ | element |
 			element := visitStack top.
-			element class == JEHypernode
-				ifTrue: [ (visited at: element)
-						ifTrue: [ postNodeBlock ifNotNil: [ postNodeBlock value: element ].
-							visitStack pop ]
-						ifFalse: [ visited at: element put: true.
+			(visited at: element)
+				ifTrue: [ 
+					visitStack pop.
+					(postNodeBlock isNotNil and: [ element class == JEHypernode ]) ifTrue: [ postNodeBlock value: element ].
+					(postEdgeBlock isNotNil and: [ element class == JEDirectedHyperedge ]) ifTrue: [ postEdgeBlock value: element ] ]
+				ifFalse: [ 
+					visited at: element put: true.
+					element class == JEHypernode
+						ifTrue: [ 
 							preNodeBlock ifNotNil: [ preNodeBlock value: element ].
-							element backwardStar do: [ :edge | visitStack push: edge ] ] ].
-			element class == JEDirectedHyperedge
-				ifTrue: [ (visited at: element)
-						ifTrue: [ postEdgeBlock ifNotNil: [ postEdgeBlock value: element ].
-							visitStack pop ]
-						ifFalse: [ visited at: element put: true.
+							element backwardStar do: [ :edge | visitStack push: edge ] ].
+					element class == JEDirectedHyperedge
+						ifTrue: [ 
 							preEdgeBlock ifNotNil: [ preEdgeBlock value: element ].
 							element sourceNodes
 								reverseDo: [ :node | 

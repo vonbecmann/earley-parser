@@ -1,19 +1,21 @@
 private operations
 buildTreeRootedAtNode: aNode
+	" breadth-first search "
 	| visited visitedEdges visitedNodes queue |
 	visited := IdentityDictionary new.
-	visited at: aNode put: true.
 	visitedEdges := JELinkedList new.
-	visitedNodes := JELinkedList with: aNode.
+	visitedNodes := JELinkedList new.
 	queue := JELinkedList with: aNode.
+	visited at: aNode put: true.
 	[ queue isEmpty ]
-		whileFalse: [ queue removeFirst backwardStar
+		whileFalse: [ 
+			| actual |
+			actual := queue removeFirst.
+			visitedNodes add: actual.
+			actual backwardStar
 				do: [ :edge | 
 					visitedEdges addLast: edge.
-					edge sourceNodes
-						reject: [ :node | visited at: node ifAbsent: [ false ] ]
-						thenDo: [ :node | 
-							visited at: node put: true.
-							visitedNodes add: node.
-							queue addLast: node ] ] ].
+					edge sourceNodes 
+								reject: [ :node | visited at: node ifAbsent: [ false ] ] 
+								thenDo: [ :node | visited at: node put: true. queue addLast: node ] ] ].
 	^ JEBTreeHypergraph root: aNode nodes: visitedNodes hyperedges: visitedEdges

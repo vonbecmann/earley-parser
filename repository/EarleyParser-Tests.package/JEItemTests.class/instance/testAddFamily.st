@@ -1,6 +1,6 @@
 tests
-testAddEdgeWithSources
-	| first middle last rule target previous complete edge |
+testAddFamily
+	| first middle last rule target previous complete family |
 	first := JEChart number: 1.
 	middle := JEChart number: 3.
 	last := JEChart number: 4.
@@ -12,17 +12,10 @@ testAddEdgeWithSources
 	previous := (rule dotAt: 2) startedAt: first andEndedAt: middle.
 	complete := (JERule head: (JENonterminal named: 'H') body: {(JENonterminal named: 'I')}) dotAtEnd startedAt: middle andEndedAt: last.
 	target := rule dotAtEnd startedAt: first andEndedAt: last.
-	edge := JEDirectedHyperedge
-		labeled: rule
-		sourceNodes:
-			{previous node.
-			complete node}
-		targetNode: target node.
+	
+	family := JELinkedList with: previous node with: complete node.
 
-	target
-		addEdgeWithSources:
-			{previous node.
-			complete node}.
+	target addFamily: family.
 
-	self assert: target node indegree equals: 1.
-	self assert: (target node backwardStar detect: [ :each | each = edge ] ifFound: [ true ] ifNone: [ false ])
+	self assert: target node familiesSize equals: 1.
+	self assert: (target node families detect: [ :each | each = family ] ifFound: [ true ] ifNone: [ false ])

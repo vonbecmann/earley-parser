@@ -18,7 +18,7 @@ depthVisitFrom: aNode preNode: preNodeBlock postNode: postNodeBlock preEdge: pre
 					element class == JEHypernode
 						ifTrue: [ 
 							preNodeBlock ifNotNil: [ preNodeBlock value: element ].
-							element backwardStar do: [ :edge | visitStack push: edge ] ].
+							(self backwardStarOf: element) do: [ :edge | visitStack push: edge ] ].
 					element class == JEDirectedHyperedge
 						ifTrue: [ 
 							preEdgeBlock ifNotNil: [ preEdgeBlock value: element ].

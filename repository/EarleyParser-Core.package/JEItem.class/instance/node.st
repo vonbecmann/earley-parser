@@ -1,3 +1,3 @@
 parsing
 node
-	^ node ifNil: [ node := JEHypernode model: self ] ifNotNil: [ node ]
+	^ node ifNil: [ node := JEPackedNode model: self ] ifNotNil: [ node ]

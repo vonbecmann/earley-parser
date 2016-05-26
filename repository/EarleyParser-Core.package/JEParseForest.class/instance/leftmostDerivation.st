@@ -9,6 +9,6 @@ leftmostDerivation
 			(edge targetNode model class = JEItem
 				and: [ edge targetNode model isFinal 
 					and: [ edge targetNode model head ~= grammar startSymbol ] ])
-						ifTrue: [ derivation addLast: edge label asDefined ] ]
+						ifTrue: [ derivation addLast: edge label ] ]
 		postEdge: nil.
 	^ derivation asArray

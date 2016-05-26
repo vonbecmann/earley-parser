@@ -1,13 +1,13 @@
 private operations
 addEdgeSourceNodes: firstItem word: word toTargetNode: targetItem
-
 	| terminal |
 	terminal := targetItem endChart
-		addTerminalNode: (firstItem symbolAtDot startedAt: firstItem endChart number andEndedAt: targetItem endChart number).
-	terminal addBackwardEdge: (JEDirectedHyperedge labeled: word sourceNodes: #() targetNode: terminal).
-
+		addTerminalNode:
+			(JEPair
+				first: (firstItem symbolAtDot startedAt: firstItem endChart number andEndedAt: targetItem endChart number)
+				second: word).
 	targetItem
-		addEdgeWithSources:
+		addFamily:
 			(firstItem isPredicted
-				ifTrue: [ {terminal} ]
-				ifFalse: [ {firstItem node.	terminal} ])
+				ifTrue: [ JELinkedList with: terminal ]
+				ifFalse: [ JELinkedList with: firstItem node with: terminal ])

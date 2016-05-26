@@ -5,10 +5,16 @@ numberOfTreesFrom: aNode
 	| numberOfTrees postNodeBlock postEdgeBlock |
 	numberOfTrees := IdentityDictionary new: nodes size + edges size.
 	postNodeBlock := [ :node | 
-	node backwardStar isEmpty
+	(self backwardStarOf: node) isEmpty
 		ifTrue: [ numberOfTrees at: node put: 1 ]
-		ifFalse: [ numberOfTrees at: node ifAbsentPut: [ node backwardStar inject: 0 into: [ :sum :edge | sum + (numberOfTrees at: edge) ] ] ] ].
-	postEdgeBlock := [ :edge | numberOfTrees at: edge ifAbsentPut: [ edge sourceNodes inject: 1 into: [ :product :node | product * (numberOfTrees at: node) ] ] ].
+		ifFalse: [ 
+			numberOfTrees
+				at: node
+				ifAbsentPut: [ (self backwardStarOf: node) inject: 0 into: [ :sum :edge | sum + (numberOfTrees at: edge) ] ] ] ].
+	postEdgeBlock := [ :edge | 
+		numberOfTrees 
+			at: edge 
+			ifAbsentPut: [ edge sourceNodes inject: 1 into: [ :product :node | product * (numberOfTrees at: node) ] ] ].
 	self
 		depthVisitFrom: aNode
 		preNode: nil

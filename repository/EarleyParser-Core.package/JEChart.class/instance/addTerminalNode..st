@@ -1,3 +1,3 @@
 adding
 addTerminalNode: anObject
-	^ terminalNodes jeAdd: (JEHypernode model: anObject)
+	^ terminalNodes jeAdd: (JEPackedNode model: anObject)

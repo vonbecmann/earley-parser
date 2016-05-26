@@ -2,10 +2,10 @@ private operations
 addEdgeSourceNodes: firstItem and: secondItem toTargetNode: targetItem
 
 	secondItem isEpsilon
-		ifTrue: [ secondItem addEdgeWithSources: #() ].
+		ifTrue: [ secondItem addFamily: JELinkedList new ].
 
 	targetItem
-		addEdgeWithSources:
+		addFamily:
 			(firstItem isPredicted
-				ifTrue: [ {secondItem node} ]
-				ifFalse: [ {firstItem node.	secondItem node} ])
+				ifTrue: [ JELinkedList with: secondItem node ]
+				ifFalse: [ JELinkedList with: firstItem node with: secondItem node ])

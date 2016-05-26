@@ -5,6 +5,6 @@ gtInspectorBackwarStarOfNodesIn: composite
 		title: [ 'Backward Star' ];
 		display: [ nodes ];
 		column: 'Node' evaluated: [ :each | each ];
-		send: [ :each | each backwardStar ];
+		send: [ :each | self backwardStarOf: each ];
 		showOnly: 50;
 		yourself

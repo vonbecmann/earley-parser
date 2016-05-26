@@ -1,3 +1,6 @@
 comparing
 hash
-	^ self inject: self class hash into: [ :hash :each | (hash + each hash) hashMultiply ]
+	| hash |
+	hash := self class hash.
+	self do: [ :each | hash := (hash + each hash) hashMultiply ].
+	^ hash

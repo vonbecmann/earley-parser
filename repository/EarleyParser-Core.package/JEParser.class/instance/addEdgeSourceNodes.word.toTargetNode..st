@@ -4,7 +4,7 @@ addEdgeSourceNodes: firstItem word: word toTargetNode: targetItem
 	terminal := targetItem endChart
 		addTerminalNode:
 			(JEPair
-				first: (firstItem symbolAtDot startedAt: firstItem endChart number andEndedAt: targetItem endChart number)
+				first: (JEHypernode model: (firstItem symbolAtDot startedAt: firstItem endChart number andEndedAt: targetItem endChart number))
 				second: word).
 	targetItem
 		addFamily:

@@ -6,9 +6,14 @@ initializeRules: aRuleCollection startNonterminal: aNonterminal
 	terminals addAll: (aRuleCollection flatCollect: [ :each | each body select: [ :symbol | symbol isTerminal ] ]).
 	self initializeRules: (aRuleCollection copyWith: (startSymbol is: aNonterminal)).
 	startRule := rules detect: [ :each | startSymbol == each head ].
-	nonterminals
+	(nonterminals sorted: nonterminalSort) 
 		do: [ :nonterminal | 
-			alternatives at: nonterminal putAll: ((rules select: [ :rule | rule head = nonterminal ]) sorted: ruleSort).
-			dottedAlternatives
-				at: nonterminal
-				putAll: (rules select: [ :rule | rule head = nonterminal ] thenCollect: [ :rule | rule dotAtBeginning ]) ]
+			((rules select: [ :rule | rule head = nonterminal ]) sorted: ruleSort)
+				withIndexDo: [ :each :index | 
+					alternatives at: (JEPair first: nonterminal second: index) put: each ] ].
+	nonterminals
+		do:
+			[ :nonterminal | 
+				dottedAlternatives 
+					at: nonterminal 
+					putAll: (rules select: [ :rule | rule head = nonterminal ] thenCollect: [ :rule | rule dotAtBeginning ]) ]

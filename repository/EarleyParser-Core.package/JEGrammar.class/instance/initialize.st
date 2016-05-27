@@ -7,5 +7,5 @@ initialize
 	nonterminalIndex := Dictionary with: startSymbol -> 0.
 	nonterminalSort := [ :a :b | (nonterminalIndex at: a) < (nonterminalIndex at: b) ].
 	terminals := Set new.
-	alternatives := JEMultiValuedDictionary dictionary: Dictionary collection: OrderedCollection.
+	alternatives := OrderedDictionary new.
 	dottedAlternatives := JEMultiValuedDictionary dictionary: IdentityDictionary collection: JELinkedList

@@ -1,5 +1,8 @@
 tests
 testParse2Xs
 	forest := grammar parse: 'xx'.
+
 	self deny: forest isAmbiguous.
-	self assert: forest size equals: 11
+	self
+		assertCollection: forest leftmostDerivation
+		equals: (grammar rulesAtAll: {('A' -> 2). ('A' -> 1)})

@@ -1,6 +1,9 @@
 tests
 testParse3Xs
-	| forest |
+	
 	forest := grammar parse: 'xxx'.
+
 	self deny: forest isAmbiguous.
-	self assert: forest size equals: 15
+	self 
+		assertCollection: (grammar rulesAtAll: {('A'->2).('A'->1)})
+	 	equals: forest leftmostDerivation.

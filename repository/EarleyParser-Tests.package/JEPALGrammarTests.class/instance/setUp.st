@@ -1,3 +1,4 @@
 running
 setUp
-	grammar := JEExemplar PAL
+	grammar := JEExemplar PAL.
+	forest := nil

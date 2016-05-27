@@ -1,6 +1,10 @@
 private operations
 buildTreeRootedAtNode: aNode
-	" breadth-first search "
+	"
+	a backward directed tree with all backward path from aNode. 
+	it's a binary shared packed parse forest. it's rank is 3.
+	breadth-first search.
+	"
 
 	| visited visitedEdges visitedNodes queue |
 	visited := IdentityDictionary new.

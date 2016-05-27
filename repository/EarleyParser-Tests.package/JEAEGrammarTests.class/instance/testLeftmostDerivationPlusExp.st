@@ -1,6 +1,6 @@
 tests
-testRightmostDerivationSimpleExp01
-	forest := grammar parse: 'a'.
+testLeftmostDerivationPlusExp
+	forest := grammar parse: 'a+a'.
 
 	self deny: forest isAmbiguous.
 	self assert: forest numberOfTrees equals: 1.
@@ -8,7 +8,11 @@ testRightmostDerivationSimpleExp01
 		assertCollection:
 			(grammar
 				rulesAtAll:
-					{('E' -> 1).
+					{('E' -> 2).
+					('E' -> 1).
+					('T' -> 1).
+					('P' -> 1).
 					('T' -> 1).
 					('P' -> 1)})
-		equals: forest rightmostDerivation
+		equals: forest leftmostDerivation
+		

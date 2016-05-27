@@ -1,7 +1,10 @@
 *EarleyUI
 gtInspectorAlternativesIn: composite
 	<gtInspectorPresentationOrder: 4>
-	^ (alternatives gtInspectorItemsIn: composite)
+	^ composite table
 		title: [ 'Alternatives' ];
-		display: [ alternatives associations sorted: [ :a :b | nonterminalSort value: a key value: b key ] ];
+		display: [ alternatives associations ];
+		column: 'Key' evaluated: [ :each | each key ] width: 100;
+		column: 'Rule' evaluated: [ :each | each value ];
+		showOnly: 50;
 		yourself

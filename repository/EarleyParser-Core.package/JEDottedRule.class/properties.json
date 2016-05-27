@@ -11,6 +11,7 @@
 		"symbolAtDot",
 		"final",
 		"predicted",
+		"epsilon",
 		"key"
 	],
 	"name" : "JEDottedRule",

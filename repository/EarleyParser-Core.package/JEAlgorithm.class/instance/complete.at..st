@@ -11,4 +11,4 @@ complete: item at: chart
 		do: [ :previous | 
 			| next |
 			next := chart add: previous moveDotForward.
-			self addEdgeSourceNodes: previous and: item toTargetNode: next ]
+			self addFamilyWith: previous and: item to: next ]

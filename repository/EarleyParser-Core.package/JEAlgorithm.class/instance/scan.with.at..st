@@ -8,4 +8,4 @@ scan: item with: word at: chart
 
 	| next |
 	next := chart add: item moveDotForward.
-	self addEdgeSourceNodes: item word: word toTargetNode: next
+	self addFamilyWith: item word: word to: next

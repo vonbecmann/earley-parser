@@ -31,7 +31,7 @@ buildTreeRootedAtNode: aNode
 			packed model class == JEPair
 				ifTrue: [ 
 					visitedNodes add: packed model first.
-					visitedEdges add: (JEDirectedHyperedge labeled: packed model second sourceNodes: #() targetNode: packed model first) ].
+					visitedEdges add: (JEDirectedHyperedge labeled: packed model second targetNode: packed model first) ].
 			packed families
 				do: [ :family | 
 					family

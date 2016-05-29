@@ -1,3 +1,0 @@
-accessing
-indegree
-	^ backwardStar size

@@ -8,7 +8,8 @@ treeRootedAtNode: aNode
 	visitedNodes := JELinkedList with: aNode.
 	queue := JELinkedList with: aNode.
 	[ queue isEmpty ]
-		whileFalse: [ queue removeFirst backwardStar
+		whileFalse: [ 
+			(self backwardStarOf: queue removeFirst)
 				do: [ :edge | 
 					visitedEdges addLast: edge.
 					edge sourceNodes

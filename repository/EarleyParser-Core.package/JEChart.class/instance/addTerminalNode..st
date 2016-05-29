@@ -1,5 +1,5 @@
 parsing
-addTerminalNode: anObject
+addTerminalNode: aPackedNode
 	" add a scanned terminal while parsing "
 
-	^ terminalNodes jeAdd: (JEPackedNode model: anObject)
+	^ terminalNodes jeAdd: aPackedNode

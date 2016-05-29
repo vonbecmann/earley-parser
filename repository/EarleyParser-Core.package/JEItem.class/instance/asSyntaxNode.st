@@ -1,5 +1,5 @@
-converting
-asNode
+parsing
+asSyntaxNode
 	^ JESyntaxNode 
 		value:
 			(self isFinal

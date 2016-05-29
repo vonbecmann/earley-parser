@@ -3,9 +3,11 @@ addFamilyWith: item word: word to: nextItem
 	| terminal |
 	terminal := nextItem endChart
 		addTerminalNode:
-			(JEPair
-				first: (JEHypernode model: (item symbolAtDot startedAt: item endChart number andEndedAt: nextItem endChart number))
-				second: word).
+			(JEPackedNode
+				labeled: word
+				model: (JEHypernode model: (item symbolAtDot startedAt: item endChart number andEndedAt: nextItem endChart number))).
+	terminal addFamily: JELinkedList new.
+	
 	nextItem
 		addFamily:
 			(item isPredicted

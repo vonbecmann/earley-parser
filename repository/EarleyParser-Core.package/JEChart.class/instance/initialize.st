@@ -9,4 +9,4 @@ initialize
 		dictionary: IdentityDictionary
 		collection: JELinkedList.
 	itemsByKey := Dictionary new.
-	terminalNodes := Set new
+	terminalItems := Set new

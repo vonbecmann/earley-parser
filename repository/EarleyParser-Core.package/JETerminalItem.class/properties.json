@@ -6,10 +6,11 @@
 	"pools" : [ ],
 	"classvars" : [ ],
 	"instvars" : [
-		"value",
-		"start",
-		"end"
+		"terminal",
+		"word",
+		"startChart",
+		"endChart"
 	],
-	"name" : "JESyntaxNode",
+	"name" : "JETerminalItem",
 	"type" : "normal"
 }

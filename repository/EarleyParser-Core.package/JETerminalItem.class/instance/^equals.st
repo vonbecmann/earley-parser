@@ -1,11 +1,13 @@
 comparing
 = anObject
+	self == anObject
+		ifTrue: [ ^ true ].
 	self class == anObject class
 		ifFalse: [ ^ false ].
-	self start = anObject start
+	self startChart = anObject startChart
 		ifFalse: [ ^ false ].
-	self end = anObject end
+	self endChart = anObject endChart
 		ifFalse: [ ^ false ].
-	self value = anObject value
+	self terminal = anObject terminal
 		ifFalse: [ ^ false ].
 	^ true

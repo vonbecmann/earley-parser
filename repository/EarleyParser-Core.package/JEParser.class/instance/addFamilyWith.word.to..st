@@ -5,9 +5,15 @@ addFamilyWith: item word: word to: nextItem
 		addTerminalNode:
 			(JEPackedNode
 				labeled: word
-				model: (JEHypernode model: (item symbolAtDot startedAt: item endChart number andEndedAt: nextItem endChart number))).
+				model:
+					(JEHypernode
+						model:
+							(JETerminalItem
+								given: item symbolAtDot
+								word: word
+								startedAt: item endChart
+								andEndedAt: nextItem endChart))).
 	terminal addFamily: JELinkedList new.
-	
 	nextItem
 		addFamily:
 			(item isPredicted

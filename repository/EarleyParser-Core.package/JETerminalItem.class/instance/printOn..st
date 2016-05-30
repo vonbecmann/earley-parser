@@ -10,4 +10,4 @@ printOn: aStream
 	self startChart shortPrintOn: aStream.
 	aStream nextPutAll: ', '.
 	self endChart shortPrintOn: aStream.
-	aStream nextPutAll: '] '
+	aStream nextPutAll: ']] '

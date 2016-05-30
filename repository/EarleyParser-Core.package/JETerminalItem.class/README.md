@@ -1,3 +1,5 @@
-a terminal item that starts and ends at the given positions.
+a terminal item that starts and ends at the charts.
 
-[  terminal @ [ start chart, end chart ] ].
+a terminal matches a word in the input string while parsing between start and end charts.
+
+[  terminal = word  @ [ start chart, end chart ] ].

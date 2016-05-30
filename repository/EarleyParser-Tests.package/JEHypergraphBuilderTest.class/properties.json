@@ -6,7 +6,8 @@
 	"pools" : [ ],
 	"classvars" : [ ],
 	"instvars" : [
-		"builder"
+		"builder",
+		"graph"
 	],
 	"name" : "JEHypergraphBuilderTest",
 	"type" : "normal"

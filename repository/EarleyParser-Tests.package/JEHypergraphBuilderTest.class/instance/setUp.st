@@ -1,3 +1,5 @@
 running
 setUp
-	builder := JEHypergraphBuilder new
+	builder := JEHypergraphBuilder new.
+	graph := nil
+	

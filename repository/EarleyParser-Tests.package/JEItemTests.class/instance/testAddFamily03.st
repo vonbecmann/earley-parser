@@ -12,7 +12,7 @@ testAddFamily03
 	previous := (rule dotAt: 2) startedAt: first andEndedAt: middle.
 	scanned := JEPackedNode
 		labeled: $H
-		model: (JEHypernode model: ((JETerminal character: $H) startedAt: middle number andEndedAt: last number)).
+		model: (JEHypernode model: (JETerminalItem given: (JETerminal character: $H) word: $H startedAt: middle andEndedAt: last)).
 		
 	target := rule dotAtEnd startedAt: first andEndedAt: last.
 	

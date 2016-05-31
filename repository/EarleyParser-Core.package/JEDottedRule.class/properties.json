@@ -1,5 +1,5 @@
 {
-	"commentStamp" : "BernardoContreras 5/18/2016 12:38",
+	"commentStamp" : "BernardoContreras 5/31/2016 13:17",
 	"super" : "Object",
 	"category" : "EarleyParser-Core-Implementation",
 	"classinstvars" : [ ],
@@ -12,7 +12,8 @@
 		"final",
 		"predicted",
 		"epsilon",
-		"key"
+		"key",
+		"next"
 	],
 	"name" : "JEDottedRule",
 	"type" : "normal"

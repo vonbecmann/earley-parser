@@ -3,4 +3,10 @@ initializeHead: aNonterminal body: aCollection
 	self initialize.
 	head := aNonterminal.
 	body := aCollection asArray.
-	dottedRules := (1 to: body size + 1) collect: [ :each | JEDottedRule given: self withDotAt: each ]
+	dottedRules := (1 to: body size + 1) collect: [ :each | JEDottedRule given: self withDotAt: each ].
+	dottedRules reversed
+		inject: nil
+		into: [ :nextDottedRule :each | 
+			each
+				next: nextDottedRule;
+				yourself ]

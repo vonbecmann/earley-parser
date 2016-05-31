@@ -9,5 +9,7 @@ rule - an instance of JERule.
 dotIndex - indicates where's the dot in the rule, ie how much has been done.
 symbolAtDot - what symbol is at the right side of the dot.
                                 nil if it is final(completed).
+next - the next dotted rule (myself with the dot move forward)
+
 
 

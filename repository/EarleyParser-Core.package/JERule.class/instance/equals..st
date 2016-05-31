@@ -1,10 +1,10 @@
 comparing
 equals: anUserRule
-	self head = anUserRule head
+	head = anUserRule head
 		ifFalse: [ ^ false ].
-	self body size == anUserRule body size
+	body size == anUserRule body size
 		ifFalse: [ ^ false ].
-	self body
+	body
 		with: anUserRule body
 		do: [ :first :second | 
 			first = second

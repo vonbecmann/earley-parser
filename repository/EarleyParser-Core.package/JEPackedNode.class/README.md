@@ -1,7 +1,8 @@
 a packed node.
 model - 
-	an item or  syntax node
-	- syntax node is a terminal	
+	an hypernode of
+		- an item or 
+		- a terminal item 
 label -
 	a character or rule 
 	- character is the character of the input that matches  mentioned terminal.

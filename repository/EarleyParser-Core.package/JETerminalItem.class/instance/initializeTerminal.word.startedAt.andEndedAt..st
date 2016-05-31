@@ -4,6 +4,4 @@ initializeTerminal: aTerminal word: aWord startedAt: aChart andEndedAt: anotherC
 	terminal := aTerminal.
 	word := aWord.
 	startChart := aChart.
-	endChart := anotherChart.
-	node := JEPackedNode labeled: word model: (JEHypernode model: self).
-	node addFamily: JELinkedList new
+	endChart := anotherChart

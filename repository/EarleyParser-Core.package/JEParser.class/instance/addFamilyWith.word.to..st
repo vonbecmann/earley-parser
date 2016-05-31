@@ -11,5 +11,5 @@ addFamilyWith: item word: word to: nextItem
 	nextItem
 		addFamily:
 			(item isPredicted
-				ifTrue: [ JELinkedList with: terminal node ]
-				ifFalse: [ JELinkedList with: item node with: terminal node ])
+				ifTrue: [ JEFamily with: terminal node ]
+				ifFalse: [ JEFamily with: item node with: terminal node ])

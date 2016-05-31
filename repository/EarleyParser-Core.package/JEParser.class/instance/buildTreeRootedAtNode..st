@@ -22,11 +22,11 @@ buildTreeRootedAtNode: aNode
 						add:
 							(JEDirectedHyperedge
 								labeled: packed label
-								sourceNodes: (family collect: [ :each | each model ])
+								sourceNodes: (family members collect: [ :each | each model ])
 								targetNode: packed model) ].
 			packed families
 				do: [ :family | 
-					family
+					family members
 						reject: [ :node | visited at: node ifAbsent: [ false ] ]
 						thenDo: [ :node | 
 							visited at: node put: true.

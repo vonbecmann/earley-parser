@@ -4,10 +4,10 @@ comparing
 		ifTrue: [ ^ true ].
 	self class == anObject class
 		ifFalse: [ ^ false ].
-	self startChart = anObject startChart
+	startChart = anObject startChart
 		ifFalse: [ ^ false ].
-	self endChart = anObject endChart
+	endChart = anObject endChart
 		ifFalse: [ ^ false ].
-	self terminal = anObject terminal
+	terminal = anObject terminal
 		ifFalse: [ ^ false ].
 	^ true

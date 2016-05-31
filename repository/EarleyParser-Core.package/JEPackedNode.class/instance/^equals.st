@@ -1,3 +1,3 @@
 comparing
 = anObject
-	^ self class == anObject class and: [ self model = anObject model ]
+	^ self class == anObject class and: [ model = anObject model ]

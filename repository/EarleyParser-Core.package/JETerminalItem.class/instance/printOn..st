@@ -3,11 +3,11 @@ printOn: aStream
 	"[ terminal = word @  [start chart number, end chart number ] ]"
 
 	aStream nextPut: $[.
-	self terminal printOn: aStream.
+	terminal printOn: aStream.
 	aStream nextPutAll: ' = '.
 	word printOn: aStream.
 	aStream nextPutAll: ' @ ['.
-	self startChart shortPrintOn: aStream.
+	startChart shortPrintOn: aStream.
 	aStream nextPutAll: ', '.
-	self endChart shortPrintOn: aStream.
+	endChart shortPrintOn: aStream.
 	aStream nextPutAll: ']]'

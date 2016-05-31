@@ -2,14 +2,17 @@ grammar
 BNF
 	" my own BNF "
 
-	^ [ | rule nonterminal letter_digit_underscore_star definitionList lexical_element comma_lexical_element_star literal letter_symbol letter_digit_underscore_symbol comma_symbol equals_symbol dot_symbol |
+	^ [ | rule nonterminal terminal terminal_character
+		letter_digit_underscore_star definitionList lexical_element comma_lexical_element_star 
+		letter_symbol letter_digit_underscore_symbol comma_symbol equals_symbol dot_symbol |
 	rule := JENonterminal named: 'rule'.
 	nonterminal := JENonterminal named: 'nonterminal'.
+	terminal := JENonterminal named: 'terminal'.
+	terminal_character := JENonterminal named: 'terminal character'.
 	letter_digit_underscore_star := JENonterminal named: 'letter digit underscore star'.
 	definitionList := JENonterminal named: 'definition list'.
 	lexical_element := JENonterminal named: 'lexical element'.
 	comma_lexical_element_star := JENonterminal named: 'comma symbol lexical element star'.
-	literal := JENonterminal named: 'literal'.
 	letter_symbol := JENonterminal named: 'letter symbol'.
 	letter_digit_underscore_symbol := JENonterminal named: 'letter digit underscore symbol'.
 	comma_symbol := JETerminal character: $,.
@@ -28,7 +31,7 @@ BNF
 			(letter_symbol is: (JETerminal regex: '[a-zA-Z]')).
 			(letter_digit_underscore_symbol is: (JETerminal regex: '[a-zA-Z_]')).
 			(lexical_element is: nonterminal).
-			(lexical_element is: literal).
-			(literal
-				is: (JETerminal character: $") , (JETerminal regex: '[\w\d+-/\\*~=@,%|&?!<>]') , (JETerminal character: $"))} ]
+			(lexical_element is: terminal).
+			(terminal is: terminal_character).
+			(terminal_character is: (JETerminal character: $$) , (JETerminal regex: '[\w\d+-/\\*~=@,%|$&?!<>_-]'))} ]
 		value

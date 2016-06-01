@@ -6,16 +6,14 @@
 	"pools" : [ ],
 	"classvars" : [ ],
 	"instvars" : [
+		"startSymbol",
 		"nonterminals",
 		"terminals",
 		"rules",
-		"startSymbol",
 		"startRule",
 		"alternatives",
 		"dottedAlternatives",
-		"nonterminalIndex",
 		"nonterminalSort",
-		"ruleIndex",
 		"ruleSort"
 	],
 	"name" : "JEGrammar",

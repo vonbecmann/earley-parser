@@ -12,6 +12,7 @@ initializeRules: aRuleCollection
 									symbol isTerminal
 										ifTrue: [ terminals like: symbol ]
 										ifFalse: [ nonterminals like: symbol ifAbsent: [ self unknowNonterminal: symbol in: rule ] ] ]) ]).
-	ruleIndex := Dictionary
+	ruleSort := [ | index |
+	index := Dictionary
 		newFrom: (rules collect: [ :rule | rule -> (aRuleCollection findFirst: [ :each | rule equals: each ]) ]).
-	ruleSort := [ :a :b | (ruleIndex at: a) < (ruleIndex at: b) ]
+	[ :a :b | (index at: a) < (index at: b) ] ] value

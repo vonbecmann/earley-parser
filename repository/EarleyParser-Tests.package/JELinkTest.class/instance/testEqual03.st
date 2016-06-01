@@ -1,9 +1,9 @@
 tests
 testEqual03
 	| next one another |
-	next := JELink value: 2.
-	one := JELink value: 1 next: next.
-	another := JELink value: 1 next: next.
+	next := JELink with: 2.
+	one := JELink with: 1 next: next.
+	another := JELink with: 1 next: next.
 
 	self assert: one equals: another.
 	self assert: one hash equals: another hash.

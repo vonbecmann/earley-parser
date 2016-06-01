@@ -1,8 +1,8 @@
 tests
 testEqual02
 	| one another |
-	one := JELink value: 1 next: nil.
-	another := JELink value: 1 next: nil.
+	one := JELink with: 1 next: nil.
+	another := JELink with: 1 next: nil.
 
 	self assert: one equals: another.
 	self assert: one hash equals: another hash.

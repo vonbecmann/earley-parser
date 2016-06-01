@@ -1,3 +1,3 @@
 comparing
 hash
-	^ (self class hash + (self value hash + self nextLink identityHash) hashMultiply) hashMultiply
+	^ (self class hash + (value hash + nextLink identityHash) hashMultiply) hashMultiply

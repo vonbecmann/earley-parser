@@ -1,5 +1,5 @@
 instance creation
 value: anObject next: aLink
-	^ (JELink value: anObject)
+	^ (self value: anObject)
 		nextLink: aLink;
 		yourself

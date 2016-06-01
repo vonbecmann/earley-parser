@@ -1,6 +1,7 @@
 printing
 printOn: aStream
-	super printOn: aStream.
-	aStream nextPut: $(.
-	value printOn: aStream.
-	aStream nextPut: $)
+	aStream
+		nextPutAll: self class name;
+		nextPut: $(;
+		print: value;
+		nextPut: $)

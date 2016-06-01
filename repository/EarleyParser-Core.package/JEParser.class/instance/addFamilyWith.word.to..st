@@ -1,15 +1,12 @@
 private operations
-addFamilyWith: item word: word to: nextItem
+addFamilyWith: previousItem word: word to: nextItem
 	| terminal |
 	terminal := nextItem endChart
 		addTerminalItem:
 			(JETerminalItem
-				given: item symbolAtDot
+				given: previousItem symbolAtDot
 				word: word
-				startedAt: item endChart
+				startedAt: previousItem endChart
 				andEndedAt: nextItem endChart).
-	nextItem
-		addFamily:
-			(item isPredicted
-				ifTrue: [ JEFamily with: terminal node ]
-				ifFalse: [ JEFamily with: item node with: terminal node ])
+
+	self addFamilyWith: previousItem and: terminal to: nextItem

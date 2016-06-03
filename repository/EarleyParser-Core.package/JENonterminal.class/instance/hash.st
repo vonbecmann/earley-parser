@@ -1,3 +1,3 @@
 comparing
 hash
-	^ (self class hash + self named hash) hashMultiply
+	^ (self class hash + name hash) hashMultiply

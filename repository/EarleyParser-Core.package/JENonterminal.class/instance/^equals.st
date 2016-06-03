@@ -1,7 +1,3 @@
 comparing
 = anObject
-	self class == anObject class
-		ifFalse: [ ^ false ].
-	self named == anObject named
-		ifFalse: [ ^ false ].
-	^ true
+	^ self class == anObject class and: [ name == anObject named ]

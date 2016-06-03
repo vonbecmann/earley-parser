@@ -2,8 +2,4 @@ comparing
 = aChart
 	self == aChart
 		ifTrue: [ ^ true ].
-	self class == aChart class
-		ifFalse: [ ^ false ].
-	number == aChart number
-		ifFalse: [ ^ false ].
-	^ true
+	^ self class == aChart class and: [ number == aChart number ]

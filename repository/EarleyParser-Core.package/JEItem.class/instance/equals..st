@@ -1,7 +1,3 @@
 comparing
 equals: anItem
-	startChart = anItem startChart
-		ifFalse: [ ^ false ].
-	dottedRule = anItem dottedRule
-		ifFalse: [ ^ false ].
-	^ true
+	^ startChart = anItem startChart and: [ dottedRule = anItem dottedRule ]

@@ -13,4 +13,4 @@ ruleAt: anAssociation
 	key := JEPair first: nonterminal second: anAssociation value.
 	^ (alternatives 
 			at: key 
-			ifAbsent: [ self unknowRuleAt: nonterminal at: anAssociation value ]) asDefined
+			ifAbsent: [ self unknowRuleAt: key ]) asDefined

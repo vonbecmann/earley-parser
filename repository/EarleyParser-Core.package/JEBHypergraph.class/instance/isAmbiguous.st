@@ -1,3 +1,3 @@
 testing
 isAmbiguous
-	^ nodes anySatisfy: [ :each | (backwardStar at: each) size > 1 ]
+	^ nodes anySatisfy: [ :each | (self backwardStarOf: each) size > 1 ]

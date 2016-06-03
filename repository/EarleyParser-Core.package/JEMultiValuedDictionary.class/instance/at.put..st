@@ -1,4 +1,6 @@
 accessing
 at: key put: anObject
-	(self privateAt: key) add: anObject.
+	| found |
+	found := self privateAt: key.
+	found add: anObject.
 	^ anObject

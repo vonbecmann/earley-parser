@@ -1,4 +1,6 @@
 accessing
-at: key putAll: aCollection 
-	aCollection do: [ :each | self at: key put: each ].
-	^ aCollection 
+at: key putAll: aCollection
+	| found |
+	found := self privateAt: key.
+	found addAll: aCollection.
+	^ aCollection

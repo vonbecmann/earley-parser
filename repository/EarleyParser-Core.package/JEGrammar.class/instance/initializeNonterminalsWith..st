@@ -5,7 +5,6 @@ initializeNonterminalsWith: aRuleCollection
 		| index |
 		index := Dictionary with: startSymbol -> 0.
 		nonterminals
-			do: [ :each | 
-				index
-					add: each -> (aRuleCollection findFirst: [ :rule | rule head = each ]) ].
+			collect: [ :each | each -> (aRuleCollection findFirst: [ :rule | rule head = each ]) ]
+			thenDo: [ :assoc | index add: assoc ].
 		[ :a :b | (index at: a) < (index at: b) ] ] value

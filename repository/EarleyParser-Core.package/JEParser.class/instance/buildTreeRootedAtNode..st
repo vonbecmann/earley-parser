@@ -16,14 +16,14 @@ buildTreeRootedAtNode: aNode
 		whileFalse: [ | packed |
 			packed := queue removeFirst.
 			visitedNodes add: packed model.
-			packed families
-				do: [ :family | 
-					visitedEdges
-						add:
-							(JEDirectedHyperedge
-								labeled: packed label
-								sourceNodes: (family members collect: [ :each | each model ])
-								targetNode: packed model) ].
+			visitedEdges
+				addAll:
+					(packed families
+						collect:
+							[ :family | JEDirectedHyperedge 
+												labeled: packed label 
+												sourceNodes: (family members collect: [ :each | each model ]) 
+												targetNode: packed model ]).
 			packed families
 				do: [ :family | 
 					family members
@@ -31,7 +31,4 @@ buildTreeRootedAtNode: aNode
 						thenDo: [ :node | 
 							visited at: node put: true.
 							queue addLast: node ] ] ].
-	^ JEBTreeHypergraph
-		root: aNode model
-		nodes: visitedNodes
-		hyperedges: visitedEdges
+	^ JEBTreeHypergraph root: aNode model nodes: visitedNodes hyperedges: visitedEdges

@@ -3,8 +3,8 @@ testHyperEdgeEquality04
 	| root one another |
 	root := JEHypernode model: 'Start'.
 	
-	one := JEDirectedHyperedge labeled: 'Start is empty' targetNode: root.
-	another := JEDirectedHyperedge labeled: 'or Start is empty' targetNode: root.
+	one := JEDirectedHyperedge targetNode: root.
+	another := JEDirectedHyperedge targetNode: root.
 	
 	self assert: one equals: another.
 	self assert: one hash equals: another hash.

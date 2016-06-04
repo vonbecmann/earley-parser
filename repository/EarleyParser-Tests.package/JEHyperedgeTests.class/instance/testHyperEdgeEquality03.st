@@ -5,8 +5,8 @@ testHyperEdgeEquality03
 	root2 := JEHypernode model: 'Start2'.
 	sourceNode := JEHypernode model: 'P'.
 	
-	one := JEDirectedHyperedge labeled: 'Start is P' sourceNodes: {sourceNode} targetNode: root.
-	another := JEDirectedHyperedge labeled: 'Start2 is P' sourceNodes: {sourceNode} targetNode: root2.
+	one := JEDirectedHyperedge sourceNodes: {sourceNode} targetNode: root.
+	another := JEDirectedHyperedge sourceNodes: {sourceNode} targetNode: root2.
 	
 	self deny: one = another.
 	self deny: one hash = another hash.

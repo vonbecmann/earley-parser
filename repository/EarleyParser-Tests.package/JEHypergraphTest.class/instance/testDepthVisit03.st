@@ -20,9 +20,9 @@ testDepthVisit03
 	order := 0.
 	visitOrder := Dictionary new.
 	treegraph nodes do: [ :node | visitOrder at: node model put: 0 ].
-	treegraph edges do: [ :edge | visitOrder at: edge label put: 0 ].
+	treegraph edges do: [ :edge | visitOrder at: edge put: 0 ].
 	nodeAction := [ :node | visitOrder at: node model put: (order := order + 1) ].
-	edgeAction := [ :edge | visitOrder at: edge label put: (order := order + 1) ].
+	edgeAction := [ :edge | visitOrder at: edge put: (order := order + 1) ].
 	treegraph
 		depthVisitFrom: treegraph root
 		preNode: nodeAction

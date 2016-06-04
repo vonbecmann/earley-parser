@@ -1,5 +1,6 @@
 printing
 printOn: aStream
-	aStream nextPut: $(.
-	self model printOn: aStream.
-	aStream nextPut: $)
+	aStream
+		nextPut: $(;
+		print: model;
+		nextPut: $)

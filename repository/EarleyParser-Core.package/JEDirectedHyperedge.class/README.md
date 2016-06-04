@@ -11,7 +11,6 @@ I'm a backward hyperarc.
 
 targetNode is an hypernode.
 sourceNodes is an array of hypernodes.
-label is an object.
 
-sourceNodes  == label ==> targetNode.
+sourceNodes ==> targetNode.
                              

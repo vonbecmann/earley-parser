@@ -4,11 +4,11 @@ comparing
 		ifTrue: [ ^ true ].
 	self class == anObject class
 		ifFalse: [ ^ false ].
-	self targetNode == anObject targetNode
+	targetNode == anObject targetNode
 		ifFalse: [ ^ false ].
-	self sourceNodes size = anObject sourceNodes size
+	sourceNodes size = anObject sourceNodes size
 		ifFalse: [ ^ false ].
-	self sourceNodes
+	sourceNodes
 		with: anObject sourceNodes
 		do: [ :first :second | 
 			first == second

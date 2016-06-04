@@ -3,27 +3,27 @@ testNumberOfTreesIsFour01
 	builder
 		gatherTargetNode: 'A';
 		gatherSourceNode: 'D';
-		addEdgeLabeled: 'D->A'.
+		addEdge.
 	builder
 		gatherTargetNode: 'A';
 		gatherSourceNode: 'C';
-		addEdgeLabeled: 'C->A'.
+		addEdge.
 	builder
 		gatherTargetNode: 'C';
 		gatherSourceNode: 'C1';
-		addEdgeLabeled: 'C1->C'.
+		addEdge.
 	builder
 		gatherTargetNode: 'C';
 		gatherSourceNode: 'C2';
-		addEdgeLabeled: 'C2->C'.
+		addEdge.
 	builder
 		gatherTargetNode: 'D';
 		gatherSourceNode: 'D1';
-		addEdgeLabeled: 'D1->D'.
+		addEdge.
 	builder
 		gatherTargetNode: 'D';
 		gatherSourceNode: 'D2';
-		addEdgeLabeled: 'D2->D'.
-	treegraph := builder build treeRootedAt: 'A'.
-	self assert: treegraph isAmbiguous.
-	self assert: treegraph numberOfTrees equals: 4
+		addEdge.
+	tree := builder rootNode: 'A'; build.
+	self assert: tree isAmbiguous.
+	self assert: tree numberOfTrees equals: 4

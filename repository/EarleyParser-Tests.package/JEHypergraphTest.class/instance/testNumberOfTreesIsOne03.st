@@ -5,9 +5,9 @@ testNumberOfTreesIsOne03
 		gatherTargetNode: 'A';
 		gatherSourceNode: 'C';
 		gatherSourceNode: 'B';
-		addEdgeLabeled: 'C, B->A'.
+		addEdge.
 		
-	treegraph := builder build treeRootedAt: 'A'.
+	tree := builder rootNode: 'A'; build.
 
-	self deny: treegraph isAmbiguous.
-	self assert: treegraph numberOfTrees equals: 1
+	self deny: tree isAmbiguous.
+	self assert: tree numberOfTrees equals: 1

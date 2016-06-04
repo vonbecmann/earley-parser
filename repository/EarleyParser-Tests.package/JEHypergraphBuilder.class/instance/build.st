@@ -1,8 +1,9 @@
 building
 build
-	"builds a directed hypergraph with the nodes and edges"
+	"builds a directed tree hypergraph with a root node, nodes and edges"
 
-	| graph |
-	graph := JEBDirectedHypergraph nodes: nodes hyperedges: edges.
+	| tree |
+	root ifNil: [ ^ Error signal: 'root node cannot be nil' ].
+	tree := JEBTreeHypergraph root: root nodes: nodes hyperedges: edges.
 	self reset.
-	^ graph
+	^ tree

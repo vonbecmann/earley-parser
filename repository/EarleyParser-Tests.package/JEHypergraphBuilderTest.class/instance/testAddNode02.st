@@ -6,7 +6,11 @@ testAddNode02
 	node := 'S @ [ 1, 2]'.
 	builder addNode: node.
 	builder addNode: node.
-	graph := builder build.
-	self deny: graph nodesIsEmpty.
-	self assert: graph nodesSize equals: 1.
-	self assert: graph edgesIsEmpty
+	builder rootNode: node.
+	
+	tree := builder build.
+	
+	self deny: tree nodesIsEmpty.
+	self assert: tree root model equals: node.
+	self assert: tree nodesSize equals: 1.
+	self assert: tree edgesIsEmpty

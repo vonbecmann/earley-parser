@@ -7,7 +7,7 @@
 	"classvars" : [ ],
 	"instvars" : [
 		"builder",
-		"graph"
+		"tree"
 	],
 	"name" : "JEHypergraphBuilderTest",
 	"type" : "normal"

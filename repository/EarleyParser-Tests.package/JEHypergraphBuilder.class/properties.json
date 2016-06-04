@@ -9,7 +9,8 @@
 		"nodes",
 		"edges",
 		"targetNode",
-		"accumulatedSourceNodes"
+		"accumulatedSourceNodes",
+		"root"
 	],
 	"name" : "JEHypergraphBuilder",
 	"type" : "normal"

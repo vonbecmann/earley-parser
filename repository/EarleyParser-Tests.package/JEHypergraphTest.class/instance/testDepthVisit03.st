@@ -5,26 +5,26 @@ testDepthVisit03
 		gatherTargetNode: 'A';
 		gatherSourceNode: 'C';
 		gatherSourceNode: 'D';
-		addEdgeLabeled: 'B'.
+		addEdge.
 	builder
 		gatherTargetNode: 'C';
 		gatherSourceNode: 'J';
 		gatherSourceNode: 'K';
-		addEdgeLabeled: 'E'.
+		addEdge.
 	builder
 		gatherTargetNode: 'D';
 		gatherSourceNode: 'F';
 		gatherSourceNode: 'I';
-		addEdgeLabeled: 'H'.
-	treegraph := builder build treeRootedAt: 'A'.
+		addEdge.
+	tree := builder rootNode: 'A'; build.
 	order := 0.
 	visitOrder := Dictionary new.
-	treegraph nodes do: [ :node | visitOrder at: node model put: 0 ].
-	treegraph edges do: [ :edge | visitOrder at: edge put: 0 ].
+	tree nodes do: [ :node | visitOrder at: node model put: 0 ].
+	tree edges do: [ :edge | visitOrder at: edge put: 0 ].
 	nodeAction := [ :node | visitOrder at: node model put: (order := order + 1) ].
 	edgeAction := [ :edge | visitOrder at: edge put: (order := order + 1) ].
-	treegraph
-		depthVisitFrom: treegraph root
+	tree
+		depthVisitFrom: tree root
 		preNode: nodeAction
 		postNode: nil
 		preEdge: edgeAction

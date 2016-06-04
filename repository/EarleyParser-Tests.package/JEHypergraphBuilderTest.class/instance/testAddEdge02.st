@@ -8,13 +8,15 @@ testAddEdge02
 	
 	builder gatherTargetNode: target.
 	builder gatherSourceNode: source.
-	builder addEdgeLabeled: 'S is A'.
+	builder addEdge.
 	
 	builder gatherTargetNode: target.
 	builder gatherSourceNode: source.
-	builder addEdgeLabeled: 'S is A'.
-
-	graph := builder build.
+	builder addEdge.
+	builder rootNode: target.
 	
-	self assert: graph nodesSize equals: 2.
-	self assert: graph edgesSize equals: 1
+	tree := builder build.
+	
+	self assert: tree root model equals: target.
+	self assert: tree nodesSize equals: 2.
+	self assert: tree edgesSize equals: 1

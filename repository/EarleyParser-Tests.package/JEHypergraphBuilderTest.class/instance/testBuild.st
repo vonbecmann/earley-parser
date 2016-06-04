@@ -1,4 +1,10 @@
 running
 testBuild
-	graph := builder build.
-	self assert: graph isEmpty.
+	builder rootNode: 'S'.
+
+	tree := builder build.
+
+	self deny: tree nodesIsEmpty.
+	self assert: tree root model equals: 'S'.
+	self assert: tree nodesSize equals: 1.
+	self assert: tree edgesIsEmpty

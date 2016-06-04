@@ -1,5 +1,5 @@
 adding edges
-addEdgeLabeled: anObject
+addEdge
 	"adds a new hyperedge with the accumulated source nodes up to now and the target node"
 
 	targetNode ifNil: [ ^ Error signal: 'target node cannot be nil' ].

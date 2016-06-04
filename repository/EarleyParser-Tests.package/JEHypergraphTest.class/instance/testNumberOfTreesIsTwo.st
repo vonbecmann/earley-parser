@@ -3,12 +3,12 @@ testNumberOfTreesIsTwo
 	builder
 		gatherSourceNode: 'B';
 		gatherTargetNode: 'A';
-		addEdgeLabeled: 'B->A'.
+		addEdge.
 	builder
 		gatherSourceNode: 'C';
 		gatherTargetNode: 'A';
-		addEdgeLabeled: 'C->A'.
-	treegraph := builder build treeRootedAt: 'A'.
+		addEdge.
+	tree := builder rootNode: 'A'; build.
 	
-	self assert: treegraph isAmbiguous.
-	self assert: treegraph numberOfTrees equals: 2
+	self assert: tree isAmbiguous.
+	self assert: tree numberOfTrees equals: 2

@@ -4,6 +4,6 @@ build
 
 	| tree |
 	root ifNil: [ ^ Error signal: 'root node cannot be nil' ].
-	tree := JEBTreeHypergraph root: root nodes: nodes hyperedges: edges.
+	tree := JEBDTreeHypergraph root: root nodes: nodes hyperedges: edges.
 	self reset.
 	^ tree

@@ -8,7 +8,7 @@ view
 	b nodes: self nodes.
 	b shape circle
 		withBorder;
-		withTextAbove: [ :edge | edge label ].
+		withTextAbove: [ :edge | edge ].
 	b nodes: self edges.
 	b shape arrowedLine.
 	b edges useAssociations: (self edges collect: [ :edge | edge -> edge targetNode ]).

@@ -8,7 +8,7 @@ syntaxTreeView
 	b nodes: syntaxTree nodes.
 	b shape circle
 		withBorder;
-		withTextAbove: [ :edge | edge label ].
+		withTextAbove: [ :edge | edge ].
 	b nodes: syntaxTree edges.
 	b shape arrowedLine.
 	b edges useAssociations: (syntaxTree edges collect: [ :edge | edge targetNode -> edge ]).

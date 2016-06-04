@@ -7,8 +7,7 @@
 	"classvars" : [ ],
 	"instvars" : [
 		"sourceNodes",
-		"targetNode",
-		"label"
+		"targetNode"
 	],
 	"name" : "JEDirectedHyperedge",
 	"type" : "normal"

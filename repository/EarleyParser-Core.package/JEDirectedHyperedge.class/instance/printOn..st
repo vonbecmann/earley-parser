@@ -3,20 +3,7 @@ printOn: aStream
 	aStream nextPut: ${.
 	sourceNodes
 		do: [ :each | each printOn: aStream ]
-		separatedBy: [ 
-			aStream
-				nextPut: $,;
-				space ].
+		separatedBy: [ aStream nextPutAll: ', ' ].
 	aStream
-		nextPut: $};
-		nextPut: $=;
-		nextPut: $=;
-		space.
-	label printOn: aStream.
-	aStream
-		space;
-		nextPut: $=;
-		nextPut: $=;
-		nextPut: $>;
-		space.
-	targetNode printOn: aStream
+		nextPutAll: '} ==> ';
+		print: targetNode

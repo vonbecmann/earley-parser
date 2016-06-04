@@ -21,7 +21,6 @@ buildTreeRootedAtNode: aNode
 					(packed families
 						collect:
 							[ :family | JEDirectedHyperedge 
-												labeled: packed label 
 												sourceNodes: (family members collect: [ :each | each model ]) 
 												targetNode: packed model ]).
 			packed families

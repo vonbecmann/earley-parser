@@ -30,4 +30,4 @@ buildTreeRootedAtNode: aNode
 						thenDo: [ :node | 
 							visited at: node put: true.
 							queue addLast: node ] ] ].
-	^ JEBTreeHypergraph root: aNode model nodes: visitedNodes hyperedges: visitedEdges
+	^ JEBDTreeHypergraph root: aNode model nodes: visitedNodes hyperedges: visitedEdges

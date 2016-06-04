@@ -1,15 +1,16 @@
 {
-	"commentStamp" : "BernardoContreras 5/15/2016 17:07",
+	"commentStamp" : "BernardoContreras 6/4/2016 19:40",
 	"super" : "Object",
 	"category" : "EarleyParser-Core-Hypergraph",
 	"classinstvars" : [ ],
 	"pools" : [ ],
 	"classvars" : [ ],
 	"instvars" : [
+		"root",
 		"nodes",
 		"edges",
 		"backwardStar"
 	],
-	"name" : "JEBHypergraph",
+	"name" : "JEBDTreeHypergraph",
 	"type" : "normal"
 }

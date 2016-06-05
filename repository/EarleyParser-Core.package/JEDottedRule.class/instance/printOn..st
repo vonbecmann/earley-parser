@@ -1,8 +1,10 @@
 printing
 printOn: aStream
 	"head = body with dot.
-	 head = *. "
+	 head = ·. "
 
+	| middleDot |
+	middleDot := Character value: 183.
 	self head printOn: aStream.
 	aStream nextPutAll: ' = '.
 	self rule body
@@ -10,8 +12,8 @@ printOn: aStream
 			index = 1
 				ifFalse: [ aStream nextPutAll: ', ' ].
 			index = self dotIndex
-				ifTrue: [ aStream nextPut: $* ].
+				ifTrue: [ aStream nextPut: middleDot ].
 			each printOn: aStream ].
 	self isFinal
-		ifTrue: [ aStream nextPut: $* ].
+		ifTrue: [ aStream nextPut: middleDot ].
 	aStream nextPut: $.

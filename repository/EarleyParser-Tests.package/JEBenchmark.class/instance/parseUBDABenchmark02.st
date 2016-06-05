@@ -4,6 +4,7 @@ parseUBDABenchmark02
 | date        | time to run    |
 | 26 May 2016 | 0:00:00:09.035 |
 | 31 May 2016 | 0:00:00:15.278 |
+| 5 June 2016 | 0:00:00:14.223 |
 	"
 
 	| n words grammar |

@@ -1,3 +1,3 @@
 accessing
 numberOfTrees
-	^ self numberOfTreesFrom: self root
+	^ self numberOfTreesFrom: root

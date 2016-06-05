@@ -1,7 +1,7 @@
 accessing
 depthVisitPreNode: preNodeBlock postNode: postNodeBlock preEdge: preEdgeBlock postEdge: postEdgeBlock
 	self
-		depthVisitFrom: self root
+		depthVisitFrom: root
 		preNode: preNodeBlock
 		postNode: postNodeBlock
 		preEdge: preEdgeBlock

@@ -1,3 +1,3 @@
-private
+accessing
 root
-	^ root
+	^ root model

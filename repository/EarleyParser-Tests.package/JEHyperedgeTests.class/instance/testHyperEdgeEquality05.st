@@ -2,10 +2,10 @@ tests
 testHyperEdgeEquality05
 	| one another |
 
-	one := JEDirectedHyperedge 
+	one := JEBDirectedHyperedge 
 					sourceNodes: {(JEHypernode model: 'P')} 
 					targetNode: (JEHypernode model: 'Start').
-	another := JEDirectedHyperedge 
+	another := JEBDirectedHyperedge 
 					sourceNodes: {(JEHypernode model: 'P')} 
 					targetNode: (JEHypernode model: 'Start').	
 

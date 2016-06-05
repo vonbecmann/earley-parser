@@ -9,6 +9,6 @@
 		"sourceNodes",
 		"targetNode"
 	],
-	"name" : "JEDirectedHyperedge",
+	"name" : "JEBDirectedHyperedge",
 	"type" : "normal"
 }

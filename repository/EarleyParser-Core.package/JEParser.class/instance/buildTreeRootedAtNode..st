@@ -20,7 +20,7 @@ buildTreeRootedAtNode: aNode
 				addAll:
 					(packed families
 						collect:
-							[ :family | JEDirectedHyperedge 
+							[ :family | JEBDirectedHyperedge 
 												sourceNodes: (family members collect: [ :each | each model ]) 
 												targetNode: packed model ] as: Array).
 			packed families

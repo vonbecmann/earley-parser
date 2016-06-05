@@ -24,8 +24,7 @@ testDepthVisit01
 	tree edges do: [ :edge | visitCount at: edge put: 0 ].
 	action := [ :elem | visitCount at: elem put: (visitCount at: elem) + 1 ].
 	tree
-		depthVisitFrom: tree root
-		preNode: action
+		depthVisitPreNode: action
 		postNode: action
 		preEdge: action
 		postEdge: action.

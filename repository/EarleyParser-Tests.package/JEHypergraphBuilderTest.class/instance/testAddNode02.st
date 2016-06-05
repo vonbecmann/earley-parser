@@ -11,6 +11,6 @@ testAddNode02
 	tree := builder build.
 	
 	self deny: tree nodesIsEmpty.
-	self assert: tree root model equals: node.
+	self assert: tree root equals: node.
 	self assert: tree nodesSize equals: 1.
 	self assert: tree edgesIsEmpty

@@ -17,6 +17,6 @@ testAddEdge02
 	
 	tree := builder build.
 	
-	self assert: tree root model equals: target.
+	self assert: tree root equals: target.
 	self assert: tree nodesSize equals: 2.
 	self assert: tree edgesSize equals: 1

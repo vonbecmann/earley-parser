@@ -8,6 +8,6 @@ testAddEdge03
 	
 	tree := builder build.
 	
-	self assert: tree root model equals: 'S @ [ 1, 1 ]'.
+	self assert: tree root equals: 'S @ [ 1, 1 ]'.
 	self assert: tree nodesSize equals: 1.
 	self assert: tree edgesSize equals: 1

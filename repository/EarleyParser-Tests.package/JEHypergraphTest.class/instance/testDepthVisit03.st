@@ -24,8 +24,7 @@ testDepthVisit03
 	nodeAction := [ :node | visitOrder at: node model put: (order := order + 1) ].
 	edgeAction := [ :edge | visitOrder at: edge put: (order := order + 1) ].
 	tree
-		depthVisitFrom: tree root
-		preNode: nodeAction
+		depthVisitPreNode: nodeAction
 		postNode: nil
 		preEdge: edgeAction
 		postEdge: nil.

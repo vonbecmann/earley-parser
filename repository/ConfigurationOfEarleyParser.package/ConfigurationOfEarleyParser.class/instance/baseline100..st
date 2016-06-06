@@ -13,22 +13,22 @@ baseline100: spec
 						repository: 'http://www.smalltalkhub.com/mc/ObjectProfile/Roassal2/main' ].
 			spec
 				package: 'EarleyParser-Core';
-				package: 'EarleyParser-Forest' 
+				package: 'EarleyForest' 
 					with: [ spec requires: #('EarleyParser-Core') ];
 				package: 'EarleyParser-Tests' 
-					with: [ spec requires: #('EarleyParser-Core' 'EarleyParser-Forest') ];
-				package: 'EarleyParser-Forest-Tests' 
-					with: [ spec requires: #('EarleyParser-Forest' 'EarleyParser-Tests') ];
+					with: [ spec requires: #('EarleyParser-Core' 'EarleyForest') ];
+				package: 'EarleyForest-Tests' 
+					with: [ spec requires: #('EarleyForest' 'EarleyParser-Tests') ];
 				package: 'EarleyUI' 
-					with: [ spec requires: #('EarleyParser-Core' 'EarleyParser-Forest' 'Roassal2') ];
+					with: [ spec requires: #('EarleyParser-Core' 'EarleyForest' 'Roassal2') ];
 				package: 'EarleyBNF' 
 					with: [ spec requires: #('EarleyParser-Core' 
-													'EarleyParser-Forest'
+													'EarleyForest'
 													'EarleyParser-Tests') ].
 			spec
 				group: 'default' with: #('Core' 'Forest' 'Tests' 'Parser' 'UI');
 				group: 'Core' with: #('EarleyParser-Core');
-				group: 'Forest' with: #('EarleyParser-Forest' 'EarleyParser-Forest-Tests');
+				group: 'Forest' with: #('EarleyForest' 'EarleyForest-Tests');
 				group: 'Tests' with: #('EarleyParser-Tests');
 				group: 'Parser' with: #('EarleyBNF');
 				group: 'UI' with: #('EarleyUI') ]

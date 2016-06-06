@@ -1,0 +1,11 @@
+{
+	"commentStamp" : "BernardoContreras 5/12/2016 11:21",
+	"super" : "TestCase",
+	"category" : "EarleyForest-Tests-Hypergraph",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"classvars" : [ ],
+	"instvars" : [ ],
+	"name" : "JEHyperedgeTests",
+	"type" : "normal"
+}

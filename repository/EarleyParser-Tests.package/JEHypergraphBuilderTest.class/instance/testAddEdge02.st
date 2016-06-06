@@ -14,4 +14,4 @@ testAddEdge02
 	
 	self assert: tree root equals: target.
 	self assert: tree nodesSize equals: 2.
-	self assert: tree edgesSize equals: 1
+	self assert: tree edgesSize equals: 2

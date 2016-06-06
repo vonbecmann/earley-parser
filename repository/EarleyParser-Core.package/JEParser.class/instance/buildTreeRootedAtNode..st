@@ -6,28 +6,23 @@ buildTreeRootedAtNode: aNode
 	breadth-first search.
 	"
 
-	| visited visitedEdges visitedNodes queue |
+	| builder visited queue |
+	builder := JEHypergraphBuilder new.
 	visited := IdentityDictionary new.
-	visitedEdges := JELinkedList new.
-	visitedNodes := JELinkedList new.
 	queue := JELinkedList with: aNode.
 	visited at: aNode put: true.
 	[ queue isEmpty ]
 		whileFalse: [ | packed |
 			packed := queue removeFirst.
-			visitedNodes add: packed model.
-			visitedEdges
-				addAll:
-					(packed families
-						collect:
-							[ :family | JEBDirectedHyperedge 
-												sourceNodes: (family members collect: [ :each | each model ]) 
-												targetNode: packed model ] as: Array).
 			packed families
 				do: [ :family | 
+					builder 
+						addEdgeSourceNodes: (family members collect: [ :each | each model ]) 
+						targetNode: packed model.
 					family members
 						reject: [ :node | visited at: node ifAbsent: [ false ] ]
 						thenDo: [ :node | 
 							visited at: node put: true.
 							queue addLast: node ] ] ].
-	^ JEBDTreeHypergraph root: aNode model nodes: visitedNodes hyperedges: visitedEdges
+	builder rootNode: aNode model.
+	^ builder build

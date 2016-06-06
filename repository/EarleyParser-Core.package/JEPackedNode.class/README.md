@@ -1,7 +1,7 @@
 a packed node.
 
 model - 
-	an hypernode of
+	one of the following 
 		- an item or 
 		- a terminal item 
 

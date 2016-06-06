@@ -1,1 +1,0 @@
-Jay Earley Algorithm as a Parser

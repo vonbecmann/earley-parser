@@ -1,3 +1,0 @@
-testing
-nodesIsEmpty
-	^ nodes isEmpty 

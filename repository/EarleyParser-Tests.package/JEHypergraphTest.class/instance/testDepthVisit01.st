@@ -1,21 +1,9 @@
 tests
 testDepthVisit01
 	| visitCount action |
-	builder
-		gatherTargetNode: 'A';
-		gatherSourceNode: 'C';
-		gatherSourceNode: 'D';
-		addEdge.
-	builder
-		gatherTargetNode: 'A';
-		gatherSourceNode: 'F';
-		gatherSourceNode: 'G';
-		addEdge.
-	builder
-		gatherTargetNode: 'D';
-		gatherSourceNode: 'F';
-		gatherSourceNode: 'I';
-		addEdge.
+	builder addEdgeSourceNodes: {'C'. 'D'} targetNode: 'A'.
+	builder addEdgeSourceNodes: {'F'. 'G'} targetNode: 'A'.
+	builder addEdgeSourceNodes: {'F'. 'I'} targetNode: 'D'.
 	tree := builder
 		rootNode: 'A';
 		build.

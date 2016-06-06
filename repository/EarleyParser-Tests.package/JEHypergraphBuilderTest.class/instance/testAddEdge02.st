@@ -6,13 +6,8 @@ testAddEdge02
 	target := 'S @ [ 1, 2 ]'.
 	source := 'A @ [ 1, 2 ]'.
 	
-	builder gatherTargetNode: target.
-	builder gatherSourceNode: source.
-	builder addEdge.
-	
-	builder gatherTargetNode: target.
-	builder gatherSourceNode: source.
-	builder addEdge.
+	builder addEdgeSourceNodes: {source} targetNode: target.
+	builder addEdgeSourceNodes: {source} targetNode: target.	
 	builder rootNode: target.
 	
 	tree := builder build.

@@ -1,21 +1,9 @@
 tests
 testDepthVisit03
 	| order visitOrder nodeAction edgeAction |
-	builder
-		gatherTargetNode: 'A';
-		gatherSourceNode: 'C';
-		gatherSourceNode: 'D';
-		addEdge.
-	builder
-		gatherTargetNode: 'C';
-		gatherSourceNode: 'J';
-		gatherSourceNode: 'K';
-		addEdge.
-	builder
-		gatherTargetNode: 'D';
-		gatherSourceNode: 'F';
-		gatherSourceNode: 'I';
-		addEdge.
+	builder addEdgeSourceNodes: {'C'. 'D'} targetNode: 'A'.
+	builder addEdgeSourceNodes: {'J'. 'K'} targetNode: 'C'.
+	builder addEdgeSourceNodes: {'F'. 'I'} targetNode: 'D'.
 	tree := builder rootNode: 'A'; build.
 	order := 0.
 	visitOrder := Dictionary new.

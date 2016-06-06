@@ -1,29 +1,11 @@
 tests
 testNumberOfTreesIsFour01
-	builder
-		gatherTargetNode: 'A';
-		gatherSourceNode: 'D';
-		addEdge.
-	builder
-		gatherTargetNode: 'A';
-		gatherSourceNode: 'C';
-		addEdge.
-	builder
-		gatherTargetNode: 'C';
-		gatherSourceNode: 'C1';
-		addEdge.
-	builder
-		gatherTargetNode: 'C';
-		gatherSourceNode: 'C2';
-		addEdge.
-	builder
-		gatherTargetNode: 'D';
-		gatherSourceNode: 'D1';
-		addEdge.
-	builder
-		gatherTargetNode: 'D';
-		gatherSourceNode: 'D2';
-		addEdge.
+	builder addEdgeSourceNodes: {'D'} targetNode: 'A'.
+	builder addEdgeSourceNodes: {'C'} targetNode: 'A'.
+	builder addEdgeSourceNodes: {'C1'} targetNode: 'C'.
+	builder addEdgeSourceNodes: {'C2'} targetNode: 'C'.
+	builder addEdgeSourceNodes: {'D1'} targetNode: 'D'.
+	builder addEdgeSourceNodes: {'D2'} targetNode: 'D'.
 	tree := builder rootNode: 'A'; build.
 	self assert: tree isAmbiguous.
 	self assert: tree numberOfTrees equals: 4

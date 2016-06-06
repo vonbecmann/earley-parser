@@ -1,11 +1,7 @@
 tests
 testNumberOfTreesIsOne03
 
-	builder
-		gatherTargetNode: 'A';
-		gatherSourceNode: 'C';
-		gatherSourceNode: 'B';
-		addEdge.
+	builder addEdgeSourceNodes: {'C'. 'B'} targetNode: 'A'.
 		
 	tree := builder rootNode: 'A'; build.
 

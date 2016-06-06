@@ -1,13 +1,8 @@
 tests
 testNumberOfTreesIsTwo
-	builder
-		gatherSourceNode: 'B';
-		gatherTargetNode: 'A';
-		addEdge.
-	builder
-		gatherSourceNode: 'C';
-		gatherTargetNode: 'A';
-		addEdge.
+	builder addEdgeSourceNodes: {'B'} targetNode: 'A'.
+	builder addEdgeSourceNodes: {'C'} targetNode: 'A'.
+	
 	tree := builder rootNode: 'A'; build.
 	
 	self assert: tree isAmbiguous.

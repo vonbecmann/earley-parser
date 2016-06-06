@@ -1,3 +1,3 @@
 adding nodes
 addNode: anObject
-	^ nodes jeAdd: (JEHypernode model: anObject)
+	^ nodes jeAt: anObject ifAbsentPut: (JEHypernode model: anObject)

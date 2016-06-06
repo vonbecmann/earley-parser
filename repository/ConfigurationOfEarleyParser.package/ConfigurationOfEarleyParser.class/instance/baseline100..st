@@ -13,12 +13,17 @@ baseline100: spec
 						repository: 'http://www.smalltalkhub.com/mc/ObjectProfile/Roassal2/main' ].
 			spec
 				package: 'EarleyParser-Core';
-				package: 'EarleyParser-Tests' with: [ spec requires: #('EarleyParser-Core') ];
-				package: 'EarleyUI' with: [ spec requires: #('EarleyParser-Core' 'Roassal2') ];
-				package: 'EarleyBNF' with: [ spec requires: #('EarleyParser-Core' 'EarleyParser-Tests') ].
+				package: 'EarleyParser-Forest' 
+					with: [ spec requires: #('EarleyParser-Core') ];
+				package: 'EarleyParser-Tests' 
+					with: [ spec requires: #('EarleyParser-Core' 'EarleyParser-Forest') ];
+				package: 'EarleyUI' 
+					with: [ spec requires: #('EarleyParser-Core' 'EarleyParser-Forest' 'Roassal2') ];
+				package: 'EarleyBNF' 
+					with: [ spec requires: #('EarleyParser-Core' 'EarleyParser-Forest' 'EarleyParser-Tests') ].
 			spec
 				group: 'default' with: #('Core' 'Tests' 'Parser' 'UI');
-				group: 'Core' with: #('EarleyParser-Core');
+				group: 'Core' with: #('EarleyParser-Core' 'EarleyParser-Forest');
 				group: 'Tests' with: #('EarleyParser-Tests');
 				group: 'Parser' with: #('EarleyBNF');
 				group: 'UI' with: #('EarleyUI') ]

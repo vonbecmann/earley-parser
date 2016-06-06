@@ -1,4 +1,3 @@
 running
 setUp
-	grammar := JEExemplar RR.
-	forest := nil
+	grammar := JEExemplar RR

@@ -1,0 +1,3 @@
+testing
+isAmbiguous
+	^ syntaxTree isAmbiguous

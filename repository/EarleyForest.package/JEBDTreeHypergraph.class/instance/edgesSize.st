@@ -1,0 +1,3 @@
+accessing
+edgesSize
+	^ edges size

@@ -1,0 +1,3 @@
+testing
+nodesIsEmpty
+	^ nodes isEmpty 

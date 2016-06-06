@@ -1,0 +1,14 @@
+{
+	"commentStamp" : "BernardoContreras 6/4/2016 17:36",
+	"super" : "Object",
+	"category" : "EarleyForest-Hypergraph",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"classvars" : [ ],
+	"instvars" : [
+		"sourceNodes",
+		"targetNode"
+	],
+	"name" : "JEBDirectedHyperedge",
+	"type" : "normal"
+}

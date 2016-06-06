@@ -1,0 +1,14 @@
+{
+	"commentStamp" : "BernardoContreras 5/1/2016 17:05",
+	"super" : "Object",
+	"category" : "EarleyForest-Public",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"classvars" : [ ],
+	"instvars" : [
+		"syntaxTree",
+		"grammar"
+	],
+	"name" : "JEParseForest",
+	"type" : "normal"
+}

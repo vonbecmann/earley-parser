@@ -1,0 +1,3 @@
+accessing
+nodesSize
+	^ nodes size

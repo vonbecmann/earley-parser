@@ -1,0 +1,3 @@
+testing
+size
+	^ syntaxTree size

@@ -1,0 +1,11 @@
+{
+	"commentStamp" : "BernardoContreras 6/6/2016 17:07",
+	"super" : "JEAlgorithm",
+	"category" : "EarleyForest-Implementation",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"classvars" : [ ],
+	"instvars" : [ ],
+	"name" : "JEParser",
+	"type" : "normal"
+}

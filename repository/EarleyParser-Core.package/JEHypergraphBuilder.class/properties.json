@@ -8,8 +8,6 @@
 	"instvars" : [
 		"nodes",
 		"edges",
-		"targetNode",
-		"accumulatedSourceNodes",
 		"root"
 	],
 	"name" : "JEHypergraphBuilder",

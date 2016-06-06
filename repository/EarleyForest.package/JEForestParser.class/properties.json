@@ -6,6 +6,6 @@
 	"pools" : [ ],
 	"classvars" : [ ],
 	"instvars" : [ ],
-	"name" : "JEParser",
+	"name" : "JEForestParser",
 	"type" : "normal"
 }

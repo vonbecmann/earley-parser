@@ -1,3 +1,5 @@
 *EarleyForest
 parse: words
-	^ (JEParser given: self) parse: words
+	"returns a parse forest"
+
+	^ (JEForestParser given: self) parse: words

@@ -1,0 +1,13 @@
+{
+	"commentStamp" : "BernardoContreras 4/30/2016 20:32",
+	"super" : "TestCase",
+	"category" : "EarleyForest-Tests-Grammar",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"classvars" : [ ],
+	"instvars" : [
+		"grammar"
+	],
+	"name" : "JESPPFGrammarTests",
+	"type" : "normal"
+}

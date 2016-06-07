@@ -6,8 +6,7 @@
 	"pools" : [ ],
 	"classvars" : [ ],
 	"instvars" : [
-		"grammar",
-		"forest"
+		"grammar"
 	],
 	"name" : "JEUBDAGrammarTests",
 	"type" : "normal"

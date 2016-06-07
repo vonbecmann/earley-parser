@@ -1,4 +1,3 @@
 running
 setUp
-	grammar := JEExemplar UBDA.
-	forest := nil
+	grammar := JEExemplar UBDA

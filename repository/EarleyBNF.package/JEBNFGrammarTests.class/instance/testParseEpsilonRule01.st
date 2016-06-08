@@ -1,7 +1,7 @@
 tests
 testParseEpsilonRule01
 	| forest |
-	forest := grammar parse: 'E=.'.
+	forest := grammar parseForest: 'E=.'.
 
 	self deny: forest isAmbiguous.
 

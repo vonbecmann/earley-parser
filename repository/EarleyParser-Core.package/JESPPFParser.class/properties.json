@@ -1,11 +1,11 @@
 {
-	"commentStamp" : "BernardoContreras 6/8/2016 15:00",
+	"commentStamp" : "BernardoContreras 6/8/2016 19:02",
 	"super" : "JEAlgorithm",
-	"category" : "EarleyParser-Core-Implementation",
+	"category" : "EarleyParser-Core-Parsing",
 	"classinstvars" : [ ],
 	"pools" : [ ],
 	"classvars" : [ ],
 	"instvars" : [ ],
-	"name" : "JEParser",
+	"name" : "JESPPFParser",
 	"type" : "normal"
 }

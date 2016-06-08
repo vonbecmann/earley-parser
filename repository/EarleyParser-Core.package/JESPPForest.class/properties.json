@@ -1,0 +1,13 @@
+{
+	"commentStamp" : "BernardoContreras 6/8/2016 19:06",
+	"super" : "Object",
+	"category" : "EarleyParser-Core-Parsing",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"classvars" : [ ],
+	"instvars" : [
+		"root"
+	],
+	"name" : "JESPPForest",
+	"type" : "normal"
+}

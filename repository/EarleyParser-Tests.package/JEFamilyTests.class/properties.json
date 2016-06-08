@@ -5,7 +5,10 @@
 	"classinstvars" : [ ],
 	"pools" : [ ],
 	"classvars" : [ ],
-	"instvars" : [ ],
+	"instvars" : [
+		"aPackedItem",
+		"anotherPackedItem"
+	],
 	"name" : "JEFamilyTests",
 	"type" : "normal"
 }

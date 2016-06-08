@@ -1,8 +1,8 @@
 tests
 testEqualsFamilyWithTwoMembers
 	| one another |
-	one := JEFamily with: 1 with: 'A'.
-	another := JEFamily with: 1 with: 'A'.
+	one := JEFamily with: aPackedItem with: anotherPackedItem.
+	another := JEFamily with: aPackedItem with: anotherPackedItem.
 
 	self assert: one equals: another.
 	self assert: one hash equals: another hash.

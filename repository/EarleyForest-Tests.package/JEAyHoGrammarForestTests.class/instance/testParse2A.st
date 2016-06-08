@@ -1,6 +1,6 @@
 tests
 testParse2A
-	forest := grammar parse: 'aa'.
+	forest := grammar parseForest: 'aa'.
 	
 	self assert: forest isAmbiguous.
 	self assert: forest numberOfTrees equals: 6

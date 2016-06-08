@@ -1,6 +1,6 @@
 tests
 testParseEpsilon
-	forest := grammar parse: ''.
+	forest := grammar parseForest: ''.
 	
 	self deny: forest isAmbiguous.
 	self assert: forest numberOfTrees equals: 1.

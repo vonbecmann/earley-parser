@@ -10,5 +10,5 @@ testExample2
 			{(S is: S , S).
 			(S is: b)} ] value.
 	self assert: (grammar accepts: 'bbb').
-	forest := grammar parse: 'bbb'.
+	forest := grammar parseForest: 'bbb'.
 	self assert: forest isAmbiguous

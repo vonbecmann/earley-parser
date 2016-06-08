@@ -1,6 +1,6 @@
 tests
 testParse2X
-	forest := grammar parse: 'xx'.
+	forest := grammar parseForest: 'xx'.
 
 	self deny: forest isAmbiguous.
 	self assert: forest numberOfTrees equals: 1.

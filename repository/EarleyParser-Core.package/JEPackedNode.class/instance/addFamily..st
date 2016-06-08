@@ -1,3 +1,3 @@
 accessing
-addFamily: aPackedNodeCollection
-	families add: aPackedNodeCollection
+addFamily: aFamily
+	families add: aFamily

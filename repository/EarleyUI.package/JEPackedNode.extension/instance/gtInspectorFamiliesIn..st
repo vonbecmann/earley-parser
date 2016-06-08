@@ -1,6 +1,6 @@
 *EarleyUI
 gtInspectorFamiliesIn: composite
-	<gtInspectorPresentationOrder: 2>
+	<gtInspectorPresentationOrder: 1>
 	^ composite table
 		title: [ 'Families' ];
 		display: [ families ];

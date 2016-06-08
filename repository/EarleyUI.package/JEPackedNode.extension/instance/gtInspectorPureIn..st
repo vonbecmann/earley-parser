@@ -1,6 +1,6 @@
 *EarleyUI
 gtInspectorPureIn: composite
-	<gtInspectorPresentationOrder: 1>
+	<gtInspectorPresentationOrder: 2>
 	^ composite table
 		title: [ 'Pure' ];
 		display: [ {('model' -> self model)} ];

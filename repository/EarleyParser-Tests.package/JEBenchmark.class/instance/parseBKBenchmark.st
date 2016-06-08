@@ -17,4 +17,4 @@ parseBKBenchmark
 	words := String new: n.
 	words from: 1 to: n put: $x.
 	grammar := JEExemplar BK.
-	^ [ grammar parse: words ] timeToRun
+	^ [ grammar parseForest: words ] timeToRun

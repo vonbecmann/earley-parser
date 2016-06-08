@@ -20,4 +20,4 @@ parsePALBenchmark
 	words := String new: maxOdd.
 	words from: 1 to: maxOdd put: $x.
 	grammar := JEExemplar PAL.
-	^ [ grammar parse: words ] timeToRun
+	^ [ grammar parseForest: words ] timeToRun

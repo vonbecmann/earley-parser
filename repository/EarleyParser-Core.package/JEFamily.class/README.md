@@ -1,8 +1,7 @@
 a family of packed nodes.
 
 members 
-	- an array of packed nodes.
-	 a empty family,
+ 	a empty family,
 	a family with one member,
 	a family with two members.
 	

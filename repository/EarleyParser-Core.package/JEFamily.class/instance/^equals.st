@@ -2,11 +2,8 @@ comparing
 = anObject
 	self class == anObject class
 		ifFalse: [ ^ false ].
-	members size == anObject members size
+	members first == anObject first
 		ifFalse: [ ^ false ].
-	members
-		with: anObject members
-		do: [ :first :second | 
-			first == second
-				ifFalse: [ ^ false ] ].
+	members second == anObject second
+		ifFalse: [ ^ false ].
 	^ true

@@ -1,4 +1,4 @@
 initialization
-initializeMembers: aPackedNodeArray
+initializeMembers: aPackedNodePair
 	self initialize.
-	members := aPackedNodeArray
+	members := aPackedNodePair

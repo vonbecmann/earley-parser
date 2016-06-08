@@ -1,3 +1,3 @@
 instance creation
 empty
-	^ self basicNew initializeMembers: Array new
+	^ self basicNew initializeMembers: (JEPair first: nil second: nil)

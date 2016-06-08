@@ -1,4 +1,4 @@
 initialization
-initializeModel: anObject
+initializeModel: anItem
 	self initialize.
-	model := anObject
+	model := anItem

@@ -1,3 +1,3 @@
 instance creation
-model: anObject
-	^ self basicNew initializeModel: anObject
+model: anItem
+	^ self basicNew initializeModel: anItem

@@ -12,6 +12,6 @@
 		"key",
 		"node"
 	],
-	"name" : "JEItem",
+	"name" : "JEDottedItem",
 	"type" : "normal"
 }

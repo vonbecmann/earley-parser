@@ -1,14 +1,15 @@
 {
-	"commentStamp" : "BernardoContreras 5/26/2016 20:50",
-	"super" : "JEItem",
+	"commentStamp" : "BernardoContreras 6/9/2016 21:37",
+	"super" : "Object",
 	"category" : "EarleyParser-Core-Implementation",
 	"classinstvars" : [ ],
 	"pools" : [ ],
 	"classvars" : [ ],
 	"instvars" : [
-		"dottedRule",
-		"key"
+		"startChart",
+		"endChart",
+		"node"
 	],
-	"name" : "JEDottedItem",
+	"name" : "JEItem",
 	"type" : "normal"
 }

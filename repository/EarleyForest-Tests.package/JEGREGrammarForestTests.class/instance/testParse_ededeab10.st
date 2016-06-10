@@ -7,4 +7,4 @@ testParse_ededeab10
 
 	self assert: forest isAmbiguous.
 	self assert: forest numberOfTrees equals: 2.
-	self assert: forest size equals: 106
+	self assert: forest size equals: 90

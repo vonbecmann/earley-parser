@@ -8,5 +8,9 @@ addFamilyWith: previousItem word: word to: nextItem
 				word: word
 				startedAt: previousItem endChart
 				andEndedAt: nextItem endChart).
-
-	self addFamilyWith: previousItem and: terminal to: nextItem
+	terminal node addFamily: JEFamily empty.
+	nextItem
+		addFamily:
+			(previousItem isPredicted
+				ifTrue: [ JEFamily with: terminal node ]
+				ifFalse: [ JEFamily with: previousItem node with: terminal node ])

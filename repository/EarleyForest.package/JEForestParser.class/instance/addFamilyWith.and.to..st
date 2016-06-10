@@ -1,7 +1,7 @@
 private operations
 addFamilyWith: previousItem and: completeItem to: nextItem
 	completeItem isEpsilon
-		ifTrue: [ completeItem node addFamily: JEFamily empty ].
+		ifTrue: [ completeItem addFamily: JEFamily empty ].
 	nextItem
 		addFamily:
 			(previousItem isPredicted

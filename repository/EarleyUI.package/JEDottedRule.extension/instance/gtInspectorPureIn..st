@@ -10,7 +10,7 @@ gtInspectorPureIn: composite
 			('symbolAtDot' -> self symbolAtDot).
 			('predicted' -> self isPredicted).
 			('final' -> self isFinal).
-			('next Dotted Rule') -> self next } ];
+			('next Dotted Rule') -> next } ];
 		column: 'Name' evaluated: [ :each | each key ] width: 100;
 		column: 'Value' evaluated: [ :each | each value ];
 		send: [ :each | each value ];

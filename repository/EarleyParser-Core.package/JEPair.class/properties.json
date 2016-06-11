@@ -1,7 +1,7 @@
 {
 	"commentStamp" : "BernardoContreras 5/22/2016 11:54",
 	"super" : "Object",
-	"category" : "EarleyParser-Core-Implementation",
+	"category" : "EarleyParser-Core-Collections",
 	"classinstvars" : [ ],
 	"pools" : [ ],
 	"classvars" : [ ],

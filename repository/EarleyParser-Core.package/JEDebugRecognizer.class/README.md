@@ -1,1 +1,0 @@
-to help in debugging Earley's recognizer

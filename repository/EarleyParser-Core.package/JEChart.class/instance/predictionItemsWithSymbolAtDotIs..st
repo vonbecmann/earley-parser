@@ -1,3 +1,3 @@
 accessing
 predictionItemsWithSymbolAtDotIs: aNonterminal
-	^ predictionItemsByNonterminal at: aNonterminal ifAbsent: [ Array empty ]
+	^ predictionItemsByNonterminal at: aNonterminal ifAbsent: #()

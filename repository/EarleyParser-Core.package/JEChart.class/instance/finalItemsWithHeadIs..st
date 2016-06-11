@@ -1,3 +1,3 @@
 accessing
 finalItemsWithHeadIs: aNonterminal
-	^ finalItemsByNonterminal at: aNonterminal ifAbsent: [ Array empty ]
+	^ finalItemsByNonterminal at: aNonterminal ifAbsent: #()

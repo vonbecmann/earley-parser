@@ -1,3 +1,0 @@
-*EarleyUI
-children
-	^ self members

@@ -21,4 +21,4 @@ depthVisitPreNode: preNodeBlock postNode: postNodeBlock preFamily: preFamilyBloc
 						ifTrue: [ 
 							postFamilyBlock ifNotNil: [ postFamilyBlock value: element ].
 							element members
-								reversed do: [ :node | (visited at: node ifAbsentPut: [ false ]) ifFalse: [ visitStack push: node ] ] ] ] ]
+								reverseDo: [ :node | (visited at: node ifAbsentPut: [ false ]) ifFalse: [ visitStack push: node ] ] ] ] ]

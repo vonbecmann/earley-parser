@@ -1,8 +1,8 @@
 printing
 printChartOn: aStream
-	endChart isNil
-		ifTrue: [ startChart shortPrintOn: aStream ]
-		ifFalse: [ 
+	endChart
+		ifNil: [ 	startChart shortPrintOn: aStream ]
+		ifNotNil: [ 
 			aStream nextPut: $[.
 			startChart shortPrintOn: aStream.
 			aStream nextPutAll: ', '.

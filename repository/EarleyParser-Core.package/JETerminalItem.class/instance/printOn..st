@@ -4,8 +4,6 @@ printOn: aStream
 
 	aStream nextPut: $[.
 	terminal printOn: aStream.
-	aStream nextPutAll: ' @ ['.
-	startChart shortPrintOn: aStream.
-	aStream nextPutAll: ', '.
-	endChart shortPrintOn: aStream.
-	aStream nextPutAll: ']]'
+	aStream nextPutAll: ' @ '.
+	self printChartOn: aStream.
+	aStream nextPut: $]

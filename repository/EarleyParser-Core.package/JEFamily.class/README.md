@@ -1,7 +1,7 @@
 a family of packed nodes.
 
 members 
- 	a empty family,
+ 	a empty family(useful when you have epsilon rules),
 	a family with one member,
 	a family with two members.
 	

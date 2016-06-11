@@ -7,7 +7,7 @@ visit: rootNode
 		whileFalse: [ 
 			| element |
 			element := visitStack top.
-			(visited at: element ifAbsent: [ false ])
+			(visited at: element ifAbsent: false)
 				ifTrue: [ 
 					visitStack pop.
 					element acceptPostVisitor: self ]

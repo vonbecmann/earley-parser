@@ -1,6 +1,6 @@
 *EarleyUI
 gtInspectorMembersIn: composite
-	<gtInspectorPresentationOrder: 2>
+	<gtInspectorPresentationOrder: 1>
 	^ composite table
 		title: [ 'Members' ];
 		display: [ self members ];

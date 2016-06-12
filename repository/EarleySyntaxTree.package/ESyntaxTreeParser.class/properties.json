@@ -1,7 +1,7 @@
 {
-	"commentStamp" : "",
+	"commentStamp" : "BernardoContreras 6/12/2016 20:02",
 	"super" : "JESPPFParser",
-	"category" : "EarleySyntaxTree",
+	"category" : "EarleySyntaxTree-Implementation",
 	"classinstvars" : [ ],
 	"pools" : [ ],
 	"classvars" : [ ],

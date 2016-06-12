@@ -1,0 +1,11 @@
+{
+	"commentStamp" : "",
+	"super" : "JESPPFParser",
+	"category" : "EarleySyntaxTree",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"classvars" : [ ],
+	"instvars" : [ ],
+	"name" : "ESyntaxTreeParser",
+	"type" : "normal"
+}

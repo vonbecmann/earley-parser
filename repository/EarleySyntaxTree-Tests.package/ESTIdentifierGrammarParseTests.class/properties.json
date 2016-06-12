@@ -1,7 +1,7 @@
 {
 	"commentStamp" : "",
 	"super" : "TestCase",
-	"category" : "EarleySyntaxTree-Tests",
+	"category" : "EarleySyntaxTree-Tests-Grammar",
 	"classinstvars" : [ ],
 	"pools" : [ ],
 	"classvars" : [ ],

@@ -1,4 +1,4 @@
-running
+tests
 testParse01
 	tree := grammar parseTree: 'word_symbol'.
 	self

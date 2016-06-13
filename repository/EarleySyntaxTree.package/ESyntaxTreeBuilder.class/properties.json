@@ -1,0 +1,14 @@
+{
+	"commentStamp" : "BernardoContreras 6/13/2016 19:47",
+	"super" : "Object",
+	"category" : "EarleySyntaxTree-Implementation",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"classvars" : [ ],
+	"instvars" : [
+		"nodes",
+		"rootNode"
+	],
+	"name" : "ESyntaxTreeBuilder",
+	"type" : "normal"
+}

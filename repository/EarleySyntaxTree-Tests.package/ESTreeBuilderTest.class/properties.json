@@ -1,0 +1,13 @@
+{
+	"commentStamp" : "",
+	"super" : "TestCase",
+	"category" : "EarleySyntaxTree-Tests-Implementation",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"classvars" : [ ],
+	"instvars" : [
+		"builder"
+	],
+	"name" : "ESTreeBuilderTest",
+	"type" : "normal"
+}

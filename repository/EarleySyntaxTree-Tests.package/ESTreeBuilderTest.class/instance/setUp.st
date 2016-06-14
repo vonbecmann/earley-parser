@@ -1,3 +1,3 @@
 running
 setUp
-	builder := ESTreeBuilder new
+	builder := ESIdentityTreeBuilder new

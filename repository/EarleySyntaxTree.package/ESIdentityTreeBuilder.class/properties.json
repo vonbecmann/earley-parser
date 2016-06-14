@@ -9,6 +9,6 @@
 		"nodes",
 		"rootNode"
 	],
-	"name" : "ESTreeBuilder",
+	"name" : "ESIdentityTreeBuilder",
 	"type" : "normal"
 }

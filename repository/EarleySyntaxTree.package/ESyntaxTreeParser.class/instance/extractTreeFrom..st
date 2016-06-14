@@ -1,7 +1,7 @@
 private operations
 extractTreeFrom: aSPPForest
 	| builder |
-	builder := ESTreeBuilder new.
+	builder := ESIdentityTreeBuilder new.
 	aSPPForest
 		depthVisitPreNode: nil
 		postNode: nil

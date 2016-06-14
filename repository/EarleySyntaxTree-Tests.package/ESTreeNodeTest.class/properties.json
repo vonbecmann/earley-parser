@@ -6,6 +6,6 @@
 	"pools" : [ ],
 	"classvars" : [ ],
 	"instvars" : [ ],
-	"name" : "ETreeNodeTest",
+	"name" : "ESTreeNodeTest",
 	"type" : "normal"
 }

@@ -1,3 +1,3 @@
 running
 setUp
-	builder := ESyntaxTreeBuilder new
+	builder := ESTreeBuilder new

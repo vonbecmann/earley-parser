@@ -1,4 +1,4 @@
-a node of the syntax tree.
+a node of the tree.
 
 model - an object.
 children - a node collection.

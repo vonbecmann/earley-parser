@@ -1,6 +1,6 @@
 accessing
 build
 	| tree |
-	tree := ESyntaxTree rootNode: rootNode.
+	tree := ESTree rootNode: rootNode.
 	self reset.
 	^ tree

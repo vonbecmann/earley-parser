@@ -1,0 +1,14 @@
+{
+	"commentStamp" : "BernardoContreras 6/14/2016 15:14",
+	"super" : "Object",
+	"category" : "EarleySyntaxTree-Implementation",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"classvars" : [ ],
+	"instvars" : [
+		"model",
+		"children"
+	],
+	"name" : "ESTreeNode",
+	"type" : "normal"
+}

@@ -28,9 +28,7 @@ baseline100: spec
 				package: 'EarleyUI' 
 					with: [ spec requires: #('EarleyParser-Core' 'EarleyForest' 'Roassal2') ];
 				package: 'EarleyBNF' 
-					with: [ spec requires: #('EarleyParser-Core' 
-													'EarleyForest'
-													'EarleyParser-Tests') ].
+					with: [ spec requires: #('EarleySyntaxTree') ].
 			spec
 				group: 'default' with: #('Core' 'Tests' 'SyntaxTree' 'Forest' 'Parser' 'UI');
 				group: 'Core' with: #('EarleyParser-Core');

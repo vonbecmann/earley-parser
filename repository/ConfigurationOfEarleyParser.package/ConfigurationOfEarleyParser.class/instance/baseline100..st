@@ -17,6 +17,8 @@ baseline100: spec
 					with: [ spec requires: #('EarleyParser-Core') ];
 				package: 'EarleySyntaxTree' 
 					with: [ spec requires: #('EarleyParser-Core') ];
+				package: 'EarleySyntaxTree-UI' 
+					with: [ spec requires: #('EarleySyntaxTree' 'Roassal2') ];
 				package: 'EarleySyntaxTree-Tests' 
 					with: [ spec requires: #('EarleySyntaxTree') ];
 				package: 'EarleyForest' 
@@ -26,14 +28,14 @@ baseline100: spec
 				package: 'EarleyForest-Tests' 
 					with: [ spec requires: #('EarleyForest' 'EarleyParser-Tests') ];
 				package: 'EarleyUI' 
-					with: [ spec requires: #('EarleyParser-Core' 'EarleyForest' 'Roassal2') ];
+					with: [ spec requires: #('EarleyParser-Core' 'Roassal2') ];
 				package: 'EarleyBNF' 
 					with: [ spec requires: #('EarleySyntaxTree') ].
 			spec
 				group: 'default' with: #('Core' 'Tests' 'SyntaxTree' 'Forest' 'Parser' 'UI');
 				group: 'Core' with: #('EarleyParser-Core');
 				group: 'Tests' with: #('EarleyParser-Tests');
-				group: 'SyntaxTree' with: #('EarleySyntaxTree' 'EarleySyntaxTree-Tests');
+				group: 'SyntaxTree' with: #('EarleySyntaxTree' 'EarleySyntaxTree-UI' 'EarleySyntaxTree-Tests');
 				group: 'Forest' with: #('EarleyForest' 'EarleyForest-UI' 'EarleyForest-Tests');
 				group: 'Parser' with: #('EarleyBNF');
 				group: 'UI' with: #('EarleyUI') ]

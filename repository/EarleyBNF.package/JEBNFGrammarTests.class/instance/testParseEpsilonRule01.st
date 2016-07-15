@@ -1,7 +1,4 @@
-tests
+tests - parsing
 testParseEpsilonRule01
-	| forest |
-	forest := grammar parseForest: 'E=.'.
-
-	self deny: forest isAmbiguous.
-
+	tree := grammar parseTree: 'E=.'.
+	self deny: tree isNil

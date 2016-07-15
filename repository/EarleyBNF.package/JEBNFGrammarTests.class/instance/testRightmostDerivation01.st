@@ -1,10 +1,8 @@
 tests
 testRightmostDerivation01
-	| forest |
-	forest := grammar parseForest: 'E=T.'.
-	self deny: forest isAmbiguous.
+	tree := grammar parseTree: 'E=T.'.
 	self
-		assertCollection: forest rightmostDerivation
+		assertCollection: tree rightmostDerivation
 		equals:
 			(grammar
 				rulesAtAll:

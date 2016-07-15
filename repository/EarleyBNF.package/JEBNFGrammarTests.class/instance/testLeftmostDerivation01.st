@@ -1,10 +1,8 @@
 tests
 testLeftmostDerivation01
-	| forest |
-	forest := grammar parseForest: 'E=T.'.
-	self deny: forest isAmbiguous.
+	tree := grammar parseTree: 'E=T.'.
 	self
-		assertCollection: forest leftmostDerivation
+		assertCollection: tree leftmostDerivation
 		equals:
 			(grammar
 				rulesAtAll:

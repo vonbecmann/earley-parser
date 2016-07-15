@@ -1,3 +1,5 @@
 running
 setUp
-	grammar := JEBNFParser BNF
+	grammar := JEBNFParser BNF.
+	tree := nil
+	

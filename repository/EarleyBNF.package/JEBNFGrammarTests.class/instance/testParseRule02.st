@@ -1,5 +1,4 @@
-tests
+tests - parsing
 testParseRule02
-	| forest |
-	forest := grammar parseForest: 'E=E,$+,T.'.
-	self deny: forest isAmbiguous.
+	tree := grammar parseTree: 'E=E,$+,T.'.
+	self deny: tree isNil

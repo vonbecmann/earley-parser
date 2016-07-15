@@ -1,6 +1,4 @@
-tests
+tests - parsing
 testParseRule06
-	| forest |
-	forest := grammar parseForest: 'character=$$.'.
-	
-	self deny: forest isAmbiguous.
+	tree := grammar parseTree: 'character=$$.'.
+	self deny: tree isNil

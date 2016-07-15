@@ -1,6 +1,4 @@
-tests
+tests - parsing
 testParseRule05
-	| forest |
-	forest := grammar parseForest: 'rule=rulename,assignment,expression.'.
-	
-	self deny: forest isAmbiguous.
+	tree := grammar parseTree: 'rule=rulename,assignment,expression.'.
+	self deny: tree isNil

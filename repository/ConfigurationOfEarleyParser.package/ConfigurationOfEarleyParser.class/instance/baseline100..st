@@ -13,6 +13,8 @@ baseline100: spec
 						repository: 'http://www.smalltalkhub.com/mc/ObjectProfile/Roassal2/main' ].
 			spec
 				package: 'EarleyParser-Core';
+				package: 'EarleyParser-UI' 
+					with: [ spec requires: #('EarleyParser-Core' 'Roassal2') ];
 				package: 'EarleyParser-Tests' 
 					with: [ spec requires: #('EarleyParser-Core') ];
 				package: 'EarleySyntaxTree' 
@@ -27,8 +29,6 @@ baseline100: spec
 					with: [ spec requires: #('EarleyForest' 'Roassal2') ];
 				package: 'EarleyForest-Tests' 
 					with: [ spec requires: #('EarleyForest' 'EarleyParser-Tests') ];
-				package: 'EarleyUI' 
-					with: [ spec requires: #('EarleyParser-Core' 'Roassal2') ];
 				package: 'EarleyBNF' 
 					with: [ spec requires: #('EarleySyntaxTree') ].
 			spec
@@ -38,4 +38,4 @@ baseline100: spec
 				group: 'SyntaxTree' with: #('EarleySyntaxTree' 'EarleySyntaxTree-UI' 'EarleySyntaxTree-Tests');
 				group: 'Forest' with: #('EarleyForest' 'EarleyForest-UI' 'EarleyForest-Tests');
 				group: 'Parser' with: #('EarleyBNF');
-				group: 'UI' with: #('EarleyUI') ]
+				group: 'UI' with: #('EarleyParser-UI') ]

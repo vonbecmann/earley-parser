@@ -2,5 +2,4 @@ tests
 testParse6Xs
 	forest := grammar parseForest: 'xxxxxx'.
 	self assert: forest isAmbiguous.
-	self assert: forest numberOfTrees equals: 64.
-	self assert: forest size equals: 99
+	self assert: forest numberOfTrees equals: 64

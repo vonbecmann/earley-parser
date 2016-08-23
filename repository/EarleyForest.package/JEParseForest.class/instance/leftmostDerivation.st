@@ -5,10 +5,10 @@ leftmostDerivation
 	syntaxTree
 		depthVisitPreNode: nil
 		postNode: nil
-		preEdge: [ :edge | 
-			(edge targetNode model class = JEDottedItem
-				and: [ edge targetNode model isFinal 
-					and: [ edge targetNode model head ~= grammar startSymbol ] ])
-						ifTrue: [ derivation addLast: edge targetNode model rule asDefined ] ]
-		postEdge: nil.
+		preFamily: [ :family | 
+			(family parent model class = JEDottedItem
+				and: [ family parent model isFinal 
+					and: [ family parent model head ~= grammar startSymbol ] ])
+						ifTrue: [ derivation addLast: family parent model rule asDefined ] ]
+		postFamily: nil.
 	^ derivation asArray

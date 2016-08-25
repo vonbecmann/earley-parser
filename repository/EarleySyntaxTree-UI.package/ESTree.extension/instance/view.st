@@ -5,7 +5,7 @@ view
 	| nodes associations b |
 	nodes := JELinkedList new.
 	associations := JELinkedList new.
-	tree
+	self
 		depthVisitPreNode: [ :node | 
 			nodes add: node.
 			associations addAll: (node children collect: [ :child | node -> child ]) ]

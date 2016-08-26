@@ -3,8 +3,12 @@ baseline100: spec
 	<version: '1.0-baseline'>
 	spec
 		for: #pharo
-		do: [ spec blessing: #baseline.
+		do: [ 
+			spec blessing: #baseline.
 			spec repository: 'http://smalltalkhub.com/mc/vonbecmann/earley-parser/main'.
+			spec
+	        	baseline: 'MultiValuedDictionary'
+ 		   		with: [ spec repository: 'github://vonbecmann/multi-valued-dictionary:pharo5/repository' ].
 			spec
 				project: 'Roassal2'
 				with: [ spec
@@ -12,7 +16,8 @@ baseline100: spec
 						versionString: #stable;
 						repository: 'http://www.smalltalkhub.com/mc/ObjectProfile/Roassal2/main' ].
 			spec
-				package: 'EarleyParser-Core';
+				package: 'EarleyParser-Core'
+					with: [ spec requires: #('MultiValuedDictionary') ];
 				package: 'EarleyParser-UI' 
 					with: [ spec requires: #('EarleyParser-Core' 'Roassal2') ];
 				package: 'EarleyParser-Tests' 

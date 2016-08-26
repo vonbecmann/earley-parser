@@ -2,10 +2,10 @@ initialization
 initialize
 	super initialize.
 	items := JELinkedList new.
-	predictionItemsByNonterminal := JEMultiValuedDictionary
+	predictionItemsByNonterminal := MultiValuedDictionary
 		dictionary: IdentityDictionary
 		collection: JELinkedList.
-	finalItemsByNonterminal := JEMultiValuedDictionary
+	finalItemsByNonterminal := MultiValuedDictionary
 		dictionary: IdentityDictionary
 		collection: JELinkedList.
 	itemsByKey := Dictionary new.

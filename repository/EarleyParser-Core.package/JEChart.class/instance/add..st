@@ -10,10 +10,10 @@ add: anItem
 	anItem isFinal
 		ifTrue: [ 
 			anItem startChart = self
-				ifTrue: [ finalItemsByNonterminal at: anItem head put: anItem ] ]
+				ifTrue: [ finalItemsByNonterminal at: anItem head add: anItem ] ]
 		ifFalse: [ 
 			anItem symbolAtDot isTerminal
-				ifFalse: [ predictionItemsByNonterminal at: anItem symbolAtDot put: anItem ] ].
+				ifFalse: [ predictionItemsByNonterminal at: anItem symbolAtDot add: anItem ] ].
 	items addLast: anItem.
 	anItem endChart: self.
 	^ anItem

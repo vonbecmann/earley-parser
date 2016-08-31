@@ -3,9 +3,9 @@ view
 	" returns a roassal view of myself"
 
 	| nodes familyNodes associations b |
-	nodes := JELinkedList new.
-	familyNodes := JELinkedList new.
-	associations := JELinkedList new.
+	nodes := SinglyLinkedList new.
+	familyNodes := SinglyLinkedList new.
+	associations := SinglyLinkedList new.
 	self
 		depthVisitPreNode: [ :packed | 
 			nodes add: packed.

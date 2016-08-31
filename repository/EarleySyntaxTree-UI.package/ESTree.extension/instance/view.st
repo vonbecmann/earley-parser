@@ -3,8 +3,8 @@ view
 	" returns a roassal view of myself"
 
 	| nodes associations b |
-	nodes := JELinkedList new.
-	associations := JELinkedList new.
+	nodes := SinglyLinkedList new.
+	associations := SinglyLinkedList new.
 	self
 		depthVisitPreNode: [ :node | 
 			nodes add: node.

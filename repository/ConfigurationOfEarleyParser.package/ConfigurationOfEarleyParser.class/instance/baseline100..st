@@ -10,6 +10,9 @@ baseline100: spec
 	        	baseline: 'MultiValuedDictionary'
  		   		with: [ spec repository: 'github://vonbecmann/multi-valued-dictionary:pharo5/repository' ].
 			spec
+	        	baseline: 'LinkedList'
+ 		   		with: [ spec repository: 'github://vonbecmann/linked-list:pharo5/repository' ].
+			spec
 				project: 'Roassal2'
 				with: [ spec
 						className: 'ConfigurationOfRoassal2';
@@ -17,7 +20,7 @@ baseline100: spec
 						repository: 'http://www.smalltalkhub.com/mc/ObjectProfile/Roassal2/main' ].
 			spec
 				package: 'EarleyParser-Core'
-					with: [ spec requires: #('MultiValuedDictionary') ];
+					with: [ spec requires: #('MultiValuedDictionary' 'LinkedList') ];
 				package: 'EarleyParser-UI' 
 					with: [ spec requires: #('EarleyParser-Core' 'Roassal2') ];
 				package: 'EarleyParser-Tests' 

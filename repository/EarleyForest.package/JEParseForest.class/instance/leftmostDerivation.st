@@ -1,7 +1,7 @@
 accessing
 leftmostDerivation
 	| derivation |
-	derivation := JELinkedList new.
+	derivation := SinglyLinkedList new.
 	syntaxTree
 		depthVisitPreNode: nil
 		postNode: nil

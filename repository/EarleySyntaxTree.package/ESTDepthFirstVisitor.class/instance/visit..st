@@ -2,7 +2,7 @@ visiting
 visit: rootNode
 	| visited visitStack |
 	visited := IdentityDictionary new.
-	visitStack := JEStack with: rootNode.
+	visitStack := SinglyLinkedStack with: rootNode.
 	[ visitStack isEmpty ]
 		whileFalse: [ 
 			| node |

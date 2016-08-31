@@ -1,7 +1,7 @@
 visiting
 visit: rootNode
 	| visitStack visited |
-	visitStack := JEStack with: rootNode.
+	visitStack := SinglyLinkedStack with: rootNode.
 	visited := IdentityDictionary new.
 	[ visitStack isEmpty ]
 		whileFalse: [ 

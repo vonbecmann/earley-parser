@@ -6,4 +6,6 @@ initialize
 	terminals := Set new.
 	rules := Set new.
 	alternatives := OrderedDictionary new.
-	dottedAlternatives := MultiValuedDictionary dictionary: IdentityDictionary collection: JELinkedList
+	dottedAlternatives := MultiValuedDictionary
+		dictionary: IdentityDictionary
+		collection: SinglyLinkedList

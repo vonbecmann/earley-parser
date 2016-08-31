@@ -1,12 +1,12 @@
 initialization
 initialize
 	super initialize.
-	items := JELinkedList new.
+	items := SinglyLinkedList new.
 	predictionItemsByNonterminal := MultiValuedDictionary
 		dictionary: IdentityDictionary
-		collection: JELinkedList.
+		collection: SinglyLinkedList.
 	finalItemsByNonterminal := MultiValuedDictionary
 		dictionary: IdentityDictionary
-		collection: JELinkedList.
+		collection: SinglyLinkedList.
 	itemsByKey := Dictionary new.
 	terminalItems := Set new

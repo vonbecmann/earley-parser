@@ -1,7 +1,7 @@
 accessing
 rightmostDerivation
 	| derivation |
-	derivation := JELinkedList new.
+	derivation := SinglyLinkedList new.
 	tree
 		depthVisitPreNode: nil
 		postNode: [ :node | 

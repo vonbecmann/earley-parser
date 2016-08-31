@@ -1,3 +1,0 @@
-private
-firstLink
-	^ firstLink

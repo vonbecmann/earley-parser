@@ -5,6 +5,7 @@ parseForestUBDABenchmark02
 | 26 May 2016 | 0:00:00:09.035 |
 | 31 May 2016 | 0:00:00:15.278 |
 | 5 June 2016 | 0:00:00:14.223 |
+| 1 September 2016 | 0:00:00:04.642 |
 	"
 
 	| n words grammar |

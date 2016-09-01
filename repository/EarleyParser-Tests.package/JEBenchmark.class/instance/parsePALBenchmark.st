@@ -3,6 +3,7 @@ parsePALBenchmark
 	"
 | date        | time to run    |
 | 8 June 2016 | 0:00:00:00.356 |
+| 1 September 2016 | 0:00:00:00.33 |
 	"
 
 	| n words grammar maxOdd |

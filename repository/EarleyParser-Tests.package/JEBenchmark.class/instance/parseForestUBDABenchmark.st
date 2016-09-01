@@ -12,6 +12,7 @@ parseForestUBDABenchmark
 | 24 May 2016 | 0:00:00:00.939 |
 | 31 May 2016 | 0:00:00:01.697 |
 | 5 June 2016 | 0:00:00:02.151 |
+| 1 September 2016 | 0:00:00:00.432 |
 	"
 
 	| n words grammar |

@@ -1,6 +1,6 @@
 an ordered pair of objects.
 
-(first . second)
+(first, second)
 
 first - an object.
 second - an object.

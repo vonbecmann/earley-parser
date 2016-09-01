@@ -3,6 +3,6 @@ printOn: aStream
 	aStream
 		nextPut: $(;
 		print: first;
-		nextPutAll: ' . ';
+		nextPutAll: ', ';
 		print: second;
 		nextPut: $)

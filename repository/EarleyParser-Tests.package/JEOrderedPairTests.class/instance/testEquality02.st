@@ -1,8 +1,8 @@
 tests
-testEquality03
+testEquality02
 	| one another |
-	one := JEPair first: 'A' second: 1.
-	another := JEPair first: 'B' second: 1.
+	one := OrderedPair first: 'A' second: 1.
+	another := OrderedPair first: 'A' second: 2.
 	self deny: one = another.
 	self deny: one hash = another hash.
 	self deny: another = one.

@@ -10,7 +10,7 @@ ruleAt: anAssociation
 	| nonterminal key |
 	nonterminal := JENonterminal named: anAssociation key.
 	nonterminals like: nonterminal ifAbsent: [ self unknowNonterminal: nonterminal ].
-	key := JEPair first: nonterminal second: anAssociation value.
+	key := OrderedPair first: nonterminal second: anAssociation value.
 	^ (alternatives 
 			at: key 
 			ifAbsent: [ self unknowRuleAt: key ]) asDefined

@@ -1,4 +1,4 @@
 initialization
 initialize
 	super initialize.
-	children := SinglyLinkedList new
+	children := Array empty

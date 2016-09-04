@@ -1,4 +1,5 @@
 initialization
 reset
 	rootNode := nil.
-	nodes := IdentityDictionary new
+	nodes := IdentityDictionary new.
+	edges := edges copyEmpty

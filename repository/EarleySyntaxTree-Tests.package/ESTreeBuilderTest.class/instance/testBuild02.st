@@ -6,4 +6,9 @@ testBuild02
 	builder addNode: 'E' withChildren: {'F' . 'G'}.
 	builder root: 'A'.
 	tree := builder build.
-	self assert: tree root equals: 'A'
+	self assert: tree root equals: 'A'.
+	self
+		assertCollection: #('A' #(
+										#('B' #( #('C' #()) #('D' #()) ))
+										#('E' #( #('F' #()) #('G' #()) ))))
+		hasSameElements: tree asArrayRepresentation

@@ -2,6 +2,7 @@ private operations
 extractTreeFrom: aSPPForest
 	| builder |
 	builder := ESIdentityTreeBuilder new.
+	builder root: aSPPForest root.
 	aSPPForest
 		depthVisitPreNode: nil
 		postNode: nil
@@ -10,5 +11,5 @@ extractTreeFrom: aSPPForest
 				addNode: family parent model
 				withChildren: (family members collect: [ :each | each model ]) ]
 		postFamily: nil.
-	builder root: aSPPForest root.
-	^ builder build
+	^ builder build.
+	

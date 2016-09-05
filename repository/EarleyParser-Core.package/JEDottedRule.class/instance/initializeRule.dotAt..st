@@ -5,6 +5,7 @@ initializeRule: aRule dotAt: index
 	dotIndex := index.
 	final := rule body size < dotIndex.
 	predicted := dotIndex = 1 and: [ final not ].
+	active := final not and: [ predicted not ].
 	epsilon := rule isEpsilon.
 	symbolAtDot := final
 		ifTrue: [ nil ]

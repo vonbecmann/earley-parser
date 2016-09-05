@@ -1,0 +1,3 @@
+testing
+isFinal
+	^ self subclassResponsibility

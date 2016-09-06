@@ -1,0 +1,14 @@
+{
+	"commentStamp" : "",
+	"super" : "TestCase",
+	"category" : "EarleyBNF-Tests",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"classvars" : [ ],
+	"instvars" : [
+		"tree",
+		"parser"
+	],
+	"name" : "JEBNFParserTests",
+	"type" : "normal"
+}

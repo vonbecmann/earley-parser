@@ -1,4 +1,4 @@
 tests - parsing
 testParseRule06
-	tree := grammar parseTree: 'character:$$.'.
+	tree := parser parse: 'character:$$.'.
 	self deny: tree isNil

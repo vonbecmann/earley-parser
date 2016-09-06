@@ -1,6 +1,6 @@
 tests
 testRightmostDerivation01
-	tree := grammar parseTree: 'E=T.'.
+	tree := grammar parseTree: 'E:T.'.
 	self
 		assertCollection: tree rightmostDerivation
 		equals:

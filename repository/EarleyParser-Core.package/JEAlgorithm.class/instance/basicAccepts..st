@@ -9,7 +9,7 @@ basicAccepts: words
 		chart isEmpty
 			ifTrue: [ ^ self failedAtPosition: i with: charts].
 		chart
-			itemsDo: [ :item | 
+			processItems: [ :item | 
 				item isFinal
 					ifTrue: [ self complete: item at: chart ]
 					ifFalse: [ 

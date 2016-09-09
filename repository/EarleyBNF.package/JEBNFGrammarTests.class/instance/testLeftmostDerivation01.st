@@ -1,4 +1,4 @@
-tests
+tests - derivation
 testLeftmostDerivation01
 	tree := grammar parseTree: 'E:T.'.
 	self
@@ -6,7 +6,9 @@ testLeftmostDerivation01
 		equals:
 			(grammar
 				rulesAtAll:
-					{('rule' -> 1).
+					{('syntax' -> 1).
+					('rule plus' -> 1).
+					('rule' -> 1).
 					('nonterminal' -> 1).
 					('letter symbol' -> 1).
 					('letter digit underscore star' -> 2).
@@ -15,4 +17,5 @@ testLeftmostDerivation01
 					('nonterminal' -> 1).
 					('letter symbol' -> 1).
 					('letter digit underscore star' -> 2).
-					('comma symbol lexical element star' -> 2)})
+					('comma symbol lexical element star' -> 2).
+					('rule plus' -> 2).})

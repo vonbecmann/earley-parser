@@ -2,9 +2,11 @@ grammar
 BNF
 	" my own BNF "
 
-	^ [ | rule nonterminal terminal terminal_character
+	^ [ | syntax rule_plus rule nonterminal terminal terminal_character
 		letter_digit_underscore_star definitionList lexical_element comma_lexical_element_star 
 		letter_symbol letter_digit_underscore_symbol comma_symbol colon_symbol dot_symbol |
+	syntax := JENonterminal named: 'syntax'.
+	rule_plus := JENonterminal named: 'rule plus'.
 	rule := JENonterminal named: 'rule'.
 	nonterminal := JENonterminal named: 'nonterminal'.
 	terminal := JENonterminal named: 'terminal'.
@@ -20,7 +22,9 @@ BNF
 	dot_symbol := JETerminal character: $..
 	JEGrammar
 		basedOn:
-			{(rule is: nonterminal , colon_symbol , definitionList , dot_symbol).
+			{(syntax is: rule_plus).
+			(rule_plus is: rule, rule_plus). (rule_plus is_epsilon).
+			(rule is: nonterminal , colon_symbol , definitionList , dot_symbol).
 			definitionList is_epsilon.
 			(definitionList is: lexical_element , comma_lexical_element_star).
 			(comma_lexical_element_star is: comma_symbol , lexical_element , comma_lexical_element_star).

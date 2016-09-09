@@ -1,0 +1,3 @@
+private
+dottedRules
+	^ dottedRules

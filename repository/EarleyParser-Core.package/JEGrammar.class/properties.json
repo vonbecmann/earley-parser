@@ -14,7 +14,8 @@
 		"alternatives",
 		"dottedAlternatives",
 		"nonterminalSort",
-		"ruleSort"
+		"ruleSort",
+		"dottedRules"
 	],
 	"name" : "JEGrammar",
 	"type" : "normal"

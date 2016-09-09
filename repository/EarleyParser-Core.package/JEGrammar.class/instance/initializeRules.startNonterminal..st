@@ -10,4 +10,5 @@ initializeRules: aRuleCollection startNonterminal: aNonterminal
 		initializeRules: (aRuleCollection copyWith: (startSymbol is: aNonterminal)).
 	startRule := rules detect: [ :each | startSymbol == each head ].
 	self initializeAlternatives.
-	self initializeDottedAlternatives
+	self initializeDottedAlternatives.
+	self initializeDottedRules 

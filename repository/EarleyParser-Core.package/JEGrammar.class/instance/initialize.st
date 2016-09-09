@@ -8,4 +8,5 @@ initialize
 	alternatives := OrderedDictionary new.
 	dottedAlternatives := MultiValuedDictionary
 		dictionary: IdentityDictionary
-		collection: SinglyLinkedList
+		collection: SinglyLinkedList.
+	dottedRules := ArrayMultiValuedDictionary dictionary: IdentityDictionary

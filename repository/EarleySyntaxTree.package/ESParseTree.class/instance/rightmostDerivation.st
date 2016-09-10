@@ -5,6 +5,6 @@ rightmostDerivation
 	tree
 		depthVisitPreNode: nil
 		postNode: [ :node | 
-			(node model class = JEDottedItem and: [ node model head ~= grammar startSymbol ])
+			node model class = JEDottedItem
 				ifTrue: [ derivation addFirst: node model rule asDefined ] ].
 	^ derivation asArray

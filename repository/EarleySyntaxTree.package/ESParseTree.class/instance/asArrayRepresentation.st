@@ -18,4 +18,4 @@ asArrayRepresentation
 				ifFalse: [ 
 					node model class == JETerminalItem
 						ifTrue: [ stack push: node model word ] ] ].
-	^ stack pop first
+	^ stack pop 

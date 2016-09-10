@@ -1,3 +1,3 @@
 comparing
 hash
-	^ (dotIndex hash + rule identityHash) hashMultiply
+	^ (rule identityHash + dotIndex hash) hashMultiply

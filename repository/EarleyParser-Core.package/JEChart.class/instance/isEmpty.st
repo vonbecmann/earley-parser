@@ -1,3 +1,3 @@
 testing
 isEmpty
-	^ items isEmpty 
+	^ itemsByKey isEmpty

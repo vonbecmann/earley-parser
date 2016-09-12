@@ -1,3 +1,3 @@
 testing
 includes: anItem
-	^ items anySatisfy: [ :each | each equals: anItem ]
+	^ itemsByKey anySatisfy: [ :each | each equals: anItem ]

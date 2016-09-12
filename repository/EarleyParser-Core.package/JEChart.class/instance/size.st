@@ -1,3 +1,3 @@
 accessing
 size
-	^ items size
+	^ itemsByKey size

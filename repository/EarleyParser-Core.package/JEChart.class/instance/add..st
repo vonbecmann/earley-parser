@@ -14,6 +14,6 @@ add: anItem
 		ifFalse: [ 
 			anItem symbolAtDot isTerminal
 				ifFalse: [ predictionItemsByNonterminal at: anItem symbolAtDot add: anItem ] ].
-	items addLast: anItem.
+	items nextPut: anItem.
 	anItem endChart: self.
 	^ anItem

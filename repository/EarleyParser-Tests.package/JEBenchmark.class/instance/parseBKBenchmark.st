@@ -4,6 +4,7 @@ parseBKBenchmark
 | date        | time to run    |
 | 8 June 2016 | 0:00:00:00.516 |
 | 1 September 2016 | 0:00:00:00.855 |
+| 12 September 2016 | 0:00:00:00.81 |
 	"
 
 	| n words grammar |

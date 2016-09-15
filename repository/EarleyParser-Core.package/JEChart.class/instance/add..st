@@ -5,15 +5,7 @@ add: anItem
 			then return it 
 			else add it last"
 
-	itemsByKey jeAt: anItem key ifPresent: [:found | ^ found ] ifAbsentPut: anItem.
-	
-	anItem isFinal
-		ifTrue: [ 
-			anItem startChart = self
-				ifTrue: [ finalItemsByNonterminal at: anItem head add: anItem ] ]
-		ifFalse: [ 
-			anItem symbolAtDot isTerminal
-				ifFalse: [ predictionItemsByNonterminal at: anItem symbolAtDot add: anItem ] ].
-	items nextPut: anItem.
-	anItem endChart: self.
-	^ anItem
+	(itemsByKey at: anItem key first ifAbsent: nil)
+		ifNotNil: [ :dict | (dict at: anItem key second ifAbsent: nil) ifNotNil: [ :found | ^ found ] ].
+	itemsByKey at: anItem key first add: anItem key second -> anItem.
+	^ self basicAdd: anItem

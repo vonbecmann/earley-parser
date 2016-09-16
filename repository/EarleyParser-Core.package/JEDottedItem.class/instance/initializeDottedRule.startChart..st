@@ -3,4 +3,4 @@ initializeDottedRule: aRule startChart: aChart
 	self initialize.
 	dottedRule := aRule.
 	startChart := aChart.
-	key := OrderedPair first: dottedRule key second: startChart number
+	key := {dottedRule key. startChart number}

@@ -7,5 +7,5 @@ scan: item with: word at: chart
 			add (X -> alpha a *beta, j) to S(k+1)."
 
 	| next |
-	next := chart add: item moveDotForward.
+	next := chart moveDotForward: item.
 	self addFamilyWith: item word: word to: next

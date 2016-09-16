@@ -10,5 +10,5 @@ complete: item at: chart
 	item predictionItemsWithSymbolAtDotIsHead
 		do: [ :previous | 
 			| next |
-			next := chart add: previous moveDotForward.
+			next := chart moveDotForward: previous.
 			self addFamilyWith: previous and: item to: next ]

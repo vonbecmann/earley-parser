@@ -21,6 +21,6 @@ numberOfTrees
 			numberOfTrees
 				at: family
 				ifAbsentPut:
-					[ family members 
+					[ family children 
 								inject: 1 into: [ :product :node | product * (numberOfTrees at: node) ] ] ].
 	^ numberOfTrees at: root

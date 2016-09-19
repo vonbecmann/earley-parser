@@ -7,10 +7,10 @@ extractTreeFrom: aSPPForest
 		postNode: nil
 		preFamily: [ :family | 
 			family parent model == aSPPForest root
-				ifTrue: [ builder root: family members first model ]
+				ifTrue: [ builder root: family children first model ]
 				ifFalse: [ 
 					builder
 						addNode: family parent model
-						withChildren: (family members collect: [ :each | each model ]) ] ]
+						withChildren: (family children collect: [ :each | each model ]) ] ]
 		postFamily: nil.
 	^ builder build

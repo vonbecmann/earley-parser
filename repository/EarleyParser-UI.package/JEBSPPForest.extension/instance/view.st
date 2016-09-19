@@ -13,7 +13,7 @@ view
 		postNode: nil
 		preFamily: [ :family | 
 			familyNodes add: family.
-			associations addAll: (family members collect: [ :packed | family -> packed ]) ]
+			associations addAll: (family children collect: [ :packed | family -> packed ]) ]
 		postFamily: nil.
 	
 	b := RTMondrian new.

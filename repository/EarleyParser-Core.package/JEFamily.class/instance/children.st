@@ -1,3 +1,3 @@
 visiting
 children
-	^ self members
+	^ children

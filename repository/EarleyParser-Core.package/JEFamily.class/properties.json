@@ -7,7 +7,8 @@
 	"classvars" : [ ],
 	"instvars" : [
 		"parent",
-		"members"
+		"members",
+		"children"
 	],
 	"name" : "JEFamily",
 	"type" : "normal"

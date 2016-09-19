@@ -1,6 +1,6 @@
 {
 	"commentStamp" : "BernardoContreras 8/23/2016 22:14",
-	"super" : "JESPPFParser",
+	"super" : "JEBSPPFParser",
 	"category" : "EarleyForest-Implementation",
 	"classinstvars" : [ ],
 	"pools" : [ ],

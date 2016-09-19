@@ -1,10 +1,10 @@
 public
 parse: words
-	"returns a SPPF"
+	"returns a Binary Shared Packed Parse Forest"
 
 	| charts finalItem |
 	charts := self basicAccepts: words.
 	finalItem := grammar startRule dotAtEnd startedAt: charts first andEndedAt: charts last.
 	^ (charts last includes: finalItem)
-		ifTrue: [ JESPPForest root: (charts last like: finalItem) node ]
+		ifTrue: [ JEBSPPForest root: (charts last like: finalItem) node ]
 		ifFalse: [ self failedAtPosition: charts last number ]

@@ -6,6 +6,6 @@
 	"pools" : [ ],
 	"classvars" : [ ],
 	"instvars" : [ ],
-	"name" : "JESPPFParser",
+	"name" : "JEBSPPFParser",
 	"type" : "normal"
 }

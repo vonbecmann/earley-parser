@@ -1,6 +1,6 @@
 {
 	"commentStamp" : "BernardoContreras 9/5/2016 21:51",
-	"super" : "JESPPFParser",
+	"super" : "JEBSPPFParser",
 	"category" : "EarleySyntaxTree-Implementation",
 	"classinstvars" : [ ],
 	"pools" : [ ],

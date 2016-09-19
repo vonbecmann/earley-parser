@@ -1,4 +1,4 @@
-accessing
+private
 members
 	^ members first
 		ifNil: [ Array empty ]

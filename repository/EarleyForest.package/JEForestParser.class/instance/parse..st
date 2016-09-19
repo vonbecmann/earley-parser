@@ -7,6 +7,6 @@ parse: words
 	finalItem := grammar startRule dotAtEnd startedAt: charts first andEndedAt: charts last.
 	^ (charts last includes: finalItem)
 		ifTrue: [ JEParseForest
-				given: (JESPPForest root: (charts last like: finalItem) node)
+				given: (JEBSPPForest root: (charts last like: finalItem) node)
 				of: grammar ]
 		ifFalse: [ self failedAtPosition: charts last number ]

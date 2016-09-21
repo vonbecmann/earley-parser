@@ -1,7 +1,7 @@
 comparing
 hash
-	^ members first
+	^ first
 		ifNil: [ (self class hash + nil identityHash) hashMultiply ]
 		ifNotNil: [ 
-			((self class hash + members first identityHash) hashMultiply
-				+ members second identityHash) hashMultiply ]
+			((self class hash + first identityHash) hashMultiply
+				+ second identityHash) hashMultiply ]

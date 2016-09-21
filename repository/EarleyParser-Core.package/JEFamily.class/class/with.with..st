@@ -1,3 +1,3 @@
 instance creation
-with: aPackedNode with: anotherPackedNode
-	^ self basicNew initializeMembers: (OrderedPair first: aPackedNode second: anotherPackedNode)
+with: firstPackedNode with: secondPackedNode
+	^ self basicNew initializeFirst: firstPackedNode andSecond: secondPackedNode

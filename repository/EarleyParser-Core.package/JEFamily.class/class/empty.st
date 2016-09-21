@@ -1,3 +1,3 @@
 instance creation
 empty
-	^ self basicNew initializeMembers: OrderedPair empty
+	^ self basicNew initializeFirst: nil andSecond: nil

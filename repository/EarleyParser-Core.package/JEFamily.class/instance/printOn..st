@@ -1,12 +1,12 @@
 printing
 printOn: aStream
 	aStream nextPut: $(.
-	members first
+	first
 		ifNotNil: [ 
-			aStream print: members first.
-			members second
+			aStream print: first.
+			second
 				ifNotNil: [ 
 					aStream
 						nextPutAll: ', ';
-						print: members second ] ].
+						print: second ] ].
 	aStream nextPut: $)

@@ -1,3 +1,3 @@
 accessing
 first
-	^ members first
+	^ first

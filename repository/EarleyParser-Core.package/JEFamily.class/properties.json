@@ -1,5 +1,5 @@
 {
-	"commentStamp" : "BernardoContreras 6/10/2016 22:22",
+	"commentStamp" : "BernardoContreras 9/21/2016 00:14",
 	"super" : "Object",
 	"category" : "EarleyParser-Core-Parsing",
 	"classinstvars" : [ ],
@@ -7,7 +7,8 @@
 	"classvars" : [ ],
 	"instvars" : [
 		"parent",
-		"members",
+		"first",
+		"second",
 		"children"
 	],
 	"name" : "JEFamily",

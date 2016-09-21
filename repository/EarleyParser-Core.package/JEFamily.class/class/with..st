@@ -1,3 +1,3 @@
 instance creation
 with: aPackedNode
-	^ self basicNew initializeMembers: (OrderedPair first: aPackedNode)
+	^ self basicNew initializeFirst: aPackedNode andSecond: nil

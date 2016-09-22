@@ -1,7 +1,8 @@
 initialization
 initializePredictedAlternatives
-	nonterminals
-		do: [ :nonterminal | 
-			predictedAlternatives
-				at: nonterminal
-				putAll: ((rules at: nonterminal) collect: [ :rule | rule dotAtBeginning ]) ]
+	rules
+		keysAndValuesDo:
+			[ :nonterminal :alternativeRules | 
+				predictedAlternatives 
+					at: nonterminal 
+					putAll: (alternativeRules collect: [ :rule | rule dotAtBeginning ]) ]

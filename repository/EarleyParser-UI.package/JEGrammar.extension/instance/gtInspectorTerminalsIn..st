@@ -4,6 +4,6 @@ gtInspectorTerminalsIn: composite
 	^ composite table
 		title: [ terminals size asString , ' terminals' ];
 		display: [ terminals ];
-		column: 'Terminals' evaluated: [ :each | each ];
+		column: 'Terminals' evaluated: [ :each | GTObjectPrinter new asTruncatedTextFrom: each ];
 		showOnly: 50;
 		yourself

@@ -4,6 +4,6 @@ gtInspectorNonterminalsIn: composite
 	^ composite table
 		title: [ nonterminals size asString , ' nonterminals' ];
 		display: [ nonterminals sorted: nonterminalSort ];
-		column: 'Nonterminals' evaluated: [ :each | each ];
+		column: 'Nonterminals' evaluated: [ :each | GTObjectPrinter new asTruncatedTextFrom: each ];
 		showOnly: 50;
 		yourself

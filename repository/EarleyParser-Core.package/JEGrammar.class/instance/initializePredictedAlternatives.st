@@ -1,7 +1,7 @@
 initialization
-initializeDottedAlternatives
+initializePredictedAlternatives
 	nonterminals
 		do: [ :nonterminal | 
-			dottedAlternatives
+			predictedAlternatives
 				at: nonterminal
 				putAll: ((rules at: nonterminal) collect: [ :rule | rule dotAtBeginning ]) ]

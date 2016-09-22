@@ -6,7 +6,7 @@ initialize
 	terminals := Set new.
 	rules := ArrayMultiValuedDictionary dictionary: OrderedDictionary.
 	alternatives := OrderedDictionary new.
-	dottedAlternatives := MultiValuedDictionary
+	predictedAlternatives := MultiValuedDictionary
 		dictionary: IdentityDictionary
 		collection: SinglyLinkedList.
 	dottedRules := ArrayMultiValuedDictionary dictionary: OrderedIdentityDictionary

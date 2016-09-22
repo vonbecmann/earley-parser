@@ -8,8 +8,9 @@ startSymbol - a nonterminal named START  used by the algorithm.
 startRule - the first rule to initialize the algorithm.
 		     START : first nonterminal.
 		
-alternatives - is the set of rules that you can access by a pair (nonterminal, index).
-
+alternatives - is a set of rules that you can access by a pair (nonterminal, index).
+predictedAlternatives - is a set of predicted dotted rules that you can access by nonterminal. 
+					 they are obtain from the given rules.
 
 
 

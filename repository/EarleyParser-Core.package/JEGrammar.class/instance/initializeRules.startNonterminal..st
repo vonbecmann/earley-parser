@@ -10,5 +10,5 @@ initializeRules: aRuleCollection startNonterminal: aNonterminal
 		initializeRules: (aRuleCollection copyWith: (startSymbol is: aNonterminal)).
 	startRule := (rules at: startSymbol) first.
 	self initializeAlternatives.
-	self initializeDottedAlternatives.
+	self initializePredictedAlternatives.
 	self initializeDottedRules 

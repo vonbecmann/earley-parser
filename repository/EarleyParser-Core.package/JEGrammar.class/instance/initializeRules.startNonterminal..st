@@ -8,7 +8,7 @@ initializeRules: aRuleCollection startNonterminal: aNonterminal
 				flatCollect: [ :each | each body select: [ :symbol | symbol isTerminal ] ]).
 	self
 		initializeRules: (aRuleCollection copyWith: (startSymbol is: aNonterminal)).
-	startRule := rules detect: [ :each | startSymbol == each head ].
+	startRule := (rules at: startSymbol) first.
 	self initializeAlternatives.
 	self initializeDottedAlternatives.
 	self initializeDottedRules 

@@ -1,7 +1,8 @@
 initialization
 initializeRules: aRuleCollection
-	rules
-		addAll:
+	| ruleSet ruleIndex |
+	ruleSet := Set
+		withAll: 
 			(aRuleCollection
 				collect: [ :rule | 
 					JERule
@@ -12,8 +13,10 @@ initializeRules: aRuleCollection
 									symbol isTerminal
 										ifTrue: [ terminals like: symbol ]
 										ifFalse: [ nonterminals like: symbol ifAbsent: [ self unknowNonterminal: symbol in: rule ] ] ]) ]).
-	ruleSort := [ 
+	ruleIndex := [ 
 		| index |
 		index := Dictionary
-			newFrom: (rules collect: [ :rule | rule -> (aRuleCollection findFirst: [ :each | rule equals: each ]) ]).
-		[ :a :b | (index at: a) < (index at: b) ] ] value
+			newFrom: (ruleSet collect: [ :rule | rule -> (aRuleCollection findFirst: [ :each | rule equals: each ]) ]).
+		[ :a :b | (index at: a) < (index at: b) ] ] value.
+	
+	(ruleSet asSortedCollection: ruleIndex) do: [ :eachRule | rules at: eachRule head add: eachRule ]. 

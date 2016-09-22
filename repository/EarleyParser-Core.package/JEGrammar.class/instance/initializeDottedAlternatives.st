@@ -4,7 +4,4 @@ initializeDottedAlternatives
 		do: [ :nonterminal | 
 			dottedAlternatives
 				at: nonterminal
-				putAll:
-					(rules
-						select: [ :rule | rule head = nonterminal ]
-						thenCollect: [ :rule | rule dotAtBeginning ]) ]
+				putAll: ((rules at: nonterminal) collect: [ :rule | rule dotAtBeginning ]) ]

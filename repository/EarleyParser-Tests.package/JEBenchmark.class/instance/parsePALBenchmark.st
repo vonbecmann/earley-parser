@@ -6,6 +6,7 @@ parsePALBenchmark
 | 1 September 2016 | 0:00:00:00.33 |
 | 12 September 2016 | 0:00:00:00.297 |
 | 15 September 2016 | 0:00:00:00.296 |
+| 22 September 2016 | 0:00:00:00.288 |
 	"
 
 	| n words grammar maxOdd |

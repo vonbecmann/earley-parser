@@ -13,6 +13,7 @@ acceptsBKBenchmark
 | 1 September 2016 | 0:00:00:00.042 |
 | 12 September 2016 | 0:00:00:00.036 |
 | 15 September 2016 | 0:00:00:00.045 |
+| 22 September 2016 | 0:00:00:00.047 |
 	"
 
 	| n words grammar |

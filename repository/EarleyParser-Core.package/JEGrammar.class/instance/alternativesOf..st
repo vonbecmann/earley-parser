@@ -1,3 +1,3 @@
 private
 alternativesOf: aNonterminal
-	^ predictedAlternatives at: aNonterminal
+	^ predictedAlternatives at: aNonterminal ifAbsent: #()

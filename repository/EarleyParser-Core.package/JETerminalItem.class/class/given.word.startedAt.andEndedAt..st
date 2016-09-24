@@ -1,12 +1,10 @@
 instance creation
-given: aTerminal word: aWord startedAt: aChart andEndedAt: anotherChart
+given: aTerminal word: aWord startedAt: firstChart andEndedAt: secondChart
 	"
 	a terminal item for the given terminal 
-	that started its recognition at the given chart and ended at the given chart
+	that started its recognition at first chart and ended at second chart
 	"
 
-	^ self basicNew
-		initializeTerminal: aTerminal
-		word: aWord
-		startedAt: aChart
-		andEndedAt: anotherChart
+	^ (self basicNew initializeTerminal: aTerminal word: aWord startedAt: firstChart)
+		endChart: secondChart;
+		yourself

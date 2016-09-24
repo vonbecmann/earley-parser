@@ -6,7 +6,6 @@ addFamilyWith: previousItem word: word to: nextItem
 			(JETerminalItem
 				given: previousItem symbolAtDot
 				word: word
-				startedAt: previousItem endChart
-				andEndedAt: nextItem endChart).
+				startedAt: previousItem endChart).
 
 	self addFamilyWith: previousItem and: terminal to: nextItem

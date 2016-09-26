@@ -10,4 +10,4 @@ initializeRule: aRule dotAt: index
 	symbolAtDot := final
 		ifTrue: [ nil ]
 		ifFalse: [ rule body at: dotIndex ].
-	key := self hash
+	key := self identityHash 

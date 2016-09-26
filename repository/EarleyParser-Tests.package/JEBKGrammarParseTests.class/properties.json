@@ -1,0 +1,14 @@
+{
+	"commentStamp" : "BernardoContreras 9/25/2016 23:56",
+	"super" : "TestCase",
+	"category" : "EarleyParser-Tests-Parsing",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"classvars" : [ ],
+	"instvars" : [
+		"grammar",
+		"forest"
+	],
+	"name" : "JEBKGrammarParseTests",
+	"type" : "normal"
+}

@@ -1,7 +1,9 @@
 comparing
 hash
-	^ first
-		ifNil: [ (self class hash + nil identityHash) hashMultiply ]
-		ifNotNil: [ 
-			((self class hash + first identityHash) hashMultiply
-				+ second identityHash) hashMultiply ]
+	| hash |
+	hash := (self class hash + parent identityHash) hashMultiply.
+	first
+		ifNotNil: 
+			[	hash := (hash + first identityHash) hashMultiply.
+				second ifNotNil: [ hash := (hash + second identityHash) hashMultiply ] ].
+	^ hash

@@ -17,4 +17,7 @@ testAddFamily02
 	target addFamily: (JEFamily with: previous node with: scanned node).
 	
 	self assert: target node familiesSize equals: 1.
-	self assert: (target node families detect: [ :each | each = family ] ifFound: [ true ] ifNone: [ false ])
+	self assert: (target node families 
+							detect: [ :each | each first = family first and: [ each second = family second ] ] 
+							ifFound: [ true ] 
+							ifNone: [ false ])

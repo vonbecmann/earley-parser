@@ -6,8 +6,7 @@
 	"pools" : [ ],
 	"classvars" : [ ],
 	"instvars" : [
-		"dottedRule",
-		"key"
+		"dottedRule"
 	],
 	"name" : "JEDottedItem",
 	"type" : "normal"

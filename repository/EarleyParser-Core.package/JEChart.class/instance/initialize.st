@@ -8,5 +8,4 @@ initialize
 	finalItemsByNonterminal := MultiValuedDictionary
 		dictionary: IdentityDictionary
 		collection: SinglyLinkedList.
-	itemsByKey := MultiValuedDictionary dictionary: Dictionary collection: Dictionary.
-	terminalItems := Set new
+	itemsByKey := MultiValuedDictionary dictionary: Dictionary collection: Dictionary

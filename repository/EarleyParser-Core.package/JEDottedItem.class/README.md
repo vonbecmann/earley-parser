@@ -1,6 +1,7 @@
 an Earley item or state 
 
  [ dotted rule @  start chart ].
+ [ dotted rule @  [ start chart, end chart ] ].
 
 start chart: where the recognition of the dotted rule started.
 end chart: the chart that contains this item or nil. but an item always belongs to a chart.

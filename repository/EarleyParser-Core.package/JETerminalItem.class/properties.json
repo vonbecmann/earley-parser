@@ -7,7 +7,8 @@
 	"classvars" : [ ],
 	"instvars" : [
 		"terminal",
-		"word"
+		"word",
+		"key"
 	],
 	"name" : "JETerminalItem",
 	"type" : "normal"

@@ -5,6 +5,6 @@ gtInspectorItemsIn: composite
 		title: [ self size asString , ' items' ];
 		display: [ itemsByKey asArray ];
 		column: '@ [start, end]' evaluated: [ :each | each gtDisplayChartString ] width: 100;
-		column: 'Dotted Rule' evaluated: [ :each | each dottedRule ];
+		column: 'Value' evaluated: [ :each | each gtDisplayValueString ];
 		showOnly: 50;
 		yourself

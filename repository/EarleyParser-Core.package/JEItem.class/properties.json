@@ -1,5 +1,5 @@
 {
-	"commentStamp" : "BernardoContreras 9/29/2016 21:39",
+	"commentStamp" : "BernardoContreras 9/29/2016 22:15",
 	"super" : "Object",
 	"category" : "EarleyParser-Core-Implementation",
 	"classinstvars" : [ ],
@@ -8,8 +8,8 @@
 	"instvars" : [
 		"startChart",
 		"endChart",
-		"node",
-		"key"
+		"key",
+		"node"
 	],
 	"name" : "JEItem",
 	"type" : "normal"

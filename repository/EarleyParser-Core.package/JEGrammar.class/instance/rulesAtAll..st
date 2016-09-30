@@ -7,7 +7,6 @@ rulesAtAll: associationCollection
 		'A' -> 1  : the rule at 1 for nonterminal named 'A'
 	"
 
-	| associatedRules |
-	associatedRules := Array new: associationCollection size.
-	associationCollection withIndexDo: [ :each :index | associatedRules at: index put: (self ruleAt: each) ].
-	^ associatedRules
+	^ Array
+		new: associationCollection size
+		streamContents: [ :s | associationCollection do: [ :each | s nextPut: (self ruleAt: each) ] ]

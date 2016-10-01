@@ -7,7 +7,12 @@ moveDotForward: previousItem
 
 	| nextItem |
 	(itemsByKey at: previousItem dottedRule moveDotForward key ifAbsent: nil)
-		ifNotNil: [ :dict | (dict at: previousItem startChart number ifAbsent: nil) ifNotNil: [ :found | ^ found ] ].
+		ifNotNil: 
+			[ :dict | 
+				(dict at: previousItem startChart number ifAbsent: nil) 
+					ifNotNil: [ :found | ^ found ] ].
 	nextItem := previousItem moveDotForward.
-	itemsByKey at: nextItem key first add: nextItem key second -> nextItem.
+	itemsByKey 
+		at: nextItem key first 
+		add: (Association key: nextItem key second value: nextItem).
 	^ self basicAdd: nextItem

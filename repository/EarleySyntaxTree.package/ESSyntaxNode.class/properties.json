@@ -1,0 +1,15 @@
+{
+	"commentStamp" : "BernardoContreras 10/1/2016 01:05",
+	"super" : "Object",
+	"category" : "EarleySyntaxTree-Public",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"classvars" : [ ],
+	"instvars" : [
+		"symbol",
+		"start",
+		"end"
+	],
+	"name" : "ESSyntaxNode",
+	"type" : "normal"
+}

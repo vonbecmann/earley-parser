@@ -4,7 +4,7 @@ leftmostDerivation
 	derivation := SinglyLinkedList new.
 	tree
 		depthVisitPreNode: [ :node | 
-			node model class = JEDottedItem
-				ifTrue: [ derivation addLast: node model rule asDefined ] ]
+			node model class = ESNonterminalNode 
+				ifTrue: [ derivation addLast: node model rule ] ]
 		postNode: nil.
 	^ derivation asArray

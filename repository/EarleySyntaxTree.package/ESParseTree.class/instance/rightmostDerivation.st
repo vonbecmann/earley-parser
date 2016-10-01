@@ -5,6 +5,6 @@ rightmostDerivation
 	tree
 		depthVisitPreNode: nil
 		postNode: [ :node | 
-			node model class = JEDottedItem
-				ifTrue: [ derivation addFirst: node model rule asDefined ] ].
+			node model class = ESNonterminalNode 
+				ifTrue: [ derivation addFirst: node model rule ] ].
 	^ derivation asArray

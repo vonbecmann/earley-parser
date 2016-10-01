@@ -7,7 +7,7 @@ asArrayRepresentation
 	tree
 		depthVisitPreNode: nil
 		postNode: [ :node | 
-			node model class == JEDottedItem
+			node model class == ESNonterminalNode 
 				ifTrue: [ 
 					node children isEmpty
 						ifTrue: [ stack push: #() ]
@@ -16,6 +16,6 @@ asArrayRepresentation
 							node children size timesRepeat: [ newChildren push: stack pop ].
 							stack push: newChildren asArray ] ]
 				ifFalse: [ 
-					node model class == JETerminalItem
+					node model class == ESTerminalNode 
 						ifTrue: [ stack push: node model word ] ] ].
 	^ stack pop 

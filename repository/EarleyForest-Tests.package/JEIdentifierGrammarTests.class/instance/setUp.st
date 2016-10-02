@@ -8,7 +8,7 @@ setUp
 	JEGrammar
 		basedOn:
 			{(identifier is: letter_symbol , word_symbol_star).
-			(letter_symbol is: (JETerminal regex: '[a-zA-Z]')).
+			(letter_symbol is: (JETerminal rxCharSet: '[a-zA-Z]')).
 			(word_symbol_star is: word_symbol , word_symbol_star).
 			word_symbol_star is_epsilon.
-			(word_symbol is: (JETerminal regex: '[\w]'))} ] value
+			(word_symbol is: (JETerminal rxCharSet: '[\w]'))} ] value

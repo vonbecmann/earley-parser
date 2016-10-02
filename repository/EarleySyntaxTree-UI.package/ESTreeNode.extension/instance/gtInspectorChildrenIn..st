@@ -1,6 +1,6 @@
 *EarleySyntaxTree-UI
 gtInspectorChildrenIn: composite
-	<gtInspectorPresentationOrder: 1>
+	<gtInspectorPresentationOrder: 2>
 	^ composite list
 		title: [ 'Children' ];
 		display: [ children ];

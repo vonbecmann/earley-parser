@@ -1,6 +1,6 @@
 *EarleySyntaxTree-UI
 gtInspectorPureIn: composite
-	<gtInspectorPresentationOrder: 2>
+	<gtInspectorPresentationOrder: 1>
 	^ composite table
 		title: [ 'Pure' ];
 		display: [ {('model' -> self model)} ];

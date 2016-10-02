@@ -10,5 +10,5 @@ setUp
 		basedOn:
 			{(identifier is: letter_symbol , word_symbol_star).
 			(word_symbol_star is: word_symbol , word_symbol_star).	word_symbol_star is_epsilon.
-			(letter_symbol is: (JETerminal regex: '[a-zA-Z]')).
-			(word_symbol is: (JETerminal regex: '[\w]'))} ] value
+			(letter_symbol is: (JETerminal rxCharSet: '[a-zA-Z]')).
+			(word_symbol is: (JETerminal rxCharSet: '[\w]'))} ] value

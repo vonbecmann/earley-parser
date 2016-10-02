@@ -32,10 +32,10 @@ BNF
 			(nonterminal is: letter_symbol , letter_digit_underscore_star).
 			(letter_digit_underscore_star is: letter_digit_underscore_symbol , letter_digit_underscore_star).
 			letter_digit_underscore_star is_epsilon.
-			(letter_symbol is: (JETerminal regex: '[a-zA-Z]')).
-			(letter_digit_underscore_symbol is: (JETerminal regex: '[a-zA-Z_]')).
+			(letter_symbol is: (JETerminal rxCharSet: '[a-zA-Z]')).
+			(letter_digit_underscore_symbol is: (JETerminal rxCharSet: '[a-zA-Z_]')).
 			(lexical_element is: nonterminal).
 			(lexical_element is: terminal).
 			(terminal is: terminal_character).
-			(terminal_character is: (JETerminal character: $$) , (JETerminal regex: '[\w\d+-/\\*~=@,%|$&?!<>_-]'))} ]
+			(terminal_character is: (JETerminal character: $$) , (JETerminal rxCharSet: '[\w\d+-/\\*~=@,%|$&?!<>_-]'))} ]
 		value

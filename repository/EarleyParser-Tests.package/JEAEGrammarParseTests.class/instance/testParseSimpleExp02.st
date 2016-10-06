@@ -1,4 +1,4 @@
-tests
+tests - fail
 testParseSimpleExp02
 	self 
 		should: [ grammar parse: 'a ' ] 

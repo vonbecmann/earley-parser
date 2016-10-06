@@ -1,6 +1,6 @@
 tests - fail
-testParseSimpleExp04
+testParseSimpleExp05
 	self 
-		should: [ grammar parse: 'a++' ] 
+		should: [ grammar parse: 'a+*' ] 
 		raise: JEFailure 
 		withExceptionDo: [ :ex | self assert: ex position equals: 3 ]

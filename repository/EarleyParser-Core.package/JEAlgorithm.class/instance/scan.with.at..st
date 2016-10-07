@@ -4,8 +4,7 @@ scan: item with: word at: chart
 	If a is the next input symbol
 	then
 		For every state in S(k) of the form (X -> alpha *a beta, j), 
-			add (X -> alpha a *beta, j) to S(k+1)."
+			add (X -> alpha a *beta, j) to S(k+1).
+	 Optimized fo efficiency. "
 
-	| next |
-	next := chart moveDotForward: item.
-	self addFamilyWith: item word: word to: next
+	self addFamilyWith: item word: word to: (chart moveDotForward: item)

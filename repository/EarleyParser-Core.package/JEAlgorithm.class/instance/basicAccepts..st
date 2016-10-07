@@ -6,8 +6,7 @@ basicAccepts: words
 	1 to: words size + 1 do: [ :i | 
 		| chart |
 		chart := charts at: i.
-		chart isEmpty
-			ifTrue: [ ^ self failedAtPosition: i with: charts].
+		chart isEmpty ifTrue: [ ^ self failedAt: (charts at: (i - 1)) ].
 		chart
 			processItems: [ :item | 
 				item isFinal

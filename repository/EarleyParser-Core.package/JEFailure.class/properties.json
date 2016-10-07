@@ -1,5 +1,5 @@
 {
-	"commentStamp" : "BernardoContreras 5/18/2015 20:03",
+	"commentStamp" : "BernardoContreras 10/7/2016 19:38",
 	"super" : "Error",
 	"category" : "EarleyParser-Core-Implementation",
 	"classinstvars" : [ ],
@@ -7,7 +7,7 @@
 	"classvars" : [ ],
 	"instvars" : [
 		"position",
-		"charts"
+		"expectedSymbols"
 	],
 	"name" : "JEFailure",
 	"type" : "normal"

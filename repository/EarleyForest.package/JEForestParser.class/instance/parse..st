@@ -10,4 +10,4 @@ parse: words
 				[ JEParseForest 
 					given: (self buildForestFrom: (charts last like: finalItem)) 
 					of: grammar ]
-			ifFalse: [ self failedAtPosition: charts last number with: charts ]
+			ifFalse: [ self failedAt: charts last ]

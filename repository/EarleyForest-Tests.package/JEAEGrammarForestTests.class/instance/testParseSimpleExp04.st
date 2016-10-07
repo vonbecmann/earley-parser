@@ -3,4 +3,4 @@ testParseSimpleExp04
 	self 
 		should: [ grammar parseForest: 'a++' ] 
 		raise: JEFailure 
-		withExceptionDo: [ :ex | self assert: ex position equals: 3 ]
+		withExceptionDo: [ :failure | self assert: failure position equals: 3 ]

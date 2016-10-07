@@ -1,6 +1,12 @@
-tests - fail
+tests - failure
 testParseSimpleExp02
 	self 
 		should: [ grammar parse: 'a ' ] 
 		raise: JEFailure 
-		withExceptionDo: [ :ex | self assert: ex position equals: 2 ]
+		withExceptionDo: 
+			[ :failure | 
+				self assert: failure position equals: 2.
+				self 
+					assertCollection: failure expectedSymbols  
+					hasSameElements: {(JETerminal character: $*). (JETerminal character: $+)} ]
+				

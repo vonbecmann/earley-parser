@@ -1,0 +1,3 @@
+visiting
+depthVisitWithPreAction: aBlockWithOneNodeArgument
+	ESTDepthFirstVisitor visit: root withPreAction: aBlockWithOneNodeArgument

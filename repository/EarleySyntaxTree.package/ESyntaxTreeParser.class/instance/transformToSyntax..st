@@ -4,8 +4,7 @@ transformToSyntax: flattenTree
 	stack := SinglyLinkedStack new.
 	builder := ESIdentityTreeBuilder new.
 	flattenTree
-		depthVisitPreNode: nil
-		postNode: [ :node | 
+		depthVisitWithPostAction: [ :node | 
 			node model class == JEDottedItem
 				ifTrue: 
 					[	| nonterminalNode |

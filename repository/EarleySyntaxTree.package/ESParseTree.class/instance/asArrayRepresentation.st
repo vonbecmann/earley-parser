@@ -5,8 +5,8 @@ asArrayRepresentation
 	| stack |
 	stack := SinglyLinkedStack new.
 	tree
-		depthVisitPreNode: nil
-		postNode: [ :node | 
+		depthVisitWithPostAction: 
+			[ :node | 
 			node model isNonterminal
 				ifTrue: 
 					[ node children isEmpty

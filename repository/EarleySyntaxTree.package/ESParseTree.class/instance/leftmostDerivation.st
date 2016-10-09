@@ -3,9 +3,8 @@ leftmostDerivation
 	| derivation |
 	derivation := SinglyLinkedList new.
 	tree
-		depthVisitPreNode: 
+		depthVisitWithPreAction:  
 			[ :node | 
 				node model isNonterminal
-					ifTrue: [ derivation addLast: node model reason ] ]
-		postNode: nil.
+					ifTrue: [ derivation addLast: node model reason ] ].
 	^ derivation asArray

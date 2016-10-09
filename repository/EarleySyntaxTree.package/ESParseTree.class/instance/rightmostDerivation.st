@@ -3,8 +3,7 @@ rightmostDerivation
 	| derivation |
 	derivation := SinglyLinkedList new.
 	tree
-		depthVisitPreNode: nil
-		postNode: 
+		depthVisitWithPostAction: 
 			[ :node | 
 				node model isNonterminal
 					ifTrue: [ derivation addFirst: node model reason ] ].

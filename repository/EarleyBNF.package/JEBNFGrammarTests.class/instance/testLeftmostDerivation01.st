@@ -6,8 +6,7 @@ testLeftmostDerivation01
 		equals:
 			(grammar
 				rulesAtAll:
-					{('syntax' -> 1).
-					('rule plus' -> 1).
+					{('vwg' -> 1).
 					('rule' -> 1).
 					('nonterminal' -> 1).
 					('small syntactic mark plus' -> 1).
@@ -19,5 +18,4 @@ testLeftmostDerivation01
 					('small syntactic mark plus' -> 1).
 					('small syntactic mark symbol' -> 1).
 					('space and small syntactic mark plus option' -> 2).
-					('comma symbol lexical element star' -> 2).
-					('rule plus' -> 2)})
+					('comma symbol lexical element star' -> 2).})

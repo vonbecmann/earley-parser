@@ -6,9 +6,7 @@ testRightmostDerivation01
 		equals:
 			(grammar
 				rulesAtAll:
-					{('syntax' -> 1).
-					('rule plus' -> 1).
-					('rule plus' -> 2).
+					{('vwg' -> 1).
 					('rule' -> 1).
 					('definition list' -> 2).
 					('comma symbol lexical element star' -> 2).

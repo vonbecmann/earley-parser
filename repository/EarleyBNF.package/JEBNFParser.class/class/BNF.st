@@ -1,10 +1,9 @@
 grammar
 BNF
-	" my own BNF "
+	" 1VWG "
 
 	^ [ | 
-		syntax 
-		rule_plus 
+		vwg 
 		rule 
 		nonterminal 
 		small_syntactic_mark_plus
@@ -13,9 +12,8 @@ BNF
 		space_plus 
 		terminal terminal_character
 		definitionList lexical_element comma_lexical_element_star 
-		small_syntactic_mark_symbol space_symbol comma_symbol colon_symbol dot_symbol |
-	syntax := JENonterminal named: 'syntax'.
-	rule_plus := JENonterminal named: 'rule plus'.
+		small_syntactic_mark_symbol space_symbol comma_symbol colon_symbol dot_symbol dollar_symbol |
+	vwg := JENonterminal named: 'vwg'.
 	rule := JENonterminal named: 'rule'.
 	nonterminal := JENonterminal named: 'nonterminal'.
 	small_syntactic_mark_plus := JENonterminal named: 'small syntactic mark plus'.
@@ -35,15 +33,16 @@ BNF
 	comma_symbol := JETerminal character: $,.
 	colon_symbol := JETerminal character: $:.
 	dot_symbol := JETerminal character: $..
+	dollar_symbol := JENonterminal named: 'dollar symbol'.
 	JEGrammar
 		basedOn:
-			{(syntax is: rule_plus).
-			(rule_plus is: rule, rule_plus). (rule_plus is_epsilon).
+			{
+			(vwg is: rule). (vwg is: rule, vwg). 
 			(rule is: nonterminal , colon_symbol , definitionList , dot_symbol).
-			definitionList is_epsilon.
+			(definitionList is_epsilon).
 			(definitionList is: lexical_element , comma_lexical_element_star).
 			(comma_lexical_element_star is: comma_symbol , lexical_element , comma_lexical_element_star).
-			comma_lexical_element_star is_epsilon.
+			(comma_lexical_element_star is_epsilon).
 
 			(nonterminal is: small_syntactic_mark_plus, space_and_small_syntactic_mark_plus_option).
 	
@@ -61,10 +60,11 @@ BNF
 			(lexical_element is: nonterminal).
 			(lexical_element is: terminal).
 			(terminal is: terminal_character).
-			(terminal_character is: (JETerminal character: $$) , (JETerminal rxCharSet: '[\w\d+-/\\*~=@,%|$&?!<>_-]')).
+			(terminal_character is: dollar_symbol, (JETerminal rxCharSet: '[\w\d+-/\\*~=@,%|$&?!<>_-]')).
 			
 			" Representation Rules "
 			(small_syntactic_mark_symbol is: (JETerminal charset: (($a to: $z), '()'))).
 			(space_symbol is: (JETerminal character: Character space)).
+			(dollar_symbol is: (JETerminal character: $$)).
 			} ]
 		value

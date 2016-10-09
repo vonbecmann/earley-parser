@@ -7,15 +7,15 @@ asArrayRepresentation
 	tree
 		depthVisitPreNode: nil
 		postNode: [ :node | 
-			node model class == ESNonterminalNode 
-				ifTrue: [ 
-					node children isEmpty
+			node model isNonterminal
+				ifTrue: 
+					[ node children isEmpty
 						ifTrue: [ stack push: #() ]
-						ifFalse: [ | newChildren |
-							newChildren := SinglyLinkedStack new.
-							node children size timesRepeat: [ newChildren push: stack pop ].
-							stack push: newChildren asArray ] ]
-				ifFalse: [ 
-					node model class == ESTerminalNode 
-						ifTrue: [ stack push: node model word ] ] ].
-	^ stack pop 
+						ifFalse: 
+							[ | newChildren |
+								newChildren := SinglyLinkedStack new.
+								node children size timesRepeat: [ newChildren push: stack pop ].
+								stack push: newChildren asArray ] ].
+			node model isTerminal
+				ifTrue: [ stack push: node model reason ] ].
+	^ stack pop

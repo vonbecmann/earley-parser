@@ -4,7 +4,8 @@ rightmostDerivation
 	derivation := SinglyLinkedList new.
 	tree
 		depthVisitPreNode: nil
-		postNode: [ :node | 
-			node model class = ESNonterminalNode 
-				ifTrue: [ derivation addFirst: node model rule ] ].
+		postNode: 
+			[ :node | 
+				node model isNonterminal
+					ifTrue: [ derivation addFirst: node model reason ] ].
 	^ derivation asArray

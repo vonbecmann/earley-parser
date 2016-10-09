@@ -9,8 +9,9 @@ transformToSyntax: flattenTree
 			node model class == JEDottedItem
 				ifTrue: 
 					[	| nonterminalNode |
-						nonterminalNode := ESNonterminalNode 
-													rule: node model rule asDefined
+						nonterminalNode := ESSyntaxNode 
+													symbol: node model rule head 
+													reason: node model rule asDefined
 													start: node model startChart number
 													end: node model endChart number.
 						node children isEmpty
@@ -28,9 +29,9 @@ transformToSyntax: flattenTree
 						ifTrue: 
 							[ stack 
 								push:
-									(ESTerminalNode
-										terminal: node model terminal
-										word: node model word
+									(ESSyntaxNode 
+										symbol: node model terminal
+										reason: node model word
 										start: node model startChart number
 										end: node model endChart number) ] ] ].
 	builder root: stack pop.

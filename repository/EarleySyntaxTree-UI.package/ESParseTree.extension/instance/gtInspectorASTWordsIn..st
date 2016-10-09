@@ -9,7 +9,7 @@ gtInspectorASTWordsIn: composite
 					s nextPutAll: '>>'.
 					ESTDepthFirstVisitor
 						visit: each
-						withPreNode: [ :node | 
+						withPreAction: [ :node | 
 							node model isTerminal
 								ifTrue: [ s nextPut: node model reason ] ].
 					s nextPutAll: '<<' ] ];

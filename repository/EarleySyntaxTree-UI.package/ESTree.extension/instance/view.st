@@ -6,10 +6,10 @@ view
 	nodes := SinglyLinkedList new.
 	associations := SinglyLinkedList new.
 	self
-		depthVisitPreNode: [ :node | 
-			nodes add: node.
-			associations addAll: (node children collect: [ :child | node -> child ]) ]
-		postNode: nil.
+		depthVisitWithPreAction: 
+			[ 	:node | 
+				nodes add: node.
+				associations addAll: (node children collect: [ :child | node -> child ]) ].
 	b := RTMondrian new.
 	b shape rectangle withTextAbove.
 	b nodes: nodes.

@@ -1,4 +1,4 @@
 tests - parsing
 testParseRule02
-	tree := parser parse: 'E:E,$+,T.'.
+	tree := parser parse: 'expression:expression,$+,term.'.
 	self deny: tree isNil

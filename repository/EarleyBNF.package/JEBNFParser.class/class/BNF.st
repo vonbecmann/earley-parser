@@ -2,21 +2,36 @@ grammar
 BNF
 	" my own BNF "
 
-	^ [ | syntax rule_plus rule nonterminal terminal terminal_character
-		letter_digit_underscore_star definitionList lexical_element comma_lexical_element_star 
-		letter_symbol letter_digit_underscore_symbol comma_symbol colon_symbol dot_symbol |
+	^ [ | 
+		syntax 
+		rule_plus 
+		rule 
+		nonterminal 
+		small_syntactic_mark_plus
+		space_and_small_syntactic_mark_plus_option 
+		space_and_small_syntactic_mark_plus 
+		space_plus 
+		terminal terminal_character
+		definitionList lexical_element comma_lexical_element_star 
+		small_syntactic_mark_symbol space_symbol comma_symbol colon_symbol dot_symbol |
 	syntax := JENonterminal named: 'syntax'.
 	rule_plus := JENonterminal named: 'rule plus'.
 	rule := JENonterminal named: 'rule'.
 	nonterminal := JENonterminal named: 'nonterminal'.
+	small_syntactic_mark_plus := JENonterminal named: 'small syntactic mark plus'.
+	space_and_small_syntactic_mark_plus_option := JENonterminal named: 'space and small syntactic mark plus option'.
+	space_and_small_syntactic_mark_plus := JENonterminal named: 'space and small syntactic mark plus'.
+	space_plus := JENonterminal named: 'space plus'.
+	
 	terminal := JENonterminal named: 'terminal'.
 	terminal_character := JENonterminal named: 'terminal character'.
-	letter_digit_underscore_star := JENonterminal named: 'letter digit underscore star'.
 	definitionList := JENonterminal named: 'definition list'.
 	lexical_element := JENonterminal named: 'lexical element'.
 	comma_lexical_element_star := JENonterminal named: 'comma symbol lexical element star'.
-	letter_symbol := JENonterminal named: 'letter symbol'.
-	letter_digit_underscore_symbol := JENonterminal named: 'letter digit underscore symbol'.
+	
+	" Representation Rules "
+	small_syntactic_mark_symbol := JENonterminal named: 'small syntactic mark symbol'.
+	space_symbol := JENonterminal named: 'space symbol'.
 	comma_symbol := JETerminal character: $,.
 	colon_symbol := JETerminal character: $:.
 	dot_symbol := JETerminal character: $..
@@ -29,13 +44,27 @@ BNF
 			(definitionList is: lexical_element , comma_lexical_element_star).
 			(comma_lexical_element_star is: comma_symbol , lexical_element , comma_lexical_element_star).
 			comma_lexical_element_star is_epsilon.
-			(nonterminal is: letter_symbol , letter_digit_underscore_star).
-			(letter_digit_underscore_star is: letter_digit_underscore_symbol , letter_digit_underscore_star).
-			letter_digit_underscore_star is_epsilon.
-			(letter_symbol is: (JETerminal rxCharSet: '[a-zA-Z]')).
-			(letter_digit_underscore_symbol is: (JETerminal rxCharSet: '[a-zA-Z_]')).
+
+			(nonterminal is: small_syntactic_mark_plus, space_and_small_syntactic_mark_plus_option).
+	
+			(small_syntactic_mark_plus is: small_syntactic_mark_symbol).
+			(small_syntactic_mark_plus is: small_syntactic_mark_symbol, small_syntactic_mark_plus). 
+			
+			(space_and_small_syntactic_mark_plus_option is: space_and_small_syntactic_mark_plus). (space_and_small_syntactic_mark_plus_option is_epsilon).
+
+			(space_and_small_syntactic_mark_plus is: space_plus, small_syntactic_mark_plus).
+			(space_and_small_syntactic_mark_plus is: space_plus, small_syntactic_mark_plus, space_and_small_syntactic_mark_plus).
+			
+			(space_plus is: space_symbol). 
+			(space_plus is: space_symbol, space_plus). 
+
 			(lexical_element is: nonterminal).
 			(lexical_element is: terminal).
 			(terminal is: terminal_character).
-			(terminal_character is: (JETerminal character: $$) , (JETerminal rxCharSet: '[\w\d+-/\\*~=@,%|$&?!<>_-]'))} ]
+			(terminal_character is: (JETerminal character: $$) , (JETerminal rxCharSet: '[\w\d+-/\\*~=@,%|$&?!<>_-]')).
+			
+			" Representation Rules "
+			(small_syntactic_mark_symbol is: (JETerminal charset: (($a to: $z), '()'))).
+			(space_symbol is: (JETerminal character: Character space)).
+			} ]
 		value

@@ -1,3 +1,3 @@
 tests
 testAcceptsRule03
-	self assert: (grammar accepts: 'E:.')
+	self assert: (grammar accepts: 'expression:.')

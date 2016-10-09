@@ -1,4 +1,4 @@
 tests - parsing
 testParseRule01
-	tree := grammar parseTree: 'E:T.'.
+	tree := grammar parseTree: 'expression:term.'.
 	self deny: tree isNil

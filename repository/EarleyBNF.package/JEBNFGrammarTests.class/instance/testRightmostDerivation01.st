@@ -1,6 +1,6 @@
 tests - derivation
 testRightmostDerivation01
-	tree := grammar parseTree: 'E:T.'.
+	tree := grammar parseTree: 'e:t.'.
 	self
 		assertCollection: tree rightmostDerivation
 		equals:
@@ -14,8 +14,10 @@ testRightmostDerivation01
 					('comma symbol lexical element star' -> 2).
 					('lexical element' -> 1).
 					('nonterminal' -> 1).
-					('letter digit underscore star' -> 2).
-					('letter symbol' -> 1).
+					('space and small syntactic mark plus option' -> 2).
+					('small syntactic mark plus' -> 1).
+					('small syntactic mark symbol' -> 1).
 					('nonterminal' -> 1).
-					('letter digit underscore star' -> 2).
-					('letter symbol' -> 1)})
+					('space and small syntactic mark plus option' -> 2).
+					('small syntactic mark plus' -> 1).
+					('small syntactic mark symbol' -> 1)})

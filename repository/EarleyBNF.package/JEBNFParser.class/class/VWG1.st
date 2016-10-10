@@ -3,7 +3,8 @@ VWG1
 	" one level Van Wijngaarden Grammar (1VWG) "
 
 	^ [ | 
-		vwg 
+		vwg
+		rule_list 
 		rule 
 		notion 
 		small_syntactic_mark_plus
@@ -14,6 +15,7 @@ VWG1
 		member_list member comma_and_member_star 
 		small_syntactic_mark_symbol space_symbol comma_symbol colon_symbol dot_symbol dollar_symbol |
 	vwg := JENonterminal named: 'vwg'.
+	rule_list := JENonterminal named: 'rule list'.
 	rule := JENonterminal named: 'rule'.
 	notion := JENonterminal named: 'notion'.
 	small_syntactic_mark_plus := JENonterminal named: 'small syntactic mark plus'.
@@ -37,7 +39,8 @@ VWG1
 	JEGrammar
 		basedOn:
 			{
-			(vwg is: rule). (vwg is: vwg, rule). 
+			(vwg is: rule_list).
+			(rule_list is: rule). (rule_list is: rule_list, rule). 
 			(rule is: notion, colon_symbol, member_list, dot_symbol).
 			(member_list is_epsilon).
 			(member_list is: member, comma_and_member_star).

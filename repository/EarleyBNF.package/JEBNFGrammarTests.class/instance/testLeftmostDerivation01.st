@@ -7,6 +7,7 @@ testLeftmostDerivation01
 			(grammar
 				rulesAtAll: {
 					('vwg' -> 1).
+					('rule list' -> 1).
 					('rule' -> 1).
 					('notion' -> 1).
 					('small syntactic mark plus' -> 1).

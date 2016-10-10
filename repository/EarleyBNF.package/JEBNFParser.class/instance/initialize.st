@@ -1,4 +1,4 @@
 initialization
 initialize
 	super initialize.
-	grammar := self class BNF
+	grammar := self class VWG1

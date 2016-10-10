@@ -1,21 +1,21 @@
 grammar
-BNF
-	" 1VWG "
+VWG1
+	" one level Van Wijngaarden Grammar (1VWG) "
 
 	^ [ | 
 		vwg 
 		rule 
-		nonterminal 
+		notion 
 		small_syntactic_mark_plus
 		space_and_small_syntactic_mark_plus_option 
 		space_and_small_syntactic_mark_plus 
 		space_plus 
 		terminal terminal_character
-		definitionList lexical_element comma_lexical_element_star 
+		member_list member comma_and_member_star 
 		small_syntactic_mark_symbol space_symbol comma_symbol colon_symbol dot_symbol dollar_symbol |
 	vwg := JENonterminal named: 'vwg'.
 	rule := JENonterminal named: 'rule'.
-	nonterminal := JENonterminal named: 'nonterminal'.
+	notion := JENonterminal named: 'notion'.
 	small_syntactic_mark_plus := JENonterminal named: 'small syntactic mark plus'.
 	space_and_small_syntactic_mark_plus_option := JENonterminal named: 'space and small syntactic mark plus option'.
 	space_and_small_syntactic_mark_plus := JENonterminal named: 'space and small syntactic mark plus'.
@@ -23,28 +23,28 @@ BNF
 	
 	terminal := JENonterminal named: 'terminal'.
 	terminal_character := JENonterminal named: 'terminal character'.
-	definitionList := JENonterminal named: 'definition list'.
-	lexical_element := JENonterminal named: 'lexical element'.
-	comma_lexical_element_star := JENonterminal named: 'comma symbol lexical element star'.
+	member_list := JENonterminal named: 'member list'.
+	member := JENonterminal named: 'member'.
+	comma_and_member_star := JENonterminal named: 'comma and member star'.
 	
 	" Representation Rules "
 	small_syntactic_mark_symbol := JENonterminal named: 'small syntactic mark symbol'.
 	space_symbol := JENonterminal named: 'space symbol'.
-	comma_symbol := JETerminal character: $,.
-	colon_symbol := JETerminal character: $:.
-	dot_symbol := JETerminal character: $..
+	comma_symbol := JENonterminal named: 'comma symbol'.
+	colon_symbol := JENonterminal named: 'colon symbol'.
+	dot_symbol := JENonterminal named: 'dot symbol'.
 	dollar_symbol := JENonterminal named: 'dollar symbol'.
 	JEGrammar
 		basedOn:
 			{
-			(vwg is: rule). (vwg is: rule, vwg). 
-			(rule is: nonterminal , colon_symbol , definitionList , dot_symbol).
-			(definitionList is_epsilon).
-			(definitionList is: lexical_element , comma_lexical_element_star).
-			(comma_lexical_element_star is: comma_symbol , lexical_element , comma_lexical_element_star).
-			(comma_lexical_element_star is_epsilon).
+			(vwg is: rule). (vwg is: vwg, rule). 
+			(rule is: notion, colon_symbol, member_list, dot_symbol).
+			(member_list is_epsilon).
+			(member_list is: member, comma_and_member_star).
+			(comma_and_member_star is: comma_symbol, member, comma_and_member_star).
+			(comma_and_member_star is_epsilon).
 
-			(nonterminal is: small_syntactic_mark_plus, space_and_small_syntactic_mark_plus_option).
+			(notion is: small_syntactic_mark_plus, space_and_small_syntactic_mark_plus_option).
 	
 			(small_syntactic_mark_plus is: small_syntactic_mark_symbol).
 			(small_syntactic_mark_plus is: small_syntactic_mark_symbol, small_syntactic_mark_plus). 
@@ -57,14 +57,17 @@ BNF
 			(space_plus is: space_symbol). 
 			(space_plus is: space_symbol, space_plus). 
 
-			(lexical_element is: nonterminal).
-			(lexical_element is: terminal).
+			(member is: notion).
+			(member is: terminal).
 			(terminal is: terminal_character).
 			(terminal_character is: dollar_symbol, (JETerminal rxCharSet: '[\w\d+-/\\*~=@,%|$&?!<>_-]')).
 			
 			" Representation Rules "
 			(small_syntactic_mark_symbol is: (JETerminal charset: (($a to: $z), '()'))).
 			(space_symbol is: (JETerminal character: Character space)).
+			(comma_symbol is: (JETerminal character: $,)).
+			(colon_symbol is: (JETerminal character: $:)).
+			(dot_symbol is: (JETerminal character: $.)).
 			(dollar_symbol is: (JETerminal character: $$)).
 			} ]
 		value

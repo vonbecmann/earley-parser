@@ -1,3 +1,3 @@
-tests
+tests - rule
 testAcceptsRule03
-	self assertGrammarAccepts: 'expression:.'
+	self assertGrammarAccepts: 'expression:.' startingAt: 'rule'

@@ -1,3 +1,3 @@
 tests
 testAcceptsRule02
-	self assert: (grammar accepts: 'expression:expression,$+,term.')
+	self assertGrammarAccepts: 'expression:expression,$+,term.'

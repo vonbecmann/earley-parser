@@ -1,3 +1,4 @@
 tests
 testAcceptsRule04
-	self assert: (grammar accepts: 'expression:term.expression:expression,$+,term.')
+	self assertGrammarAccepts: 'expression:term.expression:expression,$+,term.'
+	

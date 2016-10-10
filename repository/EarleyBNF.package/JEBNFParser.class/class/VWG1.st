@@ -12,7 +12,8 @@ VWG1
 		space_and_small_syntactic_mark_plus 
 		space_plus 
 		terminal terminal_character
-		member_list member comma_and_member_star 
+		member_list member comma_and_member_star
+		empty
 		small_syntactic_mark_symbol space_symbol comma_symbol colon_symbol dot_symbol dollar_symbol |
 	vwg := JENonterminal named: 'vwg'.
 	rule_list := JENonterminal named: 'rule list'.
@@ -30,6 +31,7 @@ VWG1
 	comma_and_member_star := JENonterminal named: 'comma and member star'.
 	
 	" Representation Rules "
+	empty := JENonterminal named: 'empty'.
 	small_syntactic_mark_symbol := JENonterminal named: 'small syntactic mark symbol'.
 	space_symbol := JENonterminal named: 'space symbol'.
 	comma_symbol := JENonterminal named: 'comma symbol'.
@@ -40,19 +42,22 @@ VWG1
 		basedOn:
 			{
 			(vwg is: rule_list).
+			
 			(rule_list is: rule). (rule_list is: rule_list, rule). 
 			(rule is: notion, colon_symbol, member_list, dot_symbol).
-			(member_list is_epsilon).
+			
+			(member_list is: empty).
 			(member_list is: member, comma_and_member_star).
 			(comma_and_member_star is: comma_symbol, member, comma_and_member_star).
-			(comma_and_member_star is_epsilon).
+			(comma_and_member_star is: empty).
 
 			(notion is: small_syntactic_mark_plus, space_and_small_syntactic_mark_plus_option).
 	
 			(small_syntactic_mark_plus is: small_syntactic_mark_symbol).
 			(small_syntactic_mark_plus is: small_syntactic_mark_symbol, small_syntactic_mark_plus). 
 			
-			(space_and_small_syntactic_mark_plus_option is: space_and_small_syntactic_mark_plus). (space_and_small_syntactic_mark_plus_option is_epsilon).
+			(space_and_small_syntactic_mark_plus_option is: space_and_small_syntactic_mark_plus). 
+			(space_and_small_syntactic_mark_plus_option is: empty).
 
 			(space_and_small_syntactic_mark_plus is: space_plus, small_syntactic_mark_plus).
 			(space_and_small_syntactic_mark_plus is: space_plus, small_syntactic_mark_plus, space_and_small_syntactic_mark_plus).
@@ -66,6 +71,7 @@ VWG1
 			(terminal_character is: dollar_symbol, (JETerminal rxCharSet: '[\w\d+-/\\*~=@,%|$&?!<>_-]')).
 			
 			" Representation Rules "
+			(empty is_epsilon).
 			(small_syntactic_mark_symbol is: (JETerminal charset: (($a to: $z), '()'))).
 			(space_symbol is: (JETerminal character: Character space)).
 			(comma_symbol is: (JETerminal character: $,)).

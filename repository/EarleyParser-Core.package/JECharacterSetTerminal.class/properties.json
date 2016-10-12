@@ -6,7 +6,7 @@
 	"pools" : [ ],
 	"classvars" : [ ],
 	"instvars" : [
-		"charset"
+		"charSet"
 	],
 	"name" : "JECharacterSetTerminal",
 	"type" : "normal"

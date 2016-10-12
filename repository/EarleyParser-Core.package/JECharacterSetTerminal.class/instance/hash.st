@@ -1,3 +1,3 @@
 comparing
 hash
-	^ (self class hash + charset hash) hashMultiply
+	^ (self class hash + charSet hash) hashMultiply

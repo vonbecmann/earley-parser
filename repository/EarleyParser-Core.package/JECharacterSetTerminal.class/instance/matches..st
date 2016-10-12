@@ -1,3 +1,3 @@
 comparing
 matches: aCharacter
-	^ charset includes: aCharacter
+	^ charSet includes: aCharacter

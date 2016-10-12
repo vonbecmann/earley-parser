@@ -83,7 +83,7 @@ x: y1, y2, ..., yn.
 			
 			" Representation Rules "
 			(empty is_epsilon).
-			(small_syntactic_mark_symbol is: (JETerminal charset: (($a to: $z), '()'))).
+			(small_syntactic_mark_symbol is: (JETerminal charSet: (($a to: $z), '()'))).
 			(space_symbol is: (JETerminal character: Character space)).
 			(comma_symbol is: (JETerminal character: $,)).
 			(colon_symbol is: (JETerminal character: $:)).

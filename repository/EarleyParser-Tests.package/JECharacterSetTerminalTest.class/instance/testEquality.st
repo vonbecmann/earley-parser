@@ -1,8 +1,8 @@
 tests
 testEquality
 	| one another |
-	one := JETerminal charset: ($a to: $z).
-	another := JETerminal charset: ($a to: $z).
+	one := JETerminal charSet: ($a to: $z).
+	another := JETerminal charSet: ($a to: $z).
 	self assert: one equals: another.
 	self assert: one hash equals: another hash.
 	self assert: another equals: one.

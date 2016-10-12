@@ -13,19 +13,19 @@ Notation
 x: y1, y2, ..., yn.
 	 "
 
-	^ [ | 
-		vwg
-		rule_list 
-		rule 
+	|	vwg
+		rule_list rule 
 		notion 
 		small_syntactic_mark_plus
 		space_and_small_syntactic_mark_plus_option 
 		space_and_small_syntactic_mark_plus 
 		space_plus 
+		alternative_option alternative
+		member 
 		terminal literal_character
-		member_list member comma_and_member_star
 		empty
 		small_syntactic_mark_symbol space_symbol comma_symbol colon_symbol dot_symbol dollar_symbol typeable_character_symbol |
+
 	vwg := JENonterminal named: 'vwg'.
 	rule_list := JENonterminal named: 'rule list'.
 	rule := JENonterminal named: 'rule'.
@@ -35,12 +35,13 @@ x: y1, y2, ..., yn.
 	space_and_small_syntactic_mark_plus := JENonterminal named: 'space and small syntactic mark plus'.
 	space_plus := JENonterminal named: 'space plus'.
 	
+	alternative_option := JENonterminal named: 'alternative option'.
+	alternative := JENonterminal named: 'alternative'.
+
+	member := JENonterminal named: 'member'.
 	terminal := JENonterminal named: 'terminal'.
 	literal_character := JENonterminal named: 'literal character'.
-	member_list := JENonterminal named: 'member list'.
-	member := JENonterminal named: 'member'.
-	comma_and_member_star := JENonterminal named: 'comma and member star'.
-	
+
 	" Representation Rules "
 	empty := JENonterminal named: 'empty'.
 	small_syntactic_mark_symbol := JENonterminal named: 'small syntactic mark symbol'.
@@ -50,18 +51,18 @@ x: y1, y2, ..., yn.
 	dot_symbol := JENonterminal named: 'dot symbol'.
 	dollar_symbol := JENonterminal named: 'dollar symbol'.
 	typeable_character_symbol := JENonterminal named: 'typeable character symbol'.
-	JEGrammar
+	^ JEGrammar
 		basedOn:
 			{
 			(vwg is: rule_list).
 			
 			(rule_list is: rule). (rule_list is: rule_list, rule). 
-			(rule is: notion, colon_symbol, member_list, dot_symbol).
+			(rule is: notion, colon_symbol, alternative_option, dot_symbol).
 			
-			(member_list is: empty).
-			(member_list is: member, comma_and_member_star).
-			(comma_and_member_star is: comma_symbol, member, comma_and_member_star).
-			(comma_and_member_star is: empty).
+			(alternative_option is: alternative). (alternative_option is: empty).
+			
+			(alternative is: member).
+			(alternative is: member, comma_symbol, alternative).
 
 			(notion is: small_syntactic_mark_plus, space_and_small_syntactic_mark_plus_option).
 	
@@ -92,5 +93,4 @@ x: y1, y2, ..., yn.
 			(dollar_symbol is: (JETerminal character: $$)).
 			(typeable_character_symbol 
 				is: (JETerminal charSet: '!""#$%&''()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\]^_`abcdefghijklmnopqrstuvwxyz{|}~')).
-			} ]
-		value
+			} 

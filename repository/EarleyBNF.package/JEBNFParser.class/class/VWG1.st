@@ -22,10 +22,10 @@ x: y1, y2, ..., yn.
 		space_and_small_syntactic_mark_plus_option 
 		space_and_small_syntactic_mark_plus 
 		space_plus 
-		terminal terminal_character
+		terminal literal_character
 		member_list member comma_and_member_star
 		empty
-		small_syntactic_mark_symbol space_symbol comma_symbol colon_symbol dot_symbol dollar_symbol |
+		small_syntactic_mark_symbol space_symbol comma_symbol colon_symbol dot_symbol dollar_symbol typeable_character_symbol |
 	vwg := JENonterminal named: 'vwg'.
 	rule_list := JENonterminal named: 'rule list'.
 	rule := JENonterminal named: 'rule'.
@@ -36,7 +36,7 @@ x: y1, y2, ..., yn.
 	space_plus := JENonterminal named: 'space plus'.
 	
 	terminal := JENonterminal named: 'terminal'.
-	terminal_character := JENonterminal named: 'terminal character'.
+	literal_character := JENonterminal named: 'literal character'.
 	member_list := JENonterminal named: 'member list'.
 	member := JENonterminal named: 'member'.
 	comma_and_member_star := JENonterminal named: 'comma and member star'.
@@ -49,6 +49,7 @@ x: y1, y2, ..., yn.
 	colon_symbol := JENonterminal named: 'colon symbol'.
 	dot_symbol := JENonterminal named: 'dot symbol'.
 	dollar_symbol := JENonterminal named: 'dollar symbol'.
+	typeable_character_symbol := JENonterminal named: 'typeable character symbol'.
 	JEGrammar
 		basedOn:
 			{
@@ -78,8 +79,8 @@ x: y1, y2, ..., yn.
 
 			(member is: notion).
 			(member is: terminal).
-			(terminal is: terminal_character).
-			(terminal_character is: dollar_symbol, (JETerminal rxCharSet: '[\w\d+-/\\*~=@,%|$&?!<>_-]')).
+			(terminal is: literal_character).
+			(literal_character is: dollar_symbol, typeable_character_symbol).
 			
 			" Representation Rules "
 			(empty is_epsilon).
@@ -89,5 +90,7 @@ x: y1, y2, ..., yn.
 			(colon_symbol is: (JETerminal character: $:)).
 			(dot_symbol is: (JETerminal character: $.)).
 			(dollar_symbol is: (JETerminal character: $$)).
+			(typeable_character_symbol 
+				is: (JETerminal charSet: '!""#$%&''()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\]^_`abcdefghijklmnopqrstuvwxyz{|}~')).
 			} ]
 		value

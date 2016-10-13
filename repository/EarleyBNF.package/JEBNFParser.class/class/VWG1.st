@@ -13,15 +13,8 @@ Notation
 x: y1, y2, ..., yn.
 	 "
 
-	|	rules 
-		small_syntactic_mark_symbol 
-		space_symbol 
-		comma_symbol 
-		colon_symbol 
-		dot_symbol 
-		dollar_symbol 
-		typeable_character_symbol |
-	
+	| rules |
+
 	rules := #(
 #('vwg' #('rule list'))
 
@@ -50,31 +43,17 @@ x: y1, y2, ..., yn.
 
 #('terminal' #('literal character'))
 #('literal character' #('dollar symbol' 'typeable character symbol'))
-#('empty' #())) collect: [:each |
-	JEProductionRule 
-		head: (JENonterminal named: each first)
-		body: (each second collect: [:nonterminalNamed | (JENonterminal named: nonterminalNamed)])
-	].
+#('empty' #())).
 
-	" Representation Rules "
-	small_syntactic_mark_symbol := JENonterminal named: 'small syntactic mark symbol'.
-	space_symbol := JENonterminal named: 'space symbol'.
-	comma_symbol := JENonterminal named: 'comma symbol'.
-	colon_symbol := JENonterminal named: 'colon symbol'.
-	dot_symbol := JENonterminal named: 'dot symbol'.
-	dollar_symbol := JENonterminal named: 'dollar symbol'.
-	typeable_character_symbol := JENonterminal named: 'typeable character symbol'.
 	^ JEGrammar
-		basedOn:
-			" Production Rules "
-			rules,
-			{
-			" Representation Rules "
-			(small_syntactic_mark_symbol is: (JETerminal charSet: ($a to: $z) , '()')).
-			(space_symbol is: (JETerminal character: Character space)).
-			(comma_symbol is: (JETerminal character: $,)).
-			(colon_symbol is: (JETerminal character: $:)).
-			(dot_symbol is: (JETerminal character: $.)).
-			(dollar_symbol is: (JETerminal character: $$)).
-			(typeable_character_symbol
-				is: (JETerminal charSet: '!""#$%&''()*+,-./', ($0 to: $9), ':;<=>?@', ($A to: $Z), '[\]^_`', ($a to: $z), '{|}~'))}
+		productionRules: rules 
+		representations: 
+			{ "Terminal Notion to Representation List"
+			('small syntactic mark symbol' -> (JETerminal charSet: ($a to: $z) , '()')).
+			('space symbol' -> (JETerminal character: Character space)).
+			('comma symbol' -> (JETerminal character: $,)).
+			('colon symbol' -> (JETerminal character: $:)).
+			('dot symbol' -> (JETerminal character: $.)).
+			('dollar symbol' -> (JETerminal character: $$)).
+			('typeable character symbol'
+				-> (JETerminal charSet: '!""#$%&''()*+,-./', ($0 to: $9), ':;<=>?@', ($A to: $Z), '[\]^_`', ($a to: $z), '{|}~'))}

@@ -77,4 +77,4 @@ x: y1, y2, ..., yn.
 			(dot_symbol is: (JETerminal character: $.)).
 			(dollar_symbol is: (JETerminal character: $$)).
 			(typeable_character_symbol
-				is: (JETerminal charSet: '!""#$%&''()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\]^_`abcdefghijklmnopqrstuvwxyz{|}~'))}
+				is: (JETerminal charSet: '!""#$%&''()*+,-./', ($0 to: $9), ':;<=>?@', ($A to: $Z), '[\]^_`', ($a to: $z), '{|}~'))}

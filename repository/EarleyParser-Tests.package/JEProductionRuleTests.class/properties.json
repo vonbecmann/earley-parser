@@ -6,6 +6,6 @@
 	"pools" : [ ],
 	"classvars" : [ ],
 	"instvars" : [ ],
-	"name" : "JEUserRuleEqualityTests",
+	"name" : "JEProductionRuleTests",
 	"type" : "normal"
 }

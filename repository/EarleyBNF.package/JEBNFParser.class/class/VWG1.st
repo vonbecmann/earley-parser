@@ -51,7 +51,7 @@ x: y1, y2, ..., yn.
 
 #('terminal' #('literal character'))
 #('literal character' #('dollar symbol' 'typeable character symbol'))) collect: [:each |
-	JEUserRule 
+	JEProductionRule 
 		head: (JENonterminal named: each first)
 		body: (each second collect: [:nonterminalNamed | (JENonterminal named: nonterminalNamed)])
 	].

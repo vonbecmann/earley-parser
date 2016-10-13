@@ -13,15 +13,14 @@ Notation
 x: y1, y2, ..., yn.
 	 "
 
-	| rules 
-	empty
-	small_syntactic_mark_symbol 
-	space_symbol 
-	comma_symbol 
-	colon_symbol 
-	dot_symbol 
-	dollar_symbol 
-	typeable_character_symbol |
+	|	rules 
+		small_syntactic_mark_symbol 
+		space_symbol 
+		comma_symbol 
+		colon_symbol 
+		dot_symbol 
+		dollar_symbol 
+		typeable_character_symbol |
 	
 	rules := #(
 #('vwg' #('rule list'))
@@ -50,14 +49,14 @@ x: y1, y2, ..., yn.
 #('member' #('terminal'))
 
 #('terminal' #('literal character'))
-#('literal character' #('dollar symbol' 'typeable character symbol'))) collect: [:each |
+#('literal character' #('dollar symbol' 'typeable character symbol'))
+#('empty' #())) collect: [:each |
 	JEProductionRule 
 		head: (JENonterminal named: each first)
 		body: (each second collect: [:nonterminalNamed | (JENonterminal named: nonterminalNamed)])
 	].
 
 	" Representation Rules "
-	empty := JENonterminal named: 'empty'.
 	small_syntactic_mark_symbol := JENonterminal named: 'small syntactic mark symbol'.
 	space_symbol := JENonterminal named: 'space symbol'.
 	comma_symbol := JENonterminal named: 'comma symbol'.
@@ -71,7 +70,6 @@ x: y1, y2, ..., yn.
 			rules,
 			{
 			" Representation Rules "
-			empty is_epsilon.
 			(small_syntactic_mark_symbol is: (JETerminal charSet: ($a to: $z) , '()')).
 			(space_symbol is: (JETerminal character: Character space)).
 			(comma_symbol is: (JETerminal character: $,)).

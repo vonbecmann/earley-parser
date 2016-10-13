@@ -1,4 +1,4 @@
-a rule of the grammar defined by user.
+a production rule of the grammar defined by the user.
 
 head ::= body 
 

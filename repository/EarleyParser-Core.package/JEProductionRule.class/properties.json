@@ -1,5 +1,5 @@
 {
-	"commentStamp" : "BernardoContreras 5/17/2016 19:02",
+	"commentStamp" : "BernardoContreras 10/13/2016 15:52",
 	"super" : "Object",
 	"category" : "EarleyParser-Core-Public",
 	"classinstvars" : [ ],
@@ -9,6 +9,6 @@
 		"head",
 		"body"
 	],
-	"name" : "JEUserRule",
+	"name" : "JEProductionRule",
 	"type" : "normal"
 }

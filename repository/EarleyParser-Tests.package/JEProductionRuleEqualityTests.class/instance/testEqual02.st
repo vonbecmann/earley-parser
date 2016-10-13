@@ -1,8 +1,11 @@
 tests
 testEqual02
 	| one other |
-	one := (JENonterminal named: 'A') is: (JENonterminal named: 'B').
-	other := (JENonterminal named: 'A') is: (JENonterminal named: 'A').
+	one := JEProductionRule head: (JENonterminal named: 'A') body: {(JENonterminal named: 'B')}.
+	other := JEProductionRule head: (JENonterminal named: 'A') body: {(JENonterminal named: 'A')}.
+	
 	self deny: one = other.
 	self deny: one hash = other hash.
+	self deny: other = one.
+	self deny: other hash = one hash.
 	self deny: one == other

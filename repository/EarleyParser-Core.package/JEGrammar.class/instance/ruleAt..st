@@ -8,9 +8,7 @@ ruleAt: anAssociation
 	returns the rule definition at position index for a named nonterminal"
 
 	| nonterminal key |
-	nonterminal := nonterminals
-		detect: [ :each | each named = anAssociation key ]
-		ifNone: [ ^ self unknowNonterminal: anAssociation key ].
+	nonterminal := self nonterminal: anAssociation key.
 	key := OrderedPair first: nonterminal second: anAssociation value.
 	^ (alternatives 
 			at: key 

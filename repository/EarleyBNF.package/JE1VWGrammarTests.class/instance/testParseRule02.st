@@ -1,4 +1,6 @@
-tests - parsing
+tests - rule
 testParseRule02
-	tree := grammar parseTree: 'expression:expression,plus symbol,term.'.
+	tree := self
+		grammarStartingAt: 'rule'
+		parseTree: 'expression:expression,plus symbol,term.'.
 	self deny: tree isNil

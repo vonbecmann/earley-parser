@@ -1,14 +1,12 @@
 tests
 testExample2
 	| forest |
-	grammar := [ 
-	| S b |
-	S := JENonterminal named: 'S'.
-	b := JETerminal character: $b.
-	JEGrammar
-		basedOn:
-			{(S is: S , S).
-			(S is: b)} ] value.
+	grammar := JEGrammar
+		productionRules: 
+			#(	#('S' #('S' 'S')) 
+				#('S' #('letter b symbol')))
+		representations: 
+			{('letter b symbol' -> (JETerminal character: $b))}.
 	self assert: (grammar accepts: 'bbb').
 	forest := grammar parseForest: 'bbb'.
 	self assert: forest isAmbiguous

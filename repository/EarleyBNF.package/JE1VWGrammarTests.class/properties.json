@@ -1,5 +1,5 @@
 {
-	"commentStamp" : "BernardoContreras 10/10/2016 19:23",
+	"commentStamp" : "BernardoContreras 10/14/2016 14:32",
 	"super" : "TestCase",
 	"category" : "EarleyBNF-Tests",
 	"classinstvars" : [ ],
@@ -9,6 +9,6 @@
 		"grammar",
 		"tree"
 	],
-	"name" : "JEVWG1GrammarTests",
+	"name" : "JE1VWGrammarTests",
 	"type" : "normal"
 }

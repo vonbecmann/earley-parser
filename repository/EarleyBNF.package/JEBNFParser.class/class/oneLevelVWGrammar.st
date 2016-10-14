@@ -11,6 +11,13 @@ P = productions, a finite subset of (((S+) - T), ((S*)*)).
 
 Notation
 x: y1, y2, ..., yn.
+
+Trash:
+#('terminal' #('literal character'))
+#('literal character' #('dollar symbol' 'typeable character symbol'))
+{('dollar symbol' -> (JETerminal character: $$)).
+('typeable character symbol'
+	-> (JETerminal charSet: '!""#$%&''()*+,-./', ($0 to: $9), ':;<=>?@', ($A to: $Z), '[\]^_`', ($a to: $z), '{|}~'))}
 	 "
 
 	| rules |
@@ -44,8 +51,6 @@ x: y1, y2, ..., yn.
 #('space plus' #('space symbol'))
 #('space plus' #('space plus' 'space symbol'))
 
-#('terminal' #('literal character'))
-#('literal character' #('dollar symbol' 'typeable character symbol'))
 #('empty' #())).
 
 	^ JEGrammar
@@ -57,6 +62,4 @@ x: y1, y2, ..., yn.
 			('comma symbol' -> (JETerminal character: $,)).
 			('colon symbol' -> (JETerminal character: $:)).
 			('dot symbol' -> (JETerminal character: $.)).
-			('dollar symbol' -> (JETerminal character: $$)).
-			('typeable character symbol'
-				-> (JETerminal charSet: '!""#$%&''()*+,-./', ($0 to: $9), ':;<=>?@', ($A to: $Z), '[\]^_`', ($a to: $z), '{|}~'))}
+			}

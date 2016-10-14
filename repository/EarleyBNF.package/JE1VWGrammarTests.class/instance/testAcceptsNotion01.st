@@ -1,3 +1,3 @@
 tests - notion
 testAcceptsNotion01
-	self assertGrammarAccepts: 'left part list' startingAt: 'notion'
+	self assertGrammarStartingAt: 'notion' accepts: 'left part list'

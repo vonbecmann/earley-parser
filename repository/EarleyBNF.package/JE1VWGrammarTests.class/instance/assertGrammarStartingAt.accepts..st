@@ -1,5 +1,5 @@
 private
-assertGrammarAccepts: words startingAt: aNonterminalNamed
+assertGrammarStartingAt: aNonterminalNamed accepts: words
 	self
 		assert: ((grammar startAt: aNonterminalNamed) accepts: words)
 		description:

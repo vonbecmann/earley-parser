@@ -1,3 +1,5 @@
 tests - rule
 testAcceptsRule02
-	self assertGrammarAccepts: 'expression:expression,plus symbol,term.' startingAt: 'rule'
+	self
+		assertGrammarStartingAt: 'rule'
+		accepts: 'expression:expression,plus symbol,term.'

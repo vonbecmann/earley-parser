@@ -25,8 +25,8 @@ x: y1, y2, ..., yn.
 
 #('alternative option' #('alternative')) #('alternative option' #('empty'))
 
-#('alternative' #('member'))
-#('alternative' #('alternative' 'comma symbol' 'member'))
+#('alternative' #('notion'))
+#('alternative' #('alternative' 'comma symbol' 'notion'))
 
 #('notion' #('small syntactic mark plus' 'space and small syntactic mark plus option'))
 
@@ -43,9 +43,6 @@ x: y1, y2, ..., yn.
 
 #('space plus' #('space symbol'))
 #('space plus' #('space plus' 'space symbol'))
-
-#('member' #('notion'))
-#('member' #('terminal'))
 
 #('terminal' #('literal character'))
 #('literal character' #('dollar symbol' 'typeable character symbol'))

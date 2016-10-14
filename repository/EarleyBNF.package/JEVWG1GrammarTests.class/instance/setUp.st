@@ -1,5 +1,5 @@
 running
 setUp
-	grammar := JEBNFParser VWG1.
+	grammar := JEBNFParser oneLevelVWGrammar.
 	tree := nil
 	

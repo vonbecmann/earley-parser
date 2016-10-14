@@ -6,7 +6,7 @@ testLeftmostDerivation01
 		equals:
 			(grammar
 				rulesAtAll: {
-					('vwg' -> 1).
+					('one level vw grammar' -> 1).
 					('rule list' -> 1).
 					('rule' -> 1).
 					('notion' -> 1).

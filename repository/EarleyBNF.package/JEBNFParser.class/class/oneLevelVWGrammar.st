@@ -1,5 +1,5 @@
 grammar
-VWG1
+oneLevelVWGrammar
 	" one level Van Wijngaarden Grammar (1VWG).
 A 1VWG is a 4-tuple
 	G = <S, T, E, P>, where
@@ -16,7 +16,7 @@ x: y1, y2, ..., yn.
 	| rules |
 
 	rules := #(
-#('vwg' #('rule list'))
+#('one level vw grammar' #('rule list'))
 
 #('rule list' #('rule')) 
 #('rule list' #('rule list' 'rule'))

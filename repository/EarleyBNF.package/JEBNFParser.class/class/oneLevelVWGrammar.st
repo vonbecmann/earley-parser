@@ -11,13 +11,6 @@ P = productions, a finite subset of (((S+) - T), ((S*)*)).
 
 Notation
 x: y1, y2, ..., yn.
-
-Trash:
-#('terminal' #('literal character'))
-#('literal character' #('dollar symbol' 'typeable character symbol'))
-{('dollar symbol' -> (JETerminal character: $$)).
-('typeable character symbol'
-	-> (JETerminal charSet: '!""#$%&''()*+,-./', ($0 to: $9), ':;<=>?@', ($A to: $Z), '[\]^_`', ($a to: $z), '{|}~'))}
 	 "
 
 	| rules |

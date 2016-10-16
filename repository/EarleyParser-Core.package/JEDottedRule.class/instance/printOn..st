@@ -1,12 +1,12 @@
 printing
 printOn: aStream
-	"head = body with dot.
-	 head = ·. "
+	"head: body with dot.
+	 head: ·. "
 
 	| middleDot |
 	middleDot := Character value: 183.
 	self head printOn: aStream.
-	aStream nextPutAll: ' = '.
+	aStream nextPutAll: ': '.
 	self rule body
 		withIndexDo: [ :each :index | 
 			index = 1

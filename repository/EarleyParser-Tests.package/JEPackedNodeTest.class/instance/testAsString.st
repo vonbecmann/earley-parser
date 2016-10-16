@@ -6,4 +6,4 @@ testAsString
 				model:
 					((JERule head: (JENonterminal named: 'A') body: #()) dotAtEnd
 						startedAt: (JEChart number: 10))) asString
-		equals: '([A = ·. @ 10])'
+		equals: '([A: ·. @ 10])'

@@ -8,4 +8,4 @@ testAsString01
 					{	(JENonterminal named: 'B'). 
 						(JENonterminal named: 'C').
 						(JENonterminal named: 'D')	}) asString
-		equals: 'A = B, C, D.'
+		equals: 'A: B, C, D.'

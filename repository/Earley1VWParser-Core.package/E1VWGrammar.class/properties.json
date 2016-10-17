@@ -14,7 +14,8 @@
 		"alternatives",
 		"predictedAlternatives",
 		"nonterminalSort",
-		"dottedRules"
+		"dottedRules",
+		"representationRules"
 	],
 	"name" : "E1VWGrammar",
 	"type" : "normal"

@@ -7,4 +7,4 @@ scan: item with: word at: chart
 			add (X -> alpha a *beta, j) to S(k+1).
 	 Optimized fo efficiency. "
 
-	self addFamilyWith: item word: word to: (chart moveDotForward: item)
+	self addFamilyWith: item word: word to: (chart add: item)

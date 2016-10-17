@@ -6,15 +6,21 @@ basicAccepts: words
 	1 to: words size + 1 do: [ :i | 
 		| chart |
 		chart := charts at: i.
-		chart isEmpty ifTrue: [ ^ self failedAt: (charts at: (i - 1)) ].
+		chart isEmpty
+			ifTrue: [ ^ self failedAt: (charts at: i - 1) ].
+		i <= words size
+			ifTrue: 
+				[ grammar representationRules
+						do: [ :rule | 
+							(rule dotAtBeginning symbolAtDot matches: (words at: i))
+								ifTrue: 
+									[ self 
+										scan: (rule dotAtEnd startedAt: chart) 
+										with: (words at: i) 
+										at: (charts at: i + 1) ] ] ].
 		chart
 			processItems: [ :item | 
 				item isFinal
 					ifTrue: [ self complete: item at: chart ]
-					ifFalse: [ 
-						item symbolAtDot isTerminal
-							ifTrue: [ 
-								(i <= words size and: [ item symbolAtDot matches: (words at: i) ])
-									ifTrue: [ self scan: item with: (words at: i) at: (charts at: i + 1) ] ]
-							ifFalse: [ self predict: item at: chart ] ] ] ].
+					ifFalse: [ item symbolAtDot isTerminal ifFalse: [ self predict: item at: chart ] ] ] ].
 	^ charts

@@ -1,11 +1,14 @@
 private operations
 addFamilyWith: previousItem word: word to: nextItem
-	| terminal |
-	terminal := nextItem endChart
-		addTerminalItem:
-			(JETerminalItem
-				given: previousItem symbolAtDot
-				word: word
-				startedAt: previousItem endChart).
+	"Optimize for efficiency.
+	 previous item is predicted because it was generated from scanning a representation rule
+	"
 
-	self addFamilyWith: previousItem and: terminal to: nextItem
+	| terminal |
+	terminal := nextItem endChart 
+			addTerminalItem: 
+				(JETerminalItem 
+					given: previousItem symbolAtDot 
+					word: word 
+					startedAt: previousItem endChart).
+	nextItem addFamily: (JEFamily with: terminal node)

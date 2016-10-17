@@ -1,0 +1,3 @@
+accessing
+nonterminalsSize
+	^ nonterminals size

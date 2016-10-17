@@ -1,0 +1,21 @@
+{
+	"commentStamp" : "BernardoContreras 10/17/2016 16:33",
+	"super" : "Object",
+	"category" : "Earley1VWParser-Core-Public",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"classvars" : [ ],
+	"instvars" : [
+		"nonterminals",
+		"terminals",
+		"rules",
+		"startSymbol",
+		"startRule",
+		"alternatives",
+		"predictedAlternatives",
+		"nonterminalSort",
+		"dottedRules"
+	],
+	"name" : "E1VWGrammar",
+	"type" : "normal"
+}

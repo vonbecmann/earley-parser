@@ -1,0 +1,11 @@
+{
+	"commentStamp" : "",
+	"super" : "E1VWAlgorithm",
+	"category" : "Earley1VWParser-Core-Implementation",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"classvars" : [ ],
+	"instvars" : [ ],
+	"name" : "E1VWRecognizer",
+	"type" : "normal"
+}

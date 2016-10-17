@@ -1,4 +1,4 @@
-instance creation
+private
 basedOn: aCollectionOfRules startAtNonterminal: aJENonterminal
 	"a grammar based on a collection of rules, starting at the given nonterminal."
 

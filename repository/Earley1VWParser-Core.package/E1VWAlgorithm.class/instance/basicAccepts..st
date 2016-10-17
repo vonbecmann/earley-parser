@@ -15,7 +15,7 @@ basicAccepts: words
 							(rule dotAtBeginning symbolAtDot matches: (words at: i))
 								ifTrue: 
 									[ self 
-										scan: (rule dotAtBeginning startedAt: chart andEndedAt: chart) 
+										scan: (chart add: (rule dotAtBeginning startedAt: chart))
 										with: (words at: i) 
 										at: (charts at: i + 1) ] ] ].
 		chart

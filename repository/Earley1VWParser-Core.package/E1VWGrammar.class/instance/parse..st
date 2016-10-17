@@ -2,4 +2,4 @@ public
 parse: words
 	"returns a Binary Shared Packed Parse Forest"
 
-	^ (JEBSPPFParser given: self) parse: words
+	^ (E1VWBSPPFParser given: self) parse: words

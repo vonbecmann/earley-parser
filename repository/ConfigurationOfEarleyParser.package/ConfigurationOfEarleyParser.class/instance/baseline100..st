@@ -39,6 +39,8 @@ baseline100: spec
 					with: [ spec requires: #('EarleyForest' 'EarleyParser-Tests') ];
 				package: 'Earley1VWParser-Core' 
 					with: [ spec requires: #('EarleyParser-Core') ];
+				package: 'Earley1VWParser-Tests' 
+					with: [ spec requires: #('Earley1VWParser-Core') ];
 				package: 'EarleyBNF' 
 					with: [ spec requires: #('EarleySyntaxTree') ].
 			spec
@@ -47,6 +49,6 @@ baseline100: spec
 				group: 'Tests' with: #('EarleyParser-Tests');
 				group: 'SyntaxTree' with: #('EarleySyntaxTree' 'EarleySyntaxTree-UI' 'EarleySyntaxTree-Tests');
 				group: 'Forest' with: #('EarleyForest' 'EarleyForest-UI' 'EarleyForest-Tests');
-				group: 'E1VWG' with: #('Earley1VWParser-Core');
+				group: 'E1VWG' with: #('Earley1VWParser-Core' 'Earley1VWParser-Tests');
 				group: 'Parser' with: #('EarleyBNF');
 				group: 'UI' with: #('EarleyParser-UI') ]

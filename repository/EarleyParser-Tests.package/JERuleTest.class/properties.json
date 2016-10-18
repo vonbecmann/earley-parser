@@ -6,6 +6,6 @@
 	"pools" : [ ],
 	"classvars" : [ ],
 	"instvars" : [ ],
-	"name" : "JERuleTests",
+	"name" : "JERuleTest",
 	"type" : "normal"
 }

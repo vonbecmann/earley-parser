@@ -10,3 +10,14 @@ P = productions, a finite subset of (((S+) - T), ((S*)*)).
 
 Notation
 x: y1, y2, ..., yn.
+
+Example: 
+expression: term.
+expression: expression, plus symbol, term.
+term: product.
+term: term, star symbol, product.
+product: letter a symbol.
+plus symbol: $+.
+star symbol: $*.
+letter a symbol: $a.
+

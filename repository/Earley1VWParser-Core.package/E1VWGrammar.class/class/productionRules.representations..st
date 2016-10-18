@@ -2,14 +2,6 @@ instance creation
 productionRules: productionRulesArray representations: terminalNotionToRepresentationList
 	"
 	Production Rules
-	""
-		expression: term.
-		expression: expression, plus symbol, term.
-		term: product.
-		term: term, star symbol, product.
-		product: letter a symbol.
-	""
-	equals 
 	#(	#('expression' #('term'))
 		#('expression' #('expression' 'plus symbol' 'term'))
 		#('term' #('product'))

@@ -6,6 +6,6 @@
 	"pools" : [ ],
 	"classvars" : [ ],
 	"instvars" : [ ],
-	"name" : "JEOrderedPairTests",
+	"name" : "OrderedPairTest",
 	"type" : "normal"
 }

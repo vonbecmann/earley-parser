@@ -4,7 +4,6 @@ gtInspectorPureIn: composite
 	^ composite table
 		title: [ 'Pure' ];
 		display: [ {
-			('key' -> self key).
 			('rule' -> self rule).
 			('dotIndex' -> self dotIndex).
 			('symbolAtDot' -> self symbolAtDot).

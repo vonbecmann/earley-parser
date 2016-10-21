@@ -9,7 +9,7 @@ view
 	self
 		depthVisitPreNode: [ :packed | 
 			nodes add: packed.
-			associations addAll: (packed families collect: [ :family | packed -> family ]) ]
+			associations addAll: (packed children collect: [ :family | packed -> family ]) ]
 		postNode: nil
 		preFamily: [ :family | 
 			familyNodes add: family.

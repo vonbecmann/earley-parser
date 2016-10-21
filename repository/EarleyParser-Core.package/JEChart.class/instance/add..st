@@ -12,5 +12,5 @@ add: anItem
 					ifNotNil: [ :found | ^ found ] ].
 	itemsByKey 
 		at: anItem key first 
-		add: (Association key: anItem key second value: anItem).
+		add: (Association basicNew key: anItem key second value: anItem).
 	^ self basicAdd: anItem

@@ -9,7 +9,8 @@
 		"parent",
 		"first",
 		"second",
-		"children"
+		"children",
+		"key"
 	],
 	"name" : "JEFamily",
 	"type" : "normal"

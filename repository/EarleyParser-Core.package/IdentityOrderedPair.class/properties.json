@@ -1,0 +1,11 @@
+{
+	"commentStamp" : "BernardoContreras 10/21/2016 17:00",
+	"super" : "OrderedPair",
+	"category" : "EarleyParser-Core-Collections",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"classvars" : [ ],
+	"instvars" : [ ],
+	"name" : "IdentityOrderedPair",
+	"type" : "normal"
+}

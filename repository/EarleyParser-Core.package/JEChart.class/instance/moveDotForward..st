@@ -14,5 +14,5 @@ moveDotForward: previousItem
 	nextItem := previousItem moveDotForward.
 	itemsByKey 
 		at: nextItem key first 
-		add: (Association key: nextItem key second value: nextItem).
+		add: (Association basicNew key: nextItem key second value: nextItem).
 	^ self basicAdd: nextItem

@@ -1,4 +1,8 @@
 accessing
 addFamily: aFamily
-	aFamily parent: self.
-	families add: aFamily
+	familiesByKey
+		jeAt: aFamily key
+		ifAbsentPut: 
+			[ 	aFamily parent: self.
+				families := families copyWith: aFamily.
+				true ]

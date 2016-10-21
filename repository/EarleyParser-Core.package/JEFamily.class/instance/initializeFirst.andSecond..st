@@ -7,4 +7,5 @@ initializeFirst: firstPackedNode andSecond: secondPackedNode
 		ifNil: [ Array empty ]
 		ifNotNil: [ second
 				ifNil: [ {first} ]
-				ifNotNil: [ {first. second} ] ]
+				ifNotNil: [ {first. second} ] ].
+	key := IdentityOrderedPair first: first second: second

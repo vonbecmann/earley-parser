@@ -3,6 +3,7 @@ parseRRBenchmark
 	" 
 | date        | time to run    |
 | 21 October 2016 | 0:00:00:15.372 |
+| 21 October 2016 | 0:00:00:15.401 |
 	"
 
 	| n words grammar |

@@ -7,6 +7,7 @@ parseUBDABenchmark02
 | 12 September 2016 | 0:00:00:03.98 |
 | 15 September 2016 | 0:00:00:03.585 |
 | 22 September 2016 | 0:00:00:03.309 |
+| 21 October 2016 | 0:00:00:06.728 |
 	"
 
 	| n words grammar |

@@ -7,6 +7,7 @@ parseBKBenchmark
 | 12 September 2016 | 0:00:00:00.81 |
 | 15 September 2016 | 0:00:00:00.906 |
 | 22 September 2016 | 0:00:00:00.86 |
+| 21 October 2016 | 0:00:00:01.052 |
 	"
 
 	| n words grammar |

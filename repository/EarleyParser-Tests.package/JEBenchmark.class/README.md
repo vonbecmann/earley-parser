@@ -1,5 +1,7 @@
 hold a simple benchmark.
 | duration |
-Smalltalk garbageCollectMost.
+Smalltalk 
+	garbageCollect;
+	garbageCollectMost.
 duration := JEBenchmark new acceptsBKBenchmark.
 '| ', Date today asString, ' | ', duration asString, ' |'.

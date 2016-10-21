@@ -16,6 +16,7 @@ acceptsUBDABenchmark
 | 12 September 2016 | 0:00:00:06.381 |
 | 15 September 2016 | 0:00:00:03.882 |
 | 22 September 2016 | 0:00:00:02.815 |
+| 21 October 2016 | 0:00:00:02.718 |
 	"
 
 	| n words grammar |

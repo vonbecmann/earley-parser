@@ -9,5 +9,4 @@ initializeRule: aRule dotAt: index
 	epsilon := rule isEpsilon.
 	symbolAtDot := final
 		ifTrue: [ nil ]
-		ifFalse: [ rule body at: dotIndex ].
-	key := self identityHash 
+		ifFalse: [ rule body at: dotIndex ]

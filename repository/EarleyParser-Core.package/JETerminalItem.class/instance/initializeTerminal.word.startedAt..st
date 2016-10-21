@@ -4,4 +4,4 @@ initializeTerminal: aTerminal word: aWord startedAt: aChart
 	terminal := aTerminal.
 	word := aWord.
 	startChart := aChart.
-	key := OrderedPair first: terminal identityHash second: startChart number
+	key := OrderedPair first: terminal second: startChart

@@ -6,10 +6,10 @@ moveDotForward: previousItem
 			else add it last"
 
 	| nextItem |
-	(itemsByKey at: previousItem dottedRule moveDotForward key ifAbsent: nil)
+	(itemsByKey at: previousItem dottedRule moveDotForward ifAbsent: nil)
 		ifNotNil: 
 			[ :dict | 
-				(dict at: previousItem startChart number ifAbsent: nil) 
+				(dict at: previousItem startChart ifAbsent: nil) 
 					ifNotNil: [ :found | ^ found ] ].
 	nextItem := previousItem moveDotForward.
 	itemsByKey 

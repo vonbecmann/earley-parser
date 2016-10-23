@@ -28,18 +28,18 @@ x: y1, y2, ..., yn.
 #('alternative' #('notion'))
 #('alternative' #('alternative' 'comma symbol' 'notion'))
 
-#('notion' #('small syntactic mark plus' 'space and small syntactic mark plus option'))
+#('notion' #('small syntactic mark plus' '((space and small syntactic mark) plus) option'))
 
 #('small syntactic mark plus' #('small syntactic mark symbol'))
 #('small syntactic mark plus' #('small syntactic mark plus' 'small syntactic mark symbol'))
 
-#('space and small syntactic mark plus option' #('space and small syntactic mark plus'))
-#('space and small syntactic mark plus option' #('empty'))
+#('((space and small syntactic mark) plus) option' #('(space and small syntactic mark) plus'))
+#('((space and small syntactic mark) plus) option' #('empty'))
 
-#('space and small syntactic mark plus' 
+#('(space and small syntactic mark) plus' 
 		#('space plus' 'small syntactic mark plus'))
-#('space and small syntactic mark plus' 
-		#('space and small syntactic mark plus' 'space plus' 'small syntactic mark plus'))
+#('(space and small syntactic mark) plus' 
+		#('(space and small syntactic mark) plus' 'space plus' 'small syntactic mark plus'))
 
 #('space plus' #('space symbol'))
 #('space plus' #('space plus' 'space symbol'))

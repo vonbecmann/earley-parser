@@ -1,0 +1,14 @@
+{
+	"commentStamp" : "",
+	"super" : "TestCase",
+	"category" : "EarleySyntaxTree-Tests-Grammar",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"classvars" : [ ],
+	"instvars" : [
+		"grammar",
+		"tree"
+	],
+	"name" : "ESTBinaryNumberGrammarParseTests",
+	"type" : "normal"
+}

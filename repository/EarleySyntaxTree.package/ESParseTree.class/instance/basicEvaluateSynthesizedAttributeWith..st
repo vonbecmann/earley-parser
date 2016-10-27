@@ -1,5 +1,5 @@
 private
-basicEvaluateSynthesizedAttributeWith: ruleAndActionDict
+basicEvaluateSynthesizedAttributeWith: ruleToActionDict
 	" left to right depth first evaluation in post order "
 
 	| stack |
@@ -8,7 +8,8 @@ basicEvaluateSynthesizedAttributeWith: ruleAndActionDict
 		depthVisitWithPostAction: [ :node | 
 			node model isTerminal
 				ifTrue: [ stack push: node model reason ]
-				ifFalse: [ (ruleAndActionDict at: node model reason ifAbsent: nil)
+				ifFalse: [ 
+					(ruleToActionDict at: node model reason ifAbsent: nil)
 						ifNotNil: [ :action | 
 							stack
 								push:
@@ -17,8 +18,8 @@ basicEvaluateSynthesizedAttributeWith: ruleAndActionDict
 											(node children size = 1
 												ifTrue: [ stack pop ]
 												ifFalse: [ | arguments |
-													arguments := SinglyLinkedList new.
-													node children size timesRepeat: [ arguments addFirst: stack pop ].
+													arguments := SinglyLinkedStack new.
+													node children size timesRepeat: [ arguments push: stack pop ].
 													arguments asArray ])) ] ] ].
 	self assert: stack size = 1.
 	^ stack pop

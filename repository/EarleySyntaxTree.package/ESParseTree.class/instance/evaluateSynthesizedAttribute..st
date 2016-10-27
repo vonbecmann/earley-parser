@@ -5,7 +5,7 @@ evaluateSynthesizedAttribute: ruleAndActionAssociationCollection
 	rule is an association like (Nonterminal -> index)	
 	"
 
-	| ruleAndActionDict |
-	ruleAndActionDict := Dictionary new.
-	ruleAndActionAssociationCollection do: [ :each | ruleAndActionDict at: (grammar ruleAt: each key) put: each value ].
-	^ self basicEvaluateSynthesizedAttributeWith: ruleAndActionDict
+	| ruleToActionDict |
+	ruleToActionDict := Dictionary new.
+	ruleAndActionAssociationCollection do: [ :each | ruleToActionDict at: (grammar ruleAt: each key) put: each value ].
+	^ self basicEvaluateSynthesizedAttributeWith: ruleToActionDict

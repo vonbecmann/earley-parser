@@ -1,4 +1,5 @@
-a depth first left to right tree visitor.
+left to right 
+depth first tree visitor.
 
-preOrderBlock - an action that it is execute in pre-order for each node.
-postOrderBlock - an action that it is execute in post-order for each node.
+preOrderBlock - an action that it is execute in pre-order for each tree node.
+postOrderBlock - an action that it is execute in post-order for each tree node.

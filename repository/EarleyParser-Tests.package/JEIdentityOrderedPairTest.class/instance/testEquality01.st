@@ -1,7 +1,7 @@
 tests
 testEquality01
 	| one another |
-	one := another := OrderedPair first: 'A' second: 1.
+	one := another := JEIdentityOrderedPair first: 'A' second: 1.
 	self assert: one equals: another.
 	self assert: one hash equals: another hash.
 	self assert: another equals: one.

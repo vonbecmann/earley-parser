@@ -1,9 +1,10 @@
 tests
-testEquality01
+testEquality
 	| one another |
-	one := another := IdentityOrderedPair first: 'A' second: 1.
+	one := JEOrderedPair first: 'A' second: 1.
+	another := JEOrderedPair first: 'A' second: 1.
 	self assert: one equals: another.
 	self assert: one hash equals: another hash.
 	self assert: another equals: one.
 	self assert: another hash equals: one hash.
-	self assert: one == another
+	self deny: one == another

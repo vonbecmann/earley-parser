@@ -1,11 +1,11 @@
 {
 	"commentStamp" : "BernardoContreras 9/1/2016 16:43",
 	"super" : "TestCase",
-	"category" : "EarleyParser-Tests-Collections",
+	"category" : "EarleyParser-Tests-Implementation",
 	"classinstvars" : [ ],
 	"pools" : [ ],
 	"classvars" : [ ],
 	"instvars" : [ ],
-	"name" : "OrderedPairTest",
+	"name" : "JEOrderedPairTest",
 	"type" : "normal"
 }

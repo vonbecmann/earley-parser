@@ -6,5 +6,5 @@ initializeAlternatives
 				withIndexDo:
 					[ :each :index | 
 						alternatives 
-							at: (OrderedPair first: nonterminal second: index) 
+							at: (JEOrderedPair first: nonterminal second: index) 
 							put: each ] ]

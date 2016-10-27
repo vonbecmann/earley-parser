@@ -9,7 +9,7 @@ ruleAt: anAssociation
 
 	| nonterminal key |
 	nonterminal := self nonterminal: anAssociation key.
-	key := OrderedPair first: nonterminal second: anAssociation value.
+	key := JEOrderedPair first: nonterminal second: anAssociation value.
 	^ (alternatives 
 			at: key 
 			ifAbsent: [ self unknowRuleAt: key ]) asDefined

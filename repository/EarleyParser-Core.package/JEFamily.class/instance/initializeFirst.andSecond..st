@@ -8,4 +8,4 @@ initializeFirst: firstPackedNode andSecond: secondPackedNode
 		ifNotNil: [ second
 				ifNil: [ {first} ]
 				ifNotNil: [ {first. second} ] ].
-	key := IdentityOrderedPair first: first second: second
+	key := JEIdentityOrderedPair first: first second: second

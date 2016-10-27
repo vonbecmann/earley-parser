@@ -1,3 +1,3 @@
 code-critics
 ruleIfTrueReturnsRuleV1FalsePositive
-	^ #(#(#(#RGMethodDefinition #(#JEDottedItem #= #false)) #'2016-09-30T01:48:41.900439-03:00') #(#(#RGMethodDefinition #(#JEDottedRule #= #false)) #'2016-09-30T01:48:41.900004-03:00') #(#(#RGMethodDefinition #(#JEChart #= #false)) #'2016-09-30T01:48:41.898053-03:00') #(#(#RGMethodDefinition #(#JETerminalItem #= #false)) #'2016-09-30T01:48:41.90046-03:00') #(#(#RGMethodDefinition #(#OrderedPair #= #false)) #'2016-09-30T01:48:41.900366-03:00') )
+	^ #(#(#(#RGMethodDefinition #(#JEDottedItem #= #false)) #'2016-09-30T01:48:41.900439-03:00') #(#(#RGMethodDefinition #(#JEDottedRule #= #false)) #'2016-09-30T01:48:41.900004-03:00') #(#(#RGMethodDefinition #(#JEChart #= #false)) #'2016-09-30T01:48:41.898053-03:00') #(#(#RGMethodDefinition #(#JETerminalItem #= #false)) #'2016-09-30T01:48:41.90046-03:00') #(#(#RGMethodDefinition #(#JEOrderedPair #= #false)) #'2016-09-30T01:48:41.900366-03:00') )

@@ -14,4 +14,4 @@ visit: aGivenTreeNode
 					ifFalse: 
 						[	visited at: node put: true.
 							preOrderBlock ifNotNil: [ preOrderBlock value: node ].
-							node children reversed do: [ :child | visitStack push: child ] ] ]
+							node children reverseDo: [ :child | visitStack push: child ] ] ]

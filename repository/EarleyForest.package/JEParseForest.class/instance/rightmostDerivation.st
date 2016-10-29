@@ -7,7 +7,7 @@ rightmostDerivation
 		postNode: nil
 		preFamily: nil
 		postFamily: [ :family | 
-			(family parent model class = JEDottedItem
+			(family parent model isNonterminal 
 				and: [ family parent model isFinal ])
 					ifTrue: [ derivation addFirst: family parent model rule asDefined ] ].
 	^ derivation asArray

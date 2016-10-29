@@ -1,3 +1,5 @@
 visiting
-visitPostPackedNode: aPackedNode
+visitPostOrderPackedNode: aPackedNode
+	"visit in post-order a node"
+
 	postNodeBlock ifNotNil: [ postNodeBlock value: aPackedNode ]

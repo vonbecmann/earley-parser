@@ -1,0 +1,3 @@
+visiting
+acceptPostOrderVisitor: aVisitor
+	aVisitor visitPostOrderPackedNode: self

@@ -10,8 +10,8 @@ visit: rootNode
 			(visited at: element ifAbsent: false)
 				ifTrue: [ 
 					visitStack pop.
-					element acceptPostVisitor: self ]
+					element acceptPostOrderVisitor: self ]
 				ifFalse: [ 
 					visited at: element put: true.
-					element acceptPreVisitor: self.
+					element acceptPreOrderVisitor: self.
 					element children reverseDo: [ :child | visitStack push: child ] ] ]

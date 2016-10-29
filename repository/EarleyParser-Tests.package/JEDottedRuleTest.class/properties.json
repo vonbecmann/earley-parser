@@ -6,6 +6,6 @@
 	"pools" : [ ],
 	"classvars" : [ ],
 	"instvars" : [ ],
-	"name" : "JEDottedRuleTests",
+	"name" : "JEDottedRuleTest",
 	"type" : "normal"
 }

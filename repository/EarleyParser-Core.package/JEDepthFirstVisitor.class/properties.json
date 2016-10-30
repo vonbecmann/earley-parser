@@ -6,10 +6,10 @@
 	"pools" : [ ],
 	"classvars" : [ ],
 	"instvars" : [
-		"preNodeBlock",
-		"postNodeBlock",
-		"preFamilyBlock",
-		"postFamilyBlock"
+		"postOrderFamilyBlock",
+		"preOrderFamilyBlock",
+		"postOrderNodeBlock",
+		"preOrderNodeBlock"
 	],
 	"name" : "JEDepthFirstVisitor",
 	"type" : "normal"

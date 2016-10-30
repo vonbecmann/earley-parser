@@ -23,7 +23,7 @@ x: y1, y2, ..., yn.
 
 #('rule' #('notion' 'colon symbol' 'alternative option' 'dot symbol'))
 
-#('alternative option' #('alternative')) #('alternative option' #('empty'))
+#('alternative option' #('alternative')) #('alternative option' #())
 
 #('alternative' #('notion'))
 #('alternative' #('alternative' 'comma symbol' 'notion'))
@@ -34,7 +34,7 @@ x: y1, y2, ..., yn.
 #('small syntactic mark plus' #('small syntactic mark plus' 'small syntactic mark symbol'))
 
 #('((space and small syntactic mark) plus) option' #('(space and small syntactic mark) plus'))
-#('((space and small syntactic mark) plus) option' #('empty'))
+#('((space and small syntactic mark) plus) option' #())
 
 #('(space and small syntactic mark) plus' 
 		#('space plus' 'small syntactic mark plus'))
@@ -42,9 +42,7 @@ x: y1, y2, ..., yn.
 		#('(space and small syntactic mark) plus' 'space plus' 'small syntactic mark plus'))
 
 #('space plus' #('space symbol'))
-#('space plus' #('space plus' 'space symbol'))
-
-#('empty' #())).
+#('space plus' #('space plus' 'space symbol'))).
 
 	^ JEGrammar
 		productionRules: rules 

@@ -13,7 +13,6 @@ testLeftmostDerivation01
 					('small syntactic mark plus' -> 1).
 					('small syntactic mark symbol' -> 1).
 					('((space and small syntactic mark) plus) option' -> 2).
-					('empty' -> 1).
 					('colon symbol' -> 1).
 					('alternative option' -> 1).
 					('alternative' -> 1).
@@ -21,6 +20,5 @@ testLeftmostDerivation01
 					('small syntactic mark plus' -> 1).
 					('small syntactic mark symbol' -> 1).
 					('((space and small syntactic mark) plus) option' -> 2).
-					('empty' -> 1).
 					('dot symbol' -> 1).
 					})

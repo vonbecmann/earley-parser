@@ -12,7 +12,6 @@ testParseRule02
 					('small syntactic mark plus' -> 2).
 					('small syntactic mark symbol' -> 1).
 					('((space and small syntactic mark) plus) option' -> 2).
-					('empty' -> 1).
 					('colon symbol' -> 1).
 					('alternative option' -> 1).
 					('alternative' -> 2).
@@ -22,7 +21,6 @@ testParseRule02
 					('small syntactic mark plus' -> 1).
 					('small syntactic mark symbol' -> 1).
 					('((space and small syntactic mark) plus) option' -> 2).
-					('empty' -> 1).
 					('comma symbol' -> 1).
 					('notion' -> 1).
 					('small syntactic mark plus' -> 2).
@@ -53,5 +51,4 @@ testParseRule02
 					('small syntactic mark plus' -> 1).
 					('small syntactic mark symbol' -> 1).
 					('((space and small syntactic mark) plus) option' -> 2).
-					('empty' -> 1).
 					('dot symbol' -> 1)})

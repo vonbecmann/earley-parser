@@ -14,12 +14,15 @@ basicEvaluateSynthesizedAttributeWith: ruleToActionDict
 							stack
 								push:
 									(action
-										value:
-											(node children size = 1
-												ifTrue: [ stack pop ]
-												ifFalse: [ | arguments |
-													arguments := SinglyLinkedStack new.
-													node children size timesRepeat: [ arguments push: stack pop ].
-													arguments asArray ])) ] ] ].
+										valueWithArguments:
+											(node children isEmpty
+												ifTrue: [ #() ]
+												ifFalse: [ 
+													node children size = 1
+														ifTrue: [ {stack pop} ]
+														ifFalse: [ | arguments |
+															arguments := SinglyLinkedStack new.
+															node children size timesRepeat: [ arguments push: stack pop ].
+															{arguments asArray} ] ])) ] ] ].
 	self assert: stack size = 1.
 	^ stack pop

@@ -1,0 +1,14 @@
+{
+	"commentStamp" : "",
+	"super" : "TestCase",
+	"category" : "Earley1VWParser-Tests-Grammar",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"classvars" : [ ],
+	"instvars" : [
+		"grammar",
+		"tree"
+	],
+	"name" : "E1VWIdentifierGrammarParseTests",
+	"type" : "normal"
+}

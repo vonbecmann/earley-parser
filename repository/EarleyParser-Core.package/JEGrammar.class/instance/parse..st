@@ -1,5 +1,6 @@
 public
 parse: words
+	"returns a parse forest"
 	"returns a Binary Shared Packed Parse Forest"
 
-	^ (JEBSPPFParser given: self) parse: words
+	^ (JEForestParser given: self) parse: words

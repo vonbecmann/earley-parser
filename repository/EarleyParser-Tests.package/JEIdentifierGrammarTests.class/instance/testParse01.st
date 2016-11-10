@@ -1,7 +1,7 @@
 tests
 testParse01
 	| forest |
-	forest := grammar parseForest: 'word_symbol'.
+	forest := grammar parse: 'word_symbol'.
 	self deny: forest isAmbiguous.
 	self
 		assertCollection: forest leftmostDerivation

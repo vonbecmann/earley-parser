@@ -1,6 +1,6 @@
 tests
 testRightmostDerivationSimpleExp01
-	forest := grammar parseForest: 'a'.
+	forest := grammar parse: 'a'.
 
 	self deny: forest isAmbiguous.
 	self assert: forest numberOfTrees equals: 1.

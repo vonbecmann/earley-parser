@@ -13,4 +13,4 @@ parseForestUBDABenchmark02
 	words := String new: n.
 	words from: 1 to: n put: $x.
 	grammar := JEExemplar UBDA.
-	^ [ grammar parseForest: words ] timeToRun
+	^ [ grammar parse: words ] timeToRun

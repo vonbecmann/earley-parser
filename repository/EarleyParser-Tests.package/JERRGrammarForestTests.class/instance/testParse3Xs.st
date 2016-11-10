@@ -1,6 +1,6 @@
 tests
 testParse3Xs
-	forest := grammar parseForest: 'xxx'.
+	forest := grammar parse: 'xxx'.
 	
 	self deny: forest isAmbiguous.
 	self

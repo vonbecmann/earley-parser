@@ -1,5 +1,5 @@
 tests
 testParse5Xs
-	forest := grammar parseForest: 'xxxxx'.
+	forest := grammar parse: 'xxxxx'.
 	self assert: forest isAmbiguous.
 	self assert: forest numberOfTrees equals: 32

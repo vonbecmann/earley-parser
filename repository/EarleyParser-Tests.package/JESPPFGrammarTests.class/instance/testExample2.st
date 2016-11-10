@@ -8,5 +8,5 @@ testExample2
 		representations: 
 			{('letter b symbol' -> (JETerminal character: $b))}.
 	self assert: (grammar accepts: 'bbb').
-	forest := grammar parseForest: 'bbb'.
+	forest := grammar parse: 'bbb'.
 	self assert: forest isAmbiguous

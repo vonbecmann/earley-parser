@@ -1,7 +1,7 @@
 tests
 testParseSimpleExp03
 	self
-		should: [ grammar parseForest: 'a+' ]
+		should: [ grammar parse: 'a+' ]
 		raise: JEFailure
 		withExceptionDo: 
 			[ :failure | 

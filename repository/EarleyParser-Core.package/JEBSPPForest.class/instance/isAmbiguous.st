@@ -4,5 +4,5 @@ isAmbiguous
 		preOrderNodeBlock: [ :packed | 
 			packed children size > 1
 				ifTrue: [ ^ true ] ];
-		visit: root.
+		visit: self.
 	^ false

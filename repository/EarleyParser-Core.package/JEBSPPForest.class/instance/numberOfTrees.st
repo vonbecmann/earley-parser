@@ -16,5 +16,5 @@ numberOfTrees
 			numberOfTrees
 				at: family
 				ifAbsentPut: [ family children inject: 1 into: [ :product :node | product * (numberOfTrees at: node) ] ] ];
-		visit: root.
+		visit: self.
 	^ numberOfTrees at: root

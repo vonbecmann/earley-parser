@@ -1,14 +1,12 @@
 private operations
-extractTreeFrom: aSPPForest
+extractTreeFrom: aBSPPForest
 	| builder |
 	builder := ESIdentityTreeBuilder new.
-	builder root: aSPPForest root.
-	aSPPForest
-		depthVisitPreNode: nil
-		postNode: nil
-		preFamily: [ :family | 
+	builder root: aBSPPForest root.
+	JEDepthFirstVisitor new 
+		preOrderFamilyBlock: [ :family | 
 			builder
 				addNode: family parent model
-				withChildren: (family children collect: [ :each | each model ]) ]
-		postFamily: nil.
+				withChildren: (family children collect: [ :each | each model ]) ];
+		visit: aBSPPForest.
 	^ builder build

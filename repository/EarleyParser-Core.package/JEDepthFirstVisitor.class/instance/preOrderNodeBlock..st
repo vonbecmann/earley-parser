@@ -1,0 +1,3 @@
+initialization
+preOrderNodeBlock: aBlockWithOneArgument
+	preOrderNodeBlock := aBlockWithOneArgument

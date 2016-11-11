@@ -1,7 +1,0 @@
-instance creation
-withPreOrderNodeAction: preOrderNodeBlock postOrderNodeAction: postOrderNodeBlock preOrderFamilyAction: preOrderFamilyBlock postOrderFamilyAction: postOrderFamilyBlock
-	^ self basicNew
-		initializePreOrderNodeBlock: preOrderNodeBlock
-		postOrderNodeBlock: postOrderNodeBlock
-		preOrderFamilyBlock: preOrderFamilyBlock
-		postOrderFamilyBlock: postOrderFamilyBlock

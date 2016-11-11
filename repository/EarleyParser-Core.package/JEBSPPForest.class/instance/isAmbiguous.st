@@ -1,8 +1,8 @@
 testing
 isAmbiguous
-	self
-		depthVisitPreNode: [ :packed | packed children size > 1 ifTrue: [ ^ true ] ]
-		postNode: nil
-		preFamily: nil
-		postFamily: nil.
+	JEDepthFirstVisitor new
+		preOrderNodeBlock: [ :packed | 
+			packed children size > 1
+				ifTrue: [ ^ true ] ];
+		visit: root.
 	^ false

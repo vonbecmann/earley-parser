@@ -6,15 +6,14 @@ view
 	nodes := SinglyLinkedList new.
 	familyNodes := SinglyLinkedList new.
 	associations := SinglyLinkedList new.
-	self
-		depthVisitPreNode: [ :packed | 
+	JEDepthFirstVisitor new 
+		preOrderNodeBlock: [ :packed | 
 			nodes add: packed.
-			associations addAll: (packed children collect: [ :family | packed -> family ]) ]
-		postNode: nil
-		preFamily: [ :family | 
+			associations addAll: (packed children collect: [ :family | packed -> family ]) ];
+		preOrderFamilyBlock: [ :family | 
 			familyNodes add: family.
-			associations addAll: (family children collect: [ :packed | family -> packed ]) ]
-		postFamily: nil.
+			associations addAll: (family children collect: [ :packed | family -> packed ]) ];
+		visit: root.
 	
 	b := RTMondrian new.
 	b shape rectangle withTextAbove.

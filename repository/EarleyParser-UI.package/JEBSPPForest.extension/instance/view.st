@@ -13,7 +13,7 @@ view
 		preOrderFamilyBlock: [ :family | 
 			familyNodes add: family.
 			associations addAll: (family children collect: [ :packed | family -> packed ]) ];
-		visit: root.
+		visit: self.
 	
 	b := RTMondrian new.
 	b shape rectangle withTextAbove.

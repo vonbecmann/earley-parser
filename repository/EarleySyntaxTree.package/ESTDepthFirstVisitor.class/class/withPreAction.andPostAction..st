@@ -1,3 +1,0 @@
-instance creation
-withPreAction: preOrderNodeBlock andPostAction: postOrderNodeBlock
-	^ self basicNew initializePreOrderBlock: preOrderNodeBlock andPostOrderBlock: postOrderNodeBlock

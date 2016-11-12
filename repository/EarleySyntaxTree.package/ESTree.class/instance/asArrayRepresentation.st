@@ -4,14 +4,13 @@ asArrayRepresentation
 
 	| stack |
 	stack := SinglyLinkedStack new.
-	self
-		depthVisitWithPostAction: 
-			[ 	:node | 
-				node children isEmpty
-					ifTrue: [ stack push:	{node model. #()} ]
-					ifFalse: 
-						[	| newChildren |
-							newChildren := SinglyLinkedStack new.
-							node children size timesRepeat: [ newChildren push: stack pop ].
-							stack push: {node model.	newChildren asArray} ] ].
+	ESTDepthFirstVisitor new
+		postOrderBlock: [ :node | 
+			node children isEmpty
+				ifTrue: [ stack push: {node model. #()} ]
+				ifFalse: [ | newChildren |
+					newChildren := SinglyLinkedStack new.
+					node children size timesRepeat: [ newChildren push: stack pop ].
+					stack push: {node model. newChildren asArray} ] ];
+		visit: self.
 	^ stack pop

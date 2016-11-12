@@ -4,8 +4,8 @@ basicEvaluateSynthesizedAttributeWith: ruleToActionDict
 
 	| stack |
 	stack := SinglyLinkedStack new.
-	tree
-		depthVisitWithPostAction: [ :node | 
+	ESTDepthFirstVisitor new 
+		postOrderBlock: [ :node | 
 			node model isTerminal
 				ifTrue: [ stack push: node model reason ]
 				ifFalse: [ 
@@ -23,6 +23,7 @@ basicEvaluateSynthesizedAttributeWith: ruleToActionDict
 														ifFalse: [ | arguments |
 															arguments := SinglyLinkedStack new.
 															node children size timesRepeat: [ arguments push: stack pop ].
-															{arguments asArray} ] ])) ] ] ].
+															{arguments asArray} ] ])) ] ] ]; 
+		visit: tree.
 	self assert: stack size = 1.
 	^ stack pop

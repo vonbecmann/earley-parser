@@ -3,8 +3,8 @@ flatten: extractedTree
 	| builder |
 	builder := ESIdentityTreeBuilder new.
 	builder root: extractedTree root.
-	extractedTree
-		depthVisitWithPreAction: [ :node | 
+	ESTDepthFirstVisitor new 
+		preOrderBlock: [ :node | 
 			node model isFinal
 				ifTrue: [ 
 					(node children allSatisfy: [ :each | each model isFinal ])
@@ -25,5 +25,6 @@ flatten: extractedTree
 										ifFalse: [ child children do: [ :each | children push: each ] ] ].
 							builder 
 								addNode: node model 
-								withChildren: newChildren asArray ] ] ].
+								withChildren: newChildren asArray ] ] ];
+		visit: extractedTree.
 	^ builder build

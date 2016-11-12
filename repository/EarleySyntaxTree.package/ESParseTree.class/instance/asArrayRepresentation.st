@@ -4,9 +4,8 @@ asArrayRepresentation
 
 	| stack |
 	stack := SinglyLinkedStack new.
-	tree
-		depthVisitWithPostAction: 
-			[ :node | 
+	ESTDepthFirstVisitor new 
+		postOrderBlock: [ :node | 
 			node model isTerminal
 				ifTrue: [ stack push: node model reason ]
 				ifFalse: 
@@ -16,5 +15,6 @@ asArrayRepresentation
 							[ | newChildren |
 								newChildren := SinglyLinkedStack new.
 								node children size timesRepeat: [ newChildren push: stack pop ].
-								stack push: newChildren asArray ] ] ].
+								stack push: newChildren asArray ] ] ];
+		visit: tree.
 	^ stack pop

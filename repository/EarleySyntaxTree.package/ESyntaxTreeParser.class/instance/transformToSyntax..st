@@ -3,8 +3,8 @@ transformToSyntax: flattenTree
 	| stack builder |
 	stack := SinglyLinkedStack new.
 	builder := ESIdentityTreeBuilder new.
-	flattenTree
-		depthVisitWithPostAction: [ :node | 
+	ESTDepthFirstVisitor new 
+		postOrderBlock: [ :node | 
 			 node model isTerminal 
 					ifTrue: 
 						[	stack
@@ -27,7 +27,8 @@ transformToSyntax: flattenTree
 										newChildren := SinglyLinkedStack new.
 										node children size timesRepeat: [ newChildren push: stack pop ].
 										builder addNode: nonterminalNode withChildren: newChildren asArray ].
-							stack push: nonterminalNode ] ].
+							stack push: nonterminalNode ] ];
+		visit: flattenTree.
 	builder root: stack pop.
 	self assert: stack isEmpty.
 	^ builder build

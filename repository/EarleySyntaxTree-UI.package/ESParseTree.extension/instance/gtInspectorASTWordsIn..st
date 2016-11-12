@@ -7,10 +7,10 @@ gtInspectorASTWordsIn: composite
 			String
 				streamContents: [ :s | 
 					s nextPutAll: '>>'.
-					ESTDepthFirstVisitor
-						visit: each
-						withPreAction: [ :node | 
+					ESTDepthFirstVisitor new 
+						preOrderBlock: [ :node | 
 							node model isTerminal
-								ifTrue: [ s nextPut: node model reason ] ].
+								ifTrue: [ s nextPut: node model reason ] ];
+						visitNode: each.
 					s nextPutAll: '<<' ] ];
 		yourself

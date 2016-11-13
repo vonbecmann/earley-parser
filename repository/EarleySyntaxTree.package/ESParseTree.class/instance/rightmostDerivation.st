@@ -2,9 +2,9 @@ accessing
 rightmostDerivation
 	| derivation |
 	derivation := SinglyLinkedList new.
-	ESTDepthFirstVisitor new
-		postOrderBlock: [ :node | 
+	ESTRightToLeftDepthFirstVisitor new
+		preOrderBlock: [ :node | 
 			node model isNonterminal
-				ifTrue: [ derivation addFirst: node model reason ] ];
+				ifTrue: [ derivation addLast: node model reason ] ];
 		visit: tree.
 	^ derivation asArray

@@ -1,11 +1,14 @@
 {
 	"commentStamp" : "BernardoContreras 11/13/2016 21:12",
-	"super" : "ESTreeVisitor",
+	"super" : "Object",
 	"category" : "EarleySyntaxTree-Implementation",
 	"classinstvars" : [ ],
 	"pools" : [ ],
 	"classvars" : [ ],
-	"instvars" : [ ],
-	"name" : "ESTDepthFirstVisitor",
+	"instvars" : [
+		"postOrderBlock",
+		"preOrderBlock"
+	],
+	"name" : "ESTreeVisitor",
 	"type" : "normal"
 }

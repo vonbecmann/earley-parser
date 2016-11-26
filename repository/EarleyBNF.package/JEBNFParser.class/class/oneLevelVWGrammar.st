@@ -19,7 +19,7 @@ x: y1, y2, ..., yn.
 #('one level vw grammar' #('rule list'))
 
 #('rule list' #('rule')) 
-#('rule list' #('rule list' 'rule'))
+#('rule list' #('rule list' 'layout' 'rule'))
 
 #('rule' #('notion' 'colon symbol' 'alternative option' 'dot symbol'))
 
@@ -42,7 +42,13 @@ x: y1, y2, ..., yn.
 		#('(space and small syntactic mark) plus' 'space plus' 'small syntactic mark plus'))
 
 #('space plus' #('space symbol'))
-#('space plus' #('space plus' 'space symbol'))).
+#('space plus' #('space plus' 'space symbol'))
+
+#('layout' #())
+#('layout' #('separator plus'))
+#('separator plus' #('separator symbol'))
+#('separator plus' #('separator plus' 'separator symbol'))
+).
 
 	^ JEGrammar
 		productionRules: rules 
@@ -53,4 +59,5 @@ x: y1, y2, ..., yn.
 			('comma symbol' -> (JETerminal character: $,)).
 			('colon symbol' -> (JETerminal character: $:)).
 			('dot symbol' -> (JETerminal character: $.)).
+			('separator symbol' -> (JETerminal charSet: Character separators)).
 			}

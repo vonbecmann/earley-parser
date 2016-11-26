@@ -25,8 +25,8 @@ x: y1, y2, ..., yn.
 
 #('alternative option' #('alternative')) #('alternative option' #())
 
-#('alternative' #('notion'))
-#('alternative' #('alternative' 'comma symbol' 'notion'))
+#('alternative' #('layout' 'notion'))
+#('alternative' #('alternative' 'comma symbol' 'layout' 'notion'))
 
 #('notion' #('small syntactic mark plus' '((space and small syntactic mark) plus) option'))
 

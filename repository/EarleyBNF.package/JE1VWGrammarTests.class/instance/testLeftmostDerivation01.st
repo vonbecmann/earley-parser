@@ -16,6 +16,7 @@ testLeftmostDerivation01
 					('colon symbol' -> 1).
 					('alternative option' -> 1).
 					('alternative' -> 1).
+					('layout' -> 1).
 					('notion' -> 1).
 					('small syntactic mark plus' -> 1).
 					('small syntactic mark symbol' -> 1).

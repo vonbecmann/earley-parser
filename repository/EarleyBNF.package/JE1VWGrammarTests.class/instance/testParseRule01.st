@@ -19,6 +19,7 @@ testParseRule01
 					('colon symbol' -> 1).
 					('alternative option' -> 1).
 					('alternative' -> 1).
+					('layout' -> 1).
 					('notion' -> 1).
 					('small syntactic mark plus' -> 2).
 					('small syntactic mark plus' -> 2).

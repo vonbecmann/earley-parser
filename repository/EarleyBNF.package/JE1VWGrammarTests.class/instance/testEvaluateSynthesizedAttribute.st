@@ -10,8 +10,8 @@ tree evaluateSynthesizedAttribute:
 ('rule list' -> 2 -> [ :nodes | nodes first copyWith: nodes third ]).
 ('rule' -> 1 -> [ :nodes | Array with: nodes first with: nodes third ]).
 ('alternative option' -> 2 -> [ Array empty ]).
-('alternative' -> 1 -> [ :node | Array with: node ]).
-('alternative' -> 2 -> [ :nodes | nodes first copyWith: nodes third ]).
+('alternative' -> 1 -> [ :nodes | Array with: nodes second ]).
+('alternative' -> 2 -> [ :nodes | nodes first copyWith: nodes fourth ]).
 ('notion' -> 1
 	->
 	[ :nodes | String streamContents: [ :s | nodes do: [ :each | s nextPutAll: each ] ] ]).

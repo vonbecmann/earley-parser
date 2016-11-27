@@ -1,0 +1,14 @@
+{
+	"commentStamp" : "BernardoContreras 10/14/2016 14:32",
+	"super" : "TestCase",
+	"category" : "Earley1VW-Tests",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"classvars" : [ ],
+	"instvars" : [
+		"grammar",
+		"tree"
+	],
+	"name" : "JE1VWGrammarTest",
+	"type" : "normal"
+}

@@ -1,0 +1,14 @@
+{
+	"commentStamp" : "BernardoContreras 11/26/2016 22:41",
+	"super" : "Object",
+	"category" : "Earley1VW-Core",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"classvars" : [ ],
+	"instvars" : [
+		"grammar",
+		"ruleToActionCollection"
+	],
+	"name" : "JE1VWParser",
+	"type" : "normal"
+}

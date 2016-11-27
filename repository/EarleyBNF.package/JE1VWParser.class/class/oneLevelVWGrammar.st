@@ -21,11 +21,11 @@ x: y1, y2, ..., yn.
 #('rule list' #('rule')) 
 #('rule list' #('rule list' 'layout' 'rule'))
 
-#('rule' #('notion' 'colon symbol' 'alternative option' 'dot symbol'))
+#('rule' #('notion' 'colon symbol' 'layout' 'alternative option' 'dot symbol'))
 
 #('alternative option' #('alternative')) #('alternative option' #())
 
-#('alternative' #('layout' 'notion'))
+#('alternative' #('notion'))
 #('alternative' #('alternative' 'comma symbol' 'layout' 'notion'))
 
 #('notion' #('small syntactic mark plus' '((space and small syntactic mark) plus) option'))

@@ -1,14 +1,14 @@
 {
-	"commentStamp" : "",
+	"commentStamp" : "BernardoContreras 10/14/2016 14:32",
 	"super" : "TestCase",
 	"category" : "EarleyBNF-Tests",
 	"classinstvars" : [ ],
 	"pools" : [ ],
 	"classvars" : [ ],
 	"instvars" : [
-		"tree",
-		"parser"
+		"grammar",
+		"tree"
 	],
-	"name" : "JEBNFParserTests",
+	"name" : "JE1VWGrammarTest",
 	"type" : "normal"
 }

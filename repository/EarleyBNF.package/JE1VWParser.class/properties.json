@@ -1,13 +1,14 @@
 {
-	"commentStamp" : "BernardoContreras 5/23/2016 11:43",
+	"commentStamp" : "BernardoContreras 11/26/2016 22:41",
 	"super" : "Object",
 	"category" : "EarleyBNF-Core",
 	"classinstvars" : [ ],
 	"pools" : [ ],
 	"classvars" : [ ],
 	"instvars" : [
-		"grammar"
+		"grammar",
+		"ruleToActionCollection"
 	],
-	"name" : "JEBNFParser",
+	"name" : "JE1VWParser",
 	"type" : "normal"
 }

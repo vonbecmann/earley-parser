@@ -8,4 +8,4 @@ identifier
 				#('word symbol star' #()))
 		representations:
 			{	('letter symbol' -> (JETerminal charSet: (($a to: $z), ($A to: $Z)))).
-				('word symbol' -> (JETerminal rxCharSet: '[\w]'))}
+				('word symbol' -> (JETerminal charSet: ($a to: $z), ($A to: $Z), ($0 to: $9), '_'))}

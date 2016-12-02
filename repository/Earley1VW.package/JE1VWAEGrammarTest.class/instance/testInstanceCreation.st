@@ -12,5 +12,5 @@ product: a symbol.'
 			('star symbol' -> (JETerminal character: $*)).
 			('a symbol' -> (JETerminal character: $a))}.
 			
-	self assert: grammar rulesSize equals: 8.
+	self assert: grammar rulesSize equals: 9.
 	self assert: grammar nonterminalsSize equals: 7.

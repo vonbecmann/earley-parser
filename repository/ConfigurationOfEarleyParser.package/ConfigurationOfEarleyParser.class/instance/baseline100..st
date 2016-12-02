@@ -31,17 +31,12 @@ baseline100: spec
 					with: [ spec requires: #('EarleySyntaxTree' 'Roassal2') ];
 				package: 'EarleySyntaxTree-Tests' 
 					with: [ spec requires: #('EarleySyntaxTree') ];
-				package: 'Earley1VWParser-Core' 
-					with: [ spec requires: #('EarleyParser-Core') ];
-				package: 'Earley1VWParser-Tests' 
-					with: [ spec requires: #('Earley1VWParser-Core') ];						
 				package: 'Earley1VW' 
 					with: [ spec requires: #('EarleySyntaxTree') ].
 			spec
-				group: 'default' with: #('Core' 'Tests' 'SyntaxTree' 'E1VWG' 'Parser' 'UI');
+				group: 'default' with: #('Core' 'Tests' 'SyntaxTree' 'Parser' 'UI');
 				group: 'Core' with: #('EarleyParser-Core');
 				group: 'Tests' with: #('EarleyParser-Tests');
 				group: 'SyntaxTree' with: #('EarleySyntaxTree' 'EarleySyntaxTree-UI' 'EarleySyntaxTree-Tests');
-				group: 'E1VWG' with: #('Earley1VWParser-Core' 'Earley1VWParser-Tests');
 				group: 'Parser' with: #('Earley1VW');
 				group: 'UI' with: #('EarleyParser-UI') ]

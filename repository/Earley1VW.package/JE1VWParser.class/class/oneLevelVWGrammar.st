@@ -21,7 +21,10 @@ x: y1, y2, ..., yn.
 #('rule list' #('rule')) 
 #('rule list' #('rule list' 'layout' 'rule'))
 
-#('rule' #('notion' 'colon symbol' 'layout' 'alternative option' 'dot symbol'))
+#('rule' #('notion' 'colon symbol' 'layout' 'alternatives' 'dot symbol'))
+
+#('alternatives' #('alternative option'))
+#('alternatives' #('alternatives' 'semicolon symbol' 'layout' 'alternative option'))
 
 #('alternative option' #('alternative')) #('alternative option' #())
 
@@ -58,6 +61,7 @@ x: y1, y2, ..., yn.
 			('space symbol' -> (JETerminal character: Character space)).
 			('comma symbol' -> (JETerminal character: $,)).
 			('colon symbol' -> (JETerminal character: $:)).
+			('semicolon symbol' -> (JETerminal character: $;)).
 			('dot symbol' -> (JETerminal character: $.)).
 			('separator symbol' -> (JETerminal charSet: Character separators)).
 			}

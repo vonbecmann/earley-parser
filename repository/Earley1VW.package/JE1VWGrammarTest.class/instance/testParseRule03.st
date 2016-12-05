@@ -1,6 +1,6 @@
 tests - rule
-testParseRule02
-	tree := self grammarStartingAt: 'rule' parseTree: 'e:e,plus symbol,t.'.
+testParseRule03
+	tree := self grammarStartingAt: 'rule' parseTree: 'e:e,plus symbol,t;.'.
 	self deny: tree isNil.
 	self
 		assertCollection: tree leftmostDerivation
@@ -13,6 +13,7 @@ testParseRule02
 					('small syntactic mark symbol' -> 1).
 					('((space and small syntactic mark) plus) option' -> 2).
 					('colon symbol' -> 1).
+					('alternatives' -> 2).					
 					('alternatives' -> 1).										
 					('alternative option' -> 1).
 					('alternative' -> 2).
@@ -55,4 +56,6 @@ testParseRule02
 					('small syntactic mark plus' -> 1).
 					('small syntactic mark symbol' -> 1).
 					('((space and small syntactic mark) plus) option' -> 2).
+					('semicolon symbol' -> 1).
+					('alternative option' -> 2).
 					('dot symbol' -> 1)})

@@ -17,6 +17,7 @@ testParseRule01
 					('small syntactic mark symbol' -> 1).
 					('((space and small syntactic mark) plus) option' -> 2).
 					('colon symbol' -> 1).
+					('alternatives' -> 1).					
 					('alternative option' -> 1).
 					('alternative' -> 1).
 					('layout' -> 1).

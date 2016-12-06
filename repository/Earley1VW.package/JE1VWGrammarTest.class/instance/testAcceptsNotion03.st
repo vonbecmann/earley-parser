@@ -1,3 +1,3 @@
 tests - notion
 testAcceptsNotion03
-	self assertGrammarStartingAt: 'notion' accepts: 'letter a symbol'
+	self assertGrammarStartingAt: 'notion' accepts: 'letter'

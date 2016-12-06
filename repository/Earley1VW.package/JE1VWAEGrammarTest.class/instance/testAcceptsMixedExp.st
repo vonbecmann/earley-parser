@@ -2,10 +2,12 @@ tests
 testAcceptsMixedExp
 	grammar := JEGrammar
 		e1vw:
-'expression: term.
-expression: expression, plus symbol, term.
-term: product.
-term: term, star symbol, product.
+'expression:
+	term;
+	expression, plus symbol, term.
+term:
+	product;
+	term, star symbol, product.
 product: a symbol.'
 		representations:
 			{('plus symbol' -> (JETerminal character: $+)).

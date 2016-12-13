@@ -37,4 +37,4 @@ productionRules: productionRulesArray representations: terminalNotionToRepresent
 				JEProductionRule 
 					head: (JENonterminal named: eachAssociation key)
 					body: { eachAssociation value } ].
-	^ self basedOn: (productionRules, representationRules) 
+	^ self basicNew initializeRules: (productionRules, representationRules) startNonterminal: productionRules first head

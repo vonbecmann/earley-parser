@@ -7,5 +7,5 @@ UBDA
 		x := JETerminal character: $x.
 		JEGrammar
 			basedOn:
-			{	A is: x.
-				A is: A, A } ] value
+			{	{A. {x}}.
+				{A. {A. A}} } ] value

@@ -14,7 +14,7 @@ AyHo
 	a := JETerminal character: $a.
 	JEGrammar
 		basedOn:
-			{(S is: A , A , A , A).
-			(A is: E).
-			(A is: a).
-			E is_epsilon} ] value
+			{	{S. {A. A. A. A}}.
+				{A. {E}}.
+				{A. {a}}.
+				{E. {}}} ] value

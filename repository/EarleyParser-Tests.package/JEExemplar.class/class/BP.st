@@ -8,6 +8,6 @@ BP
 		a := JETerminal character: $a.
 		JEGrammar
 			basedOn:
-			{	P is: M, N.
-				M is_epsilon. M is: M, a.
-				N is_epsilon. N is: N, a. } ] value
+			{	{P. {M. N}}.
+				{M. {}}. {M. {M. a}}.
+				{N. {}}. {N. {N. a}}. } ] value

@@ -2,12 +2,12 @@ tests
 testRuleAtNonterminal02
 	grammar := JEGrammar
 		basedOn:
-			{((JENonterminal named: 'A') is: (JENonterminal named: 'A')).
-			((JENonterminal named: 'A') is: (JENonterminal named: 'C')).
-			((JENonterminal named: 'A') is: (JENonterminal named: 'D')).
-			((JENonterminal named: 'A') is_epsilon).
-			((JENonterminal named: 'C') is_epsilon).
-			((JENonterminal named: 'D') is_epsilon)}.
+			{{(JENonterminal named: 'A'). {(JENonterminal named: 'A')}}.
+			 {(JENonterminal named: 'A'). {(JENonterminal named: 'C')}}.
+			 {(JENonterminal named: 'A'). {(JENonterminal named: 'D')}}.
+			 {(JENonterminal named: 'A'). {}}.
+			 {(JENonterminal named: 'C'). {}}.
+			 {(JENonterminal named: 'D'). {}}}.
 	self assert: grammar rulesSize equals: 7.
 	self
 		assert: (grammar ruleAt: 'A'->1)

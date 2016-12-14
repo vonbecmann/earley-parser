@@ -1,5 +1,5 @@
 initialization
-initializeHead: aNonterminal body: aSymbolList
+initializeHead: aNonterminal body: aSymbolArray
 	self initialize.
 	head := aNonterminal.
-	body := aSymbolList asArray
+	body := aSymbolArray

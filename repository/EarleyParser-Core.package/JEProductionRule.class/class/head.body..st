@@ -1,4 +1,4 @@
 instance creation
-head: aNonterminal body: aSymbolList
+head: aNonterminal body: aSymbolArray
 	self assert: aNonterminal isTerminal not.
-	^ self basicNew initializeHead: aNonterminal body: aSymbolList
+	^ self basicNew initializeHead: aNonterminal body: aSymbolArray

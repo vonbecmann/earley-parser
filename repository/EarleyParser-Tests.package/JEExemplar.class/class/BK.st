@@ -11,9 +11,9 @@ BK
 		x := JETerminal character: $x.
 		JEGrammar
 			basedOn:
-			{	{K. {}}.		
-				{K. {K. J}}.
-				{J. {F}}.
-				{J. {I}}.
-				{F. {x}}.
-				{I. {x}}. } ] value
+			{	K -> {}.		
+				K -> {K. J}.
+				J -> {F}.
+				J -> {I}.
+				F -> {x}.
+				I -> {x} } ] value

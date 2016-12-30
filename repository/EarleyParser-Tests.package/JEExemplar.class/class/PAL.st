@@ -6,5 +6,5 @@ PAL
 		x := JETerminal character: $x.
 		JEGrammar
 			basedOn:
-			{	{A. {x}}.
-				{A. {x. A. x}} } ] value
+			{	A -> {x}.
+				A -> {x. A. x} } ] value

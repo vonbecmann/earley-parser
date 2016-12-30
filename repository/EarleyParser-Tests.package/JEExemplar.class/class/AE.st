@@ -10,8 +10,8 @@ AE
 		a := JETerminal character: $a.
 		JEGrammar
 			basedOn:
-			{	{E. {T}}.
-		 		{E. {E. plus. T}}.
-	 			{T. {P}}.
-  		 		{T. {T. star. P}}.
-				{P. {a}} } ] value
+			{	E -> {T}.
+		 		E -> {E. plus. T}.
+	 			T -> {P}.
+  		 		T -> {T. star. P}.
+				P -> {a} } ] value

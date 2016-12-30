@@ -14,7 +14,7 @@ AyHo
 	a := JETerminal character: $a.
 	JEGrammar
 		basedOn:
-			{	{S. {A. A. A. A}}.
-				{A. {E}}.
-				{A. {a}}.
-				{E. {}}} ] value
+			{	S -> {A. A. A. A}.
+				A -> {E}.
+				A -> {a}.
+				E -> {}} ] value

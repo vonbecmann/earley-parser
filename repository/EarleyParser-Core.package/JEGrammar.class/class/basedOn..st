@@ -7,5 +7,5 @@ basedOn: aCollectionOfRules
 		assert: aCollectionOfRules isNotEmpty
 		description: 'The collection of rules cannot be empty.'.
 	productionRules := aCollectionOfRules
-		collect: [ :each | JEProductionRule head: each first body: each second ].
+		collect: [ :each | JEProductionRule head: each key body: each value ].
 	^ self basedOn: productionRules startAtNonterminal: productionRules first head

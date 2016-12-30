@@ -3,5 +3,8 @@ release
 	items := nil.
 	predictionItemsByNonterminal := nil.
 	finalItemsByNonterminal := nil.
-	itemsByKey := nil.
+	itemsByKey
+		ifNotNil: 
+			[	itemsByKey do: [ :item | item release ].
+				itemsByKey := nil ].
 	super release

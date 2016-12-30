@@ -6,5 +6,5 @@ a terminal matches a word in the input string while parsing between start and en
 
 I'm a special case of item.
 node 
-	- is a packed node with no families.
+	- is a packed parse node with no families.
 	

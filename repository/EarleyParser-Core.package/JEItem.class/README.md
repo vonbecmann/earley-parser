@@ -5,7 +5,7 @@ end chart: the chart that contains this item or nil. but an item always belongs 
 
 key : a composed key useful to know if this item already exists in a chart.
 
-node : a packed node of myself, only used during parsing that's why it is lazy initialized.
+node : a packed parse node of myself, only used during parsing that's why it is lazy initialized.
 
 
 

@@ -1,4 +1,4 @@
-a family of packed nodes.
+a family of packed parse nodes.
 
 children 
  	an empty family(useful when you have epsilon rules),
@@ -7,7 +7,7 @@ children
 	
 children are unique and they are checked by identity.
 
-children represent  the sequence of items that constitute  a derivation
+children represent  the sequence of items that constitute  a derivation.
 
 
 	

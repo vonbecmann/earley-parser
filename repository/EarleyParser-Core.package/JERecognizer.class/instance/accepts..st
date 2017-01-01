@@ -1,8 +1,8 @@
 public
 accepts: words
 	^ [ 
-	| charts |
-	charts := self basicAccepts: words.
-	charts last includes: (grammar startRule dotAtEnd startedAt: charts first) ]
+	| chart |
+	chart := self basicAccepts: words.
+	chart last includes: (grammar startRule dotAtEnd startedAt: chart first) ]
 		on: JEFailure
 		do: [ :ex | false ]

@@ -1,5 +1,5 @@
 private operations
-predict: item at: chart
+predict: item at: itemSet
 	"
 	Prediction:
 		For every state in S(k) of the form (X -> a * Y b, j),
@@ -13,12 +13,12 @@ predict: item at: chart
 		For every state in S(k) of the form (Y -> y *, k),	
 			Complete (Y -> y *, k) in S(k).
 	
-	i.e. when predicting an nonterminal Y in a chart k
-			if there's a completed item with head Y (created in k) in the chart k
+	i.e. when predicting an nonterminal Y in item set k
+			if there's a completed item with head Y (created in k) in the item set k
 			then
-				complete that completed item again in chart k,
+				complete that completed item again in item set k,
 				because we may missed to complete a newly created item.
 	"
 
-	self predictNonterminal: item symbolAtDot at: chart.
-	item finalItemsWithHeadIsSymbolAtDot do: [ :again | self complete: again at: chart ]
+	self predictNonterminal: item symbolAtDot at: itemSet.
+	item finalItemsWithHeadIsSymbolAtDot do: [ :again | self complete: again at: itemSet ]

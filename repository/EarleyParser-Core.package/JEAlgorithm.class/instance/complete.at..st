@@ -1,5 +1,5 @@
 private operations
-complete: item at: chart
+complete: item at: itemSet
 	"
 	Complete:
 		For every state in S(k) of the form (X -> y *, j), 
@@ -13,4 +13,4 @@ complete: item at: chart
 					self 
 						addFamilyWith: previous 
 						and: item 
-						to: (chart moveDotForward: previous) ]
+						to: (itemSet moveDotForward: previous) ]

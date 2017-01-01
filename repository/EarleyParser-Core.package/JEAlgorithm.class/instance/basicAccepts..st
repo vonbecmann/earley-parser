@@ -1,20 +1,20 @@
 private template
 basicAccepts: words
-	| charts |
-	charts := (1 to: words size + 1) collect: [ :index | JEItemSet number: index ].
-	self predictNonterminal: grammar startSymbol at: charts first.
+	| chart |
+	chart := (1 to: words size + 1) collect: [ :index | JEItemSet number: index ].
+	self predictNonterminal: grammar startSymbol at: chart first.
 	1 to: words size + 1 do: [ :i | 
-		| chart |
-		chart := charts at: i.
-		chart isEmpty ifTrue: [ ^ self failedAt: (charts at: (i - 1)) ].
-		chart
+		| itemSet |
+		itemSet := chart at: i.
+		itemSet isEmpty ifTrue: [ ^ self failedAt: (chart at: (i - 1)) ].
+		itemSet
 			processItems: [ :item | 
 				item isFinal
-					ifTrue: [ self complete: item at: chart ]
+					ifTrue: [ self complete: item at: itemSet ]
 					ifFalse: [ 
 						item symbolAtDot isTerminal
 							ifTrue: [ 
 								(i <= words size and: [ item symbolAtDot matches: (words at: i) ])
-									ifTrue: [ self scan: item with: (words at: i) at: (charts at: i + 1) ] ]
-							ifFalse: [ self predict: item at: chart ] ] ] ].
-	^ charts
+									ifTrue: [ self scan: item with: (words at: i) at: (chart at: i + 1) ] ]
+							ifFalse: [ self predict: item at: itemSet ] ] ] ].
+	^ chart

@@ -12,6 +12,6 @@
 		"finalItemsByNonterminal",
 		"itemsByKey"
 	],
-	"name" : "JEChart",
+	"name" : "JEItemSet",
 	"type" : "normal"
 }

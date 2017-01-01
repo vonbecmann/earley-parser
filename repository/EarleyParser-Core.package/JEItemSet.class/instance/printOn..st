@@ -1,7 +1,7 @@
 printing
 printOn: aStream
-	"Chart [number]"
+	"ItemSet [number]"
 
-	aStream nextPutAll: 'Chart ['.
+	aStream nextPutAll: 'ItemSet ['.
 	number printOn: aStream.
 	aStream nextPut: $]

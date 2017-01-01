@@ -8,6 +8,6 @@
 	"instvars" : [
 		"chart"
 	],
-	"name" : "JEChartTest",
+	"name" : "JEItemSetTest",
 	"type" : "normal"
 }

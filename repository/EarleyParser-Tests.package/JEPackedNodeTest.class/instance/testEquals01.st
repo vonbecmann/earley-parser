@@ -3,8 +3,8 @@ testEquals01
 	| dottedRule one another |
 	dottedRule := (JERule head: (JENonterminal named: 'A') body: #()) dotAtEnd.
 	
-	one := JEPackedNode model: (dottedRule startedAt: (JEChart number: 10)).
-	another := JEPackedNode model: (dottedRule startedAt: (JEChart number: 10)).
+	one := JEPackedNode model: (dottedRule startedAt: (JEItemSet number: 10)).
+	another := JEPackedNode model: (dottedRule startedAt: (JEItemSet number: 10)).
 	
 	self assert: one equals: another.
 	self assert: one hash equals: another hash.

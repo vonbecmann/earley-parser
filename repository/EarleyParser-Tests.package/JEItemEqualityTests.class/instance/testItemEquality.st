@@ -1,7 +1,7 @@
 tests
 testItemEquality
 	| one another first rule |
-	first := JEChart number: 1.
+	first := JEItemSet number: 1.
 	rule := JERule
 		head: (JENonterminal named: 'T')
 		body:

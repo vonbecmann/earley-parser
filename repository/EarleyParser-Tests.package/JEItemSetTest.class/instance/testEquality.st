@@ -1,9 +1,9 @@
 tests
-testChartEquality
+testEquality
 	| one another other |
-	one := JEChart number: 1.
-	another := JEChart number: 1.
-	other := JEChart number: 2.
+	one := JEItemSet number: 1.
+	another := JEItemSet number: 1.
+	other := JEItemSet number: 2.
 	self assert: one equals: another.
 	self assert: one hash equals: another hash.
 	self assert: another equals: one.

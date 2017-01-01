@@ -1,8 +1,7 @@
 tests
-testSizeWithOneItem
+testLike
 	| one firstChart rule |
-	self assert: chart isEmpty.
-	firstChart := JEChart number: 1.
+	firstChart := JEItemSet number: 1.
 	rule := JERule
 		head: (JENonterminal named: 'T')
 		body:
@@ -10,5 +9,4 @@ testSizeWithOneItem
 			(JETerminal character: $+).
 			(JENonterminal named: 'P')}.
 	one := (rule dotAt: 2) startedAt: firstChart.
-	chart add: one.
-	self assert: chart size equals: 1
+	self assert: (chart like: one) equals: nil

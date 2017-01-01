@@ -1,7 +1,7 @@
 tests
 testAddEmptyFamily01
 	| item first |
-	first := JEChart number: 1.
+	first := JEItemSet number: 1.
 	item := (JERule head: (JENonterminal named: 'F') body: {}) dotAtEnd startedAt: first.
 	item addFamily: JEFamily empty.
 	item addFamily: JEFamily empty.

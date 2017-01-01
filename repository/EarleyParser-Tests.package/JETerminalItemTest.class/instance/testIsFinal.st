@@ -4,7 +4,7 @@ testIsFinal
 	terminal := JETerminalItem
 		given: (JETerminal character: $H)
 		word: $H
-		startedAt: (JEChart number: 1)
-		andEndedAt: (JEChart number: 12).
+		startedAt: (JEItemSet number: 1)
+		andEndedAt: (JEItemSet number: 12).
 
 	self assert: terminal isFinal 

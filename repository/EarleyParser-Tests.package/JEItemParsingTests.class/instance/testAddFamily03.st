@@ -1,9 +1,9 @@
 tests
 testAddFamily03
 	| first middle last rule target previous scanned family |
-	first := JEChart number: 1.
-	middle := JEChart number: 3.
-	last := JEChart number: 4.
+	first := JEItemSet number: 1.
+	middle := JEItemSet number: 3.
+	last := JEItemSet number: 4.
 	rule := JERule
 		head: (JENonterminal named: 'F')
 		body: {(JENonterminal named: 'G'). (JETerminal character: $H)}.

@@ -4,8 +4,8 @@ testEquals02
 	terminal := JETerminalItem
 		given: (JETerminal character: $J)
 		word: $J
-		startedAt: (JEChart number: 2)
-		andEndedAt: (JEChart number: 3).
+		startedAt: (JEItemSet number: 2)
+		andEndedAt: (JEItemSet number: 3).
 	one := JEPackedNode model: terminal.
 	another := JEPackedNode model: terminal.
 	self assert: one equals: another.

@@ -4,13 +4,13 @@ testEqual03
 	one := JETerminalItem
 		given: (JETerminal character: $H)
 		word: $H
-		startedAt: (JEChart number: 1)
-		andEndedAt: (JEChart number: 12).
+		startedAt: (JEItemSet number: 1)
+		andEndedAt: (JEItemSet number: 12).
 	another := JETerminalItem
 		given: (JETerminal character: $H)
 		word: $H
-		startedAt: (JEChart number: 1)
-		andEndedAt: (JEChart number: 1).
+		startedAt: (JEItemSet number: 1)
+		andEndedAt: (JEItemSet number: 1).
 	
 	self deny: one = another.
 	self deny: one hash = another hash.

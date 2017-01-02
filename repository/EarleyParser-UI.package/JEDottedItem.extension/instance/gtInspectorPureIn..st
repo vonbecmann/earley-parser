@@ -4,6 +4,6 @@ gtInspectorPureIn: composite
 		display: 
 			[ {('key' -> self key).
 				('dottedRule' -> self dottedRule).
-				('startChart' -> self startChart).
-				('endChart' -> self endChart)} ];
+				(#start -> self start).
+				(#end -> self end)} ];
 		yourself

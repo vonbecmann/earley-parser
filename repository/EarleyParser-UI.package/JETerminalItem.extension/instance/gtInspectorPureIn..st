@@ -4,6 +4,6 @@ gtInspectorPureIn: composite
 		display: 
 			[ {('terminal' -> self terminal).
 				('word' -> word).
-				('startChart' -> self startChart).
-				('endChart' -> self endChart)} ];
+				(#start -> self start).
+				(#end -> self end)} ];
 		yourself

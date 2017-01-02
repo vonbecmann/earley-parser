@@ -1,3 +1,3 @@
 *EarleyParser-UI
 gtDisplayChartString
-	^ String streamContents: [ :s | self printChartOn: s ]
+	^ String streamContents: [ :s | self printIntervalOn: s ]

@@ -1,6 +1,6 @@
 initialize-release
 release
-	"a chart has references to items and an item has references to charts"
+	"an item set has references to items and an item has references to an item set"
 
 	items := nil.
 	predictionItemsByNonterminal := nil.

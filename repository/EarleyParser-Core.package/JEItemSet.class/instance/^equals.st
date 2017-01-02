@@ -1,5 +1,5 @@
 comparing
-= aChart
-	self == aChart
+= itemSet
+	self == itemSet
 		ifTrue: [ ^ true ].
-	^ self class == aChart class and: [ number == aChart number ]
+	^ self class == itemSet class and: [ number == itemSet number ]

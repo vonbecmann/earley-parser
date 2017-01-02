@@ -1,13 +1,13 @@
 {
-	"commentStamp" : "BernardoContreras 12/30/2016 00:35",
+	"commentStamp" : "BernardoContreras 1/2/2017 18:33",
 	"super" : "Object",
 	"category" : "EarleyParser-Core-Implementation",
 	"classinstvars" : [ ],
 	"pools" : [ ],
 	"classvars" : [ ],
 	"instvars" : [
-		"startChart",
-		"endChart",
+		"start",
+		"end",
 		"key",
 		"node"
 	],

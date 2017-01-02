@@ -1,7 +1,7 @@
 an Earley item or state. like a LR(0) item. 
 
-start chart: where the recognition started.
-end chart: the chart that contains this item or nil. but an item always belongs to a chart.
+start: the item set where the recognition started.
+end: the item set that contains this item or nil. but an item always belongs to a item set.
 
 key : a composed key useful to know if this item already exists in a chart.
 

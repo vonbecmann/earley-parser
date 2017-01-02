@@ -1,3 +1,3 @@
 comparing
 hash
-	^ ((dottedRule hash + startChart hash) hashMultiply + endChart hash) hashMultiply
+	^ ((dottedRule hash + start hash) hashMultiply + end hash) hashMultiply

@@ -1,3 +1,3 @@
 comparing
 equals: anItem
-	^ self class == anItem class and: [ startChart = anItem startChart ]
+	^ self class == anItem class and: [ start = anItem start ]

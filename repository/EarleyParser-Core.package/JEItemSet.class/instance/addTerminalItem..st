@@ -11,5 +11,5 @@ addTerminalItem: terminalItem
 		at: terminalItem key first
 		add: (Association key: terminalItem key second value: terminalItem).
 	^ terminalItem
-		endChart: self;
+		end: self;
 		yourself

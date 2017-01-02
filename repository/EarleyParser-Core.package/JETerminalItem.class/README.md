@@ -1,8 +1,8 @@
-a terminal item that starts and ends at the charts.
+a terminal item that starts and ends at the given item sets.
 
-a terminal matches a word in the input string while parsing between start and end charts.
+a terminal matches a word in the input string while parsing between start and end item sets.
 
-[  terminal  @ [ start chart, end chart ] ].
+[  terminal  @ [ start , end ] ].
 
 I'm a special case of item.
 node 

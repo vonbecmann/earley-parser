@@ -1,3 +1,3 @@
 accessing
 finalItemsWithHeadIsSymbolAtDot
-	^ self endChart finalItemsWithHeadIs: self symbolAtDot
+	^ self end finalItemsWithHeadIs: self symbolAtDot

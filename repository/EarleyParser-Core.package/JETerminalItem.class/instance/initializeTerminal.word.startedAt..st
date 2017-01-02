@@ -1,7 +1,7 @@
 initialization
-initializeTerminal: aTerminal word: aWord startedAt: aChart
+initializeTerminal: aTerminal word: aWord startedAt: itemSet
 	self initialize.
 	terminal := aTerminal.
 	word := aWord.
-	startChart := aChart.
-	key := JEOrderedPair first: terminal second: startChart
+	start := itemSet.
+	key := JEOrderedPair first: terminal second: start

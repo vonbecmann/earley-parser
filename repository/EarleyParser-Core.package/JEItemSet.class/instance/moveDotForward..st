@@ -9,7 +9,7 @@ moveDotForward: previousItem
 	(itemsByKey at: previousItem dottedRule moveDotForward ifAbsent: nil)
 		ifNotNil: 
 			[ :dict | 
-				(dict at: previousItem startChart ifAbsent: nil) 
+				(dict at: previousItem start ifAbsent: nil) 
 					ifNotNil: [ :found | ^ found ] ].
 	nextItem := previousItem moveDotForward.
 	itemsByKey 

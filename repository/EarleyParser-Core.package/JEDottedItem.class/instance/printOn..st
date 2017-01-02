@@ -1,11 +1,11 @@
 printing
 printOn: aStream
-	"[ dotted rule @ start chart number ]"
+	"[ dotted rule @ start ]"
 
-	"[ dotted rule @  [start chart number, end chart number ] ]"
+	"[ dotted rule @  [ start, end ] ]"
 
 	aStream nextPut: $[.
 	dottedRule printOn: aStream.
 	aStream nextPutAll: ' @ '.
-	self printChartOn: aStream.
+	self printIntervalOn: aStream.
 	aStream nextPut: $]

@@ -1,3 +1,3 @@
 comparing
 hash
-	^ (terminal hash + (startChart hash + endChart hash) hashMultiply) hashMultiply
+	^ (terminal hash + (start hash + end hash) hashMultiply) hashMultiply

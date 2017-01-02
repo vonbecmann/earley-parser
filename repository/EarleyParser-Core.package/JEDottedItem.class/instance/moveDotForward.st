@@ -1,3 +1,3 @@
 accessing
 moveDotForward
-	^ self class given: dottedRule moveDotForward startedAt: startChart
+	^ self class given: dottedRule moveDotForward startedAt: start

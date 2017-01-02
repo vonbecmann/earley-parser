@@ -1,9 +1,9 @@
 printing
 printOn: aStream
-	"[terminal @ [start chart number, end chart number]]"
+	"[ terminal @ [ start, end ] ]"
 
 	aStream nextPut: $[.
 	terminal printOn: aStream.
 	aStream nextPutAll: ' @ '.
-	self printChartOn: aStream.
+	self printIntervalOn: aStream.
 	aStream nextPut: $]

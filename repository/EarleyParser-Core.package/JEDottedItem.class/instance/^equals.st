@@ -4,10 +4,10 @@ comparing
 		ifTrue: [ ^ true ].
 	self class == anItem class
 		ifFalse: [ ^ false ].
-	startChart = anItem startChart
+	start = anItem start
 		ifFalse: [ ^ false ].
 	dottedRule = anItem dottedRule
 		ifFalse: [ ^ false ].
-	endChart = anItem endChart
+	end = anItem end
 		ifFalse: [ ^ false ].
 	^ true

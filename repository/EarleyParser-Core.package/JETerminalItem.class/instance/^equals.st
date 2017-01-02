@@ -4,9 +4,9 @@ comparing
 		ifTrue: [ ^ true ].
 	self class == anObject class
 		ifFalse: [ ^ false ].
-	startChart = anObject startChart
+	start = anObject start
 		ifFalse: [ ^ false ].
-	endChart = anObject endChart
+	end = anObject end
 		ifFalse: [ ^ false ].
 	terminal = anObject terminal
 		ifFalse: [ ^ false ].

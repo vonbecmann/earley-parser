@@ -1,7 +1,7 @@
 initialize-release
 release
-	startChart := nil.
-	endChart := nil.
+	start := nil.
+	end := nil.
 	key := nil.
 	node := nil.
 	super release

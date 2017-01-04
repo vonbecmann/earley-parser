@@ -1,3 +1,3 @@
 tests
 testAsString
-	self assert: chart asString equals: 'ItemSet [10]'
+	self assert: itemSet asString equals: 'ItemSet [10]'

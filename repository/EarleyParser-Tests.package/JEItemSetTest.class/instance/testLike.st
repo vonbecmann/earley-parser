@@ -1,12 +1,12 @@
 tests
 testLike
-	| one firstChart rule |
-	firstChart := JEItemSet number: 1.
+	| one first rule |
+	first := JEItemSet number: 1.
 	rule := JERule
 		head: (JENonterminal named: 'T')
 		body:
 			{(JENonterminal named: 'T').
 			(JETerminal character: $+).
 			(JENonterminal named: 'P')}.
-	one := (rule dotAt: 2) startedAt: firstChart.
-	self assert: (chart like: one) equals: nil
+	one := (rule dotAt: 2) startedAt: first.
+	self assert: (itemSet like: one) equals: nil

@@ -1,3 +1,3 @@
 tests
 testIsEmpty
-	self assert: chart isEmpty
+	self assert: itemSet isEmpty

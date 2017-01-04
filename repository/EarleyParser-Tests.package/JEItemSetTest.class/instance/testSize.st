@@ -1,4 +1,4 @@
 tests
 testSize
-	self assert: chart isEmpty.
-	self assert: chart size equals: 0
+	self assert: itemSet isEmpty.
+	self assert: itemSet size equals: 0

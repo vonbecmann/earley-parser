@@ -1,3 +1,3 @@
 running
 setUp
-	chart := JEItemSet number: 10
+	itemSet := JEItemSet number: 10

@@ -2,4 +2,4 @@ printing
 printOn: aStream
 	"name"
 
-	self named do: [ :each | aStream nextPut: each ]
+	aStream nextPutAll: name

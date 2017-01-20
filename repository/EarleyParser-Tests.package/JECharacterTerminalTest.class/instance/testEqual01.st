@@ -1,8 +1,8 @@
 tests
-testEquality02
+testEqual01
 	| one another |
-	one := JETerminal character: $+.
-	another := JETerminal character: $*.
+	one := JECharacterTerminal character: $+.
+	another := JECharacterTerminal character: $*.
 	self deny: one = another.
 	self deny: one hash = another hash.
 	self deny: another = one.

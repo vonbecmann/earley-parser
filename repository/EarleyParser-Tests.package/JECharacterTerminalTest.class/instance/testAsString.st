@@ -1,3 +1,3 @@
 tests
 testAsString
-	self assert: (JETerminal character: $+) asString equals: '$+'
+	self assert: (JECharacterTerminal character: $+) asString equals: '$+'

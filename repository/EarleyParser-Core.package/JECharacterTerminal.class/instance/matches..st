@@ -1,3 +1,3 @@
 comparing
 matches: aCharacter
-	^ self character = aCharacter
+	^ character = aCharacter

@@ -5,9 +5,9 @@ printOn: aStream
 
 	| middleDot |
 	middleDot := Character value: 183.
-	self head printOn: aStream.
+	rule head printOn: aStream.
 	aStream nextPutAll: ': '.
-	self rule body
+	rule body
 		withIndexDo: [ :each :index | 
 			index = 1
 				ifFalse: [ aStream nextPutAll: ', ' ].

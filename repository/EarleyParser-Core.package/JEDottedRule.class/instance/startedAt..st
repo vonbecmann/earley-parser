@@ -1,5 +1,5 @@
 accessing
-startedAt: chart
-	"an item of myself that started at the given chart"
+startedAt: itemSet
+	"an item of myself that started at the given itemset"
 
-	^ JEDottedItem given: self startedAt: chart
+	^ JEDottedItem given: self startedAt: itemSet

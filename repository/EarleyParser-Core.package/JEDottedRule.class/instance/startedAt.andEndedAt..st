@@ -1,5 +1,5 @@
 accessing
-startedAt: aChart andEndedAt: anotherChart 
-	"an item of myself that started and ended at the given charts"
+startedAt: firstItemSet andEndedAt: secondItemSet
+	"an item of myself that started and ended at the given itemsets"
 
-	^ JEDottedItem given: self startedAt: aChart andEndedAt: anotherChart 
+	^ JEDottedItem given: self startedAt: firstItemSet andEndedAt: secondItemSet

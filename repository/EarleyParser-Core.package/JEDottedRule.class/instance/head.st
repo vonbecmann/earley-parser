@@ -1,3 +1,3 @@
 accessing
 head
-	^ self rule head
+	^ rule head

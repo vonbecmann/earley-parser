@@ -1,3 +1,3 @@
 accessing
 predictionItemsWithSymbolAtDotIsHead
-	^ self start predictionItemsWithSymbolAtDotIs: self head
+	^ start predictionItemsWithSymbolAtDotIs: dottedRule head

@@ -1,3 +1,3 @@
 accessing
 finalItemsWithHeadIsSymbolAtDot
-	^ self end finalItemsWithHeadIs: self symbolAtDot
+	^ end finalItemsWithHeadIs: dottedRule symbolAtDot

@@ -1,7 +1,7 @@
 tests
 testAsString
 	self
-		assert: (JETerminal charSet: ($a to: $z)) asString
+		assert: (JECharacterSetTerminal charSet: ($a to: $z)) asString
 		equals:
 			(String
 				streamContents: [ :s | 

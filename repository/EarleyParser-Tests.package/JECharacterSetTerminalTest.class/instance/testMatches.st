@@ -1,6 +1,6 @@
 tests
 testMatches
 	| terminal |
-	terminal := JETerminal charSet: Character separators.
+	terminal := JECharacterSetTerminal charSet: Character separators.
 
 	Character separators do: [ :each | self assert: (terminal matches: each) ].

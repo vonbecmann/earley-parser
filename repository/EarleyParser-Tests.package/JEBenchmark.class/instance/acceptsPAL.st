@@ -1,5 +1,5 @@
 public
-acceptsPALBenchmark
+acceptsPAL
 	"
 | date        | time to run    |
 | 11 May 2016 | 0:00:00:05.916 |

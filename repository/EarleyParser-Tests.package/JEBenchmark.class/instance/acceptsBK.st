@@ -1,5 +1,5 @@
 public
-acceptsBKBenchmark
+acceptsBK
 	" 
 | date        | time to run    |
 | 17 May 2016 | 0:00:00:00.052 |

@@ -1,10 +1,9 @@
 public
-acceptsRRBenchmark
+parseRR
 	" 
 | date        | time to run    |
-| 18 October 2016 | 0:00:00:05.493 |
-| 21 October 2016 | 0:00:00:05.341 |
-
+| 21 October 2016 | 0:00:00:15.372 |
+| 21 October 2016 | 0:00:00:15.401 |
 	"
 
 	| n words grammar |
@@ -12,4 +11,4 @@ acceptsRRBenchmark
 	words := String new: n.
 	words from: 1 to: n put: $x.
 	grammar := JEExemplar RR.
-	^ [ grammar accepts: words ] timeToRun
+	^ [ grammar parse: words ] timeToRun

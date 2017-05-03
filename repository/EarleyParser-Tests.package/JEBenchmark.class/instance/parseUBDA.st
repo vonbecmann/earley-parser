@@ -1,5 +1,5 @@
 public
-parseUBDABenchmark
+parseUBDA
 	"
 | date        | time to run    |
 | 8 June 2016 | 0:00:00:00.587 |

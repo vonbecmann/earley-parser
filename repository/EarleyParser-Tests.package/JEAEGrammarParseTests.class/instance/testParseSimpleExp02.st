@@ -8,5 +8,7 @@ testParseSimpleExp02
 				self assert: failure position equals: 2.
 				self 
 					assertCollection: failure expectedSymbols  
-					hasSameElements: {(JETerminal character: $*). (JETerminal character: $+)} ]
+					hasSameElements: {(JETerminal character: $*). (JETerminal character: $+).
+											(JENonterminal named: 'star symbol'). 
+											(JENonterminal named: 'plus symbol').} ]
 				

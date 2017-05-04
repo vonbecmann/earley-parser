@@ -12,6 +12,9 @@ testLeftmostDerivationMultiplyExp
 					('T' -> 2).
 					('T' -> 1).
 					('P' -> 1).
-					('P' -> 1)})
+					('letter a symbol' -> 1).
+					('star symbol' -> 1).
+					('P' -> 1).
+					('letter a symbol' -> 1).})
 		equals: forest leftmostDerivation
 		

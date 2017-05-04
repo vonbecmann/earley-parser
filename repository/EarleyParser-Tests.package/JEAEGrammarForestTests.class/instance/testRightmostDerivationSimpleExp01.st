@@ -10,5 +10,6 @@ testRightmostDerivationSimpleExp01
 				rulesAtAll:
 					{('E' -> 1).
 					('T' -> 1).
-					('P' -> 1)})
+					('P' -> 1).
+					('letter a symbol' -> 1).})
 		equals: forest rightmostDerivation

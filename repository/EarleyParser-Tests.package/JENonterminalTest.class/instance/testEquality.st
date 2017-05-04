@@ -1,5 +1,5 @@
 tests
-testNonterminalEquality
+testEquality
 	| one another |
 	one := JENonterminal named: 'E'.
 	another := JENonterminal named: 'E'.

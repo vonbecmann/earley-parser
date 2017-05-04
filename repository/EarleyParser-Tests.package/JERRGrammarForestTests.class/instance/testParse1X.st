@@ -5,4 +5,4 @@ testParse1X
 	self deny: forest isAmbiguous.
 	self
 		assertCollection: forest leftmostDerivation
-		equals: (grammar rulesAtAll: {('A' -> 1)})
+		equals: (grammar rulesAtAll: {('A' -> 1). ('letter x symbol' -> 1)})

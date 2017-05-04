@@ -1,7 +1,6 @@
 tests
 testParse6Xs
 	forest := grammar parse: 'xxxxxx'.
-
 	self deny: forest isAmbiguous.
 	self
 		assertCollection: forest leftmostDerivation
@@ -9,8 +8,14 @@ testParse6Xs
 			(grammar
 				rulesAtAll:
 					{('A' -> 2).
+					('letter x symbol' -> 1).
 					('A' -> 2).
+					('letter x symbol' -> 1).
 					('A' -> 2).
+					('letter x symbol' -> 1).
 					('A' -> 2).
+					('letter x symbol' -> 1).
 					('A' -> 2).
-					('A' -> 1)})
+					('letter x symbol' -> 1).
+					('A' -> 1).
+					('letter x symbol' -> 1)})

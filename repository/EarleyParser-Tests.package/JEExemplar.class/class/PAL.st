@@ -1,10 +1,9 @@
 instance creation
 PAL
 	"pallindrome grammar. page 65"
-	^ [	| A x |
-		A := JENonterminal named: 'A'.
-		x := JETerminal character: $x.
-		JEGrammar
-			basedOn:
-			{	A -> {x}.
-				A -> {x. A. x} } ] value
+
+	^ JEGrammar
+		productionRules:
+			#(	#('A' #('letter x symbol')) 
+				#('A' #('letter x symbol' 'A' 'letter x symbol')))
+		representations: {('letter x symbol' -> (JETerminal character: $x))}

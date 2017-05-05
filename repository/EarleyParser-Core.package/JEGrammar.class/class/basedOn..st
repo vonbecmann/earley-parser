@@ -1,4 +1,4 @@
-instance creation
+private
 basedOn: aCollectionOfRules
 	"a grammar based on a collection of rules, starting at the first rule's left hand."
 

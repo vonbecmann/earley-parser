@@ -11,4 +11,6 @@ testParse2X
 				rulesAtAll:
 					{('A' -> 2).
 					('A' -> 1).
-					('A' -> 1)})
+					('letter x symbol' -> 1).
+					('A' -> 1).
+					('letter x symbol' -> 1)})

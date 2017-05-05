@@ -6,4 +6,4 @@ testParse1X
 	self assert: forest numberOfTrees equals: 1.
 	self
 		assertCollection: forest leftmostDerivation
-		equals: (grammar rulesAtAll: {('A' -> 1)})
+		equals: (grammar rulesAtAll: {('A' -> 1). ('letter x symbol' -> 1)})

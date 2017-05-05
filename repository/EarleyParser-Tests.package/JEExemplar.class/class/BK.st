@@ -3,17 +3,13 @@ BK
 	"has unbounded ambiguity, yet it is a time n grammar. page 39.
 	Tomita's An Efficient Context-free Parsing Algorithm For Natural Languages. 
 	page 762. figure 23: Grammar G1."
-	^ [ | K J F I x |
-		K := JENonterminal named: 'K'.
-		J := JENonterminal named: 'J'.
-		F := JENonterminal named: 'F'.
-		I := JENonterminal named: 'I'.
-		x := JETerminal character: $x.
-		JEGrammar
-			basedOn:
-			{	K -> {}.		
-				K -> {K. J}.
-				J -> {F}.
-				J -> {I}.
-				F -> {x}.
-				I -> {x} } ] value
+
+	^ JEGrammar
+		productionRules:
+			#(	#('K' #()) 
+				#('K' #('K' 'J')) 
+				#('J' #('F')) 
+				#('J' #('I')) 
+				#('F' #('letter x symbol')) 
+				#('I' #('letter x symbol')))
+		representations: {('letter x symbol' -> (JETerminal character: $x))}

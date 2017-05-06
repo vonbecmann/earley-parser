@@ -1,6 +1,7 @@
 instance creation
 productionRules: productionRulesArray representations: terminalNotionToRepresentationList
 	"
+	a grammar based on a collection of rules, starting at the first rule's left hand.
 	Production Rules
 	""
 		expression: term.
@@ -24,17 +25,16 @@ productionRules: productionRulesArray representations: terminalNotionToRepresent
 			('letter a symbol' -> (JETerminal character: $a)). }.
 	""
 	"
+
 	| productionRules representationRules |
+	self assert: productionRulesArray isNotEmpty description: 'The collection of rules cannot be empty.'.
+	self assert: terminalNotionToRepresentationList isNotEmpty description: 'The collection of rules cannot be empty.'.
 	productionRules := productionRulesArray
-		collect: 
-			[ :each | 
-				JEProductionRule
-					head: (JENonterminal named: each first)
-					body: (each second collect: [ :notionNamed | JENonterminal named: notionNamed ]) ].
-	representationRules := terminalNotionToRepresentationList 
-		collect: 
-			[ :eachAssociation |
-				JEProductionRule 
-					head: (JENonterminal named: eachAssociation key)
-					body: { eachAssociation value } ].
-	^ self basicNew initializeRules: (productionRules, representationRules) startNonterminal: productionRules first head
+		collect: [ :each | 
+			JEProductionRule
+				head: (JENonterminal named: each first)
+				body: (each second collect: [ :notionNamed | JENonterminal named: notionNamed ]) ].
+	representationRules := terminalNotionToRepresentationList
+		collect:
+			[ :eachAssociation | JEProductionRule head: (JENonterminal named: eachAssociation key) body: {eachAssociation value} ].
+	^ self basicNew initializeRules: productionRules , representationRules startNonterminal: productionRules first head

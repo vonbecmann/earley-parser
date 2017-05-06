@@ -1,7 +1,7 @@
 {
 	"commentStamp" : "BernardoContreras 8/2/2014 22:34",
 	"super" : "TestCase",
-	"category" : "EarleyParser-Tests-Public",
+	"category" : "EarleyParser-Tests-Implementation",
 	"classinstvars" : [ ],
 	"pools" : [ ],
 	"classvars" : [ ],

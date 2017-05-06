@@ -1,12 +1,10 @@
 tests
 testStartAtNonterminal02
-	grammar := JEGrammar
-		basedOn:
-			{(JENonterminal named: 'A') -> {(JENonterminal named: 'B')}.
-			 (JENonterminal named: 'A') -> {}.
-			 (JENonterminal named: 'B') -> {}}.
+	grammar := JEGrammar 
+						productionRules: #(#('A' #('B')) #('A' #()) #('A' #('letter x symbol')) #('B' #())) 
+						representations: {('letter x symbol' -> (JETerminal character: $x))}.
 
-	self assert: grammar rulesSize equals: 4.
+	self assert: grammar rulesSize equals: 6.
 	self 
 		should: [ grammar startAt: 'Z' ] 
 		raise: Error 

@@ -1,7 +1,6 @@
 tests
 testDuplicateNonterminals02
-	grammar := JEGrammar
-		basedOn:
-			{(JENonterminal named: 'A') -> {(JETerminal character: $B)}.
-			 (JENonterminal named: 'A') -> {(JETerminal character: $C). (JENonterminal named: 'A')}}.
-	self assert: grammar nonterminalsSize equals: 2
+	grammar := JEGrammar 
+						productionRules: #(#('A' #('letter x symbol')) #('A' #('A'))) 
+						representations: {('letter x symbol' -> (JETerminal character: $x))}.
+	self assert: grammar nonterminalsSize equals: 3

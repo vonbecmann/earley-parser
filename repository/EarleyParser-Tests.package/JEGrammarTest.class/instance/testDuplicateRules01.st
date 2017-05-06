@@ -1,7 +1,6 @@
 tests
 testDuplicateRules01
-	grammar := JEGrammar
-		basedOn:
-			{(JENonterminal named: 'A') -> {}.
-			 (JENonterminal named: 'A') -> {}}.
-	self assert: grammar rulesSize equals: 2
+	grammar := JEGrammar 
+						productionRules: #(#('A' #('letter x symbol')) #('A' #('letter x symbol'))) 
+						representations: {('letter x symbol' -> (JETerminal character: $x))}.
+	self assert: grammar rulesSize equals: 3

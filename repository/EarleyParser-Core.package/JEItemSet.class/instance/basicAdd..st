@@ -1,5 +1,8 @@
 private
 basicAdd: anItem
+	itemsByKey 
+		at: anItem key first 
+		add: (Association basicNew key: anItem key second value: anItem).
 	anItem isFinal
 		ifTrue: [ 
 			anItem start = self

@@ -1,3 +1,3 @@
 comparing
-<= itemSet 
-	^ number <= itemSet number
+<= column 
+	^ number <= column number

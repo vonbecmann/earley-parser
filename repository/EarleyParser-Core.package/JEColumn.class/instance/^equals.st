@@ -1,5 +1,5 @@
 comparing
-= itemSet
-	self == itemSet
+= column
+	self == column
 		ifTrue: [ ^ true ].
-	^ self class == itemSet class and: [ number == itemSet number ]
+	^ self class == column class and: [ number == column number ]

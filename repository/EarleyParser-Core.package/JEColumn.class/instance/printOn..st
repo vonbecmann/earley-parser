@@ -1,7 +1,7 @@
 printing
 printOn: aStream
-	"ItemSet [number]"
+	"Column [number]"
 
-	aStream nextPutAll: 'ItemSet ['.
+	aStream nextPutAll: 'Column ['.
 	number printOn: aStream.
 	aStream nextPut: $]

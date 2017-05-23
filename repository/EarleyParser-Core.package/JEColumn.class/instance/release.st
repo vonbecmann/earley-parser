@@ -1,6 +1,6 @@
 initialize-release
 release
-	"an item set has references to items and an item has references to an item set"
+	"a column has references to items and an item has references to a column"
 
 	items := nil.
 	predictionItemsByNonterminal := nil.

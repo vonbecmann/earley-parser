@@ -1,8 +1,10 @@
-a column of items at the given positon in the chart.
+a column of items at the given position in the chart.
 
 acts as a set of items.
 
 Nonterminals are unique, that's why they are use as a key in the dictionaries.
+
+number - a position in the chart.
 
 items - a queue of items to be processed in order.
 

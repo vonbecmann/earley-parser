@@ -1,7 +1,7 @@
 tests
 testItemEquality03
 	| one another first rule |
-	first := JEItemSet number: 1.
+	first := JEColumn number: 1.
 	rule := JERule
 		head: (JENonterminal named: 'T')
 		body:
@@ -9,7 +9,7 @@ testItemEquality03
 			(JETerminal character: $+).
 			(JENonterminal named: 'P')}.
 	one := (rule dotAt: 2) startedAt: first.
-	another := (rule dotAt: 2) startedAt: first andEndedAt: (JEItemSet number: 4).
+	another := (rule dotAt: 2) startedAt: first andEndedAt: (JEColumn number: 4).
 	self deny: one = another.
 	self deny: one hash = another hash.
 	self deny: another = one.

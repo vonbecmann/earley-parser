@@ -1,7 +1,7 @@
 tests
 testLike02
 	| one first rule |
-	first := JEItemSet number: 1.
+	first := JEColumn number: 1.
 	rule := JERule
 		head: (JENonterminal named: 'T')
 		body:

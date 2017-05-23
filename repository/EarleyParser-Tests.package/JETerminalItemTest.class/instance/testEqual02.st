@@ -4,13 +4,13 @@ testEqual02
 	one := JETerminalItem
 		given: (JETerminal charSet: ($a to: $z))
 		word: $z
-		startedAt: (JEItemSet number: 1)
-		andEndedAt: (JEItemSet number: 12).
+		startedAt: (JEColumn number: 1)
+		andEndedAt: (JEColumn number: 12).
 	another := JETerminalItem
 		given: (JETerminal charSet: ($a to: $z))
 		word: $b
-		startedAt: (JEItemSet number: 1)
-		andEndedAt: (JEItemSet number: 12).
+		startedAt: (JEColumn number: 1)
+		andEndedAt: (JEColumn number: 12).
 	
 	self assert: one equals: another.
 	self assert: one hash equals: another hash.

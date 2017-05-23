@@ -1,9 +1,9 @@
 tests
 testAddFamily01
 	| first middle last rule target previous complete family |
-	first := JEItemSet number: 1.
-	middle := JEItemSet number: 3.
-	last := JEItemSet number: 4.
+	first := JEColumn number: 1.
+	middle := JEColumn number: 3.
+	last := JEColumn number: 4.
 	rule := JERule
 		head: (JENonterminal named: 'F')
 		body: {(JENonterminal named: 'G'). (JENonterminal named: 'H')}.

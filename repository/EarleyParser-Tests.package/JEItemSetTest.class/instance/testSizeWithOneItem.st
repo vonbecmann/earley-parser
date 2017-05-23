@@ -2,7 +2,7 @@ tests
 testSizeWithOneItem
 	| one first rule |
 	self assert: itemSet isEmpty.
-	first := JEItemSet number: 1.
+	first := JEColumn number: 1.
 	rule := JERule
 		head: (JENonterminal named: 'T')
 		body:

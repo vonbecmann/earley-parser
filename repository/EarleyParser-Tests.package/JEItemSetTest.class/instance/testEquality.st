@@ -1,9 +1,9 @@
 tests
 testEquality
 	| one another other |
-	one := JEItemSet number: 1.
-	another := JEItemSet number: 1.
-	other := JEItemSet number: 2.
+	one := JEColumn number: 1.
+	another := JEColumn number: 1.
+	other := JEColumn number: 2.
 	self assert: one equals: another.
 	self assert: one hash equals: another hash.
 	self assert: another equals: one.

@@ -1,3 +1,3 @@
 running
 setUp
-	itemSet := JEItemSet number: 10
+	itemSet := JEColumn number: 10

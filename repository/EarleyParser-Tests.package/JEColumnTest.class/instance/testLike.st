@@ -1,7 +1,6 @@
 tests
-testSizeWithOneItem
+testLike
 	| one first rule |
-	self assert: itemSet isEmpty.
 	first := JEColumn number: 1.
 	rule := JERule
 		head: (JENonterminal named: 'T')
@@ -10,5 +9,4 @@ testSizeWithOneItem
 			(JETerminal character: $+).
 			(JENonterminal named: 'P')}.
 	one := (rule dotAt: 2) startedAt: first.
-	itemSet add: one.
-	self assert: itemSet size equals: 1
+	self assert: (column like: one) equals: nil

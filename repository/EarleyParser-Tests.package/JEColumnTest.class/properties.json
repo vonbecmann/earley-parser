@@ -6,8 +6,8 @@
 	"pools" : [ ],
 	"classvars" : [ ],
 	"instvars" : [
-		"itemSet"
+		"column"
 	],
-	"name" : "JEItemSetTest",
+	"name" : "JEColumnTest",
 	"type" : "normal"
 }

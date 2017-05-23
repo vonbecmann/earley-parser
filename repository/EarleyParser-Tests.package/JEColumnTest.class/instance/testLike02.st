@@ -9,6 +9,6 @@ testLike02
 			(JETerminal character: $+).
 			(JENonterminal named: 'P')}.
 	one := (rule dotAt: 2) startedAt: first.
-	itemSet add: one.
-	self assert: (itemSet like: one) equals: one.
-	self assert: (itemSet like: one) == (itemSet like: one)
+	column add: one.
+	self assert: (column like: one) equals: one.
+	self assert: (column like: one) == (column like: one)

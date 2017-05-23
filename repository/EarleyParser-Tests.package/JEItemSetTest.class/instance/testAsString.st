@@ -1,3 +1,3 @@
 tests
 testAsString
-	self assert: itemSet asString equals: 'ItemSet [10]'
+	self assert: itemSet asString equals: 'Column [10]'

@@ -1,5 +1,5 @@
 private operations
-predict: item at: itemSet
+predict: item at: column
 	"
 	Prediction:
 		For every state in S(k) of the form (X -> a * Y b, j),
@@ -20,5 +20,5 @@ predict: item at: itemSet
 				because we may missed to complete a newly created item.
 	"
 
-	self predictNonterminal: item symbolAtDot at: itemSet.
-	item finalItemsWithHeadIsSymbolAtDot do: [ :again | self complete: again at: itemSet ]
+	self predictNonterminal: item symbolAtDot at: column.
+	item finalItemsWithHeadIsSymbolAtDot do: [ :again | self complete: again at: column ]

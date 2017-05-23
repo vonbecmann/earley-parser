@@ -1,5 +1,5 @@
 private operations
-scan: item with: word at: itemSet
+scan: item with: word at: column
 	"scan: add a new item with the dot move forward, over the recently scan terminal.
 	If a is the next input symbol
 	then
@@ -7,4 +7,4 @@ scan: item with: word at: itemSet
 			add (X -> alpha a *beta, j) to S(k+1).
 	 Optimized fo efficiency. "
 
-	self addFamilyWith: item word: word to: (itemSet moveDotForward: item)
+	self addFamilyWith: item word: word to: (column moveDotForward: item)

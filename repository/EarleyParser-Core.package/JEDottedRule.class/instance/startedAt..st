@@ -1,5 +1,5 @@
 accessing
-startedAt: itemSet
-	"an item of myself that started at the given itemset"
+startedAt: column
+	"an item of myself that started at the given column"
 
-	^ JEDottedItem given: self startedAt: itemSet
+	^ JEDottedItem given: self startedAt: column

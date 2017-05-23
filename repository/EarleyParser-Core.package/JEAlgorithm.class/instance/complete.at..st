@@ -1,5 +1,5 @@
 private operations
-complete: item at: itemSet
+complete: item at: column
 	"
 	Complete:
 		For every state in S(k) of the form (X -> y *, j), 
@@ -13,4 +13,4 @@ complete: item at: itemSet
 					self 
 						addFamilyWith: previous 
 						and: item 
-						to: (itemSet moveDotForward: previous) ]
+						to: (column moveDotForward: previous) ]

@@ -5,17 +5,17 @@ basicAccepts: words
 	chart := (1 to: n) collect: [ :index | JEColumn number: index ].
 	self predictNonterminal: grammar startSymbol at: chart first.
 	1 to: n do: [ :i | 
-		| itemSet |
-		itemSet := chart at: i.
-		itemSet isEmpty ifTrue: [ ^ self failedAt: (chart at: i - 1) ].
-		itemSet
+		| column |
+		column := chart at: i.
+		column isEmpty ifTrue: [ ^ self failedAt: (chart at: i - 1) ].
+		column
 			processItems: [ :item | 
 				item isFinal
-					ifTrue: [ self complete: item at: itemSet ]
+					ifTrue: [ self complete: item at: column ]
 					ifFalse: [ 
 						item symbolAtDot isTerminal
 							ifTrue: [ 
 								(i < n and: [ item symbolAtDot matches: (words at: i) ])
 									ifTrue: [ self scan: item with: (words at: i) at: (chart at: i + 1) ] ]
-							ifFalse: [ self predict: item at: itemSet ] ] ] ].
+							ifFalse: [ self predict: item at: column ] ] ] ].
 	^ chart

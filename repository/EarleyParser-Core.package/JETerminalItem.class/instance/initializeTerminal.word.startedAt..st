@@ -1,7 +1,7 @@
 initialization
-initializeTerminal: aTerminal word: aWord startedAt: itemSet
+initializeTerminal: aTerminal word: aWord startedAt: column
 	self initialize.
 	terminal := aTerminal.
 	word := aWord.
-	start := itemSet.
+	start := column.
 	key := JEOrderedPair first: terminal second: start

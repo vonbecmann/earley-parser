@@ -1,6 +1,6 @@
 initialization
-initializeDottedRule: aRule start: itemSet
+initializeDottedRule: aRule start: column
 	self initialize.
 	dottedRule := aRule.
-	start := itemSet.
+	start := column.
 	key := JEOrderedPair first: dottedRule second: start

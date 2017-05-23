@@ -2,7 +2,7 @@ private template
 basicAccepts: words
 	| n chart |
 	n := words size + 1.
-	chart := (1 to: n) collect: [ :index | JEItemSet number: index ].
+	chart := (1 to: n) collect: [ :index | JEColumn number: index ].
 	self predictNonterminal: grammar startSymbol at: chart first.
 	1 to: n do: [ :i | 
 		| itemSet |

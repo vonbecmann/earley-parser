@@ -1,4 +1,6 @@
-a set of items
+a column of items at the given positon in the chart.
+
+acts as a set of items.
 
 Nonterminals are unique, that's why they are use as a key in the dictionaries.
 

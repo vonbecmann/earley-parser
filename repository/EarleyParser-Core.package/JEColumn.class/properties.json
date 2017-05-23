@@ -1,5 +1,5 @@
 {
-	"commentStamp" : "BernardoContreras 12/29/2016 21:47",
+	"commentStamp" : "BernardoContreras 5/23/2017 19:01",
 	"super" : "Object",
 	"category" : "EarleyParser-Core-Implementation",
 	"classinstvars" : [ ],
@@ -12,6 +12,6 @@
 		"finalItemsByNonterminal",
 		"itemsByKey"
 	],
-	"name" : "JEItemSet",
+	"name" : "JEColumn",
 	"type" : "normal"
 }

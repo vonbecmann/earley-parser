@@ -1,18 +1,20 @@
 tests
-testDottedRuleEquality04
+testEquality02
 	| one another rule anotherRule |
 	rule := JERule
 		head: (JENonterminal named: 'T')
 		body:
-			{(JENonterminal named: 'F').
-			(JETerminal character: $.)}.
+			{(JENonterminal named: 'T').
+			(JETerminal character: $+).
+			(JENonterminal named: 'P')}.
 	anotherRule := JERule
 		head: (JENonterminal named: 'T')
 		body:
-			{(JENonterminal named: 'F').
-			(JETerminal character: $.)}.
-	one := rule dotAt: 2.
-	another := anotherRule dotAt: 2.
+			{(JENonterminal named: 'T').
+			(JETerminal character: $+).
+			(JENonterminal named: 'P')}.
+	one := JEDottedRule given: rule withDotAt: 2.
+	another := JEDottedRule given: anotherRule withDotAt: 2.
 	self deny: one = another.
 	self deny: one hash = another hash.
 	self deny: another = one.

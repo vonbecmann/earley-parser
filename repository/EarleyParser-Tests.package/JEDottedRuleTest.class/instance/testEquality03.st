@@ -1,5 +1,5 @@
 tests
-testDottedRuleEquality06
+testEquality03
 	| one another rule |
 	rule := JERule
 		head: (JENonterminal named: 'T')
@@ -7,7 +7,8 @@ testDottedRuleEquality06
 			{(JENonterminal named: 'T').
 			(JETerminal character: $+).
 			(JENonterminal named: 'P')}.
-	one := another := JEDottedRule given: rule withDotAt: 2.
+	one := rule dotAt: 2.
+	another := rule dotAt: 2.
 	self assert: one equals: another.
 	self assert: one hash equals: another hash.
 	self assert: another equals: one.

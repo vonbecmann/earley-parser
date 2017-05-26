@@ -1,1 +1,1 @@
-equality tests.
+nonterminal tests.

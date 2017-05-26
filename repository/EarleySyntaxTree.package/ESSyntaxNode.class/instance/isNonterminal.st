@@ -1,3 +1,3 @@
 testing
 isNonterminal
-	^ symbol isTerminal not
+	^ symbol isNonterminal

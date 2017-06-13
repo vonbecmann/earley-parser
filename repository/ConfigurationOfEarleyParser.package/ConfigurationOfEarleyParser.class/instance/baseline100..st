@@ -39,7 +39,7 @@ baseline100: spec
 				group: 'default' with: #('Core' 'Tests' 'Regex' 'SyntaxTree' 'Parser' 'UI');
 				group: 'Core' with: #('EarleyParser-Core');
 				group: 'Regex' with: #('EarleyParser-Regex');
-				group: 'Tests' with: #('EarleyParser-Tests');
-				group: 'SyntaxTree' with: #('EarleySyntaxTree' 'EarleySyntaxTree-UI' 'EarleySyntaxTree-Tests');
+				group: 'Tests' with: #('EarleyParser-Tests' 'EarleySyntaxTree-Tests');
+				group: 'SyntaxTree' with: #('EarleySyntaxTree');
 				group: 'Parser' with: #('Earley1VW');
-				group: 'UI' with: #('EarleyParser-UI') ]
+				group: 'UI' with: #('EarleyParser-UI' 'EarleySyntaxTree-UI') ]

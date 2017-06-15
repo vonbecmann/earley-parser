@@ -1,3 +1,3 @@
 instance creation
-charSet: aCharacterCollection
+of: aCharacterCollection
 	^ self basicNew initializeCharSet: aCharacterCollection

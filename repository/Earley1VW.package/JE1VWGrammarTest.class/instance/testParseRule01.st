@@ -1,6 +1,6 @@
 tests - rule
 testParseRule01
-	tree := self grammarStartingAt: 'rule' parseTree: 'exp:term.'.
+	tree := grammar parseTree: 'exp:term.' startingAt: 'rule'.
 	self deny: tree isNil.
 	self
 		assertCollection: tree leftmostDerivation
@@ -17,7 +17,7 @@ testParseRule01
 					('small syntactic mark symbol' -> 1).
 					('((space and small syntactic mark) plus) option' -> 2).
 					('colon symbol' -> 1).
-					('alternatives' -> 1).					
+					('alternatives' -> 1).
 					('alternative option' -> 1).
 					('alternative' -> 1).
 					('layout' -> 1).

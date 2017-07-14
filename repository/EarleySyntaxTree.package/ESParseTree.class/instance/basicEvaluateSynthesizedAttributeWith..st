@@ -25,5 +25,5 @@ basicEvaluateSynthesizedAttributeWith: ruleToActionDict
 															node children size timesRepeat: [ arguments push: stack pop ].
 															{arguments asArray} ] ])) ] ] ]; 
 		visit: tree.
-	self assert: stack size = 1.
+	self assert: [ stack size = 1 ].
 	^ stack pop

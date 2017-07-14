@@ -4,7 +4,7 @@ buildForestFrom: finalItem
 
 	| startNode startFamily |
 	startNode := finalItem node.
-	self assert: startNode children size = 1.
+	self assert: [ startNode children size = 1 ].
 	startFamily := startNode children first.
-	self assert: startFamily children size = 1.
+	self assert: [ startFamily children size = 1 ].
 	^ JEBSPPForest root: startFamily first

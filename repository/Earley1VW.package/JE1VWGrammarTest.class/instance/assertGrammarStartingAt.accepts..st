@@ -1,7 +1,7 @@
 private
 assertGrammarStartingAt: aNonterminalNamed accepts: words
 	self
-		assert: ((grammar startAt: aNonterminalNamed) accepts: words)
+		assert: (grammar accepts: words startingAt: aNonterminalNamed)
 		description:
 			(String
 				streamContents: [ :s | 

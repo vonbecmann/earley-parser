@@ -1,3 +1,3 @@
 tests
 testAcceptsProductStartingAtTerm
-	self assert: ((grammar startAt: 'T') accepts: 'a')
+	self assert: (grammar accepts: 'a' startingAt: 'T')

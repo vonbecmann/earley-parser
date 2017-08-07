@@ -1,7 +1,7 @@
 accessing
 build
 	| tree |
-	edges keysAndValuesDo: [ :key :values | key children: values ].
+	edges keysDo: [ :key | key children: (edges at: key) ].
 	tree := ESTree rootNode: rootNode.
 	self reset.
 	^ tree

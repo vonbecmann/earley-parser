@@ -12,7 +12,7 @@ view
 		visit: self.
 	b := RTMondrian new.
 	b shape rectangle withTextAbove.
-	b nodes: nodes.
+	b nodes: nodes asArray.
 	b shape arrowedLine.
 	b edges useAssociations: associations.
 	b layout tree.

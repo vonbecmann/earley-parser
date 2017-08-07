@@ -17,11 +17,11 @@ view
 	
 	b := RTMondrian new.
 	b shape rectangle withTextAbove.
-	b nodes: nodes.
+	b nodes: nodes asArray.
 	b shape circle
 		withBorder;
 		withTextAbove.
-	b nodes: familyNodes.
+	b nodes: familyNodes asArray.
 	b shape arrowedLine.
 	b edges useAssociations: associations.
 	b layout tree.

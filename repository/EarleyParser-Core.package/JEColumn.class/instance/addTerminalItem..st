@@ -9,7 +9,7 @@ addTerminalItem: terminalItem
 					ifNotNil: [ :found | ^ found ] ].
 	itemsByKey
 		at: terminalItem key first
-		add: (Association key: terminalItem key second value: terminalItem).
+		put: (Association key: terminalItem key second value: terminalItem).
 	^ terminalItem
 		end: self;
 		yourself

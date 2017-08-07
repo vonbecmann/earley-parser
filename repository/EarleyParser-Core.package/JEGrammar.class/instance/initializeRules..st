@@ -19,4 +19,4 @@ initializeRules: aRuleCollection
 			newFrom: (ruleSet collect: [ :rule | rule -> (aRuleCollection findFirst: [ :each | rule equals: each ]) ]).
 		[ :a :b | (index at: a) < (index at: b) ] ] value.
 	
-	(ruleSet asSortedCollection: ruleIndex) do: [ :eachRule | rules at: eachRule head add: eachRule ]. 
+	(ruleSet asSortedCollection: ruleIndex) do: [ :eachRule | rules at: eachRule head put: eachRule ]. 

@@ -6,9 +6,7 @@ gtInspectorPredictionItemsIn: composite
 		display: [ predictionItemsByNonterminal associations ];
 		send: [ :each | each value ];
 		column: 'Nonterminal' evaluated: [ :each | GTObjectPrinter new asTruncatedTextFrom: each key ];
-		column: 'Prediction Items'
-			evaluated: [ :each | 
-			(String streamContents: [ :s | each value do: [ :item | item printOn: s ] separatedBy: [ s nextPutAll: ', ' ] ])
-				truncateWithElipsisTo: 50 ];
+		column: 'Prediction Item'
+			evaluated: [ :each | GTObjectPrinter new asTruncatedTextFrom: each value ];
 		showOnly: 50;
 		yourself

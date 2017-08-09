@@ -10,7 +10,7 @@ items - a queue of items to be processed in order.
 
 predictionItemsByNonterminal - items with the symbol at dot is a nonterminal, so they are involve in the prediction of new items. 
 
-finalItemsByNonterminal - items with the dot at the end, that were completed in this chart, so they are needed in the completion during the prediction of a nonterminal. It is used when you have epsilon rules.
+finalItemsByNonterminal - items with the dot at the end, that were completed in this column, so they are needed in the completion during the prediction of a nonterminal. It is used when you have epsilon rules.
 
 itemsByKey - items by key. useful for testing if a item already exists.
 

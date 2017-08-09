@@ -1,0 +1,17 @@
+{
+	"commentStamp" : "BernardoContreras 8/9/2017 22:01",
+	"super" : "JEAlgorithm",
+	"category" : "EarleyAnalyzer",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"classvars" : [ ],
+	"instvars" : [
+		"addCount",
+		"moveDotForwardCount",
+		"completeCount",
+		"predictCount",
+		"scanCount"
+	],
+	"name" : "JEAnalyticalRecognizer",
+	"type" : "normal"
+}

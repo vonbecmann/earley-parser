@@ -3,7 +3,7 @@ gtInspectorPredictionItemsIn: composite
 	<gtInspectorPresentationOrder: 1>
 	^ composite table
 		title: [ 'Prediction' ];
-		display: [ predictionItemsByNonterminal associations ];
+		display: [ self predictionItemsByNonterminalAssociations ];
 		send: [ :each | each value ];
 		column: 'Nonterminal' evaluated: [ :each | GTObjectPrinter new asTruncatedTextFrom: each key ];
 		column: 'Prediction Item'

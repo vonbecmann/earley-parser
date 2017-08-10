@@ -1,3 +1,10 @@
 accessing
 activeItems
-	^ (itemsByKey select: [ :each | each isActive ]) values
+	^ Array
+		streamContents: [ :s | 
+			itemsByKey
+				associationsDo:
+					[ :assoc | 
+						assoc value 
+							select: [ :each | each isActive ] 
+							thenDo: [ :each | s nextPut: each ] ] ]

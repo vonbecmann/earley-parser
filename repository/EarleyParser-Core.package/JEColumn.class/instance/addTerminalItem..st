@@ -7,9 +7,7 @@ addTerminalItem: terminalItem
 			[ :dict | 
 				(dict at: terminalItem key second ifAbsent: nil) 
 					ifNotNil: [ :found | ^ found ] ].
-	itemsByKey
-		at: terminalItem key first
-		put: (Association key: terminalItem key second value: terminalItem).
+	self itemsAt: terminalItem key put: terminalItem.
 	^ terminalItem
 		end: self;
 		yourself

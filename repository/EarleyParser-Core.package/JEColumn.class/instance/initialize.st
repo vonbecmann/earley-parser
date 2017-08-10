@@ -8,4 +8,4 @@ initialize
 	finalItemsByNonterminal := MultiValuedDictionary
 		dictionary: IdentityDictionary
 		collection: SinglyLinkedList.
-	itemsByKey := MultiValuedDictionary dictionary: IdentityDictionary collection: IdentityDictionary
+	itemsByKey := IdentityDictionary new

@@ -17,6 +17,7 @@ acceptsUBDA
 | 15 September 2016 | 0:00:00:03.882 |
 | 22 September 2016 | 0:00:00:02.815 |
 | 21 October 2016 | 0:00:00:02.718 |
+| 12 August 2017 | 0:00:00:02.756 |
 	"
 
 	| n words grammar |

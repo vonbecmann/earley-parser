@@ -8,6 +8,7 @@ parseBK
 | 15 September 2016 | 0:00:00:00.906 |
 | 22 September 2016 | 0:00:00:00.86 |
 | 21 October 2016 | 0:00:00:01.052 |
+| 12 August 2017 | 0:00:00:00.791 |
 	"
 
 	| n words grammar |

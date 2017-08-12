@@ -8,6 +8,7 @@ parseUBDA02
 | 15 September 2016 | 0:00:00:03.585 |
 | 22 September 2016 | 0:00:00:03.309 |
 | 21 October 2016 | 0:00:00:06.728 |
+| 12 August 2017 | 0:00:00:05.482 |
 	"
 
 	| n words grammar |

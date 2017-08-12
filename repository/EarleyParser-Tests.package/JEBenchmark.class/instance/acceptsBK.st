@@ -14,7 +14,8 @@ acceptsBK
 | 12 September 2016 | 0:00:00:00.036 |
 | 15 September 2016 | 0:00:00:00.045 |
 | 22 September 2016 | 0:00:00:00.047 |
-| 21 October 2016 | 0:00:00:00.037 |
+| 21 October 2016   | 0:00:00:00.037 |
+| 12 August 2017    | 0:00:00:00.041 |
 	"
 
 	| n words grammar |

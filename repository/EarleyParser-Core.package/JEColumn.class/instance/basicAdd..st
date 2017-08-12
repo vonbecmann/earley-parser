@@ -1,6 +1,6 @@
 private
 basicAdd: anItem
-	self itemsAt: anItem key put: anItem.
+	self itemsByKeyPut: anItem.
 	anItem isFinal
 		ifTrue: [ 
 			anItem start = self

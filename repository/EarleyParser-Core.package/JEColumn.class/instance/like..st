@@ -4,9 +4,9 @@ like: anItem
 	 Optimize for efficiency.
 	^ itemsByKey detect: [ :each | each equals: anItem ] ifNone: [ nil ] "
 
-	(itemsByKey at: anItem key first ifAbsent: nil)
+	(itemsByKey at: anItem firstKey ifAbsent: nil)
 		ifNotNil: [ :dict | 
-			(dict at: anItem key second ifAbsent: nil)
+			(dict at: anItem secondKey ifAbsent: nil)
 				ifNotNil: [ :found | 
 					^ (found equals: anItem) ifTrue: [ found ]	ifFalse: [ nil ] ] ].
 	^ nil

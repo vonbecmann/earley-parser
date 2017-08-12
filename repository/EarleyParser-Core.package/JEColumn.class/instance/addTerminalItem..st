@@ -2,12 +2,12 @@ parsing
 addTerminalItem: terminalItem
 	" add a scanned terminal while parsing "
 
-	(itemsByKey at: terminalItem key first ifAbsent: nil)
+	(itemsByKey at: terminalItem firstKey ifAbsent: nil)
 		ifNotNil: 
 			[ :dict | 
-				(dict at: terminalItem key second ifAbsent: nil) 
+				(dict at: terminalItem secondKey ifAbsent: nil) 
 					ifNotNil: [ :found | ^ found ] ].
-	self itemsAt: terminalItem key put: terminalItem.
+	self itemsByKeyPut: terminalItem.
 	^ terminalItem
 		end: self;
 		yourself

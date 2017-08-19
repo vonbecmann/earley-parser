@@ -1,0 +1,36 @@
+* earley-parser
+
+Jay Earley Parser
+** versions for pharo 5
+
+"
+Metacello new
+	  smalltalkhubUser: 'vonbecmann' project: 'earley-parser';
+	  configuration: 'EarleyParser';
+	  version: '1.0';
+	  load.
+"
+
+"
+Metacello new
+	  smalltalkhubUser: 'vonbecmann' project: 'earley-parser';
+	  configuration: 'EarleyParser';
+	  version: '1.1';
+	  load.
+"
+
+"
+Metacello new
+	  smalltalkhubUser: 'vonbecmann' project: 'earley-parser';
+	  configuration: 'EarleyParser';
+	  version: '1.2';
+	  load.
+"
+
+"
+Metacello new
+	  smalltalkhubUser: 'vonbecmann' project: 'earley-parser';
+	  configuration: 'EarleyParser';
+	  version: '1.21';
+	  load.
+"

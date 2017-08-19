@@ -3,7 +3,7 @@
 Jay Earley Parser
 ** pharo 6
 Metacello new
-    baseline: 'LinkedList';
+    baseline: 'EarleyParser';
     repository: 'github://vonbecmann/earley-parser/repository';
     load.
 

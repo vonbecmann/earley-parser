@@ -1,3 +1,0 @@
-accessing
-nodesSize
-	^ nodes size

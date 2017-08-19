@@ -1,0 +1,11 @@
+{
+	"commentStamp" : "BernardoContreras 8/19/2017 18:11",
+	"super" : "BaselineOf",
+	"category" : "BaselineOfEarleyParser",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"classvars" : [ ],
+	"instvars" : [ ],
+	"name" : "BaselineOfEarleyParser",
+	"type" : "normal"
+}

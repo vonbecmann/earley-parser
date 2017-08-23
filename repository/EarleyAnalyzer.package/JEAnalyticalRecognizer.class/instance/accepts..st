@@ -1,9 +1,6 @@
 public
 accepts: words
-	"it returns 
-		the charts
-		true or false, if it accepts the words
-		a message, if theres a failure"
+	"it returns some stats"
 
 	^ [ | chart |
 	chart := self basicAccepts: words.

@@ -28,7 +28,8 @@ accepts: words
 			('complete count' -> completeCount).
 			('predict count' -> predictCount).
 			('scan count' -> scanCount).
-			('total operation count' -> (completeCount + predictCount + scanCount))} ]
+			('total operation count' -> (completeCount + predictCount + scanCount)).
+			('words size' -> (words size))} ]
 		on: JEFailure
 		do: [ :ex | 
 			Dictionary

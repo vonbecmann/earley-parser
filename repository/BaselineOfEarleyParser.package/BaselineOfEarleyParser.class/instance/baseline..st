@@ -21,6 +21,8 @@ baseline: spec
 					with: [ spec requires: #('MultiValuedDictionary' 'LinkedList') ];
 				package: 'EarleyParser-Regex' 
 					with: [ spec requires: #('EarleyParser-Core') ];
+				package: 'EarleyAnalyzer' 
+					with: [ spec requires: #('EarleyParser-Core') ];
 				package: 'EarleyParser-UI' 
 					with: [ spec requires: #('EarleyParser-Core' 'Roassal2') ];
 				package: 'EarleyParser-Tests' 
@@ -34,9 +36,10 @@ baseline: spec
 				package: 'Earley1VW' 
 					with: [ spec requires: #('EarleySyntaxTree') ].
 			spec
-				group: 'default' with: #('Core' 'Tests' 'Regex' 'SyntaxTree' 'Parser' 'UI');
+				group: 'default' with: #('Core' 'Tests' 'Regex' 'Analyzer' 'SyntaxTree' 'Parser' 'UI');
 				group: 'Core' with: #('EarleyParser-Core');
 				group: 'Regex' with: #('EarleyParser-Regex');
+				group: 'Analyzer' with: #('EarleyAnalyzer');
 				group: 'Tests' with: #('EarleyParser-Tests' 'EarleySyntaxTree-Tests');
 				group: 'SyntaxTree' with: #('EarleySyntaxTree');
 				group: 'Parser' with: #('Earley1VW');

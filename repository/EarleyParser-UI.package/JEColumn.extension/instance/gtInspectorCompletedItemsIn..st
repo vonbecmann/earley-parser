@@ -3,7 +3,7 @@ gtInspectorCompletedItemsIn: composite
 	<gtInspectorPresentationOrder: 2>
 	^ composite table
 		title: [ 'Completed Here' ];
-		display: [ finalItemsByNonterminal associations ];
+		display: [ self finalItemsByNonterminalAssociations ];
 		send: [ :each | each value ];
 		column: 'Nonterminal' evaluated: [ :each | GTObjectPrinter new asTruncatedTextFrom: each key ];
 		column: 'Completed(final) Item'

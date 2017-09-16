@@ -3,7 +3,5 @@ initialize
 	super initialize.
 	items := SinglyLinkedQueue new.
 	predictionItemsByNonterminal := IdentityDictionary new.
-	finalItemsByNonterminal := MultiValuedDictionary
-		dictionary: IdentityDictionary
-		collection: SinglyLinkedList.
+	finalItemsByNonterminal := IdentityDictionary new.
 	itemsByKey := IdentityDictionary new

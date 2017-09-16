@@ -4,7 +4,7 @@ basicAdd: anItem
 	anItem isFinal
 		ifTrue: [ 
 			anItem start = self
-				ifTrue: [ finalItemsByNonterminal at: anItem head put: anItem ] ]
+				ifTrue: [ self finalItemsByNonterminalAt: anItem head put: anItem ] ]
 		ifFalse: [ 
 			anItem symbolAtDot isNonterminal 
 				ifTrue: [ self predictionItemsByNonterminalAt: anItem symbolAtDot put: anItem ] ].

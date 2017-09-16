@@ -1,14 +1,12 @@
 adding
 add: anItem
 	" Optimize for efficiency. 
-		if the item already exits 
-			then return it 
-			else add it last"
+		if the item doesn't exist then add it last.
+		this is a predicted item "
 
 	(itemsByKey at: anItem firstKey ifAbsent: nil)
-		ifNotNil: 
+		ifNil: [ self basicAdd: anItem ]
+		ifNotNil:
 			[ :dict | 
 				(dict at: anItem secondKey ifAbsent: nil) 
-					ifNotNil: [ :found | ^ found ] ].
-
-	^ self basicAdd: anItem
+					ifNil: [ self basicAdd: anItem ] ]

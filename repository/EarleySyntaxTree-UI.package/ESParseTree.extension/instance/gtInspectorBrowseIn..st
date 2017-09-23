@@ -1,7 +1,7 @@
 *EarleySyntaxTree-UI
-gtInspectorASTIn: composite
+gtInspectorBrowseIn: composite
 	<gtInspectorPresentationOrder: 1>
 	^ (tree gtInspectorBrowserIn: composite)
-		title: 'AST';
+		title: 'Browse';
 		send: [ :each | each model ];
 		yourself

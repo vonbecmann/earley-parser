@@ -1,17 +1,18 @@
 visiting
 visitNode: aGivenTreeNode
-	| visited visitStack |
-	visited := IdentityDictionary new.
-	visitStack := SinglyLinkedStack with: aGivenTreeNode.
+	| visitStack |
+	visitStack := SinglyLinkedStack with: { aGivenTreeNode. false }.
 	[ visitStack isEmpty ]
-		whileFalse: 
-			[ 	| node |
-				node := visitStack top.
-				(visited at: node ifAbsent: false)
-					ifTrue: 
-						[	visitStack pop.
-							postOrderBlock ifNotNil: [ postOrderBlock value: node ] ]
-					ifFalse: 
-						[	visited at: node put: true.
-							preOrderBlock ifNotNil: [ preOrderBlock value: node ].
-							node children do: [ :child | visitStack push: child ] ] ]
+		whileFalse: [ 
+			| element node visited |
+			element := visitStack top.
+			node := element first.
+			visited := element second.
+			visited
+				ifTrue: 
+					[	visitStack pop.
+						postOrderBlock ifNotNil: [ postOrderBlock value: node ] ]
+				ifFalse: 
+					[	element at: 2 put: true.
+						preOrderBlock ifNotNil: [ preOrderBlock value: node ].
+						node children do: [ :child | visitStack push: { child. false. } ] ] ]

@@ -1,6 +1,6 @@
 private operations
 transformToSyntax: flattenTree
-	| stack syntaxTree |
+	| stack |
 	stack := SinglyLinkedStack new.
 	ESTDepthFirstVisitor new 
 		postOrderBlock: [ :node | 
@@ -31,6 +31,4 @@ transformToSyntax: flattenTree
 		visit: flattenTree.
 		
 	self assert: [ stack size = 1 ].
-	syntaxTree := ESTree rootNode: stack pop.
-	self assert: [ stack isEmpty ].
-	^ syntaxTree
+	^ ESTree rootNode: stack pop

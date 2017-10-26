@@ -2,4 +2,4 @@ visiting
 visitPreOrderPackedNode: aPackedNode
 	"visit in pre-order a node"
 
-	preOrderNodeBlock ifNotNil: [ preOrderNodeBlock value: aPackedNode ]
+	preOrderNodeBlock ifNotNil: [ preOrderNodeBlock cull: aPackedNode ]

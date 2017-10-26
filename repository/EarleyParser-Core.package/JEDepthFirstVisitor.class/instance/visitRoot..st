@@ -1,8 +1,9 @@
 visiting
 visitRoot: aPackedNode
-	| visitStack visited |
+	| visitStack visited processed |
 	visitStack := SinglyLinkedStack with: aPackedNode.
 	visited := IdentityDictionary new.
+	processed := IdentitySet new.
 	[ visitStack isEmpty ]
 		whileFalse: [ 
 			| element |
@@ -10,7 +11,10 @@ visitRoot: aPackedNode
 			(visited at: element ifAbsent: false)
 				ifTrue: [ 
 					visitStack pop.
-					element acceptPostOrderVisitor: self ]
+					(processed includes: element) 
+						ifFalse: [
+							element acceptPostOrderVisitor: self.
+							processed add: element ] ]
 				ifFalse: [ 
 					visited at: element put: true.
 					element acceptPreOrderVisitor: self.

@@ -1,21 +1,25 @@
 visiting
 visitRoot: aPackedNode
-	| visitStack visited processed |
+	" status: notvisited -> visited -> done"
+
+	| visitStack visited |
 	visitStack := SinglyLinkedStack with: aPackedNode.
 	visited := IdentityDictionary new.
-	processed := IdentitySet new.
 	[ visitStack isEmpty ]
-		whileFalse: [ 
-			| element |
+		whileFalse: [ | element status |
 			element := visitStack top.
-			(visited at: element ifAbsent: false)
+			status := visited at: element ifAbsent: #notvisited.
+			status == #notvisited
 				ifTrue: [ 
-					visitStack pop.
-					(processed includes: element) 
-						ifFalse: [
-							element acceptPostOrderVisitor: self.
-							processed add: element ] ]
-				ifFalse: [ 
-					visited at: element put: true.
+					visited at: element put: #visited.
 					element acceptPreOrderVisitor: self.
-					element children reverseDo: [ :child | visitStack push: child ] ] ]
+					element children reverseDo: [ :child | visitStack push: child ] ]
+				ifFalse: [ 
+					status == #visited
+						ifTrue: [ 
+							visitStack pop.
+							element acceptPostOrderVisitor: self.
+							visited at: element put: #done ]
+						ifFalse: [ 
+							status == #done
+								ifTrue: [ visitStack pop ] ] ] ]

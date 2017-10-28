@@ -1,5 +1,5 @@
-private operations
-extractTreeFrom: aBSPPForest
+*EarleySyntaxTree
+extractSingleTree
 	"the forest has one tree, so we need to extract it from the forest."
 
 	| stack |
@@ -15,6 +15,6 @@ extractTreeFrom: aBSPPForest
 						timesRepeat: [ newChildren push: stack pop ].
 					treeNode children: newChildren asArray ].
 			stack push: treeNode ];
-		visit: aBSPPForest.
+		visit: self.
 	self assert: [ stack size = 1 ].
 	^ ESTree rootNode: stack pop

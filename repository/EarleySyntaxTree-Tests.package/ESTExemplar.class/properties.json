@@ -1,0 +1,11 @@
+{
+	"commentStamp" : "BernardoContreras 11/1/2017 17:41",
+	"super" : "Object",
+	"category" : "EarleySyntaxTree-Tests-Grammar",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"classvars" : [ ],
+	"instvars" : [ ],
+	"name" : "ESTExemplar",
+	"type" : "normal"
+}

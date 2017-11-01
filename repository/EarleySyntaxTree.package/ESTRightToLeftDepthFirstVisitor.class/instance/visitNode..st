@@ -11,8 +11,8 @@ visitNode: aGivenTreeNode
 			visited
 				ifTrue: 
 					[	visitStack pop.
-						postOrderBlock ifNotNil: [ postOrderBlock value: node ] ]
+						postOrderBlock ifNotNil: [ postOrderBlock cull: node ] ]
 				ifFalse: 
 					[	element at: 2 put: true.
-						preOrderBlock ifNotNil: [ preOrderBlock value: node ].
+						preOrderBlock ifNotNil: [ preOrderBlock cull: node ].
 						node children do: [ :child | visitStack push: { child. false. } ] ] ]

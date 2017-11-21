@@ -1,7 +1,5 @@
 tests
 testAsString
-	| builder tree |
-	builder := ESIdentityTreeBuilder new.
-	builder root: 'A'.
-	tree := builder build.
+	| tree |
+	tree := ESTree rootNode: (ESTreeNode model: 'A').
 	self assert: tree asString equals: 'ESTree((''A''))'

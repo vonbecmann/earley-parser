@@ -1,5 +1,5 @@
 private template
-basicAccepts: words
+evaluate: words
 	| n chart |
 	n := words size + 1.
 	chart := (1 to: n) collect: [ :index | JEColumn number: index ].

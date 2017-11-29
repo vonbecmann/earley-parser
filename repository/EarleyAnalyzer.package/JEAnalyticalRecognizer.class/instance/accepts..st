@@ -3,7 +3,7 @@ accepts: words
 	"it returns some stats"
 
 	^ [ | chart |
-	chart := self basicAccepts: words.
+	chart := self evaluate: words.
 	OrderedDictionary
 		newFrom:
 			{('chart' -> chart).

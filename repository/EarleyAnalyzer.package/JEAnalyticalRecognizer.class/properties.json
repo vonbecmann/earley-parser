@@ -1,6 +1,6 @@
 {
 	"commentStamp" : "BernardoContreras 8/9/2017 22:01",
-	"super" : "JEAlgorithm",
+	"super" : "JERecognizer",
 	"category" : "EarleyAnalyzer",
 	"classinstvars" : [ ],
 	"pools" : [ ],

@@ -7,4 +7,4 @@ scan: item with: word at: column
 			add (X -> alpha a *beta, j) to S(k+1).
 	 Optimized fo efficiency. "
 
-	self addFamilyWith: item word: word to: (column moveDotForward: item)
+	self subclassResponsibility 

@@ -8,9 +8,4 @@ complete: item at: column
 	Optimized for efficiency.
 	"
 
-	item predictionItemsWithSymbolAtDotIsHead
-		do: [ :previous | 
-					self 
-						addFamilyWith: previous 
-						and: item 
-						to: (column moveDotForward: previous) ]
+	self subclassResponsibility

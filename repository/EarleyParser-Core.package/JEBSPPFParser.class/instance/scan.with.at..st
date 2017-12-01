@@ -1,4 +1,11 @@
 private operations
 scan: item with: word at: column
-	self addFamilyWith: item word: word to: (column moveDotForward: item)
-	
+	| nextItem terminal |
+	nextItem := column moveDotForward: item.
+	terminal := nextItem end
+		addTerminalItem:
+			(JETerminalItem 
+				given: item symbolAtDot 
+				word: word 
+				startedAt: item end).
+	nextItem addFamilyWith: item and: terminal

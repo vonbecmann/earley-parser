@@ -11,7 +11,6 @@ Metacello new
     load.
 #+END_SRC
 
-
 ** versions for pharo 5
 
 #+BEGIN_SRC

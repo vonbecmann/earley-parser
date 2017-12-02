@@ -1,0 +1,9 @@
+SmalltalkCISpec {
+  #loading : [
+    SCIMetacelloLoadSpec {
+      #baseline : 'EarleyParser',
+      #directory : 'repository',
+      #platforms : [ #pharo ]
+    }
+  ]
+}  

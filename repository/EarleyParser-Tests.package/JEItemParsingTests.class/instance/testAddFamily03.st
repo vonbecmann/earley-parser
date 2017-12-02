@@ -13,11 +13,12 @@ testAddFamily03
 		
 	target := rule dotAtEnd startedAt: first andEndedAt: last.
 	
-	family := JEFamily with: previous node with: scanned node.
+	family := previous newFamilyWith: scanned.
 
 	target addFamily: family.
-	target addFamily: (JEFamily with: previous node with: scanned node).
-	target addFamily: (JEFamily with: previous node with: scanned node).
+	target addFamilyWith: previous and: scanned.
+	target addFamilyWith: previous and: scanned.
+
 		
-	self assert: target node familiesSize equals: 1.
-	self assert: (target node families detect: [ :each | each = family ] ifFound: [ true ] ifNone: [ false ])
+	self assert: target familiesSize equals: 1.
+	self assert: (target families includes: family)

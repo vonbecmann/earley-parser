@@ -6,4 +6,4 @@ testAddEmptyFamily01
 	item addFamily: JEFamily empty.
 	item addFamily: JEFamily empty.
 	item addFamily: JEFamily empty.
-	self assert: item node familiesSize equals: 1
+	self assert: item familiesSize equals: 1

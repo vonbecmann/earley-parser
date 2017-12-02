@@ -12,12 +12,9 @@ testAddFamily02
 	scanned := JETerminalItem given: (JETerminal character: $H) word: $H startedAt: middle andEndedAt: last.
 	target := rule dotAtEnd startedAt: first andEndedAt: last.
 	
-	family := JEFamily with: previous node with: scanned node.
+	family := previous newFamilyWith: scanned.
 	
-	target addFamily: (JEFamily with: previous node with: scanned node).
+	target addFamilyWith: previous and: scanned.
 	
-	self assert: target node familiesSize equals: 1.
-	self assert: (target node families 
-							detect: [ :each | each first = family first and: [ each second = family second ] ] 
-							ifFound: [ true ] 
-							ifNone: [ false ])
+	self assert: target familiesSize equals: 1.
+	self assert: (target families anySatisfy: [ :each | each first = family first and: [ each second = family second ] ])

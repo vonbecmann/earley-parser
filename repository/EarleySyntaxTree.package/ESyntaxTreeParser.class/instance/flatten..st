@@ -1,30 +1,18 @@
 private operations
 flatten: extractedTree
-	| builder |
-	builder := ESIdentityTreeBuilder new.
-	builder root: extractedTree root.
-	ESTDepthFirstVisitor new 
-		preOrderBlock: [ :node | 
+	| stack |
+	stack := SinglyLinkedStack new.
+	ESTDepthFirstVisitor new
+		postOrderBlock: [ :node | 
 			node model isFinal
-				ifTrue: [ 
-					(node children allSatisfy: [ :each | each model isFinal ])
-						ifTrue: [ 
-							builder 
-								addNode: node model 
-								withChildren: (node children collect: [ :each | each model ]) ]
-						ifFalse: [ 
-							| children newChildren |
-							children := SinglyLinkedStack withAll: node children.
+				ifTrue: [ | finalNode |
+					finalNode := ESTreeNode model: node model.
+					node children isEmpty
+						ifFalse: [ | newChildren |
 							newChildren := SinglyLinkedStack new.
-							[ children isEmpty ]
-								whileFalse: [ 
-									| child |
-									child := children pop.
-									child model isFinal
-										ifTrue: [ newChildren push: child model ]
-										ifFalse: [ child children do: [ :each | children push: each ] ] ].
-							builder 
-								addNode: node model 
-								withChildren: newChildren asArray ] ] ];
+							node model dottedRule body size timesRepeat: [ newChildren push: stack pop ].
+							finalNode children: newChildren asArray ].
+					stack push: finalNode ] ];
 		visit: extractedTree.
-	^ builder build
+	self assert: [ stack size = 1 ].
+	^ ESTree rootNode: stack pop

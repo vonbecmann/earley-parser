@@ -4,4 +4,4 @@ parse: oneLevelVWRuleString
 
 	| tree |
 	tree := grammar parseTree: oneLevelVWRuleString.
-	^ tree evaluateSynthesizedAttribute: ruleToActionCollection
+	^ evaluator evaluateTree: tree

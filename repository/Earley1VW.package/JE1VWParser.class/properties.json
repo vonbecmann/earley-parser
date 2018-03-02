@@ -7,7 +7,7 @@
 	"classvars" : [ ],
 	"instvars" : [
 		"grammar",
-		"ruleToActionCollection"
+		"evaluator"
 	],
 	"name" : "JE1VWParser",
 	"type" : "normal"

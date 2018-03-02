@@ -2,7 +2,7 @@ initialization
 initialize
 	super initialize.
 	grammar := self class oneLevelVWGrammar.
-	ruleToActionCollection := {
+	evaluator := ESSingleSynthesizedAttributeEvaluator grammar: grammar actions: {
 (('rule list' -> 2)	
 			-> [ :nodes | 
 					Array 

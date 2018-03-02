@@ -1,10 +1,11 @@
-tests
-testEvaluateSynthesizedAttribute01
-	| attribute |
-	tree := grammar parseTree: 'word_symbol'.
-	attribute := tree
-		evaluateSynthesizedAttribute:
-			{('identifier' -> 1
+initialization
+setUp
+
+	evaluator := 
+	ESSingleSynthesizedAttributeEvaluator 
+		grammar: 	ESTExemplar identifier
+		actions: 
+		{('identifier' -> 1
 				-> [ :nodes | 
 					String
 						streamContents: [ :s | 
@@ -18,5 +19,4 @@ testEvaluateSynthesizedAttribute01
 							s
 								nextPut: nodes first;
 								nextPutAll: nodes second ] ]).
-			('word symbol star' -> 2 -> [ String empty ])}.
-	self assert: attribute equals: 'word_symbol'
+			('word symbol star' -> 2 -> [ String empty ])}

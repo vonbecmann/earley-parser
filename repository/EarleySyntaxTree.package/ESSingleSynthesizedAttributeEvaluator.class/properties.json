@@ -1,0 +1,14 @@
+{
+	"commentStamp" : "BernardoContreras 2/26/2018 22:20",
+	"super" : "Object",
+	"category" : "EarleySyntaxTree-Public",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"classvars" : [ ],
+	"instvars" : [
+		"grammar",
+		"ruleToAction"
+	],
+	"name" : "ESSingleSynthesizedAttributeEvaluator",
+	"type" : "normal"
+}

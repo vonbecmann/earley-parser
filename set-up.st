@@ -15,7 +15,7 @@ Metacello new
 
 Metacello new
     baseline: 'EarleyParser';
-    repository: 'filetree:///home/vonbecmann/workspaces/earley-parser/repository';
+    repository: 'tonel:///home/vonbecmann/workspaces/earley-parser/repository';
     onLock: [ :ex | ex honor ];
     load.
 

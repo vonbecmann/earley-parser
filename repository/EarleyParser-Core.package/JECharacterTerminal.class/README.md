@@ -1,1 +1,0 @@
-a character as a terminal

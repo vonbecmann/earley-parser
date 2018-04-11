@@ -1,3 +1,0 @@
-accessing
-firstKey
-	self subclassResponsibility

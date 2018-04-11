@@ -1,3 +1,0 @@
-visiting
-acceptPreOrderVisitor: aVisitor
-	aVisitor visitPreOrderPackedNode: self

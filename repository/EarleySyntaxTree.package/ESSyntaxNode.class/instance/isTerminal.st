@@ -1,3 +1,0 @@
-testing
-isTerminal
-	^ symbol isTerminal 

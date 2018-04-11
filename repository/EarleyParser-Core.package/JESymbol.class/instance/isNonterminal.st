@@ -1,3 +1,0 @@
-testing
-isNonterminal
-	self subclassResponsibility

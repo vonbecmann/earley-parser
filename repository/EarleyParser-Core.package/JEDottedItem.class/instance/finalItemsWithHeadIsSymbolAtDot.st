@@ -1,3 +1,0 @@
-accessing
-finalItemsWithHeadIsSymbolAtDot
-	^ end finalItemsWithHeadIs: dottedRule symbolAtDot

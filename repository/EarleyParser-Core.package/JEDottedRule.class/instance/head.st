@@ -1,3 +1,0 @@
-accessing
-head
-	^ rule head

@@ -1,3 +1,0 @@
-initialization
-preOrderFamilyBlock: aBlockWithOneArgument
-	preOrderFamilyBlock := aBlockWithOneArgument

@@ -1,3 +1,0 @@
-testing
-isPredicted
-	^ dottedRule isPredicted

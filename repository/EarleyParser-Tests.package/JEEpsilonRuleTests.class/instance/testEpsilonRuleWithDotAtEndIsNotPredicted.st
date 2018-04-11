@@ -1,3 +1,0 @@
-tests
-testEpsilonRuleWithDotAtEndIsNotPredicted
-	self deny: epsilonRule dotAtEnd isPredicted

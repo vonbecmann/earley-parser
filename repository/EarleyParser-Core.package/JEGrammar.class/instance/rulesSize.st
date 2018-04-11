@@ -1,3 +1,0 @@
-accessing
-rulesSize
-	^ rules size

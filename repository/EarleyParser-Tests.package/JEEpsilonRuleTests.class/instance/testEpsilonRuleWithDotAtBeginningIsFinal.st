@@ -1,3 +1,0 @@
-tests
-testEpsilonRuleWithDotAtBeginningIsFinal
-	self assert: epsilonRule dotAtBeginning isFinal

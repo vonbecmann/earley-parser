@@ -1,3 +1,0 @@
-testing
-numberOfTrees
-	^ syntaxTree numberOfTrees

@@ -1,3 +1,0 @@
-accessing
-familiesSize
-	^ families size

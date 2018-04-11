@@ -1,6 +1,0 @@
-tests
-testEmptyRules01
-	self
-		should: [ JEGrammar productionRules: #() representations: #() ]
-		raise: AssertionFailure
-		withExceptionDo: [ :ex | self assert: ex messageText equals: 'The collection of rules cannot be empty.' ]

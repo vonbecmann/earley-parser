@@ -1,3 +1,0 @@
-code-critics
-ruleInconsistentMethodClassificationRuleV1FalsePositive
-	^ #(#(#(#RGMethodDefinition #(#JEBDTreeHypergraph #size #false)) #'2016-05-15T17:49:21.858504-03:00') #(#(#RGMethodDefinition #(#JELink #value #false)) #'2016-05-15T17:49:21.85864-03:00') #(#(#RGMethodDefinition #(#JEHypernode #value #false)) #'2016-05-15T17:49:21.858775-03:00') #(#(#RGMethodDefinition #(#JETerminalItem #value #false)) #'2016-05-15T17:49:21.8588-03:00') #(#(#RGMethodDefinition #(#JEParseForest #size #false)) #'2016-05-15T17:49:21.85882-03:00') )

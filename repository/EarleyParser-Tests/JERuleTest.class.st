@@ -114,18 +114,6 @@ JERuleTest >> testEquality03 [
 ]
 
 { #category : #tests }
-JERuleTest >> testEquals [
-	| one another |
-	one := JERule
-		head: (JENonterminal named: 'T')
-		body: 	{(JETerminal character: $-). (JENonterminal named: 'P')}.
-	another := JEProductionRule
-		head: (JENonterminal named: 'T')
-		body: 	{(JETerminal character: $-). (JENonterminal named: 'P')}.
-	self assert: (one equals: another)
-]
-
-{ #category : #tests }
 JERuleTest >> testIsEpsilon [
 	| rule |
 	rule := JERule head: (JENonterminal named: 'T') body: {}.

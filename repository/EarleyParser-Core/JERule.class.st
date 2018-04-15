@@ -90,20 +90,6 @@ JERule >> dottedRules [
 ]
 
 { #category : #comparing }
-JERule >> equals: anUserRule [
-	head = anUserRule head
-		ifFalse: [ ^ false ].
-	body size == anUserRule body size
-		ifFalse: [ ^ false ].
-	body
-		with: anUserRule body
-		do: [ :first :second | 
-			first = second
-				ifFalse: [ ^ false ] ].
-	^ true
-]
-
-{ #category : #comparing }
 JERule >> hash [
 	| hash |
 	hash := (self class hash + head hash) hashMultiply.

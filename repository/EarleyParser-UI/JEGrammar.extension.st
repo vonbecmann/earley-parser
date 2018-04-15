@@ -1,19 +1,11 @@
 Extension { #name : #JEGrammar }
 
 { #category : #'*EarleyParser-UI' }
-JEGrammar >> gtInspectorDottedRulesIn: composite [
-	<gtInspectorPresentationOrder: 6>
-	^ (dottedRules gtInspectorItemsIn: composite)
-		title: [ dottedRules size asString , ' Dotted Rules' ];
-		yourself
-]
-
-{ #category : #'*EarleyParser-UI' }
 JEGrammar >> gtInspectorNonterminalsIn: composite [
 	<gtInspectorPresentationOrder: 2>
 	^ composite table
 		title: [ nonterminals size asString , ' nonterminals' ];
-		display: [ nonterminals sorted: nonterminalSort ];
+		display: [ nonterminals asArray ];
 		column: 'Nonterminals' evaluated: [ :each | GTObjectPrinter new asTruncatedTextFrom: each ];
 		showOnly: 50;
 		yourself
@@ -24,7 +16,7 @@ JEGrammar >> gtInspectorPredictedAlternativesIn: composite [
 	<gtInspectorPresentationOrder: 5>
 	^ (predictedAlternatives gtInspectorItemsIn: composite)
 		title: [ predictedAlternatives size asString , ' Predicted Alternatives' ];
-		display: [ predictedAlternatives associations sorted: [ :a :b | nonterminalSort value: a key value: b key ] ];
+		display: [ predictedAlternatives associations ];
 		yourself
 ]
 

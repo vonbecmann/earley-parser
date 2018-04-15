@@ -40,6 +40,16 @@ JEGrammarTest >> testDuplicateRules02 [
 ]
 
 { #category : #tests }
+JEGrammarTest >> testDuplicateRules03 [
+	grammar := JEGrammar 
+						productionRules: #(#('A' #('letter x symbol')) #('A' #('letter x symbol'))) 
+						representations: {	('letter x symbol' -> (JETerminal character: $x)).
+												('letter y symbol' -> (JETerminal character: $y)).
+												('letter y symbol' -> (JETerminal character: $y))}.
+	self assert: grammar rulesSize equals: 4
+]
+
+{ #category : #tests }
 JEGrammarTest >> testEmptyRules01 [
 	self
 		should: [ JEGrammar productionRules: #() representations: #() ]

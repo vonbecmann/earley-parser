@@ -84,11 +84,6 @@ JERule >> dotAtEnd [
 	^ dottedRules last
 ]
 
-{ #category : #private }
-JERule >> dottedRules [
-	^ dottedRules
-]
-
 { #category : #comparing }
 JERule >> hash [
 	| hash |

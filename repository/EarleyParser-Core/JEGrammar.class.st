@@ -62,12 +62,23 @@ JEGrammar class >> productionRules: productionRulesArray representations: termin
 	""
 	"
 
-	| nonterminals terminals productionRules productionRuleSet productionRuleIndex nonterminalIndex |
-	self assert: productionRulesArray isNotEmpty description: 'The collection of rules cannot be empty.'.
-	self assert: terminalNotionToRepresentationList isNotEmpty description: 'The collection of rules cannot be empty.'.
-	nonterminals := productionRulesArray collect: [ :each | JENonterminal named: each first ] as: Set.
-	nonterminals addAll: (terminalNotionToRepresentationList collect: [ :eachAssociation | JENonterminal named: eachAssociation key ]).
-	terminals := terminalNotionToRepresentationList collect: [ :eachAssociation | eachAssociation value ] as: Set.
+	| nonterminals terminals productionRules productionRuleSet productionRuleIndex rules |
+	self
+		assert: productionRulesArray isNotEmpty
+		description: 'The collection of rules cannot be empty.'.
+	self
+		assert: terminalNotionToRepresentationList isNotEmpty
+		description: 'The collection of rules cannot be empty.'.
+	nonterminals := productionRulesArray
+		collect: [ :each | JENonterminal named: each first ]
+		as: Set.
+	nonterminals
+		addAll:
+			(terminalNotionToRepresentationList
+				collect: [ :eachAssociation | JENonterminal named: eachAssociation key ]).
+	terminals := terminalNotionToRepresentationList
+		collect: [ :eachAssociation | eachAssociation value ]
+		as: Set.
 	productionRules := OrderedCollection new.
 	productionRules
 		addAll:
@@ -77,8 +88,10 @@ JEGrammar class >> productionRules: productionRulesArray representations: termin
 						head: (nonterminals detect: [ :nonterminal | nonterminal named = each first ])
 						body:
 							(each second
-								collect:
-									[ :notionNamed | nonterminals detect: [ :nonterminal | nonterminal named = notionNamed ] ifNone: [ self unknowNonterminal: notionNamed in: each ] ]) ]).
+								collect: [ :notionNamed | 
+									nonterminals
+										detect: [ :nonterminal | nonterminal named = notionNamed ]
+										ifNone: [ self unknowNonterminal: notionNamed in: each ] ]) ]).
 	productionRules
 		addAll:
 			(terminalNotionToRepresentationList
@@ -87,16 +100,17 @@ JEGrammar class >> productionRules: productionRulesArray representations: termin
 						head: (nonterminals detect: [ :nonterminal | nonterminal named = eachAssociation key ])
 						body: {(terminals like: eachAssociation value)} ]).
 	productionRuleSet := Set withAll: productionRules.
-	productionRuleIndex := [ | index |
-		index := Dictionary newFrom: (productionRuleSet collect: [ :rule | rule -> (productionRules findFirst: [ :each | rule = each ]) ]).
-		[ :a :b | (index at: a) < (index at: b) ] ] value.
-	nonterminalIndex := [ | index |
-		index := Dictionary newFrom: (nonterminals collect: [ :each | each -> (productionRules findFirst: [ :rule | rule head = each ]) ]).
-		[ :a :b | (index at: a) < (index at: b) ] ] value.
+	productionRuleIndex := Dictionary
+		newFrom:
+			(productionRuleSet
+				collect: [ :rule | rule -> (productionRules findFirst: [ :each | rule = each ]) ]).
+	rules := ArrayMultiValuedDictionary dictionary: OrderedDictionary.
+	(productionRuleSet
+		sorted: [ :a :b | (productionRuleIndex at: a) < (productionRuleIndex at: b) ])
+		do: [ :each | rules at: each head put: each ].
 	^ self basicNew
-		initializeNonterminals: (nonterminals sorted: nonterminalIndex) 
+		initializeProductionRules: rules
 		terminals: terminals
-		rules: (productionRuleSet sorted: productionRuleIndex)
 		startNonterminal: productionRules first head
 ]
 
@@ -129,43 +143,33 @@ JEGrammar >> initialize [
 	super initialize.
 	startSymbol := JENonterminal start.
 	nonterminals := SinglyLinkedList with: startSymbol.
-	terminals := Set new.
 	productionRules := ArrayMultiValuedDictionary dictionary: OrderedDictionary.
 	rules := ArrayMultiValuedDictionary dictionary: OrderedDictionary.
-	alternatives := OrderedDictionary new.
-	predictedAlternatives := ArrayMultiValuedDictionary dictionary: OrderedIdentityDictionary
+	predictedAlternatives := ArrayMultiValuedDictionary dictionary: OrderedIdentityDictionary.
+	alternatives := OrderedDictionary new
 ]
 
 { #category : #initialization }
 JEGrammar >> initializeAlternatives [
-	nonterminals
-		reject: [ :each | each = startSymbol ]
-		thenDo: [ :nonterminal | 
+	productionRules
+		keysDo: [ :nonterminal | 
 			(productionRules at: nonterminal)
 				withIndexDo: [ :each :index | alternatives at: (JEOrderedPair first: nonterminal second: index) put: each ] ]
 ]
 
 { #category : #initialization }
-JEGrammar >> initializeNonterminals: nonterminalCollection terminals: terminalCollection rules: productionRuleCollection startNonterminal: aNonterminal [
+JEGrammar >> initializeProductionRules: productionRuleCollection terminals: terminalCollection startNonterminal: aNonterminal [
 	self initialize.
-	nonterminals addAll: nonterminalCollection.
-	terminals addAll: terminalCollection.
+	nonterminals addAll: productionRuleCollection keys.
+	terminals := Set withAll: terminalCollection.
 	productionRuleCollection do: [ :each | productionRules at: each head put: each ].
 	productionRuleCollection
 		collect: [ :rule | JERule head: rule head body: rule body copy ]
 		thenDo: [ :eachRule | rules at: eachRule head put: eachRule ].
 	startRule := JERule head: startSymbol body: {aNonterminal}.
 	rules at: startSymbol put: startRule.
-	self initializeAlternatives.
-	self initializePredictedAlternatives
-]
-
-{ #category : #initialization }
-JEGrammar >> initializePredictedAlternatives [
-	rules
-		keysAndValuesDo:
-			[ :nonterminal :alternative | 
-				predictedAlternatives at: nonterminal put: alternative dotAtBeginning ]
+	rules keysAndValuesDo: [ :nonterminal :alternative | predictedAlternatives at: nonterminal put: alternative dotAtBeginning ].
+	self initializeAlternatives
 ]
 
 { #category : #private }
@@ -209,9 +213,8 @@ JEGrammar >> ruleAt: anAssociation [
 		
 	returns the rule definition at position index for a named nonterminal"
 
-	| nonterminal key |
-	nonterminal := self nonterminal: anAssociation key.
-	key := JEOrderedPair first: nonterminal second: anAssociation value.
+	| key |
+	key := JEOrderedPair first: (self nonterminal: anAssociation key) second: anAssociation value.
 	^ alternatives at: key ifAbsent: [ self unknowRuleAt: key ]
 ]
 
@@ -238,16 +241,10 @@ JEGrammar >> rulesSize [
 JEGrammar >> startAt: aNonterminalNamed [
 	"a grammar based on a collection of rules, starting at the given nonterminal."
 
-	| newStart definedRules |
-	newStart := self nonterminal: aNonterminalNamed.
-	definedRules := productionRules
-		reject: [ :each | each head = startSymbol ]
-		thenCollect: [ :each | each ].
 	^ self class basicNew
-		initializeNonterminals: (nonterminals reject: [ :each | each = startSymbol ])
+		initializeProductionRules: productionRules
 		terminals: terminals
-		rules: definedRules values
-		startNonterminal: newStart
+		startNonterminal: (self nonterminal: aNonterminalNamed)
 ]
 
 { #category : #private }

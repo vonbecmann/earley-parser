@@ -24,13 +24,15 @@ JEGrammar >> gtInspectorPredictedAlternativesIn: composite [
 JEGrammar >> gtInspectorRulesIn: composite [
 	<gtInspectorPresentationOrder: 0>
 	^ composite table
-		title: [ alternatives size asString , ' rules' ];
-		display: [ alternatives associations ];
-		column: 'Key'
-			evaluated: [ :each | GTObjectPrinter new asTruncatedTextFrom: each key ]
-			width: 150;
-		column: 'Rule'
-			evaluated: [ :each | GTObjectPrinter new asTruncatedTextFrom: each value ];
+		title: [ productionRules size asString , ' rules' ];
+		display: [ 
+			productionRules keys
+				flatCollect:
+					[ :nonterminal | 
+						(productionRules at: nonterminal) 
+							collectWithIndex: [ :each :index | nonterminal -> index -> each ] ] ];
+		column: 'Key' evaluated: [ :each | GTObjectPrinter new asTruncatedTextFrom: each key ] width: 150;
+		column: 'Rule' evaluated: [ :each | GTObjectPrinter new asTruncatedTextFrom: each value ];
 		send: [ :each | each value ];
 		showOnly: 50;
 		yourself

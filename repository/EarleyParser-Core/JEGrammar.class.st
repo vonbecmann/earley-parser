@@ -28,7 +28,6 @@ Class {
 		'rules',
 		'startSymbol',
 		'startRule',
-		'alternatives',
 		'predictedAlternatives'
 	],
 	#category : #'EarleyParser-Core-Public'
@@ -144,16 +143,7 @@ JEGrammar >> initialize [
 	startSymbol := JENonterminal start.
 	productionRules := ArrayMultiValuedDictionary dictionary: OrderedDictionary.
 	rules := ArrayMultiValuedDictionary dictionary: OrderedDictionary.
-	predictedAlternatives := ArrayMultiValuedDictionary dictionary: OrderedIdentityDictionary.
-	alternatives := OrderedDictionary new
-]
-
-{ #category : #initialization }
-JEGrammar >> initializeAlternatives [
-	productionRules
-		keysDo: [ :nonterminal | 
-			(productionRules at: nonterminal)
-				withIndexDo: [ :each :index | alternatives at: (JEOrderedPair first: nonterminal second: index) put: each ] ]
+	predictedAlternatives := ArrayMultiValuedDictionary dictionary: OrderedIdentityDictionary
 ]
 
 { #category : #initialization }
@@ -167,8 +157,7 @@ JEGrammar >> initializeProductionRules: productionRuleCollection terminals: term
 		thenDo: [ :eachRule | rules at: eachRule head put: eachRule ].
 	startRule := JERule head: startSymbol body: {aNonterminal}.
 	rules at: startSymbol put: startRule.
-	rules keysAndValuesDo: [ :nonterminal :alternative | predictedAlternatives at: nonterminal put: alternative dotAtBeginning ].
-	self initializeAlternatives
+	rules keysAndValuesDo: [ :nonterminal :alternative | predictedAlternatives at: nonterminal put: alternative dotAtBeginning ]
 ]
 
 { #category : #private }
@@ -212,9 +201,9 @@ JEGrammar >> ruleAt: anAssociation [
 		
 	returns the rule definition at position index for a named nonterminal"
 
-	| key |
-	key := JEOrderedPair first: (self nonterminal: anAssociation key) second: anAssociation value.
-	^ alternatives at: key ifAbsent: [ self unknowRuleAt: key ]
+	^ (productionRules at: (self nonterminal: anAssociation key))
+		at: anAssociation value
+		ifAbsent: [ self unknowRuleAt: anAssociation ]
 ]
 
 { #category : #accessing }
@@ -262,14 +251,14 @@ JEGrammar >> unknowNonterminal: nonterminal [
 ]
 
 { #category : #private }
-JEGrammar >> unknowRuleAt: keyPair [
+JEGrammar >> unknowRuleAt: assoc [
 	^ Error
 		signal:
 			(String
 				streamContents: [ :s | 
 					s
 						nextPutAll: 'Unknown rule''s definition at index ';
-						print: keyPair second;
+						print: assoc value;
 						nextPutAll: ' for Nonterminal ';
-						print: keyPair first ])
+						nextPutAll: assoc key ])
 ]

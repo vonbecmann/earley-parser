@@ -12,7 +12,7 @@ JEGrammarTest >> testDuplicateNonterminals01 [
 	grammar := JEGrammar 
 						productionRules: #(#('A' #()) #('A' #('letter x symbol'))) 
 						representations: {('letter x symbol' -> (JETerminal character: $x))}.
-	self assert: grammar nonterminalsSize equals: 3
+	self assert: grammar nonterminalsSize equals: 2
 ]
 
 { #category : #tests }
@@ -20,7 +20,7 @@ JEGrammarTest >> testDuplicateNonterminals02 [
 	grammar := JEGrammar 
 						productionRules: #(#('A' #('letter x symbol')) #('A' #('A'))) 
 						representations: {('letter x symbol' -> (JETerminal character: $x))}.
-	self assert: grammar nonterminalsSize equals: 3
+	self assert: grammar nonterminalsSize equals: 2
 ]
 
 { #category : #tests }
@@ -28,7 +28,7 @@ JEGrammarTest >> testDuplicateRules01 [
 	grammar := JEGrammar 
 						productionRules: #(#('A' #('letter x symbol')) #('A' #('letter x symbol'))) 
 						representations: {('letter x symbol' -> (JETerminal character: $x))}.
-	self assert: grammar rulesSize equals: 3
+	self assert: grammar rulesSize equals: 2
 ]
 
 { #category : #tests }
@@ -36,7 +36,7 @@ JEGrammarTest >> testDuplicateRules02 [
 	grammar := JEGrammar
 						productionRules: #(#('A' #('A')) #('A' #('A')) #('A' #('letter x symbol')) #('A' #('letter x symbol'))) 
 						representations: {('letter x symbol' -> (JETerminal character: $x))}.
-	self assert: grammar rulesSize equals: 4
+	self assert: grammar rulesSize equals: 3
 ]
 
 { #category : #tests }
@@ -46,7 +46,7 @@ JEGrammarTest >> testDuplicateRules03 [
 						representations: {	('letter x symbol' -> (JETerminal character: $x)).
 												('letter y symbol' -> (JETerminal character: $y)).
 												('letter y symbol' -> (JETerminal character: $y))}.
-	self assert: grammar rulesSize equals: 4
+	self assert: grammar rulesSize equals: 3
 ]
 
 { #category : #tests }
@@ -71,7 +71,7 @@ JEGrammarTest >> testRuleAtNonterminal01 [
 						productionRules: #(#('A' #('A')) #('A' #()) #('A' #('letter x symbol'))) 
 						representations: {('letter x symbol' -> (JETerminal character: $x))}.
 			
-	self assert: grammar rulesSize equals: 5.
+	self assert: grammar rulesSize equals: 4.
 	self
 		assert: (grammar ruleAt: 'A'->1)
 		equals: (JEProductionRule head: (JENonterminal named: 'A') body: {(JENonterminal named: 'A')}).
@@ -91,7 +91,7 @@ JEGrammarTest >> testRuleAtNonterminal02 [
 	grammar := JEGrammar 
 						productionRules: #(#('A' #('A')) #('A' #()) #('A' #('letter x symbol'))) 
 						representations: {('letter x symbol' -> (JETerminal character: $x))}.
-	self assert: grammar rulesSize equals: 5.
+	self assert: grammar rulesSize equals: 4.
 	self
 		should: [ grammar ruleAt: 'X' -> 1 ]
 		raise: Error
@@ -103,7 +103,7 @@ JEGrammarTest >> testRuleAtNonterminal03 [
 	grammar := JEGrammar 
 						productionRules: #(#('A' #('A')) #('A' #()) #('A' #('letter x symbol'))) 
 						representations: {('letter x symbol' -> (JETerminal character: $x))}.
-	self assert: grammar rulesSize equals: 5.
+	self assert: grammar rulesSize equals: 4.
 	self
 		should: [ grammar ruleAt: 'A'->4 ]
 		raise: Error
@@ -117,9 +117,9 @@ JEGrammarTest >> testStartAtNonterminal01 [
 						productionRules: #(#('A' #('B')) #('A' #()) #('A' #('letter x symbol')) #('B' #())) 
 						representations: {('letter x symbol' -> (JETerminal character: $x))}.
 			
-	self assert: grammar rulesSize equals: 6.
+	self assert: grammar rulesSize equals: 5.
 	grammarStartingAtB := grammar startAt: 'B'.
-	self assert: grammarStartingAtB rulesSize equals: 6.
+	self assert: grammarStartingAtB rulesSize equals: 5.
 	self assert: grammarStartingAtB startRule body first equals: (JENonterminal named: 'B')
 ]
 
@@ -129,7 +129,7 @@ JEGrammarTest >> testStartAtNonterminal02 [
 						productionRules: #(#('A' #('B')) #('A' #()) #('A' #('letter x symbol')) #('B' #())) 
 						representations: {('letter x symbol' -> (JETerminal character: $x))}.
 
-	self assert: grammar rulesSize equals: 6.
+	self assert: grammar rulesSize equals: 5.
 	self 
 		should: [ grammar startAt: 'Z' ] 
 		raise: Error 

@@ -142,7 +142,6 @@ JEGrammar >> alternativesOf: aNonterminal [
 JEGrammar >> initialize [
 	super initialize.
 	startSymbol := JENonterminal start.
-	nonterminals := SinglyLinkedList with: startSymbol.
 	productionRules := ArrayMultiValuedDictionary dictionary: OrderedDictionary.
 	rules := ArrayMultiValuedDictionary dictionary: OrderedDictionary.
 	predictedAlternatives := ArrayMultiValuedDictionary dictionary: OrderedIdentityDictionary.
@@ -160,7 +159,7 @@ JEGrammar >> initializeAlternatives [
 { #category : #initialization }
 JEGrammar >> initializeProductionRules: productionRuleCollection terminals: terminalCollection startNonterminal: aNonterminal [
 	self initialize.
-	nonterminals addAll: productionRuleCollection keys.
+	nonterminals := SinglyLinkedList withAll: productionRuleCollection keys.
 	terminals := Set withAll: terminalCollection.
 	productionRuleCollection do: [ :each | productionRules at: each head put: each ].
 	productionRuleCollection
@@ -234,7 +233,7 @@ JEGrammar >> rulesAtAll: associationCollection [
 
 { #category : #accessing }
 JEGrammar >> rulesSize [
-	^ rules size
+	^ productionRules size
 ]
 
 { #category : #'instance creation' }

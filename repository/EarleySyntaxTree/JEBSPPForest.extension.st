@@ -2,21 +2,40 @@ Extension { #name : #JEBSPPForest }
 
 { #category : #'*EarleySyntaxTree' }
 JEBSPPForest >> extractSingleTree [
-	"the forest has one tree, so we need to extract it from the forest."
+	"the forest has one binary tree, so we need to extract it from the forest. 
+	 but flatten as the production rules and using syntax nodes."
 
 	| stack |
 	stack := SinglyLinkedStack new.
 	JEDepthFirstVisitor new
 		postOrderNodeBlock: [ :node | 
-			| treeNode |
-			treeNode := ESTreeNode model: node model.
-			node families isEmpty
-				ifFalse: [ | newChildren |
-					newChildren := SinglyLinkedStack new.
-					node families first size
-						timesRepeat: [ newChildren push: stack pop ].
-					treeNode children: newChildren asArray ].
-			stack push: treeNode ];
+			node model isTerminal
+				ifTrue: [ 
+					stack
+						push:
+							(ESTreeNode
+								model:
+									(ESSyntaxNode
+										symbol: node model terminal
+										reason: node model word
+										start: node model start number
+										end: node model end number)) ]
+				ifFalse: [ 
+					node model isFinal
+						ifTrue: [ | finalNode |
+							finalNode := ESTreeNode
+								model:
+									(ESSyntaxNode
+										symbol: node model rule head
+										reason: node model rule asDefined
+										start: node model start number
+										end: node model end number).
+							node families isEmpty
+								ifFalse: [ | newChildren |
+									newChildren := Array new: node model dottedRule body size.
+									node model dottedRule body size to: 1 by: -1 do: [ :i | newChildren at: i put: stack pop ].
+									finalNode children: newChildren ].
+							stack push: finalNode ] ] ];
 		visit: self.
 	self assert: [ stack size = 1 ].
 	^ ESTree rootNode: stack pop

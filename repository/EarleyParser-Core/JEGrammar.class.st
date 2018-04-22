@@ -3,14 +3,15 @@ a context free grammar.
 
 nonterminals - is a set of nonterminals. they should be unique.
 terminals - is a set of terminals. they should be unique.
-rules - is a set of rules. they should be unique.
+productionRules - is a set of rules defined by the user.
+				you can access by an association (nonterminal -> index).
+rules - is a set of rules used by the algorithm. they should be unique.
 
 startSymbol - a nonterminal named START  used by the algorithm.
 	the given grammar is augmented with this nonterminal.
 startRule - the first rule to initialize the algorithm.
 	START : first nonterminal.
 		
-alternatives - is a set of rules that you can access by a pair (nonterminal, index).
 predictedAlternatives - is a set of predicted dotted rules that you can access by nonterminal. 
 	 they are obtain from the given rules.
 
@@ -140,17 +141,17 @@ JEGrammar >> alternativesOf: aNonterminal [
 { #category : #initialization }
 JEGrammar >> initialize [
 	super initialize.
-	startSymbol := JENonterminal start.
+	startSymbol := JENonterminal named: 'START'.
 	productionRules := ArrayMultiValuedDictionary dictionary: OrderedDictionary.
 	rules := ArrayMultiValuedDictionary dictionary: OrderedDictionary.
 	predictedAlternatives := ArrayMultiValuedDictionary dictionary: OrderedIdentityDictionary
 ]
 
 { #category : #initialization }
-JEGrammar >> initializeProductionRules: productionRuleCollection terminals: terminalCollection startNonterminal: aNonterminal [
+JEGrammar >> initializeProductionRules: productionRuleCollection terminals: terminalSet startNonterminal: aNonterminal [
 	self initialize.
-	nonterminals := SinglyLinkedList withAll: productionRuleCollection keys.
-	terminals := Set withAll: terminalCollection.
+	nonterminals := productionRuleCollection keys.
+	terminals := terminalSet asArray.
 	productionRuleCollection do: [ :each | productionRules at: each head put: each ].
 	productionRuleCollection
 		collect: [ :rule | JERule head: rule head body: rule body copy ]

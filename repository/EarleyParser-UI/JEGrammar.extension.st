@@ -5,7 +5,7 @@ JEGrammar >> gtInspectorNonterminalsIn: composite [
 	<gtInspectorPresentationOrder: 2>
 	^ composite table
 		title: [ nonterminals size asString , ' nonterminals' ];
-		display: [ nonterminals asArray ];
+		display: [ nonterminals ];
 		column: 'Nonterminals' evaluated: [ :each | GTObjectPrinter new asTruncatedTextFrom: each ];
 		showOnly: 50;
 		yourself

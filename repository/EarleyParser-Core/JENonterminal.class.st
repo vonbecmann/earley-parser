@@ -19,13 +19,6 @@ JENonterminal class >> named: aNameString [
 	^ self basicNew initializeName: aNameString
 ]
 
-{ #category : #'instance creation' }
-JENonterminal class >> start [
-	"start nonterminal only used by the algorithm."
-
-	^ self named: 'START'
-]
-
 { #category : #comparing }
 JENonterminal >> = anObject [
 	^ self class == anObject class and: [ name == anObject named ]

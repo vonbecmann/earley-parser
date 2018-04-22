@@ -1,6 +1,6 @@
 * earley-parser
 
-Jay Earley Parser [[https://travis-ci.org/vonbecmann/earley-parser][https://travis-ci.org/vonbecmann/earley-parser.svg?branch=master]]
+Jay Clark Earley Parser [[https://travis-ci.org/vonbecmann/earley-parser][https://travis-ci.org/vonbecmann/earley-parser.svg?branch=master]]
 
 ** pharo 6
 

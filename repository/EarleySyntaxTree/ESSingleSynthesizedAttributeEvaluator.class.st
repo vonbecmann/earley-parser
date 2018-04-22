@@ -55,9 +55,9 @@ ESSingleSynthesizedAttributeEvaluator >> evaluateTree: aParseTree [
 													node children size = 1
 														ifTrue: [ {stack pop} ]
 														ifFalse: [ | arguments |
-															arguments := SinglyLinkedStack new.
-															node children size timesRepeat: [ arguments push: stack pop ].
-															{arguments asArray} ] ])) ] ] ]; 
+															arguments := Array new: node children size.
+															node children size to: 1 by: -1 do: [ :i | arguments at: i put: stack pop ].
+															{arguments} ] ])) ] ] ]; 
 		visit: aParseTree.
 	self assert: [ stack size = 1 ].
 	^ stack pop

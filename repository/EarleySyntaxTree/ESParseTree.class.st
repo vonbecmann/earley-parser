@@ -68,6 +68,7 @@ ESParseTree >> leftmostDerivation [
 
 { #category : #'initialize-release' }
 ESParseTree >> release [
+	tree release.
 	tree := nil.
 	grammar := nil.
 	super release

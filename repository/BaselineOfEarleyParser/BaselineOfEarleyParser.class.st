@@ -31,12 +31,12 @@ BaselineOfEarleyParser >> baseline: spec [
 					with: [ spec requires: #('MultiValuedDictionary' 'LinkedList') ];
 				package: 'EarleyParser-Regex' 
 					with: [ spec requires: #('EarleyParser-Core') ];
-				package: 'EarleyAnalyzer' 
-					with: [ spec requires: #('EarleyParser-Core') ];
 				package: 'EarleyParser-UI' 
 					with: [ spec requires: #('EarleyParser-Core' 'Roassal2') ];
 				package: 'EarleyParser-Tests' 
 					with: [ spec requires: #('EarleyParser-Core') ];
+				package: 'EarleyAnalyzer' 
+					with: [ spec requires: #('EarleyParser-Tests') ];
 				package: 'EarleySyntaxTree' 
 					with: [ spec requires: #('EarleyParser-Core') ];
 				package: 'EarleySyntaxTree-UI' 

@@ -13,7 +13,7 @@ Class {
 		'predictCount',
 		'scanCount'
 	],
-	#category : 'EarleyAnalyzer'
+	#category : #'EarleyAnalyzer-Core'
 }
 
 { #category : #public }
@@ -33,7 +33,7 @@ JEAnalyticalRecognizer >> accepts: words [
 						newFrom:
 							{('each column size' -> (chart collect: [ :each | each size ])).
 							('total item count' -> (chart collect: [ :each | each size ]) sum)})).
-			('columnt stats'
+			('column stats'
 				->
 					(OrderedDictionary
 						newFrom:

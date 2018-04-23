@@ -8,13 +8,16 @@ ESParseTree >> gtInspectorASTWordsIn: composite [
 		send: [ :each | 
 			String
 				streamContents: [ :s | 
-					s nextPutAll: '>>'.
-					ESTDepthFirstVisitor new 
+					ESTDepthFirstVisitor new
 						preOrderBlock: [ :node | 
+							node == each
+								ifTrue: [ s nextPutAll: '>>' ].
 							node model isTerminal
 								ifTrue: [ s nextPut: node model reason ] ];
-						visitNode: each.
-					s nextPutAll: '<<' ] ];
+						postOrderBlock: [ :node | 
+							node == each
+								ifTrue: [ s nextPutAll: '<<' ] ];
+						visit: tree ] ];
 		yourself
 ]
 

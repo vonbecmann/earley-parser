@@ -49,18 +49,6 @@ JEColumn >> = column [
 	^ self class == column class and: [ number == column number ]
 ]
 
-{ #category : #accessing }
-JEColumn >> activeItems [
-	^ Array
-		streamContents: [ :s | 
-			itemsByKey
-				associationsDo:
-					[ :assoc | 
-						assoc value 
-							select: [ :each | each isActive ] 
-							thenDo: [ :each | s nextPut: each ] ] ]
-]
-
 { #category : #adding }
 JEColumn >> add: anItem [
 	" Optimize for efficiency. 
@@ -104,6 +92,21 @@ JEColumn >> basicAdd: anItem [
 	^ anItem
 		end: self;
 		yourself
+]
+
+{ #category : #accessing }
+JEColumn >> expectedSymbols [
+	| expectedSymbols |
+	expectedSymbols := Set new.
+	itemsByKey
+		associationsDo: [ :assoc | 
+			assoc value
+				do: [ :item | 
+					item isActive
+						ifTrue: [ expectedSymbols add: item symbolAtDot ].
+					(item isPredicted and: [ item isRepresentation ])
+						ifTrue: [ expectedSymbols add: item head ] ] ].
+	^ expectedSymbols asArray
 ]
 
 { #category : #private }
@@ -208,18 +211,6 @@ JEColumn >> moveDotForward: previousItem [
 { #category : #accessing }
 JEColumn >> number [
 	^ number
-]
-
-{ #category : #accessing }
-JEColumn >> predictedItems [
-	^ Array
-		streamContents: [ :s | 
-			itemsByKey
-				associationsDo:
-					[ :assoc | 
-						assoc value 
-							select: [ :each | each isPredicted ] 
-							thenDo: [ :each | s nextPut: each ] ] ]
 ]
 
 { #category : #private }

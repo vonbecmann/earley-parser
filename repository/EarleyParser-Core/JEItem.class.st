@@ -91,6 +91,11 @@ JEItem >> isPredicted [
 ]
 
 { #category : #testing }
+JEItem >> isRepresentation [
+	^ self subclassResponsibility
+]
+
+{ #category : #testing }
 JEItem >> isTerminal [
 	^ self subclassResponsibility
 ]

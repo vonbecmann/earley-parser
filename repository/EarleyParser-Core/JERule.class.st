@@ -122,7 +122,7 @@ JERule >> isEpsilon [
 JERule >> isRepresentation [
 	"am i a representation rule?"
 
-	^ body size = 1 and: [ (body at: 1) isTerminal ]
+	^ body size = 1 and: [ body first isTerminal ]
 ]
 
 { #category : #printing }

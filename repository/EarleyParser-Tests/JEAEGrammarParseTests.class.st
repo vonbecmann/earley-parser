@@ -23,12 +23,11 @@ JEAEGrammarParseTests >> testParseEmpty [
 	self
 		should: [ grammar parse: '' ]
 		raise: JEFailure
-		withExceptionDo: 
-			[ :failure | 
-				self assert: failure position equals: 1.
-				self 
-					assertCollection: failure expectedSymbols 
-					hasSameElements: {(JETerminal character: $a)} ]
+		withExceptionDo: [ :failure | 
+			self assert: failure position equals: 1.
+			self
+				assertCollection: failure expectedSymbols
+				hasSameElements: {(JENonterminal named: 'letter a symbol')} ]
 ]
 
 { #category : #tests }
@@ -65,68 +64,68 @@ JEAEGrammarParseTests >> testParseSimpleExp01 [
 
 { #category : #'tests - failure' }
 JEAEGrammarParseTests >> testParseSimpleExp02 [
-	self 
-		should: [ grammar parse: 'a ' ] 
-		raise: JEFailure 
-		withExceptionDo: 
-			[ :failure | 
-				self assert: failure position equals: 2.
-				self 
-					assertCollection: failure expectedSymbols  
-					hasSameElements: {(JETerminal character: $*). (JETerminal character: $+).
-											(JENonterminal named: 'star symbol'). 
-											(JENonterminal named: 'plus symbol').} ]
-				
+	self
+		should: [ grammar parse: 'a ' ]
+		raise: JEFailure
+		withExceptionDo: [ :failure | 
+			self assert: failure position equals: 2.
+			self
+				assertCollection: failure expectedSymbols
+				hasSameElements: {	(JENonterminal named: 'star symbol').
+										(JENonterminal named: 'plus symbol')} ]
 ]
 
 { #category : #'tests - failure' }
 JEAEGrammarParseTests >> testParseSimpleExp03 [
-	self 
-		should: [ grammar parse: 'a+' ] 
-		raise: JEFailure 
-		withExceptionDo: 
-			[ :failure | 
-				self assert: failure position equals: 3.
-				self 
-					assertCollection: failure expectedSymbols
-					hasSameElements: {(JENonterminal named: 'T'). (JETerminal character: $a)} ]
+	self
+		should: [ grammar parse: 'a+' ]
+		raise: JEFailure
+		withExceptionDo: [ :failure | 
+			self assert: failure position equals: 3.
+			self
+				assertCollection: failure expectedSymbols
+				hasSameElements: {	(JENonterminal named: 'T').
+										(JENonterminal named: 'letter a symbol')}	]
 ]
 
 { #category : #'tests - failure' }
 JEAEGrammarParseTests >> testParseSimpleExp04 [
-	self 
-		should: [ grammar parse: 'a++' ] 
-		raise: JEFailure 
-		withExceptionDo: 
-			[ :failure | 
-				self assert: failure position equals: 3.
-				self 
-					assertCollection: failure expectedSymbols
-					hasSameElements: {(JENonterminal named: 'T'). (JETerminal character: $a)} ]
+	self
+		should: [ grammar parse: 'a++' ]
+		raise: JEFailure
+		withExceptionDo: [ :failure | 
+			self assert: failure position equals: 3.
+			self
+				assertCollection: failure expectedSymbols
+				hasSameElements:
+					{(JENonterminal named: 'T').
+					(JENonterminal named: 'letter a symbol')} ]
 ]
 
 { #category : #'tests - failure' }
 JEAEGrammarParseTests >> testParseSimpleExp05 [
-	self 
-		should: [ grammar parse: 'a+*' ] 
-		raise: JEFailure 
-		withExceptionDo: 
-			[ :failure | 
-				self assert: failure position equals: 3.
-				self 
-					assertCollection: failure expectedSymbols
-					hasSameElements: {(JENonterminal named: 'T'). (JETerminal character: $a)} ]
+	self
+		should: [ grammar parse: 'a+*' ]
+		raise: JEFailure
+		withExceptionDo: [ :failure | 
+			self assert: failure position equals: 3.
+			self
+				assertCollection: failure expectedSymbols
+				hasSameElements:
+					{(JENonterminal named: 'T').
+					(JENonterminal named: 'letter a symbol')} ]
 ]
 
 { #category : #'tests - failure' }
 JEAEGrammarParseTests >> testParseSimpleExp06 [
-	self 
-		should: [ grammar parse: 'a*' ] 
-		raise: JEFailure 
-		withExceptionDo: 
-			[ :failure | 
-				self assert: failure position equals: 3.
-				self 
-					assertCollection: failure expectedSymbols
-					hasSameElements: {(JENonterminal named: 'P'). (JETerminal character: $a)} ]
+	self
+		should: [ grammar parse: 'a*' ]
+		raise: JEFailure
+		withExceptionDo: [ :failure | 
+			self assert: failure position equals: 3.
+			self
+				assertCollection: failure expectedSymbols
+				hasSameElements:
+					{(JENonterminal named: 'P').
+					(JENonterminal named: 'letter a symbol')} ]
 ]

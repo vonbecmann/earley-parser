@@ -119,6 +119,11 @@ JEDottedItem >> isPredicted [
 ]
 
 { #category : #testing }
+JEDottedItem >> isRepresentation [
+	^ dottedRule isRepresentation
+]
+
+{ #category : #testing }
 JEDottedItem >> isTerminal [
 	^ false
 ]

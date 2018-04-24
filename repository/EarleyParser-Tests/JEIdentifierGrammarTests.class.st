@@ -65,6 +65,18 @@ JEIdentifierGrammarTests >> testParse01 [
 					('word symbol star' -> 2)})
 ]
 
+{ #category : #'tests - failure' }
+JEIdentifierGrammarTests >> testParseExpectsLetter [
+	self
+		should: [ grammar parse: ',' ]
+		raise: JEFailure
+		withExceptionDo: [ :failure | 
+			self assert: failure position equals: 1.
+			self 
+				assertCollection: failure expectedSymbols 
+				hasSameElements: {(JENonterminal named: 'letter symbol')} ]
+]
+
 { #category : #tests }
 JEIdentifierGrammarTests >> testTwoLetters [
 	self assert: (grammar accepts: 'a_').

@@ -106,6 +106,11 @@ JEDottedRule >> isPredicted [
 	^ predicted
 ]
 
+{ #category : #testing }
+JEDottedRule >> isRepresentation [
+	^ rule isRepresentation
+]
+
 { #category : #accessing }
 JEDottedRule >> moveDotForward [
 	"a dotted rule of myself with dot move forward"

@@ -102,6 +102,11 @@ JETerminalItem >> isPredicted [
 ]
 
 { #category : #testing }
+JETerminalItem >> isRepresentation [
+	^ false
+]
+
+{ #category : #testing }
 JETerminalItem >> isTerminal [
 	^ true
 ]

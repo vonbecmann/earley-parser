@@ -127,33 +127,43 @@ JEAEGrammarForestTests >> testParseSimpleExp01 [
 	self assert: forest numberOfTrees equals: 1
 ]
 
-{ #category : #tests }
+{ #category : #'tests - failure' }
 JEAEGrammarForestTests >> testParseSimpleExp02 [
 	self 
 		should: [ grammar parse: 'a ' ] 
 		raise: JEFailure 
-		withExceptionDo: [ :ex | self assert: ex position equals: 2 ]
+		withExceptionDo: [ :failure | 
+			self assert: failure position equals: 2.
+			self
+				assertCollection: failure expectedSymbols
+				hasSameElements: {	(JENonterminal named: 'plus symbol'). 
+										(JENonterminal named: 'star symbol')}	]
 ]
 
-{ #category : #tests }
+{ #category : #'tests - failure' }
 JEAEGrammarForestTests >> testParseSimpleExp03 [
 	self
 		should: [ grammar parse: 'a+' ]
 		raise: JEFailure
-		withExceptionDo: 
-			[ :failure | 
-				self assert: failure position equals: 3.
-				self
-					assertCollection: failure expectedSymbols
-					hasSameElements: {(JENonterminal named: 'T'). (JETerminal character: $a)} ]
+		withExceptionDo: [ :failure | 
+			self assert: failure position equals: 3.
+			self
+				assertCollection: failure expectedSymbols
+				hasSameElements: {	(JENonterminal named: 'T'). 
+										(JENonterminal named: 'letter a symbol')}	]
 ]
 
-{ #category : #tests }
+{ #category : #'tests - failure' }
 JEAEGrammarForestTests >> testParseSimpleExp04 [
 	self 
 		should: [ grammar parse: 'a++' ] 
 		raise: JEFailure 
-		withExceptionDo: [ :failure | self assert: failure position equals: 3 ]
+		withExceptionDo: [ :failure | 
+			self assert: failure position equals: 3.
+			self
+				assertCollection: failure expectedSymbols
+				hasSameElements: {	(JENonterminal named: 'T'). 
+										(JENonterminal named: 'letter a symbol')}	]
 ]
 
 { #category : #tests }

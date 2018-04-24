@@ -67,6 +67,19 @@ JEDottedItemTest >> testIsPredicted [
 ]
 
 { #category : #tests }
+JEDottedItemTest >> testIsRepresentation [
+	rule := JERule
+		head: (JENonterminal named: 'letter y symbol')
+		body: {(JETerminal character: $y)}.
+	item := (rule dotAt: 1) startedAt: first.
+
+	self assert: item isRepresentation.
+	self assert: item isPredicted.
+	self deny: item isActive.
+	self deny: item isFinal
+]
+
+{ #category : #tests }
 JEDottedItemTest >> testIsTerminal [
 	item := (rule dotAt: 2) startedAt: first.
 	

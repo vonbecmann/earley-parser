@@ -227,3 +227,12 @@ JEDottedRuleTest >> testIsPredicted [
 	self deny: (rule dotAt: 3) isPredicted.
 	self deny: rule dotAtEnd isPredicted
 ]
+
+{ #category : #tests }
+JEDottedRuleTest >> testIsRepresentation [
+	| rule |
+	rule := JERule head: (JENonterminal named: 'letter a symbol') body: {(JETerminal character: $a)}.
+
+	self assert: rule dotAtBeginning isRepresentation.
+	self assert: rule dotAtEnd isRepresentation
+]

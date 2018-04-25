@@ -59,8 +59,3 @@ ESTree >> release [
 	root := nil.
 	super release
 ]
-
-{ #category : #accessing }
-ESTree >> root [
-	^ root model
-]

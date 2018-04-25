@@ -78,8 +78,3 @@ JEBSPPForest >> release [
 	root := nil.
 	super release
 ]
-
-{ #category : #accessing }
-JEBSPPForest >> root [
-	^ root model
-]

@@ -15,6 +15,8 @@ startRule - the first rule to initialize the algorithm.
 predictedAlternatives - is a set of predicted dotted rules that you can access by nonterminal. 
 	 they are obtain from the given rules.
 
+ruleToProductionDict - maps algorithm's rule to production rules.
+	useful when you get a derivation.
 
 
 
@@ -29,7 +31,8 @@ Class {
 		'rules',
 		'startSymbol',
 		'startRule',
-		'predictedAlternatives'
+		'predictedAlternatives',
+		'ruleToProductionDict'
 	],
 	#category : #'EarleyParser-Core-Public'
 }
@@ -144,7 +147,9 @@ JEGrammar >> initialize [
 	startSymbol := JENonterminal named: 'START'.
 	productionRules := ArrayMultiValuedDictionary dictionary: OrderedDictionary.
 	rules := ArrayMultiValuedDictionary dictionary: OrderedDictionary.
-	predictedAlternatives := ArrayMultiValuedDictionary dictionary: OrderedIdentityDictionary
+	predictedAlternatives := ArrayMultiValuedDictionary dictionary: OrderedIdentityDictionary.
+	ruleToProductionDict := IdentityDictionary new
+	
 ]
 
 { #category : #initialization }
@@ -154,8 +159,10 @@ JEGrammar >> initializeProductionRules: productionRuleCollection terminals: term
 	terminals := terminalSet asArray.
 	productionRuleCollection do: [ :each | productionRules at: each head put: each ].
 	productionRuleCollection
-		collect: [ :rule | JERule head: rule head body: rule body copy ]
-		thenDo: [ :eachRule | rules at: eachRule head put: eachRule ].
+		collect: [ :rule | (JERule head: rule head body: rule body copy) -> rule ]
+		thenDo: [ :eachAssoc | 
+			ruleToProductionDict add: eachAssoc.
+			rules at: eachAssoc key head put: eachAssoc key ].
 	startRule := JERule head: startSymbol body: {aNonterminal}.
 	rules at: startSymbol put: startRule.
 	rules keysAndValuesDo: [ :nonterminal :alternative | predictedAlternatives at: nonterminal put: alternative dotAtBeginning ]
@@ -191,6 +198,13 @@ JEGrammar >> printOn: aStream [
 		nextPut: $(;
 		print: startRule;
 		nextPut: $)
+]
+
+{ #category : #private }
+JEGrammar >> productionRuleAt: rule [
+	"return the production rule associated with algorithm's rule"
+
+	^ ruleToProductionDict at: rule
 ]
 
 { #category : #accessing }

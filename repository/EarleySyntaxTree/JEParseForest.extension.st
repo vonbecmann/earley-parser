@@ -1,7 +1,7 @@
-Extension { #name : #JEBSPPForest }
+Extension { #name : #JEParseForest }
 
 { #category : #'*EarleySyntaxTree' }
-JEBSPPForest >> extractSingleTree [
+JEParseForest >> extractSingleParseTree [
 	"the forest has one binary tree, so we need to extract it from the forest. 
 	 but flatten as the production rules and using syntax nodes."
 
@@ -26,8 +26,8 @@ JEBSPPForest >> extractSingleTree [
 							finalNode := ESTreeNode
 								model:
 									(ESSyntaxNode
-										symbol: node model rule head
-										reason: node model rule asDefined
+										symbol: node model head
+										reason: (grammar productionRuleAt: node model rule)
 										start: node model start number
 										end: node model end number).
 							node families isEmpty
@@ -36,7 +36,8 @@ JEBSPPForest >> extractSingleTree [
 									node model dottedRule body size to: 1 by: -1 do: [ :i | newChildren at: i put: stack pop ].
 									finalNode children: newChildren ].
 							stack push: finalNode ] ] ];
-		visit: self.
+		visit: syntaxTree.
 	self assert: [ stack size = 1 ].
-	^ ESTree rootNode: stack pop
+	^ ESParseTree given: (ESTree rootNode: stack pop) of: grammar
+	
 ]

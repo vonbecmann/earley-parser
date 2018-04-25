@@ -51,13 +51,6 @@ JERule >> = aRule [
 	^ true
 ]
 
-{ #category : #converting }
-JERule >> asDefined [
-	"as it was defined by the user"
-
-	^ JEProductionRule head: head body: body copy
-]
-
 { #category : #accessing }
 JERule >> body [
 	^ body

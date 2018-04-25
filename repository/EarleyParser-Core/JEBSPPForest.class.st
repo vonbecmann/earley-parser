@@ -63,6 +63,15 @@ JEBSPPForest >> numberOfTrees [
 	^ numberOfTrees at: root
 ]
 
+{ #category : #printing }
+JEBSPPForest >> printOn: aStream [
+	aStream
+		print: self class;
+		nextPut: $(;
+		print: root;
+		nextPut: $)
+]
+
 { #category : #'initialize-release' }
 JEBSPPForest >> release [
 	root release.

@@ -33,7 +33,7 @@ JEParseForest >> extractSingleParseTree [
 							node families isEmpty
 								ifFalse: [ | newChildren |
 									newChildren := Array new: node model dottedRule body size.
-									node model dottedRule body size to: 1 by: -1 do: [ :i | newChildren at: i put: stack pop ].
+									newChildren size to: 1 by: -1 do: [ :i | newChildren at: i put: stack pop ].
 									finalNode children: newChildren ].
 							stack push: finalNode ] ] ];
 		visit: syntaxTree.

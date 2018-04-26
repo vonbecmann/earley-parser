@@ -35,29 +35,27 @@ ESSingleSynthesizedAttributeEvaluator >> evaluate: aString [
 ]
 
 { #category : #'public access' }
-ESSingleSynthesizedAttributeEvaluator >> evaluateTree: aParseTree [ 
+ESSingleSynthesizedAttributeEvaluator >> evaluateTree: aParseTree [
 	| stack |
 	stack := SinglyLinkedStack new.
-	ESTDepthFirstVisitor new 
+	ESTDepthFirstVisitor new
 		postOrderBlock: [ :node | 
 			node model isTerminal
 				ifTrue: [ stack push: node model reason ]
 				ifFalse: [ 
 					(ruleToAction at: node model reason ifAbsent: nil)
 						ifNotNil: [ :action | 
-							stack
-								push:
-									(action
-										valueWithArguments:
-											(node children isEmpty
-												ifTrue: [ #() ]
-												ifFalse: [ 
-													node children size = 1
-														ifTrue: [ {stack pop} ]
-														ifFalse: [ | arguments |
-															arguments := Array new: node children size.
-															arguments size to: 1 by: -1 do: [ :i | arguments at: i put: stack pop ].
-															{arguments} ] ])) ] ] ]; 
+							| actual |
+							actual := node children isEmpty
+								ifTrue: [ #() ]
+								ifFalse: [ 
+									node children size = 1
+										ifTrue: [ {stack pop} ]
+										ifFalse: [ | arguments |
+											arguments := Array new: node children size.
+											arguments size to: 1 by: -1 do: [ :i | arguments at: i put: stack pop ].
+											{arguments} ] ].
+							stack push: (action valueWithArguments: actual) ] ] ];
 		visit: aParseTree.
 	self assert: [ stack size = 1 ].
 	^ stack pop

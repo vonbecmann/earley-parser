@@ -13,15 +13,17 @@ ESTree >> gtInspectorBrowserIn: composite [
 { #category : #'*EarleySyntaxTree-UI' }
 ESTree >> gtInspectorViewIn: composite [
 	<gtInspectorPresentationOrder: 2>
-	^ composite roassal2
+	^ composite tree
 		title: 'View';
-		initializeView: [ self view ];
+		display: [ root ];
+		children: [ :each | each children ];
+		send: [ :each | self viewFor: each ];
 		yourself
 ]
 
 { #category : #'*EarleySyntaxTree-UI' }
-ESTree >> view [
-	" returns a roassal view of myself"
+ESTree >> viewFor: aNode [
+	" returns a roassal view of the given node"
 
 	| nodes associations b |
 	nodes := SinglyLinkedList new.
@@ -30,7 +32,7 @@ ESTree >> view [
 		preOrderBlock: [ :node | 
 			nodes add: node.
 			associations addAll: (node children collect: [ :child | node -> child ]) ];
-		visit: self.
+		visitNode: aNode.
 	b := RTMondrian new.
 	b shape rectangle withTextAbove.
 	b nodes: nodes asArray.

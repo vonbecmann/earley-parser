@@ -33,7 +33,5 @@ ESParseTree >> gtInspectorBrowseIn: composite [
 { #category : #'*EarleySyntaxTree-UI' }
 ESParseTree >> gtInspectorViewIn: composite [
 	<gtInspectorPresentationOrder: 2>
-	^ (tree gtInspectorViewIn: composite)
-		send: [ :each | each model ];
-		yourself
+	^ tree gtInspectorViewIn: composite
 ]

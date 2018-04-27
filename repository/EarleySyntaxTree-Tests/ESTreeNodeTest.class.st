@@ -10,6 +10,11 @@ ESTreeNodeTest >> testAsString [
 ]
 
 { #category : #tests }
+ESTreeNodeTest >> testChildrenIsEmpty [
+	self assert: (ESTreeNode model: 'A') children isEmpty
+]
+
+{ #category : #tests }
 ESTreeNodeTest >> testEqual01 [
 	| one another |
 	one := ESTreeNode model: 'A'.

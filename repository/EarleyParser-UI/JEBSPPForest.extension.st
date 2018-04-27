@@ -13,28 +13,30 @@ JEBSPPForest >> gtInspectorBrowserIn: composite [
 { #category : #'*EarleyParser-UI' }
 JEBSPPForest >> gtInspectorViewIn: composite [
 	<gtInspectorPresentationOrder: 10>
-	^ composite roassal2
+	^ composite tree
 		title: 'View';
-		initializeView: [ self view ]
+		display: [ root ];
+		children: [ :each | each children ];
+		send: [ :each | self viewFor: each ];
+		yourself
 ]
 
 { #category : #'*EarleyParser-UI' }
-JEBSPPForest >> view [
-	" returns a roassal view of myself"
+JEBSPPForest >> viewFor: aNode [
+	" returns a roassal view of a given node"
 
 	| nodes familyNodes associations b |
 	nodes := SinglyLinkedList new.
 	familyNodes := SinglyLinkedList new.
 	associations := SinglyLinkedList new.
-	JEDepthFirstVisitor new 
+	JEDepthFirstVisitor new
 		preOrderNodeBlock: [ :packed | 
 			nodes add: packed.
 			associations addAll: (packed children collect: [ :family | packed -> family ]) ];
 		preOrderFamilyBlock: [ :family | 
 			familyNodes add: family.
 			associations addAll: (family children collect: [ :packed | family -> packed ]) ];
-		visit: self.
-	
+		visitNode: aNode.
 	b := RTMondrian new.
 	b shape rectangle withTextAbove.
 	b nodes: nodes asArray.

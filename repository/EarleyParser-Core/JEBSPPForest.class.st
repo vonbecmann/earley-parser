@@ -22,7 +22,7 @@ JEBSPPForest class >> root: aPackedNode [
 
 { #category : #visiting }
 JEBSPPForest >> acceptVisitor: aVisitor [
-	aVisitor visitRoot: root
+	aVisitor visitNode: root
 ]
 
 { #category : #initialization }

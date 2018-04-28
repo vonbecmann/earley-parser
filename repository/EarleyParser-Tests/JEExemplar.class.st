@@ -101,6 +101,22 @@ JEExemplar class >> PAL [
 ]
 
 { #category : #'instance creation' }
+JEExemplar class >> RL [
+	"	page 63.
+	 	sentences: a^n a^m b^n (m >= 0, n >= 1)"
+	
+	^ JEGrammar
+		productionRules:
+			#(	#('R' #('A')) 
+				#('R' #('letter a symbol' 'R' 'letter b symbol')) 
+				#('A' #('letter a symbol')) 
+				#('A' #('A' 'letter a symbol')))
+		representations:
+			{	('letter a symbol' -> (JETerminal character: $a)).
+				('letter b symbol' -> (JETerminal character: $b))}
+]
+
+{ #category : #'instance creation' }
 JEExemplar class >> RR [
 	"RR is LR(1), but there is not bound on the size of charts, so it is not BS(1). page 48"
 

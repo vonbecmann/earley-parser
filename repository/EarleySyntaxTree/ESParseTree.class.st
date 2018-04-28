@@ -31,18 +31,16 @@ ESParseTree >> asArrayRepresentation [
 
 	| stack |
 	stack := SinglyLinkedStack new.
-	ESTDepthFirstVisitor new 
+	ESTDepthFirstVisitor new
 		postOrderBlock: [ :node | 
-			node model isTerminal
-				ifTrue: [ stack push: node model reason ]
-				ifFalse: 
-					[ node children isEmpty
-						ifTrue: [ stack push: #() ]
-						ifFalse: 
-							[ | newChildren |
-								newChildren := SinglyLinkedStack new.
-								node children size timesRepeat: [ newChildren push: stack pop ].
-								stack push: newChildren asArray ] ] ];
+			stack
+				push:
+					(node model isTerminal
+						ifTrue: [ node model reason ]
+						ifFalse: [ 
+							node children isEmpty
+								ifTrue: [ #() ]
+								ifFalse: [ stack popReversed: node children size ] ]) ];
 		visit: tree.
 	^ stack pop
 ]

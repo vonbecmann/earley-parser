@@ -31,13 +31,11 @@ JEParseForest >> extractSingleParseTree [
 										start: node model start number
 										end: node model end number).
 							node families isEmpty
-								ifFalse: [ | newChildren |
-									newChildren := Array new: node model dottedRule body size.
-									newChildren size to: 1 by: -1 do: [ :i | newChildren at: i put: stack pop ].
-									finalNode children: newChildren ].
+								ifFalse: [ | children |
+									children := stack popReversed: node model dottedRule body size.
+									finalNode children: children ].
 							stack push: finalNode ] ] ];
 		visit: syntaxTree.
 	self assert: [ stack size = 1 ].
 	^ ESParseTree given: (ESTree rootNode: stack pop) of: grammar
-	
 ]

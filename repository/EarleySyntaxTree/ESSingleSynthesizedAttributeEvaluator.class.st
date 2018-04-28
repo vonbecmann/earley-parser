@@ -46,13 +46,18 @@ ESSingleSynthesizedAttributeEvaluator >> evaluateTree: aParseTree [
 					(ruleToAction at: node model reason ifAbsent: nil)
 						ifNotNil: [ :action | 
 							| actual |
-							actual := node children isEmpty
-								ifTrue: [ #() ]
-								ifFalse: [ 
-									node children size = 1
-										ifTrue: [ {stack pop} ]
-										ifFalse: [ {(stack popReversed: node children size)} ] ].
-							stack push: (action valueWithArguments: actual) ] ] ];
+							actual := 
+								node children isEmpty
+									ifTrue: [ #() ]
+									ifFalse: [ 
+										node children size = 1
+											ifTrue: [ {stack pop} ]
+											ifFalse: [ {(stack popReversed: node children size)} ] ].
+							stack
+								push:
+									(action numArgs == 0
+										ifTrue: [ action value ]
+										ifFalse: [ action valueWithArguments: actual ]) ] ] ];
 		visit: aParseTree.
 	self assert: [ stack size = 1 ].
 	^ stack pop

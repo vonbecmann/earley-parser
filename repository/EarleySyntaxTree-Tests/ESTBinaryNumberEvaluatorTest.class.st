@@ -13,8 +13,8 @@ ESTBinaryNumberEvaluatorTest >> setUp [
 		grammar: ESTExemplar binaryNumber
 		actions:
 			{('bit sequence' -> 2 -> [ :nodes | nodes first << 1 bitOr: nodes second ]).
-			('one symbol' -> 1 -> [ :node | 1 ]).
-			('zero symbol' -> 1 -> [ :node | 0 ])}
+			('one symbol' -> 1 -> [ 1 ]).
+			('zero symbol' -> 1 -> [ 0 ])}
 ]
 
 { #category : #tests }

@@ -109,14 +109,13 @@ JE1VWParser >> initialize [
 			->	[ :nodes | String streamContents: [ :s | nodes do: [ :each | s nextPutAll: each ] ] ]).
 (('(space and small syntactic mark) plus' -> 2)
 			->	[ :nodes | String streamContents: [ :s | nodes do: [ :each | s nextPutAll: each ] ] ]).
-(('space plus' -> 1) 		-> [ :node | String space ]).
-(('space plus' -> 2) 		-> [ :node | String space ]).
-(('layout' -> 1) 			-> [ nil ]).
-(('layout' -> 2) 			-> [:node | nil ]).
-(('separator plus' -> 1 ) -> [:node | nil]).
-(('separator plus' -> 2 ) -> [:nodes | nil ]).
-(('small syntactic mark symbol' -> 1) 
-			-> [ :node | String with: node ])}
+(('space plus' -> 1) 			-> [ String space ]).
+(('space plus' -> 2) 			-> [ String space ]).
+(('layout' -> 1) 				-> [ nil ]).
+(('layout' -> 2) 				-> [ nil ]).
+(('separator plus' -> 1 ) 	-> [ nil ]).
+(('separator plus' -> 2 ) 	-> [ nil ]).
+(('small syntactic mark symbol' -> 1) -> [ :node | String with: node ])}
 ]
 
 { #category : #parsing }

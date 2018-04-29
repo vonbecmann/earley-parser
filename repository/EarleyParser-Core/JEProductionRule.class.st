@@ -25,6 +25,8 @@ JEProductionRule class >> head: aNonterminal body: aSymbolArray [
 
 { #category : #comparing }
 JEProductionRule >> = aRule [
+	self == aRule 
+		ifTrue: [ ^ true ].
 	self class == aRule class
 		ifFalse: [ ^ false ].
 	head = aRule head
@@ -47,7 +49,7 @@ JEProductionRule >> body [
 { #category : #comparing }
 JEProductionRule >> hash [
 	| hash |
-	hash := ((self class hash + head hash) hashMultiply + body size hash) hashMultiply.
+	hash := (self class hash + head hash) hashMultiply.
 	body do: [ :each | hash := (hash + each hash) hashMultiply ].
 	^ hash
 ]

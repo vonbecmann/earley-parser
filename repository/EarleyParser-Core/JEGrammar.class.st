@@ -65,7 +65,7 @@ JEGrammar class >> productionRules: productionRulesArray representations: termin
 	""
 	"
 
-	| nonterminals terminals productionRules productionRuleSet productionRuleIndex rules |
+	| nonterminals terminals lineup unique index rules |
 	self
 		assert: productionRulesArray isNotEmpty
 		description: 'The collection of rules cannot be empty.'.
@@ -78,12 +78,12 @@ JEGrammar class >> productionRules: productionRulesArray representations: termin
 	nonterminals
 		addAll:
 			(terminalNotionToRepresentationList
-				collect: [ :eachAssociation | JENonterminal named: eachAssociation key ]).
+				collect: [ :assoc | JENonterminal named: assoc key ]).
 	terminals := terminalNotionToRepresentationList
-		collect: [ :eachAssociation | eachAssociation value ]
+		collect: [ :assoc | assoc value ]
 		as: Set.
-	productionRules := OrderedCollection new.
-	productionRules
+	lineup := OrderedCollection new.
+	lineup
 		addAll:
 			(productionRulesArray
 				collect: [ :each | 
@@ -95,26 +95,26 @@ JEGrammar class >> productionRules: productionRulesArray representations: termin
 									nonterminals
 										detect: [ :nonterminal | nonterminal named = notionNamed ]
 										ifNone: [ self unknowNonterminal: notionNamed in: each ] ]) ]).
-	productionRules
+	lineup
 		addAll:
 			(terminalNotionToRepresentationList
-				collect: [ :eachAssociation | 
+				collect: [ :assoc | 
 					JEProductionRule
-						head: (nonterminals detect: [ :nonterminal | nonterminal named = eachAssociation key ])
-						body: {(terminals like: eachAssociation value)} ]).
-	productionRuleSet := Set withAll: productionRules.
-	productionRuleIndex := Dictionary
+						head: (nonterminals detect: [ :nonterminal | nonterminal named = assoc key ])
+						body: {(terminals like: assoc value)} ]).
+	unique := Set withAll: lineup.
+	index := Dictionary
 		newFrom:
-			(productionRuleSet
-				collect: [ :rule | rule -> (productionRules findFirst: [ :each | rule = each ]) ]).
+			(unique
+				collect: [ :rule | rule -> (lineup findFirst: [ :each | rule = each ]) ]).
 	rules := ArrayMultiValuedDictionary dictionary: OrderedDictionary.
-	(productionRuleSet
-		sorted: [ :a :b | (productionRuleIndex at: a) < (productionRuleIndex at: b) ])
+	(unique
+		sorted: [ :a :b | (index at: a) < (index at: b) ])
 		do: [ :each | rules at: each head put: each ].
 	^ self basicNew
 		initializeProductionRules: rules
 		terminals: terminals
-		startNonterminal: productionRules first head
+		startNonterminal: lineup first head
 ]
 
 { #category : #private }

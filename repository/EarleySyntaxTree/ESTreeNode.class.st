@@ -2,7 +2,7 @@
 a node of the tree.
 
 model - an object.
-children - a tree node array.
+children - array of tree nodes.
 
 "
 Class {
@@ -12,12 +12,17 @@ Class {
 		'model',
 		'children'
 	],
-	#category : 'EarleySyntaxTree-Implementation'
+	#category : #'EarleySyntaxTree-Implementation'
 }
 
 { #category : #'instance creation' }
 ESTreeNode class >> model: anObject [ 
-	^ self basicNew initializeModel: anObject
+	^ self basicNew initializeModel: anObject andChildren: #()
+]
+
+{ #category : #'instance creation' }
+ESTreeNode class >> model: anObject children: aTreeNodeCollection [
+	^ self basicNew initializeModel: anObject andChildren: aTreeNodeCollection
 ]
 
 { #category : #comparing }
@@ -30,26 +35,16 @@ ESTreeNode >> children [
 	^ children
 ]
 
-{ #category : #accessing }
-ESTreeNode >> children: treeNodeArray [
-	children := treeNodeArray
-]
-
 { #category : #comparing }
 ESTreeNode >> hash [
 	^ (self class hash + model hash) hashMultiply
 ]
 
 { #category : #initialization }
-ESTreeNode >> initialize [
-	super initialize.
-	children := Array empty
-]
-
-{ #category : #initialization }
-ESTreeNode >> initializeModel: anObject [
+ESTreeNode >> initializeModel: anObject andChildren: aTreeNodeCollection [
 	self initialize.
-	model := anObject
+	model := anObject.
+	children := aTreeNodeCollection
 ]
 
 { #category : #accessing }

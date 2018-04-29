@@ -22,17 +22,20 @@ JEParseForest >> extractSingleParseTree [
 										end: node model end number)) ]
 				ifFalse: [ 
 					node model isFinal
-						ifTrue: [ | finalNode |
-							finalNode := ESTreeNode
-								model:
-									(ESSyntaxNode
-										symbol: node model head
-										reason: (grammar productionRuleAt: node model rule)
-										start: node model start number
-										end: node model end number).
-							node families isEmpty
-								ifFalse: [ finalNode children: (stack popReversed: node model dottedRule body size) ].
-							stack push: finalNode ] ] ];
+						ifTrue: [ 
+							stack
+								push:
+									(ESTreeNode
+										model:
+											(ESSyntaxNode
+												symbol: node model head
+												reason: (grammar productionRuleAt: node model rule)
+												start: node model start number
+												end: node model end number)
+										children:
+											(node families isEmpty
+												ifTrue: [ #() ]
+												ifFalse: [ stack popReversed: node model dottedRule body size ])) ] ] ];
 		visit: syntaxTree.
 	self assert: [ stack size = 1 ].
 	^ ESParseTree given: (ESTree rootNode: stack pop) of: grammar

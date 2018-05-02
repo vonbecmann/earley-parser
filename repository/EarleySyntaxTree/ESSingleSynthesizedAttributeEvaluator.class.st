@@ -27,14 +27,14 @@ ESSingleSynthesizedAttributeEvaluator class >> grammar: aGrammar actions: ruleAn
 		andRuleToAction: ruleAndActionAssociationCollection
 ]
 
-{ #category : #testing }
+{ #category : #public }
 ESSingleSynthesizedAttributeEvaluator >> evaluate: aString [
 	| tree |
 	tree := grammar parseTree: aString.
 	^ self evaluateTree: tree
 ]
 
-{ #category : #'public access' }
+{ #category : #public }
 ESSingleSynthesizedAttributeEvaluator >> evaluateTree: aParseTree [
 	| stack |
 	stack := SinglyLinkedStack new.

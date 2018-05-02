@@ -8,10 +8,9 @@ Class {
 	#name : #JE1VWParser,
 	#superclass : #Object,
 	#instVars : [
-		'grammar',
 		'evaluator'
 	],
-	#category : 'Earley1VW-Core'
+	#category : #'Earley1VW-Core'
 }
 
 { #category : #grammar }
@@ -86,8 +85,9 @@ x: y1, y2, ..., yn.
 { #category : #initialization }
 JE1VWParser >> initialize [
 	super initialize.
-	grammar := self class oneLevelVWGrammar.
-	evaluator := ESSingleSynthesizedAttributeEvaluator grammar: grammar actions: {
+	evaluator := ESSingleSynthesizedAttributeEvaluator 
+						grammar: self class oneLevelVWGrammar
+						actions: {
 (('rule list' -> 2)	
 			-> [ :nodes | 
 					Array 
@@ -122,7 +122,5 @@ JE1VWParser >> initialize [
 JE1VWParser >> parse: oneLevelVWRuleString [
 	" parse 1VW rules from a String and return an Array of production rules "
 
-	| tree |
-	tree := grammar parseTree: oneLevelVWRuleString.
-	^ evaluator evaluateTree: tree
+	^ evaluator evaluate: oneLevelVWRuleString
 ]

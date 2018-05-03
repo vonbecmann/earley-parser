@@ -24,6 +24,16 @@ JEVWGrammarTest >> setUp [
 	grammar := JEVWParser vwGrammar
 ]
 
+{ #category : #'tests - hypernotion' }
+JEVWGrammarTest >> testAcceptsHypernotion [
+	self assertGrammarStartingAt: 'hypernotion' accepts: 'long'
+]
+
+{ #category : #'tests - hypernotion' }
+JEVWGrammarTest >> testAcceptsHypernotion02 [
+	self assertGrammarStartingAt: 'hypernotion' accepts: 'iN'
+]
+
 { #category : #'tests - metanotion' }
 JEVWGrammarTest >> testAcceptsMetanotion [
 	self assertGrammarStartingAt: 'metanotion' accepts: 'TALLY'
@@ -47,4 +57,49 @@ JEVWGrammarTest >> testAcceptsMetanotion04 [
 { #category : #'tests - metanotion' }
 JEVWGrammarTest >> testAcceptsMetanotion05 [
 	self assertGrammarStartingAt: 'metanotion' accepts: 'TAG1'
+]
+
+{ #category : #'tests - metarule' }
+JEVWGrammarTest >> testAcceptsMetarule [
+	self assertGrammarStartingAt: 'metarule' accepts: 'EMPTY:: .'
+]
+
+{ #category : #'tests - metarule' }
+JEVWGrammarTest >> testAcceptsMetarule02 [
+	self assertGrammarStartingAt: 'metarule' accepts: 'EMPTY::.'
+]
+
+{ #category : #'tests - metarule' }
+JEVWGrammarTest >> testAcceptsMetarule03 [
+	self assertGrammarStartingAt: 'metarule' accepts: 'LETTER:: a; b; c.'
+]
+
+{ #category : #'tests - metarule' }
+JEVWGrammarTest >> testAcceptsMetarule04 [
+	self assertGrammarStartingAt: 'metarule' accepts: 'N:: ; iN.'
+]
+
+{ #category : #'tests - metarule' }
+JEVWGrammarTest >> testAcceptsMetarule05 [
+	self assertGrammarStartingAt: 'metarule' accepts: 'N:: iN; .'
+]
+
+{ #category : #'tests - protonotion' }
+JEVWGrammarTest >> testAcceptsProtonotion [
+	self assertGrammarStartingAt: 'protonotion' accepts: 'long'
+]
+
+{ #category : #'tests - protonotion' }
+JEVWGrammarTest >> testAcceptsProtonotion02 [
+	self assertGrammarStartingAt: 'protonotion' accepts: 'short'
+]
+
+{ #category : #'tests - protonotion' }
+JEVWGrammarTest >> testAcceptsProtonotion03 [
+	self assertGrammarStartingAt: 'protonotion' accepts: 'i'
+]
+
+{ #category : #'tests - protonotion' }
+JEVWGrammarTest >> testAcceptsProtonotion04 [
+	self assertGrammarStartingAt: 'protonotion' accepts: 'program'
 ]

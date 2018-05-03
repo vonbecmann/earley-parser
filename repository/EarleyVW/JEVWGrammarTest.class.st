@@ -64,34 +64,57 @@ JEVWGrammarTest >> testAcceptsMetanotion05 [
 	self assertGrammarStartingAt: 'metanotion' accepts: 'TAG1'
 ]
 
-{ #category : #'tests - metarule' }
-JEVWGrammarTest >> testAcceptsMetarule [
-	self assertGrammarStartingAt: 'metarule' accepts: 'EMPTY:: .'
+{ #category : #'tests - metaproduction rule' }
+JEVWGrammarTest >> testAcceptsMetaproductionRule [
+	self assertGrammarStartingAt: 'metaproduction rule' accepts: 'EMPTY:: .'
 ]
 
-{ #category : #'tests - metarule' }
-JEVWGrammarTest >> testAcceptsMetarule02 [
-	self assertGrammarStartingAt: 'metarule' accepts: 'EMPTY::.'
+{ #category : #'tests - metaproduction rule' }
+JEVWGrammarTest >> testAcceptsMetaproductionRule02 [
+	self assertGrammarStartingAt: 'metaproduction rule' accepts: 'EMPTY::.'
 ]
 
-{ #category : #'tests - metarule' }
-JEVWGrammarTest >> testAcceptsMetarule03 [
-	self assertGrammarStartingAt: 'metarule' accepts: 'LETTER:: a; b; c.'
+{ #category : #'tests - metaproduction rule' }
+JEVWGrammarTest >> testAcceptsMetaproductionRule03 [
+	self assertGrammarStartingAt: 'metaproduction rule' accepts: 'LETTER:: a; b; c.'
 ]
 
-{ #category : #'tests - metarule' }
-JEVWGrammarTest >> testAcceptsMetarule04 [
-	self assertGrammarStartingAt: 'metarule' accepts: 'N:: ; i N.'
+{ #category : #'tests - metaproduction rule' }
+JEVWGrammarTest >> testAcceptsMetaproductionRule04 [
+	self assertGrammarStartingAt: 'metaproduction rule' accepts: 'N:: ; i N.'
 ]
 
-{ #category : #'tests - metarule' }
-JEVWGrammarTest >> testAcceptsMetarule05 [
-	self assertGrammarStartingAt: 'metarule' accepts: 'N:: i N; .'
+{ #category : #'tests - metaproduction rule' }
+JEVWGrammarTest >> testAcceptsMetaproductionRule05 [
+	self assertGrammarStartingAt: 'metaproduction rule' accepts: 'N:: i N; .'
 ]
 
-{ #category : #'tests - metarule' }
-JEVWGrammarTest >> testAcceptsMetarule06 [
-	self assertGrammarStartingAt: 'metarule' accepts: 'INTREAL:: SIZETY integral; SIZETY real.'
+{ #category : #'tests - metaproduction rule' }
+JEVWGrammarTest >> testAcceptsMetaproductionRule06 [
+	self 
+		assertGrammarStartingAt: 'metaproduction rule' 
+		accepts: 'INTREAL:: SIZETY integral; SIZETY real.'
+]
+
+{ #category : #'tests - metaproductions' }
+JEVWGrammarTest >> testAcceptsMetaproductions [
+	self 
+		assertGrammarStartingAt: 'metaproductions' 
+		accepts: 
+'TALLY:: 		i TALLETY.
+TALLETY:: 	TALLY; EMPTY.
+EMPTY:: 		.
+LETTER:: 		a; b; c.'
+]
+
+{ #category : #'tests - metaproductions' }
+JEVWGrammarTest >> testAcceptsMetaproductions02 [
+	self 
+		assertGrammarStartingAt: 'metaproductions' 
+		accepts: 
+'VALUE:: 	i VALETY.
+VALETY:: 	VALUE; EMPTY.
+EMPTY:: 	.'
 ]
 
 { #category : #'tests - protonotion' }

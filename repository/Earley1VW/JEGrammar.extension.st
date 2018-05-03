@@ -5,6 +5,6 @@ JEGrammar class >> e1vw: oneLevelVWRuleString representations: terminalNotionToR
 	" parse 1VW rules from a String and return a grammar "
 
 	^ self
-		productionRules: (JE1VWParser new parse: oneLevelVWRuleString)
+		productionRules: (JE1VWParser instance parse: oneLevelVWRuleString)
 		representations: terminalNotionToRepresentationList
 ]

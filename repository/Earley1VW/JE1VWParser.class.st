@@ -10,8 +10,16 @@ Class {
 	#instVars : [
 		'evaluator'
 	],
+	#classInstVars : [
+		'instance'
+	],
 	#category : #'Earley1VW-Core'
 }
+
+{ #category : #accessing }
+JE1VWParser class >> instance [
+	^ instance ifNil: [ instance := self new ]
+]
 
 { #category : #grammar }
 JE1VWParser class >> oneLevelVWGrammar [
@@ -80,6 +88,11 @@ x: y1, y2, ..., yn.
 			('dot symbol' -> (JETerminal character: $.)).
 			('separator symbol' -> (JETerminal charSet: Character separators)).
 			}
+]
+
+{ #category : #accessing }
+JE1VWParser class >> reset [
+	instance := nil
 ]
 
 { #category : #initialization }

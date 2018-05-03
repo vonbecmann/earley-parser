@@ -31,7 +31,12 @@ JEVWGrammarTest >> testAcceptsHypernotion [
 
 { #category : #'tests - hypernotion' }
 JEVWGrammarTest >> testAcceptsHypernotion02 [
-	self assertGrammarStartingAt: 'hypernotion' accepts: 'iN'
+	self assertGrammarStartingAt: 'hypernotion' accepts: 'i N'
+]
+
+{ #category : #'tests - hypernotion' }
+JEVWGrammarTest >> testAcceptsHypernotion03 [
+	self assertGrammarStartingAt: 'hypernotion' accepts: 'letter ALPHA'
 ]
 
 { #category : #'tests - metanotion' }
@@ -76,12 +81,17 @@ JEVWGrammarTest >> testAcceptsMetarule03 [
 
 { #category : #'tests - metarule' }
 JEVWGrammarTest >> testAcceptsMetarule04 [
-	self assertGrammarStartingAt: 'metarule' accepts: 'N:: ; iN.'
+	self assertGrammarStartingAt: 'metarule' accepts: 'N:: ; i N.'
 ]
 
 { #category : #'tests - metarule' }
 JEVWGrammarTest >> testAcceptsMetarule05 [
-	self assertGrammarStartingAt: 'metarule' accepts: 'N:: iN; .'
+	self assertGrammarStartingAt: 'metarule' accepts: 'N:: i N; .'
+]
+
+{ #category : #'tests - metarule' }
+JEVWGrammarTest >> testAcceptsMetarule06 [
+	self assertGrammarStartingAt: 'metarule' accepts: 'INTREAL:: SIZETY integral; SIZETY real.'
 ]
 
 { #category : #'tests - protonotion' }

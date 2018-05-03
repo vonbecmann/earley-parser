@@ -44,14 +44,18 @@ BaselineOfEarleyParser >> baseline: spec [
 				package: 'EarleySyntaxTree-Tests' 
 					with: [ spec requires: #('EarleySyntaxTree') ];
 				package: 'Earley1VW' 
-					with: [ spec requires: #('EarleySyntaxTree') ].
+					with: [ spec requires: #('EarleySyntaxTree') ];
+				package: 'EarleyVW' 
+					with: [ spec requires: #('Earley1VW') ].
 			spec
-				group: 'default' with: #('Core' 'Tests' 'Regex' 'Analyzer' 'SyntaxTree' 'Parser' 'UI');
+				group: 'default' 
+				with: #('Core' 'Tests' 'Regex' 'Analyzer' 'SyntaxTree' 'Parser' 'VWParser' 'UI');
 				group: 'Core' with: #('EarleyParser-Core');
 				group: 'Regex' with: #('EarleyParser-Regex');
 				group: 'Analyzer' with: #('EarleyAnalyzer');
 				group: 'Tests' with: #('EarleyParser-Tests' 'EarleySyntaxTree-Tests');
 				group: 'SyntaxTree' with: #('EarleySyntaxTree');
 				group: 'Parser' with: #('Earley1VW');
+				group: 'VWParser' with: #('EarleyVW');				
 				group: 'UI' with: #('EarleyParser-UI' 'EarleySyntaxTree-UI') ]
 ]

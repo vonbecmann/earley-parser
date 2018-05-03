@@ -9,102 +9,96 @@ Class {
 	#superclass : #TestCase,
 	#instVars : [
 		'grammar',
-		'tree'
+		'tree',
+		'rule',
+		'notion',
+		'ruleList'
 	],
-	#category : 'Earley1VW-Tests'
+	#category : #'Earley1VW-Tests'
 }
 
 { #category : #private }
-JE1VWGrammarTest >> assertGrammarAccepts: words [
+JE1VWGrammarTest >> assertGrammarAt: aGrammar accepts: words [
 	self
-		assert: (grammar accepts: words)
+		assert: (aGrammar accepts: words)
 		description:
 			(String
 				streamContents: [ :s | 
 					s
-						nextPutAll: 'grammar doesn''t accept ';
-						nextPutAll: words ])
-]
-
-{ #category : #private }
-JE1VWGrammarTest >> assertGrammarStartingAt: aNonterminalNamed accepts: words [
-	self
-		assert: (grammar accepts: words startingAt: aNonterminalNamed)
-		description:
-			(String
-				streamContents: [ :s | 
-					s
-						nextPutAll: 'grammar doesn''t accept ';
+						print: aGrammar;
+						nextPutAll: ' doesn''t accept ';
 						nextPutAll: words ])
 ]
 
 { #category : #running }
 JE1VWGrammarTest >> setUp [
 	grammar := JE1VWParser oneLevelVWGrammar.
+	rule := grammar startAt: 'rule'.
+	notion := grammar startAt: 'notion'.
+	ruleList := grammar startAt: 'rule list'.
 	tree := nil
-	
 ]
 
 { #category : #'tests - notion' }
 JE1VWGrammarTest >> testAcceptsNotion01 [
-	self assertGrammarStartingAt: 'notion' accepts: 'left part list'
+	self assertGrammarAt: notion accepts: 'left part list'
 ]
 
 { #category : #'tests - notion' }
 JE1VWGrammarTest >> testAcceptsNotion02 [
-	self assertGrammarStartingAt: 'notion' accepts: 'left part'
+	self assertGrammarAt: notion accepts: 'left part'
 ]
 
 { #category : #'tests - notion' }
 JE1VWGrammarTest >> testAcceptsNotion03 [
-	self assertGrammarStartingAt: 'notion' accepts: 'letter'
+	self assertGrammarAt: notion accepts: 'letter'
 ]
 
 { #category : #'tests - rule' }
 JE1VWGrammarTest >> testAcceptsRule01 [
-	self assertGrammarStartingAt: 'rule' accepts: 'expression:term.'
+	self assertGrammarAt: rule accepts: 'expression:term.'
 ]
 
 { #category : #'tests - rule' }
 JE1VWGrammarTest >> testAcceptsRule02 [
 	self
-		assertGrammarStartingAt: 'rule'
+		assertGrammarAt: rule
 		accepts: 'expression:expression,plus symbol,term.'
 ]
 
 { #category : #'tests - rule' }
 JE1VWGrammarTest >> testAcceptsRule03 [
-	self assertGrammarStartingAt: 'rule' accepts: 'expression:.'
+	self assertGrammarAt: rule accepts: 'expression:.'
 ]
 
 { #category : #'tests - rule' }
 JE1VWGrammarTest >> testAcceptsRule04 [
-	self assertGrammarStartingAt: 'rule' accepts: 'expression: term.'
+	self assertGrammarAt: rule accepts: 'expression: term.'
 ]
 
 { #category : #'tests - rule' }
 JE1VWGrammarTest >> testAcceptsRule05 [
 	self
-		assertGrammarStartingAt: 'rule'
+		assertGrammarAt: rule
 		accepts: 'expression: expression, plus symbol, term.'
 ]
 
 { #category : #'tests - rule' }
 JE1VWGrammarTest >> testAcceptsRule06 [
-	self assertGrammarStartingAt: 'rule' accepts: 'expression: .'
+	self assertGrammarAt: rule accepts: 'expression: .'
 ]
 
 { #category : #'tests - rule' }
 JE1VWGrammarTest >> testAcceptsRule07 [
 	self
-		assertGrammarStartingAt: 'rule'
+		assertGrammarAt: rule
 		accepts: 'expression: expression, plus symbol, term;.'
 ]
 
 { #category : #'tests - rule' }
 JE1VWGrammarTest >> testAcceptsRule08 [
 	self
-		assertGrammarStartingAt: 'rule'
+		assertGrammarAt: rule
 		accepts: 
 'expression: 
 	expression, plus symbol, term;
@@ -114,14 +108,14 @@ JE1VWGrammarTest >> testAcceptsRule08 [
 { #category : #'tests - rule list' }
 JE1VWGrammarTest >> testAcceptsRuleList01 [
 	self
-		assertGrammarStartingAt: 'rule list'
+		assertGrammarAt: ruleList 
 		accepts: 'expression:term.expression:expression,plus symbol,term.'
 ]
 
 { #category : #'tests - rule list' }
 JE1VWGrammarTest >> testAcceptsRuleList02 [
 	self
-		assertGrammarStartingAt: 'rule list'
+		assertGrammarAt: ruleList 
 		accepts:
 			'expression:term.expression:expression,plus symbol,term.term:product.term:term,star symbol,product.product:letter a symbol.'
 ]
@@ -129,7 +123,7 @@ JE1VWGrammarTest >> testAcceptsRuleList02 [
 { #category : #'tests - rule list' }
 JE1VWGrammarTest >> testAcceptsRuleList03 [
 	self
-		assertGrammarStartingAt: 'rule list'
+		assertGrammarAt: ruleList 
 		accepts:
 'expression:term.
 expression:expression,plus symbol,term.
@@ -141,7 +135,7 @@ product:letter a symbol.'
 { #category : #'tests - rule list' }
 JE1VWGrammarTest >> testAcceptsRuleList04 [
 	self
-		assertGrammarStartingAt: 'rule list'
+		assertGrammarAt: ruleList 
 		accepts:
 'expression:
 	term;
@@ -182,7 +176,7 @@ JE1VWGrammarTest >> testLeftmostDerivation01 [
 
 { #category : #'tests - rule' }
 JE1VWGrammarTest >> testParseEpsilonRule01 [
-	tree := grammar parseTree: 'exp:.' startingAt: 'rule'.
+	tree := rule parseTree: 'exp:.'.
 	self deny: tree isNil.
 	self
 		assertCollection: tree leftmostDerivation
@@ -207,7 +201,7 @@ JE1VWGrammarTest >> testParseEpsilonRule01 [
 
 { #category : #'tests - rule' }
 JE1VWGrammarTest >> testParseRule01 [
-	tree := grammar parseTree: 'exp:term.' startingAt: 'rule'.
+	tree := rule parseTree: 'exp:term.'.
 	self deny: tree isNil.
 	self
 		assertCollection: tree leftmostDerivation
@@ -243,7 +237,7 @@ JE1VWGrammarTest >> testParseRule01 [
 
 { #category : #'tests - rule' }
 JE1VWGrammarTest >> testParseRule02 [
-	tree := grammar parseTree: 'e:e,plus symbol,t.' startingAt: 'rule'.
+	tree := rule parseTree: 'e:e,plus symbol,t.'.
 	self deny: tree isNil.
 	self
 		assertCollection: tree leftmostDerivation
@@ -304,7 +298,7 @@ JE1VWGrammarTest >> testParseRule02 [
 
 { #category : #'tests - rule' }
 JE1VWGrammarTest >> testParseRule03 [
-	tree := grammar parseTree: 'e:e,plus symbol,t;.' startingAt: 'rule'.
+	tree := rule parseTree: 'e:e,plus symbol,t;.'.
 	self deny: tree isNil.
 	self
 		assertCollection: tree leftmostDerivation

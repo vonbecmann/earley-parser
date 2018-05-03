@@ -38,3 +38,13 @@ JEVWGrammarTest >> testAcceptsMetanotion02 [
 JEVWGrammarTest >> testAcceptsMetanotion03 [
 	self assertGrammarStartingAt: 'metanotion' accepts: 'EMPTY'
 ]
+
+{ #category : #'tests - metanotion' }
+JEVWGrammarTest >> testAcceptsMetanotion04 [
+	self assertGrammarStartingAt: 'metanotion' accepts: 'LETTER'
+]
+
+{ #category : #'tests - metanotion' }
+JEVWGrammarTest >> testAcceptsMetanotion05 [
+	self assertGrammarStartingAt: 'metanotion' accepts: 'TAG1'
+]

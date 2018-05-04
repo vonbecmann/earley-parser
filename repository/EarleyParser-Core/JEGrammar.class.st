@@ -83,30 +83,34 @@ JEGrammar class >> productionRules: productionRulesArray representations: termin
 		collect: [ :assoc | assoc value ]
 		as: Set.
 	lineup := OrderedCollection new.
-	lineup
-		addAll:
-			(productionRulesArray
-				collect: [ :each | 
-					JEProductionRule
-						head: (nonterminals detect: [ :nonterminal | nonterminal named = each first ])
-						body:
-							(each second
-								collect: [ :notionNamed | 
-									nonterminals
-										detect: [ :nonterminal | nonterminal named = notionNamed ]
-										ifNone: [ self unknowNonterminal: notionNamed in: each ] ]) ]).
-	lineup
-		addAll:
-			(terminalNotionToRepresentationList
-				collect: [ :assoc | 
-					JEProductionRule
-						head: (nonterminals detect: [ :nonterminal | nonterminal named = assoc key ])
-						body: {(terminals like: assoc value)} ]).
-	unique := Set withAll: lineup.
-	index := Dictionary
-		newFrom:
-			(unique
-				collect: [ :rule | rule -> (lineup findFirst: [ :each | rule = each ]) ]).
+	unique := Set new.
+	productionRulesArray
+		collect: [ :each | 
+			JEProductionRule
+				head: (nonterminals detect: [ :nonterminal | nonterminal named = each first ])
+				body: 	(each second
+								collect: 
+									[ :notionNamed | 
+										nonterminals
+											detect: [ :nonterminal | nonterminal named = notionNamed ]
+											ifNone: [ self unknowNonterminal: notionNamed in: each ] ]) ]
+		thenDo: 
+			[:rule | 
+				lineup add: rule.
+				unique add: rule. ].
+	terminalNotionToRepresentationList
+			collect: [ :assoc | 
+				JEProductionRule
+					head: (nonterminals detect: [ :nonterminal | nonterminal named = assoc key ])
+					body: {(terminals like: assoc value)} ]
+			thenDo: 
+				[:rule | 
+					lineup add: rule.
+					unique add: rule. ].
+	index := Dictionary new.
+	unique
+		collect: [ :rule | rule -> (lineup findFirst: [ :each | rule = each ]) ]
+		thenDo: [ :assoc | index add: assoc ].
 	rules := ArrayMultiValuedDictionary dictionary: OrderedDictionary.
 	(unique
 		sorted: [ :a :b | (index at: a) < (index at: b) ])

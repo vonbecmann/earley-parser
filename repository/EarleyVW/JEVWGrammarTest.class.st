@@ -2,10 +2,27 @@ Class {
 	#name : #JEVWGrammarTest,
 	#superclass : #TestCase,
 	#instVars : [
-		'grammar'
+		'grammar',
+		'protonotion',
+		'metanotion',
+		'hypernotion',
+		'metaproductionRule'
 	],
 	#category : #'EarleyVW-Tests'
 }
+
+{ #category : #asserting }
+JEVWGrammarTest >> assertGrammarAt: aGrammar accepts: words [
+	self
+		assert: (aGrammar accepts: words)
+		description:
+			(String
+				streamContents: [ :s | 
+					s
+						print: aGrammar;
+						nextPutAll: ' doesn''t accept ';
+						nextPutAll: words ])
+]
 
 { #category : #asserting }
 JEVWGrammarTest >> assertGrammarStartingAt: aNonterminalNamed accepts: words [
@@ -21,78 +38,82 @@ JEVWGrammarTest >> assertGrammarStartingAt: aNonterminalNamed accepts: words [
 
 { #category : #initialization }
 JEVWGrammarTest >> setUp [
-	grammar := JEVWParser vwGrammar
+	grammar := JEVWParser vwGrammar.
+	protonotion := grammar startAt: 'protonotion'.
+	metanotion := grammar startAt: 'metanotion'.
+	hypernotion := grammar startAt: 'hypernotion'.
+	metaproductionRule := grammar startAt: 'metaproduction rule'
 ]
 
 { #category : #'tests - hypernotion' }
 JEVWGrammarTest >> testAcceptsHypernotion [
-	self assertGrammarStartingAt: 'hypernotion' accepts: 'long'
+	self assertGrammarAt: hypernotion accepts: 'long'
 ]
 
 { #category : #'tests - hypernotion' }
 JEVWGrammarTest >> testAcceptsHypernotion02 [
-	self assertGrammarStartingAt: 'hypernotion' accepts: 'i N'
+	self assertGrammarAt: hypernotion accepts: 'i N'
 ]
 
 { #category : #'tests - hypernotion' }
 JEVWGrammarTest >> testAcceptsHypernotion03 [
-	self assertGrammarStartingAt: 'hypernotion' accepts: 'letter ALPHA'
+	self assertGrammarAt: hypernotion accepts: 'letter ALPHA'
 ]
 
 { #category : #'tests - metanotion' }
 JEVWGrammarTest >> testAcceptsMetanotion [
-	self assertGrammarStartingAt: 'metanotion' accepts: 'TALLY'
+	self assertGrammarAt: metanotion accepts: 'TALLY'
 ]
 
 { #category : #'tests - metanotion' }
 JEVWGrammarTest >> testAcceptsMetanotion02 [
-	self assertGrammarStartingAt: 'metanotion' accepts: 'TALLETY'
+	self assertGrammarAt: metanotion accepts: 'TALLETY'
 ]
 
 { #category : #'tests - metanotion' }
 JEVWGrammarTest >> testAcceptsMetanotion03 [
-	self assertGrammarStartingAt: 'metanotion' accepts: 'EMPTY'
+	self assertGrammarAt: metanotion accepts: 'EMPTY'
 ]
 
 { #category : #'tests - metanotion' }
 JEVWGrammarTest >> testAcceptsMetanotion04 [
-	self assertGrammarStartingAt: 'metanotion' accepts: 'LETTER'
+	self assertGrammarAt: metanotion accepts: 'LETTER'
 ]
 
 { #category : #'tests - metanotion' }
 JEVWGrammarTest >> testAcceptsMetanotion05 [
-	self assertGrammarStartingAt: 'metanotion' accepts: 'TAG1'
+	self assertGrammarAt: metanotion accepts: 'TAG1'
 ]
 
 { #category : #'tests - metaproduction rule' }
 JEVWGrammarTest >> testAcceptsMetaproductionRule [
-	self assertGrammarStartingAt: 'metaproduction rule' accepts: 'EMPTY:: .'
+	self assertGrammarAt: metaproductionRule accepts: 'EMPTY:: .'
 ]
 
 { #category : #'tests - metaproduction rule' }
 JEVWGrammarTest >> testAcceptsMetaproductionRule02 [
-	self assertGrammarStartingAt: 'metaproduction rule' accepts: 'EMPTY::.'
+	self assertGrammarAt: metaproductionRule accepts: 'EMPTY::.'
 ]
 
 { #category : #'tests - metaproduction rule' }
 JEVWGrammarTest >> testAcceptsMetaproductionRule03 [
-	self assertGrammarStartingAt: 'metaproduction rule' accepts: 'LETTER:: a; b; c.'
+	self assertGrammarAt: metaproductionRule accepts: 'LETTER:: a; b; c.'
 ]
 
 { #category : #'tests - metaproduction rule' }
 JEVWGrammarTest >> testAcceptsMetaproductionRule04 [
-	self assertGrammarStartingAt: 'metaproduction rule' accepts: 'N:: ; i N.'
+	self assertGrammarAt: metaproductionRule accepts: 'N:: ; i N.'
 ]
 
 { #category : #'tests - metaproduction rule' }
 JEVWGrammarTest >> testAcceptsMetaproductionRule05 [
-	self assertGrammarStartingAt: 'metaproduction rule' accepts: 'N:: i N; .'
+	self assertGrammarAt: metaproductionRule accepts: 'N:: i N; .'
 ]
 
 { #category : #'tests - metaproduction rule' }
 JEVWGrammarTest >> testAcceptsMetaproductionRule06 [
 	self 
-		assertGrammarStartingAt: 'metaproduction rule' 
+		assertGrammarAt: metaproductionRule 
 		accepts: 'INTREAL:: SIZETY integral; SIZETY real.'
 ]
 
@@ -119,20 +140,20 @@ EMPTY:: 	.'
 
 { #category : #'tests - protonotion' }
 JEVWGrammarTest >> testAcceptsProtonotion [
-	self assertGrammarStartingAt: 'protonotion' accepts: 'long'
+	self assertGrammarAt: protonotion accepts: 'long'
 ]
 
 { #category : #'tests - protonotion' }
 JEVWGrammarTest >> testAcceptsProtonotion02 [
-	self assertGrammarStartingAt: 'protonotion' accepts: 'short'
+	self assertGrammarAt: protonotion accepts: 'short'
 ]
 
 { #category : #'tests - protonotion' }
 JEVWGrammarTest >> testAcceptsProtonotion03 [
-	self assertGrammarStartingAt: 'protonotion' accepts: 'i'
+	self assertGrammarAt: protonotion accepts: 'i'
 ]
 
 { #category : #'tests - protonotion' }
 JEVWGrammarTest >> testAcceptsProtonotion04 [
-	self assertGrammarStartingAt: 'protonotion' accepts: 'program'
+	self assertGrammarAt: protonotion accepts: 'program'
 ]

@@ -22,12 +22,14 @@ JEVWParser class >> vwGrammar [
 metaproduction rule:
 	metanotion, two colons, layout, hypernotions separated by semicolon, dot symbol.
 two colons: colon symbol, colon symbol.
-	
 hypernotions separated by semicolon: 
 	hypernotion option;
 	hypernotions separated by semicolon, semicolon symbol, layout, hypernotion option.
 hypernotion option: hypernotion; .
 
+hyper rules:
+	hyper rule;
+	hyper rules, layout, hyper rule.
 hyper rule:
 	hypernotion, colon symbol, layout, hyperalternatives separated by semicolon, dot symbol.
 hyperalternatives separated by semicolon:

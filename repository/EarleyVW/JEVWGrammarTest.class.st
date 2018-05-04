@@ -7,7 +7,9 @@ Class {
 		'metanotion',
 		'hypernotion',
 		'metaproductionRule',
-		'hyperRule'
+		'hyperRule',
+		'metaproductions',
+		'hyperRules'
 	],
 	#category : #'EarleyVW-Tests'
 }
@@ -25,18 +27,6 @@ JEVWGrammarTest >> assertGrammarAt: aGrammar accepts: words [
 						nextPutAll: words ])
 ]
 
-{ #category : #asserting }
-JEVWGrammarTest >> assertGrammarStartingAt: aNonterminalNamed accepts: words [
-	self
-		assert: (grammar accepts: words startingAt: aNonterminalNamed)
-		description:
-			(String
-				streamContents: [ :s | 
-					s
-						nextPutAll: 'grammar doesn''t accept ';
-						nextPutAll: words ])
-]
-
 { #category : #initialization }
 JEVWGrammarTest >> setUp [
 	grammar := JEVWParser vwGrammar.
@@ -44,7 +34,9 @@ JEVWGrammarTest >> setUp [
 	metanotion := grammar startAt: 'metanotion'.
 	hypernotion := grammar startAt: 'hypernotion'.
 	metaproductionRule := grammar startAt: 'metaproduction rule'.
-	hyperRule := grammar startAt: 'hyper rule'
+	hyperRule := grammar startAt: 'hyper rule'.
+	metaproductions := grammar startAt: 'metaproductions'.
+	hyperRules := grammar startAt: 'hyper rules'
 ]
 
 { #category : #'tests - hyper rule' }
@@ -65,6 +57,16 @@ JEVWGrammarTest >> testAcceptsHyperRule03 [
 { #category : #'tests - hyper rule' }
 JEVWGrammarTest >> testAcceptsHyperRule04 [
 	self assertGrammarAt: hyperRule accepts: 'NOTION option: NOTION; .'
+]
+
+{ #category : #'tests - hyper rules' }
+JEVWGrammarTest >> testAcceptsHyperRules [
+	self 
+		assertGrammarAt: hyperRules 
+		accepts: 
+'program:	 			TALLY as, TALLY bs, TALLY cs.
+i TALLY LETTER s: 	i LETTER s, TALLY LETTER s.
+i LETTER s: 			LETTER symbol.'
 ]
 
 { #category : #'tests - hypernotion' }
@@ -142,7 +144,7 @@ JEVWGrammarTest >> testAcceptsMetaproductionRule06 [
 { #category : #'tests - metaproductions' }
 JEVWGrammarTest >> testAcceptsMetaproductions [
 	self 
-		assertGrammarStartingAt: 'metaproductions' 
+		assertGrammarAt: metaproductions
 		accepts: 
 'TALLY:: 		i TALLETY.
 TALLETY:: 	TALLY; EMPTY.
@@ -153,7 +155,7 @@ LETTER:: 		a; b; c.'
 { #category : #'tests - metaproductions' }
 JEVWGrammarTest >> testAcceptsMetaproductions02 [
 	self 
-		assertGrammarStartingAt: 'metaproductions' 
+		assertGrammarAt: metaproductions
 		accepts: 
 'VALUE:: 	i VALETY.
 VALETY:: 	VALUE; EMPTY.

@@ -29,9 +29,7 @@ ESSingleSynthesizedAttributeEvaluator class >> grammar: aGrammar actions: ruleAn
 
 { #category : #public }
 ESSingleSynthesizedAttributeEvaluator >> evaluate: aString [
-	| tree |
-	tree := grammar parseTree: aString.
-	^ self evaluateTree: tree
+	^ self evaluateTree: (grammar parseTree: aString)
 ]
 
 { #category : #public }

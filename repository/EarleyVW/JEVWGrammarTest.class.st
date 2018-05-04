@@ -52,6 +52,21 @@ JEVWGrammarTest >> testAcceptsHyperRule [
 	self assertGrammarAt: hyperRule accepts: 'empty: .'
 ]
 
+{ #category : #'tests - hyper rule' }
+JEVWGrammarTest >> testAcceptsHyperRule02 [
+	self assertGrammarAt: hyperRule accepts: 'NOTION sequence: NOTION; NOTION, NOTION sequence.'
+]
+
+{ #category : #'tests - hyper rule' }
+JEVWGrammarTest >> testAcceptsHyperRule03 [
+	self assertGrammarAt: hyperRule accepts: 'NOTION list: NOTION; NOTION, comma symbol, NOTION list.'
+]
+
+{ #category : #'tests - hyper rule' }
+JEVWGrammarTest >> testAcceptsHyperRule04 [
+	self assertGrammarAt: hyperRule accepts: 'NOTION option: NOTION; .'
+]
+
 { #category : #'tests - hypernotion' }
 JEVWGrammarTest >> testAcceptsHypernotion [
 	self assertGrammarAt: hypernotion accepts: 'long'

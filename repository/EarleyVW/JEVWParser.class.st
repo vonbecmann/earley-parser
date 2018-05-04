@@ -21,24 +21,27 @@ JEVWParser class >> vwGrammar [
 
 metaproduction rule:
 	metanotion, two colons, layout, hypernotions separated by semicolon, dot symbol.
-
 two colons: colon symbol, colon symbol.
 	
 hypernotions separated by semicolon: 
 	hypernotion option;
 	hypernotions separated by semicolon, semicolon symbol, layout, hypernotion option.
-
 hypernotion option: hypernotion; .
 
 hyper rule:
-	hypernotion, colon symbol, layout, dot symbol.
+	hypernotion, colon symbol, layout, hyperalternatives separated by semicolon, dot symbol.
+hyperalternatives separated by semicolon:
+	hyperalternative option;
+	hyperalternatives separated by semicolon, semicolon symbol, layout, hyperalternative option.
+hyperalternative option: hyperalternative; .
+hyperalternative: 
+	hypernotion;
+	hyperalternative, comma symbol, layout, hypernotion.
 
 hypernotion: (protonotion or metanotion) sequence.
-
 (protonotion or metanotion) sequence:
 	protonotion or metanotion;
 	(protonotion or metanotion) sequence, space plus, protonotion or metanotion.
-
 protonotion or metanotion: protonotion; metanotion.
 
 metanotion: large syntactic mark sequence.
@@ -47,7 +50,6 @@ large syntactic mark sequence:
 	large syntactic mark sequence, large syntactic mark symbol.
 
 protonotion: small syntactic mark sequence.
-
 small syntactic mark sequence:
 	small syntactic mark symbol;
 	small syntactic mark sequence, small syntactic mark symbol.
@@ -66,6 +68,7 @@ separator plus:
 			('space symbol' -> (JETerminal character: Character space)).
 			('colon symbol' -> (JETerminal character: $:)).
 			('semicolon symbol' -> (JETerminal character: $;)).
+			('comma symbol' -> (JETerminal character: $,)).
 			('dot symbol' -> (JETerminal character: $.)).
 			('separator symbol' -> (JETerminal charSet: Character separators)).}
 ]

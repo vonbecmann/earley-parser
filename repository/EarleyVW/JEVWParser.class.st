@@ -21,8 +21,7 @@ metaproductions:
 	metaproduction rule;
 	metaproductions, layout, metaproduction rule.
 metaproduction rule:
-	metanotion, two colons, layout, hypernotions separated by semicolon, dot symbol.
-two colons: colon symbol, colon symbol.
+	metanotion, colon symbol, colon symbol, layout, hypernotions separated by semicolon, dot symbol.
 hypernotions separated by semicolon: 
 	hypernotion option;
 	hypernotions separated by semicolon, semicolon symbol, layout, hypernotion option.

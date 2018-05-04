@@ -15,10 +15,11 @@ Class {
 JEVWParser class >> vwGrammar [
 	^ JEGrammar
 		e1vw: 
-'metaproductions:
+'vw grammar: metaproductions, layout, hyper rules.
+
+metaproductions:
 	metaproduction rule;
 	metaproductions, layout, metaproduction rule.
-
 metaproduction rule:
 	metanotion, two colons, layout, hypernotions separated by semicolon, dot symbol.
 two colons: colon symbol, colon symbol.

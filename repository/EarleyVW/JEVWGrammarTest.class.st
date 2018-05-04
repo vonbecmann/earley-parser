@@ -15,6 +15,11 @@ Class {
 }
 
 { #category : #asserting }
+JEVWGrammarTest >> assertGrammarAccepts: words [
+	self assertGrammarAt: grammar accepts: words
+]
+
+{ #category : #asserting }
 JEVWGrammarTest >> assertGrammarAt: aGrammar accepts: words [
 	self
 		assert: (aGrammar accepts: words)
@@ -37,6 +42,32 @@ JEVWGrammarTest >> setUp [
 	hyperRule := grammar startAt: 'hyper rule'.
 	metaproductions := grammar startAt: 'metaproductions'.
 	hyperRules := grammar startAt: 'hyper rules'
+]
+
+{ #category : #tests }
+JEVWGrammarTest >> testAccepts [
+	self
+		assertGrammarAccepts:
+'TALLY:: 		i TALLETY.
+TALLETY:: 	TALLY; EMPTY.
+EMPTY:: 		.
+LETTER:: 		a; b; c.
+		
+program: 				TALLY as, TALLY bs, TALLY cs.
+
+i TALLY LETTER s: 	i LETTER s, TALLY LETTER s.
+i LETTER s: 			LETTER symbol.'
+]
+
+{ #category : #tests }
+JEVWGrammarTest >> testAccepts02 [
+	self
+		assertGrammarAccepts:
+'ALPHA:: 		a; b; c; d; e.
+
+s:  		ALPHA.
+ALPHA: 	letter ALPHA symbol;
+			ALPHA, letter ALPHA symbol.'
 ]
 
 { #category : #'tests - hyper rule' }

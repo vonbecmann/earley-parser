@@ -30,6 +30,9 @@ hypernotions separated by semicolon:
 
 hypernotion option: hypernotion; .
 
+hyper rule:
+	hypernotion, colon symbol, layout, dot symbol.
+
 hypernotion: (protonotion or metanotion) sequence.
 
 (protonotion or metanotion) sequence:

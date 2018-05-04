@@ -6,7 +6,8 @@ Class {
 		'protonotion',
 		'metanotion',
 		'hypernotion',
-		'metaproductionRule'
+		'metaproductionRule',
+		'hyperRule'
 	],
 	#category : #'EarleyVW-Tests'
 }
@@ -42,7 +43,13 @@ JEVWGrammarTest >> setUp [
 	protonotion := grammar startAt: 'protonotion'.
 	metanotion := grammar startAt: 'metanotion'.
 	hypernotion := grammar startAt: 'hypernotion'.
-	metaproductionRule := grammar startAt: 'metaproduction rule'
+	metaproductionRule := grammar startAt: 'metaproduction rule'.
+	hyperRule := grammar startAt: 'hyper rule'
+]
+
+{ #category : #'tests - hyper rule' }
+JEVWGrammarTest >> testAcceptsHyperRule [
+	self assertGrammarAt: hyperRule accepts: 'empty: .'
 ]
 
 { #category : #'tests - hypernotion' }

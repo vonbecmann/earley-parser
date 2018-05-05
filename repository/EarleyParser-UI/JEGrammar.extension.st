@@ -21,6 +21,18 @@ JEGrammar >> gtInspectorPredictedAlternativesIn: composite [
 ]
 
 { #category : #'*EarleyParser-UI' }
+JEGrammar >> gtInspectorProductionRulesIn: composite [
+	<gtInspectorPresentationOrder: 1>
+	^ composite table
+		title: [ 'production rules' ];
+		display: [ productionRules values ];
+		column: 'Rule' evaluated: [ :each | GTObjectPrinter new asTruncatedTextFrom: each ];
+		send: [ :each | each value ];
+		showOnly: 50;
+		yourself
+]
+
+{ #category : #'*EarleyParser-UI' }
 JEGrammar >> gtInspectorRulesIn: composite [
 	<gtInspectorPresentationOrder: 0>
 	^ composite table

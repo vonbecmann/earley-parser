@@ -211,6 +211,11 @@ JEGrammar >> productionRuleAt: rule [
 	^ ruleToProductionDict at: rule
 ]
 
+{ #category : #private }
+JEGrammar >> productionRules [
+	^ productionRules values
+]
+
 { #category : #accessing }
 JEGrammar >> ruleAt: anAssociation [
 	"an association like

@@ -7,7 +7,7 @@ JEParseForest >> extractSingleParseTree [
 
 	| stack |
 	stack := SinglyLinkedStack new.
-	JEDepthFirstVisitor new
+	JETreeDepthFirstVisitor new
 		postOrderNodeBlock: [ :node | 
 			node model isTerminal
 				ifTrue: [ 

@@ -119,11 +119,16 @@ JE1VWParser >> initialize [
 (('small syntactic mark plus' -> 2)
 			->	[ :nodes | String streamContents: [ :s | nodes do: [ :each | s nextPutAll: each ] ] ]).
 (('(space and small syntactic mark) plus' -> 1)
-			->	[ :nodes | String streamContents: [ :s | nodes do: [ :each | s nextPutAll: each ] ] ]).
+			->	[ :nodes | String streamContents: [ :s | s space; nextPutAll: nodes second ] ]).
 (('(space and small syntactic mark) plus' -> 2)
-			->	[ :nodes | String streamContents: [ :s | nodes do: [ :each | s nextPutAll: each ] ] ]).
-(('space plus' -> 1) 			-> [ String space ]).
-(('space plus' -> 2) 			-> [ String space ]).
+			->	[ :nodes | 
+					String streamContents: [ :s | 
+							s 
+								nextPutAll: nodes first; 
+								space; 
+								nextPutAll:  nodes third ] ]).
+(('space plus' -> 1) 			-> [ nil ]).
+(('space plus' -> 2) 			-> [ nil ]).
 (('layout' -> 1) 				-> [ nil ]).
 (('layout' -> 2) 				-> [ nil ]).
 (('separator plus' -> 1 ) 	-> [ nil ]).

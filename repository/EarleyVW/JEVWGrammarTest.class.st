@@ -90,6 +90,16 @@ JEVWGrammarTest >> testAcceptsHyperRule04 [
 	self assertGrammarAt: hyperRule accepts: 'NOTION option: NOTION; .'
 ]
 
+{ #category : #'tests - hyper rule' }
+JEVWGrammarTest >> testAcceptsHyperRule05 [
+	self assertGrammarAt: hyperRule accepts: 's: Na, Nb.'
+]
+
+{ #category : #'tests - hyper rule' }
+JEVWGrammarTest >> testAcceptsHyperRule06 [
+	self assertGrammarAt: hyperRule accepts: 'nNa: letter a symbol, Na.'
+]
+
 { #category : #'tests - hyper rules' }
 JEVWGrammarTest >> testAcceptsHyperRules [
 	self 
@@ -113,6 +123,36 @@ JEVWGrammarTest >> testAcceptsHypernotion02 [
 { #category : #'tests - hypernotion' }
 JEVWGrammarTest >> testAcceptsHypernotion03 [
 	self assertGrammarAt: hypernotion accepts: 'letter ALPHA'
+]
+
+{ #category : #'tests - hypernotion' }
+JEVWGrammarTest >> testAcceptsHypernotion04 [
+	self assertGrammarAt: hypernotion accepts: 'iN'
+]
+
+{ #category : #'tests - hypernotion' }
+JEVWGrammarTest >> testAcceptsHypernotion05 [
+	self assertGrammarAt: hypernotion accepts: 'Ni'
+]
+
+{ #category : #'tests - hypernotion' }
+JEVWGrammarTest >> testAcceptsHypernotion06 [
+	self assertGrammarAt: hypernotion accepts: 'letter ALPHA symbol'
+]
+
+{ #category : #'tests - hypernotion' }
+JEVWGrammarTest >> testAcceptsHypernotion07 [
+	self assertGrammarAt: hypernotion accepts: 'WHETHER (NOTETY1) is (NOTETY2)'
+]
+
+{ #category : #'tests - hypernotion' }
+JEVWGrammarTest >> testAcceptsHypernotion08 [
+	self assertGrammarAt: hypernotion accepts: 'WHETHER (NOTETY) begins with (EMPTY)'
+]
+
+{ #category : #'tests - hypernotion' }
+JEVWGrammarTest >> testAcceptsHypernotion09 [
+	self assertGrammarAt: hypernotion accepts: 'where (NOTION) contains (ALPHA1 NOTETY ALPHA2)'
 ]
 
 { #category : #'tests - metanotion' }
@@ -170,6 +210,13 @@ JEVWGrammarTest >> testAcceptsMetaproductionRule06 [
 	self 
 		assertGrammarAt: metaproductionRule 
 		accepts: 'INTREAL:: SIZETY integral; SIZETY real.'
+]
+
+{ #category : #'tests - metaproduction rule' }
+JEVWGrammarTest >> testAcceptsMetaproductionRule07 [
+	self 
+		assertGrammarAt: metaproductionRule 
+		accepts: 'N:: n; Nn.'
 ]
 
 { #category : #'tests - metaproductions' }

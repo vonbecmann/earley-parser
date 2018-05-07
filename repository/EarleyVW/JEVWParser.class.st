@@ -40,21 +40,31 @@ hyperalternative:
 	hypernotion;
 	hyperalternative, comma symbol, layout, hypernotion.
 
-hypernotion: (protonotion or metanotion) sequence.
-(protonotion or metanotion) sequence:
-	protonotion or metanotion;
-	(protonotion or metanotion) sequence, space plus, protonotion or metanotion.
-protonotion or metanotion: protonotion; metanotion.
+hypernotion: (protonotion or metanotion) plus.
 
-metanotion: large syntactic mark sequence.
-large syntactic mark sequence:
+(protonotion or metanotion) plus:
+	protonotion then metanotion; 
+	metanotion then protonotion.
+
+protonotion then metanotion:
+	protonotion;
+	protonotion, metanotion then protonotion;
+	protonotion, space plus, (protonotion or metanotion) plus.
+
+metanotion then protonotion:
+	metanotion;
+	metanotion, protonotion then metanotion;	
+	metanotion, space plus, (protonotion or metanotion) plus. 
+	
+metanotion: large syntactic mark plus.
+large syntactic mark plus:
 	large syntactic mark symbol;
-	large syntactic mark sequence, large syntactic mark symbol.
+	large syntactic mark plus, large syntactic mark symbol.
 
-protonotion: small syntactic mark sequence.
-small syntactic mark sequence:
+protonotion: small syntactic mark plus.
+small syntactic mark plus:
 	small syntactic mark symbol;
-	small syntactic mark sequence, small syntactic mark symbol.
+	small syntactic mark plus, small syntactic mark symbol.
 	
 space plus: 
 	space symbol;

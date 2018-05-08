@@ -21,20 +21,20 @@ metaproductions:
 	metaproduction rule;
 	metaproductions, layout, metaproduction rule.
 metaproduction rule:
-	metanotion, colon symbol, colon symbol, layout, hypernotions separated by semicolon, dot symbol.
-hypernotions separated by semicolon: 
+	metanotion, colon symbol, colon symbol, layout, hypernotion alternatives, dot symbol.
+hypernotion alternatives: 
 	hypernotion option;
-	hypernotions separated by semicolon, semicolon symbol, layout, hypernotion option.
+	hypernotion alternatives, semicolon symbol, layout, hypernotion option.
 hypernotion option: hypernotion; .
 
 hyper rules:
 	hyper rule;
 	hyper rules, layout, hyper rule.
 hyper rule:
-	hypernotion, colon symbol, layout, hyperalternatives separated by semicolon, dot symbol.
-hyperalternatives separated by semicolon:
+	hypernotion, colon symbol, layout, hyperalternatives, dot symbol.
+hyperalternatives:
 	hyperalternative option;
-	hyperalternatives separated by semicolon, semicolon symbol, layout, hyperalternative option.
+	hyperalternatives, semicolon symbol, layout, hyperalternative option.
 hyperalternative option: hyperalternative; .
 hyperalternative: 
 	hypernotion;

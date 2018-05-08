@@ -70,6 +70,20 @@ ALPHA: 	letter ALPHA symbol;
 			ALPHA, letter ALPHA symbol.'
 ]
 
+{ #category : #tests }
+JEVWGrammarTest >> testAccepts03 [
+	self
+		assertGrammarAccepts:
+'BETY::	 b BETY; EMPTY.
+EMPTY::	 .
+	
+program: 			growing.
+growing BETY: 	a symbol, growing b BETY, c symbol;
+					terminal BETY.
+terminal b BETY: 	b symbol, terminal BETY.
+terminal b:	  b symbol.'
+]
+
 { #category : #'tests - hyper rule' }
 JEVWGrammarTest >> testAcceptsHyperRule [
 	self assertGrammarAt: hyperRule accepts: 'empty: .'
@@ -108,6 +122,18 @@ JEVWGrammarTest >> testAcceptsHyperRules [
 'program:	 			TALLY as, TALLY bs, TALLY cs.
 i TALLY LETTER s: 	i LETTER s, TALLY LETTER s.
 i LETTER s: 			LETTER symbol.'
+]
+
+{ #category : #'tests - hyper rules' }
+JEVWGrammarTest >> testAcceptsHyperRules01 [
+	self
+		assertGrammarAt: hyperRules
+		accepts:
+'program: 			growing.
+growing BETY: 	a symbol, growing b BETY, c symbol;
+					terminal BETY.
+terminal b BETY: 	b symbol, terminal BETY.
+terminal b:	  b symbol.'
 ]
 
 { #category : #'tests - hypernotion' }

@@ -3,18 +3,18 @@ tests for RxCharacterSetTerminal
 
 "
 Class {
-	#name : #JERxCharacterSetTerminalTest,
+	#name : #NCRxCharacterSetTerminalTest,
 	#superclass : #TestCase,
 	#category : #'NoamChomsky-Regex-Tests'
 }
 
 { #category : #tests }
-JERxCharacterSetTerminalTest >> testAsString [
+NCRxCharacterSetTerminalTest >> testAsString [
 	self assert: (NCTerminal rxCharSet: '[\w]') asString equals: '''[\w]''RxCharSet'
 ]
 
 { #category : #tests }
-JERxCharacterSetTerminalTest >> testEquality [
+NCRxCharacterSetTerminalTest >> testEquality [
 	| one another |
 	one := NCTerminal rxCharSet: '[\w]'.
 	another := NCTerminal rxCharSet: '[\w]'.
@@ -26,7 +26,7 @@ JERxCharacterSetTerminalTest >> testEquality [
 ]
 
 { #category : #tests }
-JERxCharacterSetTerminalTest >> testEquality01 [
+NCRxCharacterSetTerminalTest >> testEquality01 [
 	| one another |
 	one := NCTerminal rxCharSet: '[\w]'.
 	another := NCTerminal rxCharSet: '[\W]'.
@@ -38,7 +38,7 @@ JERxCharacterSetTerminalTest >> testEquality01 [
 ]
 
 { #category : #tests }
-JERxCharacterSetTerminalTest >> testMatches [
+NCRxCharacterSetTerminalTest >> testMatches [
 	| word |
 	word := NCTerminal rxCharSet: '[\w]'.
 	($a to: $z) , ($A to: $Z) , ($0 to: $9) , '_'

@@ -8,7 +8,7 @@ For example
 
 "
 Class {
-	#name : #JERxCharacterSetTerminal,
+	#name : #NCRxCharacterSetTerminal,
 	#superclass : #NCTerminal,
 	#instVars : [
 		'matcher',
@@ -18,41 +18,41 @@ Class {
 }
 
 { #category : #'instance creation' }
-JERxCharacterSetTerminal class >> rxCharSet: aCharSetRegex [
+NCRxCharacterSetTerminal class >> rxCharSet: aCharSetRegex [
 	"a character set regular expression that defines a character set terminal"
 
 	^ self basicNew initializeCharSetRegex: aCharSetRegex
 ]
 
 { #category : #comparing }
-JERxCharacterSetTerminal >> = anObject [
+NCRxCharacterSetTerminal >> = anObject [
 	^ self class = anObject class and: [ charSetRegex = anObject charSetRegex ]
 ]
 
 { #category : #accessing }
-JERxCharacterSetTerminal >> charSetRegex [
+NCRxCharacterSetTerminal >> charSetRegex [
 	^ charSetRegex
 ]
 
 { #category : #comparing }
-JERxCharacterSetTerminal >> hash [
+NCRxCharacterSetTerminal >> hash [
 	^ (self class hash + charSetRegex hash) hashMultiply
 ]
 
 { #category : #initialization }
-JERxCharacterSetTerminal >> initializeCharSetRegex: aCharSetRegexString [ 
+NCRxCharacterSetTerminal >> initializeCharSetRegex: aCharSetRegexString [ 
 	self initialize.
 	charSetRegex := aCharSetRegexString.
 	matcher := aCharSetRegexString asRegex 
 ]
 
 { #category : #comparing }
-JERxCharacterSetTerminal >> matches: aCharacter [
+NCRxCharacterSetTerminal >> matches: aCharacter [
 	^ matcher matches: (String with: aCharacter)
 ]
 
 { #category : #printing }
-JERxCharacterSetTerminal >> printOn: aStream [
+NCRxCharacterSetTerminal >> printOn: aStream [
 	aStream
 		print: charSetRegex;
 		nextPutAll: 'RxCharSet'

@@ -6,7 +6,7 @@ charSet - a character set of a given character collection.
 "
 Class {
 	#name : #JECharacterSetTerminal,
-	#superclass : #JETerminal,
+	#superclass : #NCTerminal,
 	#instVars : [
 		'charSet'
 	],

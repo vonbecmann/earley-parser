@@ -90,10 +90,10 @@ JEItemParsingTests >> testAddFamily02 [
 	last := JEColumn number: 4.
 	rule := JERule
 		head: (NCNonterminal named: 'F')
-		body: 	{(NCNonterminal named: 'G'). (JETerminal character: $H)}.
+		body: 	{(NCNonterminal named: 'G'). (NCTerminal character: $H)}.
 			
 	previous := (rule dotAt: 2) startedAt: first andEndedAt: middle.
-	scanned := JETerminalItem given: (JETerminal character: $H) word: $H startedAt: middle andEndedAt: last.
+	scanned := JETerminalItem given: (NCTerminal character: $H) word: $H startedAt: middle andEndedAt: last.
 	target := rule dotAtEnd startedAt: first andEndedAt: last.
 	
 	family := previous newFamilyWith: scanned.
@@ -112,10 +112,10 @@ JEItemParsingTests >> testAddFamily03 [
 	last := JEColumn number: 4.
 	rule := JERule
 		head: (NCNonterminal named: 'F')
-		body: {(NCNonterminal named: 'G'). (JETerminal character: $H)}.
+		body: {(NCNonterminal named: 'G'). (NCTerminal character: $H)}.
 		
 	previous := (rule dotAt: 2) startedAt: first andEndedAt: middle.
-	scanned := JETerminalItem given: (JETerminal character: $H) word: $H startedAt: middle andEndedAt: last.
+	scanned := JETerminalItem given: (NCTerminal character: $H) word: $H startedAt: middle andEndedAt: last.
 		
 	target := rule dotAtEnd startedAt: first andEndedAt: last.
 	

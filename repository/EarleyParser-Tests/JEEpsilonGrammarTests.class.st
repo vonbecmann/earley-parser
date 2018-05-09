@@ -16,7 +16,7 @@ JEEpsilonGrammarTests >> setUp [
 			  		#(A #(E))
 			  		#(B #(E))
 			  		#(E #()))
-			representations: {('A' -> (JETerminal character: $a))}.
+			representations: {('A' -> (NCTerminal character: $a))}.
 ]
 
 { #category : #tests }

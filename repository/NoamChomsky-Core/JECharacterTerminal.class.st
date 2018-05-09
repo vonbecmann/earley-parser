@@ -3,7 +3,7 @@ a character as a terminal
 "
 Class {
 	#name : #JECharacterTerminal,
-	#superclass : #JETerminal,
+	#superclass : #NCTerminal,
 	#instVars : [
 		'character'
 	],

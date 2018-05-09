@@ -9,7 +9,7 @@ For example
 "
 Class {
 	#name : #JERxCharacterSetTerminal,
-	#superclass : #JETerminal,
+	#superclass : #NCTerminal,
 	#instVars : [
 		'matcher',
 		'charSetRegex'

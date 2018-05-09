@@ -12,7 +12,7 @@ JEItemEqualityTests >> testItemEquality [
 		head: (NCNonterminal named: 'T')
 		body:
 			{(NCNonterminal named: 'T').
-			(JETerminal character: $+).
+			(NCTerminal character: $+).
 			(NCNonterminal named: 'P')}.
 	one := (rule dotAt: 2) startedAt: first.
 	another := (rule dotAt: 2) startedAt: first.
@@ -31,7 +31,7 @@ JEItemEqualityTests >> testItemEquality02 [
 		head: (NCNonterminal named: 'T')
 		body:
 			{(NCNonterminal named: 'T').
-			(JETerminal character: $+).
+			(NCTerminal character: $+).
 			(NCNonterminal named: 'P')}.
 	one := (rule dotAt: 2) startedAt: first andEndedAt: (JEColumn number: 3).
 	another := (rule dotAt: 2) startedAt: first andEndedAt: (JEColumn number: 4).
@@ -49,7 +49,7 @@ JEItemEqualityTests >> testItemEquality03 [
 		head: (NCNonterminal named: 'T')
 		body:
 			{(NCNonterminal named: 'T').
-			(JETerminal character: $+).
+			(NCTerminal character: $+).
 			(NCNonterminal named: 'P')}.
 	one := (rule dotAt: 2) startedAt: first.
 	another := (rule dotAt: 2) startedAt: first andEndedAt: (JEColumn number: 4).
@@ -67,7 +67,7 @@ JEItemEqualityTests >> testItemEquality04 [
 		head: (NCNonterminal named: 'T')
 		body:
 			{(NCNonterminal named: 'T').
-			(JETerminal character: $+).
+			(NCTerminal character: $+).
 			(NCNonterminal named: 'P')}.
 	one := (rule dotAt: 2) startedAt: first andEndedAt: (JEColumn number: 3).
 	another := (rule dotAt: 2) startedAt: first.
@@ -85,7 +85,7 @@ JEItemEqualityTests >> testItemEquality05 [
 		head: (NCNonterminal named: 'T')
 		body:
 			{(NCNonterminal named: 'T').
-			(JETerminal character: $+).
+			(NCTerminal character: $+).
 			(NCNonterminal named: 'P')}.
 	one := another := (rule dotAt: 2) startedAt: first.
 	self assert: one equals: another.

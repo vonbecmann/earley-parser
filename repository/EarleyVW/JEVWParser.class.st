@@ -75,12 +75,12 @@ separator plus:
 	separator symbol;
 	separator plus, separator symbol.'
 		representations: {
-			('small syntactic mark symbol' -> (JETerminal charSet: ($a to: $z) , '()')).
-			('large syntactic mark symbol' -> (JETerminal charSet: ($A to: $Z) , ($0 to: $9))).
-			('space symbol' -> (JETerminal character: Character space)).
-			('colon symbol' -> (JETerminal character: $:)).
-			('semicolon symbol' -> (JETerminal character: $;)).
-			('comma symbol' -> (JETerminal character: $,)).
-			('dot symbol' -> (JETerminal character: $.)).
-			('separator symbol' -> (JETerminal charSet: Character separators)).}
+			('small syntactic mark symbol' -> (NCTerminal charSet: ($a to: $z) , '()')).
+			('large syntactic mark symbol' -> (NCTerminal charSet: ($A to: $Z) , ($0 to: $9))).
+			('space symbol' -> (NCTerminal character: Character space)).
+			('colon symbol' -> (NCTerminal character: $:)).
+			('semicolon symbol' -> (NCTerminal character: $;)).
+			('comma symbol' -> (NCTerminal character: $,)).
+			('dot symbol' -> (NCTerminal character: $.)).
+			('separator symbol' -> (NCTerminal charSet: Character separators)).}
 ]

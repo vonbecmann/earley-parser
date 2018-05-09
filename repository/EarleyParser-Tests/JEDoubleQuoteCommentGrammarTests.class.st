@@ -24,8 +24,8 @@ JEDoubleQuoteCommentGrammarTests >> setUp [
 	#('(not double quote) star' #('not double quote mark symbol' '(not double quote) star')) 
 	#('(not double quote) star' #()))
 		representations:
-			{('double quote mark symbol' -> (JETerminal character: $")).
-			('not double quote mark symbol' -> (JETerminal charSetComplement: '"'))}
+			{('double quote mark symbol' -> (NCTerminal character: $")).
+			('not double quote mark symbol' -> (NCTerminal charSetComplement: '"'))}
 ]
 
 { #category : #tests }

@@ -70,7 +70,7 @@ JEDottedRuleTest >> testEquality [
 		head: (NCNonterminal named: 'T')
 		body:
 			{(NCNonterminal named: 'T').
-			(JETerminal character: $+).
+			(NCTerminal character: $+).
 			(NCNonterminal named: 'P')}.
 	one := JEDottedRule given: rule withDotAt: 2.
 	another := JEDottedRule given: rule withDotAt: 2.
@@ -88,13 +88,13 @@ JEDottedRuleTest >> testEquality02 [
 		head: (NCNonterminal named: 'T')
 		body:
 			{(NCNonterminal named: 'T').
-			(JETerminal character: $+).
+			(NCTerminal character: $+).
 			(NCNonterminal named: 'P')}.
 	anotherRule := JERule
 		head: (NCNonterminal named: 'T')
 		body:
 			{(NCNonterminal named: 'T').
-			(JETerminal character: $+).
+			(NCTerminal character: $+).
 			(NCNonterminal named: 'P')}.
 	one := JEDottedRule given: rule withDotAt: 2.
 	another := JEDottedRule given: anotherRule withDotAt: 2.
@@ -112,7 +112,7 @@ JEDottedRuleTest >> testEquality03 [
 		head: (NCNonterminal named: 'T')
 		body:
 			{(NCNonterminal named: 'T').
-			(JETerminal character: $+).
+			(NCTerminal character: $+).
 			(NCNonterminal named: 'P')}.
 	one := rule dotAt: 2.
 	another := rule dotAt: 2.
@@ -130,12 +130,12 @@ JEDottedRuleTest >> testEquality04 [
 		head: (NCNonterminal named: 'T')
 		body:
 			{(NCNonterminal named: 'F').
-			(JETerminal character: $.)}.
+			(NCTerminal character: $.)}.
 	anotherRule := JERule
 		head: (NCNonterminal named: 'T')
 		body:
 			{(NCNonterminal named: 'F').
-			(JETerminal character: $.)}.
+			(NCTerminal character: $.)}.
 	one := rule dotAt: 2.
 	another := anotherRule dotAt: 2.
 	self deny: one = another.
@@ -152,7 +152,7 @@ JEDottedRuleTest >> testEquality05 [
 		head: (NCNonterminal named: 'T')
 		body:
 			{(NCNonterminal named: 'T').
-			(JETerminal character: $+).
+			(NCTerminal character: $+).
 			(NCNonterminal named: 'P')}.
 	one := (rule dotAt: 1) moveDotForward.
 	another := rule dotAt: 2.
@@ -170,7 +170,7 @@ JEDottedRuleTest >> testEquality06 [
 		head: (NCNonterminal named: 'T')
 		body:
 			{(NCNonterminal named: 'T').
-			(JETerminal character: $+).
+			(NCTerminal character: $+).
 			(NCNonterminal named: 'P')}.
 	one := another := JEDottedRule given: rule withDotAt: 2.
 	self assert: one equals: another.
@@ -231,7 +231,7 @@ JEDottedRuleTest >> testIsPredicted [
 { #category : #tests }
 JEDottedRuleTest >> testIsRepresentation [
 	| rule |
-	rule := JERule head: (NCNonterminal named: 'letter a symbol') body: {(JETerminal character: $a)}.
+	rule := JERule head: (NCNonterminal named: 'letter a symbol') body: {(NCTerminal character: $a)}.
 
 	self assert: rule dotAtBeginning isRepresentation.
 	self assert: rule dotAtEnd isRepresentation

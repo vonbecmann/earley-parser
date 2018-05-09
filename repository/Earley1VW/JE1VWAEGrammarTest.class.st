@@ -19,9 +19,9 @@ term:
 	term, star symbol, product.
 product: a symbol.'
 		representations:
-			{('plus symbol' -> (JETerminal character: $+)).
-			('star symbol' -> (JETerminal character: $*)).
-			('a symbol' -> (JETerminal character: $a))}.
+			{('plus symbol' -> (NCTerminal character: $+)).
+			('star symbol' -> (NCTerminal character: $*)).
+			('a symbol' -> (NCTerminal character: $a))}.
 	self assert: (grammar accepts: 'a+a*a+a*a')
 ]
 
@@ -37,9 +37,9 @@ term:
 	term, star symbol, product.
 product: a symbol.'
 		representations:
-			{('plus symbol' -> (JETerminal character: $+)).
-			('star symbol' -> (JETerminal character: $*)).
-			('a symbol' -> (JETerminal character: $a))}.
+			{('plus symbol' -> (NCTerminal character: $+)).
+			('star symbol' -> (NCTerminal character: $*)).
+			('a symbol' -> (NCTerminal character: $a))}.
 			
 	self assert: grammar rulesSize equals: 8.
 	self assert: grammar nonterminalsSize equals: 6.

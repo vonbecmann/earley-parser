@@ -20,9 +20,9 @@ JEEpsilonGrammar3Tests >> setUp [
 				#(E #(F)) 
 				#(Q #()))
 		representations:
-			{	('F' -> (JETerminal character: $a)).
-				('Q' -> (JETerminal character: $*)).
-				('Q' -> (JETerminal character: $/))}
+			{	('F' -> (NCTerminal character: $a)).
+				('Q' -> (NCTerminal character: $*)).
+				('Q' -> (NCTerminal character: $/))}
 ]
 
 { #category : #tests }

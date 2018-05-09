@@ -27,7 +27,7 @@ JERuleTest >> testDotAt [
 		head: (NCNonterminal named: 'T')
 		body:
 			{(NCNonterminal named: 'F').
-			(JETerminal character: $*).
+			(NCTerminal character: $*).
 			(NCNonterminal named: 'P')}.
 
 	self assert: (rule dotAt: 1) equals: (JEDottedRule given: rule withDotAt: 1).
@@ -43,7 +43,7 @@ JERuleTest >> testDotAtBeginning [
 		head: (NCNonterminal named: 'T')
 		body:
 			{(NCNonterminal named: 'F').
-			(JETerminal character: $*).
+			(NCTerminal character: $*).
 			(NCNonterminal named: 'P')}.
 	self assert: rule dotAtBeginning equals: (JEDottedRule given: rule withDotAt: 1)
 
@@ -56,7 +56,7 @@ JERuleTest >> testDotAtEnd [
 		head: (NCNonterminal named: 'T')
 		body:
 			{(NCNonterminal named: 'F').
-			(JETerminal character: $*).
+			(NCTerminal character: $*).
 			(NCNonterminal named: 'P')}.
 	self assert: rule dotAtEnd equals: (JEDottedRule given: rule withDotAt: 4)
 	
@@ -70,13 +70,13 @@ JERuleTest >> testEquality [
 		head: (NCNonterminal named: 'T')
 		body:
 			{(NCNonterminal named: 'T').
-			(JETerminal character: $+).
+			(NCTerminal character: $+).
 			(NCNonterminal named: 'P')}.
 	another := JERule
 		head: (NCNonterminal named: 'T')
 		body:
 			{(NCNonterminal named: 'T').
-			(JETerminal character: $+).
+			(NCTerminal character: $+).
 			(NCNonterminal named: 'P')}.
 	self assert: one equals: another.
 	self assert: one hash equals: another hash.
@@ -104,7 +104,7 @@ JERuleTest >> testEquality03 [
 		head: (NCNonterminal named: 'T')
 		body:
 			{(NCNonterminal named: 'T').
-			(JETerminal character: $+).
+			(NCTerminal character: $+).
 			(NCNonterminal named: 'P')}.
 	self assert: one equals: another.
 	self assert: one hash equals: another hash.
@@ -123,7 +123,7 @@ JERuleTest >> testIsEpsilon [
 { #category : #tests }
 JERuleTest >> testIsRepresentation [
 	| rule |
-	rule := JERule head: (NCNonterminal named: 'T') body: {(JETerminal character: $t)}.
+	rule := JERule head: (NCNonterminal named: 'T') body: {(NCTerminal character: $t)}.
 	self assert: rule isRepresentation
 ]
 

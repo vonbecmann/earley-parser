@@ -19,9 +19,9 @@ JEExemplar class >> AE [
 			  #('T' #('T' 'star symbol' 'P')) 
 			  #('P' #('letter a symbol')))
 		representations:
-			{('plus symbol' -> (JETerminal character: $+)).
-			('star symbol' -> (JETerminal character: $*)).
-			('letter a symbol' -> (JETerminal character: $a))}
+			{('plus symbol' -> (NCTerminal character: $+)).
+			('star symbol' -> (NCTerminal character: $*)).
+			('letter a symbol' -> (NCTerminal character: $a))}
 ]
 
 { #category : #'instance creation' }
@@ -39,7 +39,7 @@ JEExemplar class >> AyHo [
 				#('A' #('E')) 
 				#('A' #('letter a symbol')) 
 				#('E' #()))
-		representations: {('letter a symbol' -> (JETerminal character: $a))}
+		representations: {('letter a symbol' -> (NCTerminal character: $a))}
 ]
 
 { #category : #'instance creation' }
@@ -56,7 +56,7 @@ JEExemplar class >> BK [
 				#('J' #('I')) 
 				#('F' #('letter x symbol')) 
 				#('I' #('letter x symbol')))
-		representations: {('letter x symbol' -> (JETerminal character: $x))}
+		representations: {('letter x symbol' -> (NCTerminal character: $x))}
 ]
 
 { #category : #'instance creation' }
@@ -70,7 +70,7 @@ JEExemplar class >> BP [
 				#('M' #('M' 'letter a symbol')) 
 				#('N' #()) 
 				#('N' #('N' 'letter a symbol')))
-		representations: {('letter a symbol' -> (JETerminal character: $a))}
+		representations: {('letter a symbol' -> (NCTerminal character: $a))}
 ]
 
 { #category : #'instance creation' }
@@ -83,10 +83,10 @@ JEExemplar class >> GRE [
 				#('Y' #('letter e symbol')) 
 				#('Y' #('Y' 'letter d symbol' 'Y')))
 		representations:
-			{('letter a symbol' -> (JETerminal character: $a)).
-			('letter b symbol' -> (JETerminal character: $b)).
-			('letter e symbol' -> (JETerminal character: $e)).
-			('letter d symbol' -> (JETerminal character: $d))}
+			{('letter a symbol' -> (NCTerminal character: $a)).
+			('letter b symbol' -> (NCTerminal character: $b)).
+			('letter e symbol' -> (NCTerminal character: $e)).
+			('letter d symbol' -> (NCTerminal character: $d))}
 ]
 
 { #category : #'instance creation' }
@@ -97,7 +97,7 @@ JEExemplar class >> PAL [
 		productionRules:
 			#(	#('A' #('letter x symbol')) 
 				#('A' #('letter x symbol' 'A' 'letter x symbol')))
-		representations: {('letter x symbol' -> (JETerminal character: $x))}
+		representations: {('letter x symbol' -> (NCTerminal character: $x))}
 ]
 
 { #category : #'instance creation' }
@@ -112,8 +112,8 @@ JEExemplar class >> RL [
 				#('A' #('letter a symbol')) 
 				#('A' #('A' 'letter a symbol')))
 		representations:
-			{	('letter a symbol' -> (JETerminal character: $a)).
-				('letter b symbol' -> (JETerminal character: $b))}
+			{	('letter a symbol' -> (NCTerminal character: $a)).
+				('letter b symbol' -> (NCTerminal character: $b))}
 ]
 
 { #category : #'instance creation' }
@@ -122,7 +122,7 @@ JEExemplar class >> RR [
 
 	^ JEGrammar
 		productionRules: #(#('A' #('letter x symbol')) #('A' #('letter x symbol' 'A')))
-		representations: {('letter x symbol' -> (JETerminal character: $x))}
+		representations: {('letter x symbol' -> (NCTerminal character: $x))}
 ]
 
 { #category : #'instance creation' }
@@ -132,5 +132,5 @@ JEExemplar class >> UBDA [
 
 	^ JEGrammar
 		productionRules: #(#('A' #('letter x symbol')) #('A' #('A' 'A')))
-		representations: {('letter x symbol' -> (JETerminal character: $x))}
+		representations: {('letter x symbol' -> (NCTerminal character: $x))}
 ]

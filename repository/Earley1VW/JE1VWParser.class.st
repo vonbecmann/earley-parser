@@ -80,13 +80,13 @@ x: y1, y2, ..., yn.
 		productionRules: rules 
 		representations: 
 			{ "Terminal Notion to Representation List"
-			('small syntactic mark symbol' -> (JETerminal charSet: ($a to: $z) , '()')).
-			('space symbol' -> (JETerminal character: Character space)).
-			('comma symbol' -> (JETerminal character: $,)).
-			('colon symbol' -> (JETerminal character: $:)).
-			('semicolon symbol' -> (JETerminal character: $;)).
-			('dot symbol' -> (JETerminal character: $.)).
-			('separator symbol' -> (JETerminal charSet: Character separators)).
+			('small syntactic mark symbol' -> (NCTerminal charSet: ($a to: $z) , '()')).
+			('space symbol' -> (NCTerminal character: Character space)).
+			('comma symbol' -> (NCTerminal character: $,)).
+			('colon symbol' -> (NCTerminal character: $:)).
+			('semicolon symbol' -> (NCTerminal character: $;)).
+			('dot symbol' -> (NCTerminal character: $.)).
+			('separator symbol' -> (NCTerminal charSet: Character separators)).
 			}
 ]
 

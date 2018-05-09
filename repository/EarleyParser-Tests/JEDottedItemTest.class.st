@@ -21,7 +21,7 @@ JEDottedItemTest >> setUp [
 	first := JEColumn number: 1.
 	rule := JERule
 		head: (NCNonterminal named: 'T')
-		body: 	{(NCNonterminal named: 'T'). (JETerminal character: $+). (NCNonterminal named: 'P')}.
+		body: 	{(NCNonterminal named: 'T'). (NCTerminal character: $+). (NCNonterminal named: 'P')}.
 	item := nil
 ]
 
@@ -70,7 +70,7 @@ JEDottedItemTest >> testIsPredicted [
 JEDottedItemTest >> testIsRepresentation [
 	rule := JERule
 		head: (NCNonterminal named: 'letter y symbol')
-		body: {(JETerminal character: $y)}.
+		body: {(NCTerminal character: $y)}.
 	item := (rule dotAt: 1) startedAt: first.
 
 	self assert: item isRepresentation.

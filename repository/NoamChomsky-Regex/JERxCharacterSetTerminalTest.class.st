@@ -10,14 +10,14 @@ Class {
 
 { #category : #tests }
 JERxCharacterSetTerminalTest >> testAsString [
-	self assert: (JETerminal rxCharSet: '[\w]') asString equals: '''[\w]''RxCharSet'
+	self assert: (NCTerminal rxCharSet: '[\w]') asString equals: '''[\w]''RxCharSet'
 ]
 
 { #category : #tests }
 JERxCharacterSetTerminalTest >> testEquality [
 	| one another |
-	one := JETerminal rxCharSet: '[\w]'.
-	another := JETerminal rxCharSet: '[\w]'.
+	one := NCTerminal rxCharSet: '[\w]'.
+	another := NCTerminal rxCharSet: '[\w]'.
 	self assert: one equals: another.
 	self assert: one hash equals: another hash.
 	self assert: another equals: one.
@@ -28,8 +28,8 @@ JERxCharacterSetTerminalTest >> testEquality [
 { #category : #tests }
 JERxCharacterSetTerminalTest >> testEquality01 [
 	| one another |
-	one := JETerminal rxCharSet: '[\w]'.
-	another := JETerminal rxCharSet: '[\W]'.
+	one := NCTerminal rxCharSet: '[\w]'.
+	another := NCTerminal rxCharSet: '[\W]'.
 	self deny: one = another.
 	self deny: one hash = another hash.
 	self deny: another = one.
@@ -40,7 +40,7 @@ JERxCharacterSetTerminalTest >> testEquality01 [
 { #category : #tests }
 JERxCharacterSetTerminalTest >> testMatches [
 	| word |
-	word := JETerminal rxCharSet: '[\w]'.
+	word := NCTerminal rxCharSet: '[\w]'.
 	($a to: $z) , ($A to: $Z) , ($0 to: $9) , '_'
 		do: [ :each | self assert: (word matches: each) ]
 ]

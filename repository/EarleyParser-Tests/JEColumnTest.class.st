@@ -50,7 +50,7 @@ JEColumnTest >> testLike [
 		head: (NCNonterminal named: 'T')
 		body:
 			{(NCNonterminal named: 'T').
-			(JETerminal character: $+).
+			(NCTerminal character: $+).
 			(NCNonterminal named: 'P')}.
 	one := (rule dotAt: 2) startedAt: first.
 	self assert: (column like: one) equals: nil
@@ -64,7 +64,7 @@ JEColumnTest >> testLike02 [
 		head: (NCNonterminal named: 'T')
 		body:
 			{(NCNonterminal named: 'T').
-			(JETerminal character: $+).
+			(NCTerminal character: $+).
 			(NCNonterminal named: 'P')}.
 	one := (rule dotAt: 2) startedAt: first.
 	column add: one.
@@ -87,7 +87,7 @@ JEColumnTest >> testSizeWithOneItem [
 		head: (NCNonterminal named: 'T')
 		body:
 			{(NCNonterminal named: 'T').
-			(JETerminal character: $+).
+			(NCTerminal character: $+).
 			(NCNonterminal named: 'P')}.
 	one := (rule dotAt: 2) startedAt: first.
 	column add: one.

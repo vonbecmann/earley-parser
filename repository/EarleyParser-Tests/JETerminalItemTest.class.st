@@ -12,7 +12,7 @@ Class {
 JETerminalItemTest >> testAsString [
 	| terminal |
 	terminal := JETerminalItem
-		given: (JETerminal character: $H)
+		given: (NCTerminal character: $H)
 		word: $H
 		startedAt: (JEColumn number: 1)
 		andEndedAt: (JEColumn number: 12).
@@ -24,7 +24,7 @@ JETerminalItemTest >> testAsString [
 JETerminalItemTest >> testAsString02 [
 	| terminal |
 	terminal := JETerminalItem
-		given: (JETerminal character: $H)
+		given: (NCTerminal character: $H)
 		word: $H
 		startedAt: (JEColumn number: 1).
 	
@@ -35,12 +35,12 @@ JETerminalItemTest >> testAsString02 [
 JETerminalItemTest >> testEqual01 [
 	| one another |
 	one := JETerminalItem
-		given: (JETerminal character: $H)
+		given: (NCTerminal character: $H)
 		word: $H
 		startedAt: (JEColumn number: 1)
 		andEndedAt: (JEColumn number: 12).
 	another := JETerminalItem
-		given: (JETerminal character: $H)
+		given: (NCTerminal character: $H)
 		word: $H
 		startedAt: (JEColumn number: 1)
 		andEndedAt: (JEColumn number: 12).
@@ -57,12 +57,12 @@ JETerminalItemTest >> testEqual01 [
 JETerminalItemTest >> testEqual02 [
 	| one another |
 	one := JETerminalItem
-		given: (JETerminal charSet: ($a to: $z))
+		given: (NCTerminal charSet: ($a to: $z))
 		word: $z
 		startedAt: (JEColumn number: 1)
 		andEndedAt: (JEColumn number: 12).
 	another := JETerminalItem
-		given: (JETerminal charSet: ($a to: $z))
+		given: (NCTerminal charSet: ($a to: $z))
 		word: $b
 		startedAt: (JEColumn number: 1)
 		andEndedAt: (JEColumn number: 12).
@@ -79,12 +79,12 @@ JETerminalItemTest >> testEqual02 [
 JETerminalItemTest >> testEqual03 [
 	| one another |
 	one := JETerminalItem
-		given: (JETerminal character: $H)
+		given: (NCTerminal character: $H)
 		word: $H
 		startedAt: (JEColumn number: 1)
 		andEndedAt: (JEColumn number: 12).
 	another := JETerminalItem
-		given: (JETerminal character: $H)
+		given: (NCTerminal character: $H)
 		word: $H
 		startedAt: (JEColumn number: 1)
 		andEndedAt: (JEColumn number: 1).
@@ -101,12 +101,12 @@ JETerminalItemTest >> testEqual03 [
 JETerminalItemTest >> testEqual04 [
 	| one another |
 	one := JETerminalItem
-		given: (JETerminal charSet: ($a to: $z))
+		given: (NCTerminal charSet: ($a to: $z))
 		word: $z
 		startedAt: (JEColumn number: 3)
 		andEndedAt: (JEColumn number: 12).
 	another := JETerminalItem
-		given: (JETerminal charSet: ($a to: $z))
+		given: (NCTerminal charSet: ($a to: $z))
 		word: $b
 		startedAt: (JEColumn number: 1)
 		andEndedAt: (JEColumn number: 12).
@@ -123,7 +123,7 @@ JETerminalItemTest >> testEqual04 [
 JETerminalItemTest >> testIsActive [
 	| terminal |
 	terminal := JETerminalItem
-		given: (JETerminal character: $H)
+		given: (NCTerminal character: $H)
 		word: $H
 		startedAt: (JEColumn number: 1)
 		andEndedAt: (JEColumn number: 12).
@@ -135,7 +135,7 @@ JETerminalItemTest >> testIsActive [
 JETerminalItemTest >> testIsFinal [
 	| terminal |
 	terminal := JETerminalItem
-		given: (JETerminal character: $H)
+		given: (NCTerminal character: $H)
 		word: $H
 		startedAt: (JEColumn number: 1)
 		andEndedAt: (JEColumn number: 12).
@@ -147,7 +147,7 @@ JETerminalItemTest >> testIsFinal [
 JETerminalItemTest >> testIsNonterminal [
 	| terminal |
 	terminal := JETerminalItem
-		given: (JETerminal character: $H)
+		given: (NCTerminal character: $H)
 		word: $H
 		startedAt: (JEColumn number: 1)
 		andEndedAt: (JEColumn number: 12).
@@ -159,7 +159,7 @@ JETerminalItemTest >> testIsNonterminal [
 JETerminalItemTest >> testIsPredicted [
 	| terminal |
 	terminal := JETerminalItem
-		given: (JETerminal character: $H)
+		given: (NCTerminal character: $H)
 		word: $H
 		startedAt: (JEColumn number: 1)
 		andEndedAt: (JEColumn number: 12).
@@ -171,7 +171,7 @@ JETerminalItemTest >> testIsPredicted [
 JETerminalItemTest >> testIsRepresentation [
 	| terminal |
 	terminal := JETerminalItem
-		given: (JETerminal character: $H)
+		given: (NCTerminal character: $H)
 		word: $H
 		startedAt: (JEColumn number: 1)
 		andEndedAt: (JEColumn number: 12).
@@ -183,7 +183,7 @@ JETerminalItemTest >> testIsRepresentation [
 JETerminalItemTest >> testIsTerminal [
 	| terminal |
 	terminal := JETerminalItem
-		given: (JETerminal character: $H)
+		given: (NCTerminal character: $H)
 		word: $H
 		startedAt: (JEColumn number: 1)
 		andEndedAt: (JEColumn number: 12).

@@ -34,7 +34,7 @@ JEPackedNodeTest >> testEquals01 [
 JEPackedNodeTest >> testEquals02 [
 	| terminal one another |
 	terminal := JETerminalItem
-		given: (JETerminal character: $J)
+		given: (NCTerminal character: $J)
 		word: $J
 		startedAt: (JEColumn number: 2)
 		andEndedAt: (JEColumn number: 3).

@@ -1,7 +1,9 @@
 "
 a nonterminal.
 	name: like 'E'.
-	
+Nonterminal symbols are those symbols which can be replaced.
+They may also be called simply syntactic variables.
+
 example:
 JENonterminal named: 'E'
 "

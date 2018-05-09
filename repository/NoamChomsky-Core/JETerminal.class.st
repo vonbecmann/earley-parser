@@ -1,5 +1,6 @@
 "
-a terminal 
+a terminal.
+Terminal symbols are literal symbols which may appear in the outputs of the production rules of a formal grammar and which cannot be changed using the rules of the grammar.
 "
 Class {
 	#name : #JETerminal,

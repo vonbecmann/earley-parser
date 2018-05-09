@@ -86,7 +86,7 @@ JEGrammar class >> productionRules: productionRulesArray representations: termin
 	unique := Set new.
 	productionRulesArray
 		collect: [ :each | 
-			JEProductionRule
+			NCProductionRule
 				head: (nonterminals detect: [ :nonterminal | nonterminal named = each first ])
 				body: 	(each second
 								collect: 
@@ -100,7 +100,7 @@ JEGrammar class >> productionRules: productionRulesArray representations: termin
 				unique add: rule. ].
 	terminalNotionToRepresentationList
 			collect: [ :assoc | 
-				JEProductionRule
+				NCProductionRule
 					head: (nonterminals detect: [ :nonterminal | nonterminal named = assoc key ])
 					body: {(terminals like: assoc value)} ]
 			thenDo: 

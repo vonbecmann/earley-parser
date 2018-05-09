@@ -1,5 +1,8 @@
 "
-a production rule of the grammar defined by the user.
+a production rule of the grammar.
+a production rule that specify which symbols may replace which other symbols, these rules may be used to generate strings, or to parse them.
+
+Each such rule has a head, or left hand side, which consists of the string that may be replaced, and a body, or right hand side, which consists of a string that may replace it. Rules are often written in the form
 
 head: body.
 
@@ -8,7 +11,7 @@ body is list of symbols. (terminal or nonterminal)
 
 "
 Class {
-	#name : #JEProductionRule,
+	#name : #NCProductionRule,
 	#superclass : #Object,
 	#instVars : [
 		'head',
@@ -18,13 +21,13 @@ Class {
 }
 
 { #category : #'instance creation' }
-JEProductionRule class >> head: aNonterminal body: aSymbolArray [
+NCProductionRule class >> head: aNonterminal body: aSymbolArray [
 	self assert: aNonterminal isNonterminal.
 	^ self basicNew initializeHead: aNonterminal body: aSymbolArray
 ]
 
 { #category : #comparing }
-JEProductionRule >> = aRule [
+NCProductionRule >> = aRule [
 	self == aRule 
 		ifTrue: [ ^ true ].
 	self class == aRule class
@@ -42,12 +45,12 @@ JEProductionRule >> = aRule [
 ]
 
 { #category : #accessing }
-JEProductionRule >> body [
+NCProductionRule >> body [
 	^ body
 ]
 
 { #category : #comparing }
-JEProductionRule >> hash [
+NCProductionRule >> hash [
 	| hash |
 	hash := (self class hash + head hash) hashMultiply.
 	body do: [ :each | hash := (hash + each hash) hashMultiply ].
@@ -55,19 +58,19 @@ JEProductionRule >> hash [
 ]
 
 { #category : #accessing }
-JEProductionRule >> head [
+NCProductionRule >> head [
 	^ head
 ]
 
 { #category : #initialization }
-JEProductionRule >> initializeHead: aNonterminal body: aSymbolArray [
+NCProductionRule >> initializeHead: aNonterminal body: aSymbolArray [
 	self initialize.
 	head := aNonterminal.
 	body := aSymbolArray
 ]
 
 { #category : #printing }
-JEProductionRule >> printOn: aStream [
+NCProductionRule >> printOn: aStream [
 	"head: body.
 	 head: . "
 

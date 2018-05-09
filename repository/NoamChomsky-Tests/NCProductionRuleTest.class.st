@@ -1,21 +1,21 @@
 Class {
-	#name : #JEProductionRuleTest,
+	#name : #NCProductionRuleTest,
 	#superclass : #TestCase,
 	#category : #'NoamChomsky-Tests'
 }
 
 { #category : #tests }
-JEProductionRuleTest >> testAsString [
+NCProductionRuleTest >> testAsString [
 	self
-		assert: (JEProductionRule head: (JENonterminal named: 'A') body: #()) asString
+		assert: (NCProductionRule head: (JENonterminal named: 'A') body: #()) asString
 		equals: 'A: .'
 ]
 
 { #category : #tests }
-JEProductionRuleTest >> testAsString01 [
+NCProductionRuleTest >> testAsString01 [
 	self
 		assert:
-			(JEProductionRule
+			(NCProductionRule
 				head: (JENonterminal named: 'A')
 				body:
 					{	(JENonterminal named: 'B'). 
@@ -25,11 +25,11 @@ JEProductionRuleTest >> testAsString01 [
 ]
 
 { #category : #tests }
-JEProductionRuleTest >> testEqual [
+NCProductionRuleTest >> testEqual [
 	| one other |
-	one := JEProductionRule
+	one := NCProductionRule
 				head: (JENonterminal named: 'A') body: {(JENonterminal named: 'A')}.
-	other := JEProductionRule
+	other := NCProductionRule
 					head: (JENonterminal named: 'A') body: {(JENonterminal named: 'A')}.
 					
 	self assert: one equals: other.
@@ -40,10 +40,10 @@ JEProductionRuleTest >> testEqual [
 ]
 
 { #category : #tests }
-JEProductionRuleTest >> testEqual01 [
+NCProductionRuleTest >> testEqual01 [
 	| one other |
-	one := JEProductionRule head: (JENonterminal named: 'A') body: #().
-	other := JEProductionRule head: (JENonterminal named: 'A') body: #().
+	one := NCProductionRule head: (JENonterminal named: 'A') body: #().
+	other := NCProductionRule head: (JENonterminal named: 'A') body: #().
 	
 	self assert: one equals: other.
 	self assert: one hash equals: other hash.
@@ -53,10 +53,10 @@ JEProductionRuleTest >> testEqual01 [
 ]
 
 { #category : #tests }
-JEProductionRuleTest >> testEqual02 [
+NCProductionRuleTest >> testEqual02 [
 	| one other |
-	one := JEProductionRule head: (JENonterminal named: 'A') body: {(JENonterminal named: 'B')}.
-	other := JEProductionRule head: (JENonterminal named: 'A') body: {(JENonterminal named: 'A')}.
+	one := NCProductionRule head: (JENonterminal named: 'A') body: {(JENonterminal named: 'B')}.
+	other := NCProductionRule head: (JENonterminal named: 'A') body: {(JENonterminal named: 'A')}.
 	
 	self deny: one = other.
 	self deny: one hash = other hash.
@@ -66,10 +66,10 @@ JEProductionRuleTest >> testEqual02 [
 ]
 
 { #category : #tests }
-JEProductionRuleTest >> testEqual03 [
+NCProductionRuleTest >> testEqual03 [
 	| one other |
-	one := JEProductionRule head: (JENonterminal named: 'A') body: #().
-	other := JEProductionRule head: (JENonterminal named: 'C') body: #().
+	one := NCProductionRule head: (JENonterminal named: 'A') body: #().
+	other := NCProductionRule head: (JENonterminal named: 'C') body: #().
 	
 	self deny: one = other.
 	self deny: one hash = other hash.

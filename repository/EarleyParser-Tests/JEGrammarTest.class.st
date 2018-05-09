@@ -74,16 +74,16 @@ JEGrammarTest >> testRuleAtNonterminal01 [
 	self assert: grammar rulesSize equals: 4.
 	self
 		assert: (grammar ruleAt: 'A'->1)
-		equals: (JEProductionRule head: (JENonterminal named: 'A') body: {(JENonterminal named: 'A')}).
+		equals: (NCProductionRule head: (JENonterminal named: 'A') body: {(JENonterminal named: 'A')}).
 	self 
 		assert: (grammar ruleAt: 'A'->2) 
-		equals: (JEProductionRule head: (JENonterminal named: 'A') body: {}).
+		equals: (NCProductionRule head: (JENonterminal named: 'A') body: {}).
 	self 
 		assert: (grammar ruleAt: 'A'->3) 
-		equals: (JEProductionRule head: (JENonterminal named: 'A') body: {(JENonterminal named: 'letter x symbol')}).
+		equals: (NCProductionRule head: (JENonterminal named: 'A') body: {(JENonterminal named: 'letter x symbol')}).
 	self 
 		assert: (grammar ruleAt: 'letter x symbol'->1) 
-		equals: (JEProductionRule head: (JENonterminal named: 'letter x symbol') body: {(JETerminal character: $x)})
+		equals: (NCProductionRule head: (JENonterminal named: 'letter x symbol') body: {(JETerminal character: $x)})
 ]
 
 { #category : #tests }

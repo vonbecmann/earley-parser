@@ -19,7 +19,7 @@ NCTerminal class >> charSet: aCharacterCollection [
 NCTerminal class >> charSetComplement: aCharacterCollection [
 	" the complement of a character set defines a terminal "
 
-	^ JECharacterSetComplementTerminal of: aCharacterCollection
+	^ NCCharacterSetComplementTerminal of: aCharacterCollection
 ]
 
 { #category : #'instance creation' }

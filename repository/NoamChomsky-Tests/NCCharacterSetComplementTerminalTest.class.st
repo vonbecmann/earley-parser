@@ -1,13 +1,13 @@
 Class {
-	#name : #JECharacterSetComplementTerminalTest,
+	#name : #NCCharacterSetComplementTerminalTest,
 	#superclass : #TestCase,
 	#category : #'NoamChomsky-Tests'
 }
 
 { #category : #tests }
-JECharacterSetComplementTerminalTest >> testAsString [
+NCCharacterSetComplementTerminalTest >> testAsString [
 	self
-		assert: (JECharacterSetComplementTerminal of: ($a to: $z)) asString
+		assert: (NCCharacterSetComplementTerminal of: ($a to: $z)) asString
 		equals:
 			(String
 				streamContents: [ :s | 
@@ -17,10 +17,10 @@ JECharacterSetComplementTerminalTest >> testAsString [
 ]
 
 { #category : #tests }
-JECharacterSetComplementTerminalTest >> testEqual [
+NCCharacterSetComplementTerminalTest >> testEqual [
 	| one another |
-	one := JECharacterSetComplementTerminal of: ($a to: $z).
-	another := JECharacterSetComplementTerminal of: ($a to: $z).
+	one := NCCharacterSetComplementTerminal of: ($a to: $z).
+	another := NCCharacterSetComplementTerminal of: ($a to: $z).
 	self assert: one equals: another.
 	self assert: one hash equals: another hash.
 	self assert: another equals: one.
@@ -29,10 +29,10 @@ JECharacterSetComplementTerminalTest >> testEqual [
 ]
 
 { #category : #tests }
-JECharacterSetComplementTerminalTest >> testEqual01 [
+NCCharacterSetComplementTerminalTest >> testEqual01 [
 	| one another |
-	one := JECharacterSetComplementTerminal of: ($a to: $z).
-	another := JECharacterSetComplementTerminal of: ($A to: $Z).
+	one := NCCharacterSetComplementTerminal of: ($a to: $z).
+	another := NCCharacterSetComplementTerminal of: ($A to: $Z).
 	self deny: one = another.
 	self deny: one hash = another hash.
 	self deny: another = one.
@@ -41,28 +41,28 @@ JECharacterSetComplementTerminalTest >> testEqual01 [
 ]
 
 { #category : #tests }
-JECharacterSetComplementTerminalTest >> testIsNonterminal [
-	self deny: (JECharacterSetComplementTerminal of: ($a to: $z)) isNonterminal
+NCCharacterSetComplementTerminalTest >> testIsNonterminal [
+	self deny: (NCCharacterSetComplementTerminal of: ($a to: $z)) isNonterminal
 ]
 
 { #category : #tests }
-JECharacterSetComplementTerminalTest >> testIsTerminal [
-	self assert: (JECharacterSetComplementTerminal of: ($a to: $z)) isTerminal
+NCCharacterSetComplementTerminalTest >> testIsTerminal [
+	self assert: (NCCharacterSetComplementTerminal of: ($a to: $z)) isTerminal
 ]
 
 { #category : #tests }
-JECharacterSetComplementTerminalTest >> testMatches [
+NCCharacterSetComplementTerminalTest >> testMatches [
 	| terminal |
-	terminal := JECharacterSetComplementTerminal of: Character separators.
+	terminal := NCCharacterSetComplementTerminal of: Character separators.
 
 	Character separators do: [ :each | self deny: (terminal matches: each) ].
 	Character alphabet do: [ :each | self assert: (terminal matches: each) ]
 ]
 
 { #category : #tests }
-JECharacterSetComplementTerminalTest >> testMatches02 [
+NCCharacterSetComplementTerminalTest >> testMatches02 [
 	| terminal |
-	terminal := JECharacterSetComplementTerminal of: Character alphabet.
+	terminal := NCCharacterSetComplementTerminal of: Character alphabet.
 	
 	Character separators do: [ :each | self assert: (terminal matches: each) ].
 	Character alphabet do: [ :each | self deny: (terminal matches: each) ].

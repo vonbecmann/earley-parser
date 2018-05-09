@@ -7,7 +7,7 @@ the complement of  a character set defines a terminal.
 Class {
 	#name : #JECharacterSetComplementTerminal,
 	#superclass : #JECharacterSetTerminal,
-	#category : 'EarleyParser-Core-Public'
+	#category : #'NoamChomsky-Core'
 }
 
 { #category : #comparing }

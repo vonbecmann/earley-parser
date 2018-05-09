@@ -27,10 +27,13 @@ BaselineOfEarleyParser >> baseline: spec [
 						versionString: #stable;
 						repository: 'http://www.smalltalkhub.com/mc/ObjectProfile/Roassal2/main' ].
 			spec
+				package: 'NoamChomsky-Core';
+				package: 'NoamChomsky-Tests'
+					with: [ spec requires: #('NoamChomsky-Core') ];
 				package: 'EarleyParser-Core'
-					with: [ spec requires: #('MultiValuedDictionary' 'LinkedList') ];
+					with: [ spec requires: #('NoamChomsky-Core' 'MultiValuedDictionary' 'LinkedList') ];
 				package: 'EarleyParser-Regex' 
-					with: [ spec requires: #('EarleyParser-Core') ];
+					with: [ spec requires: #('NoamChomsky-Core') ];
 				package: 'EarleyParser-UI' 
 					with: [ spec requires: #('EarleyParser-Core' 'Roassal2') ];
 				package: 'EarleyParser-Tests' 
@@ -50,10 +53,10 @@ BaselineOfEarleyParser >> baseline: spec [
 			spec
 				group: 'default' 
 				with: #('Core' 'Tests' 'Regex' 'Analyzer' 'SyntaxTree' 'Parser' 'VWParser' 'UI');
-				group: 'Core' with: #('EarleyParser-Core');
+				group: 'Core' with: #('NoamChomsky-Core' 'EarleyParser-Core');
 				group: 'Regex' with: #('EarleyParser-Regex');
 				group: 'Analyzer' with: #('EarleyAnalyzer');
-				group: 'Tests' with: #('EarleyParser-Tests' 'EarleySyntaxTree-Tests');
+				group: 'Tests' with: #('NoamChomsky-Tests' 'EarleyParser-Tests' 'EarleySyntaxTree-Tests');
 				group: 'SyntaxTree' with: #('EarleySyntaxTree');
 				group: 'Parser' with: #('Earley1VW');
 				group: 'VWParser' with: #('EarleyVW');				

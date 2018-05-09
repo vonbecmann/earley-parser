@@ -4,7 +4,7 @@ a symbol of the grammar
 Class {
 	#name : #JESymbol,
 	#superclass : #Object,
-	#category : 'EarleyParser-Core-Public'
+	#category : #'NoamChomsky-Core'
 }
 
 { #category : #testing }

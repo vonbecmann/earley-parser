@@ -1,7 +1,7 @@
 Class {
 	#name : #JEProductionRuleTest,
 	#superclass : #TestCase,
-	#category : 'EarleyParser-Tests-Public'
+	#category : #'NoamChomsky-Tests'
 }
 
 { #category : #tests }

@@ -5,7 +5,7 @@ nonterminal tests.
 Class {
 	#name : #JENonterminalTest,
 	#superclass : #TestCase,
-	#category : 'EarleyParser-Tests-Implementation'
+	#category : #'NoamChomsky-Tests'
 }
 
 { #category : #tests }

@@ -4,7 +4,7 @@ a terminal
 Class {
 	#name : #JETerminal,
 	#superclass : #JESymbol,
-	#category : 'EarleyParser-Core-Public'
+	#category : #'NoamChomsky-Core'
 }
 
 { #category : #'instance creation' }

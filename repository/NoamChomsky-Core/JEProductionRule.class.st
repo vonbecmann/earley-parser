@@ -14,7 +14,7 @@ Class {
 		'head',
 		'body'
 	],
-	#category : 'EarleyParser-Core-Public'
+	#category : #'NoamChomsky-Core'
 }
 
 { #category : #'instance creation' }

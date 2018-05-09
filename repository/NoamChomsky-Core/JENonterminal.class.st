@@ -11,7 +11,7 @@ Class {
 	#instVars : [
 		'name'
 	],
-	#category : 'EarleyParser-Core-Implementation'
+	#category : #'NoamChomsky-Core'
 }
 
 { #category : #'instance creation' }

@@ -10,7 +10,7 @@ Class {
 	#instVars : [
 		'charSet'
 	],
-	#category : 'EarleyParser-Core-Public'
+	#category : #'NoamChomsky-Core'
 }
 
 { #category : #'instance creation' }

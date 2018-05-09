@@ -10,7 +10,7 @@ NCCharacterTerminalTest >> testAsString [
 ]
 
 { #category : #tests }
-NCCharacterTerminalTest >> testEqual [
+NCCharacterTerminalTest >> testEquals [
 	| one another |
 	one := NCCharacterTerminal character: $+.
 	another := NCCharacterTerminal character: $+.
@@ -21,7 +21,7 @@ NCCharacterTerminalTest >> testEqual [
 ]
 
 { #category : #tests }
-NCCharacterTerminalTest >> testEqual01 [
+NCCharacterTerminalTest >> testEquals01 [
 	| one another |
 	one := NCCharacterTerminal character: $+.
 	another := NCCharacterTerminal character: $*.

@@ -17,7 +17,7 @@ NCCharacterSetTerminalTest >> testAsString [
 ]
 
 { #category : #tests }
-NCCharacterSetTerminalTest >> testEqual [
+NCCharacterSetTerminalTest >> testEquals [
 	| one another |
 	one := NCCharacterSetTerminal charSet: ($a to: $z).
 	another := NCCharacterSetTerminal charSet: ($a to: $z).
@@ -29,7 +29,7 @@ NCCharacterSetTerminalTest >> testEqual [
 ]
 
 { #category : #tests }
-NCCharacterSetTerminalTest >> testEqual01 [
+NCCharacterSetTerminalTest >> testEquals01 [
 	| one another |
 	one := NCCharacterSetTerminal charSet: ($a to: $z).
 	another := NCCharacterSetTerminal charSet: ($A to: $Z).

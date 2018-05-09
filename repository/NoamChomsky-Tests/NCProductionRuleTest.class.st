@@ -25,7 +25,7 @@ NCProductionRuleTest >> testAsString01 [
 ]
 
 { #category : #tests }
-NCProductionRuleTest >> testEqual [
+NCProductionRuleTest >> testEquals [
 	| one other |
 	one := NCProductionRule
 				head: (NCNonterminal named: 'A') body: {(NCNonterminal named: 'A')}.
@@ -40,7 +40,7 @@ NCProductionRuleTest >> testEqual [
 ]
 
 { #category : #tests }
-NCProductionRuleTest >> testEqual01 [
+NCProductionRuleTest >> testEquals01 [
 	| one other |
 	one := NCProductionRule head: (NCNonterminal named: 'A') body: #().
 	other := NCProductionRule head: (NCNonterminal named: 'A') body: #().
@@ -53,7 +53,7 @@ NCProductionRuleTest >> testEqual01 [
 ]
 
 { #category : #tests }
-NCProductionRuleTest >> testEqual02 [
+NCProductionRuleTest >> testEquals02 [
 	| one other |
 	one := NCProductionRule head: (NCNonterminal named: 'A') body: {(NCNonterminal named: 'B')}.
 	other := NCProductionRule head: (NCNonterminal named: 'A') body: {(NCNonterminal named: 'A')}.
@@ -66,7 +66,7 @@ NCProductionRuleTest >> testEqual02 [
 ]
 
 { #category : #tests }
-NCProductionRuleTest >> testEqual03 [
+NCProductionRuleTest >> testEquals03 [
 	| one other |
 	one := NCProductionRule head: (NCNonterminal named: 'A') body: #().
 	other := NCProductionRule head: (NCNonterminal named: 'C') body: #().

@@ -26,7 +26,7 @@ NCTerminal class >> charSetComplement: aCharacterCollection [
 NCTerminal class >> character: aCharacter [
 	" a character defines a terminal "
 
-	^ JECharacterTerminal character: aCharacter
+	^ NCCharacterTerminal character: aCharacter
 ]
 
 { #category : #testing }

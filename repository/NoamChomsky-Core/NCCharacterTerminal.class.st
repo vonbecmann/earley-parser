@@ -2,7 +2,7 @@
 a character as a terminal
 "
 Class {
-	#name : #JECharacterTerminal,
+	#name : #NCCharacterTerminal,
 	#superclass : #NCTerminal,
 	#instVars : [
 		'character'
@@ -11,37 +11,37 @@ Class {
 }
 
 { #category : #'instance creation' }
-JECharacterTerminal class >> character: aCharacter [
+NCCharacterTerminal class >> character: aCharacter [
 	^ self basicNew initializeCharacter: aCharacter
 ]
 
 { #category : #comparing }
-JECharacterTerminal >> = anObject [
+NCCharacterTerminal >> = anObject [
 	^ self class = anObject class and: [ character = anObject character ]
 ]
 
 { #category : #accessing }
-JECharacterTerminal >> character [
+NCCharacterTerminal >> character [
 	^ character
 ]
 
 { #category : #comparing }
-JECharacterTerminal >> hash [
+NCCharacterTerminal >> hash [
 	^ (self class hash + character hash) hashMultiply
 ]
 
 { #category : #initialization }
-JECharacterTerminal >> initializeCharacter: aCharacter [
+NCCharacterTerminal >> initializeCharacter: aCharacter [
 	self initialize.
 	character := aCharacter
 ]
 
 { #category : #comparing }
-JECharacterTerminal >> matches: aCharacter [
+NCCharacterTerminal >> matches: aCharacter [
 	^ character = aCharacter
 ]
 
 { #category : #printing }
-JECharacterTerminal >> printOn: aStream [
+NCCharacterTerminal >> printOn: aStream [
 	character printOn: aStream
 ]

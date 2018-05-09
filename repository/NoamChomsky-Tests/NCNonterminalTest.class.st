@@ -9,7 +9,7 @@ Class {
 }
 
 { #category : #tests }
-NCNonterminalTest >> testEquality [
+NCNonterminalTest >> testEquals [
 	| one another |
 	one := NCNonterminal named: 'E'.
 	another := NCNonterminal named: 'E'.

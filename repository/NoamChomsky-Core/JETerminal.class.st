@@ -4,7 +4,7 @@ Terminal symbols are literal symbols which may appear in the outputs of the prod
 "
 Class {
 	#name : #JETerminal,
-	#superclass : #JESymbol,
+	#superclass : #NCSymbol,
 	#category : #'NoamChomsky-Core'
 }
 

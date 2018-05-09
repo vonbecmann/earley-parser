@@ -9,7 +9,7 @@ JENonterminal named: 'E'
 "
 Class {
 	#name : #JENonterminal,
-	#superclass : #JESymbol,
+	#superclass : #NCSymbol,
 	#instVars : [
 		'name'
 	],

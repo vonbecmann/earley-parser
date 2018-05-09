@@ -2,17 +2,17 @@
 a symbol of the grammar
 "
 Class {
-	#name : #JESymbol,
+	#name : #NCSymbol,
 	#superclass : #Object,
 	#category : #'NoamChomsky-Core'
 }
 
 { #category : #testing }
-JESymbol >> isNonterminal [
+NCSymbol >> isNonterminal [
 	self subclassResponsibility
 ]
 
 { #category : #testing }
-JESymbol >> isTerminal [
+NCSymbol >> isTerminal [
 	self subclassResponsibility
 ]

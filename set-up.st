@@ -1,8 +1,6 @@
 Author fullName: 'BernardoContreras'.
 
 "
-"
-
 Metacello new
     baseline: 'LinkedList';
     repository: 'tonel:///home/vonbecmann/workspaces/linked-list/repository';
@@ -17,6 +15,12 @@ Metacello new
     baseline: 'EarleyParser';
     repository: 'tonel:///home/vonbecmann/workspaces/earley-parser/repository';
     onLock: [ :ex | ex honor ];
+    load.
+"
+
+Metacello new
+    baseline: 'EarleyParser';
+    repository: 'tonel:///home/vonbecmann/workspaces/earley-parser/repository';
     load.
 
 

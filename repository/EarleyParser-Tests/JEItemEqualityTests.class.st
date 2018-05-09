@@ -9,11 +9,11 @@ JEItemEqualityTests >> testItemEquality [
 	| one another first rule |
 	first := JEColumn number: 1.
 	rule := JERule
-		head: (JENonterminal named: 'T')
+		head: (NCNonterminal named: 'T')
 		body:
-			{(JENonterminal named: 'T').
+			{(NCNonterminal named: 'T').
 			(JETerminal character: $+).
-			(JENonterminal named: 'P')}.
+			(NCNonterminal named: 'P')}.
 	one := (rule dotAt: 2) startedAt: first.
 	another := (rule dotAt: 2) startedAt: first.
 	self assert: one equals: another.
@@ -28,11 +28,11 @@ JEItemEqualityTests >> testItemEquality02 [
 	| one another first rule |
 	first := JEColumn number: 1.
 	rule := JERule
-		head: (JENonterminal named: 'T')
+		head: (NCNonterminal named: 'T')
 		body:
-			{(JENonterminal named: 'T').
+			{(NCNonterminal named: 'T').
 			(JETerminal character: $+).
-			(JENonterminal named: 'P')}.
+			(NCNonterminal named: 'P')}.
 	one := (rule dotAt: 2) startedAt: first andEndedAt: (JEColumn number: 3).
 	another := (rule dotAt: 2) startedAt: first andEndedAt: (JEColumn number: 4).
 	self deny: one = another.
@@ -46,11 +46,11 @@ JEItemEqualityTests >> testItemEquality03 [
 	| one another first rule |
 	first := JEColumn number: 1.
 	rule := JERule
-		head: (JENonterminal named: 'T')
+		head: (NCNonterminal named: 'T')
 		body:
-			{(JENonterminal named: 'T').
+			{(NCNonterminal named: 'T').
 			(JETerminal character: $+).
-			(JENonterminal named: 'P')}.
+			(NCNonterminal named: 'P')}.
 	one := (rule dotAt: 2) startedAt: first.
 	another := (rule dotAt: 2) startedAt: first andEndedAt: (JEColumn number: 4).
 	self deny: one = another.
@@ -64,11 +64,11 @@ JEItemEqualityTests >> testItemEquality04 [
 	| one another first rule |
 	first := JEColumn number: 1.
 	rule := JERule
-		head: (JENonterminal named: 'T')
+		head: (NCNonterminal named: 'T')
 		body:
-			{(JENonterminal named: 'T').
+			{(NCNonterminal named: 'T').
 			(JETerminal character: $+).
-			(JENonterminal named: 'P')}.
+			(NCNonterminal named: 'P')}.
 	one := (rule dotAt: 2) startedAt: first andEndedAt: (JEColumn number: 3).
 	another := (rule dotAt: 2) startedAt: first.
 	self deny: one = another.
@@ -82,11 +82,11 @@ JEItemEqualityTests >> testItemEquality05 [
 	| one another first rule |
 	first := JEColumn number: 1.
 	rule := JERule
-		head: (JENonterminal named: 'T')
+		head: (NCNonterminal named: 'T')
 		body:
-			{(JENonterminal named: 'T').
+			{(NCNonterminal named: 'T').
 			(JETerminal character: $+).
-			(JENonterminal named: 'P')}.
+			(NCNonterminal named: 'P')}.
 	one := another := (rule dotAt: 2) startedAt: first.
 	self assert: one equals: another.
 	self assert: one hash equals: another hash.

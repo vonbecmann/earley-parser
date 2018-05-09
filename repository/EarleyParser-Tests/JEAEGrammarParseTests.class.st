@@ -27,7 +27,7 @@ JEAEGrammarParseTests >> testParseEmpty [
 			self assert: failure position equals: 1.
 			self
 				assertCollection: failure expectedSymbols
-				hasSameElements: {(JENonterminal named: 'letter a symbol')} ]
+				hasSameElements: {(NCNonterminal named: 'letter a symbol')} ]
 ]
 
 { #category : #tests }
@@ -71,8 +71,8 @@ JEAEGrammarParseTests >> testParseSimpleExp02 [
 			self assert: failure position equals: 2.
 			self
 				assertCollection: failure expectedSymbols
-				hasSameElements: {	(JENonterminal named: 'star symbol').
-										(JENonterminal named: 'plus symbol')} ]
+				hasSameElements: {	(NCNonterminal named: 'star symbol').
+										(NCNonterminal named: 'plus symbol')} ]
 ]
 
 { #category : #'tests - failure' }
@@ -84,8 +84,8 @@ JEAEGrammarParseTests >> testParseSimpleExp03 [
 			self assert: failure position equals: 3.
 			self
 				assertCollection: failure expectedSymbols
-				hasSameElements: {	(JENonterminal named: 'T').
-										(JENonterminal named: 'letter a symbol')}	]
+				hasSameElements: {	(NCNonterminal named: 'T').
+										(NCNonterminal named: 'letter a symbol')}	]
 ]
 
 { #category : #'tests - failure' }
@@ -98,8 +98,8 @@ JEAEGrammarParseTests >> testParseSimpleExp04 [
 			self
 				assertCollection: failure expectedSymbols
 				hasSameElements:
-					{(JENonterminal named: 'T').
-					(JENonterminal named: 'letter a symbol')} ]
+					{(NCNonterminal named: 'T').
+					(NCNonterminal named: 'letter a symbol')} ]
 ]
 
 { #category : #'tests - failure' }
@@ -112,8 +112,8 @@ JEAEGrammarParseTests >> testParseSimpleExp05 [
 			self
 				assertCollection: failure expectedSymbols
 				hasSameElements:
-					{(JENonterminal named: 'T').
-					(JENonterminal named: 'letter a symbol')} ]
+					{(NCNonterminal named: 'T').
+					(NCNonterminal named: 'letter a symbol')} ]
 ]
 
 { #category : #'tests - failure' }
@@ -126,6 +126,6 @@ JEAEGrammarParseTests >> testParseSimpleExp06 [
 			self
 				assertCollection: failure expectedSymbols
 				hasSameElements:
-					{(JENonterminal named: 'P').
-					(JENonterminal named: 'letter a symbol')} ]
+					{(NCNonterminal named: 'P').
+					(NCNonterminal named: 'letter a symbol')} ]
 ]

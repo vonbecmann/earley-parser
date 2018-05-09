@@ -74,7 +74,7 @@ JEIdentifierGrammarTests >> testParseExpectsLetter [
 			self assert: failure position equals: 1.
 			self 
 				assertCollection: failure expectedSymbols 
-				hasSameElements: {(JENonterminal named: 'letter symbol')} ]
+				hasSameElements: {(NCNonterminal named: 'letter symbol')} ]
 ]
 
 { #category : #tests }

@@ -8,7 +8,7 @@ example:
 JENonterminal named: 'E'
 "
 Class {
-	#name : #JENonterminal,
+	#name : #NCNonterminal,
 	#superclass : #NCSymbol,
 	#instVars : [
 		'name'
@@ -17,43 +17,43 @@ Class {
 }
 
 { #category : #'instance creation' }
-JENonterminal class >> named: aNameString [
+NCNonterminal class >> named: aNameString [
 	^ self basicNew initializeName: aNameString
 ]
 
 { #category : #comparing }
-JENonterminal >> = anObject [
+NCNonterminal >> = anObject [
 	^ self class == anObject class and: [ name == anObject named ]
 ]
 
 { #category : #comparing }
-JENonterminal >> hash [
+NCNonterminal >> hash [
 	^ (self class hash + name hash) hashMultiply
 ]
 
 { #category : #initialization }
-JENonterminal >> initializeName: aNameString [
+NCNonterminal >> initializeName: aNameString [
 	self initialize.
 	name := aNameString asSymbol 
 ]
 
 { #category : #testing }
-JENonterminal >> isNonterminal [
+NCNonterminal >> isNonterminal [
 	^ true
 ]
 
 { #category : #testing }
-JENonterminal >> isTerminal [
+NCNonterminal >> isTerminal [
 	^ false
 ]
 
 { #category : #accessing }
-JENonterminal >> named [
+NCNonterminal >> named [
 	^ name
 ]
 
 { #category : #printing }
-JENonterminal >> printOn: aStream [
+NCNonterminal >> printOn: aStream [
 	"name"
 
 	aStream nextPutAll: name

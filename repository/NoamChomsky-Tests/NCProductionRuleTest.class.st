@@ -7,7 +7,7 @@ Class {
 { #category : #tests }
 NCProductionRuleTest >> testAsString [
 	self
-		assert: (NCProductionRule head: (JENonterminal named: 'A') body: #()) asString
+		assert: (NCProductionRule head: (NCNonterminal named: 'A') body: #()) asString
 		equals: 'A: .'
 ]
 
@@ -16,11 +16,11 @@ NCProductionRuleTest >> testAsString01 [
 	self
 		assert:
 			(NCProductionRule
-				head: (JENonterminal named: 'A')
+				head: (NCNonterminal named: 'A')
 				body:
-					{	(JENonterminal named: 'B'). 
-						(JENonterminal named: 'C').
-						(JENonterminal named: 'D')	}) asString
+					{	(NCNonterminal named: 'B'). 
+						(NCNonterminal named: 'C').
+						(NCNonterminal named: 'D')	}) asString
 		equals: 'A: B, C, D.'
 ]
 
@@ -28,9 +28,9 @@ NCProductionRuleTest >> testAsString01 [
 NCProductionRuleTest >> testEqual [
 	| one other |
 	one := NCProductionRule
-				head: (JENonterminal named: 'A') body: {(JENonterminal named: 'A')}.
+				head: (NCNonterminal named: 'A') body: {(NCNonterminal named: 'A')}.
 	other := NCProductionRule
-					head: (JENonterminal named: 'A') body: {(JENonterminal named: 'A')}.
+					head: (NCNonterminal named: 'A') body: {(NCNonterminal named: 'A')}.
 					
 	self assert: one equals: other.
 	self assert: one hash equals: other hash.
@@ -42,8 +42,8 @@ NCProductionRuleTest >> testEqual [
 { #category : #tests }
 NCProductionRuleTest >> testEqual01 [
 	| one other |
-	one := NCProductionRule head: (JENonterminal named: 'A') body: #().
-	other := NCProductionRule head: (JENonterminal named: 'A') body: #().
+	one := NCProductionRule head: (NCNonterminal named: 'A') body: #().
+	other := NCProductionRule head: (NCNonterminal named: 'A') body: #().
 	
 	self assert: one equals: other.
 	self assert: one hash equals: other hash.
@@ -55,8 +55,8 @@ NCProductionRuleTest >> testEqual01 [
 { #category : #tests }
 NCProductionRuleTest >> testEqual02 [
 	| one other |
-	one := NCProductionRule head: (JENonterminal named: 'A') body: {(JENonterminal named: 'B')}.
-	other := NCProductionRule head: (JENonterminal named: 'A') body: {(JENonterminal named: 'A')}.
+	one := NCProductionRule head: (NCNonterminal named: 'A') body: {(NCNonterminal named: 'B')}.
+	other := NCProductionRule head: (NCNonterminal named: 'A') body: {(NCNonterminal named: 'A')}.
 	
 	self deny: one = other.
 	self deny: one hash = other hash.
@@ -68,8 +68,8 @@ NCProductionRuleTest >> testEqual02 [
 { #category : #tests }
 NCProductionRuleTest >> testEqual03 [
 	| one other |
-	one := NCProductionRule head: (JENonterminal named: 'A') body: #().
-	other := NCProductionRule head: (JENonterminal named: 'C') body: #().
+	one := NCProductionRule head: (NCNonterminal named: 'A') body: #().
+	other := NCProductionRule head: (NCNonterminal named: 'C') body: #().
 	
 	self deny: one = other.
 	self deny: one hash = other hash.

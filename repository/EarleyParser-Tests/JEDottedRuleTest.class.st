@@ -11,7 +11,7 @@ Class {
 { #category : #tests }
 JEDottedRuleTest >> testAsString [
 	| rule |
-	rule := JERule head: (JENonterminal named: 'T') body: #().
+	rule := JERule head: (NCNonterminal named: 'T') body: #().
 	self assert: rule dotAtEnd asString equals: 'T: ·.'
 ]
 
@@ -19,8 +19,8 @@ JEDottedRuleTest >> testAsString [
 JEDottedRuleTest >> testAsString01 [
 	| rule |
 	rule := JERule
-		head: (JENonterminal named: 'T')
-		body: 	{(JENonterminal named: 'F'). (JENonterminal named: 'P'). (JENonterminal named: 'G')}.
+		head: (NCNonterminal named: 'T')
+		body: 	{(NCNonterminal named: 'F'). (NCNonterminal named: 'P'). (NCNonterminal named: 'G')}.
 			
 	self assert: (rule dotAt: 1) asString equals: 'T: ·F, P, G.'.
 	self assert: rule dotAtBeginning asString equals: 'T: ·F, P, G.'
@@ -30,11 +30,11 @@ JEDottedRuleTest >> testAsString01 [
 JEDottedRuleTest >> testAsString02 [
 	| rule |
 	rule := JERule
-		head: (JENonterminal named: 'T')
+		head: (NCNonterminal named: 'T')
 		body:
-			{(JENonterminal named: 'F').
-			(JENonterminal named: 'P').
-			(JENonterminal named: 'G')}.
+			{(NCNonterminal named: 'F').
+			(NCNonterminal named: 'P').
+			(NCNonterminal named: 'G')}.
 	self assert: (rule dotAt: 2) asString equals: 'T: F, ·P, G.'
 ]
 
@@ -42,11 +42,11 @@ JEDottedRuleTest >> testAsString02 [
 JEDottedRuleTest >> testAsString03 [
 	| rule |
 	rule := JERule
-		head: (JENonterminal named: 'T')
+		head: (NCNonterminal named: 'T')
 		body:
-			{(JENonterminal named: 'F').
-			(JENonterminal named: 'P').
-			(JENonterminal named: 'G')}.
+			{(NCNonterminal named: 'F').
+			(NCNonterminal named: 'P').
+			(NCNonterminal named: 'G')}.
 	self assert: (rule dotAt: 3) asString equals: 'T: F, P, ·G.'
 ]
 
@@ -54,11 +54,11 @@ JEDottedRuleTest >> testAsString03 [
 JEDottedRuleTest >> testAsString04 [
 	| rule |
 	rule := JERule
-		head: (JENonterminal named: 'T')
+		head: (NCNonterminal named: 'T')
 		body:
-			{(JENonterminal named: 'F').
-			(JENonterminal named: 'P').
-			(JENonterminal named: 'G')}.
+			{(NCNonterminal named: 'F').
+			(NCNonterminal named: 'P').
+			(NCNonterminal named: 'G')}.
 	self assert: (rule dotAt: 4) asString equals: 'T: F, P, G·.'.
 	self assert: rule dotAtEnd asString equals: 'T: F, P, G·.'
 ]
@@ -67,11 +67,11 @@ JEDottedRuleTest >> testAsString04 [
 JEDottedRuleTest >> testEquality [
 	| one another rule |
 	rule := JERule
-		head: (JENonterminal named: 'T')
+		head: (NCNonterminal named: 'T')
 		body:
-			{(JENonterminal named: 'T').
+			{(NCNonterminal named: 'T').
 			(JETerminal character: $+).
-			(JENonterminal named: 'P')}.
+			(NCNonterminal named: 'P')}.
 	one := JEDottedRule given: rule withDotAt: 2.
 	another := JEDottedRule given: rule withDotAt: 2.
 	self assert: one equals: another.
@@ -85,17 +85,17 @@ JEDottedRuleTest >> testEquality [
 JEDottedRuleTest >> testEquality02 [
 	| one another rule anotherRule |
 	rule := JERule
-		head: (JENonterminal named: 'T')
+		head: (NCNonterminal named: 'T')
 		body:
-			{(JENonterminal named: 'T').
+			{(NCNonterminal named: 'T').
 			(JETerminal character: $+).
-			(JENonterminal named: 'P')}.
+			(NCNonterminal named: 'P')}.
 	anotherRule := JERule
-		head: (JENonterminal named: 'T')
+		head: (NCNonterminal named: 'T')
 		body:
-			{(JENonterminal named: 'T').
+			{(NCNonterminal named: 'T').
 			(JETerminal character: $+).
-			(JENonterminal named: 'P')}.
+			(NCNonterminal named: 'P')}.
 	one := JEDottedRule given: rule withDotAt: 2.
 	another := JEDottedRule given: anotherRule withDotAt: 2.
 	self deny: one = another.
@@ -109,11 +109,11 @@ JEDottedRuleTest >> testEquality02 [
 JEDottedRuleTest >> testEquality03 [
 	| one another rule |
 	rule := JERule
-		head: (JENonterminal named: 'T')
+		head: (NCNonterminal named: 'T')
 		body:
-			{(JENonterminal named: 'T').
+			{(NCNonterminal named: 'T').
 			(JETerminal character: $+).
-			(JENonterminal named: 'P')}.
+			(NCNonterminal named: 'P')}.
 	one := rule dotAt: 2.
 	another := rule dotAt: 2.
 	self assert: one equals: another.
@@ -127,14 +127,14 @@ JEDottedRuleTest >> testEquality03 [
 JEDottedRuleTest >> testEquality04 [
 	| one another rule anotherRule |
 	rule := JERule
-		head: (JENonterminal named: 'T')
+		head: (NCNonterminal named: 'T')
 		body:
-			{(JENonterminal named: 'F').
+			{(NCNonterminal named: 'F').
 			(JETerminal character: $.)}.
 	anotherRule := JERule
-		head: (JENonterminal named: 'T')
+		head: (NCNonterminal named: 'T')
 		body:
-			{(JENonterminal named: 'F').
+			{(NCNonterminal named: 'F').
 			(JETerminal character: $.)}.
 	one := rule dotAt: 2.
 	another := anotherRule dotAt: 2.
@@ -149,11 +149,11 @@ JEDottedRuleTest >> testEquality04 [
 JEDottedRuleTest >> testEquality05 [
 	| one another rule |
 	rule := JERule
-		head: (JENonterminal named: 'T')
+		head: (NCNonterminal named: 'T')
 		body:
-			{(JENonterminal named: 'T').
+			{(NCNonterminal named: 'T').
 			(JETerminal character: $+).
-			(JENonterminal named: 'P')}.
+			(NCNonterminal named: 'P')}.
 	one := (rule dotAt: 1) moveDotForward.
 	another := rule dotAt: 2.
 	self assert: one equals: another.
@@ -167,11 +167,11 @@ JEDottedRuleTest >> testEquality05 [
 JEDottedRuleTest >> testEquality06 [
 	| one another rule |
 	rule := JERule
-		head: (JENonterminal named: 'T')
+		head: (NCNonterminal named: 'T')
 		body:
-			{(JENonterminal named: 'T').
+			{(NCNonterminal named: 'T').
 			(JETerminal character: $+).
-			(JENonterminal named: 'P')}.
+			(NCNonterminal named: 'P')}.
 	one := another := JEDottedRule given: rule withDotAt: 2.
 	self assert: one equals: another.
 	self assert: one hash equals: another hash.
@@ -184,8 +184,8 @@ JEDottedRuleTest >> testEquality06 [
 JEDottedRuleTest >> testIsActive [
 	| rule |
 	rule := JERule
-		head: (JENonterminal named: 'T')
-		body: {(JENonterminal named: 'F'). (JENonterminal named: 'P'). (JENonterminal named: 'G')}.
+		head: (NCNonterminal named: 'T')
+		body: {(NCNonterminal named: 'F'). (NCNonterminal named: 'P'). (NCNonterminal named: 'G')}.
 
 	self deny: rule dotAtBeginning isActive.
 	self assert: (rule dotAt: 2) isActive.
@@ -196,7 +196,7 @@ JEDottedRuleTest >> testIsActive [
 { #category : #tests }
 JEDottedRuleTest >> testIsEpsilon [
 	| rule |
-	rule := JERule head: (JENonterminal named: 'T') body: {}.
+	rule := JERule head: (NCNonterminal named: 'T') body: {}.
 
 	self assert: rule dotAtBeginning isEpsilon.
 	self assert: rule dotAtEnd isEpsilon
@@ -206,8 +206,8 @@ JEDottedRuleTest >> testIsEpsilon [
 JEDottedRuleTest >> testIsFinal [
 	| rule |
 	rule := JERule
-		head: (JENonterminal named: 'T')
-		body: {(JENonterminal named: 'F'). (JENonterminal named: 'P'). (JENonterminal named: 'G')}.
+		head: (NCNonterminal named: 'T')
+		body: {(NCNonterminal named: 'F'). (NCNonterminal named: 'P'). (NCNonterminal named: 'G')}.
 
 	self deny: rule dotAtBeginning isFinal.
 	self deny: (rule dotAt: 2) isFinal.
@@ -219,8 +219,8 @@ JEDottedRuleTest >> testIsFinal [
 JEDottedRuleTest >> testIsPredicted [
 	| rule |
 	rule := JERule
-		head: (JENonterminal named: 'T')
-		body: {(JENonterminal named: 'F'). (JENonterminal named: 'P'). (JENonterminal named: 'G')}.
+		head: (NCNonterminal named: 'T')
+		body: {(NCNonterminal named: 'F'). (NCNonterminal named: 'P'). (NCNonterminal named: 'G')}.
 
 	self assert: rule dotAtBeginning isPredicted.
 	self deny: (rule dotAt: 2) isPredicted.
@@ -231,7 +231,7 @@ JEDottedRuleTest >> testIsPredicted [
 { #category : #tests }
 JEDottedRuleTest >> testIsRepresentation [
 	| rule |
-	rule := JERule head: (JENonterminal named: 'letter a symbol') body: {(JETerminal character: $a)}.
+	rule := JERule head: (NCNonterminal named: 'letter a symbol') body: {(JETerminal character: $a)}.
 
 	self assert: rule dotAtBeginning isRepresentation.
 	self assert: rule dotAtEnd isRepresentation

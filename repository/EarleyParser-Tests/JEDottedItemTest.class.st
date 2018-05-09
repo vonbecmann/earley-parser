@@ -20,8 +20,8 @@ Class {
 JEDottedItemTest >> setUp [
 	first := JEColumn number: 1.
 	rule := JERule
-		head: (JENonterminal named: 'T')
-		body: 	{(JENonterminal named: 'T'). (JETerminal character: $+). (JENonterminal named: 'P')}.
+		head: (NCNonterminal named: 'T')
+		body: 	{(NCNonterminal named: 'T'). (JETerminal character: $+). (NCNonterminal named: 'P')}.
 	item := nil
 ]
 
@@ -69,7 +69,7 @@ JEDottedItemTest >> testIsPredicted [
 { #category : #tests }
 JEDottedItemTest >> testIsRepresentation [
 	rule := JERule
-		head: (JENonterminal named: 'letter y symbol')
+		head: (NCNonterminal named: 'letter y symbol')
 		body: {(JETerminal character: $y)}.
 	item := (rule dotAt: 1) startedAt: first.
 

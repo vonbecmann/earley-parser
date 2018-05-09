@@ -10,7 +10,7 @@ JEPackedNodeTest >> testAsString [
 		assert:
 			(JEPackedNode
 				model:
-					((JERule head: (JENonterminal named: 'A') body: #()) dotAtEnd
+					((JERule head: (NCNonterminal named: 'A') body: #()) dotAtEnd
 						startedAt: (JEColumn number: 10))) asString
 		equals: '([A: ·. @ 10])'
 ]
@@ -18,7 +18,7 @@ JEPackedNodeTest >> testAsString [
 { #category : #tests }
 JEPackedNodeTest >> testEquals01 [
 	| dottedRule one another |
-	dottedRule := (JERule head: (JENonterminal named: 'A') body: #()) dotAtEnd.
+	dottedRule := (JERule head: (NCNonterminal named: 'A') body: #()) dotAtEnd.
 	
 	one := JEPackedNode model: (dottedRule startedAt: (JEColumn number: 10)).
 	another := JEPackedNode model: (dottedRule startedAt: (JEColumn number: 10)).

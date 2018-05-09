@@ -136,8 +136,8 @@ JEAEGrammarForestTests >> testParseSimpleExp02 [
 			self assert: failure position equals: 2.
 			self
 				assertCollection: failure expectedSymbols
-				hasSameElements: {	(JENonterminal named: 'plus symbol'). 
-										(JENonterminal named: 'star symbol')}	]
+				hasSameElements: {	(NCNonterminal named: 'plus symbol'). 
+										(NCNonterminal named: 'star symbol')}	]
 ]
 
 { #category : #'tests - failure' }
@@ -149,8 +149,8 @@ JEAEGrammarForestTests >> testParseSimpleExp03 [
 			self assert: failure position equals: 3.
 			self
 				assertCollection: failure expectedSymbols
-				hasSameElements: {	(JENonterminal named: 'T'). 
-										(JENonterminal named: 'letter a symbol')}	]
+				hasSameElements: {	(NCNonterminal named: 'T'). 
+										(NCNonterminal named: 'letter a symbol')}	]
 ]
 
 { #category : #'tests - failure' }
@@ -162,8 +162,8 @@ JEAEGrammarForestTests >> testParseSimpleExp04 [
 			self assert: failure position equals: 3.
 			self
 				assertCollection: failure expectedSymbols
-				hasSameElements: {	(JENonterminal named: 'T'). 
-										(JENonterminal named: 'letter a symbol')}	]
+				hasSameElements: {	(NCNonterminal named: 'T'). 
+										(NCNonterminal named: 'letter a symbol')}	]
 ]
 
 { #category : #tests }

@@ -73,12 +73,12 @@ JEGrammar class >> productionRules: productionRulesArray representations: termin
 		assert: terminalNotionToRepresentationList isNotEmpty
 		description: 'The collection of rules cannot be empty.'.
 	nonterminals := productionRulesArray
-		collect: [ :each | JENonterminal named: each first ]
+		collect: [ :each | NCNonterminal named: each first ]
 		as: Set.
 	nonterminals
 		addAll:
 			(terminalNotionToRepresentationList
-				collect: [ :assoc | JENonterminal named: assoc key ]).
+				collect: [ :assoc | NCNonterminal named: assoc key ]).
 	terminals := terminalNotionToRepresentationList
 		collect: [ :assoc | assoc value ]
 		as: Set.
@@ -148,7 +148,7 @@ JEGrammar >> alternativesOf: aNonterminal [
 { #category : #initialization }
 JEGrammar >> initialize [
 	super initialize.
-	startSymbol := JENonterminal named: 'START'.
+	startSymbol := NCNonterminal named: 'START'.
 	productionRules := ArrayMultiValuedDictionary dictionary: OrderedDictionary.
 	rules := ArrayMultiValuedDictionary dictionary: OrderedDictionary.
 	predictedAlternatives := ArrayMultiValuedDictionary dictionary: OrderedIdentityDictionary.

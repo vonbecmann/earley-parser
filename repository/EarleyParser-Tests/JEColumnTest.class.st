@@ -47,11 +47,11 @@ JEColumnTest >> testLike [
 	| one first rule |
 	first := JEColumn number: 1.
 	rule := JERule
-		head: (JENonterminal named: 'T')
+		head: (NCNonterminal named: 'T')
 		body:
-			{(JENonterminal named: 'T').
+			{(NCNonterminal named: 'T').
 			(JETerminal character: $+).
-			(JENonterminal named: 'P')}.
+			(NCNonterminal named: 'P')}.
 	one := (rule dotAt: 2) startedAt: first.
 	self assert: (column like: one) equals: nil
 ]
@@ -61,11 +61,11 @@ JEColumnTest >> testLike02 [
 	| one first rule |
 	first := JEColumn number: 1.
 	rule := JERule
-		head: (JENonterminal named: 'T')
+		head: (NCNonterminal named: 'T')
 		body:
-			{(JENonterminal named: 'T').
+			{(NCNonterminal named: 'T').
 			(JETerminal character: $+).
-			(JENonterminal named: 'P')}.
+			(NCNonterminal named: 'P')}.
 	one := (rule dotAt: 2) startedAt: first.
 	column add: one.
 	self assert: (column like: one) equals: one.
@@ -84,11 +84,11 @@ JEColumnTest >> testSizeWithOneItem [
 	self assert: column isEmpty.
 	first := JEColumn number: 1.
 	rule := JERule
-		head: (JENonterminal named: 'T')
+		head: (NCNonterminal named: 'T')
 		body:
-			{(JENonterminal named: 'T').
+			{(NCNonterminal named: 'T').
 			(JETerminal character: $+).
-			(JENonterminal named: 'P')}.
+			(NCNonterminal named: 'P')}.
 	one := (rule dotAt: 2) startedAt: first.
 	column add: one.
 	self assert: column size equals: 1

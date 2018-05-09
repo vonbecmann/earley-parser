@@ -12,11 +12,11 @@ Class {
 JERuleTest >> testAsString [
 	| rule |
 	rule := JERule
-		head: (JENonterminal named: 'T')
+		head: (NCNonterminal named: 'T')
 		body:
-			{(JENonterminal named: 'F').
-			(JENonterminal named: 'P').
-			(JENonterminal named: 'G')}.
+			{(NCNonterminal named: 'F').
+			(NCNonterminal named: 'P').
+			(NCNonterminal named: 'G')}.
 	self assert: rule asString equals: 'T: F, P, G.'
 ]
 
@@ -24,11 +24,11 @@ JERuleTest >> testAsString [
 JERuleTest >> testDotAt [
 	| rule |
 	rule := JERule
-		head: (JENonterminal named: 'T')
+		head: (NCNonterminal named: 'T')
 		body:
-			{(JENonterminal named: 'F').
+			{(NCNonterminal named: 'F').
 			(JETerminal character: $*).
-			(JENonterminal named: 'P')}.
+			(NCNonterminal named: 'P')}.
 
 	self assert: (rule dotAt: 1) equals: (JEDottedRule given: rule withDotAt: 1).
 	self assert: (rule dotAt: 2) equals: (JEDottedRule given: rule withDotAt: 2).
@@ -40,11 +40,11 @@ JERuleTest >> testDotAt [
 JERuleTest >> testDotAtBeginning [
 	| rule |
 	rule := JERule
-		head: (JENonterminal named: 'T')
+		head: (NCNonterminal named: 'T')
 		body:
-			{(JENonterminal named: 'F').
+			{(NCNonterminal named: 'F').
 			(JETerminal character: $*).
-			(JENonterminal named: 'P')}.
+			(NCNonterminal named: 'P')}.
 	self assert: rule dotAtBeginning equals: (JEDottedRule given: rule withDotAt: 1)
 
 ]
@@ -53,11 +53,11 @@ JERuleTest >> testDotAtBeginning [
 JERuleTest >> testDotAtEnd [
 	| rule |
 	rule := JERule
-		head: (JENonterminal named: 'T')
+		head: (NCNonterminal named: 'T')
 		body:
-			{(JENonterminal named: 'F').
+			{(NCNonterminal named: 'F').
 			(JETerminal character: $*).
-			(JENonterminal named: 'P')}.
+			(NCNonterminal named: 'P')}.
 	self assert: rule dotAtEnd equals: (JEDottedRule given: rule withDotAt: 4)
 	
 
@@ -67,17 +67,17 @@ JERuleTest >> testDotAtEnd [
 JERuleTest >> testEquality [
 	| one another |
 	one := JERule
-		head: (JENonterminal named: 'T')
+		head: (NCNonterminal named: 'T')
 		body:
-			{(JENonterminal named: 'T').
+			{(NCNonterminal named: 'T').
 			(JETerminal character: $+).
-			(JENonterminal named: 'P')}.
+			(NCNonterminal named: 'P')}.
 	another := JERule
-		head: (JENonterminal named: 'T')
+		head: (NCNonterminal named: 'T')
 		body:
-			{(JENonterminal named: 'T').
+			{(NCNonterminal named: 'T').
 			(JETerminal character: $+).
-			(JENonterminal named: 'P')}.
+			(NCNonterminal named: 'P')}.
 	self assert: one equals: another.
 	self assert: one hash equals: another hash.
 	self assert: another equals: one.
@@ -88,8 +88,8 @@ JERuleTest >> testEquality [
 { #category : #tests }
 JERuleTest >> testEquality02 [
 	| one another |
-	one := JERule head: (JENonterminal named: 'T') body: #().
-	another := JERule head: (JENonterminal named: 'T') body: #().
+	one := JERule head: (NCNonterminal named: 'T') body: #().
+	another := JERule head: (NCNonterminal named: 'T') body: #().
 	self assert: one equals: another.
 	self assert: one hash equals: another hash.
 	self assert: another equals: one.
@@ -101,11 +101,11 @@ JERuleTest >> testEquality02 [
 JERuleTest >> testEquality03 [
 	| one another |
 	one := another := JERule
-		head: (JENonterminal named: 'T')
+		head: (NCNonterminal named: 'T')
 		body:
-			{(JENonterminal named: 'T').
+			{(NCNonterminal named: 'T').
 			(JETerminal character: $+).
-			(JENonterminal named: 'P')}.
+			(NCNonterminal named: 'P')}.
 	self assert: one equals: another.
 	self assert: one hash equals: another hash.
 	self assert: another equals: one.
@@ -116,20 +116,20 @@ JERuleTest >> testEquality03 [
 { #category : #tests }
 JERuleTest >> testIsEpsilon [
 	| rule |
-	rule := JERule head: (JENonterminal named: 'T') body: {}.
+	rule := JERule head: (NCNonterminal named: 'T') body: {}.
 	self assert: rule isEpsilon
 ]
 
 { #category : #tests }
 JERuleTest >> testIsRepresentation [
 	| rule |
-	rule := JERule head: (JENonterminal named: 'T') body: {(JETerminal character: $t)}.
+	rule := JERule head: (NCNonterminal named: 'T') body: {(JETerminal character: $t)}.
 	self assert: rule isRepresentation
 ]
 
 { #category : #tests }
 JERuleTest >> testIsRepresentation01 [
 	| rule |
-	rule := JERule head: (JENonterminal named: 'T') body: {(JENonterminal named: 'P')}.
+	rule := JERule head: (NCNonterminal named: 'T') body: {(NCNonterminal named: 'P')}.
 	self deny: rule isRepresentation
 ]

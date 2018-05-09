@@ -10,7 +10,7 @@ Class {
 { #category : #running }
 JEEpsilonRuleTests >> setUp [
 	super setUp.
-	epsilonRule := JERule head: (JENonterminal named: 'T') body: #()
+	epsilonRule := JERule head: (NCNonterminal named: 'T') body: #()
 ]
 
 { #category : #tests }

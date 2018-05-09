@@ -1,13 +1,13 @@
 Class {
-	#name : #JECharacterSetTerminalTest,
+	#name : #NCCharacterSetTerminalTest,
 	#superclass : #TestCase,
 	#category : #'NoamChomsky-Tests'
 }
 
 { #category : #tests }
-JECharacterSetTerminalTest >> testAsString [
+NCCharacterSetTerminalTest >> testAsString [
 	self
-		assert: (JECharacterSetTerminal charSet: ($a to: $z)) asString
+		assert: (NCCharacterSetTerminal charSet: ($a to: $z)) asString
 		equals:
 			(String
 				streamContents: [ :s | 
@@ -17,10 +17,10 @@ JECharacterSetTerminalTest >> testAsString [
 ]
 
 { #category : #tests }
-JECharacterSetTerminalTest >> testEqual [
+NCCharacterSetTerminalTest >> testEqual [
 	| one another |
-	one := JECharacterSetTerminal charSet: ($a to: $z).
-	another := JECharacterSetTerminal charSet: ($a to: $z).
+	one := NCCharacterSetTerminal charSet: ($a to: $z).
+	another := NCCharacterSetTerminal charSet: ($a to: $z).
 	self assert: one equals: another.
 	self assert: one hash equals: another hash.
 	self assert: another equals: one.
@@ -29,10 +29,10 @@ JECharacterSetTerminalTest >> testEqual [
 ]
 
 { #category : #tests }
-JECharacterSetTerminalTest >> testEqual01 [
+NCCharacterSetTerminalTest >> testEqual01 [
 	| one another |
-	one := JECharacterSetTerminal charSet: ($a to: $z).
-	another := JECharacterSetTerminal charSet: ($A to: $Z).
+	one := NCCharacterSetTerminal charSet: ($a to: $z).
+	another := NCCharacterSetTerminal charSet: ($A to: $Z).
 	self deny: one = another.
 	self deny: one hash = another hash.
 	self deny: another = one.
@@ -41,19 +41,19 @@ JECharacterSetTerminalTest >> testEqual01 [
 ]
 
 { #category : #tests }
-JECharacterSetTerminalTest >> testIsNonterminal [
-	self deny: (JECharacterSetTerminal charSet: ($a to: $z)) isNonterminal
+NCCharacterSetTerminalTest >> testIsNonterminal [
+	self deny: (NCCharacterSetTerminal charSet: ($a to: $z)) isNonterminal
 ]
 
 { #category : #tests }
-JECharacterSetTerminalTest >> testIsTerminal [
-	self assert: (JECharacterSetTerminal charSet: ($a to: $z)) isTerminal
+NCCharacterSetTerminalTest >> testIsTerminal [
+	self assert: (NCCharacterSetTerminal charSet: ($a to: $z)) isTerminal
 ]
 
 { #category : #tests }
-JECharacterSetTerminalTest >> testMatches [
+NCCharacterSetTerminalTest >> testMatches [
 	| terminal |
-	terminal := JECharacterSetTerminal charSet: Character separators.
+	terminal := NCCharacterSetTerminal charSet: Character separators.
 
 	Character separators do: [ :each | self assert: (terminal matches: each) ].
 

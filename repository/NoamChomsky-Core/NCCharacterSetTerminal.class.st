@@ -5,7 +5,7 @@ charSet - a character set of a given character collection.
 
 "
 Class {
-	#name : #JECharacterSetTerminal,
+	#name : #NCCharacterSetTerminal,
 	#superclass : #NCTerminal,
 	#instVars : [
 		'charSet'
@@ -14,38 +14,38 @@ Class {
 }
 
 { #category : #'instance creation' }
-JECharacterSetTerminal class >> of: aCharacterCollection [
+NCCharacterSetTerminal class >> of: aCharacterCollection [
 	^ self basicNew initializeCharSet: aCharacterCollection
 ]
 
 { #category : #comparing }
-JECharacterSetTerminal >> = anObject [
+NCCharacterSetTerminal >> = anObject [
 	^ self class = anObject class and: [ charSet = anObject charSet ]
 ]
 
 { #category : #accessing }
-JECharacterSetTerminal >> charSet [
+NCCharacterSetTerminal >> charSet [
 	^ charSet
 ]
 
 { #category : #comparing }
-JECharacterSetTerminal >> hash [
+NCCharacterSetTerminal >> hash [
 	^ (self class hash + charSet hash) hashMultiply
 ]
 
 { #category : #initialization }
-JECharacterSetTerminal >> initializeCharSet: aCharacterCollection [
+NCCharacterSetTerminal >> initializeCharSet: aCharacterCollection [
 	self initialize.
 	charSet := CharacterSet newFrom: aCharacterCollection
 ]
 
 { #category : #comparing }
-JECharacterSetTerminal >> matches: aCharacter [
+NCCharacterSetTerminal >> matches: aCharacter [
 	^ charSet includes: aCharacter
 ]
 
 { #category : #printing }
-JECharacterSetTerminal >> printOn: aStream [
+NCCharacterSetTerminal >> printOn: aStream [
 	aStream
 		print: charSet asString;
 		nextPutAll: 'CharSet'

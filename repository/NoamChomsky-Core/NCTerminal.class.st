@@ -12,7 +12,7 @@ Class {
 NCTerminal class >> charSet: aCharacterCollection [
 	" a set of characters define a terminal"
 
-	^ JECharacterSetTerminal of: aCharacterCollection
+	^ NCCharacterSetTerminal of: aCharacterCollection
 ]
 
 { #category : #'instance creation' }

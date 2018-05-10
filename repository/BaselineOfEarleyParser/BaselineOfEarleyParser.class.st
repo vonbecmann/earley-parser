@@ -48,12 +48,10 @@ BaselineOfEarleyParser >> baseline: spec [
 				package: 'EarleySyntaxTree-Tests' 
 					with: [ spec requires: #('EarleySyntaxTree') ];
 				package: 'Earley1VW' 
-					with: [ spec requires: #('EarleySyntaxTree') ];
-				package: 'EarleyVW' 
-					with: [ spec requires: #('Earley1VW') ].
+					with: [ spec requires: #('EarleySyntaxTree') ].
 			spec
 				group: 'default' 
-				with: #('Core' 'Tests' 'Regex' 'Analyzer' 'SyntaxTree' 'Parser' 'VWParser' 'UI');
+				with: #('Core' 'Tests' 'Regex' 'Analyzer' 'SyntaxTree' 'Parser' 'UI');
 				group: 'Core' with: #('NoamChomsky-Core' 'EarleyParser-Core');
 				group: 'Regex' with: #('NoamChomsky-Regex');
 				group: 'Analyzer' with: #('EarleyAnalyzer');
@@ -61,6 +59,5 @@ BaselineOfEarleyParser >> baseline: spec [
 					with: #('NoamChomsky-Tests' 'EarleyParser-Tests' 'EarleySyntaxTree-Tests');
 				group: 'SyntaxTree' with: #('EarleySyntaxTree');
 				group: 'Parser' with: #('Earley1VW');
-				group: 'VWParser' with: #('EarleyVW');				
 				group: 'UI' with: #('EarleyParser-UI' 'EarleySyntaxTree-UI') ]
 ]

@@ -5,7 +5,7 @@ Nonterminal symbols are those symbols which can be replaced.
 They may also be called simply syntactic variables.
 
 example:
-JENonterminal named: 'E'
+NCNonterminal named: 'E'
 "
 Class {
 	#name : #NCNonterminal,
@@ -23,6 +23,8 @@ NCNonterminal class >> named: aNameString [
 
 { #category : #comparing }
 NCNonterminal >> = anObject [
+	self == anObject
+		ifTrue: [ ^ true ].
 	^ self class == anObject class and: [ name == anObject named ]
 ]
 

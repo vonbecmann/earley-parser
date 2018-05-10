@@ -9,6 +9,13 @@ Class {
 }
 
 { #category : #tests }
+NCNonterminalTest >> testAsString [
+	self 
+		assert: (NCNonterminal named: 'START') asString 
+		equals: 'START'
+]
+
+{ #category : #tests }
 NCNonterminalTest >> testEquals [
 	| one another |
 	one := NCNonterminal named: 'E'.

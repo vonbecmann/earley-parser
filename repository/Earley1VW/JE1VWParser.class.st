@@ -36,9 +36,8 @@ Notation
 x: y1, y2, ..., yn.
 	 "
 
-	| rules |
-
-	rules := #(
+	^ JEGrammar
+		productionRules: #(
 #('one level vw grammar' #('rule list'))
 
 #('rule list' #('rule')) 
@@ -73,21 +72,16 @@ x: y1, y2, ..., yn.
 #('layout' #())
 #('layout' #('separator plus'))
 #('separator plus' #('separator symbol'))
-#('separator plus' #('separator plus' 'separator symbol'))
-).
-
-	^ JEGrammar
-		productionRules: rules 
-		representations: 
-			{ "Terminal Notion to Representation List"
-			('small syntactic mark symbol' -> (NCTerminal charSet: ($a to: $z) , '()')).
-			('space symbol' -> (NCTerminal character: Character space)).
-			('comma symbol' -> (NCTerminal character: $,)).
-			('colon symbol' -> (NCTerminal character: $:)).
-			('semicolon symbol' -> (NCTerminal character: $;)).
-			('dot symbol' -> (NCTerminal character: $.)).
-			('separator symbol' -> (NCTerminal charSet: Character separators)).
-			}
+#('separator plus' #('separator plus' 'separator symbol')))
+		representations: { 
+"Terminal Notion to Representation List"
+('small syntactic mark symbol' -> (NCTerminal charSet: ($a to: $z) , '()')).
+('space symbol' 		-> (NCTerminal character: Character space)).
+('comma symbol' 		-> (NCTerminal character: $,)).
+('colon symbol' 		-> (NCTerminal character: $:)).
+('semicolon symbol' 	-> (NCTerminal character: $;)).
+('dot symbol' 			-> (NCTerminal character: $.)).
+('separator symbol' 	-> (NCTerminal charSet: Character separators)). }
 ]
 
 { #category : #accessing }

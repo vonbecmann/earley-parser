@@ -32,7 +32,7 @@ ESTree >> viewFor: aNode [
 		preOrderBlock: [ :node | 
 			nodes add: node.
 			associations addAll: (node children collect: [ :child | node -> child ]) ];
-		visitNode: aNode.
+		visit: aNode.
 	b := RTMondrian new.
 	b shape rectangle withTextAbove.
 	b nodes: nodes asArray.

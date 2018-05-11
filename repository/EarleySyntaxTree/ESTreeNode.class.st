@@ -30,6 +30,11 @@ ESTreeNode >> = anObject [
 	^ self class == anObject class and: [ model = anObject model ]
 ]
 
+{ #category : #visiting }
+ESTreeNode >> acceptVisitor: anESTreeVisitor [
+	anESTreeVisitor visitNode: self
+]
+
 { #category : #accessing }
 ESTreeNode >> children [
 	^ children

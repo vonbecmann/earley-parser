@@ -27,11 +27,7 @@ JE1VWParser class >> oneLevelVWEvaluator [
 		grammar: self oneLevelVWGrammar
 		actions: {
 (('rule list' -> 2)
-	-> [ :nodes | 
-			Array 
-				streamContents: [ :s |
-										nodes first do: [ :each | s nextPut: each ].
-										nodes third do: [ :each | s nextPut: each ] ] ]).
+	-> [ :nodes | Array streamContents: [ :s | s nextPutAll: nodes first; nextPutAll: nodes third ] ]).
 (('rule' -> 1)	-> [ :nodes | nodes fourth collect: [ :each | Array with: nodes first with: each ] ]).
 (('alternatives' -> 1)	-> [ :node | Array with: node ]).
 (('alternatives' -> 2) 	-> [ :nodes | nodes first copyWith: nodes fourth ]).

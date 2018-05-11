@@ -57,3 +57,11 @@ JE1VWEvaluatorTest >> testEvaluatesRule03 [
 		startingAt: 'rule' 
 		equals: #(#('expression' #()))
 ]
+
+{ #category : #'tests - rule' }
+JE1VWEvaluatorTest >> testEvaluatesRule04 [
+	self
+		assertThatEvaluates: 'expression: term; .'
+		startingAt: 'rule'
+		equals: #(#('expression' #('term')) #('expression' #()))
+]

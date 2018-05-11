@@ -22,6 +22,50 @@ JE1VWParser class >> instance [
 ]
 
 { #category : #grammar }
+JE1VWParser class >> oneLevelVWEvaluator [
+	^ ESSingleSynthesizedAttributeEvaluator
+		grammar: self oneLevelVWGrammar
+		actions: {
+(('rule list' -> 2)
+	-> [ :nodes | 
+			Array 
+				streamContents: [ :s |
+										nodes first do: [ :each | s nextPut: each ].
+										nodes third do: [ :each | s nextPut: each ] ] ]).
+(('rule' -> 1)	-> [ :nodes | nodes fourth collect: [ :each | Array with: nodes first with: each ] ]).
+(('alternatives' -> 1)	-> [ :node | Array with: node ]).
+(('alternatives' -> 2) 	-> [ :nodes | nodes first copyWith: nodes fourth ]).
+(('alternative option' -> 2) -> [ Array empty ]).
+(('alternative' -> 1) -> [ :node | Array with: node ]).
+(('alternative' -> 2) -> [ :nodes | nodes first copyWith: nodes fourth ]).
+(('notion' -> 1) -> [ :nodes | String streamContents: [ :s | nodes do: [ :each | s nextPutAll: each ] ] ]).
+(('((space and small syntactic mark) plus) option' -> 2) -> [ String new ]).
+(('small syntactic mark plus' -> 2) -> [ :nodes | String streamContents: [ :s | nodes do: [ :each | s nextPutAll: each ] ] ]).
+(('(space and small syntactic mark) plus' -> 1)
+	-> [ :nodes | 
+			String
+				streamContents: [ :s | 
+					s
+						space;
+						nextPutAll: nodes second ] ]).
+(('(space and small syntactic mark) plus' -> 2)
+	-> [ :nodes |
+			String
+				streamContents: [ :s | 
+					s
+						nextPutAll: nodes first;
+						space;
+						nextPutAll: nodes third ] ]).
+(('space plus' -> 1)			-> [ nil ]).
+(('space plus' -> 2)			-> [ nil ]).
+(('layout' -> 1) 				-> [ nil ]).
+(('layout' -> 2) 				-> [ nil ]).
+(('separator plus' -> 1)		-> [ nil ]).
+(('separator plus' -> 2) 	-> [ nil ]).
+(('small syntactic mark symbol' -> 1) -> [ :node | String with: node ])}
+]
+
+{ #category : #grammar }
 JE1VWParser class >> oneLevelVWGrammar [
 	" one level Van Wijngaarden Grammar (1VWG).
 A 1VWG is a 4-tuple
@@ -92,42 +136,7 @@ JE1VWParser class >> reset [
 { #category : #initialization }
 JE1VWParser >> initialize [
 	super initialize.
-	evaluator := ESSingleSynthesizedAttributeEvaluator 
-						grammar: self class oneLevelVWGrammar
-						actions: {
-(('rule list' -> 2)	
-			-> [ :nodes | 
-					Array 
-						streamContents: [:s | 
-							nodes first do: [:each | s nextPut: each ]. 
-							nodes third do: [:each | s nextPut: each ]]]).
-(('rule' -> 1)			-> [ :nodes | nodes fourth collect: [:each | Array with: nodes first with: each ] ]).
-(('alternatives' -> 1) -> [:node | Array with: node]).
-(('alternatives' -> 2) -> [:nodes | nodes first copyWith: nodes fourth ]).
-(('alternative option' -> 2)	-> [ Array empty ]).
-(('alternative' -> 1) 	-> [ :node | Array with: node ]).
-(('alternative' -> 2) 	-> [ :nodes | nodes first copyWith: nodes fourth ]).
-(('notion' -> 1)			->	[ :nodes | String streamContents: [ :s | nodes do: [ :each | s nextPutAll: each ] ] ]).
-(('((space and small syntactic mark) plus) option' -> 2)	
-			-> [ String new ]).
-(('small syntactic mark plus' -> 2)
-			->	[ :nodes | String streamContents: [ :s | nodes do: [ :each | s nextPutAll: each ] ] ]).
-(('(space and small syntactic mark) plus' -> 1)
-			->	[ :nodes | String streamContents: [ :s | s space; nextPutAll: nodes second ] ]).
-(('(space and small syntactic mark) plus' -> 2)
-			->	[ :nodes | 
-					String streamContents: [ :s | 
-							s 
-								nextPutAll: nodes first; 
-								space; 
-								nextPutAll:  nodes third ] ]).
-(('space plus' -> 1) 			-> [ nil ]).
-(('space plus' -> 2) 			-> [ nil ]).
-(('layout' -> 1) 				-> [ nil ]).
-(('layout' -> 2) 				-> [ nil ]).
-(('separator plus' -> 1 ) 	-> [ nil ]).
-(('separator plus' -> 2 ) 	-> [ nil ]).
-(('small syntactic mark symbol' -> 1) -> [ :node | String with: node ])}
+	evaluator := self class oneLevelVWEvaluator
 ]
 
 { #category : #parsing }

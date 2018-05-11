@@ -44,6 +44,11 @@ JEPackedNode >> acceptPreOrderVisitor: aVisitor [
 	aVisitor visitPreOrderPackedNode: self
 ]
 
+{ #category : #visiting }
+JEPackedNode >> acceptVisitor: aVisitor [
+	aVisitor visitNode: self
+]
+
 { #category : #accessing }
 JEPackedNode >> addFamily: aFamily [
 	familiesByKey

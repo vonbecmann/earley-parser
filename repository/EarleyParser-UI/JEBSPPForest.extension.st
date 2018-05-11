@@ -36,7 +36,7 @@ JEBSPPForest >> viewFor: aNode [
 		preOrderFamilyBlock: [ :family | 
 			familyNodes add: family.
 			associations addAll: (family children collect: [ :packed | family -> packed ]) ];
-		visitNode: aNode.
+		visit: aNode.
 	b := RTMondrian new.
 	b shape rectangle withTextAbove.
 	b nodes: nodes asArray.

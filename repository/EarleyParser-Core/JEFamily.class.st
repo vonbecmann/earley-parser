@@ -61,6 +61,11 @@ JEFamily >> acceptPreOrderVisitor: aVisitor [
 ]
 
 { #category : #visiting }
+JEFamily >> acceptVisitor: aVisitor [
+	aVisitor visitNode: self
+]
+
+{ #category : #visiting }
 JEFamily >> children [
 	^ children
 ]

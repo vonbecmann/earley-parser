@@ -33,6 +33,11 @@ ESSingleSynthesizedAttributeEvaluator >> evaluate: aString [
 ]
 
 { #category : #public }
+ESSingleSynthesizedAttributeEvaluator >> evaluate: aString startingAt: aNonterminalNamed [
+	^ self evaluateTree: (grammar parseTree: aString startingAt: aNonterminalNamed)
+]
+
+{ #category : #public }
 ESSingleSynthesizedAttributeEvaluator >> evaluateTree: aParseTree [
 	| stack |
 	stack := SinglyLinkedStack new.

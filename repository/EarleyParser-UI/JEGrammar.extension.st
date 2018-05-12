@@ -5,7 +5,7 @@ JEGrammar >> gtInspectorNonterminalsIn: composite [
 	<gtInspectorPresentationOrder: 2>
 	^ composite table
 		title: [ nonterminals size asString , ' nonterminals' ];
-		display: [ nonterminals ];
+		display: [ productionRules keys ];
 		column: 'Nonterminals' evaluated: [ :each | GTObjectPrinter new asTruncatedTextFrom: each ];
 		send: [ :each | productionRules at: each ];
 		showOnly: 50;
@@ -30,7 +30,7 @@ JEGrammar >> gtInspectorRulesIn: composite [
 	^ composite table
 		title: [ productionRules size asString , ' rules' ];
 		display: [ 
-			nonterminals 
+			productionRules keys 
 				flatCollect:
 					[ :nonterminal | 
 						(productionRules at: nonterminal) 

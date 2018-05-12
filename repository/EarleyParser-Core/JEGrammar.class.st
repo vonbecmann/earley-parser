@@ -164,7 +164,7 @@ JEGrammar >> initializeProductionRules: productionRuleCollection nonterminals: n
 	terminals := terminalSet.
 	productionRuleCollection 
 		do: [ :each | | newRule |
-				newRule := JERule head: each head body: each body copy.
+				newRule := each asJERule.
 				rules at: newRule head put: newRule.
 				ruleToProductionDict add: (newRule -> each).
 				productionRules at: each head put: each ].

@@ -162,12 +162,12 @@ JEGrammar >> initializeProductionRules: productionRuleCollection nonterminals: n
 	self initialize.
 	nonterminals := nonterminalSet.
 	terminals := terminalSet.
-	productionRuleCollection do: [ :each | productionRules at: each head put: each ].
-	productionRuleCollection
-		collect: [ :rule | (JERule head: rule head body: rule body copy) -> rule ]
-		thenDo: [ :assoc | 
-			ruleToProductionDict add: assoc.
-			rules at: assoc key head put: assoc key ].
+	productionRuleCollection 
+		do: [ :each | | newRule |
+				newRule := JERule head: each head body: each body copy.
+				rules at: newRule head put: newRule.
+				ruleToProductionDict add: (newRule -> each).
+				productionRules at: each head put: each ].
 	startRule := JERule head: startSymbol body: {aNonterminal}.
 	rules at: startSymbol put: startRule.
 	rules 	keysAndValuesDo:

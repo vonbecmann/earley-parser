@@ -59,9 +59,9 @@ JEGrammar class >> productionRules: productionRulesArray representations: termin
 		
 	Representation Rules
 	""
-		{	('plus symbol' -> (JETerminal character: $+)).
-			('star symbol' -> (JETerminal character: $*)).
-			('letter a symbol' -> (JETerminal character: $a)). }.
+		{	('plus symbol' -> (NCTerminal character: $+)).
+			('star symbol' -> (NCTerminal character: $*)).
+			('letter a symbol' -> (NCTerminal character: $a)). }.
 	""
 	"
 
@@ -116,6 +116,7 @@ JEGrammar class >> productionRules: productionRulesArray representations: termin
 		do: [ :each | rules at: each head put: each ].
 	^ self basicNew
 		initializeProductionRules: rules
+		nonterminals: nonterminals 
 		terminals: terminals
 		startNonterminal: lineup first head
 ]
@@ -156,19 +157,22 @@ JEGrammar >> initialize [
 ]
 
 { #category : #initialization }
-JEGrammar >> initializeProductionRules: productionRuleCollection terminals: terminalSet startNonterminal: aNonterminal [
+JEGrammar >> initializeProductionRules: productionRuleCollection nonterminals: nonterminalSet
+ terminals: terminalSet startNonterminal: aNonterminal [
 	self initialize.
-	nonterminals := productionRuleCollection keys.
-	terminals := terminalSet asArray.
+	nonterminals := nonterminalSet.
+	terminals := terminalSet.
 	productionRuleCollection do: [ :each | productionRules at: each head put: each ].
 	productionRuleCollection
 		collect: [ :rule | (JERule head: rule head body: rule body copy) -> rule ]
-		thenDo: [ :eachAssoc | 
-			ruleToProductionDict add: eachAssoc.
-			rules at: eachAssoc key head put: eachAssoc key ].
+		thenDo: [ :assoc | 
+			ruleToProductionDict add: assoc.
+			rules at: assoc key head put: assoc key ].
 	startRule := JERule head: startSymbol body: {aNonterminal}.
 	rules at: startSymbol put: startRule.
-	rules keysAndValuesDo: [ :nonterminal :alternative | predictedAlternatives at: nonterminal put: alternative dotAtBeginning ]
+	rules 	keysAndValuesDo:
+			[ :nonterminal :alternative | 
+					predictedAlternatives at: nonterminal put: alternative dotAtBeginning ]
 ]
 
 { #category : #private }
@@ -254,6 +258,7 @@ JEGrammar >> startAt: aNonterminalNamed [
 
 	^ self class basicNew
 		initializeProductionRules: productionRules
+		nonterminals: nonterminals 
 		terminals: terminals
 		startNonterminal: (self nonterminal: aNonterminalNamed)
 ]

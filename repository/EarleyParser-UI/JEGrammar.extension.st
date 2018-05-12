@@ -7,16 +7,8 @@ JEGrammar >> gtInspectorNonterminalsIn: composite [
 		title: [ nonterminals size asString , ' nonterminals' ];
 		display: [ nonterminals ];
 		column: 'Nonterminals' evaluated: [ :each | GTObjectPrinter new asTruncatedTextFrom: each ];
+		send: [ :each | productionRules at: each ];
 		showOnly: 50;
-		yourself
-]
-
-{ #category : #'*EarleyParser-UI' }
-JEGrammar >> gtInspectorPredictedAlternativesIn: composite [
-	<gtInspectorPresentationOrder: 5>
-	^ (predictedAlternatives gtInspectorItemsIn: composite)
-		title: [ predictedAlternatives size asString , ' Predicted Alternatives' ];
-		display: [ predictedAlternatives associations ];
 		yourself
 ]
 
@@ -26,7 +18,7 @@ JEGrammar >> gtInspectorProductionRulesIn: composite [
 	^ composite table
 		title: [ 'production rules' ];
 		display: [ productionRules values ];
-		column: 'Rule' evaluated: [ :each | GTObjectPrinter new asTruncatedTextFrom: each ];
+		column: 'Production Rule' evaluated: [ :each | GTObjectPrinter new asTruncatedTextFrom: each ];
 		send: [ :each | each value ];
 		showOnly: 50;
 		yourself
@@ -38,7 +30,7 @@ JEGrammar >> gtInspectorRulesIn: composite [
 	^ composite table
 		title: [ productionRules size asString , ' rules' ];
 		display: [ 
-			productionRules keys
+			nonterminals 
 				flatCollect:
 					[ :nonterminal | 
 						(productionRules at: nonterminal) 
@@ -46,17 +38,6 @@ JEGrammar >> gtInspectorRulesIn: composite [
 		column: 'Key' evaluated: [ :each | GTObjectPrinter new asTruncatedTextFrom: each key ] width: 150;
 		column: 'Rule' evaluated: [ :each | GTObjectPrinter new asTruncatedTextFrom: each value ];
 		send: [ :each | each value ];
-		showOnly: 50;
-		yourself
-]
-
-{ #category : #'*EarleyParser-UI' }
-JEGrammar >> gtInspectorTerminalsIn: composite [
-	<gtInspectorPresentationOrder: 3>
-	^ composite table
-		title: [ terminals size asString , ' terminals' ];
-		display: [ terminals ];
-		column: 'Terminals' evaluated: [ :each | GTObjectPrinter new asTruncatedTextFrom: each ];
 		showOnly: 50;
 		yourself
 ]

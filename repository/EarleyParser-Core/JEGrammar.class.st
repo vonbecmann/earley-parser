@@ -80,9 +80,7 @@ JEGrammar class >> productionRules: productionRulesArray representations: termin
 		collect: [ :assoc | NCNonterminal named: assoc key ]
 		thenDo: [ :each | nonterminals add: each ].
 	terminals := Set new.
-	terminalNotionToRepresentationList
-		collect: [ :assoc | assoc value ] 
-		thenDo: [ :each | terminals add: each ].
+	terminalNotionToRepresentationList do: [ :assoc | terminals add: assoc value ].
 	lineup := OrderedCollection new.
 	unique := Set new.
 	productionRulesArray

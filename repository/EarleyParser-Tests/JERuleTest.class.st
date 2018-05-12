@@ -9,6 +9,26 @@ Class {
 }
 
 { #category : #tests }
+JERuleTest >> testAsJERule [
+	| productionRule rule |
+	productionRule := NCProductionRule
+		head: (NCNonterminal named: 'A')
+		body:
+			{(NCNonterminal named: 'B').
+			(NCNonterminal named: 'C').
+			(NCNonterminal named: 'D')}.
+	rule := productionRule asJERule.
+	self assert: productionRule head == rule head.
+	self assert: productionRule body size equals: rule body size.
+	self assert: productionRule body first == rule body first.
+	self assert: productionRule body first equals: rule body first.
+	self assert: productionRule body second == rule body second.
+	self assert: productionRule body second equals: rule body second.
+	self assert: productionRule body third == rule body third.
+	self assert: productionRule body third equals: rule body third
+]
+
+{ #category : #tests }
 JERuleTest >> testAsString [
 	| rule |
 	rule := JERule

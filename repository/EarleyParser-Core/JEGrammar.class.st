@@ -74,11 +74,9 @@ JEGrammar class >> productionRules: productionRulesArray representations: termin
 		description: 'The collection of rules cannot be empty.'.
 	nonterminals := Set new.
 	productionRulesArray
-		collect: [ :each | NCNonterminal named: each first ]
-		thenDo: [ :each | nonterminals add: each ].
+		do: [ :each | nonterminals add: (NCNonterminal named: each first) ].
 	terminalNotionToRepresentationList
-		collect: [ :assoc | NCNonterminal named: assoc key ]
-		thenDo: [ :each | nonterminals add: each ].
+		do: [ :assoc | nonterminals add: (NCNonterminal named: assoc key) ].
 	terminals := Set new.
 	terminalNotionToRepresentationList do: [ :assoc | terminals add: assoc value ].
 	lineup := OrderedCollection new.

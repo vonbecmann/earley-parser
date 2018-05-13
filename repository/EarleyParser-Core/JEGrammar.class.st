@@ -108,15 +108,12 @@ JEGrammar class >> productionRules: productionRulesArray representations: termin
 	unique
 		collect: [ :rule | rule -> (lineup findFirst: [ :each | rule = each ]) ]
 		thenDo: [ :assoc | index add: assoc ].
-	rules := ArrayMultiValuedDictionary dictionary: OrderedDictionary.
-	(unique
-		sorted: [ :a :b | (index at: a) < (index at: b) ])
-		do: [ :each | rules at: each head put: each ].
+	rules := unique sorted: [ :a :b | (index at: a) < (index at: b) ].
 	^ self basicNew
 		initializeProductionRules: rules
 		nonterminals: nonterminals 
 		terminals: terminals
-		startNonterminal: lineup first head
+		startNonterminal: rules first head
 ]
 
 { #category : #private }
@@ -149,7 +146,7 @@ JEGrammar >> initialize [
 	startSymbol := NCNonterminal named: 'START'.
 	productionRules := ArrayMultiValuedDictionary dictionary: OrderedDictionary.
 	rules := ArrayMultiValuedDictionary dictionary: OrderedDictionary.
-	predictedAlternatives := ArrayMultiValuedDictionary dictionary: OrderedIdentityDictionary.
+	predictedAlternatives := ArrayMultiValuedDictionary dictionary: IdentityDictionary.
 	ruleToProductionDict := IdentityDictionary new
 	
 ]

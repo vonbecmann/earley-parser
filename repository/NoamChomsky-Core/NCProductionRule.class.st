@@ -69,6 +69,13 @@ NCProductionRule >> initializeHead: aNonterminal body: aSymbolArray [
 	body := aSymbolArray
 ]
 
+{ #category : #testing }
+NCProductionRule >> isRepresentation [
+	"am i a representation rule?"
+
+	^ body size = 1 and: [ body first isTerminal ]
+]
+
 { #category : #printing }
 NCProductionRule >> printOn: aStream [
 	"head: body.

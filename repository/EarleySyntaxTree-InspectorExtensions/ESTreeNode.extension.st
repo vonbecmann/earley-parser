@@ -1,6 +1,6 @@
 Extension { #name : #ESTreeNode }
 
-{ #category : #'*EarleySyntaxTree-UI' }
+{ #category : #'*EarleySyntaxTree-InspectorExtensions' }
 ESTreeNode >> gtInspectorChildrenIn: composite [
 	<gtInspectorPresentationOrder: 2>
 	^ composite list
@@ -10,7 +10,7 @@ ESTreeNode >> gtInspectorChildrenIn: composite [
 		yourself
 ]
 
-{ #category : #'*EarleySyntaxTree-UI' }
+{ #category : #'*EarleySyntaxTree-InspectorExtensions' }
 ESTreeNode >> gtInspectorPureIn: composite [
 	<gtInspectorPresentationOrder: 1>
 	^ composite table

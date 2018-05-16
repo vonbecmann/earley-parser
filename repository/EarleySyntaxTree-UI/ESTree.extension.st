@@ -1,16 +1,6 @@
 Extension { #name : #ESTree }
 
 { #category : #'*EarleySyntaxTree-UI' }
-ESTree >> gtInspectorBrowserIn: composite [
-	<gtInspectorPresentationOrder: 1>
-	^ composite tree
-		title: 'Browse';
-		display: [ root ];
-		children: [ :each | each children ];
-		yourself
-]
-
-{ #category : #'*EarleySyntaxTree-UI' }
 ESTree >> gtInspectorViewIn: composite [
 	<gtInspectorPresentationOrder: 2>
 	^ composite tree

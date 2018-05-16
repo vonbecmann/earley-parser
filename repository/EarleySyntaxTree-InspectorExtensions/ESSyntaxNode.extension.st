@@ -1,6 +1,6 @@
 Extension { #name : #ESSyntaxNode }
 
-{ #category : #'*EarleySyntaxTree-UI' }
+{ #category : #'*EarleySyntaxTree-InspectorExtensions' }
 ESSyntaxNode >> gtInspectorPureIn: composite [
 	<gtInspectorPresentationOrder: 1>
 	^ composite table

@@ -1,6 +1,6 @@
 Extension { #name : #ESSingleSynthesizedAttributeEvaluator }
 
-{ #category : #'*EarleySyntaxTree-UI' }
+{ #category : #'*EarleySyntaxTree-InspectorExtensions' }
 ESSingleSynthesizedAttributeEvaluator >> gtInspectorActionsIn: composite [
 	<gtInspectorPresentationOrder: 0>
 	^ composite table

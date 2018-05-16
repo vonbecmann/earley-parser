@@ -43,6 +43,8 @@ BaselineOfEarleyParser >> baseline: spec [
 					with: [ spec requires: #('EarleyParser-Tests') ];
 				package: 'EarleySyntaxTree' 
 					with: [ spec requires: #('EarleyParser-Core') ];
+				package: 'EarleySyntaxTree-InspectorExtensions'
+					with: [ spec requires: #('EarleySyntaxTree') ];
 				package: 'EarleySyntaxTree-UI' 
 					with: [ spec requires: #('EarleySyntaxTree' 'Roassal2') ];
 				package: 'EarleySyntaxTree-Tests' 
@@ -59,7 +61,7 @@ BaselineOfEarleyParser >> baseline: spec [
 				group: 'Analyzer' with: #('EarleyAnalyzer');
 				group: 'Tests' 
 					with: #('NoamChomsky-Tests' 'EarleyParser-Tests' 'EarleySyntaxTree-Tests' 'Earley1VW-Tests');
-				group: 'SyntaxTree' with: #('EarleySyntaxTree');
+				group: 'SyntaxTree' with: #('EarleySyntaxTree' 'EarleySyntaxTree-InspectorExtensions');
 				group: 'Parser' with: #('Earley1VW');
 				group: 'UI' with: #('EarleyParser-UI' 'EarleySyntaxTree-UI') ]
 ]

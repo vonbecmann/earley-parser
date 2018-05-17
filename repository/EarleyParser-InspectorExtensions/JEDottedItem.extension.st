@@ -1,11 +1,11 @@
 Extension { #name : #JEDottedItem }
 
-{ #category : #'*EarleyParser-UI' }
+{ #category : #'*EarleyParser-InspectorExtensions' }
 JEDottedItem >> displayValueOn: aStream [
 	dottedRule printOn: aStream
 ]
 
-{ #category : #'*EarleyParser-UI' }
+{ #category : #'*EarleyParser-InspectorExtensions' }
 JEDottedItem >> gtInspectorPureIn: composite [
 	^ (super gtInspectorPureIn: composite)
 		display: 

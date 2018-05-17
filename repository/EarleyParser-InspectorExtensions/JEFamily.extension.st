@@ -1,6 +1,6 @@
 Extension { #name : #JEFamily }
 
-{ #category : #'*EarleyParser-UI' }
+{ #category : #'*EarleyParser-InspectorExtensions' }
 JEFamily >> gtInspectorChildrenIn: composite [
 	<gtInspectorPresentationOrder: 1>
 	^ composite table
@@ -11,7 +11,7 @@ JEFamily >> gtInspectorChildrenIn: composite [
 		yourself
 ]
 
-{ #category : #'*EarleyParser-UI' }
+{ #category : #'*EarleyParser-InspectorExtensions' }
 JEFamily >> gtInspectorPureIn: composite [
 	<gtInspectorPresentationOrder: 2>
 	^ composite table

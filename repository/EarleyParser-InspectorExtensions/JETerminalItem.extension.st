@@ -1,11 +1,11 @@
 Extension { #name : #JETerminalItem }
 
-{ #category : #'*EarleyParser-UI' }
+{ #category : #'*EarleyParser-InspectorExtensions' }
 JETerminalItem >> displayValueOn: aStream [
 	terminal printOn: aStream
 ]
 
-{ #category : #'*EarleyParser-UI' }
+{ #category : #'*EarleyParser-InspectorExtensions' }
 JETerminalItem >> gtInspectorPureIn: composite [
 	^ (super gtInspectorPureIn: composite)
 		display: 

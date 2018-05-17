@@ -1,21 +1,21 @@
 Extension { #name : #JEItem }
 
-{ #category : #'*EarleyParser-UI' }
+{ #category : #'*EarleyParser-InspectorExtensions' }
 JEItem >> displayValueOn: aStream [
 	^ self subclassResponsibility
 ]
 
-{ #category : #'*EarleyParser-UI' }
+{ #category : #'*EarleyParser-InspectorExtensions' }
 JEItem >> gtDisplayIntervalString [
 	^ String streamContents: [ :s | self printIntervalOn: s ]
 ]
 
-{ #category : #'*EarleyParser-UI' }
+{ #category : #'*EarleyParser-InspectorExtensions' }
 JEItem >> gtDisplayValueString [
 	^ String streamContents: [ :s | self displayValueOn: s ]
 ]
 
-{ #category : #'*EarleyParser-UI' }
+{ #category : #'*EarleyParser-InspectorExtensions' }
 JEItem >> gtInspectorPureIn: composite [
 	<gtInspectorPresentationOrder: 1>
 	^ composite table

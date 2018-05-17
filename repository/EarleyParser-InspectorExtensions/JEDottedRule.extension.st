@@ -1,6 +1,6 @@
 Extension { #name : #JEDottedRule }
 
-{ #category : #'*EarleyParser-UI' }
+{ #category : #'*EarleyParser-InspectorExtensions' }
 JEDottedRule >> gtInspectorPureIn: composite [
 	<gtInspectorPresentationOrder: 1>
 	^ composite table

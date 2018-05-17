@@ -1,16 +1,6 @@
 Extension { #name : #JEBSPPForest }
 
 { #category : #'*EarleyParser-UI' }
-JEBSPPForest >> gtInspectorBrowserIn: composite [
-	<gtInspectorPresentationOrder: 9>
-	^ composite tree
-		title: 'Browse';
-		display: [ root ];
-		children: [ :each | each children ];
-		yourself
-]
-
-{ #category : #'*EarleyParser-UI' }
 JEBSPPForest >> gtInspectorViewIn: composite [
 	<gtInspectorPresentationOrder: 10>
 	^ composite tree

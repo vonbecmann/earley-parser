@@ -1,6 +1,6 @@
 Extension { #name : #JERule }
 
-{ #category : #'*EarleyParser-UI' }
+{ #category : #'*EarleyParser-InspectorExtensions' }
 JERule >> gtInspectorDottedRulesIn: composite [
 	<gtInspectorPresentationOrder: 2>
 	^ composite table
@@ -12,7 +12,7 @@ JERule >> gtInspectorDottedRulesIn: composite [
 		yourself
 ]
 
-{ #category : #'*EarleyParser-UI' }
+{ #category : #'*EarleyParser-InspectorExtensions' }
 JERule >> gtInspectorPureIn: composite [
 	<gtInspectorPresentationOrder: 1>
 	^ composite table

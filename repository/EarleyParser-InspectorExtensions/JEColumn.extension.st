@@ -1,6 +1,6 @@
 Extension { #name : #JEColumn }
 
-{ #category : #'*EarleyParser-UI' }
+{ #category : #'*EarleyParser-InspectorExtensions' }
 JEColumn >> finalItemsByNonterminalAssociations [
 	^ Array
 		streamContents: [ :s | 
@@ -11,7 +11,7 @@ JEColumn >> finalItemsByNonterminalAssociations [
 							do: [ :each | s nextPut: (Association key: assoc key value: each) ] ] ]
 ]
 
-{ #category : #'*EarleyParser-UI' }
+{ #category : #'*EarleyParser-InspectorExtensions' }
 JEColumn >> gtInspectorCompletedItemsIn: composite [
 	<gtInspectorPresentationOrder: 2>
 	^ composite table
@@ -25,7 +25,7 @@ JEColumn >> gtInspectorCompletedItemsIn: composite [
 		yourself
 ]
 
-{ #category : #'*EarleyParser-UI' }
+{ #category : #'*EarleyParser-InspectorExtensions' }
 JEColumn >> gtInspectorItemsIn: composite [
 	<gtInspectorPresentationOrder: 0>
 	^ composite table
@@ -37,7 +37,7 @@ JEColumn >> gtInspectorItemsIn: composite [
 		yourself
 ]
 
-{ #category : #'*EarleyParser-UI' }
+{ #category : #'*EarleyParser-InspectorExtensions' }
 JEColumn >> gtInspectorPredictionItemsIn: composite [
 	<gtInspectorPresentationOrder: 1>
 	^ composite table
@@ -51,7 +51,7 @@ JEColumn >> gtInspectorPredictionItemsIn: composite [
 		yourself
 ]
 
-{ #category : #'*EarleyParser-UI' }
+{ #category : #'*EarleyParser-InspectorExtensions' }
 JEColumn >> predictionItemsByNonterminalAssociations [
 	^ Array
 		streamContents: [ :s | 
@@ -62,7 +62,7 @@ JEColumn >> predictionItemsByNonterminalAssociations [
 							do: [ :each | s nextPut: (Association key: assoc key value: each) ] ] ]
 ]
 
-{ #category : #'*EarleyParser-UI' }
+{ #category : #'*EarleyParser-InspectorExtensions' }
 JEColumn >> sortedItems [
 	| sortedItems |
 	sortedItems := SortedCollection new.

@@ -1,6 +1,6 @@
 Extension { #name : #JEGrammar }
 
-{ #category : #'*EarleyParser-UI' }
+{ #category : #'*EarleyParser-InspectorExtensions' }
 JEGrammar >> gtInspectorNonterminalsIn: composite [
 	<gtInspectorPresentationOrder: 2>
 	^ composite table
@@ -12,7 +12,7 @@ JEGrammar >> gtInspectorNonterminalsIn: composite [
 		yourself
 ]
 
-{ #category : #'*EarleyParser-UI' }
+{ #category : #'*EarleyParser-InspectorExtensions' }
 JEGrammar >> gtInspectorProductionRulesIn: composite [
 	<gtInspectorPresentationOrder: 1>
 	^ composite table
@@ -24,7 +24,7 @@ JEGrammar >> gtInspectorProductionRulesIn: composite [
 		yourself
 ]
 
-{ #category : #'*EarleyParser-UI' }
+{ #category : #'*EarleyParser-InspectorExtensions' }
 JEGrammar >> gtInspectorRulesIn: composite [
 	<gtInspectorPresentationOrder: 0>
 	^ composite table

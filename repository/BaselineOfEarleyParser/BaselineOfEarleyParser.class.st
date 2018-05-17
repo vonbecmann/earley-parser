@@ -35,6 +35,8 @@ BaselineOfEarleyParser >> baseline: spec [
 
 				package: 'EarleyParser-Core'
 					with: [ spec requires: #('NoamChomsky-Core' 'MultiValuedDictionary' 'LinkedList') ];
+				package: 'EarleyParser-InspectorExtensions'
+					with: [ spec requires: #('EarleyParser-Core') ];
 				package: 'EarleyParser-UI' 
 					with: [ spec requires: #('EarleyParser-Core' 'Roassal2') ];
 				package: 'EarleyParser-Tests' 
@@ -56,12 +58,14 @@ BaselineOfEarleyParser >> baseline: spec [
 			spec
 				group: 'default' 
 					with: #('Core' 'Tests' 'Regex' 'Analyzer' 'SyntaxTree' 'Parser' 'UI');
-				group: 'Core' with: #('NoamChomsky-Core' 'EarleyParser-Core');
+				group: 'Core' 
+					with: #('NoamChomsky-Core' 'EarleyParser-Core' 'EarleyParser-InspectorExtensions');
 				group: 'Regex' with: #('NoamChomsky-Regex');
 				group: 'Analyzer' with: #('EarleyAnalyzer');
 				group: 'Tests' 
-					with: #('NoamChomsky-Tests' 'EarleyParser-Tests' 'EarleySyntaxTree-Tests' 'Earley1VW-Tests');
+					with: #(	'NoamChomsky-Tests' 'EarleyParser-Tests'
+								'EarleySyntaxTree-Tests' 'Earley1VW-Tests');
 				group: 'SyntaxTree' with: #('EarleySyntaxTree' 'EarleySyntaxTree-InspectorExtensions');
-				group: 'Parser' with: #('Earley1VW' 'SyntaxTree');
+				group: 'Parser' with: #('Earley1VW' 'Core' 'SyntaxTree');
 				group: 'UI' with: #('EarleyParser-UI' 'EarleySyntaxTree-UI') ]
 ]

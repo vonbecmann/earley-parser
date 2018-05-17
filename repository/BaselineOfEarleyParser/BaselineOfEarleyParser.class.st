@@ -5,7 +5,7 @@ baseline of Earley Parser
 Class {
 	#name : #BaselineOfEarleyParser,
 	#superclass : #BaselineOf,
-	#category : 'BaselineOfEarleyParser'
+	#category : #BaselineOfEarleyParser
 }
 
 { #category : #baselines }
@@ -62,6 +62,6 @@ BaselineOfEarleyParser >> baseline: spec [
 				group: 'Tests' 
 					with: #('NoamChomsky-Tests' 'EarleyParser-Tests' 'EarleySyntaxTree-Tests' 'Earley1VW-Tests');
 				group: 'SyntaxTree' with: #('EarleySyntaxTree' 'EarleySyntaxTree-InspectorExtensions');
-				group: 'Parser' with: #('Earley1VW');
+				group: 'Parser' with: #('Earley1VW' 'SyntaxTree');
 				group: 'UI' with: #('EarleyParser-UI' 'EarleySyntaxTree-UI') ]
 ]

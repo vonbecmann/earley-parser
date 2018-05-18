@@ -28,7 +28,6 @@ Class {
 		'nonterminals',
 		'terminals',
 		'productionRules',
-		'rules',
 		'startSymbol',
 		'startRule',
 		'predictedAlternatives',
@@ -145,29 +144,29 @@ JEGrammar >> initialize [
 	super initialize.
 	startSymbol := NCNonterminal named: 'START'.
 	productionRules := ArrayMultiValuedDictionary dictionary: OrderedDictionary.
-	rules := ArrayMultiValuedDictionary dictionary: OrderedDictionary.
 	predictedAlternatives := ArrayMultiValuedDictionary dictionary: IdentityDictionary.
 	ruleToProductionDict := IdentityDictionary new
 	
 ]
 
 { #category : #initialization }
-JEGrammar >> initializeProductionRules: productionRuleCollection nonterminals: nonterminalSet
- terminals: terminalSet startNonterminal: aNonterminal [
+JEGrammar >> initializeProductionRules: productionRuleCollection nonterminals: nonterminalSet terminals: terminalSet startNonterminal: aNonterminal [
+	| rules |
 	self initialize.
 	nonterminals := nonterminalSet.
 	terminals := terminalSet.
-	productionRuleCollection 
-		do: [ :each | | newRule |
-				newRule := each asJERule.
-				rules at: newRule head put: newRule.
-				ruleToProductionDict add: (newRule -> each).
-				productionRules at: each head put: each ].
+	rules := ArrayMultiValuedDictionary dictionary: IdentityDictionary.
+	productionRuleCollection
+		do: [ :each | 
+			| newRule |
+			productionRules at: each head put: each.
+			newRule := each asJERule.
+			rules at: newRule head put: newRule.
+			ruleToProductionDict at: newRule put: each ].
 	startRule := JERule head: startSymbol body: {aNonterminal}.
 	rules at: startSymbol put: startRule.
-	rules 	keysAndValuesDo:
-			[ :nonterminal :alternative | 
-					predictedAlternatives at: nonterminal put: alternative dotAtBeginning ]
+	rules	keysAndValuesDo: 
+			[ :nonterminal :alternative | predictedAlternatives at: nonterminal put: alternative dotAtBeginning ]
 ]
 
 { #category : #private }

@@ -54,7 +54,7 @@ JEGrammarTest >> testEmptyRules01 [
 	self
 		should: [ JEGrammar productionRules: #() representations: #() ]
 		raise: AssertionFailure
-		withExceptionDo: [ :ex | self assert: ex messageText equals: 'The collection of rules cannot be empty.' ]
+		withExceptionDo: [ :ex | self assert: ex messageText equals: 'The collection of production rules cannot be empty.' ]
 ]
 
 { #category : #tests }
@@ -62,7 +62,7 @@ JEGrammarTest >> testEmptyRules02 [
 	self
 		should: [ JEGrammar productionRules: #(#('A' ())) representations: #() ]
 		raise: AssertionFailure
-		withExceptionDo: [ :ex | self assert: ex messageText equals: 'The collection of rules cannot be empty.' ]
+		withExceptionDo: [ :ex | self assert: ex messageText equals: 'The collection of representation rules cannot be empty.' ]
 ]
 
 { #category : #tests }
@@ -144,5 +144,5 @@ JEGrammarTest >> testUnknownNonterminal01 [
 				productionRules: #(#('A' #('B')) #('A' #('letter x symbol')))
 				representations: {('letter x symbol' -> (NCTerminal character: $x))} ]
 		raise: Error
-		withExceptionDo: [ :ex | self assert: ex messageText equals: 'Unknown Nonterminal B in #(''A'' #(''B''))' ]
+		withExceptionDo: [ :ex | self assert: ex messageText equals: 'Unknown Nonterminal B in A: B.' ]
 ]

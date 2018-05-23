@@ -5,7 +5,6 @@ nonterminals - is a set of nonterminals. they should be unique.
 terminals - is a set of terminals. they should be unique.
 productionRules - is a set of rules defined by the user.
 				you can access by an association (nonterminal -> index).
-rules - is a set of rules used by the algorithm. they should be unique.
 
 startSymbol - a nonterminal named START  used by the algorithm.
 	the given grammar is augmented with this nonterminal.
@@ -13,7 +12,8 @@ startRule - the first rule to initialize the algorithm.
 	START : first nonterminal.
 		
 predictedAlternatives - is a set of predicted dotted rules that you can access by nonterminal. 
-	 they are obtain from the given rules.
+	 they are obtain from the given rules. 
+	is a set of rules used by the algorithm. they should be unique.
 
 ruleToProductionDict - maps algorithm's rule to production rules.
 	useful when you get a derivation.
@@ -36,10 +36,21 @@ Class {
 	#category : #'EarleyParser-Core-Public'
 }
 
+{ #category : #private }
+JEGrammar class >> productionRules: productionRuleCollection nonterminals: nonterminalSet terminals: terminalSet startNonterminal: aNonterminal [
+	" see grammar builder and use it "
+
+	^ self basicNew
+		initializeProductionRules: productionRuleCollection
+			nonterminals: nonterminalSet
+			terminals: terminalSet
+			startNonterminal: aNonterminal;
+		yourself
+]
+
 { #category : #'instance creation' }
-JEGrammar class >> productionRules: productionRulesArray representations: terminalNotionToRepresentationList [
-	"
-	a grammar based on a collection of rules, starting at the first rule's left hand.
+JEGrammar class >> productionRules: productionRuleArray representations: terminalNotionToRepresentationList [
+	"	a grammar based on a collection of rules, starting at the first rule's left hand.
 	Production Rules
 	""
 		expression: term.
@@ -64,60 +75,15 @@ JEGrammar class >> productionRules: productionRulesArray representations: termin
 	""
 	"
 
-	| nonterminals terminals lineup unique index rules |
-	self
-		assert: productionRulesArray isNotEmpty
-		description: 'The collection of rules cannot be empty.'.
-	self
-		assert: terminalNotionToRepresentationList isNotEmpty
-		description: 'The collection of rules cannot be empty.'.
-	nonterminals := Set new.
-	productionRulesArray
-		do: [ :each | nonterminals add: (NCNonterminal named: each first) ].
-	terminalNotionToRepresentationList
-		do: [ :assoc | nonterminals add: (NCNonterminal named: assoc key) ].
-	terminals := Set new.
-	terminalNotionToRepresentationList do: [ :assoc | terminals add: assoc value ].
-	lineup := OrderedCollection new.
-	unique := Set new.
-	productionRulesArray
-		collect: [ :each | 
-			NCProductionRule
-				head: (nonterminals detect: [ :nonterminal | nonterminal named = each first ])
-				body: 	(each second
-								collect: 
-									[ :notionNamed | 
-										nonterminals
-											detect: [ :nonterminal | nonterminal named = notionNamed ]
-											ifNone: [ self unknowNonterminal: notionNamed in: each ] ]) ]
-		thenDo: 
-			[:rule | 
-				lineup add: rule.
-				unique add: rule. ].
-	terminalNotionToRepresentationList
-			collect: [ :assoc | 
-				NCProductionRule
-					head: (nonterminals detect: [ :nonterminal | nonterminal named = assoc key ])
-					body: {(terminals like: assoc value)} ]
-			thenDo: 
-				[:rule | 
-					lineup add: rule.
-					unique add: rule. ].
-	index := Dictionary new.
-	unique
-		collect: [ :rule | rule -> (lineup findFirst: [ :each | rule = each ]) ]
-		thenDo: [ :assoc | index add: assoc ].
-	rules := unique sorted: [ :a :b | (index at: a) < (index at: b) ].
-	^ self basicNew
-		initializeProductionRules: rules
-		nonterminals: nonterminals 
-		terminals: terminals
-		startNonterminal: rules first head
-]
-
-{ #category : #private }
-JEGrammar class >> unknowNonterminal: symbol in: rule [
-	^ Error signal: 'Unknown Nonterminal ' , symbol asString , ' in ' , rule asString
+	^ JEGrammarBuilder new
+		productionRules:
+			(productionRuleArray
+				collect: [ :each | 
+					NCProductionRule
+						head: (NCNonterminal named: each first)
+						body: (each second collect: [ :notion | NCNonterminal named: notion ]) ]);
+		representations: terminalNotionToRepresentationList;
+		build
 ]
 
 { #category : #public }
@@ -250,9 +216,9 @@ JEGrammar >> rulesSize [
 JEGrammar >> startAt: aNonterminalNamed [
 	"a grammar based on a collection of rules, starting at the given nonterminal."
 
-	^ self class basicNew
-		initializeProductionRules: productionRules
-		nonterminals: nonterminals 
+	^ self class
+		productionRules: productionRules
+		nonterminals: nonterminals
 		terminals: terminals
 		startNonterminal: (self nonterminal: aNonterminalNamed)
 ]

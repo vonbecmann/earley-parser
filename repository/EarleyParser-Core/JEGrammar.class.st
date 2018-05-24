@@ -80,7 +80,7 @@ JEGrammar class >> productionRules: productionRuleArray representations: termina
 			(productionRuleArray
 				collect: [ :each | 
 					NCProductionRule
-						head: (NCNonterminal named: each first)
+						headNamed: each first
 						body: (each second collect: [ :notion | NCNonterminal named: notion ]) ]);
 		representations: terminalNotionToRepresentationList;
 		build

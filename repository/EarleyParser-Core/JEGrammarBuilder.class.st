@@ -32,10 +32,12 @@ JEGrammarBuilder >> build [
 	self assert: productionRules isNotEmpty.
 	self assert: representations isNotEmpty.
 	nonterminals := Set new.
-	productionRules do: [ :each | nonterminals add: each head ].
-	representations do: [ :assoc | nonterminals add: (NCNonterminal named: assoc key) ].
 	terminals := Set new.
-	representations do: [ :assoc | terminals add: assoc value ].
+	productionRules do: [ :each | nonterminals add: each head ].
+	representations 
+		do: [ :assoc | 
+					nonterminals add: (NCNonterminal named: assoc key).
+					terminals add: assoc value ].
 	lineup := OrderedCollection new.
 	unique := Set new.
 	productionRules

@@ -25,12 +25,31 @@ NCProductionRuleTest >> testAsString01 [
 ]
 
 { #category : #tests }
+NCProductionRuleTest >> testAsString02 [
+	self
+		assert: (NCProductionRule headNamed: 'A' body: #()) asString
+		equals: 'A: .'
+]
+
+{ #category : #tests }
+NCProductionRuleTest >> testAsString03 [
+	self
+		assert:
+			(NCProductionRule
+				headNamed: 'A'
+				body:
+					{	(NCNonterminal named: 'B'). 
+						(NCNonterminal named: 'C').
+						(NCNonterminal named: 'D')	}) asString
+		equals: 'A: B, C, D.'
+]
+
+{ #category : #tests }
 NCProductionRuleTest >> testEquals [
 	| one other |
 	one := NCProductionRule
 				head: (NCNonterminal named: 'A') body: {(NCNonterminal named: 'A')}.
-	other := NCProductionRule
-					head: (NCNonterminal named: 'A') body: {(NCNonterminal named: 'A')}.
+	other := NCProductionRule headNamed: 'A' body: {(NCNonterminal named: 'A')}.
 					
 	self assert: one equals: other.
 	self assert: one hash equals: other hash.
@@ -56,7 +75,7 @@ NCProductionRuleTest >> testEquals01 [
 NCProductionRuleTest >> testEquals02 [
 	| one other |
 	one := NCProductionRule head: (NCNonterminal named: 'A') body: {(NCNonterminal named: 'B')}.
-	other := NCProductionRule head: (NCNonterminal named: 'A') body: {(NCNonterminal named: 'A')}.
+	other := NCProductionRule headNamed: 'A' body: {(NCNonterminal named: 'A')}.
 	
 	self deny: one = other.
 	self deny: one hash = other hash.
@@ -69,7 +88,7 @@ NCProductionRuleTest >> testEquals02 [
 NCProductionRuleTest >> testEquals03 [
 	| one other |
 	one := NCProductionRule head: (NCNonterminal named: 'A') body: #().
-	other := NCProductionRule head: (NCNonterminal named: 'C') body: #().
+	other := NCProductionRule headNamed: 'C' body: #().
 	
 	self deny: one = other.
 	self deny: one hash = other hash.

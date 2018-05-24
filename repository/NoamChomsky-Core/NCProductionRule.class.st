@@ -26,6 +26,13 @@ NCProductionRule class >> head: aNonterminal body: aSymbolArray [
 	^ self basicNew initializeHead: aNonterminal body: aSymbolArray
 ]
 
+{ #category : #'instance creation' }
+NCProductionRule class >> headNamed: aNameString body: aSymbolArray [
+	^ self basicNew
+		initializeHead: (NCNonterminal named: aNameString) body: aSymbolArray;
+		yourself
+]
+
 { #category : #comparing }
 NCProductionRule >> = aRule [
 	self == aRule 

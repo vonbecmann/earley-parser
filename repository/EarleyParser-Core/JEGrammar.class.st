@@ -121,18 +121,16 @@ JEGrammar >> initializeProductionRules: productionRuleCollection nonterminals: n
 	self initialize.
 	nonterminals := nonterminalSet.
 	terminals := terminalSet.
-	rules := ArrayMultiValuedDictionary dictionary: IdentityDictionary.
+	startRule := JERule head: startSymbol body: {aNonterminal}.
+	rules := SinglyLinkedList with: startRule.
 	productionRuleCollection
 		do: [ :each | 
 			| newRule |
 			productionRules at: each head put: each.
 			newRule := each asJERule.
-			rules at: newRule head put: newRule.
+			rules addLast: newRule.
 			ruleToProductionDict at: newRule put: each ].
-	startRule := JERule head: startSymbol body: {aNonterminal}.
-	rules at: startSymbol put: startRule.
-	rules	keysAndValuesDo: 
-			[ :nonterminal :alternative | predictedAlternatives at: nonterminal put: alternative dotAtBeginning ]
+	rules	do: [ :alternative | predictedAlternatives at: alternative head put: alternative dotAtBeginning ]
 ]
 
 { #category : #private }

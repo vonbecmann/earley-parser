@@ -32,8 +32,8 @@ JE1VWEvaluatorTest >> testEvaluates01 [
 		assertThatEvaluates: 'expression:term.'
 		equals:
 			{(NCProductionRule 
-					head: (NCNonterminal named: 'expression') 
-					body: {(NCNonterminal named: 'term')})}
+				headNamed: 'expression' 
+				body: {(NCNonterminal named: 'term')})}
 ]
 
 { #category : #tests }
@@ -42,7 +42,7 @@ JE1VWEvaluatorTest >> testEvaluates02 [
 		assertThatEvaluates: 'expression: expression, plus  symbol, term.'
 		equals: 
 			{	(NCProductionRule
-					head: (NCNonterminal named: 'expression')
+					headNamed: 'expression'
 					body: {	(NCNonterminal named: 'expression').
 								(NCNonterminal named: 'plus symbol').
 								(NCNonterminal named: 'term')})}
@@ -52,14 +52,14 @@ JE1VWEvaluatorTest >> testEvaluates02 [
 JE1VWEvaluatorTest >> testEvaluates03 [
 	self 
 		assertThatEvaluates: 'expression:.' 
-		equals: {(NCProductionRule head: (NCNonterminal named: 'expression') body: {})}
+		equals: {(NCProductionRule headNamed: 'expression' body: {})}
 ]
 
 { #category : #tests }
 JE1VWEvaluatorTest >> testEvaluates04 [
 	self 
 		assertThatEvaluates: 'expression:  .' 
-		equals: {(NCProductionRule head: (NCNonterminal named: 'expression') body: {})}
+		equals: {(NCProductionRule headNamed: 'expression' body: {})}
 ]
 
 { #category : #tests }
@@ -73,15 +73,15 @@ term:
 	product;.'
 		equals: 
 			{	(NCProductionRule
-					head: (NCNonterminal named: 'expression')
+					headNamed: 'expression'
 					body: {	(NCNonterminal named: 'expression').
 								(NCNonterminal named: 'plus symbol').
 								(NCNonterminal named: 'term')}).
-				(NCProductionRule head: (NCNonterminal named: 'expression') body: {}).
+				(NCProductionRule headNamed: 'expression' body: {}).
 				(NCProductionRule 
-					head: (NCNonterminal named: 'term') 
+					headNamed: 'term'
 					body: {(NCNonterminal named: 'product')}).
-				(NCProductionRule head: (NCNonterminal named: 'term') body: {})}
+				(NCProductionRule headNamed: 'term' body: {})}
 ]
 
 { #category : #tests }
@@ -97,23 +97,23 @@ term:
 product: a symbol.'
 		equals: 
 			{	(NCProductionRule
-					head: (NCNonterminal named: 'expression')
+					headNamed: 'expression'
 					body: {(NCNonterminal named: 'term')}).	
 				(NCProductionRule
-					head: (NCNonterminal named: 'expression')
+					headNamed: 'expression'
 					body: {	(NCNonterminal named: 'expression').
 								(NCNonterminal named: 'plus symbol').
 								(NCNonterminal named: 'term')}).
 				(NCProductionRule 
-					head: (NCNonterminal named: 'term') 
+					headNamed: 'term'
 					body: {(NCNonterminal named: 'product')}).
 				(NCProductionRule 
-					head: (NCNonterminal named: 'term') 
+					headNamed: 'term'
 					body: {	(NCNonterminal named: 'term').
 								(NCNonterminal named: 'star symbol').
 								(NCNonterminal named: 'product')}).
 				(NCProductionRule 
-					head: (NCNonterminal named: 'product') 
+					headNamed: 'product'
 					body: {(NCNonterminal named: 'a symbol')})}
 ]
 
@@ -148,7 +148,7 @@ JE1VWEvaluatorTest >> testEvaluatesRule01 [
 		startingAt: 'rule'
 		equals:
 			{(NCProductionRule 
-					head: (NCNonterminal named: 'expression') 
+					headNamed: 'expression'
 					body: {(NCNonterminal named: 'term')})}
 ]
 
@@ -159,7 +159,7 @@ JE1VWEvaluatorTest >> testEvaluatesRule02 [
 		startingAt: 'rule' 
 		equals: 
 			{	(NCProductionRule
-					head: (NCNonterminal named: 'expression')
+					headNamed: 'expression'
 					body: {	(NCNonterminal named: 'expression').
 								(NCNonterminal named: 'plus symbol').
 								(NCNonterminal named: 'term')})}
@@ -170,7 +170,7 @@ JE1VWEvaluatorTest >> testEvaluatesRule03 [
 	self 
 		assertThatEvaluates: 'expression:.' 
 		startingAt: 'rule' 
-		equals: {(NCProductionRule head: (NCNonterminal named: 'expression') body: {})}
+		equals: {(NCProductionRule headNamed: 'expression' body: {})}
 ]
 
 { #category : #'tests - rule' }
@@ -180,9 +180,9 @@ JE1VWEvaluatorTest >> testEvaluatesRule04 [
 		startingAt: 'rule'
 		equals:
 			{	(NCProductionRule 
-					head: (NCNonterminal named: 'expression') 
+					headNamed: 'expression'
 					body: {(NCNonterminal named: 'term')}).
-				(NCProductionRule head: (NCNonterminal named: 'expression') body: {})}
+				(NCProductionRule headNamed: 'expression' body: {})}
 ]
 
 { #category : #'tests - rule' }
@@ -190,7 +190,7 @@ JE1VWEvaluatorTest >> testEvaluatesRule05 [
 	self 
 		assertThatEvaluates: 'expression: .' 
 		startingAt: 'rule' 
-		equals: {(NCProductionRule head: (NCNonterminal named: 'expression') body: {})}
+		equals: {(NCProductionRule headNamed: 'expression' body: {})}
 ]
 
 { #category : #'tests - rule' }
@@ -200,11 +200,11 @@ JE1VWEvaluatorTest >> testEvaluatesRule06 [
 		startingAt: 'rule' 
 		equals: 
 			{	(NCProductionRule
-					head: (NCNonterminal named: 'expression')
+					headNamed: 'expression'
 					body: {	(NCNonterminal named: 'expression').
 								(NCNonterminal named: 'plus symbol').
 								(NCNonterminal named: 'term')}).
-				(NCProductionRule head: (NCNonterminal named: 'expression') body: {})}
+				(NCProductionRule headNamed: 'expression' body: {})}
 ]
 
 { #category : #'tests - rule' }
@@ -217,11 +217,11 @@ JE1VWEvaluatorTest >> testEvaluatesRule07 [
 		startingAt: 'rule' 
 		equals: 
 			{	(NCProductionRule
-					head: (NCNonterminal named: 'expression')
+					headNamed: 'expression'
 					body: {	(NCNonterminal named: 'expression').
 								(NCNonterminal named: 'plus symbol').
 								(NCNonterminal named: 'term')}).
-				(NCProductionRule head: (NCNonterminal named: 'expression') body: {})}
+				(NCProductionRule headNamed: 'expression' body: {})}
 ]
 
 { #category : #'tests - rule' }
@@ -231,7 +231,7 @@ JE1VWEvaluatorTest >> testEvaluatesRule08 [
 		startingAt: 'rule' 
 		equals: 
 			{	(NCProductionRule
-					head: (NCNonterminal named: 'expression')
+					headNamed: 'expression'
 					body: {	(NCNonterminal named: 'expression').
 								(NCNonterminal named: 'less than symbol').
 								(NCNonterminal named: 'term')}) }
@@ -244,7 +244,7 @@ JE1VWEvaluatorTest >> testEvaluatesRule09 [
 		startingAt: 'rule' 
 		equals: 
 			{	(NCProductionRule
-					head: (NCNonterminal named: 'expression')
+					headNamed: 'expression'
 					body: {	(NCNonterminal named: 'expression').
 								(NCNonterminal named: 'greater than symbol').
 								(NCNonterminal named: 'term')}) }

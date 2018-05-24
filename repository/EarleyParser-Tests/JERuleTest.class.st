@@ -12,7 +12,7 @@ Class {
 JERuleTest >> testAsJERule [
 	| productionRule rule |
 	productionRule := NCProductionRule
-		head: (NCNonterminal named: 'A')
+		headNamed: 'A'
 		body:
 			{(NCNonterminal named: 'B').
 			(NCNonterminal named: 'C').

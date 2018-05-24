@@ -86,3 +86,8 @@ NCProductionRule >> printOn: aStream [
 	body do: [ :each | each printOn: aStream ] separatedBy: [ aStream nextPutAll: ', ' ].
 	aStream nextPut: $.
 ]
+
+{ #category : #printing }
+NCProductionRule >> printString [
+	^ String streamContents: [ :stream | self printOn: stream ]
+]

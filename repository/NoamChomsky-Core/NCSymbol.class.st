@@ -16,3 +16,8 @@ NCSymbol >> isNonterminal [
 NCSymbol >> isTerminal [
 	self subclassResponsibility
 ]
+
+{ #category : #printing }
+NCSymbol >> printString [
+	^ String streamContents: [ :stream | self printOn: stream ]
+]

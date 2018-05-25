@@ -43,13 +43,13 @@ JEGrammarBuilder >> build [
 	productionRules
 		collect: [ :each | 
 			NCProductionRule
-				head: (nonterminals detect: [ :nonterminal | nonterminal = each head ])
+				head: (nonterminals like: each head)
 				body:
 					(each body
 						collect: [ :notion | 
 							nonterminals
-								detect: [ :nonterminal | nonterminal = notion ]
-								ifNone: [ self unknowNonterminal: notion in: each ] ]) ]
+								like: notion 
+								ifAbsent: [ self unknowNonterminal: notion in: each ] ]) ]
 		thenDo: [ :rule | 
 			lineup add: rule.
 			unique add: rule ].

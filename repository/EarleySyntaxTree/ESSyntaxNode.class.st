@@ -74,3 +74,8 @@ ESSyntaxNode >> reason [
 ESSyntaxNode >> start [
 	^ start
 ]
+
+{ #category : #accessing }
+ESSyntaxNode >> symbol [
+	^ symbol
+]

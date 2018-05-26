@@ -15,6 +15,49 @@ ESTDepthFirstVisitorTest >> setUp [
 ]
 
 { #category : #tests }
+ESTDepthFirstVisitorTest >> testCollectSymbols [
+	| symbols |
+	parseTree := grammar parseTree: '1'.
+
+	symbols := 
+	Array
+		streamContents: [ :s | 
+			ESTDepthFirstVisitor new
+				preOrderBlock: [ :node | s nextPut: node model symbol ];
+				visit: parseTree ].
+	self
+		assert: symbols
+		equals:
+			{(NCNonterminal named: 'binary number').
+			(NCNonterminal named: 'bit sequence').
+			(NCNonterminal named: 'bit').
+			(NCNonterminal named: 'one symbol').
+			(NCTerminal character: $1)}
+]
+
+{ #category : #tests }
+ESTDepthFirstVisitorTest >> testCollectSymbols02 [
+	| symbols |
+	parseTree := grammar parseTree: '0'.
+
+	symbols := 
+	Array
+		streamContents: [ :s | 
+			ESTDepthFirstVisitor new
+				preOrderBlock: [ :node | s nextPut: node model symbol ];
+				visit: parseTree ].
+
+	self 
+		assert: symbols 
+		equals: 
+				{(NCNonterminal named: 'binary number').
+				(NCNonterminal named: 'bit sequence').
+				(NCNonterminal named: 'bit').
+				(NCNonterminal named: 'zero symbol').
+				(NCTerminal character: $0)}
+]
+
+{ #category : #tests }
 ESTDepthFirstVisitorTest >> testVisitedCount [
 	| firstCount secondCount |
 	firstCount := 0.

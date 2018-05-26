@@ -8,7 +8,7 @@ ESParseTree >> gtInspectorASTWordsIn: composite [
 		send: [ :each | 
 			String
 				streamContents: [ :s | 
-					ESTDepthFirstVisitor new
+					ESTreeVisitor depthFirst new
 						preOrderBlock: [ :node | 
 							node == each
 								ifTrue: [ s nextPutAll: '>>' ].

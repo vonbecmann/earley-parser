@@ -41,7 +41,7 @@ ESSingleSynthesizedAttributeEvaluator >> evaluate: aString startingAt: aNontermi
 ESSingleSynthesizedAttributeEvaluator >> evaluateTree: aParseTree [
 	| stack |
 	stack := SinglyLinkedStack new.
-	ESTDepthFirstVisitor new
+	ESTreeVisitor depthFirst new
 		postOrderBlock: [ :node | 
 			node model isTerminal
 				ifTrue: [ stack push: node model reason ]

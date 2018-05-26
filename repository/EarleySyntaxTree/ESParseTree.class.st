@@ -31,7 +31,7 @@ ESParseTree >> asArrayRepresentation [
 
 	| stack |
 	stack := SinglyLinkedStack new.
-	ESTDepthFirstVisitor new
+	ESTreeVisitor depthFirst new
 		postOrderBlock: [ :node | 
 			stack
 				push:
@@ -56,7 +56,7 @@ ESParseTree >> initializeTree: aTree andGrammar: aJEGrammar [
 ESParseTree >> leftmostDerivation [
 	| derivation |
 	derivation := SinglyLinkedList new.
-	ESTDepthFirstVisitor new
+	ESTreeVisitor depthFirst new
 		preOrderBlock: [ :node | 
 			node model isNonterminal
 				ifTrue: [ derivation addLast: node model reason ] ];
@@ -76,7 +76,7 @@ ESParseTree >> release [
 ESParseTree >> rightmostDerivation [
 	| derivation |
 	derivation := SinglyLinkedList new.
-	ESTRightToLeftDepthFirstVisitor new
+	ESTreeVisitor rightToLeftDepthFirst new
 		preOrderBlock: [ :node | 
 			node model isNonterminal
 				ifTrue: [ derivation addLast: node model reason ] ];

@@ -4,6 +4,8 @@ a tree visitor.
 preOrderBlock - an action that it is execute in pre-order for each tree node.
 postOrderBlock - an action that it is execute in post-order for each tree node.
 
+see class side for specific visitors.
+
 "
 Class {
 	#name : #ESTreeVisitor,
@@ -12,8 +14,18 @@ Class {
 		'postOrderBlock',
 		'preOrderBlock'
 	],
-	#category : 'EarleySyntaxTree-Implementation'
+	#category : #'EarleySyntaxTree-Public'
 }
+
+{ #category : #visitors }
+ESTreeVisitor class >> depthFirst [
+	^ ESTDepthFirstVisitor
+]
+
+{ #category : #visitors }
+ESTreeVisitor class >> rightToLeftDepthFirst [
+	^ ESTRightToLeftDepthFirstVisitor
+]
 
 { #category : #initialization }
 ESTreeVisitor >> postOrderBlock: aBlockWithOneArgument [

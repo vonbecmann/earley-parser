@@ -18,7 +18,7 @@ ESTree >> viewFor: aNode [
 	| nodes associations b |
 	nodes := SinglyLinkedList new.
 	associations := SinglyLinkedList new.
-	ESTDepthFirstVisitor new
+	ESTreeVisitor depthFirst new
 		preOrderBlock: [ :node | 
 			nodes add: node.
 			associations addAll: (node children collect: [ :child | node -> child ]) ];

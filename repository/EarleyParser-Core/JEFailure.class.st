@@ -17,9 +17,9 @@ Class {
 }
 
 { #category : #accessing }
-JEFailure class >> atPosition: anInteger expectedSymbols: aSymbolCollection [
+JEFailure class >> failedAt: column [
 	^ self new
-		initializePosition: anInteger andExpectedSymbols: aSymbolCollection;
+		initializePosition: column number andExpectedSymbols: column expectedSymbols;
 		signal
 ]
 

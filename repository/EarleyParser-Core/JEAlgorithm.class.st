@@ -39,7 +39,7 @@ JEAlgorithm >> evaluate: words [
 	1 to: n do: [ :i | 
 		| column |
 		column := chart at: i.
-		column isEmpty ifTrue: [ ^ self failedAt: (chart at: i - 1) ].
+		column isEmpty ifTrue: [ ^ JEFailure failedAt: (chart at: i - 1) ].
 		column
 			processItems: [ :item | 
 				item isFinal
@@ -51,11 +51,6 @@ JEAlgorithm >> evaluate: words [
 									ifTrue: [ self scan: item with: (words at: i) at: (chart at: i + 1) ] ]
 							ifFalse: [ self predict: item at: column ] ] ] ].
 	^ chart
-]
-
-{ #category : #'error handling' }
-JEAlgorithm >> failedAt: column [
-	^ JEFailure atPosition: column number expectedSymbols: column expectedSymbols
 ]
 
 { #category : #initialization }

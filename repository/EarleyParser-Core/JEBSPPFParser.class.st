@@ -39,7 +39,7 @@ JEBSPPFParser >> parse: words [
 	finalItem := grammar startRule dotAtEnd startedAt: chart first.
 	^ (chart last includes: finalItem)
 			ifTrue: [ self buildForestFrom: (chart last like: finalItem) ]
-			ifFalse: [ self failedAt: chart last ]
+			ifFalse: [ JEFailure failedAt: chart last ]
 ]
 
 { #category : #'private operations' }

@@ -35,7 +35,7 @@ JEAlgorithm >> evaluate: words [
 	| n chart |
 	n := words size + 1.
 	chart := (1 to: n) collect: [ :index | JEColumn number: index ].
-	self predictNonterminal: grammar startSymbol at: chart first.
+	chart first add: (grammar startRule dotAtBeginning startedAt: chart first).
 	1 to: n do: [ :i | 
 		| column |
 		column := chart at: i.

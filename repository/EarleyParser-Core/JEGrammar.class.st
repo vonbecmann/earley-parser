@@ -227,11 +227,6 @@ JEGrammar >> startRule [
 ]
 
 { #category : #private }
-JEGrammar >> startSymbol [
-	^ startSymbol
-]
-
-{ #category : #private }
 JEGrammar >> unknowNonterminal: nonterminal [
 	^ Error signal: 'Unknown Nonterminal ' , nonterminal asString
 ]

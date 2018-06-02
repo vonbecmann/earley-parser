@@ -115,20 +115,18 @@ JEGrammar >> initialize [
 
 { #category : #initialization }
 JEGrammar >> initializeProductionRules: productionRuleCollection nonterminals: nonterminalSet terminals: terminalSet startNonterminal: aNonterminal [
-	| rules |
 	self initialize.
 	nonterminals := nonterminalSet.
 	terminals := terminalSet.
 	startRule := JERule head: (NCNonterminal named: 'START') body: {aNonterminal}.
-	rules := SinglyLinkedList new.
 	productionRuleCollection
 		do: [ :each | 
 			| newRule |
 			productionRules at: each head put: each.
 			newRule := each asJERule.
-			rules addLast: newRule.
+			predictedAlternatives at: newRule head put: newRule dotAtBeginning.
 			ruleToProductionDict at: newRule put: each ].
-	rules	do: [ :alternative | predictedAlternatives at: alternative head put: alternative dotAtBeginning ]
+
 ]
 
 { #category : #private }

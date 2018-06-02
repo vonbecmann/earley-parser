@@ -122,7 +122,7 @@ JEGrammar >> initializeProductionRules: productionRuleCollection nonterminals: n
 	nonterminals := nonterminalSet.
 	terminals := terminalSet.
 	startRule := JERule head: startSymbol body: {aNonterminal}.
-	rules := SinglyLinkedList with: startRule.
+	rules := SinglyLinkedList new.
 	productionRuleCollection
 		do: [ :each | 
 			| newRule |

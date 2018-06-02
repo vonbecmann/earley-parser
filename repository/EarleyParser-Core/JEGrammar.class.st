@@ -28,7 +28,6 @@ Class {
 		'nonterminals',
 		'terminals',
 		'productionRules',
-		'startSymbol',
 		'startRule',
 		'predictedAlternatives',
 		'ruleToProductionDict'
@@ -108,7 +107,6 @@ JEGrammar >> alternativesOf: aNonterminal [
 { #category : #initialization }
 JEGrammar >> initialize [
 	super initialize.
-	startSymbol := NCNonterminal named: 'START'.
 	productionRules := ArrayMultiValuedDictionary dictionary: OrderedDictionary.
 	predictedAlternatives := ArrayMultiValuedDictionary dictionary: IdentityDictionary.
 	ruleToProductionDict := IdentityDictionary new
@@ -121,7 +119,7 @@ JEGrammar >> initializeProductionRules: productionRuleCollection nonterminals: n
 	self initialize.
 	nonterminals := nonterminalSet.
 	terminals := terminalSet.
-	startRule := JERule head: startSymbol body: {aNonterminal}.
+	startRule := JERule head: (NCNonterminal named: 'START') body: {aNonterminal}.
 	rules := SinglyLinkedList new.
 	productionRuleCollection
 		do: [ :each | 

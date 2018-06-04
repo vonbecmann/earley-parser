@@ -61,10 +61,8 @@ JEGrammarBuilder >> build [
 		thenDo: [ :rule | 
 			lineup add: rule.
 			unique add: rule ].
-	index := Dictionary new.
-	unique
-		collect: [ :rule | rule -> (lineup findFirst: [ :each | rule = each ]) ]
-		thenDo: [ :assoc | index add: assoc ].
+	index := IdentityDictionary new.
+	unique do: [ :rule | index at: rule put: (lineup indexOf: rule) ].
 	newGrammar := JEGrammar
 		productionRules: (unique sorted: [ :a :b | (index at: a) < (index at: b) ])
 		nonterminals: nonterminals

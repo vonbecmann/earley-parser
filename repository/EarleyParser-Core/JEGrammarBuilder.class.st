@@ -28,7 +28,7 @@ JEGrammarBuilder >> build [
 	"	given the production and representation rules builds a grammar 
 		according to the conditions. see class comment "
 
-	| nonterminals terminals lineup unique index rules newGrammar |
+	| nonterminals terminals lineup unique index newGrammar |
 	self assert: productionRules isNotEmpty.
 	self assert: representations isNotEmpty.
 	nonterminals := Set new.
@@ -65,12 +65,11 @@ JEGrammarBuilder >> build [
 	unique
 		collect: [ :rule | rule -> (lineup findFirst: [ :each | rule = each ]) ]
 		thenDo: [ :assoc | index add: assoc ].
-	rules := unique sorted: [ :a :b | (index at: a) < (index at: b) ].
 	newGrammar := JEGrammar
-		productionRules: rules
+		productionRules: (unique sorted: [ :a :b | (index at: a) < (index at: b) ])
 		nonterminals: nonterminals
 		terminals: terminals
-		startNonterminal: rules first head.
+		startNonterminal: lineup first head.
 	self reset.
 	^ newGrammar
 ]

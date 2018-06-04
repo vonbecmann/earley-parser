@@ -133,7 +133,7 @@ JEGrammar >> initializeProductionRules: productionRuleCollection nonterminals: n
 JEGrammar >> nonterminal: aNonterminalNamed [
 	^ nonterminals
 		detect: [ :each | each named = aNonterminalNamed ]
-		ifNone: [ self unknowNonterminal: aNonterminalNamed ]
+		ifNone: [ Error signal: 'Unknown Nonterminal ', aNonterminalNamed asString ]
 ]
 
 { #category : #accessing }
@@ -184,7 +184,16 @@ JEGrammar >> ruleAt: anAssociation [
 
 	^ (productionRules at: (self nonterminal: anAssociation key))
 		at: anAssociation value
-		ifAbsent: [ self unknowRuleAt: anAssociation ]
+		ifAbsent: [ 
+			Error
+				signal:
+					(String
+						streamContents: [ :s | 
+							s
+								nextPutAll: 'Unknown rule''s definition at index ';
+								print: anAssociation value;
+								nextPutAll: ' for Nonterminal ';
+								nextPutAll: 	anAssociation key ]) ]
 ]
 
 { #category : #accessing }
@@ -220,22 +229,4 @@ JEGrammar >> startAt: aNonterminalNamed [
 { #category : #private }
 JEGrammar >> startRule [
 	^ startRule
-]
-
-{ #category : #private }
-JEGrammar >> unknowNonterminal: nonterminal [
-	^ Error signal: 'Unknown Nonterminal ' , nonterminal asString
-]
-
-{ #category : #private }
-JEGrammar >> unknowRuleAt: assoc [
-	^ Error
-		signal:
-			(String
-				streamContents: [ :s | 
-					s
-						nextPutAll: 'Unknown rule''s definition at index ';
-						print: assoc value;
-						nextPutAll: ' for Nonterminal ';
-						nextPutAll: assoc key ])
 ]

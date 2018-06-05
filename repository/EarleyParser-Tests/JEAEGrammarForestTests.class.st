@@ -133,7 +133,9 @@ JEAEGrammarForestTests >> testParseSimpleExp02 [
 		should: [ grammar parse: 'a ' ] 
 		raise: JEFailure 
 		withExceptionDo: [ :failure | 
+			self deny: failure wasAtEnd.
 			self assert: failure position equals: 2.
+			self assert: failure actual equals: Character space.
 			self
 				assertCollection: failure expectedSymbols
 				hasSameElements: {	(NCNonterminal named: 'plus symbol'). 
@@ -146,7 +148,7 @@ JEAEGrammarForestTests >> testParseSimpleExp03 [
 		should: [ grammar parse: 'a+' ]
 		raise: JEFailure
 		withExceptionDo: [ :failure | 
-			self assert: failure position equals: 3.
+			self assert: failure wasAtEnd.
 			self
 				assertCollection: failure expectedSymbols
 				hasSameElements: {	(NCNonterminal named: 'T'). 
@@ -159,7 +161,9 @@ JEAEGrammarForestTests >> testParseSimpleExp04 [
 		should: [ grammar parse: 'a++' ] 
 		raise: JEFailure 
 		withExceptionDo: [ :failure | 
+			self deny: failure wasAtEnd.			
 			self assert: failure position equals: 3.
+			self assert: failure actual equals: $+.
 			self
 				assertCollection: failure expectedSymbols
 				hasSameElements: {	(NCNonterminal named: 'T'). 

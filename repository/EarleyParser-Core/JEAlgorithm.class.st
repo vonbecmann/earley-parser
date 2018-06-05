@@ -39,7 +39,8 @@ JEAlgorithm >> evaluate: words [
 	1 to: n do: [ :i | 
 		| column |
 		column := chart at: i.
-		column isEmpty ifTrue: [ ^ JEFailure failedAt: (chart at: i - 1) ].
+		column isEmpty 
+			ifTrue: [ ^ JEFailure failedAt: (chart at: i - 1) got: (words at: i - 1) ].
 		column
 			processItems: [ :item | 
 				item isFinal

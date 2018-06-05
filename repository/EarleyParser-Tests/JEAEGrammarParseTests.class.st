@@ -24,7 +24,7 @@ JEAEGrammarParseTests >> testParseEmpty [
 		should: [ grammar parse: '' ]
 		raise: JEFailure
 		withExceptionDo: [ :failure | 
-			self assert: failure position equals: 1.
+			self assert: failure wasAtEnd.
 			self
 				assertCollection: failure expectedSymbols
 				hasSameElements: {(NCNonterminal named: 'letter a symbol')} ]
@@ -68,7 +68,9 @@ JEAEGrammarParseTests >> testParseSimpleExp02 [
 		should: [ grammar parse: 'a ' ]
 		raise: JEFailure
 		withExceptionDo: [ :failure | 
+			self deny: failure wasAtEnd.			
 			self assert: failure position equals: 2.
+			self assert: failure actual equals: Character space.
 			self
 				assertCollection: failure expectedSymbols
 				hasSameElements: {	(NCNonterminal named: 'star symbol').
@@ -81,7 +83,7 @@ JEAEGrammarParseTests >> testParseSimpleExp03 [
 		should: [ grammar parse: 'a+' ]
 		raise: JEFailure
 		withExceptionDo: [ :failure | 
-			self assert: failure position equals: 3.
+			self assert: failure wasAtEnd.			
 			self
 				assertCollection: failure expectedSymbols
 				hasSameElements: {	(NCNonterminal named: 'T').
@@ -94,7 +96,9 @@ JEAEGrammarParseTests >> testParseSimpleExp04 [
 		should: [ grammar parse: 'a++' ]
 		raise: JEFailure
 		withExceptionDo: [ :failure | 
+			self deny: failure wasAtEnd.			
 			self assert: failure position equals: 3.
+			self assert: failure actual equals: $+.
 			self
 				assertCollection: failure expectedSymbols
 				hasSameElements:
@@ -108,7 +112,9 @@ JEAEGrammarParseTests >> testParseSimpleExp05 [
 		should: [ grammar parse: 'a+*' ]
 		raise: JEFailure
 		withExceptionDo: [ :failure | 
+			self deny: failure wasAtEnd.						
 			self assert: failure position equals: 3.
+			self assert: failure actual equals: $*.
 			self
 				assertCollection: failure expectedSymbols
 				hasSameElements:
@@ -122,7 +128,7 @@ JEAEGrammarParseTests >> testParseSimpleExp06 [
 		should: [ grammar parse: 'a*' ]
 		raise: JEFailure
 		withExceptionDo: [ :failure | 
-			self assert: failure position equals: 3.
+			self assert: failure wasAtEnd.						
 			self
 				assertCollection: failure expectedSymbols
 				hasSameElements:

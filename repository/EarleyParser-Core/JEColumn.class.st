@@ -24,12 +24,12 @@ Class {
 	#superclass : #Object,
 	#instVars : [
 		'number',
-		'items',
+		'itemsToProcess',
 		'predictionItemsByNonterminal',
 		'finalItemsByNonterminal',
 		'itemsByKey'
 	],
-	#category : 'EarleyParser-Core-Implementation'
+	#category : #'EarleyParser-Core-Implementation'
 }
 
 { #category : #'instance creation' }
@@ -88,7 +88,7 @@ JEColumn >> basicAdd: anItem [
 		ifFalse: [ 
 			anItem symbolAtDot isNonterminal 
 				ifTrue: [ self predictionItemsByNonterminalAt: anItem symbolAtDot put: anItem ] ].
-	items nextPut: anItem.
+	itemsToProcess nextPut: anItem.
 	^ anItem
 		end: self;
 		yourself
@@ -149,7 +149,7 @@ JEColumn >> includes: anItem [
 { #category : #initialization }
 JEColumn >> initialize [
 	super initialize.
-	items := SinglyLinkedQueue new.
+	itemsToProcess := SinglyLinkedQueue new.
 	predictionItemsByNonterminal := IdentityDictionary new.
 	finalItemsByNonterminal := IdentityDictionary new.
 	itemsByKey := IdentityDictionary new
@@ -244,14 +244,14 @@ JEColumn >> printOn: aStream [
 JEColumn >> processItems: aBlock [
 	"process each item in order"
 
-	[ items isEmpty ] whileFalse: [ aBlock value: items next ]
+	[ itemsToProcess isEmpty ] whileFalse: [ aBlock value: itemsToProcess next ]
 ]
 
 { #category : #'initialize-release' }
 JEColumn >> release [
 	"a column has references to items and an item has references to a column"
 
-	items := nil.
+	itemsToProcess := nil.
 	predictionItemsByNonterminal := nil.
 	finalItemsByNonterminal := nil.
 	itemsByKey := nil.

@@ -6,8 +6,8 @@ acts as a set of items.
 Nonterminals are unique, that's why they are use as a key in the dictionaries.
 
 number - a position in the chart.
-
-items - a queue of items to be processed in order.
+items - as they were added to the column.
+itemsToProcess - a queue of items to be processed in order.
 
 predictionItemsByNonterminal - items with the symbol at dot is a nonterminal, so they are involve in the prediction of new items. 
 
@@ -24,6 +24,7 @@ Class {
 	#superclass : #Object,
 	#instVars : [
 		'number',
+		'items',
 		'itemsToProcess',
 		'predictionItemsByNonterminal',
 		'finalItemsByNonterminal',
@@ -73,6 +74,7 @@ JEColumn >> addTerminalItem: terminalItem [
 				(dict at: terminalItem secondKey ifAbsent: nil) 
 					ifNotNil: [ :found | ^ found ] ].
 	self itemsByKeyPut: terminalItem.
+	items addLast: terminalItem.
 	^ terminalItem
 		end: self;
 		yourself
@@ -88,6 +90,7 @@ JEColumn >> basicAdd: anItem [
 		ifFalse: [ 
 			anItem symbolAtDot isNonterminal 
 				ifTrue: [ self predictionItemsByNonterminalAt: anItem symbolAtDot put: anItem ] ].
+	items addLast: anItem.
 	itemsToProcess nextPut: anItem.
 	^ anItem
 		end: self;
@@ -98,14 +101,12 @@ JEColumn >> basicAdd: anItem [
 JEColumn >> expectedSymbols [
 	| expectedSymbols |
 	expectedSymbols := Set new.
-	itemsByKey
-		associationsDo: [ :assoc | 
-			assoc value
-				do: [ :item | 
-					item isActive
-						ifTrue: [ expectedSymbols add: item symbolAtDot ].
-					(item isPredicted and: [ item isRepresentation ])
-						ifTrue: [ expectedSymbols add: item head ] ] ].
+	items
+		do: [ :item | 
+			item isActive
+				ifTrue: [ expectedSymbols add: item symbolAtDot ].
+			(item isPredicted and: [ item isRepresentation ])
+				ifTrue: [ expectedSymbols add: item head ] ].
 	^ expectedSymbols asArray
 ]
 
@@ -150,6 +151,7 @@ JEColumn >> includes: anItem [
 JEColumn >> initialize [
 	super initialize.
 	itemsToProcess := SinglyLinkedQueue new.
+	items := SinglyLinkedList new.
 	predictionItemsByNonterminal := IdentityDictionary new.
 	finalItemsByNonterminal := IdentityDictionary new.
 	itemsByKey := IdentityDictionary new
@@ -163,7 +165,7 @@ JEColumn >> initializeNumber: anInteger [
 
 { #category : #testing }
 JEColumn >> isEmpty [
-	^ itemsByKey isEmpty
+	^ items isEmpty
 ]
 
 { #category : #private }
@@ -251,6 +253,7 @@ JEColumn >> processItems: aBlock [
 JEColumn >> release [
 	"a column has references to items and an item has references to a column"
 
+	items := nil.
 	itemsToProcess := nil.
 	predictionItemsByNonterminal := nil.
 	finalItemsByNonterminal := nil.
@@ -267,8 +270,5 @@ JEColumn >> shortPrintOn: aStream [
 
 { #category : #accessing }
 JEColumn >> size [
-	| tally |
-	tally := 0.
-	itemsByKey associationsDo: [ :assoc | tally := tally + assoc value size ].
-	^ tally
+	^ items size
 ]

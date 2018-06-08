@@ -25,7 +25,7 @@ Dictionary >> jeAt: firstKey at: secondKey ifPresent: aPresentBlock ifAbsent: ab
 	^ (array at: (self findElementOrNil: firstKey))
 		ifNil: [ absentBlock value ]
 		ifNotNil: [ :assoc | 
-				assoc value jeAtSecond: secondKey ifPresent: aPresentBlock ifAbsent: absentBlock ]
+				assoc value jeAt: secondKey ifPresent: aPresentBlock ifAbsent: absentBlock ]
 ]
 
 { #category : #'*EarleyParser-Core' }
@@ -44,6 +44,13 @@ Dictionary >> jeAt: key ifAbsentPut: absentBlock [
 			self atNewIndex: index put: newAssoc.
 			newAssoc ]
 		ifNotNil: [ :assoc | assoc ]) value
+]
+
+{ #category : #'*EarleyParser-Core' }
+Dictionary >> jeAt: key ifPresent: aPresentBlock ifAbsent: absentBlock [
+	^ (array at: (self findElementOrNil: key))
+		ifNil: [ absentBlock value ]
+		ifNotNil: [ :assoc | aPresentBlock cull: assoc value ]
 ]
 
 { #category : #'*EarleyParser-Core' }
@@ -75,11 +82,4 @@ Dictionary >> jeAt: key put: anObject [
 		ifNil: [ self atNewIndex: index put: (Association basicNew key: key value: anObject) ]
 		ifNotNil: [ :assoc | assoc value: anObject ].
 	^ anObject
-]
-
-{ #category : #'*EarleyParser-Core' }
-Dictionary >> jeAtSecond: key ifPresent: aPresentBlock ifAbsent: absentBlock [
-	^ (array at: (self findElementOrNil: key))
-		ifNil: [ absentBlock value ]
-		ifNotNil: [ :assoc | aPresentBlock cull: assoc value ]
 ]

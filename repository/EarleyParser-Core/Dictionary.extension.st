@@ -25,7 +25,7 @@ Dictionary >> jeAt: firstKey at: secondKey ifPresent: aPresentBlock ifAbsent: ab
 	^ (array at: (self findElementOrNil: firstKey))
 		ifNil: [ absentBlock value ]
 		ifNotNil: [ :assoc | 
-				assoc value jeAt: secondKey ifPresent: aPresentBlock ifAbsent: absentBlock ]
+							assoc value jeAt: secondKey ifPresent: aPresentBlock ifAbsent: absentBlock ]
 ]
 
 { #category : #'*EarleyParser-Core' }

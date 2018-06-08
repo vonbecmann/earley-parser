@@ -33,7 +33,7 @@ JEItem >> addFamily: aFamily [
 
 { #category : #parsing }
 JEItem >> addFamilyWith: previousItem and: completeItem [
-	self addFamily: (previousItem newFamilyWith: completeItem)
+	self node addFamily: (previousItem newFamilyWith: completeItem)
 ]
 
 { #category : #accessing }

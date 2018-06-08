@@ -83,8 +83,15 @@ JEColumn >> basicAdd: anItem [
 			anItem start = self
 				ifTrue: [ self finalItemsByNonterminalAt: anItem head put: anItem ] ]
 		ifFalse: [ 
-			anItem symbolAtDot isNonterminal 
-				ifTrue: [ self predictionItemsByNonterminalAt: anItem symbolAtDot put: anItem ] ].
+			anItem symbolAtDot isNonterminal
+				ifTrue: [ 
+					predictionItemsByNonterminal
+						jeAt: anItem symbolAtDot
+						ifPresent: [ :list | list addLast: anItem ]
+						ifAbsentPut: 
+							[	SinglyLinkedList new
+									addLast: anItem;
+									yourself ] ] ].
 	items addLast: anItem.
 	itemsToProcess nextPut: anItem.
 	^ anItem
@@ -192,17 +199,6 @@ JEColumn >> moveDotForward: previousItem [
 { #category : #accessing }
 JEColumn >> number [
 	^ number
-]
-
-{ #category : #private }
-JEColumn >> predictionItemsByNonterminalAt: nonterminal put: anItem [
-	predictionItemsByNonterminal
-		jeAt: nonterminal
-		ifPresent: [ :list | list addLast: anItem ]
-		ifAbsentPut: 
-			[	SinglyLinkedList new
-					addLast: anItem;
-					yourself ]
 ]
 
 { #category : #accessing }

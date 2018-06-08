@@ -107,15 +107,13 @@ JEColumn >> expectedSymbols [
 
 { #category : #private }
 JEColumn >> finalItemsByNonterminalAt: nonterminal put: anItem [
-	(finalItemsByNonterminal at: nonterminal ifAbsent: nil)
-		ifNil: [ 
-			finalItemsByNonterminal
-				at: nonterminal
-				put:
-					(SinglyLinkedList new
-						addLast: anItem;
-						yourself) ]
-		ifNotNil: [ :list | list addLast: anItem ]
+	finalItemsByNonterminal
+		jeAt: nonterminal
+		ifPresent: [ :list | list addLast: anItem ]
+		ifAbsentPut: 
+			[	SinglyLinkedList new
+					addLast: anItem;
+					yourself ]
 ]
 
 { #category : #accessing }
@@ -198,15 +196,13 @@ JEColumn >> number [
 
 { #category : #private }
 JEColumn >> predictionItemsByNonterminalAt: nonterminal put: anItem [
-	(predictionItemsByNonterminal at: nonterminal ifAbsent: nil)
-		ifNil: [ 
-			predictionItemsByNonterminal
-				at: nonterminal
-				put:
-					(SinglyLinkedList new
-						addLast: anItem;
-						yourself) ]
-		ifNotNil: [ :list | list addLast: anItem ]
+	predictionItemsByNonterminal
+		jeAt: nonterminal
+		ifPresent: [ :list | list addLast: anItem ]
+		ifAbsentPut: 
+			[	SinglyLinkedList new
+					addLast: anItem;
+					yourself ]
 ]
 
 { #category : #accessing }

@@ -19,7 +19,7 @@ Class {
 		'first',
 		'second'
 	],
-	#category : 'EarleyParser-Core-Implementation'
+	#category : #'EarleySyntaxTree-Implementation'
 }
 
 { #category : #'instance creation' }

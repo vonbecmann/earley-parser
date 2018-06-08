@@ -1,34 +1,34 @@
 "
-tests for ordered pair.
+tests for identity ordered pair.
 
 "
 Class {
-	#name : #JEOrderedPairTest,
+	#name : #JEIdentityOrderedPairTest,
 	#superclass : #TestCase,
-	#category : 'EarleyParser-Tests-Implementation'
+	#category : #'EarleySyntaxTree-Tests-Implementation'
 }
 
 { #category : #tests }
-JEOrderedPairTest >> testAsString [
+JEIdentityOrderedPairTest >> testAsString [
 	| one |
-	one := JEOrderedPair first: 'A' second: 1.
+	one := JEIdentityOrderedPair first: 'A' second: 1.
 
-	self assert: one asString equals: '(''A'', 1)'
+	self assert: one asString equals: '<''A'', 1>'
 ]
 
 { #category : #tests }
-JEOrderedPairTest >> testEmpty [
+JEIdentityOrderedPairTest >> testEmpty [
 	| one |
-	one := JEOrderedPair empty.
+	one := JEIdentityOrderedPair empty.
 	self assert: one first equals: nil.
 	self assert: one second equals: nil
 ]
 
 { #category : #tests }
-JEOrderedPairTest >> testEquality [
+JEIdentityOrderedPairTest >> testEquality [
 	| one another |
-	one := JEOrderedPair first: 'A' second: 1.
-	another := JEOrderedPair first: 'A' second: 1.
+	one := JEIdentityOrderedPair first: 'A' second: 1.
+	another := JEIdentityOrderedPair first: 'A' second: 1.
 	self assert: one equals: another.
 	self assert: one hash equals: another hash.
 	self assert: another equals: one.
@@ -37,9 +37,9 @@ JEOrderedPairTest >> testEquality [
 ]
 
 { #category : #tests }
-JEOrderedPairTest >> testEquality01 [
+JEIdentityOrderedPairTest >> testEquality01 [
 	| one another |
-	one := another := JEOrderedPair first: 'A' second: 1.
+	one := another := JEIdentityOrderedPair first: 'A' second: 1.
 	self assert: one equals: another.
 	self assert: one hash equals: another hash.
 	self assert: another equals: one.
@@ -48,10 +48,10 @@ JEOrderedPairTest >> testEquality01 [
 ]
 
 { #category : #tests }
-JEOrderedPairTest >> testEquality02 [
+JEIdentityOrderedPairTest >> testEquality02 [
 	| one another |
-	one := JEOrderedPair first: 'A' second: 1.
-	another := JEOrderedPair first: 'A' second: 2.
+	one := JEIdentityOrderedPair first: 'A' second: 1.
+	another := JEIdentityOrderedPair first: 'A' second: 2.
 	self deny: one = another.
 	self deny: one hash = another hash.
 	self deny: another = one.
@@ -60,10 +60,10 @@ JEOrderedPairTest >> testEquality02 [
 ]
 
 { #category : #tests }
-JEOrderedPairTest >> testEquality03 [
+JEIdentityOrderedPairTest >> testEquality03 [
 	| one another |
-	one := JEOrderedPair first: 'A' second: 1.
-	another := JEOrderedPair first: 'B' second: 1.
+	one := JEIdentityOrderedPair first: 'A' second: 1.
+	another := JEIdentityOrderedPair first: 'B' second: 1.
 	self deny: one = another.
 	self deny: one hash = another hash.
 	self deny: another = one.
@@ -72,17 +72,17 @@ JEOrderedPairTest >> testEquality03 [
 ]
 
 { #category : #tests }
-JEOrderedPairTest >> testFirst [
+JEIdentityOrderedPairTest >> testFirst [
 	| one |
-	one := JEOrderedPair first: 'A'.
+	one := JEIdentityOrderedPair first: 'A'.
 	self assert: one first equals: 'A'.
 	self assert: one second equals: nil
 ]
 
 { #category : #tests }
-JEOrderedPairTest >> testSecond [
+JEIdentityOrderedPairTest >> testSecond [
 	| one |
-	one := JEOrderedPair second: 'A'.
+	one := JEIdentityOrderedPair second: 'A'.
 	self assert: one first equals: nil.
 	self assert: one second equals: 'A'
 ]

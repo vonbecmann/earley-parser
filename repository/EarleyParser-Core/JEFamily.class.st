@@ -21,10 +21,9 @@ Class {
 		'parent',
 		'first',
 		'second',
-		'children',
-		'key'
+		'children'
 	],
-	#category : 'EarleyParser-Core-Parsing'
+	#category : #'EarleyParser-Core-Parsing'
 }
 
 { #category : #'instance creation' }
@@ -95,18 +94,12 @@ JEFamily >> initializeFirst: firstPackedNode andSecond: secondPackedNode [
 		ifNil: [ Array empty ]
 		ifNotNil: [ second
 				ifNil: [ {first} ]
-				ifNotNil: [ {first. second} ] ].
-	key := JEIdentityOrderedPair first: first second: second
+				ifNotNil: [ {first. second} ] ]
 ]
 
 { #category : #testing }
 JEFamily >> isEmpty [
 	^ first isNil and: [ second isNil ]
-]
-
-{ #category : #accessing }
-JEFamily >> key [
-	^ key
 ]
 
 { #category : #accessing }
@@ -139,7 +132,6 @@ JEFamily >> release [
 	first := nil.
 	second := nil.
 	children := nil.
-	key := nil.
 	super release
 ]
 

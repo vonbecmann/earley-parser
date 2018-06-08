@@ -6,7 +6,7 @@ a identity ordered pair.
 Class {
 	#name : #JEIdentityOrderedPair,
 	#superclass : #JEOrderedPair,
-	#category : 'EarleyParser-Core-Implementation'
+	#category : #'EarleySyntaxTree-Implementation'
 }
 
 { #category : #comparing }

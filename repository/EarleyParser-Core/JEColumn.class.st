@@ -56,33 +56,28 @@ JEColumn >> add: anItem [
 		if the item doesn't exist then add it last.
 		this is a predicted item "
 
-	(itemsByKey at: anItem firstKey ifAbsent: nil)
-		ifNil: [ self basicAdd: anItem ]
-		ifNotNil:
-			[ :dict | 
-				(dict at: anItem secondKey ifAbsent: nil) 
-					ifNil: [ self basicAdd: anItem ] ]
+	itemsByKey
+		jeAt: anItem firstKey
+		at: anItem secondKey
+		ifAbsentPut: [ self basicAdd: anItem ]
 ]
 
 { #category : #parsing }
 JEColumn >> addTerminalItem: terminalItem [
 	" add a scanned terminal while parsing "
 
-	(itemsByKey at: terminalItem firstKey ifAbsent: nil)
-		ifNotNil: 
-			[ :dict | 
-				(dict at: terminalItem secondKey ifAbsent: nil) 
-					ifNotNil: [ :found | ^ found ] ].
-	self itemsByKeyPut: terminalItem.
-	items addLast: terminalItem.
-	^ terminalItem
-		end: self;
-		yourself
+	^ itemsByKey
+		jeAt: terminalItem firstKey
+		at: terminalItem secondKey
+		ifAbsentPut: [ 
+			items addLast: terminalItem.
+			terminalItem
+				end: self;
+				yourself ]
 ]
 
 { #category : #private }
 JEColumn >> basicAdd: anItem [
-	self itemsByKeyPut: anItem.
 	anItem isFinal
 		ifTrue: [ 
 			anItem start = self
@@ -139,12 +134,11 @@ JEColumn >> includes: anItem [
 	Optimize for efficiency.
 	itemsByKey anySatisfy: [ :each | each equals: anItem ]."
 
-	(itemsByKey at: anItem firstKey ifAbsent: nil)
-		ifNotNil:
-			[ :dict | 
-				(dict at: anItem secondKey ifAbsent: nil) 
-					ifNotNil: [ :found | ^ found equals: anItem ] ].
-	^ false
+	^ itemsByKey
+		jeAt: anItem firstKey
+		at: anItem secondKey
+		ifPresent: [ :found | found equals: anItem ]
+		ifAbsent: [ false ]
 ]
 
 { #category : #initialization }
@@ -168,31 +162,20 @@ JEColumn >> isEmpty [
 	^ items isEmpty
 ]
 
-{ #category : #private }
-JEColumn >> itemsByKeyPut: anItem [
-	(itemsByKey at: anItem firstKey ifAbsent: nil)
-		ifNil: [ 
-			itemsByKey
-				at: anItem firstKey 
-				put:
-					(IdentityDictionary new
-						at: anItem secondKey put: anItem;
-						yourself) ]
-		ifNotNil: [ :dict | dict at: anItem secondKey put: anItem ]
-]
-
 { #category : #accessing }
 JEColumn >> like: anItem [
 	" Answer an item in the receiver that is equal to anItem, nil if no such item is found. 
 	 Optimize for efficiency.
 	^ itemsByKey detect: [ :each | each equals: anItem ] ifNone: [ nil ] "
 
-	(itemsByKey at: anItem firstKey ifAbsent: nil)
-		ifNotNil: [ :dict | 
-			(dict at: anItem secondKey ifAbsent: nil)
-				ifNotNil: [ :found | 
-					^ (found equals: anItem) ifTrue: [ found ]	ifFalse: [ nil ] ] ].
-	^ nil
+	^ itemsByKey
+		jeAt: anItem firstKey
+		at: anItem secondKey
+		ifPresent: [ :found | 
+			(found equals: anItem)
+				ifTrue: [ found ]
+				ifFalse: [ nil ] ]
+		ifAbsent: [ nil ]
 ]
 
 { #category : #adding }
@@ -202,12 +185,10 @@ JEColumn >> moveDotForward: previousItem [
 			then return it 
 			else add it last"
 
-	(itemsByKey at: previousItem dottedRule moveDotForward ifAbsent: nil)
-		ifNotNil: [ :dict | 
-			(dict at: previousItem start ifAbsent: nil)
-				ifNotNil: [ :found | ^ found ] ].
-
-	^ self basicAdd: previousItem moveDotForward
+	^ itemsByKey
+		jeAt: previousItem dottedRule moveDotForward
+		at: previousItem start
+		ifAbsentPut: [ self basicAdd: previousItem moveDotForward ]
 ]
 
 { #category : #accessing }

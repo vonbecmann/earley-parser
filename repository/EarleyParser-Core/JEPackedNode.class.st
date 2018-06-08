@@ -52,7 +52,8 @@ JEPackedNode >> acceptVisitor: aVisitor [
 { #category : #accessing }
 JEPackedNode >> addFamily: aFamily [
 	familiesByKey
-		jeAt: aFamily key
+		jeAt: aFamily first
+		at: aFamily second
 		ifAbsentPut: 
 			[ 	aFamily parent: self.
 				families := families copyWith: aFamily.
@@ -83,7 +84,7 @@ JEPackedNode >> hash [
 JEPackedNode >> initialize [
 	super initialize.
 	families := #().
-	familiesByKey := Dictionary new
+	familiesByKey := IdentityDictionary new
 ]
 
 { #category : #initialization }

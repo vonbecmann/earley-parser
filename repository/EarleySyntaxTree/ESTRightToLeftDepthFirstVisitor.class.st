@@ -12,7 +12,7 @@ Class {
 { #category : #visiting }
 ESTRightToLeftDepthFirstVisitor >> visitNode: aGivenTreeNode [
 	| visitStack |
-	visitStack := SinglyLinkedStack with: (JEOrderedPair first: aGivenTreeNode second: false).
+	visitStack := SinglyLinkedStack with: (OrderedPair first: aGivenTreeNode second: false).
 	[ visitStack isEmpty ]
 		whileFalse: [ 
 			| element node visited |
@@ -26,5 +26,5 @@ ESTRightToLeftDepthFirstVisitor >> visitNode: aGivenTreeNode [
 				ifFalse: 
 					[	element second: true.
 						preOrderBlock ifNotNil: [ preOrderBlock cull: node ].
-						node children do: [ :child | visitStack push: (JEOrderedPair first: child second: false) ] ] ]
+						node children do: [ :child | visitStack push: (OrderedPair first: child second: false) ] ] ]
 ]

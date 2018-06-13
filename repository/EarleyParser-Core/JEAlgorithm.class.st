@@ -34,7 +34,8 @@ JEAlgorithm >> complete: item at: column [
 JEAlgorithm >> evaluate: words [
 	| n chart |
 	n := words size + 1.
-	chart := (1 to: n) collect: [ :index | JEColumn number: index ].
+	chart := Array new: n.
+	1 to: n do: [ :index | chart at: index put: (JEColumn number: index) ].
 	chart first add: (grammar startRule dotAtBeginning startedAt: chart first).
 	1 to: n do: [ :i | 
 		| column |

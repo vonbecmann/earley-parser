@@ -135,12 +135,12 @@ JEDottedItem >> moveDotForward [
 
 { #category : #parsing }
 JEDottedItem >> node [
-	node
+	^ node
 		ifNil: [ 
 			node := JEPackedNode model: self.
 			self isEpsilon
-				ifTrue: [ node addFamily: JEFamily empty ] ].
-	^ node
+				ifTrue: [ node addFamily: JEFamily empty ].
+			node ]
 ]
 
 { #category : #accessing }

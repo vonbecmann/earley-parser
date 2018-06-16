@@ -148,7 +148,6 @@ JEColumn >> includes: anItem [
 
 { #category : #initialization }
 JEColumn >> initialize [
-	super initialize.
 	itemsToProcess := SinglyLinkedQueue new.
 	items := SinglyLinkedList new.
 	predictionItemsByNonterminal := IdentityDictionary new.

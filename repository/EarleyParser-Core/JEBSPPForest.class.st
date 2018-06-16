@@ -27,7 +27,6 @@ JEBSPPForest >> acceptVisitor: aVisitor [
 
 { #category : #initialization }
 JEBSPPForest >> initializeRoot: aPackedNode [
-	self initialize.
 	root := aPackedNode
 ]
 

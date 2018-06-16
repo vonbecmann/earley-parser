@@ -82,7 +82,6 @@ JEPackedNode >> hash [
 
 { #category : #initialization }
 JEPackedNode >> initialize [
-	super initialize.
 	families := #().
 	familiesByKey := IdentityDictionary new
 ]

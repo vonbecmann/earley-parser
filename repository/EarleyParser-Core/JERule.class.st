@@ -92,10 +92,11 @@ JERule >> head [
 
 { #category : #initialization }
 JERule >> initializeHead: aNonterminal body: aCollection [
-	self initialize.
 	head := aNonterminal.
 	body := aCollection asArray.
-	dottedRules := (1 to: body size + 1) collect: [ :each | JEDottedRule given: self withDotAt: each ].
+	dottedRules := Array new: body size + 1.
+	1 to: dottedRules size 
+	  		do: [ :index | dottedRules at: index put: (JEDottedRule given: self withDotAt: index) ].
 	dottedRules reversed
 		inject: nil
 		into: [ :nextDottedRule :each | 

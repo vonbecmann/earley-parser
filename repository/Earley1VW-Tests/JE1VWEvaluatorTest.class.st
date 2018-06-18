@@ -10,7 +10,7 @@ Class {
 { #category : #asserting }
 JE1VWEvaluatorTest >> assertGrammarAt: subgrammar evaluates: aString equals: expected [
 	self 
-		assert: (evaluator evaluateTree: (subgrammar parseTree: aString)) 
+		assert: (evaluator startAt: subgrammar evaluate: aString) 
 		equals: expected
 ]
 

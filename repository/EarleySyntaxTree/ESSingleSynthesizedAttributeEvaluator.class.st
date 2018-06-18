@@ -83,3 +83,8 @@ ESSingleSynthesizedAttributeEvaluator >> initializeGrammar: aGrammar andRuleToAc
 	grammar := aGrammar.
 	ruleAndActionAssociationCollection do: [ :each | ruleToAction at: (grammar ruleAt: each key) put: each value ]
 ]
+
+{ #category : #public }
+ESSingleSynthesizedAttributeEvaluator >> startAt: subgrammar evaluate: aString [
+	^ self evaluateTree: (subgrammar parseTree: aString)
+]

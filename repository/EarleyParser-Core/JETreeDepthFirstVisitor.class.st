@@ -12,7 +12,7 @@ it isn't ambiguous
 Class {
 	#name : #JETreeDepthFirstVisitor,
 	#superclass : #JEDepthFirstVisitor,
-	#category : #'EarleySyntaxTree-Implementation'
+	#category : #'EarleyParser-Core-Parsing'
 }
 
 { #category : #visiting }

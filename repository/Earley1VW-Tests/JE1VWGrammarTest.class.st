@@ -39,6 +39,12 @@ JE1VWGrammarTest >> setUp [
 	tree := nil
 ]
 
+{ #category : #running }
+JE1VWGrammarTest >> tearDown [
+	grammar := tree := rule := notion := ruleList := nil.
+	super tearDown
+]
+
 { #category : #'tests - notion' }
 JE1VWGrammarTest >> testAcceptsNotion01 [
 	self assertGrammarAt: notion accepts: 'left part list'

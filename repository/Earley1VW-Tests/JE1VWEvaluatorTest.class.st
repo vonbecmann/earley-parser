@@ -1,6 +1,6 @@
 Class {
 	#name : #JE1VWEvaluatorTest,
-	#superclass : #TestCase,
+	#superclass : #JE1VWGrammarTest,
 	#instVars : [
 		'evaluator'
 	],
@@ -21,9 +21,16 @@ JE1VWEvaluatorTest >> assertThatEvaluates: aString startingAt: aNonterminalNamed
 		equals: expected
 ]
 
-{ #category : #initialization }
+{ #category : #running }
 JE1VWEvaluatorTest >> setUp [
+	super setUp.
 	evaluator := JE1VWParser oneLevelVWEvaluator
+]
+
+{ #category : #running }
+JE1VWEvaluatorTest >> tearDown [
+	evaluator := nil.
+	super tearDown
 ]
 
 { #category : #tests }

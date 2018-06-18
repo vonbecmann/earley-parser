@@ -217,7 +217,8 @@ JEGrammar >> rulesSize [
 
 { #category : #'instance creation' }
 JEGrammar >> startAt: aNonterminalNamed [
-	"a grammar based on a collection of rules, starting at the given nonterminal."
+	" a new subgrammar based on a collection of rules, 
+	starting at the given nonterminal that acts as the new root."
 
 	^ self class
 		productionRules: productionRules

@@ -6,12 +6,13 @@ a binary shared packed parse forest that has only one tree.
 
 in other words you visit each node two times.
 it isn't ambiguous
+it is useful because it is faster.
 
 
 "
 Class {
 	#name : #JETreeDepthFirstVisitor,
-	#superclass : #JEDepthFirstVisitor,
+	#superclass : #JEBSPPFVisitor,
 	#category : #'EarleyParser-Core-Parsing'
 }
 

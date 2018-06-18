@@ -34,7 +34,7 @@ ESSingleSynthesizedAttributeEvaluator >> evaluate: aString [
 
 { #category : #public }
 ESSingleSynthesizedAttributeEvaluator >> evaluate: aString startingAt: aNonterminalNamed [
-	^ self evaluateTree: (grammar parseTree: aString startingAt: aNonterminalNamed)
+	^ self evaluateTree: ((grammar startAt: aNonterminalNamed) parseTree: aString)
 ]
 
 { #category : #public }

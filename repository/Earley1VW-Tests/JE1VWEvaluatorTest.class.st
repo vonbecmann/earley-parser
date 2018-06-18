@@ -261,3 +261,20 @@ JE1VWEvaluatorTest >> testEvaluatesRule09 [
 					(NCNonterminal named: 'greater than symbol').
 					(NCNonterminal named: 'term')})}
 ]
+
+{ #category : #'tests - rule list' }
+JE1VWEvaluatorTest >> testEvaluatesRuleList01 [
+	self
+		assertGrammarAt: ruleList
+		evaluates: 'expression:term.expression:expression,plus symbol,term.'
+		equals:
+			{(NCProductionRule 
+				headNamed: 'expression' 
+				body: {(NCNonterminal named: 'term')}).
+			(NCProductionRule
+				headNamed: 'expression'
+				body:
+					{(NCNonterminal named: 'expression').
+					(NCNonterminal named: 'plus symbol').
+					(NCNonterminal named: 'term')})}
+]

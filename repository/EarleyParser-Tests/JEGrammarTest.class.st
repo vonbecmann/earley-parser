@@ -112,15 +112,15 @@ JEGrammarTest >> testRuleAtNonterminal03 [
 
 { #category : #tests }
 JEGrammarTest >> testStartAtNonterminal01 [
-	| grammarStartingAtB |
+	| subgrammarStartingAtB |
 	grammar := JEGrammar 
 						productionRules: #(#('A' #('B')) #('A' #()) #('A' #('letter x symbol')) #('B' #())) 
 						representations: {('letter x symbol' -> (NCTerminal character: $x))}.
 			
 	self assert: grammar rulesSize equals: 5.
-	grammarStartingAtB := grammar startAt: 'B'.
-	self assert: grammarStartingAtB rulesSize equals: 5.
-	self assert: grammarStartingAtB startRule body first equals: (NCNonterminal named: 'B')
+	subgrammarStartingAtB := grammar startAt: 'B'.
+	self assert: subgrammarStartingAtB rulesSize equals: 5.
+	self assert: subgrammarStartingAtB startRule body first equals: (NCNonterminal named: 'B')
 ]
 
 { #category : #tests }

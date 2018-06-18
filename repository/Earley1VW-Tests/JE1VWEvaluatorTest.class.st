@@ -8,16 +8,16 @@ Class {
 }
 
 { #category : #asserting }
-JE1VWEvaluatorTest >> assertThatEvaluates: aString equals: expected [
+JE1VWEvaluatorTest >> assertGrammarAt: subgrammar evaluates: aString equals: expected [
 	self 
-		assert: (evaluator evaluate: aString) 
+		assert: (evaluator evaluateTree: (subgrammar parseTree: aString)) 
 		equals: expected
 ]
 
 { #category : #asserting }
-JE1VWEvaluatorTest >> assertThatEvaluates: aString startingAt: aNonterminalNamed equals: expected [
+JE1VWEvaluatorTest >> assertThatEvaluates: aString equals: expected [
 	self 
-		assert: (evaluator evaluate: aString startingAt: aNonterminalNamed) 
+		assert: (evaluator evaluate: aString) 
 		equals: expected
 ]
 
@@ -126,133 +126,138 @@ product: a symbol.'
 
 { #category : #'tests - notion' }
 JE1VWEvaluatorTest >> testEvaluatesNotion01 [
-	self 
-		assertThatEvaluates: 'left part list' 
-		startingAt: 'notion' 
+	self
+		assertGrammarAt: notion
+		evaluates: 'left part list'
 		equals: (NCNonterminal named: 'left part list')
 ]
 
 { #category : #'tests - notion' }
 JE1VWEvaluatorTest >> testEvaluatesNotion02 [
-	self 
-		assertThatEvaluates: 'left part' 
-		startingAt: 'notion' 
+	self
+		assertGrammarAt: notion
+		evaluates: 'left part'
 		equals: (NCNonterminal named: 'left part')
 ]
 
 { #category : #'tests - notion' }
 JE1VWEvaluatorTest >> testEvaluatesNotion03 [
-	self 
-		assertThatEvaluates: 'letter' 
-		startingAt: 'notion' 
+	self
+		assertGrammarAt: notion
+		evaluates: 'letter'
 		equals: (NCNonterminal named: 'letter')
 ]
 
 { #category : #'tests - rule' }
 JE1VWEvaluatorTest >> testEvaluatesRule01 [
 	self
-		assertThatEvaluates: 'expression:term.'
-		startingAt: 'rule'
+		assertGrammarAt: rule
+		evaluates: 'expression:term.'
 		equals:
-			{(NCProductionRule 
-					headNamed: 'expression'
-					body: {(NCNonterminal named: 'term')})}
+			{(NCProductionRule
+				headNamed: 'expression'
+				body: {(NCNonterminal named: 'term')})}
 ]
 
 { #category : #'tests - rule' }
 JE1VWEvaluatorTest >> testEvaluatesRule02 [
-	self 
-		assertThatEvaluates: 'expression:expression,plus symbol,term.'
-		startingAt: 'rule' 
-		equals: 
-			{	(NCProductionRule
-					headNamed: 'expression'
-					body: {	(NCNonterminal named: 'expression').
-								(NCNonterminal named: 'plus symbol').
-								(NCNonterminal named: 'term')})}
+	self
+		assertGrammarAt: rule
+		evaluates: 'expression:expression,plus symbol,term.'
+		equals:
+			{(NCProductionRule
+				headNamed: 'expression'
+				body:
+					{(NCNonterminal named: 'expression').
+					(NCNonterminal named: 'plus symbol').
+					(NCNonterminal named: 'term')})}
 ]
 
 { #category : #'tests - rule' }
 JE1VWEvaluatorTest >> testEvaluatesRule03 [
-	self 
-		assertThatEvaluates: 'expression:.' 
-		startingAt: 'rule' 
+	self
+		assertGrammarAt: rule
+		evaluates: 'expression:.'
 		equals: {(NCProductionRule headNamed: 'expression' body: {})}
 ]
 
 { #category : #'tests - rule' }
 JE1VWEvaluatorTest >> testEvaluatesRule04 [
 	self
-		assertThatEvaluates: 'expression: term; .'
-		startingAt: 'rule'
+		assertGrammarAt: rule
+		evaluates: 'expression: term; .'
 		equals:
-			{	(NCProductionRule 
-					headNamed: 'expression'
-					body: {(NCNonterminal named: 'term')}).
-				(NCProductionRule headNamed: 'expression' body: {})}
+			{(NCProductionRule
+				headNamed: 'expression'
+				body: {(NCNonterminal named: 'term')}).
+			(NCProductionRule headNamed: 'expression' body: {})}
 ]
 
 { #category : #'tests - rule' }
 JE1VWEvaluatorTest >> testEvaluatesRule05 [
-	self 
-		assertThatEvaluates: 'expression: .' 
-		startingAt: 'rule' 
+	self
+		assertGrammarAt: rule
+		evaluates: 'expression: .'
 		equals: {(NCProductionRule headNamed: 'expression' body: {})}
 ]
 
 { #category : #'tests - rule' }
 JE1VWEvaluatorTest >> testEvaluatesRule06 [
-	self 
-		assertThatEvaluates: 'expression: expression, plus symbol, term;.'
-		startingAt: 'rule' 
-		equals: 
-			{	(NCProductionRule
-					headNamed: 'expression'
-					body: {	(NCNonterminal named: 'expression').
-								(NCNonterminal named: 'plus symbol').
-								(NCNonterminal named: 'term')}).
-				(NCProductionRule headNamed: 'expression' body: {})}
+	self
+		assertGrammarAt: rule
+		evaluates: 'expression: expression, plus symbol, term;.'
+		equals:
+			{(NCProductionRule
+				headNamed: 'expression'
+				body:
+					{(NCNonterminal named: 'expression').
+					(NCNonterminal named: 'plus symbol').
+					(NCNonterminal named: 'term')}).
+			(NCProductionRule headNamed: 'expression' body: {})}
 ]
 
 { #category : #'tests - rule' }
 JE1VWEvaluatorTest >> testEvaluatesRule07 [
-	self 
-		assertThatEvaluates:
-'expression: 
+	self
+		assertGrammarAt: rule
+		evaluates:
+			'expression: 
 	expression, plus symbol, term;
 		.'
-		startingAt: 'rule' 
-		equals: 
-			{	(NCProductionRule
-					headNamed: 'expression'
-					body: {	(NCNonterminal named: 'expression').
-								(NCNonterminal named: 'plus symbol').
-								(NCNonterminal named: 'term')}).
-				(NCProductionRule headNamed: 'expression' body: {})}
+		equals:
+			{(NCProductionRule
+				headNamed: 'expression'
+				body:
+					{(NCNonterminal named: 'expression').
+					(NCNonterminal named: 'plus symbol').
+					(NCNonterminal named: 'term')}).
+			(NCProductionRule headNamed: 'expression' body: {})}
 ]
 
 { #category : #'tests - rule' }
 JE1VWEvaluatorTest >> testEvaluatesRule08 [
-	self 
-		assertThatEvaluates: 'expression: expression, less  than  symbol, term.'
-		startingAt: 'rule' 
-		equals: 
-			{	(NCProductionRule
-					headNamed: 'expression'
-					body: {	(NCNonterminal named: 'expression').
-								(NCNonterminal named: 'less than symbol').
-								(NCNonterminal named: 'term')}) }
+	self
+		assertGrammarAt: rule
+		evaluates: 'expression: expression, less  than  symbol, term.'
+		equals:
+			{(NCProductionRule
+				headNamed: 'expression'
+				body:
+					{(NCNonterminal named: 'expression').
+					(NCNonterminal named: 'less than symbol').
+					(NCNonterminal named: 'term')})}
 ]
 
 { #category : #'tests - rule' }
 JE1VWEvaluatorTest >> testEvaluatesRule09 [
-	self 
-		assertThatEvaluates: 'expression:expression,greater than symbol,term.'
-		startingAt: 'rule' 
-		equals: 
-			{	(NCProductionRule
-					headNamed: 'expression'
-					body: {	(NCNonterminal named: 'expression').
-								(NCNonterminal named: 'greater than symbol').
-								(NCNonterminal named: 'term')}) }
+	self
+		assertGrammarAt: rule
+		evaluates: 'expression:expression,greater than symbol,term.'
+		equals:
+			{(NCProductionRule
+				headNamed: 'expression'
+				body:
+					{(NCNonterminal named: 'expression').
+					(NCNonterminal named: 'greater than symbol').
+					(NCNonterminal named: 'term')})}
 ]

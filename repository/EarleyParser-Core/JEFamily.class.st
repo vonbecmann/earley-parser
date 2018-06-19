@@ -67,6 +67,14 @@ JEFamily >> acceptVisitor: aVisitor [
 { #category : #visiting }
 JEFamily >> children [
 	^ children
+		ifNil: [ 
+			children := 
+				first
+					ifNil: [ #() ]
+					ifNotNil: [ 
+						second 
+							ifNil: [ {first} ] 
+							ifNotNil: [ {first.	second} ] ] ]
 ]
 
 { #category : #accessing }
@@ -89,12 +97,7 @@ JEFamily >> hash [
 JEFamily >> initializeFirst: firstPackedNode andSecond: secondPackedNode [
 	first := firstPackedNode.
 	second := secondPackedNode.
-	children := first
-		ifNil: [ #() ]
-		ifNotNil: [ 
-			second
-				ifNil: [ {first} ]
-				ifNotNil: [ {first. second} ] ]
+	children := nil
 ]
 
 { #category : #testing }
@@ -143,5 +146,5 @@ JEFamily >> second [
 
 { #category : #accessing }
 JEFamily >> size [
-	^ children size
+	^ self children size
 ]

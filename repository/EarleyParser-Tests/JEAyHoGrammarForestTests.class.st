@@ -7,8 +7,7 @@ Class {
 { #category : #running }
 JEAyHoGrammarForestTests >> setUp [
 	super setUp.
-	grammar := JEExemplar AyHo.
-	forest := nil
+	grammar := JEExemplar AyHo
 ]
 
 { #category : #tests }

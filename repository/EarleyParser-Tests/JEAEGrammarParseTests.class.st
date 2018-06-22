@@ -11,8 +11,7 @@ Class {
 { #category : #running }
 JEAEGrammarParseTests >> setUp [
 	super setUp.
-	grammar := JEExemplar AE.
-	forest := nil
+	grammar := JEExemplar AE
 ]
 
 { #category : #'tests - failure' }

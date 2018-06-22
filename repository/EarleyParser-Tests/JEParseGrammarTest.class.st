@@ -20,6 +20,12 @@ JEParseGrammarTest class >> isAbstract [
 ]
 
 { #category : #running }
+JEParseGrammarTest >> setUp [
+	super setUp.
+	grammar := forest := nil
+]
+
+{ #category : #running }
 JEParseGrammarTest >> tearDown [
 	grammar := forest := nil.
 	super tearDown

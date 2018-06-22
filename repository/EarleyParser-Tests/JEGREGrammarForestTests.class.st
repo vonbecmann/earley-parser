@@ -1,14 +1,12 @@
 Class {
 	#name : #JEGREGrammarForestTests,
-	#superclass : #TestCase,
-	#instVars : [
-		'grammar'
-	],
-	#category : 'EarleyParser-Tests-Parsing'
+	#superclass : #JEParseGrammarTest,
+	#category : #'EarleyParser-Tests-Parsing'
 }
 
 { #category : #running }
 JEGREGrammarForestTests >> setUp [
+	super setUp.
 	grammar := JEExemplar GRE
 ]
 
@@ -16,7 +14,6 @@ JEGREGrammarForestTests >> setUp [
 JEGREGrammarForestTests >> testParse_ededeab10 [
 	"ededeab^10"
 
-	| forest |
 	forest := grammar parse: 'ededeabbbbbbbbbb'.
 
 	self assert: forest isAmbiguous.

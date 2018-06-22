@@ -1,20 +1,18 @@
 Class {
 	#name : #JEIdentifierGrammarTests,
-	#superclass : #TestCase,
-	#instVars : [
-		'grammar'
-	],
-	#category : 'EarleyParser-Tests-Parsing'
+	#superclass : #JEParseGrammarTest,
+	#category : #'EarleyParser-Tests-Parsing'
 }
 
 { #category : #running }
 JEIdentifierGrammarTests >> setUp [
+	super setUp.
 	grammar := JEExemplar identifier
 ]
 
 { #category : #tests }
 JEIdentifierGrammarTests >> testParse01 [
-	| forest |
+
 	forest := grammar parse: 'word_symbol'.
 	self deny: forest isAmbiguous.
 	self

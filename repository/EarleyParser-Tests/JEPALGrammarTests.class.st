@@ -13,6 +13,7 @@ Class {
 
 { #category : #running }
 JEPALGrammarTests >> setUp [
+	super setUp.
 	grammar := JEExemplar PAL
 ]
 

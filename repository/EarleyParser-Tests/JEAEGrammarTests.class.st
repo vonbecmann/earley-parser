@@ -15,6 +15,7 @@ Class {
 
 { #category : #running }
 JEAEGrammarTests >> setUp [
+	super setUp.
 	grammar := JEExemplar AE
 ]
 

@@ -11,6 +11,7 @@ Class {
 
 { #category : #running }
 JEEpsilonGrammar3Tests >> setUp [
+	super setUp.
 	grammar := JEGrammar
 		productionRules: 
 			#(	#(E #(E Q F)) 

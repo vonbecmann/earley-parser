@@ -6,6 +6,7 @@ Class {
 
 { #category : #running }
 JEEpsilonGrammarTests >> setUp [
+	super setUp.
 	grammar := 
 		JEGrammar
 			productionRules: 

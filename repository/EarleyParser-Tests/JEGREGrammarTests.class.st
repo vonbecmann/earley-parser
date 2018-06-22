@@ -12,6 +12,7 @@ Class {
 
 { #category : #running }
 JEGREGrammarTests >> setUp [
+	super setUp.
 	grammar := JEExemplar GRE
 ]
 

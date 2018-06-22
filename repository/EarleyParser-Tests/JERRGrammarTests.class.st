@@ -11,6 +11,7 @@ Class {
 
 { #category : #running }
 JERRGrammarTests >> setUp [
+	super setUp.
 	grammar := JEExemplar RR
 ]
 

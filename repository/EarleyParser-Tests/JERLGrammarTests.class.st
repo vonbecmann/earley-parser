@@ -6,6 +6,7 @@ Class {
 
 { #category : #initialization }
 JERLGrammarTests >> setUp [
+	super setUp.
 	grammar := JEExemplar RL
 ]
 

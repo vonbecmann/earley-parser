@@ -14,6 +14,7 @@ Class {
 
 { #category : #running }
 JEDoubleQuoteCommentGrammarTests >> setUp [
+	super setUp.
 	grammar := JEGrammar
 		productionRules:
 #(	#('comment' 

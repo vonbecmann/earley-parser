@@ -18,6 +18,7 @@ Class {
 
 { #category : #running }
 JEBKGrammarTests >> setUp [
+	super setUp.
 	grammar := JEExemplar BK
 ]
 

@@ -15,6 +15,7 @@ Class {
 
 { #category : #running }
 JEAyHoGrammarTests >> setUp [
+	super setUp.
 	grammar := JEExemplar AyHo
 ]
 

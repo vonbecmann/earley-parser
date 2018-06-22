@@ -13,6 +13,7 @@ Class {
 
 { #category : #running }
 JEUBDAGrammarTests >> setUp [
+	super setUp.
 	grammar := JEExemplar UBDA
 ]
 

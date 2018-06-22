@@ -7,11 +7,11 @@ unambiguous grammar that requires time n^2
 "
 Class {
 	#name : #JEPALGrammarTests,
-	#superclass : #TestCase,
+	#superclass : #JERecognizeGrammarTest,
 	#instVars : [
 		'grammar'
 	],
-	#category : 'EarleyParser-Tests-Grammar'
+	#category : #'EarleyParser-Tests-Grammar'
 }
 
 { #category : #running }

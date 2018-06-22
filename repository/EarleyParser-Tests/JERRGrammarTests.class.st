@@ -5,11 +5,11 @@ A ->  x A | x
 "
 Class {
 	#name : #JERRGrammarTests,
-	#superclass : #TestCase,
+	#superclass : #JERecognizeGrammarTest,
 	#instVars : [
 		'grammar'
 	],
-	#category : 'EarleyParser-Tests-Grammar'
+	#category : #'EarleyParser-Tests-Grammar'
 }
 
 { #category : #running }

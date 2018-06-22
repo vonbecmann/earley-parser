@@ -1,6 +1,6 @@
 Class {
 	#name : #JERLGrammarTests,
-	#superclass : #TestCase,
+	#superclass : #JERecognizeGrammarTest,
 	#instVars : [
 		'grammar'
 	],

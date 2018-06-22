@@ -12,11 +12,11 @@ sentences: x ^ n  (n >=0)
 "
 Class {
 	#name : #JEBKGrammarTests,
-	#superclass : #TestCase,
+	#superclass : #JERecognizeGrammarTest,
 	#instVars : [
 		'grammar'
 	],
-	#category : 'EarleyParser-Tests-Grammar'
+	#category : #'EarleyParser-Tests-Grammar'
 }
 
 { #category : #running }

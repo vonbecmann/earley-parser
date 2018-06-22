@@ -10,11 +10,11 @@ sentences: a ^ n (n>=0)
 "
 Class {
 	#name : #JEBPGrammarTests,
-	#superclass : #TestCase,
+	#superclass : #JERecognizeGrammarTest,
 	#instVars : [
 		'grammar'
 	],
-	#category : 'EarleyParser-Tests-Grammar'
+	#category : #'EarleyParser-Tests-Grammar'
 }
 
 { #category : #running }

@@ -1,11 +1,11 @@
 Class {
 	#name : #JEAEGrammarForestTests,
-	#superclass : #TestCase,
+	#superclass : #JEParseGrammarTest,
 	#instVars : [
 		'grammar',
 		'forest'
 	],
-	#category : 'EarleyParser-Tests-Parsing'
+	#category : #'EarleyParser-Tests-Parsing'
 }
 
 { #category : #running }

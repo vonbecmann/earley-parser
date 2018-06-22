@@ -4,12 +4,12 @@ arithmetic grammar parse tests.
 "
 Class {
 	#name : #JEAEGrammarParseTests,
-	#superclass : #TestCase,
+	#superclass : #JEParseGrammarTest,
 	#instVars : [
 		'grammar',
 		'forest'
 	],
-	#category : 'EarleyParser-Tests-Parsing'
+	#category : #'EarleyParser-Tests-Parsing'
 }
 
 { #category : #running }

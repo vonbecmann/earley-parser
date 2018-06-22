@@ -6,6 +6,7 @@ Class {
 
 { #category : #running }
 JEBKGrammarForestTests >> setUp [
+	super setUp.
 	grammar := JEExemplar BK.
 	forest := nil
 ]

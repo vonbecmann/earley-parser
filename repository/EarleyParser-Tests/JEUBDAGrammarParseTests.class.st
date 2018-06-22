@@ -6,6 +6,7 @@ Class {
 
 { #category : #running }
 JEUBDAGrammarParseTests >> setUp [
+	super setUp.
 	grammar := JEExemplar UBDA.
 	forest := nil
 ]

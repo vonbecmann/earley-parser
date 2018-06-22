@@ -18,3 +18,9 @@ JEParseGrammarTest class >> isAbstract [
 
 	^ self name = #JEParseGrammarTest
 ]
+
+{ #category : #running }
+JEParseGrammarTest >> tearDown [
+	grammar := forest := nil.
+	super tearDown
+]

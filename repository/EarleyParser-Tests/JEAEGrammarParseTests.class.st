@@ -10,6 +10,7 @@ Class {
 
 { #category : #running }
 JEAEGrammarParseTests >> setUp [
+	super setUp.
 	grammar := JEExemplar AE.
 	forest := nil
 ]

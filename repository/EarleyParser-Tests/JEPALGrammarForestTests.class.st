@@ -6,6 +6,7 @@ Class {
 
 { #category : #running }
 JEPALGrammarForestTests >> setUp [
+	super setUp.
 	grammar := JEExemplar PAL.
 	forest := nil
 ]

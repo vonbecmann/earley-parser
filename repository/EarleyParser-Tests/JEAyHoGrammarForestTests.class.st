@@ -6,6 +6,7 @@ Class {
 
 { #category : #running }
 JEAyHoGrammarForestTests >> setUp [
+	super setUp.
 	grammar := JEExemplar AyHo.
 	forest := nil
 ]

@@ -9,25 +9,7 @@ Class {
 
 { #category : #running }
 JEIdentifierGrammarTests >> setUp [
-	grammar := JEGrammar
-		productionRules:
-			#(	#('identifier' #('letter symbol' 'word symbol star')) 
-				#('word symbol star' #('word symbol' 'word symbol star')) 
-				#('word symbol star' #()))
-		representations:
-			{('letter symbol' -> (NCTerminal charSet: ($a to: $z), ($A to: $Z))).
-			('word symbol' -> (NCTerminal charSet: ($a to: $z), ($A to: $Z), ($0 to: $9), '_'))}
-]
-
-{ #category : #tests }
-JEIdentifierGrammarTests >> testEmpty [
-	self deny: (grammar accepts: '')
-]
-
-{ #category : #tests }
-JEIdentifierGrammarTests >> testOneLetter [
-	self assert: (grammar accepts: 'a').
-	self assert: (grammar accepts: 'A')
+	grammar := JEExemplar identifier
 ]
 
 { #category : #tests }
@@ -77,12 +59,4 @@ JEIdentifierGrammarTests >> testParseExpectsLetter [
 			self 
 				assertCollection: failure expectedSymbols 
 				hasSameElements: {(NCNonterminal named: 'letter symbol')} ]
-]
-
-{ #category : #tests }
-JEIdentifierGrammarTests >> testTwoLetters [
-	self assert: (grammar accepts: 'a_').
-	self assert: (grammar accepts: 'a2').
-	self assert: (grammar accepts: 'A_').
-	self assert: (grammar accepts: 'A3')
 ]

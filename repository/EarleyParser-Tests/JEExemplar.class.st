@@ -134,3 +134,15 @@ JEExemplar class >> UBDA [
 		productionRules: #(#('A' #('letter x symbol')) #('A' #('A' 'A')))
 		representations: {('letter x symbol' -> (NCTerminal character: $x))}
 ]
+
+{ #category : #'instance creation' }
+JEExemplar class >> identifier [
+	^ JEGrammar
+		productionRules:
+			#(	#('identifier' #('letter symbol' 'word symbol star')) 
+				#('word symbol star' #('word symbol' 'word symbol star')) 
+				#('word symbol star' #()))
+		representations:
+			{('letter symbol' -> (NCTerminal charSet: ($a to: $z) , ($A to: $Z))).
+			('word symbol' -> (NCTerminal charSet: ($a to: $z) , ($A to: $Z) , ($0 to: $9) , '_'))}
+]

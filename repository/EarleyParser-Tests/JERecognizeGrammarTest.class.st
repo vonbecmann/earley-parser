@@ -20,6 +20,12 @@ JERecognizeGrammarTest class >> isAbstract [
 ]
 
 { #category : #running }
+JERecognizeGrammarTest >> setUp [
+	super setUp.
+	grammar := nil
+]
+
+{ #category : #running }
 JERecognizeGrammarTest >> tearDown [
 	grammar := nil.
 	super tearDown

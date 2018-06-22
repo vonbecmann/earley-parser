@@ -8,9 +8,6 @@ unambiguous grammar that requires time n^2
 Class {
 	#name : #JEPALGrammarTests,
 	#superclass : #JERecognizeGrammarTest,
-	#instVars : [
-		'grammar'
-	],
 	#category : #'EarleyParser-Tests-Grammar'
 }
 

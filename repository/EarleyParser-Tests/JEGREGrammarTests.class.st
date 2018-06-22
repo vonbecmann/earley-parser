@@ -7,9 +7,6 @@ Y -> e | YdY
 Class {
 	#name : #JEGREGrammarTests,
 	#superclass : #JERecognizeGrammarTest,
-	#instVars : [
-		'grammar'
-	],
 	#category : #'EarleyParser-Tests-Grammar'
 }
 

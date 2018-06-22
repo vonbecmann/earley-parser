@@ -10,9 +10,6 @@ page 2, figure 2
 Class {
 	#name : #JEAyHoGrammarTests,
 	#superclass : #JERecognizeGrammarTest,
-	#instVars : [
-		'grammar'
-	],
 	#category : #'EarleyParser-Tests-Grammar'
 }
 

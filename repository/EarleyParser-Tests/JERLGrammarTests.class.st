@@ -1,9 +1,6 @@
 Class {
 	#name : #JERLGrammarTests,
 	#superclass : #JERecognizeGrammarTest,
-	#instVars : [
-		'grammar'
-	],
 	#category : #'EarleyParser-Tests-Grammar'
 }
 

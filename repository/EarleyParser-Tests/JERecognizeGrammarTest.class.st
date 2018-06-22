@@ -5,6 +5,9 @@ recognize a grammar test.
 Class {
 	#name : #JERecognizeGrammarTest,
 	#superclass : #TestCase,
+	#instVars : [
+		'grammar'
+	],
 	#category : #'EarleyParser-Tests-Grammar'
 }
 
@@ -14,4 +17,10 @@ JERecognizeGrammarTest class >> isAbstract [
 	TestCase instances built from it"
 
 	^ self name = #JERecognizeGrammarTest
+]
+
+{ #category : #running }
+JERecognizeGrammarTest >> tearDown [
+	grammar := nil.
+	super tearDown
 ]

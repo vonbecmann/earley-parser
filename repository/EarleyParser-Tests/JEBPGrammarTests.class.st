@@ -11,9 +11,6 @@ sentences: a ^ n (n>=0)
 Class {
 	#name : #JEBPGrammarTests,
 	#superclass : #JERecognizeGrammarTest,
-	#instVars : [
-		'grammar'
-	],
 	#category : #'EarleyParser-Tests-Grammar'
 }
 

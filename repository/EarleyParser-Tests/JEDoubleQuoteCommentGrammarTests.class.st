@@ -9,9 +9,6 @@ comment:
 Class {
 	#name : #JEDoubleQuoteCommentGrammarTests,
 	#superclass : #JERecognizeGrammarTest,
-	#instVars : [
-		'grammar'
-	],
 	#category : #'EarleyParser-Tests-Grammar'
 }
 

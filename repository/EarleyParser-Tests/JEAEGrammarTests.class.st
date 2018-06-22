@@ -10,9 +10,6 @@ root:
 Class {
 	#name : #JEAEGrammarTests,
 	#superclass : #JERecognizeGrammarTest,
-	#instVars : [
-		'grammar'
-	],
 	#category : #'EarleyParser-Tests-Grammar'
 }
 

@@ -6,9 +6,6 @@ Parsing Techniques, 2008
 Class {
 	#name : #JEEpsilonGrammar3Tests,
 	#superclass : #JERecognizeGrammarTest,
-	#instVars : [
-		'grammar'
-	],
 	#category : #'EarleyParser-Tests-Grammar'
 }
 

@@ -8,9 +8,6 @@ requires time proportional to n^3
 Class {
 	#name : #JEUBDAGrammarTests,
 	#superclass : #JERecognizeGrammarTest,
-	#instVars : [
-		'grammar'
-	],
 	#category : #'EarleyParser-Tests-Grammar'
 }
 

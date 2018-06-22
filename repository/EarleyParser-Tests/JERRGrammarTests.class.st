@@ -6,9 +6,6 @@ A ->  x A | x
 Class {
 	#name : #JERRGrammarTests,
 	#superclass : #JERecognizeGrammarTest,
-	#instVars : [
-		'grammar'
-	],
 	#category : #'EarleyParser-Tests-Grammar'
 }
 

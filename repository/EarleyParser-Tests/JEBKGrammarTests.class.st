@@ -13,9 +13,6 @@ sentences: x ^ n  (n >=0)
 Class {
 	#name : #JEBKGrammarTests,
 	#superclass : #JERecognizeGrammarTest,
-	#instVars : [
-		'grammar'
-	],
 	#category : #'EarleyParser-Tests-Grammar'
 }
 

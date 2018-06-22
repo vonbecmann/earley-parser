@@ -4,10 +4,6 @@ parsing tests for the BK Grammar .
 Class {
 	#name : #JEBKGrammarParseTests,
 	#superclass : #JEParseGrammarTest,
-	#instVars : [
-		'grammar',
-		'forest'
-	],
 	#category : #'EarleyParser-Tests-Parsing'
 }
 

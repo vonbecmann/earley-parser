@@ -5,10 +5,6 @@ arithmetic grammar parse tests.
 Class {
 	#name : #JEAEGrammarParseTests,
 	#superclass : #JEParseGrammarTest,
-	#instVars : [
-		'grammar',
-		'forest'
-	],
 	#category : #'EarleyParser-Tests-Parsing'
 }
 

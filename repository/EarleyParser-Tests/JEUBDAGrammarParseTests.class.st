@@ -1,10 +1,6 @@
 Class {
 	#name : #JEUBDAGrammarParseTests,
 	#superclass : #JEParseGrammarTest,
-	#instVars : [
-		'grammar',
-		'forest'
-	],
 	#category : #'EarleyParser-Tests-Parsing'
 }
 

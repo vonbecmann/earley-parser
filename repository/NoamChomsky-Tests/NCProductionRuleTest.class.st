@@ -96,3 +96,17 @@ NCProductionRuleTest >> testEquals03 [
 	self deny: other hash = one hash.
 	self deny: one == other
 ]
+
+{ #category : #tests }
+NCProductionRuleTest >> testIsEpsilon [
+	self assert: (NCProductionRule head: (NCNonterminal named: 'A') body: #()) isEpsilon
+]
+
+{ #category : #tests }
+NCProductionRuleTest >> testIsRepresentation [
+	self
+		assert:
+			(NCProductionRule
+				head: (NCNonterminal named: 'T')
+				body: {(NCTerminal character: $t)}) isRepresentation
+]

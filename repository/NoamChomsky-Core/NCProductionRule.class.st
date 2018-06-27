@@ -77,6 +77,13 @@ NCProductionRule >> initializeHead: aNonterminal body: aSymbolArray [
 ]
 
 { #category : #testing }
+NCProductionRule >> isEpsilon [
+	"am i an epsilon(empty) rule?"
+
+	^ body isEmpty
+]
+
+{ #category : #testing }
 NCProductionRule >> isRepresentation [
 	"am i a representation rule?"
 

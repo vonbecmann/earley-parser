@@ -137,6 +137,11 @@ JEGrammar >> nonterminal: aNonterminalNamed [
 ]
 
 { #category : #accessing }
+JEGrammar >> nonterminals [
+	^ nonterminals asArray
+]
+
+{ #category : #accessing }
 JEGrammar >> nonterminalsSize [
 	^ nonterminals size
 ]
@@ -168,7 +173,7 @@ JEGrammar >> productionRuleAt: rule [
 	^ ruleToProductionDict at: rule
 ]
 
-{ #category : #private }
+{ #category : #accessing }
 JEGrammar >> productionRules [
 	^ productionRules values
 ]
@@ -230,4 +235,9 @@ JEGrammar >> startAt: aNonterminalNamed [
 { #category : #private }
 JEGrammar >> startRule [
 	^ startRule
+]
+
+{ #category : #accessing }
+JEGrammar >> terminals [
+	^ terminals asArray
 ]

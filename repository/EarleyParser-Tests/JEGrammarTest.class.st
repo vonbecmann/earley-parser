@@ -7,23 +7,33 @@ Class {
 	#category : 'EarleyParser-Tests-Public'
 }
 
-{ #category : #tests }
+{ #category : #'tests - accessing' }
 JEGrammarTest >> testDuplicateNonterminals01 [
 	grammar := JEGrammar 
 						productionRules: #(#('A' #()) #('A' #('letter x symbol'))) 
 						representations: {('letter x symbol' -> (NCTerminal character: $x))}.
-	self assert: grammar nonterminalsSize equals: 2
+	self assert: grammar nonterminalsSize equals: 2.
+	self 
+		assertCollection: grammar nonterminals
+		hasSameElements: 
+				{(NCNonterminal named: 'A').
+				(NCNonterminal named: 'letter x symbol')}
 ]
 
-{ #category : #tests }
+{ #category : #'tests - accessing' }
 JEGrammarTest >> testDuplicateNonterminals02 [
 	grammar := JEGrammar 
 						productionRules: #(#('A' #('letter x symbol')) #('A' #('A'))) 
 						representations: {('letter x symbol' -> (NCTerminal character: $x))}.
-	self assert: grammar nonterminalsSize equals: 2
+	self assert: grammar nonterminalsSize equals: 2.
+	self 
+		assertCollection: grammar nonterminals
+		hasSameElements: 
+				{(NCNonterminal named: 'A').
+				(NCNonterminal named: 'letter x symbol')}
 ]
 
-{ #category : #tests }
+{ #category : #'tests - accessing' }
 JEGrammarTest >> testDuplicateRules01 [
 	grammar := JEGrammar 
 						productionRules: #(#('A' #('letter x symbol')) #('A' #('letter x symbol'))) 
@@ -31,7 +41,7 @@ JEGrammarTest >> testDuplicateRules01 [
 	self assert: grammar rulesSize equals: 2
 ]
 
-{ #category : #tests }
+{ #category : #'tests - accessing' }
 JEGrammarTest >> testDuplicateRules02 [
 	grammar := JEGrammar
 						productionRules: #(#('A' #('A')) #('A' #('A')) #('A' #('letter x symbol')) #('A' #('letter x symbol'))) 
@@ -39,14 +49,17 @@ JEGrammarTest >> testDuplicateRules02 [
 	self assert: grammar rulesSize equals: 3
 ]
 
-{ #category : #tests }
+{ #category : #'tests - accessing' }
 JEGrammarTest >> testDuplicateRules03 [
 	grammar := JEGrammar 
 						productionRules: #(#('A' #('letter x symbol')) #('A' #('letter x symbol'))) 
 						representations: {	('letter x symbol' -> (NCTerminal character: $x)).
 												('letter y symbol' -> (NCTerminal character: $y)).
 												('letter y symbol' -> (NCTerminal character: $y))}.
-	self assert: grammar rulesSize equals: 3
+	self assert: grammar rulesSize equals: 3.
+	self 
+		assertCollection: grammar terminals 
+		hasSameElements: {(NCTerminal character: $x).(NCTerminal character: $y)}.
 ]
 
 { #category : #tests }
@@ -63,6 +76,32 @@ JEGrammarTest >> testEmptyRules02 [
 		should: [ JEGrammar productionRules: #(#('A' ())) representations: #() ]
 		raise: AssertionFailure
 		withExceptionDo: [ :ex | self assert: ex messageText equals: 'The collection of representation rules cannot be empty.' ]
+]
+
+{ #category : #'tests - accessing' }
+JEGrammarTest >> testNonterminals [
+	grammar := JEGrammar 
+						productionRules: #(#('A' #()) #('A' #('letter x symbol'))) 
+						representations: {('letter x symbol' -> (NCTerminal character: $x))}.
+	self assert: grammar nonterminalsSize equals: 2.
+	self 
+		assertCollection: grammar nonterminals
+		hasSameElements: 
+				{(NCNonterminal named: 'A').
+				(NCNonterminal named: 'letter x symbol')}
+]
+
+{ #category : #'tests - accessing' }
+JEGrammarTest >> testProductionRules [
+	grammar := JEGrammar
+		productionRules: #(#('A' #()) #('A' #('letter x symbol')))
+		representations: {('letter x symbol' -> (NCTerminal character: $x))}.
+	self
+		assertCollection: grammar productionRules
+		hasSameElements:
+			{(NCProductionRule headNamed: 'A' body: {}).
+			(NCProductionRule headNamed: 'A' body: {(NCNonterminal named: 'letter x symbol')}).
+			(NCProductionRule headNamed: 'letter x symbol' body: {(NCTerminal character: $x)})}
 ]
 
 { #category : #tests }
@@ -134,6 +173,16 @@ JEGrammarTest >> testStartAtNonterminal02 [
 		should: [ grammar startAt: 'Z' ] 
 		raise: Error 
 		withExceptionDo: [ :ex | self assert: ex messageText equals: 'Unknown Nonterminal Z' ]
+]
+
+{ #category : #'tests - accessing' }
+JEGrammarTest >> testTerminals [
+	grammar := JEGrammar 
+						productionRules: #(#('A' #()) #('A' #('letter x symbol'))) 
+						representations: {('letter x symbol' -> (NCTerminal character: $x))}.
+	self 
+		assertCollection: grammar terminals
+		hasSameElements: {(NCTerminal character: $x)}
 ]
 
 { #category : #tests }

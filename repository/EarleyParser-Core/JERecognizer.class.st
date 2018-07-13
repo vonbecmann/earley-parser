@@ -20,9 +20,9 @@ JERecognizer >> accepts: words [
 ]
 
 { #category : #'private operations' }
-JERecognizer >> complete: item at: column [
+JERecognizer >> complete: item [
 	item predictionItemsWithSymbolAtDotIsHead
-		do: [ :previous | column moveDotForward: previous ]
+		do: [ :previous | item end moveDotForward: previous ]
 ]
 
 { #category : #'private operations' }

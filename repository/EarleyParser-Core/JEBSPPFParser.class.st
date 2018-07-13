@@ -25,10 +25,10 @@ JEBSPPFParser >> buildForestFrom: finalItem [
 ]
 
 { #category : #'private operations' }
-JEBSPPFParser >> complete: item at: column [
+JEBSPPFParser >> complete: item [
 	item predictionItemsWithSymbolAtDotIsHead
 		do: [ :previous | 
-				(column moveDotForward: previous) addFamily: (previous newFamilyWith: item) ]
+				(item end moveDotForward: previous) addFamily: (previous newFamilyWith: item) ]
 ]
 
 { #category : #public }

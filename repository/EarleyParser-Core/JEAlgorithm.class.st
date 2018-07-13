@@ -18,7 +18,7 @@ JEAlgorithm class >> given: aGrammar [
 ]
 
 { #category : #'private operations' }
-JEAlgorithm >> complete: item at: column [
+JEAlgorithm >> complete: item [
 	"
 	Complete:
 		For every state in S(k) of the form (X -> y *, j), 
@@ -45,7 +45,7 @@ JEAlgorithm >> evaluate: words [
 		column
 			processItems: [ :item | 
 				item isFinal
-					ifTrue: [ self complete: item at: column ]
+					ifTrue: [ self complete: item ]
 					ifFalse: [ 
 						item symbolAtDot isTerminal
 							ifTrue: [ 
@@ -84,7 +84,7 @@ JEAlgorithm >> predict: item [
 	"
 
 	self predictNonterminal: item symbolAtDot at: item end.
-	item finalItemsWithHeadIsSymbolAtDot do: [ :again | self complete: again at: item end ]
+	item finalItemsWithHeadIsSymbolAtDot do: [ :again | self complete: again ]
 ]
 
 { #category : #'private operations' }

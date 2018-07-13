@@ -56,11 +56,11 @@ JEAnalyticalRecognizer >> accepts: words [
 ]
 
 { #category : #'private operations' }
-JEAnalyticalRecognizer >> complete: item at: column [
+JEAnalyticalRecognizer >> complete: item [
 	moveDotForwardCount := moveDotForwardCount
 		+ item predictionItemsWithSymbolAtDotIsHead size.
 	completeCount := completeCount + 1.
-	super complete: item at: column
+	super complete: item
 ]
 
 { #category : #initialization }

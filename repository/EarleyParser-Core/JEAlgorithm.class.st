@@ -51,7 +51,7 @@ JEAlgorithm >> evaluate: words [
 							ifTrue: [ 
 								(i < n and: [ item symbolAtDot matches: (words at: i) ])
 									ifTrue: [ self scan: item with: (words at: i) at: (chart at: i + 1) ] ]
-							ifFalse: [ self predict: item at: column ] ] ] ].
+							ifFalse: [ self predict: item ] ] ] ].
 	^ chart
 ]
 
@@ -62,7 +62,7 @@ JEAlgorithm >> initializeGrammar: aGrammar [
 ]
 
 { #category : #'private operations' }
-JEAlgorithm >> predict: item at: column [
+JEAlgorithm >> predict: item [
 	"
 	Prediction:
 		For every state in S(k) of the form (X -> a * Y b, j),
@@ -83,8 +83,8 @@ JEAlgorithm >> predict: item at: column [
 				because we may missed to complete a newly created item.
 	"
 
-	self predictNonterminal: item symbolAtDot at: column.
-	item finalItemsWithHeadIsSymbolAtDot do: [ :again | self complete: again at: column ]
+	self predictNonterminal: item symbolAtDot at: item end.
+	item finalItemsWithHeadIsSymbolAtDot do: [ :again | self complete: again at: item end ]
 ]
 
 { #category : #'private operations' }

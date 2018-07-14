@@ -86,8 +86,7 @@ JEAlgorithm >> predict: item [
 
 	(grammar alternativesOf: item symbolAtDot)
 		do: [ :dottedRule | item end add: (dottedRule startedAt: item end) ].
-	item finalItemsWithHeadIsSymbolAtDot
-		do: [ :again | self complete: again ]
+	item finalItemsWithHeadIsSymbolAtDotDo: [ :again | self complete: again ]
 ]
 
 { #category : #'private operations' }

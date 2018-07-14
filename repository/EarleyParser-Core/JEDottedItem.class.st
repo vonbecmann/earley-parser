@@ -65,9 +65,9 @@ JEDottedItem >> equals: anItem [
 	^ (super equals: anItem) and: [ dottedRule = anItem dottedRule ]
 ]
 
-{ #category : #accessing }
-JEDottedItem >> finalItemsWithHeadIsSymbolAtDot [
-	^ end finalItemsWithHeadIs: dottedRule symbolAtDot
+{ #category : #enumerating }
+JEDottedItem >> finalItemsWithHeadIsSymbolAtDotDo: aBlock [
+	(end finalItemsWithHeadIs: dottedRule symbolAtDot) do: aBlock
 ]
 
 { #category : #accessing }

@@ -81,14 +81,9 @@ JEPackedNode >> hash [
 ]
 
 { #category : #initialization }
-JEPackedNode >> initialize [
-	families := #().
-	familiesByKey := IdentityDictionary new
-]
-
-{ #category : #initialization }
 JEPackedNode >> initializeModel: anItem [
-	self initialize.
+	families := #().
+	familiesByKey := IdentityDictionary new.
 	model := anItem
 ]
 

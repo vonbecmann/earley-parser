@@ -147,6 +147,11 @@ JEDottedItem >> predictionItemsWithSymbolAtDotIsHead [
 	^ start predictionItemsWithSymbolAtDotIs: dottedRule head
 ]
 
+{ #category : #enumerating }
+JEDottedItem >> predictionItemsWithSymbolAtDotIsHeadDo: aBlock [
+	(start predictionItemsWithSymbolAtDotIs: dottedRule head) do: aBlock
+]
+
 { #category : #printing }
 JEDottedItem >> printOn: aStream [
 	"[ dotted rule @ start ]"

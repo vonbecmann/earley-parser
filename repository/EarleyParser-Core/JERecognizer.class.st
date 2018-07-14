@@ -21,8 +21,7 @@ JERecognizer >> accepts: words [
 
 { #category : #'private operations' }
 JERecognizer >> complete: item [
-	item predictionItemsWithSymbolAtDotIsHead
-		do: [ :previous | item end moveDotForward: previous ]
+	item predictionItemsWithSymbolAtDotIsHeadDo: [ :previous | item end moveDotForward: previous ]
 ]
 
 { #category : #'private operations' }

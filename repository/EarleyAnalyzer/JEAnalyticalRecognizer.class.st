@@ -57,10 +57,10 @@ JEAnalyticalRecognizer >> accepts: words [
 
 { #category : #'private operations' }
 JEAnalyticalRecognizer >> complete: item [
+	super complete: item.
 	moveDotForwardCount := moveDotForwardCount
 		+ item predictionItemsWithSymbolAtDotIsHead size.
-	completeCount := completeCount + 1.
-	super complete: item
+	completeCount := completeCount + 1
 ]
 
 { #category : #initialization }
@@ -71,15 +71,15 @@ JEAnalyticalRecognizer >> initialize [
 ]
 
 { #category : #'private operations' }
-JEAnalyticalRecognizer >> predictNonterminal: nonterminal at: column [
-	addCount := addCount + (grammar alternativesOf: nonterminal) size.
-	predictCount := predictCount + 1.
-	super predictNonterminal: nonterminal at: column
+JEAnalyticalRecognizer >> predict: item [
+	super predict: item.
+	addCount := addCount + (grammar alternativesOf: item symbolAtDot) size.
+	predictCount := predictCount + 1
 ]
 
 { #category : #'private operations' }
 JEAnalyticalRecognizer >> scan: item with: word at: column [
+	super scan: item with: word at: column.
 	moveDotForwardCount := moveDotForwardCount + 1.
-	scanCount := scanCount + 1.
-	super scan: item with: word at: column
+	scanCount := scanCount + 1
 ]

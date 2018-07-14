@@ -82,18 +82,12 @@ JEAlgorithm >> predict: item [
 				complete that completed item again in item set k,
 				because we may missed to complete a newly created item.
 	"
-
-	self predictNonterminal: item symbolAtDot at: item end.
-	item finalItemsWithHeadIsSymbolAtDot do: [ :again | self complete: again ]
-]
-
-{ #category : #'private operations' }
-JEAlgorithm >> predictNonterminal: nonterminal at: column [
-	" add all respective predicted items for the given collection of dotted rules "
 	" OPTIMIZED for efficiency. uses do: rather than collect: "
 
-	(grammar alternativesOf: nonterminal)
-		do: [ :dottedRule | column add: (dottedRule startedAt: column) ]
+	(grammar alternativesOf: item symbolAtDot)
+		do: [ :dottedRule | item end add: (dottedRule startedAt: item end) ].
+	item finalItemsWithHeadIsSymbolAtDot
+		do: [ :again | self complete: again ]
 ]
 
 { #category : #'private operations' }

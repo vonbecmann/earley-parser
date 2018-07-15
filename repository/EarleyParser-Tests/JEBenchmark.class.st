@@ -7,11 +7,14 @@ Smalltalk
 duration := JEBenchmark new acceptsBK.
 '| ', Date today asString, ' | ', duration asString, ' |'.
 
+./pharo -headless Pharo-60541.image eval ""'| ', Date today asString, ' | ', JEBenchmark new acceptsBK asString, ' |'. ""
+
+
 "
 Class {
 	#name : #JEBenchmark,
 	#superclass : #Object,
-	#category : 'EarleyParser-Tests-Stats'
+	#category : #'EarleyParser-Tests-Stats'
 }
 
 { #category : #public }
@@ -32,6 +35,7 @@ JEBenchmark >> acceptsBK [
 | 22 September 2016 | 0:00:00:00.047 |
 | 21 October 2016   | 0:00:00:00.037 |
 | 12 August 2017    | 0:00:00:00.041 |
+| 14 July 2018      | 0:00:00:00.047 |
 	"
 
 	| n words grammar |
@@ -62,6 +66,7 @@ JEBenchmark >> acceptsPAL [
 | 22 September 2016 | 0:00:00:03.024 |
 | 21 October 2016 | 0:00:00:02.565 |
 | 12 August 2017 | 0:00:00:02.621 |
+| 14 July 2018   | 0:00:00:03.574 |
 	"
 
 	| n words grammar maxOdd |
@@ -80,6 +85,7 @@ JEBenchmark >> acceptsRR [
 | 18 October 2016 | 0:00:00:05.493 |
 | 21 October 2016 | 0:00:00:05.341 |
 | 12 August 2017  | 0:00:00:04.253 |
+| 14 July 2018 | 0:00:00:05.348 |
 	"
 
 	| n words grammar |
@@ -110,6 +116,7 @@ JEBenchmark >> acceptsUBDA [
 | 22 September 2016 | 0:00:00:02.815 |
 | 21 October 2016 | 0:00:00:02.718 |
 | 12 August 2017 | 0:00:00:02.756 |
+| 14 July 2018   | 0:00:00:03.851 |
 	"
 
 	| n words grammar |
@@ -129,8 +136,9 @@ JEBenchmark >> parseBK [
 | 12 September 2016 | 0:00:00:00.81 |
 | 15 September 2016 | 0:00:00:00.906 |
 | 22 September 2016 | 0:00:00:00.86 |
-| 21 October 2016 | 0:00:00:01.052 |
-| 12 August 2017 | 0:00:00:00.791 |
+| 21 October 2016   | 0:00:00:01.052 |
+| 12 August 2017    | 0:00:00:00.791 |
+| 14 July 2018      | 0:00:00:00.834 |
 	"
 
 	| n words grammar |
@@ -150,8 +158,9 @@ JEBenchmark >> parsePAL [
 | 12 September 2016 | 0:00:00:00.297 |
 | 15 September 2016 | 0:00:00:00.296 |
 | 22 September 2016 | 0:00:00:00.288 |
-| 21 October 2016 | 0:00:00:00.337 |
-| 12 August 2017 | 0:00:00:00.363 |
+| 21 October 2016   | 0:00:00:00.337 |
+| 12 August 2017    | 0:00:00:00.363 |
+| 14 July 2018      | 0:00:00:00.623 |
 	"
 
 	| n words grammar maxOdd |
@@ -169,7 +178,8 @@ JEBenchmark >> parseRR [
 | date        | time to run    |
 | 21 October 2016 | 0:00:00:15.372 |
 | 21 October 2016 | 0:00:00:15.401 |
-| 12 August 2017 | 0:00:00:15.644 |
+| 12 August 2017  | 0:00:00:15.644 |
+| 14 July 2018    | 0:00:00:17.727 |
 	"
 
 	| n words grammar |
@@ -189,8 +199,9 @@ JEBenchmark >> parseUBDA [
 | 12 September 2016 | 0:00:00:00.427 |
 | 15 September 2016 | 0:00:00:00.363 |
 | 22 September 2016 | 0:00:00:00.318 |
-| 21 October 2016 | 0:00:00:00.499 |
-| 12 August 2017 | 0:00:00:00.484 |
+| 21 October 2016   | 0:00:00:00.499 |
+| 12 August 2017    | 0:00:00:00.484 |
+| 14 July 2018      | 0:00:00:00.636 |
 	"
 
 	| n words grammar |
@@ -210,8 +221,9 @@ JEBenchmark >> parseUBDA02 [
 | 12 September 2016 | 0:00:00:03.98 |
 | 15 September 2016 | 0:00:00:03.585 |
 | 22 September 2016 | 0:00:00:03.309 |
-| 21 October 2016 | 0:00:00:06.728 |
-| 12 August 2017 | 0:00:00:05.482 |
+| 21 October 2016   | 0:00:00:06.728 |
+| 12 August 2017    | 0:00:00:05.482 |
+| 14 July 2018      | 0:00:00:05.109 |
 	"
 
 	| n words grammar |

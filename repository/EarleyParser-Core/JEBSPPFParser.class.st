@@ -18,9 +18,9 @@ JEBSPPFParser >> buildForestFrom: finalItem [
 
 	| startNode startFamily |
 	startNode := finalItem node.
-	self assert: [ startNode children size = 1 ].
-	startFamily := startNode children first.
-	self assert: [ startFamily children size = 1 ].
+	self assert: [ startNode familiesSize = 1 ].
+	startFamily := startNode families first.
+	self assert: [ startFamily size = 1 ].
 	^ JEBSPPForest root: startFamily first
 ]
 

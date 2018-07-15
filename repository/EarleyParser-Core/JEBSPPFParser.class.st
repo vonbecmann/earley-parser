@@ -16,10 +16,9 @@ Class {
 JEBSPPFParser >> buildForestFrom: finalItem [
 	"remove the START symbol from the forest, so the root is the first nonterminal of the grammar"
 
-	| startNode startFamily |
-	startNode := finalItem node.
-	self assert: [ startNode familiesSize = 1 ].
-	startFamily := startNode families first.
+	| startFamily |
+	self assert: [ finalItem familiesSize = 1 ].
+	startFamily := finalItem families first.
 	self assert: [ startFamily size = 1 ].
 	^ JEBSPPForest root: startFamily first
 ]

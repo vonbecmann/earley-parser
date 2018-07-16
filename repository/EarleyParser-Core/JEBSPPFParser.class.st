@@ -13,20 +13,20 @@ Class {
 }
 
 { #category : #'private operations' }
-JEBSPPFParser >> buildForestFrom: finalItem [
+JEBSPPFParser >> complete: item [
+	item
+		predictionItemsWithSymbolAtDotIsHeadDo:
+			[ :previous | (item end moveDotForward: previous) addFamily: (previous newFamilyWith: item) ]
+]
+
+{ #category : #'private operations' }
+JEBSPPFParser >> newForestFrom: finalItem [
 	"remove the START symbol from the forest, so the root is the first nonterminal of the grammar"
 
 	self
 		assert: [ finalItem familiesSize = 1 ];
 		assert: [ finalItem families first size = 1 ].
 	^ JEBSPPForest root: finalItem families first first
-]
-
-{ #category : #'private operations' }
-JEBSPPFParser >> complete: item [
-	item
-		predictionItemsWithSymbolAtDotIsHeadDo:
-			[ :previous | (item end moveDotForward: previous) addFamily: (previous newFamilyWith: item) ]
 ]
 
 { #category : #public }
@@ -37,7 +37,7 @@ JEBSPPFParser >> parse: words [
 	chart := self evaluate: words.
 	finalItem := grammar startRule dotAtEnd startedAt: chart first.
 	^ (chart last includes: finalItem)
-			ifTrue: [ self buildForestFrom: (chart last like: finalItem) ]
+			ifTrue: [ self newForestFrom: (chart last like: finalItem) ]
 			ifFalse: [ JEFailure failedAtLast: chart last ]
 ]
 

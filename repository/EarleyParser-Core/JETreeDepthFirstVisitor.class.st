@@ -13,7 +13,7 @@ it is useful because it is faster.
 Class {
 	#name : #JETreeDepthFirstVisitor,
 	#superclass : #JEBSPPFVisitor,
-	#category : #'EarleyParser-Core-Parsing'
+	#category : #'EarleyParser-Core-BSPPForest'
 }
 
 { #category : #visiting }

@@ -16,7 +16,7 @@ Class {
 		'preOrderFamilyBlock',
 		'preOrderNodeBlock'
 	],
-	#category : #'EarleyParser-Core-Parsing'
+	#category : #'EarleyParser-Core-BSPPForest'
 }
 
 { #category : #initialization }

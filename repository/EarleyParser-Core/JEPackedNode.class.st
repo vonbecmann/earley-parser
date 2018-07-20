@@ -21,7 +21,7 @@ Class {
 		'families',
 		'familiesByKey'
 	],
-	#category : 'EarleyParser-Core-Parsing'
+	#category : #'EarleyParser-Core-BSPPForest'
 }
 
 { #category : #'instance creation' }

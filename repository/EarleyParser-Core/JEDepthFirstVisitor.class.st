@@ -9,7 +9,7 @@ a binary shared packed parse forest.
 Class {
 	#name : #JEDepthFirstVisitor,
 	#superclass : #JEBSPPFVisitor,
-	#category : #'EarleyParser-Core-Parsing'
+	#category : #'EarleyParser-Core-BSPPForest'
 }
 
 { #category : #visiting }

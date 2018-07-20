@@ -5,7 +5,7 @@ It will return a parse forest .
 Class {
 	#name : #JEForestParser,
 	#superclass : #JEBSPPFParser,
-	#category : 'EarleyParser-Core-Parsing'
+	#category : #'EarleyParser-Core-Implementation'
 }
 
 { #category : #public }

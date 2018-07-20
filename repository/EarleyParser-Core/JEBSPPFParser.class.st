@@ -9,7 +9,7 @@ Binary Shared Packed Parse Forest (BSPPF)
 Class {
 	#name : #JEBSPPFParser,
 	#superclass : #JEAlgorithm,
-	#category : 'EarleyParser-Core-Parsing'
+	#category : #'EarleyParser-Core-Implementation'
 }
 
 { #category : #'private operations' }

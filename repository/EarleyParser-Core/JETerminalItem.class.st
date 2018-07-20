@@ -18,7 +18,7 @@ Class {
 		'terminal',
 		'word'
 	],
-	#category : 'EarleyParser-Core-Parsing'
+	#category : #'EarleyParser-Core-Implementation'
 }
 
 { #category : #'instance creation' }

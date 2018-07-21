@@ -5,7 +5,7 @@ Class {
 		'forest',
 		'parser'
 	],
-	#category : 'EarleyParser-Tests-Parsing'
+	#category : #'EarleyParser-Tests-BSPPForest'
 }
 
 { #category : #initialization }

@@ -10,7 +10,7 @@ Class {
 		'firstPackedNode',
 		'secondPackedNode'
 	],
-	#category : 'EarleyParser-Tests-Parsing'
+	#category : #'EarleyParser-Tests-BSPPForest'
 }
 
 { #category : #running }

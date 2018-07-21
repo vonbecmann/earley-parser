@@ -5,7 +5,7 @@ test item's parsing.
 Class {
 	#name : #JEItemParsingTests,
 	#superclass : #TestCase,
-	#category : 'EarleyParser-Tests-Parsing'
+	#category : #'EarleyParser-Tests-Implementation'
 }
 
 { #category : #tests }

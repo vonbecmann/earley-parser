@@ -1,7 +1,7 @@
 Class {
 	#name : #JEPackedNodeTest,
 	#superclass : #TestCase,
-	#category : 'EarleyParser-Tests-Parsing'
+	#category : #'EarleyParser-Tests-BSPPForest'
 }
 
 { #category : #tests }

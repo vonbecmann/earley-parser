@@ -34,12 +34,12 @@ JEFamilyTest >> testAsStringEmptyFamily [
 ]
 
 { #category : #tests }
-JEFamilyTest >> testAsStringFamilyWithOneChild [
+JEFamilyTest >> testAsStringFamilyWithOneMember [
 	self assert: (JEFamily with: firstPackedNode) asString equals: '(([A: ·. @ [1, 2]]))'
 ]
 
 { #category : #tests }
-JEFamilyTest >> testAsStringFamilyWithTwoChildren [
+JEFamilyTest >> testAsStringFamilyWithTwoMembers [
 	self
 		assert: (JEFamily with: firstPackedNode with: secondPackedNode) asString
 		equals: '(([A: ·. @ [1, 2]]), ([B: ·. @ [2, 3]]))'
@@ -90,7 +90,7 @@ JEFamilyTest >> testEqualsEmptyFamilyWithSameParent [
 ]
 
 { #category : #tests }
-JEFamilyTest >> testEqualsFamilyWithOneChild [
+JEFamilyTest >> testEqualsFamilyWithOneMember [
 	| one another |
 	one := JEFamily with: firstPackedNode.
 	another := JEFamily with: firstPackedNode.
@@ -103,7 +103,7 @@ JEFamilyTest >> testEqualsFamilyWithOneChild [
 ]
 
 { #category : #tests }
-JEFamilyTest >> testEqualsFamilyWithOneChildAndDifferentParent [
+JEFamilyTest >> testEqualsFamilyWithOneMemberAndDifferentParent [
 	| one another |
 	one := JEFamily with: firstPackedNode.
 	one parent: parentNode.
@@ -119,7 +119,7 @@ JEFamilyTest >> testEqualsFamilyWithOneChildAndDifferentParent [
 ]
 
 { #category : #tests }
-JEFamilyTest >> testEqualsFamilyWithOneChildAndSameParent [
+JEFamilyTest >> testEqualsFamilyWithOneMemberAndSameParent [
 	| one another |
 	one := JEFamily with: firstPackedNode.
 	one parent: parentNode.
@@ -135,7 +135,7 @@ JEFamilyTest >> testEqualsFamilyWithOneChildAndSameParent [
 ]
 
 { #category : #tests }
-JEFamilyTest >> testEqualsFamilyWithTwoChildren [
+JEFamilyTest >> testEqualsFamilyWithTwoMembers [
 	| one another |
 	one := JEFamily with: firstPackedNode with: secondPackedNode.
 	another := JEFamily with: firstPackedNode with: secondPackedNode.
@@ -148,7 +148,7 @@ JEFamilyTest >> testEqualsFamilyWithTwoChildren [
 ]
 
 { #category : #tests }
-JEFamilyTest >> testEqualsFamilyWithTwoChildrenAndDifferentParent [
+JEFamilyTest >> testEqualsFamilyWithTwoMembersAndDifferentParent [
 	| one another |
 	one := JEFamily with: firstPackedNode with: secondPackedNode.
 	one parent: parentNode.
@@ -163,7 +163,7 @@ JEFamilyTest >> testEqualsFamilyWithTwoChildrenAndDifferentParent [
 ]
 
 { #category : #tests }
-JEFamilyTest >> testEqualsFamilyWithTwoChildrenAndSameParent [
+JEFamilyTest >> testEqualsFamilyWithTwoMembersAndSameParent [
 	| one another |
 	one := JEFamily with: firstPackedNode with: secondPackedNode.
 	one parent: parentNode.
@@ -184,11 +184,11 @@ JEFamilyTest >> testIsEmptyWhenFamilyIsEmpty [
 ]
 
 { #category : #tests }
-JEFamilyTest >> testIsEmptyWhenFamilyWithOneChild [
+JEFamilyTest >> testIsEmptyWhenFamilyWithOneMember [
 	self deny: (JEFamily with: firstPackedNode) isEmpty
 ]
 
 { #category : #tests }
-JEFamilyTest >> testIsEmptyWhenFamilyWithTwoChildren [
+JEFamilyTest >> testIsEmptyWhenFamilyWithTwoMembers [
 	self deny: (JEFamily with: firstPackedNode with: secondPackedNode) isEmpty
 ]

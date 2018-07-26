@@ -22,7 +22,7 @@ ESParseTree >> gtInspectorASTWordsIn: composite [
 ]
 
 { #category : #'*EarleySyntaxTree-InspectorExtensions' }
-ESParseTree >> gtInspectorBrowseIn: composite [
+ESParseTree >> gtInspectorBrowserIn: composite [
 	<gtInspectorPresentationOrder: 1>
 	^ (tree gtInspectorBrowserIn: composite)
 		title: 'Browse';

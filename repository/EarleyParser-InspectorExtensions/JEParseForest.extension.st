@@ -1,7 +1,7 @@
 Extension { #name : #JEParseForest }
 
 { #category : #'*EarleyParser-InspectorExtensions' }
-JEParseForest >> gtInspectorBrowseIn: composite [
+JEParseForest >> gtInspectorBrowserIn: composite [
 	<gtInspectorPresentationOrder: 1>
 	^ syntaxForest gtInspectorBrowserIn: composite
 ]

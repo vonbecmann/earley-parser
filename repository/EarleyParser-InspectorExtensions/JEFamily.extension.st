@@ -1,12 +1,12 @@
 Extension { #name : #JEFamily }
 
 { #category : #'*EarleyParser-InspectorExtensions' }
-JEFamily >> gtInspectorChildrenIn: composite [
+JEFamily >> gtInspectorMembersIn: composite [
 	<gtInspectorPresentationOrder: 1>
 	^ composite table
-		title: [ 'Children' ];
-		display: [ self children ];
-		column: 'Child' evaluated: [ :each | each ];
+		title: [ 'Members' ];
+		display: [ self members ];
+		column: 'Member' evaluated: [ :each | each ];
 		showOnly: 50;
 		yourself
 ]

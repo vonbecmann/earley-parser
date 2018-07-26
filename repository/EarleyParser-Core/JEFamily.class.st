@@ -21,7 +21,7 @@ Class {
 		'parent',
 		'first',
 		'second',
-		'children'
+		'members'
 	],
 	#category : #'EarleyParser-Core-BSPPForest'
 }
@@ -66,15 +66,7 @@ JEFamily >> acceptVisitor: aVisitor [
 
 { #category : #visiting }
 JEFamily >> children [
-	^ children
-		ifNil: [ 
-			children := 
-				first
-					ifNil: [ #() ]
-					ifNotNil: [ 
-						second 
-							ifNil: [ {first} ] 
-							ifNotNil: [ {first.	second} ] ] ]
+	^ self members
 ]
 
 { #category : #accessing }
@@ -97,12 +89,24 @@ JEFamily >> hash [
 JEFamily >> initializeFirst: firstPackedNode andSecond: secondPackedNode [
 	first := firstPackedNode.
 	second := secondPackedNode.
-	children := nil
+	members := nil
 ]
 
 { #category : #testing }
 JEFamily >> isEmpty [
 	^ first isNil and: [ second isNil ]
+]
+
+{ #category : #accessing }
+JEFamily >> members [
+	^ members
+		ifNil: [ 
+			members := first
+				ifNil: [ #() ]
+				ifNotNil: [ 
+					second
+						ifNil: [ {first} ]
+						ifNotNil: [ {first. second} ] ] ]
 ]
 
 { #category : #accessing }
@@ -134,7 +138,7 @@ JEFamily >> release [
 	parent := nil.
 	first := nil.
 	second := nil.
-	children := nil.
+	members := nil.
 	super release
 ]
 
@@ -146,5 +150,5 @@ JEFamily >> second [
 
 { #category : #accessing }
 JEFamily >> size [
-	^ self children size
+	^ self members size
 ]

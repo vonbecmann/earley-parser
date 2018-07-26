@@ -1,7 +1,7 @@
 Extension { #name : #JEParseForest }
 
 { #category : #'*EarleyParser-UI' }
-JEParseForest >> gtInspectorSyntaxTreeViewIn: composite [
+JEParseForest >> gtInspectorSyntaxForestViewIn: composite [
 	<gtInspectorPresentationOrder: 10>
-	^ syntaxTree gtInspectorViewIn: composite
+	^ syntaxForest gtInspectorViewIn: composite
 ]

@@ -1,7 +1,7 @@
 "
 a parse forest represents the syntactic structure (syntax tree) of a string according to a context free grammar.
 
-syntaxTree is a Binary Shared Packed Parse Forest.
+syntaxForest is a Binary Shared Packed Parse Forest.
 grammar is a Context Free Grammar.
 
 
@@ -10,29 +10,28 @@ Class {
 	#name : #JEParseForest,
 	#superclass : #Object,
 	#instVars : [
-		'syntaxTree',
-		'grammar'
+		'grammar',
+		'syntaxForest'
 	],
-	#category : 'EarleyParser-Core-Public'
+	#category : #'EarleyParser-Core-Public'
 }
 
 { #category : #'instance creation' }
-JEParseForest class >> given: aSyntaxTree of: aJEGrammar [
-	"given a syntax tree of a grammar"
+JEParseForest class >> given: aBSPPForest of: aJEGrammar [
+	"given a syntax forest of a grammar"
 
-	^ self basicNew initializeSyntaxTree: aSyntaxTree andGrammar: aJEGrammar
+	^ self basicNew initializeSyntaxForest: aBSPPForest andGrammar: aJEGrammar
 ]
 
 { #category : #initialization }
-JEParseForest >> initializeSyntaxTree: aSyntaxTree andGrammar: aJEGrammar [
-	self initialize.
-	syntaxTree := aSyntaxTree.
+JEParseForest >> initializeSyntaxForest: aBSPPForest andGrammar: aJEGrammar [
+	syntaxForest := aBSPPForest.
 	grammar := aJEGrammar
 ]
 
 { #category : #testing }
 JEParseForest >> isAmbiguous [
-	^ syntaxTree isAmbiguous
+	^ syntaxForest isAmbiguous
 ]
 
 { #category : #accessing }
@@ -43,19 +42,19 @@ JEParseForest >> leftmostDerivation [
 		preOrderFamilyBlock: [ :family | 
 			(family parent model isNonterminal and: [ family parent model isFinal ])
 				ifTrue: [ derivation addLast: (grammar productionRuleAt: family parent model rule) ] ];
-		visit: syntaxTree.
+		visit: syntaxForest.
 	^ derivation asArray
 ]
 
 { #category : #testing }
 JEParseForest >> numberOfTrees [
-	^ syntaxTree numberOfTrees
+	^ syntaxForest numberOfTrees
 ]
 
 { #category : #'initialize-release' }
 JEParseForest >> release [
-	syntaxTree release.
-	syntaxTree := nil.
+	syntaxForest release.
+	syntaxForest := nil.
 	grammar := nil.
 	super release
 ]
@@ -68,6 +67,6 @@ JEParseForest >> rightmostDerivation [
 		postOrderFamilyBlock: [ :family | 
 			(family parent model isNonterminal and: [ family parent model isFinal ])
 				ifTrue: [ derivation addFirst: (grammar productionRuleAt: family parent model rule) ] ];
-		visit: syntaxTree.
+		visit: syntaxForest.
 	^ derivation asArray
 ]

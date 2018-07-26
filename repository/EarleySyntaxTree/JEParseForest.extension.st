@@ -36,7 +36,7 @@ JEParseForest >> extractSingleParseTree [
 											(node families isEmpty
 												ifTrue: [ #() ]
 												ifFalse: [ stack popReversed: node model dottedRule body size ])) ] ] ];
-		visit: syntaxTree.
+		visit: syntaxForest.
 	self assert: [ stack size = 1 ].
 	^ ESParseTree given: (ESTree rootNode: stack pop) of: grammar
 ]

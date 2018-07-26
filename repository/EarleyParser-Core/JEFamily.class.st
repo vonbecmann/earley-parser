@@ -1,14 +1,14 @@
 "
 a family of packed parse nodes.
 
-children 
+members 
  	an empty family(useful when you have epsilon rules),
-	a family with one child,
-	a family with two children.
+	a family with one member,
+	a family with two members.
 	
-children are unique and they are checked by identity.
+members are unique and they are checked by identity.
 
-children represent  the sequence of items that constitute  a derivation.
+members represent  the sequence of items that constitute  a derivation.
 
 
 	

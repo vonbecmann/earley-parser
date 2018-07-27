@@ -43,8 +43,10 @@ JEBSPPFParser >> parse: words [
 
 { #category : #'private operations' }
 JEBSPPFParser >> scan: item with: word at: column [
-	| terminal |
-	terminal := column
-		addTerminalItem: (JETerminalItem given: item symbolAtDot word: word startedAt: item end).
-	item addFamilyWith: terminal to: (column moveDotForward: item)
+	item
+		addFamilyWith: 
+			(column 
+				addTerminalItem: 
+					(JETerminalItem given: item symbolAtDot word: word startedAt: item end))
+		to: (column moveDotForward: item)
 ]

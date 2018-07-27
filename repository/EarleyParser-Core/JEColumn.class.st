@@ -193,6 +193,24 @@ JEColumn >> like: anItem [
 		ifAbsent: [ nil ]
 ]
 
+{ #category : #accessing }
+JEColumn >> like: anItem ifFound: foundBlock ifNone: exceptionBlock [
+	" Optimize for efficiency.
+	 ^ itemsByKey 
+			detect: [ :item | item equals: anItem ]
+			ifFound: foundBlock
+			ifNone: exceptionBlock "
+
+	^ itemsByKey
+		jeAt: anItem firstKey
+		at: anItem secondKey
+		ifPresent: [ :found | 
+			(found equals: anItem)
+				ifTrue: [ foundBlock cull: found ]
+				ifFalse: [ exceptionBlock value ] ]
+		ifAbsent: [ exceptionBlock value ]
+]
+
 { #category : #adding }
 JEColumn >> moveDotForward: previousItem [
 	" Optimize for efficiency. 

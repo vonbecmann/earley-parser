@@ -73,6 +73,43 @@ JEColumnTest >> testLike02 [
 ]
 
 { #category : #tests }
+JEColumnTest >> testLikeIfFoundIfNone [
+	| one first rule |
+	first := JEColumn number: 1.
+	rule := JERule
+		head: (NCNonterminal named: 'T')
+		body:
+			{(NCNonterminal named: 'T').
+			(NCTerminal character: $+).
+			(NCNonterminal named: 'P')}.
+	one := (rule dotAt: 2) startedAt: first.
+	self 
+		assert: (column like: one ifFound: [ :found | found ] ifNone: [ nil ]) 
+		equals: nil
+]
+
+{ #category : #tests }
+JEColumnTest >> testLikeIfFoundIfNone02 [
+	| one first rule |
+	first := JEColumn number: 1.
+	rule := JERule
+		head: (NCNonterminal named: 'T')
+		body:
+			{(NCNonterminal named: 'T').
+			(NCTerminal character: $+).
+			(NCNonterminal named: 'P')}.
+	one := (rule dotAt: 2) startedAt: first.
+	column add: one.
+	self 
+		assert: (column like: one ifFound: [ :found | found ] ifNone: [ nil ]) 
+		equals: one.
+	self 
+		assert: 
+		(column like: one ifFound: [ :found | found ] ifNone: [ nil ]) == 
+		(column like: one ifFound: [ :found | found ] ifNone: [ nil ])
+]
+
+{ #category : #tests }
 JEColumnTest >> testSize [
 	self assert: column isEmpty.
 	self assert: column size equals: 0

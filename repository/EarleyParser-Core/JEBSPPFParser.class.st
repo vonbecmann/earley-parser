@@ -33,12 +33,12 @@ JEBSPPFParser >> newForestFrom: finalItem [
 JEBSPPFParser >> parse: words [
 	"returns a Binary Shared Packed Parse Forest"
 
-	| chart finalItem |
+	| chart |
 	chart := self evaluate: words.
-	finalItem := grammar startRule dotAtEnd startedAt: chart first.
-	^ (chart last includes: finalItem)
-			ifTrue: [ self newForestFrom: (chart last like: finalItem) ]
-			ifFalse: [ JEFailure failedAtLast: chart last ]
+	^ chart last
+		like: (grammar startRule dotAtEnd startedAt: chart first)
+		ifFound: [ :found | self newForestFrom: found ]
+		ifNone: [ JEFailure failedAtLast: chart last ]
 ]
 
 { #category : #'private operations' }

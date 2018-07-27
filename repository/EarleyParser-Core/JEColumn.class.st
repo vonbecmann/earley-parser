@@ -192,7 +192,7 @@ JEColumn >> like: anItem ifFound: foundBlock ifNone: exceptionBlock [
 			(found equals: anItem)
 				ifTrue: [ foundBlock cull: found ]
 				ifFalse: [ exceptionBlock value ] ]
-		ifAbsent: [ exceptionBlock value ]
+		ifAbsent: exceptionBlock
 ]
 
 { #category : #adding }

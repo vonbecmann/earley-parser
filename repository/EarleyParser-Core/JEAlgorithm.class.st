@@ -85,7 +85,7 @@ JEAlgorithm >> predict: item [
 	" OPTIMIZED for efficiency. uses do: rather than collect: "
 
 	(grammar alternativesOf: item symbolAtDot)
-		do: [ :dottedRule | item end add: (dottedRule startedAt: item end) ].
+		do: [ :dottedRule | item end addDottedRule: dottedRule ].
 	item finalItemsWithHeadIsSymbolAtDotDo: [ :again | self complete: again ]
 ]
 

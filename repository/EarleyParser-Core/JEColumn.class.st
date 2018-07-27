@@ -62,6 +62,17 @@ JEColumn >> add: anItem [
 		ifAbsentPut: [ self basicAdd: anItem ]
 ]
 
+{ #category : #adding }
+JEColumn >> addDottedRule: dottedRule [
+	" Optimize for efficiency.
+	  add an item with this dotted rule starting at this column "
+
+	itemsByKey
+		jeAt: dottedRule
+		at: self
+		ifAbsentPut: [ self basicAdd: (dottedRule startedAt: self) ]
+]
+
 { #category : #parsing }
 JEColumn >> addTerminalItem: terminalItem [
 	" add a scanned terminal while parsing "

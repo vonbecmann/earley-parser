@@ -31,16 +31,6 @@ JEBSPPForest >> initializeRoot: aPackedNode [
 ]
 
 { #category : #testing }
-JEBSPPForest >> isAmbiguous [
-	JEDepthFirstVisitor new
-		preOrderNodeBlock: [ :packed | 
-			packed familiesSize > 1
-				ifTrue: [ ^ true ] ];
-		visit: self.
-	^ false
-]
-
-{ #category : #testing }
 JEBSPPForest >> numberOfTrees [
 	"depth visit from the root node. return the number of trees from the root node"
 

@@ -31,7 +31,12 @@ JEParseForest >> initializeSyntaxForest: aBSPPForest andGrammar: aJEGrammar [
 
 { #category : #testing }
 JEParseForest >> isAmbiguous [
-	^ syntaxForest isAmbiguous
+	JEDepthFirstVisitor new
+		preOrderNodeBlock: [ :packed | 
+			packed familiesSize > 1
+				ifTrue: [ ^ true ] ];
+		visit: syntaxForest.
+	^ false
 ]
 
 { #category : #accessing }

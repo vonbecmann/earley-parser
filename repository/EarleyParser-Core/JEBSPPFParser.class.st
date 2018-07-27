@@ -16,7 +16,7 @@ Class {
 JEBSPPFParser >> complete: item [
 	item
 		predictionItemsWithSymbolAtDotIsHeadDo:
-			[ :previous | (item end moveDotForward: previous) addFamily: (previous newFamilyWith: item) ]
+			[ :previous | (item end moveDotForward: previous) addFamilyWith: previous and: item ]
 ]
 
 { #category : #'private operations' }

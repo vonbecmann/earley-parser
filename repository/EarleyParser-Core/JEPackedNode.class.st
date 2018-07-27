@@ -60,6 +60,34 @@ JEPackedNode >> addFamily: aFamily [
 				true ]
 ]
 
+{ #category : #accessing }
+JEPackedNode >> addFamilyWith: aPackedNode [
+	familiesByKey
+		jeAt: aPackedNode
+		at: nil
+		ifAbsentPut: [ 
+			families := families
+				copyWith:
+					((JEFamily with: aPackedNode)
+						parent: self;
+						yourself).
+			true ]
+]
+
+{ #category : #accessing }
+JEPackedNode >> addFamilyWith: firstPackedNode and: secondPackedNode [
+	familiesByKey
+		jeAt: firstPackedNode
+		at: secondPackedNode
+		ifAbsentPut: [ 
+			families := families
+				copyWith:
+					((JEFamily with: firstPackedNode with: secondPackedNode)
+						parent: self;
+						yourself).
+			true ]
+]
+
 { #category : #visiting }
 JEPackedNode >> children [
 	^ families 

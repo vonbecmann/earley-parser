@@ -15,8 +15,8 @@ Class {
 { #category : #'private operations' }
 JEBSPPFParser >> complete: item [
 	item
-		predictionItemsWithSymbolAtDotIsHeadDo:
-			[ :previous | (item end moveDotForward: previous) addFamilyWith: previous and: item ]
+		predictionItemsWithSymbolAtDotIsHeadDo: [ :previous | 
+			previous addFamilyWith: item to: (item end moveDotForward: previous) ]
 ]
 
 { #category : #'private operations' }
@@ -44,6 +44,7 @@ JEBSPPFParser >> parse: words [
 { #category : #'private operations' }
 JEBSPPFParser >> scan: item with: word at: column [
 	| terminal |
-	terminal := column addTerminalItem: (JETerminalItem given: item symbolAtDot word: word startedAt: item end).
-	(column moveDotForward: item) addFamilyWith: item and: terminal
+	terminal := column
+		addTerminalItem: (JETerminalItem given: item symbolAtDot word: word startedAt: item end).
+	item addFamilyWith: terminal to: (column moveDotForward: item)
 ]

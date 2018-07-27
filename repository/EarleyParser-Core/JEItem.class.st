@@ -32,8 +32,20 @@ JEItem >> addFamily: aFamily [
 ]
 
 { #category : #parsing }
+JEItem >> addFamilyWith: completeItem [ 
+	self node addFamilyWith: completeItem node
+]
+
+{ #category : #parsing }
 JEItem >> addFamilyWith: previousItem and: completeItem [
-	self node addFamily: (previousItem newFamilyWith: completeItem)
+	self node addFamilyWith: previousItem node and: completeItem node
+]
+
+{ #category : #parsing }
+JEItem >> addFamilyWith: completeItem to: parentItem [
+	self isPredicted
+		ifTrue: [ parentItem addFamilyWith: completeItem ]
+		ifFalse: [ parentItem addFamilyWith: self and: completeItem ]
 ]
 
 { #category : #accessing }

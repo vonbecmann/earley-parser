@@ -43,36 +43,6 @@ JEColumnTest >> testIsEmpty [
 ]
 
 { #category : #tests }
-JEColumnTest >> testLike [
-	| one first rule |
-	first := JEColumn number: 1.
-	rule := JERule
-		head: (NCNonterminal named: 'T')
-		body:
-			{(NCNonterminal named: 'T').
-			(NCTerminal character: $+).
-			(NCNonterminal named: 'P')}.
-	one := (rule dotAt: 2) startedAt: first.
-	self assert: (column like: one) equals: nil
-]
-
-{ #category : #tests }
-JEColumnTest >> testLike02 [
-	| one first rule |
-	first := JEColumn number: 1.
-	rule := JERule
-		head: (NCNonterminal named: 'T')
-		body:
-			{(NCNonterminal named: 'T').
-			(NCTerminal character: $+).
-			(NCNonterminal named: 'P')}.
-	one := (rule dotAt: 2) startedAt: first.
-	column add: one.
-	self assert: (column like: one) equals: one.
-	self assert: (column like: one) == (column like: one)
-]
-
-{ #category : #tests }
 JEColumnTest >> testLikeIfFoundIfNone [
 	| one first rule |
 	first := JEColumn number: 1.

@@ -178,22 +178,6 @@ JEColumn >> isEmpty [
 ]
 
 { #category : #accessing }
-JEColumn >> like: anItem [
-	" Answer an item in the receiver that is equal to anItem, nil if no such item is found. 
-	 Optimize for efficiency.
-	^ itemsByKey detect: [ :each | each equals: anItem ] ifNone: [ nil ] "
-
-	^ itemsByKey
-		jeAt: anItem firstKey
-		at: anItem secondKey
-		ifPresent: [ :found | 
-			(found equals: anItem)
-				ifTrue: [ found ]
-				ifFalse: [ nil ] ]
-		ifAbsent: [ nil ]
-]
-
-{ #category : #accessing }
 JEColumn >> like: anItem ifFound: foundBlock ifNone: exceptionBlock [
 	" Optimize for efficiency.
 	 ^ itemsByKey 

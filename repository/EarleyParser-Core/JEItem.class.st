@@ -26,28 +26,6 @@ Class {
 	#category : 'EarleyParser-Core-Implementation'
 }
 
-{ #category : #parsing }
-JEItem >> addFamily: aFamily [
-	self node addFamily: aFamily
-]
-
-{ #category : #parsing }
-JEItem >> addFamilyWith: completeItem [ 
-	self node addFamilyWith: completeItem node
-]
-
-{ #category : #parsing }
-JEItem >> addFamilyWith: previousItem and: completeItem [
-	self node addFamilyWith: previousItem node and: completeItem node
-]
-
-{ #category : #parsing }
-JEItem >> addFamilyWith: completeItem to: parentItem [
-	self isPredicted
-		ifTrue: [ parentItem addFamilyWith: completeItem ]
-		ifFalse: [ parentItem addFamilyWith: self and: completeItem ]
-]
-
 { #category : #accessing }
 JEItem >> end [
 	"the column that contains this item or nil"
@@ -65,16 +43,6 @@ JEItem >> end: column [
 { #category : #comparing }
 JEItem >> equals: anItem [
 	^ self class == anItem class and: [ start = anItem start ]
-]
-
-{ #category : #parsing }
-JEItem >> families [
-	^ self node families 
-]
-
-{ #category : #parsing }
-JEItem >> familiesSize [
-	^ self node familiesSize
 ]
 
 { #category : #accessing }
@@ -110,13 +78,6 @@ JEItem >> isRepresentation [
 { #category : #testing }
 JEItem >> isTerminal [
 	^ self subclassResponsibility
-]
-
-{ #category : #parsing }
-JEItem >> newFamilyWith: anItem [
-	^ self isPredicted
-		ifTrue: [ JEFamily with: anItem node ]
-		ifFalse: [ JEFamily with: self node with: anItem node ]
 ]
 
 { #category : #parsing }

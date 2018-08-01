@@ -55,6 +55,28 @@ JEDottedItem >> = anItem [
 	^ true
 ]
 
+{ #category : #parsing }
+JEDottedItem >> addFamily: aFamily [
+	self node addFamily: aFamily
+]
+
+{ #category : #parsing }
+JEDottedItem >> addFamilyWith: completeItem [ 
+	self node addFamilyWith: completeItem node
+]
+
+{ #category : #parsing }
+JEDottedItem >> addFamilyWith: previousItem and: completeItem [
+	self node addFamilyWith: previousItem node and: completeItem node
+]
+
+{ #category : #parsing }
+JEDottedItem >> addFamilyWith: completeItem to: parentItem [
+	self isPredicted
+		ifTrue: [ parentItem addFamilyWith: completeItem ]
+		ifFalse: [ parentItem addFamilyWith: self and: completeItem ]
+]
+
 { #category : #accessing }
 JEDottedItem >> dottedRule [
 	^ dottedRule
@@ -63,6 +85,16 @@ JEDottedItem >> dottedRule [
 { #category : #comparing }
 JEDottedItem >> equals: anItem [
 	^ (super equals: anItem) and: [ dottedRule = anItem dottedRule ]
+]
+
+{ #category : #parsing }
+JEDottedItem >> families [
+	^ self node families 
+]
+
+{ #category : #parsing }
+JEDottedItem >> familiesSize [
+	^ self node familiesSize
 ]
 
 { #category : #enumerating }
@@ -130,6 +162,13 @@ JEDottedItem >> isTerminal [
 { #category : #accessing }
 JEDottedItem >> moveDotForward [
 	^ self class given: dottedRule moveDotForward startedAt: start
+]
+
+{ #category : #parsing }
+JEDottedItem >> newFamilyWith: anItem [
+	^ self isPredicted
+		ifTrue: [ JEFamily with: anItem node ]
+		ifFalse: [ JEFamily with: self node with: anItem node ]
 ]
 
 { #category : #parsing }

@@ -78,6 +78,14 @@ JEDottedItemTest >> testIsActive [
 ]
 
 { #category : #tests }
+JEDottedItemTest >> testIsEpsilon [
+	rule := JERule head: (NCNonterminal named: 'F') body: {}.
+	item := rule dotAtEnd startedAt: first.
+
+	self assert: item isEpsilon
+]
+
+{ #category : #tests }
 JEDottedItemTest >> testIsFinal [
 	item := (rule dotAt: 4) startedAt: first.
 

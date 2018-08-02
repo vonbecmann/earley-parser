@@ -60,6 +60,15 @@ JEDottedItemTest >> testAddFamilyEmpty02 [
 ]
 
 { #category : #tests }
+JEDottedItemTest >> testFamiliesSize [
+	first := JEColumn number: 1.
+	rule := JERule head: (NCNonterminal named: 'F') body: {}.
+	item := rule dotAtEnd startedAt: first.
+
+	self assert: item familiesSize equals: 1
+]
+
+{ #category : #tests }
 JEDottedItemTest >> testIsActive [
 	item := (rule dotAt: 2) startedAt: first.
 	self assert: item isActive.

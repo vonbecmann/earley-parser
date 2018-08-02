@@ -26,6 +26,40 @@ JEDottedItemTest >> setUp [
 ]
 
 { #category : #tests }
+JEDottedItemTest >> testAddFamilyEmpty [
+	first := JEColumn number: 1.
+	rule := JERule head: (NCNonterminal named: 'F') body: {}.
+	item := rule dotAtEnd startedAt: first.
+	
+	self assert: item familiesSize equals: 1.
+	item addFamily: JEFamily empty.
+	self assert: item familiesSize equals: 1
+]
+
+{ #category : #tests }
+JEDottedItemTest >> testAddFamilyEmpty01 [
+	first := JEColumn number: 1.
+	rule := JERule head: (NCNonterminal named: 'F') body: {}.
+	item := rule dotAtEnd startedAt: first.
+
+	self assert: item familiesSize equals: 1.
+	item addFamily: JEFamily empty.
+	item addFamily: JEFamily empty.
+	item addFamily: JEFamily empty.
+	self assert: item familiesSize equals: 1
+]
+
+{ #category : #tests }
+JEDottedItemTest >> testAddFamilyEmpty02 [
+	first := JEColumn number: 1.
+	rule := JERule head: (NCNonterminal named: 'F') body: {}.
+	item := rule dotAtEnd startedAt: first.
+
+	self assert: item familiesSize equals: 1.
+
+]
+
+{ #category : #tests }
 JEDottedItemTest >> testIsActive [
 	item := (rule dotAt: 2) startedAt: first.
 	self assert: item isActive.

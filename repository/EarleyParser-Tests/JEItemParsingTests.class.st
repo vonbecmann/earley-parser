@@ -9,34 +9,6 @@ Class {
 }
 
 { #category : #tests }
-JEItemParsingTests >> testAddEmptyFamily [
-	| item first |
-	first := JEColumn number: 1.
-	item := (JERule head: (NCNonterminal named: 'F') body: {}) dotAtEnd startedAt: first.
-	item addFamily: JEFamily empty.
-	self assert: item familiesSize equals: 1
-]
-
-{ #category : #tests }
-JEItemParsingTests >> testAddEmptyFamily01 [
-	| item first |
-	first := JEColumn number: 1.
-	item := (JERule head: (NCNonterminal named: 'F') body: {}) dotAtEnd startedAt: first.
-	item addFamily: JEFamily empty.
-	item addFamily: JEFamily empty.
-	item addFamily: JEFamily empty.
-	self assert: item familiesSize equals: 1
-]
-
-{ #category : #tests }
-JEItemParsingTests >> testAddEmptyFamily02 [
-	| item first |
-	first := JEColumn number: 1.
-	item := (JERule head: (NCNonterminal named: 'F') body: {}) dotAtEnd startedAt: first.
-	self assert: item familiesSize equals: 1
-]
-
-{ #category : #tests }
 JEItemParsingTests >> testAddFamily [
 	| first middle last rule target previous complete family |
 	first := JEColumn number: 1.

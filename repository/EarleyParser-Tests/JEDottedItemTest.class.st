@@ -27,7 +27,6 @@ JEDottedItemTest >> setUp [
 
 { #category : #tests }
 JEDottedItemTest >> testAddFamilyEmpty [
-	first := JEColumn number: 1.
 	rule := JERule head: (NCNonterminal named: 'F') body: {}.
 	item := rule dotAtEnd startedAt: first.
 	
@@ -38,7 +37,6 @@ JEDottedItemTest >> testAddFamilyEmpty [
 
 { #category : #tests }
 JEDottedItemTest >> testAddFamilyEmpty01 [
-	first := JEColumn number: 1.
 	rule := JERule head: (NCNonterminal named: 'F') body: {}.
 	item := rule dotAtEnd startedAt: first.
 
@@ -51,7 +49,6 @@ JEDottedItemTest >> testAddFamilyEmpty01 [
 
 { #category : #tests }
 JEDottedItemTest >> testAddFamilyEmpty02 [
-	first := JEColumn number: 1.
 	rule := JERule head: (NCNonterminal named: 'F') body: {}.
 	item := rule dotAtEnd startedAt: first.
 
@@ -61,7 +58,6 @@ JEDottedItemTest >> testAddFamilyEmpty02 [
 
 { #category : #tests }
 JEDottedItemTest >> testFamiliesSize [
-	first := JEColumn number: 1.
 	rule := JERule head: (NCNonterminal named: 'F') body: {}.
 	item := rule dotAtEnd startedAt: first.
 

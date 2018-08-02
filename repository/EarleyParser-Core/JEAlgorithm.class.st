@@ -34,8 +34,7 @@ JEAlgorithm >> complete: item [
 JEAlgorithm >> evaluate: words [
 	| n chart |
 	n := words size + 1.
-	chart := Array new: n.
-	1 to: n do: [ :index | chart at: index put: (JEColumn number: index) ].
+	chart := self newChartOf: n.
 	chart first add: (grammar startRule dotAtBeginning startedAt: chart first).
 	1 to: n do: [ :i | 
 		| column |
@@ -59,6 +58,16 @@ JEAlgorithm >> evaluate: words [
 JEAlgorithm >> initializeGrammar: aGrammar [ 
 	self initialize.
 	grammar := aGrammar
+]
+
+{ #category : #initialization }
+JEAlgorithm >> newChartOf: nColumns [
+	" a new chart of n columns "
+
+	| chart |
+	chart := Array new: nColumns.
+	1 to: nColumns do: [ :index | chart at: index put: (JEColumn number: index) ].
+	^ chart
 ]
 
 { #category : #'private operations' }

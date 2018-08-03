@@ -65,6 +65,13 @@ JEDottedItemTest >> testFamiliesSize [
 ]
 
 { #category : #tests }
+JEDottedItemTest >> testFamiliesSize01 [
+	item := rule dotAtEnd startedAt: first.
+
+	self assert: item familiesSize equals: 0
+]
+
+{ #category : #tests }
 JEDottedItemTest >> testIsActive [
 	item := (rule dotAt: 2) startedAt: first.
 	self assert: item isActive.

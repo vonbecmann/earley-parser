@@ -61,6 +61,9 @@ JEDottedItemTest >> testAddFamilyWithTo [
 	| third fourth previous terminal |
 	third := JEColumn number: 3.
 	fourth := JEColumn number: 4.
+	rule := JERule
+		head: (NCNonterminal named: 'T')
+		body: 	{(NCNonterminal named: 'T'). (NCTerminal character: $+). (NCNonterminal named: 'P')}.
 	previous := (rule dotAt: 2) startedAt: first andEndedAt: third.
 	terminal := JETerminalItem
 		given: (NCTerminal character: $+)
@@ -72,7 +75,30 @@ JEDottedItemTest >> testAddFamilyWithTo [
 	self assert: item familiesSize equals: 0.
 	previous addFamilyWith: terminal to: item.
 	self assert: item familiesSize equals: 1.
+	previous addFamilyWith: terminal to: item.
+	self assert: item familiesSize equals: 1	
+]
+
+{ #category : #tests }
+JEDottedItemTest >> testAddFamilyWithTo01 [
+	| third fourth previous complete |
+	third := JEColumn number: 3.
+	fourth := JEColumn number: 4.
+	rule := JERule
+		head: (NCNonterminal named: 'T')
+		body: 	{(NCNonterminal named: 'T'). (NCTerminal character: $+). (NCNonterminal named: 'P')}.
+
+	previous := (rule dotAt: 3) startedAt: first andEndedAt: third.
+	complete := 
+		(JERule head: (NCNonterminal named: 'P') body: {(NCNonterminal named: 'a')})
+			dotAtEnd startedAt: third andEndedAt: fourth.
+	item := rule dotAtEnd startedAt: first andEndedAt: fourth.
 	
+	self assert: item familiesSize equals: 0.
+	previous addFamilyWith: complete to: item.
+	self assert: item familiesSize equals: 1.
+	previous addFamilyWith: complete to: item.
+	self assert: item familiesSize equals: 1
 ]
 
 { #category : #tests }

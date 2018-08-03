@@ -57,6 +57,25 @@ JEDottedItemTest >> testAddFamilyEmpty02 [
 ]
 
 { #category : #tests }
+JEDottedItemTest >> testAddFamilyWithTo [
+	| third fourth previous terminal |
+	third := JEColumn number: 3.
+	fourth := JEColumn number: 4.
+	previous := (rule dotAt: 2) startedAt: first andEndedAt: third.
+	terminal := JETerminalItem
+		given: (NCTerminal character: $+)
+		word: $+
+		startedAt: third
+		andEndedAt: fourth.
+	item := (rule dotAt: 3) startedAt: first andEndedAt: fourth.
+	
+	self assert: item familiesSize equals: 0.
+	previous addFamilyWith: terminal to: item.
+	self assert: item familiesSize equals: 1.
+	
+]
+
+{ #category : #tests }
 JEDottedItemTest >> testFamiliesSize [
 	rule := JERule head: (NCNonterminal named: 'F') body: {}.
 	item := rule dotAtEnd startedAt: first.

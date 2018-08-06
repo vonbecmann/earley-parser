@@ -102,6 +102,27 @@ JEDottedItemTest >> testAddFamilyWithTo01 [
 ]
 
 { #category : #tests }
+JEDottedItemTest >> testAddFamilyWithTo02 [
+	| second previous complete |
+	second := JEColumn number: 2.
+	rule := JERule
+		head: (NCNonterminal named: 'T')
+		body: 	{(NCNonterminal named: 'T'). (NCTerminal character: $+). (NCNonterminal named: 'P')}.
+
+	previous := rule dotAtBeginning startedAt: first.
+	complete := 
+		(JERule head: (NCNonterminal named: 'T') body: {(NCNonterminal named: 'a')})
+			dotAtEnd startedAt: first andEndedAt: second.
+	item := (rule dotAt: 2) startedAt: first andEndedAt: second.
+	
+	self assert: item familiesSize equals: 0.
+	previous addFamilyWith: complete to: item.
+	self assert: item familiesSize equals: 1.
+	previous addFamilyWith: complete to: item.
+	self assert: item familiesSize equals: 1
+]
+
+{ #category : #tests }
 JEDottedItemTest >> testFamiliesSize [
 	rule := JERule head: (NCNonterminal named: 'F') body: {}.
 	item := rule dotAtEnd startedAt: first.

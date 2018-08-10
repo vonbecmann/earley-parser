@@ -78,11 +78,9 @@ JEColumn >> addDottedItem: dottedItem [
 							[	SinglyLinkedList new
 									addLast: dottedItem;
 									yourself ] ] ].
-	items addLast: dottedItem.
 	itemsToProcess nextPut: dottedItem.
-	^ dottedItem
-		end: self;
-		yourself
+	dottedItem end: self.
+	^ items addLast: dottedItem
 ]
 
 { #category : #adding }
@@ -104,10 +102,8 @@ JEColumn >> addTerminalItem: terminalItem [
 		jeAt: terminalItem firstKey
 		at: terminalItem secondKey
 		ifAbsentPut: [ 
-			items addLast: terminalItem.
-			terminalItem
-				end: self;
-				yourself ]
+			terminalItem end: self.
+			items addLast: terminalItem ]
 ]
 
 { #category : #accessing }

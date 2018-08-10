@@ -51,15 +51,38 @@ JEColumn >> = column [
 ]
 
 { #category : #adding }
-JEColumn >> add: anItem [
+JEColumn >> add: aDottedItem [
 	" Optimize for efficiency. 
 		if the item doesn't exist then add it last.
 		this is a predicted item "
 
 	itemsByKey
-		jeAt: anItem firstKey
-		at: anItem secondKey
-		ifAbsentPut: [ self basicAdd: anItem ]
+		jeAt: aDottedItem firstKey
+		at: aDottedItem secondKey
+		ifAbsentPut: [ self addDottedItem: aDottedItem ]
+]
+
+{ #category : #private }
+JEColumn >> addDottedItem: dottedItem [
+	dottedItem isFinal
+		ifTrue: [ 
+			dottedItem start = self
+				ifTrue: [ self finalItemsByNonterminalAt: dottedItem head put: dottedItem ] ]
+		ifFalse: [ 
+			dottedItem symbolAtDot isNonterminal
+				ifTrue: [ 
+					predictionItemsByNonterminal
+						jeAt: dottedItem symbolAtDot
+						ifPresent: [ :list | list addLast: dottedItem ]
+						ifAbsentPut: 
+							[	SinglyLinkedList new
+									addLast: dottedItem;
+									yourself ] ] ].
+	items addLast: dottedItem.
+	itemsToProcess nextPut: dottedItem.
+	^ dottedItem
+		end: self;
+		yourself
 ]
 
 { #category : #adding }
@@ -70,7 +93,7 @@ JEColumn >> addDottedRule: dottedRule [
 	itemsByKey
 		jeAt: dottedRule
 		at: self
-		ifAbsentPut: [ self basicAdd: (dottedRule startedAt: self) ]
+		ifAbsentPut: [ self addDottedItem: (dottedRule startedAt: self) ]
 ]
 
 { #category : #parsing }
@@ -85,29 +108,6 @@ JEColumn >> addTerminalItem: terminalItem [
 			terminalItem
 				end: self;
 				yourself ]
-]
-
-{ #category : #private }
-JEColumn >> basicAdd: anItem [
-	anItem isFinal
-		ifTrue: [ 
-			anItem start = self
-				ifTrue: [ self finalItemsByNonterminalAt: anItem head put: anItem ] ]
-		ifFalse: [ 
-			anItem symbolAtDot isNonterminal
-				ifTrue: [ 
-					predictionItemsByNonterminal
-						jeAt: anItem symbolAtDot
-						ifPresent: [ :list | list addLast: anItem ]
-						ifAbsentPut: 
-							[	SinglyLinkedList new
-									addLast: anItem;
-									yourself ] ] ].
-	items addLast: anItem.
-	itemsToProcess nextPut: anItem.
-	^ anItem
-		end: self;
-		yourself
 ]
 
 { #category : #accessing }
@@ -205,7 +205,7 @@ JEColumn >> moveDotForward: previousItem [
 	^ itemsByKey
 		jeAt: previousItem dottedRule moveDotForward
 		at: previousItem secondKey 
-		ifAbsentPut: [ self basicAdd: previousItem moveDotForward ]
+		ifAbsentPut: [ self addDottedItem: previousItem moveDotForward ]
 ]
 
 { #category : #accessing }

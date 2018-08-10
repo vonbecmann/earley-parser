@@ -204,7 +204,7 @@ JEColumn >> moveDotForward: previousItem [
 
 	^ itemsByKey
 		jeAt: previousItem dottedRule moveDotForward
-		at: previousItem start
+		at: previousItem secondKey 
 		ifAbsentPut: [ self basicAdd: previousItem moveDotForward ]
 ]
 

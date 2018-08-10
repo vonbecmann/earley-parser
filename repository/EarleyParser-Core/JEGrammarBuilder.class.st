@@ -74,7 +74,6 @@ JEGrammarBuilder >> build [
 
 { #category : #initialization }
 JEGrammarBuilder >> initialize [
-	super initialize.
 	productionRules := representations := #()
 ]
 

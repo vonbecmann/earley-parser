@@ -64,9 +64,9 @@ JEGrammarBuilder >> build [
 	index := IdentityDictionary new.
 	unique do: [ :rule | index at: rule put: (lineup indexOf: rule) ].
 	newGrammar := JEGrammar
-		productionRules: (unique sorted: [ :a :b | (index at: a) < (index at: b) ])
 		nonterminals: nonterminals
 		terminals: terminals
+		productionRules: (unique sorted: [ :a :b | (index at: a) < (index at: b) ])
 		startNonterminal: lineup first head.
 	self reset.
 	^ newGrammar

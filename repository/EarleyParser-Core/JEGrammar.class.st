@@ -35,13 +35,25 @@ Class {
 }
 
 { #category : #private }
+JEGrammar class >> nonterminals: nonterminalSet terminals: terminalSet productionRules: productionRuleCollection startNonterminal: aNonterminal [
+	" see grammar builder and use it "
+
+	^ self basicNew
+		initializeNonterminals: nonterminalSet
+			terminals: terminalSet
+			productionRules: productionRuleCollection
+			startNonterminal: aNonterminal;
+		yourself
+]
+
+{ #category : #private }
 JEGrammar class >> productionRules: productionRuleCollection nonterminals: nonterminalSet terminals: terminalSet startNonterminal: aNonterminal [
 	" see grammar builder and use it "
 
 	^ self basicNew
-		initializeProductionRules: productionRuleCollection
-			nonterminals: nonterminalSet
+		initializeNonterminals: nonterminalSet
 			terminals: terminalSet
+			productionRules: productionRuleCollection
 			startNonterminal: aNonterminal;
 		yourself
 ]
@@ -112,12 +124,10 @@ JEGrammar >> initialize [
 ]
 
 { #category : #initialization }
-JEGrammar >> initializeProductionRules: productionRuleCollection nonterminals: nonterminalSet terminals: terminalSet startNonterminal: aNonterminal [
+JEGrammar >> initializeNonterminals: nonterminalSet terminals: terminalSet productionRules: productionRuleCollection startNonterminal: aNonterminal [
 	self initialize.
 	nonterminals := nonterminalSet.
 	terminals := terminalSet.
-	startSymbol := aNonterminal.
-	startRule := JERule head: (NCNonterminal named: 'START') body: {startSymbol}.
 	productionRuleCollection
 		do: [ :each | 
 			| newRule |
@@ -125,7 +135,8 @@ JEGrammar >> initializeProductionRules: productionRuleCollection nonterminals: n
 			newRule := each asJERule.
 			predictedAlternatives at: newRule head put: newRule dotAtBeginning.
 			ruleToProductionDict at: newRule put: each ].
-
+	startSymbol := aNonterminal.
+	startRule := JERule head: (NCNonterminal named: 'START') body: {startSymbol}.
 ]
 
 { #category : #private }
@@ -225,9 +236,9 @@ JEGrammar >> startAt: aNonterminalNamed [
 	starting at the given nonterminal that acts as the new start symbol."
 
 	^ self class
-		productionRules: productionRules
 		nonterminals: nonterminals
 		terminals: terminals
+		productionRules: productionRules
 		startNonterminal: (self nonterminal: aNonterminalNamed)
 ]
 

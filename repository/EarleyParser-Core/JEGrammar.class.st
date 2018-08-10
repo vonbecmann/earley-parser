@@ -6,10 +6,11 @@ terminals - is a set of terminals. they should be unique.
 productionRules - is a set of rules defined by the user.
 				you can access by an association (nonterminal -> index).
 
-startSymbol - a nonterminal named START  used by the algorithm.
-	the given grammar is augmented with this nonterminal.
+startSymbol - A distinguished nonterminal symbol that is the start symbol.
+
 startRule - the first rule to initialize the algorithm.
 	START : first nonterminal.
+	the given grammar is augmented with a nonterminal named START  used by the algorithm.
 		
 predictedAlternatives - is a set of predicted dotted rules that you can access by nonterminal. 
 	 they are obtain from the given rules. 
@@ -17,9 +18,6 @@ predictedAlternatives - is a set of predicted dotted rules that you can access b
 
 ruleToProductionDict - maps algorithm's rule to production rules.
 	useful when you get a derivation.
-
-
-
 "
 Class {
 	#name : #JEGrammar,
@@ -28,6 +26,7 @@ Class {
 		'nonterminals',
 		'terminals',
 		'productionRules',
+		'startSymbol',
 		'startRule',
 		'predictedAlternatives',
 		'ruleToProductionDict'
@@ -106,7 +105,6 @@ JEGrammar >> alternativesOf: aNonterminal [
 
 { #category : #initialization }
 JEGrammar >> initialize [
-	super initialize.
 	productionRules := ArrayMultiValuedDictionary dictionary: OrderedDictionary.
 	predictedAlternatives := ArrayMultiValuedDictionary dictionary: IdentityDictionary.
 	ruleToProductionDict := IdentityDictionary new
@@ -118,7 +116,8 @@ JEGrammar >> initializeProductionRules: productionRuleCollection nonterminals: n
 	self initialize.
 	nonterminals := nonterminalSet.
 	terminals := terminalSet.
-	startRule := JERule head: (NCNonterminal named: 'START') body: {aNonterminal}.
+	startSymbol := aNonterminal.
+	startRule := JERule head: (NCNonterminal named: 'START') body: {startSymbol}.
 	productionRuleCollection
 		do: [ :each | 
 			| newRule |
@@ -223,7 +222,7 @@ JEGrammar >> rulesSize [
 { #category : #'instance creation' }
 JEGrammar >> startAt: aNonterminalNamed [
 	" a new subgrammar based on a collection of rules, 
-	starting at the given nonterminal that acts as the new root."
+	starting at the given nonterminal that acts as the new start symbol."
 
 	^ self class
 		productionRules: productionRules
@@ -235,6 +234,11 @@ JEGrammar >> startAt: aNonterminalNamed [
 { #category : #private }
 JEGrammar >> startRule [
 	^ startRule
+]
+
+{ #category : #accessing }
+JEGrammar >> startSymbol [
+	^ startSymbol
 ]
 
 { #category : #accessing }

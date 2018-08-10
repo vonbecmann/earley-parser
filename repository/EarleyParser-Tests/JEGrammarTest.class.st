@@ -176,6 +176,16 @@ JEGrammarTest >> testStartAtNonterminal02 [
 ]
 
 { #category : #'tests - accessing' }
+JEGrammarTest >> testStartSymbol [
+	grammar := JEGrammar 
+						productionRules: #(#('A' #()) #('A' #('letter x symbol'))) 
+						representations: {('letter x symbol' -> (NCTerminal character: $x))}.
+
+	self assert: grammar startSymbol equals: (NCNonterminal named: 'A')
+
+]
+
+{ #category : #'tests - accessing' }
 JEGrammarTest >> testTerminals [
 	grammar := JEGrammar 
 						productionRules: #(#('A' #()) #('A' #('letter x symbol'))) 

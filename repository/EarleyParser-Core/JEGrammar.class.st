@@ -172,7 +172,7 @@ JEGrammar >> printOn: aStream [
 	aStream
 		nextPutAll: self class name;
 		nextPut: $(;
-		print: startRule;
+		print: startSymbol;
 		nextPut: $)
 ]
 

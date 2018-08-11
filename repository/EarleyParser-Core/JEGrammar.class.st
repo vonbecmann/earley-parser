@@ -46,18 +46,6 @@ JEGrammar class >> nonterminals: nonterminalSet terminals: terminalSet productio
 		yourself
 ]
 
-{ #category : #private }
-JEGrammar class >> productionRules: productionRuleCollection nonterminals: nonterminalSet terminals: terminalSet startNonterminal: aNonterminal [
-	" see grammar builder and use it "
-
-	^ self basicNew
-		initializeNonterminals: nonterminalSet
-			terminals: terminalSet
-			productionRules: productionRuleCollection
-			startNonterminal: aNonterminal;
-		yourself
-]
-
 { #category : #'instance creation' }
 JEGrammar class >> productionRules: productionRuleArray representations: terminalNotionToRepresentationList [
 	"	a grammar based on a collection of rules, starting at the first rule's left hand.

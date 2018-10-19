@@ -68,7 +68,6 @@ ESSingleSynthesizedAttributeEvaluator >> evaluateTree: aParseTree [
 
 { #category : #initialization }
 ESSingleSynthesizedAttributeEvaluator >> initialize [
-	super initialize.
 	ruleToAction := Dictionary new
 ]
 

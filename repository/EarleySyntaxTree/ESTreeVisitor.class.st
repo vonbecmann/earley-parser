@@ -19,7 +19,7 @@ Class {
 
 { #category : #visitors }
 ESTreeVisitor class >> depthFirst [
-	^ ESTDepthFirstVisitor
+	^ ESTLeftToRightDepthFirstVisitor
 ]
 
 { #category : #visitors }

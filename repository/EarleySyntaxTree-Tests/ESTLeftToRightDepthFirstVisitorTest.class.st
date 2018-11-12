@@ -1,28 +1,28 @@
 Class {
-	#name : #ESTDepthFirstVisitorTest,
+	#name : #ESTLeftToRightDepthFirstVisitorTest,
 	#superclass : #TestCase,
 	#instVars : [
 		'grammar',
 		'parseTree'
 	],
-	#category : 'EarleySyntaxTree-Tests-Implementation'
+	#category : #'EarleySyntaxTree-Tests-Implementation'
 }
 
 { #category : #running }
-ESTDepthFirstVisitorTest >> setUp [
+ESTLeftToRightDepthFirstVisitorTest >> setUp [
 	parseTree := nil.
 	grammar := ESTExemplar binaryNumber
 ]
 
 { #category : #tests }
-ESTDepthFirstVisitorTest >> testCollectSymbols [
+ESTLeftToRightDepthFirstVisitorTest >> testCollectSymbols [
 	| symbols |
 	parseTree := grammar parseTree: '1'.
 
 	symbols := 
 	Array
 		streamContents: [ :s | 
-			ESTDepthFirstVisitor new
+			ESTLeftToRightDepthFirstVisitor new
 				preOrderBlock: [ :node | s nextPut: node model symbol ];
 				visit: parseTree ].
 	self
@@ -36,14 +36,14 @@ ESTDepthFirstVisitorTest >> testCollectSymbols [
 ]
 
 { #category : #tests }
-ESTDepthFirstVisitorTest >> testCollectSymbols02 [
+ESTLeftToRightDepthFirstVisitorTest >> testCollectSymbols02 [
 	| symbols |
 	parseTree := grammar parseTree: '0'.
 
 	symbols := 
 	Array
 		streamContents: [ :s | 
-			ESTDepthFirstVisitor new
+			ESTLeftToRightDepthFirstVisitor new
 				preOrderBlock: [ :node | s nextPut: node model symbol ];
 				visit: parseTree ].
 
@@ -58,13 +58,13 @@ ESTDepthFirstVisitorTest >> testCollectSymbols02 [
 ]
 
 { #category : #tests }
-ESTDepthFirstVisitorTest >> testVisitedCount [
+ESTLeftToRightDepthFirstVisitorTest >> testVisitedCount [
 	| firstCount secondCount |
 	firstCount := 0.
 	secondCount := 0.
 	parseTree := grammar parseTree: '1010100011011'.
 
-	ESTDepthFirstVisitor new
+	ESTLeftToRightDepthFirstVisitor new
 		preOrderBlock: [ firstCount := firstCount + 1 ];
 		postOrderBlock: [ secondCount := secondCount + 1 ];
 		visit: parseTree.
@@ -73,17 +73,17 @@ ESTDepthFirstVisitorTest >> testVisitedCount [
 ]
 
 { #category : #tests }
-ESTDepthFirstVisitorTest >> testVisitedCount01 [
+ESTLeftToRightDepthFirstVisitorTest >> testVisitedCount01 [
 	| firstCount secondCount |
 	firstCount := 0.
 	secondCount := 0.
 	parseTree := grammar parseTree: '1010100011011'.
 
-	ESTDepthFirstVisitor new
+	ESTLeftToRightDepthFirstVisitor new
 		preOrderBlock: [ firstCount := firstCount + 1 ];
 		visit: parseTree.
 
-	ESTDepthFirstVisitor new
+	ESTLeftToRightDepthFirstVisitor new
 		postOrderBlock: [ secondCount := secondCount + 1 ];
 		visit: parseTree.
 

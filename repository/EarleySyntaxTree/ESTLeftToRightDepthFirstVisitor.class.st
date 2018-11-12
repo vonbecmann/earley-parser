@@ -4,12 +4,12 @@ depth first tree visitor.
 
 "
 Class {
-	#name : #ESTDepthFirstVisitor,
+	#name : #ESTLeftToRightDepthFirstVisitor,
 	#superclass : #ESTDepthFirst,
 	#category : #'EarleySyntaxTree-Implementation'
 }
 
 { #category : #private }
-ESTDepthFirstVisitor >> withChildrenOf: node do: aBlock [
+ESTLeftToRightDepthFirstVisitor >> withChildrenOf: node do: aBlock [
 	node children reverseDo: aBlock
 ]

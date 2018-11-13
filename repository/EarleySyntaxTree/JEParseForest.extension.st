@@ -17,12 +17,7 @@ JEParseForest >> extractSingleParseTree [
 							stack
 								push:
 									(ESTreeNode
-										model:
-											(ESSyntaxNode
-												symbol: node model head
-												reason: (grammar productionRuleAt: node model rule)
-												start: node model start number
-												end: node model end number)
+										model: (node model asSyntaxNodeOf: grammar)
 										children:
 											(node families isEmpty
 												ifTrue: [ #() ]

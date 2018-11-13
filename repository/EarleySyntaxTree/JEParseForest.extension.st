@@ -10,16 +10,7 @@ JEParseForest >> extractSingleParseTree [
 	JETreeDepthFirstVisitor new
 		postOrderNodeBlock: [ :node | 
 			node model isTerminal
-				ifTrue: [ 
-					stack
-						push:
-							(ESTreeNode
-								model:
-									(ESSyntaxNode
-										symbol: node model terminal
-										reason: node model word
-										start: node model start number
-										end: node model end number)) ]
+				ifTrue: [ stack push: (ESTreeNode	model: node model asSyntaxNode) ]
 				ifFalse: [ 
 					node model isFinal
 						ifTrue: [ 

@@ -5,7 +5,7 @@ depth first tree visitor.
 "
 Class {
 	#name : #ESTLeftToRightDepthFirstVisitor,
-	#superclass : #ESTDepthFirst,
+	#superclass : #ESTDepthFirstVisitor,
 	#category : #'EarleySyntaxTree-Implementation'
 }
 

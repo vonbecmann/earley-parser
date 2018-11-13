@@ -1,11 +1,15 @@
+"
+depth first tree visitor.
+
+"
 Class {
-	#name : #ESTDepthFirst,
+	#name : #ESTDepthFirstVisitor,
 	#superclass : #ESTreeVisitor,
 	#category : #'EarleySyntaxTree-Implementation'
 }
 
 { #category : #visiting }
-ESTDepthFirst >> visitNode: aGivenTreeNode [
+ESTDepthFirstVisitor >> visitNode: aGivenTreeNode [
 	| visitStack |
 	visitStack := SinglyLinkedStack with: (OrderedPair first: aGivenTreeNode second: false).
 	[ visitStack isEmpty ]
@@ -26,6 +30,6 @@ ESTDepthFirst >> visitNode: aGivenTreeNode [
 ]
 
 { #category : #private }
-ESTDepthFirst >> withChildrenOf: node do: aBlock [
+ESTDepthFirstVisitor >> withChildrenOf: node do: aBlock [
 	self subclassResponsibility
 ]

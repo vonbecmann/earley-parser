@@ -29,3 +29,19 @@ ESSinglyLinkedStackTest >> testPopReversed02 [
 		push: 2.
 	self should: [ stack popReversed: 3 ] raise: Error
 ]
+
+{ #category : #tests }
+ESSinglyLinkedStackTest >> testPopReversed03 [
+	| stack reversed |
+	stack := SinglyLinkedStack new.
+	stack
+		push: 1;
+		push: 2;
+		push: 3;
+		push: 4;
+		push: 5.
+	reversed := stack popReversed: 0.
+	self assert: reversed size equals: 0.
+	self assert: reversed equals: #().
+	self assert: stack size equals: 5
+]

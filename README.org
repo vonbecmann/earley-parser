@@ -7,7 +7,7 @@ Jay Clark Earley Parser [[https://travis-ci.org/vonbecmann/earley-parser][https:
 #+BEGIN_SRC
 Metacello new
     baseline: 'EarleyParser';
-    repository: 'github://vonbecmann/earley-parser/repository';
+    repository: 'github://vonbecmann/earley-parser:pharo6/repository';
     load.
 #+END_SRC
 

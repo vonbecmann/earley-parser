@@ -39,5 +39,5 @@ JEEarleyUI class >> earleyToolsOn: aBuilder [
 
 { #category : #environment }
 JEEarleyUI class >> openBrowserInEarleyEnvironment [
-	^ (Smalltalk tools browser browsedEnvironment: self earleyEnvironment) open
+	^ Smalltalk tools browser open
 ]

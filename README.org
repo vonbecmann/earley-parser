@@ -11,38 +11,3 @@ Metacello new
     load.
 #+END_SRC
 
-** versions for pharo 5
-
-#+BEGIN_SRC
-Metacello new
-	  smalltalkhubUser: 'vonbecmann' project: 'earley-parser';
-	  configuration: 'EarleyParser';
-	  version: '1.0';
-	  load.
-#+END_SRC
-
-#+BEGIN_SRC
-Metacello new
-	  smalltalkhubUser: 'vonbecmann' project: 'earley-parser';
-	  configuration: 'EarleyParser';
-	  version: '1.1';
-	  load.
-#+END_SRC
-
-
-#+BEGIN_SRC
-Metacello new
-	  smalltalkhubUser: 'vonbecmann' project: 'earley-parser';
-	  configuration: 'EarleyParser';
-	  version: '1.2';
-	  load.
-#+END_SRC
-
-#+BEGIN_SRC
-Metacello new
-	  smalltalkhubUser: 'vonbecmann' project: 'earley-parser';
-	  configuration: 'EarleyParser';
-	  version: '1.21';
-	  load.
-#+END_SRC
-

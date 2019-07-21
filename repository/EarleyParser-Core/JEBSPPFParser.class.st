@@ -46,7 +46,6 @@ JEBSPPFParser >> scan: item with: word at: column [
 	item
 		addFamilyWith: 
 			(column 
-				addTerminalItem: 
-					(JETerminalItem given: item symbolAtDot word: word startedAt: item end))
+				addTerminalItem: (item symbolAtDot match: word startedAt: item end))
 		to: (column moveDotForward: item)
 ]

@@ -10,12 +10,13 @@ Class {
 
 { #category : #environment }
 JEEarleyUI class >> earleyEnvironment [
-	| packageNames |
-	packageNames := OrderedCollection with: BaselineOfEarleyParser package packageName.
-	packageNames addAll: (BaselineOfEarleyParser project version packages collect: [ :each | each name ]).
-	^ (RBBrowserEnvironment new forPackageNames: packageNames)
-		label: 'Earley Parser Environment';
-		yourself
+	| packages |
+	packages := OrderedCollection with: BaselineOfEarleyParser package.
+	packages
+		addAll:
+			(BaselineOfEarleyParser allPackageNames
+				collect: [ :each | RPackage organizer packageNamed: each ]).
+	^ packages
 ]
 
 { #category : #'menu declaring' }
@@ -39,5 +40,6 @@ JEEarleyUI class >> earleyToolsOn: aBuilder [
 
 { #category : #environment }
 JEEarleyUI class >> openBrowserInEarleyEnvironment [
-	^ Smalltalk tools browser open
+	^ Smalltalk tools browser
+		openWithState: [ :browser | browser switchToPackageScopeOf: self earleyEnvironment ]
 ]

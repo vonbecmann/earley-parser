@@ -97,16 +97,10 @@ JEFamily >> isEmpty [
 	^ first isNil and: [ second isNil ]
 ]
 
-{ #category : #accessing }
+{ #category : #private }
 JEFamily >> members [
 	^ members
-		ifNil: [ 
-			members := first
-				ifNil: [ #() ]
-				ifNotNil: [ 
-					second
-						ifNil: [ {first} ]
-						ifNotNil: [ {first. second} ] ] ]
+		ifNil: [ members := {first. second} reject: [ :each | each isNil ] ]
 ]
 
 { #category : #accessing }

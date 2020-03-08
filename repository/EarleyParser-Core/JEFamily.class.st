@@ -65,12 +65,12 @@ JEFamily >> acceptVisitor: aVisitor [
 
 { #category : #visiting }
 JEFamily >> children [
-	^ self members
+	^ children
 ]
 
 { #category : #accessing }
 JEFamily >> first [
-	^ children first
+	^ members first
 ]
 
 { #category : #comparing }
@@ -86,18 +86,13 @@ JEFamily >> hash [
 
 { #category : #initialization }
 JEFamily >> initializeFirst: firstPackedNode andSecond: secondPackedNode [
-	children := {firstPackedNode. secondPackedNode}.
-	members := nil
+	members := {firstPackedNode. secondPackedNode}.
+	children := members reject: [ :each | each isNil ]
 ]
 
 { #category : #testing }
 JEFamily >> isEmpty [
-	^ self first isNil and: [ self second isNil ]
-]
-
-{ #category : #private }
-JEFamily >> members [
-	^ members ifNil: [ members := children reject: [ :each | each isNil ] ]
+	^ children isEmpty
 ]
 
 { #category : #accessing }
@@ -113,14 +108,9 @@ JEFamily >> parent: aPackedNode [
 { #category : #printing }
 JEFamily >> printOn: aStream [
 	aStream nextPut: $(.
-	self first
-		ifNotNil: [ 
-			aStream print: self first.
-			self second
-				ifNotNil: [ 
-					aStream
-						nextPutAll: ', ';
-						print: self second ] ].
+	children
+		do: [ :each | aStream print: each ]
+		separatedBy: [ aStream nextPutAll: ', ' ].
 	aStream nextPut: $)
 ]
 
@@ -134,11 +124,11 @@ JEFamily >> release [
 
 { #category : #accessing }
 JEFamily >> second [
-	^ children second 
+	^ members second 
 	
 ]
 
 { #category : #accessing }
 JEFamily >> size [
-	^ self members size
+	^ children size
 ]

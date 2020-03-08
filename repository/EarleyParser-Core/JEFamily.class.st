@@ -75,13 +75,9 @@ JEFamily >> first [
 
 { #category : #comparing }
 JEFamily >> hash [
-	| hash |
-	hash := (self class hash + parent identityHash) hashMultiply.
-	self first
-		ifNotNil: 
-			[	hash := (hash + self first identityHash) hashMultiply.
-				self second ifNotNil: [ hash := (hash + self second identityHash) hashMultiply ] ].
-	^ hash
+	^ children
+		inject: (self class hash + parent identityHash) hashMultiply
+		into: [ :hash :each | (hash + each identityHash) hashMultiply ]
 ]
 
 { #category : #initialization }

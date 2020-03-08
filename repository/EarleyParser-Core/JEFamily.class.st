@@ -19,8 +19,7 @@ Class {
 	#superclass : #Object,
 	#instVars : [
 		'parent',
-		'first',
-		'second',
+		'children',
 		'members'
 	],
 	#category : #'EarleyParser-Core-BSPPForest'
@@ -45,8 +44,8 @@ JEFamily class >> with: firstPackedNode with: secondPackedNode [
 JEFamily >> = anObject [
 	^ self class == anObject class
 		and: [ parent == anObject parent
-				and: [ first == anObject first 
-					and: [ second == anObject second ] ] ]
+				and: [ self first == anObject first 
+					and: [ self second == anObject second ] ] ]
 ]
 
 { #category : #visiting }
@@ -71,36 +70,34 @@ JEFamily >> children [
 
 { #category : #accessing }
 JEFamily >> first [
-	^ first
+	^ children first
 ]
 
 { #category : #comparing }
 JEFamily >> hash [
 	| hash |
 	hash := (self class hash + parent identityHash) hashMultiply.
-	first
+	self first
 		ifNotNil: 
-			[	hash := (hash + first identityHash) hashMultiply.
-				second ifNotNil: [ hash := (hash + second identityHash) hashMultiply ] ].
+			[	hash := (hash + self first identityHash) hashMultiply.
+				self second ifNotNil: [ hash := (hash + self second identityHash) hashMultiply ] ].
 	^ hash
 ]
 
 { #category : #initialization }
 JEFamily >> initializeFirst: firstPackedNode andSecond: secondPackedNode [
-	first := firstPackedNode.
-	second := secondPackedNode.
+	children := {firstPackedNode. secondPackedNode}.
 	members := nil
 ]
 
 { #category : #testing }
 JEFamily >> isEmpty [
-	^ first isNil and: [ second isNil ]
+	^ self first isNil and: [ self second isNil ]
 ]
 
 { #category : #private }
 JEFamily >> members [
-	^ members
-		ifNil: [ members := {first. second} reject: [ :each | each isNil ] ]
+	^ members ifNil: [ members := children reject: [ :each | each isNil ] ]
 ]
 
 { #category : #accessing }
@@ -116,29 +113,28 @@ JEFamily >> parent: aPackedNode [
 { #category : #printing }
 JEFamily >> printOn: aStream [
 	aStream nextPut: $(.
-	first
+	self first
 		ifNotNil: [ 
-			aStream print: first.
-			second
+			aStream print: self first.
+			self second
 				ifNotNil: [ 
 					aStream
 						nextPutAll: ', ';
-						print: second ] ].
+						print: self second ] ].
 	aStream nextPut: $)
 ]
 
 { #category : #'initialize-release' }
 JEFamily >> release [
 	parent := nil.
-	first := nil.
-	second := nil.
+	children := nil.
 	members := nil.
 	super release
 ]
 
 { #category : #accessing }
 JEFamily >> second [
-	^ second 
+	^ children second 
 	
 ]
 

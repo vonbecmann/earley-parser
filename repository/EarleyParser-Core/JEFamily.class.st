@@ -27,17 +27,21 @@ Class {
 
 { #category : #'instance creation' }
 JEFamily class >> empty [
-	^ self basicNew initializeFirst: nil andSecond: nil
+	^ self basicNew initializeMembers: #(nil nil) andChildren: #()
 ]
 
 { #category : #'instance creation' }
 JEFamily class >> with: aPackedNode [
-	^ self basicNew initializeFirst: aPackedNode andSecond: nil
+	^ self basicNew
+		initializeMembers: {aPackedNode. nil}
+		andChildren: {aPackedNode}
 ]
 
 { #category : #'instance creation' }
 JEFamily class >> with: firstPackedNode with: secondPackedNode [
-	^ self basicNew initializeFirst: firstPackedNode andSecond: secondPackedNode
+	| children |
+	children := Array with: firstPackedNode with: secondPackedNode.
+	^ self basicNew initializeMembers: children andChildren: children
 ]
 
 { #category : #comparing }
@@ -81,9 +85,9 @@ JEFamily >> hash [
 ]
 
 { #category : #initialization }
-JEFamily >> initializeFirst: firstPackedNode andSecond: secondPackedNode [
-	members := {firstPackedNode. secondPackedNode}.
-	children := members reject: [ :each | each isNil ]
+JEFamily >> initializeMembers: nilPackedNodes andChildren: notNilPackedNodes [
+	members := nilPackedNodes.
+	children := notNilPackedNodes
 ]
 
 { #category : #testing }

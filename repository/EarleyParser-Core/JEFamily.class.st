@@ -27,21 +27,46 @@ Class {
 
 { #category : #'instance creation' }
 JEFamily class >> empty [
-	^ self basicNew initializeMembers: #(nil nil) andChildren: #()
+	^ self basicNew
+		initializeParent: nil
+		members: #(nil nil)
+		andChildren: #()
+]
+
+{ #category : #'instance creation' }
+JEFamily class >> parent: parentPackedNode first: firstChildPackedNode [
+	^ self basicNew
+		initializeParent: parentPackedNode
+		members: 	{firstChildPackedNode. nil}
+		andChildren: {firstChildPackedNode}
+]
+
+{ #category : #'instance creation' }
+JEFamily class >> parent: parentPackedNode first: firstChildPackedNode second: secondChildPackedNode [
+	| children |
+	children := {firstChildPackedNode. secondChildPackedNode}.
+	^ self basicNew
+		initializeParent: parentPackedNode
+		members: children
+		andChildren: children
 ]
 
 { #category : #'instance creation' }
 JEFamily class >> with: aPackedNode [
 	^ self basicNew
-		initializeMembers: {aPackedNode. nil}
+		initializeParent: nil
+		members: {aPackedNode. nil}
 		andChildren: {aPackedNode}
 ]
 
 { #category : #'instance creation' }
 JEFamily class >> with: firstPackedNode with: secondPackedNode [
 	| children |
-	children := Array with: firstPackedNode with: secondPackedNode.
-	^ self basicNew initializeMembers: children andChildren: children
+	children := {firstPackedNode. secondPackedNode}.
+	^ self basicNew
+		initializeParent: nil
+		members: children
+		andChildren: children
 ]
 
 { #category : #comparing }
@@ -85,7 +110,8 @@ JEFamily >> hash [
 ]
 
 { #category : #initialization }
-JEFamily >> initializeMembers: nilPackedNodes andChildren: notNilPackedNodes [
+JEFamily >> initializeParent: parentPackedNode members: nilPackedNodes andChildren: notNilPackedNodes [
+	parent := parentPackedNode.
 	members := nilPackedNodes.
 	children := notNilPackedNodes
 ]

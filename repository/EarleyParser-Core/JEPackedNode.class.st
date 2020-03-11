@@ -66,11 +66,7 @@ JEPackedNode >> addFamilyWith: aPackedNode [
 		jeAt: aPackedNode
 		at: nil
 		ifAbsentPut: [ 
-			families := families
-				copyWith:
-					((JEFamily with: aPackedNode)
-						parent: self;
-						yourself).
+			families := families copyWith: (JEFamily parent: self first: aPackedNode).
 			true ]
 ]
 
@@ -82,9 +78,7 @@ JEPackedNode >> addFamilyWith: firstPackedNode and: secondPackedNode [
 		ifAbsentPut: [ 
 			families := families
 				copyWith:
-					((JEFamily with: firstPackedNode with: secondPackedNode)
-						parent: self;
-						yourself).
+					(JEFamily parent: self first: firstPackedNode second: secondPackedNode).
 			true ]
 ]
 

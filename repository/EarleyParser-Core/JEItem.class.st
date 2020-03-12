@@ -82,7 +82,7 @@ JEItem >> isTerminal [
 
 { #category : #parsing }
 JEItem >> node [
-	^ self subclassResponsibility
+	^ node ifNil: [ node := JEPackedNode model: self ]
 ]
 
 { #category : #printing }

@@ -164,15 +164,6 @@ JEDottedItem >> moveDotForward [
 	^ self class given: dottedRule moveDotForward startedAt: start
 ]
 
-{ #category : #parsing }
-JEDottedItem >> node [
-	^ node
-		ifNil: [ 
-			node := JEPackedNode model: self.
-			self isEpsilon	ifTrue: [ node addEmptyFamily ].
-			node ]
-]
-
 { #category : #accessing }
 JEDottedItem >> predictionItemsWithSymbolAtDotIsHead [
 	^ start predictionItemsWithSymbolAtDotIs: dottedRule head

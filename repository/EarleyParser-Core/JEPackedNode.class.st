@@ -105,7 +105,9 @@ JEPackedNode >> hash [
 JEPackedNode >> initializeModel: anItem [
 	families := #().
 	familiesByKey := IdentityDictionary new.
-	model := anItem
+	model := anItem.
+	(model isNonterminal and: [ model isEpsilon ])
+		ifTrue: [ self addEmptyFamily ]
 ]
 
 { #category : #accessing }

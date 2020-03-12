@@ -110,11 +110,6 @@ JETerminalItem >> isTerminal [
 	^ true
 ]
 
-{ #category : #parsing }
-JETerminalItem >> node [
-	^ node ifNil: [ node := JEPackedNode model: self ]
-]
-
 { #category : #printing }
 JETerminalItem >> printOn: aStream [
 	"[ terminal @ [ start, end ] ]"

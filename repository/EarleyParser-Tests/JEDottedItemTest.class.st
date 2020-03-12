@@ -31,7 +31,7 @@ JEDottedItemTest >> testAddFamilyEmpty [
 	item := rule dotAtEnd startedAt: first.
 	
 	self assert: item familiesSize equals: 1.
-	item addFamily: JEFamily empty.
+	item addEmptyFamily.
 	self assert: item familiesSize equals: 1
 ]
 
@@ -41,9 +41,9 @@ JEDottedItemTest >> testAddFamilyEmpty01 [
 	item := rule dotAtEnd startedAt: first.
 
 	self assert: item familiesSize equals: 1.
-	item addFamily: JEFamily empty.
-	item addFamily: JEFamily empty.
-	item addFamily: JEFamily empty.
+	item addEmptyFamily.
+	item addEmptyFamily.
+	item addEmptyFamily.
 	self assert: item familiesSize equals: 1
 ]
 

@@ -26,9 +26,9 @@ Class {
 }
 
 { #category : #'instance creation' }
-JEFamily class >> empty [
+JEFamily class >> emptyWithParent: parentPackedNode [
 	^ self basicNew
-		initializeParent: nil
+		initializeParent: parentPackedNode 
 		members: #(nil nil)
 		andChildren: #()
 ]
@@ -106,11 +106,6 @@ JEFamily >> isEmpty [
 { #category : #accessing }
 JEFamily >> parent [
 	^ parent
-]
-
-{ #category : #initialization }
-JEFamily >> parent: aPackedNode [
-	parent := aPackedNode
 ]
 
 { #category : #printing }

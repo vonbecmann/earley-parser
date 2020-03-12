@@ -30,7 +30,7 @@ JEFamilyTest >> setUp [
 
 { #category : #tests }
 JEFamilyTest >> testAsStringEmptyFamily [
-	self assert: JEFamily empty asString equals: '()'
+	self assert: (JEFamily emptyWithParent: nil) asString equals: '()'
 ]
 
 { #category : #tests }
@@ -48,8 +48,8 @@ JEFamilyTest >> testAsStringFamilyWithTwoMembers [
 { #category : #tests }
 JEFamilyTest >> testEqualsEmptyFamily [
 	| one another |
-	one := JEFamily empty.
-	another := JEFamily empty.
+	one := JEFamily emptyWithParent: nil.
+	another := JEFamily emptyWithParent: nil.
 
 	self assert: one equals: another.
 	self assert: one hash equals: another hash.
@@ -61,11 +61,8 @@ JEFamilyTest >> testEqualsEmptyFamily [
 { #category : #tests }
 JEFamilyTest >> testEqualsEmptyFamilyWithDifferentParent [
 	| one another |
-	one := JEFamily empty.
-	one parent: parentNode.
-	
-	another := JEFamily empty.
-
+	one := JEFamily emptyWithParent: parentNode.
+	another := JEFamily emptyWithParent: nil.
 	self deny: one = another.
 	self deny: one hash = another hash.
 	self deny: another = one.
@@ -76,12 +73,8 @@ JEFamilyTest >> testEqualsEmptyFamilyWithDifferentParent [
 { #category : #tests }
 JEFamilyTest >> testEqualsEmptyFamilyWithSameParent [
 	| one another |
-	one := JEFamily empty.
-	one parent: parentNode.
-	
-	another := JEFamily empty.
-	another parent: parentNode.
-
+	one := JEFamily emptyWithParent: parentNode.
+	another := JEFamily emptyWithParent: parentNode.
 	self assert: one equals: another.
 	self assert: one hash equals: another hash.
 	self assert: another equals: one.
@@ -165,7 +158,7 @@ JEFamilyTest >> testEqualsFamilyWithTwoMembersAndSameParent [
 
 { #category : #tests }
 JEFamilyTest >> testIsEmptyWhenFamilyIsEmpty [
-	self assert: JEFamily empty isEmpty
+	self assert: (JEFamily emptyWithParent: nil) isEmpty
 ]
 
 { #category : #tests }

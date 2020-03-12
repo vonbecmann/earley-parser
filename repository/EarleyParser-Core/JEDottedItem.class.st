@@ -56,8 +56,8 @@ JEDottedItem >> = anItem [
 ]
 
 { #category : #parsing }
-JEDottedItem >> addFamily: aFamily [
-	self node addFamily: aFamily
+JEDottedItem >> addEmptyFamily [
+	self node addEmptyFamily 
 ]
 
 { #category : #parsing }
@@ -169,8 +169,7 @@ JEDottedItem >> node [
 	^ node
 		ifNil: [ 
 			node := JEPackedNode model: self.
-			self isEpsilon
-				ifTrue: [ node addFamily: JEFamily empty ].
+			self isEpsilon	ifTrue: [ node addEmptyFamily ].
 			node ]
 ]
 

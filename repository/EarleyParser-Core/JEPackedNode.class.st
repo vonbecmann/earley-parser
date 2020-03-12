@@ -50,13 +50,12 @@ JEPackedNode >> acceptVisitor: aVisitor [
 ]
 
 { #category : #accessing }
-JEPackedNode >> addFamily: aFamily [
+JEPackedNode >> addEmptyFamily [
 	familiesByKey
-		jeAt: aFamily first
-		at: aFamily second
+		jeAt: nil
+		at: nil
 		ifAbsentPut: 
-			[ 	aFamily parent: self.
-				families := families copyWith: aFamily.
+			[	families := families copyWith: (JEFamily emptyWithParent: self).
 				true ]
 ]
 

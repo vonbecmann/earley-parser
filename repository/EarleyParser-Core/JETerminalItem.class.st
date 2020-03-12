@@ -112,8 +112,7 @@ JETerminalItem >> isTerminal [
 
 { #category : #parsing }
 JETerminalItem >> node [
-	node ifNil: [ node := JEPackedNode model: self ].
-	^ node
+	^ node ifNil: [ node := JEPackedNode model: self ]
 ]
 
 { #category : #printing }

@@ -35,13 +35,13 @@ JEFamilyTest >> testAsStringEmptyFamily [
 
 { #category : #tests }
 JEFamilyTest >> testAsStringFamilyWithOneMember [
-	self assert: (JEFamily first: firstPackedNode) asString equals: '(([A: ·. @ [1, 2]]))'
+	self assert: (JEFamily parent: nil first: firstPackedNode) asString equals: '(([A: ·. @ [1, 2]]))'
 ]
 
 { #category : #tests }
 JEFamilyTest >> testAsStringFamilyWithTwoMembers [
 	self
-		assert: (JEFamily first: firstPackedNode second: secondPackedNode) asString
+		assert: (JEFamily parent: nil first: firstPackedNode second: secondPackedNode) asString
 		equals: '(([A: ·. @ [1, 2]]), ([B: ·. @ [2, 3]]))'
 ]
 
@@ -92,8 +92,8 @@ JEFamilyTest >> testEqualsEmptyFamilyWithSameParent [
 { #category : #tests }
 JEFamilyTest >> testEqualsFamilyWithOneMember [
 	| one another |
-	one := JEFamily first: firstPackedNode.
-	another := JEFamily first: firstPackedNode.
+	one := JEFamily parent: nil first: firstPackedNode.
+	another := JEFamily parent: nil first: firstPackedNode.
 
 	self assert: one equals: another.
 	self assert: one hash equals: another hash.
@@ -106,7 +106,7 @@ JEFamilyTest >> testEqualsFamilyWithOneMember [
 JEFamilyTest >> testEqualsFamilyWithOneMemberAndDifferentParent [
 	| one another |
 	one := JEFamily parent: parentNode first: firstPackedNode.
-	another := JEFamily first: firstPackedNode.
+	another := JEFamily parent: nil first: firstPackedNode.
 	self deny: one = another.
 	self deny: one hash = another hash.
 	self deny: another = one.
@@ -129,8 +129,8 @@ JEFamilyTest >> testEqualsFamilyWithOneMemberAndSameParent [
 { #category : #tests }
 JEFamilyTest >> testEqualsFamilyWithTwoMembers [
 	| one another |
-	one := JEFamily first: firstPackedNode second: secondPackedNode.
-	another := JEFamily first: firstPackedNode second: secondPackedNode.
+	one := JEFamily parent: nil first: firstPackedNode second: secondPackedNode.
+	another := JEFamily parent: nil first: firstPackedNode second: secondPackedNode.
 
 	self assert: one equals: another.
 	self assert: one hash equals: another hash.
@@ -143,7 +143,7 @@ JEFamilyTest >> testEqualsFamilyWithTwoMembers [
 JEFamilyTest >> testEqualsFamilyWithTwoMembersAndDifferentParent [
 	| one another |
 	one := JEFamily parent: parentNode first: firstPackedNode	second: secondPackedNode.
-	another := JEFamily first: firstPackedNode second: secondPackedNode.
+	another := JEFamily parent: nil first: firstPackedNode second: secondPackedNode.
 	self deny: one = another.
 	self deny: one hash = another hash.
 	self deny: another = one.
@@ -170,10 +170,10 @@ JEFamilyTest >> testIsEmptyWhenFamilyIsEmpty [
 
 { #category : #tests }
 JEFamilyTest >> testIsEmptyWhenFamilyWithOneMember [
-	self deny: (JEFamily first: firstPackedNode) isEmpty
+	self deny: (JEFamily parent: nil first: firstPackedNode) isEmpty
 ]
 
 { #category : #tests }
 JEFamilyTest >> testIsEmptyWhenFamilyWithTwoMembers [
-	self deny: (JEFamily first: firstPackedNode second: secondPackedNode) isEmpty
+	self deny: (JEFamily parent: nil first: firstPackedNode second: secondPackedNode) isEmpty
 ]

@@ -34,24 +34,6 @@ JEFamily class >> empty [
 ]
 
 { #category : #'instance creation' }
-JEFamily class >> first: aPackedNode [
-	^ self basicNew
-		initializeParent: nil
-		members: {aPackedNode. nil}
-		andChildren: {aPackedNode}
-]
-
-{ #category : #'instance creation' }
-JEFamily class >> first: firstPackedNode second: secondPackedNode [
-	| children |
-	children := {firstPackedNode. secondPackedNode}.
-	^ self basicNew
-		initializeParent: nil
-		members: children
-		andChildren: children
-]
-
-{ #category : #'instance creation' }
 JEFamily class >> parent: parentPackedNode first: firstChildPackedNode [
 	^ self basicNew
 		initializeParent: parentPackedNode

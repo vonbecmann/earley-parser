@@ -34,6 +34,24 @@ JEFamily class >> empty [
 ]
 
 { #category : #'instance creation' }
+JEFamily class >> first: aPackedNode [
+	^ self basicNew
+		initializeParent: nil
+		members: {aPackedNode. nil}
+		andChildren: {aPackedNode}
+]
+
+{ #category : #'instance creation' }
+JEFamily class >> first: firstPackedNode second: secondPackedNode [
+	| children |
+	children := {firstPackedNode. secondPackedNode}.
+	^ self basicNew
+		initializeParent: nil
+		members: children
+		andChildren: children
+]
+
+{ #category : #'instance creation' }
 JEFamily class >> parent: parentPackedNode first: firstChildPackedNode [
 	^ self basicNew
 		initializeParent: parentPackedNode
@@ -47,24 +65,6 @@ JEFamily class >> parent: parentPackedNode first: firstChildPackedNode second: s
 	children := {firstChildPackedNode. secondChildPackedNode}.
 	^ self basicNew
 		initializeParent: parentPackedNode
-		members: children
-		andChildren: children
-]
-
-{ #category : #'instance creation' }
-JEFamily class >> with: aPackedNode [
-	^ self basicNew
-		initializeParent: nil
-		members: {aPackedNode. nil}
-		andChildren: {aPackedNode}
-]
-
-{ #category : #'instance creation' }
-JEFamily class >> with: firstPackedNode with: secondPackedNode [
-	| children |
-	children := {firstPackedNode. secondPackedNode}.
-	^ self basicNew
-		initializeParent: nil
 		members: children
 		andChildren: children
 ]

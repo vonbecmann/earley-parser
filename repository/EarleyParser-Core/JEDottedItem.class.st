@@ -56,11 +56,6 @@ JEDottedItem >> = anItem [
 ]
 
 { #category : #parsing }
-JEDottedItem >> addEmptyFamily [
-	self node addEmptyFamily 
-]
-
-{ #category : #parsing }
 JEDottedItem >> addFamilyWith: completeItem [ 
 	self node addFamilyWith: completeItem node
 ]

@@ -26,37 +26,6 @@ JEDottedItemTest >> setUp [
 ]
 
 { #category : #tests }
-JEDottedItemTest >> testAddFamilyEmpty [
-	rule := JERule head: (NCNonterminal named: 'F') body: {}.
-	item := rule dotAtEnd startedAt: first.
-	
-	self assert: item familiesSize equals: 1.
-	item addEmptyFamily.
-	self assert: item familiesSize equals: 1
-]
-
-{ #category : #tests }
-JEDottedItemTest >> testAddFamilyEmpty01 [
-	rule := JERule head: (NCNonterminal named: 'F') body: {}.
-	item := rule dotAtEnd startedAt: first.
-
-	self assert: item familiesSize equals: 1.
-	item addEmptyFamily.
-	item addEmptyFamily.
-	item addEmptyFamily.
-	self assert: item familiesSize equals: 1
-]
-
-{ #category : #tests }
-JEDottedItemTest >> testAddFamilyEmpty02 [
-	rule := JERule head: (NCNonterminal named: 'F') body: {}.
-	item := rule dotAtEnd startedAt: first.
-
-	self assert: item familiesSize equals: 1.
-
-]
-
-{ #category : #tests }
 JEDottedItemTest >> testAddFamilyWithTo [
 	| third fourth previous terminal |
 	third := JEColumn number: 3.

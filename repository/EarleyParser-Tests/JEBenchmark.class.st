@@ -36,7 +36,7 @@ JEBenchmark >> acceptsBK [
 | 21 October 2016   | 0:00:00:00.037 |
 | 12 August 2017    | 0:00:00:00.041 |
 | 14 July 2018      | 0:00:00:00.047 |
-	"
+| 30 March 2020 | 0:00:00:00.044 |	"
 
 	| n words grammar |
 	n := 1500.
@@ -67,6 +67,7 @@ JEBenchmark >> acceptsPAL [
 | 21 October 2016 | 0:00:00:02.565 |
 | 12 August 2017 | 0:00:00:02.621 |
 | 14 July 2018   | 0:00:00:03.574 |
+| 30 March 2020 | 0:00:00:03.072 |
 	"
 
 	| n words grammar maxOdd |
@@ -86,7 +87,7 @@ JEBenchmark >> acceptsRR [
 | 21 October 2016 | 0:00:00:05.341 |
 | 12 August 2017  | 0:00:00:04.253 |
 | 14 July 2018 | 0:00:00:05.348 |
-	"
+| 30 March 2020 | 0:00:00:04.682 |	"
 
 	| n words grammar |
 	n := 2000.
@@ -117,6 +118,7 @@ JEBenchmark >> acceptsUBDA [
 | 21 October 2016 | 0:00:00:02.718 |
 | 12 August 2017 | 0:00:00:02.756 |
 | 14 July 2018   | 0:00:00:03.851 |
+| 30 March 2020 | 0:00:00:04.098 |
 	"
 
 	| n words grammar |
@@ -139,6 +141,7 @@ JEBenchmark >> parseBK [
 | 21 October 2016   | 0:00:00:01.052 |
 | 12 August 2017    | 0:00:00:00.791 |
 | 14 July 2018      | 0:00:00:00.834 |
+| 30 March 2020 | 0:00:00:00.875 |
 	"
 
 	| n words grammar |
@@ -161,6 +164,7 @@ JEBenchmark >> parsePAL [
 | 21 October 2016   | 0:00:00:00.337 |
 | 12 August 2017    | 0:00:00:00.363 |
 | 14 July 2018      | 0:00:00:00.623 |
+| 30 March 2020 | 0:00:00:00.606 |
 	"
 
 	| n words grammar maxOdd |
@@ -180,6 +184,7 @@ JEBenchmark >> parseRR [
 | 21 October 2016 | 0:00:00:15.401 |
 | 12 August 2017  | 0:00:00:15.644 |
 | 14 July 2018    | 0:00:00:17.727 |
+| 30 March 2020 | 0:00:00:16.505 |
 	"
 
 	| n words grammar |
@@ -202,6 +207,7 @@ JEBenchmark >> parseUBDA [
 | 21 October 2016   | 0:00:00:00.499 |
 | 12 August 2017    | 0:00:00:00.484 |
 | 14 July 2018      | 0:00:00:00.636 |
+| 30 March 2020 | 0:00:00:00.651 |
 	"
 
 	| n words grammar |
@@ -224,6 +230,7 @@ JEBenchmark >> parseUBDA02 [
 | 21 October 2016   | 0:00:00:06.728 |
 | 12 August 2017    | 0:00:00:05.482 |
 | 14 July 2018      | 0:00:00:05.109 |
+| 30 March 2020 | 0:00:00:05.631 |
 	"
 
 	| n words grammar |

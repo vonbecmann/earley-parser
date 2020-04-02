@@ -90,6 +90,15 @@ JEExemplar class >> GRE [
 ]
 
 { #category : #'instance creation' }
+JEExemplar class >> LR [
+	"page 71"
+
+	^ JEGrammar
+		productionRules: #(#('A' #('letter x symbol')) #('A' #('A' 'letter x symbol')))
+		representations: {('letter x symbol' -> (NCTerminal character: $x))}
+]
+
+{ #category : #'instance creation' }
 JEExemplar class >> PAL [
 	"pallindrome grammar. page 65"
 

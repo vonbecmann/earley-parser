@@ -55,7 +55,7 @@ JEPackedNode >> addEmptyFamily [
 		jeAt: nil
 		at: nil
 		ifAbsentPut: 
-			[	families := families copyWith: (JEFamily emptyWithParent: self).
+			[	families addLast: (JEFamily emptyWithParent: self).
 				true ]
 ]
 
@@ -65,7 +65,7 @@ JEPackedNode >> addFamilyWith: aPackedNode [
 		jeAt: aPackedNode
 		at: nil
 		ifAbsentPut: [ 
-			families := families copyWith: (JEFamily parent: self first: aPackedNode).
+			families addLast: (JEFamily parent: self first: aPackedNode).
 			true ]
 ]
 
@@ -75,9 +75,7 @@ JEPackedNode >> addFamilyWith: firstPackedNode and: secondPackedNode [
 		jeAt: firstPackedNode
 		at: secondPackedNode
 		ifAbsentPut: [ 
-			families := families
-				copyWith:
-					(JEFamily parent: self first: firstPackedNode second: secondPackedNode).
+			families addLast: (JEFamily parent: self first: firstPackedNode second: secondPackedNode).
 			true ]
 ]
 
@@ -103,7 +101,7 @@ JEPackedNode >> hash [
 
 { #category : #initialization }
 JEPackedNode >> initializeModel: anItem [
-	families := #().
+	families := DoublyLinkedList new.
 	familiesByKey := IdentityDictionary new.
 	model := anItem.
 	(model isNonterminal and: [ model isEpsilon ])

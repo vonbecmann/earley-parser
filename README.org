@@ -1,13 +1,11 @@
 * earley-parser
 
-Jay Clark Earley Parser [[https://travis-ci.org/vonbecmann/earley-parser][https://travis-ci.org/vonbecmann/earley-parser.svg?branch=master]]
-
-** pharo 6
+Jay Clark Earley Parser [[https://travis-ci.org/vonbecmann/earley-parser][https://travis-ci.org/vonbecmann/earley-parser.svg?branch=pharo7]]
 
 #+BEGIN_SRC
 Metacello new
     baseline: 'EarleyParser';
-    repository: 'github://vonbecmann/earley-parser:pharo6/repository';
+    repository: 'github://vonbecmann/earley-parser:pharo7/repository';
     load.
 #+END_SRC
 

@@ -16,10 +16,10 @@ BaselineOfEarleyParser >> baseline: spec [
 		do: [ 
 			spec
 	        	baseline: 'MultiValuedDictionary'
- 		   		with: [ spec repository: 'github://vonbecmann/multi-valued-dictionary/repository' ].
+ 		   		with: [ spec repository: 'github://vonbecmann/multi-valued-dictionary:pharo7/repository' ].
 			spec
 	        	baseline: 'LinkedList'
- 		   		with: [ spec repository: 'github://vonbecmann/linked-list/repository' ].
+ 		   		with: [ spec repository: 'github://vonbecmann/linked-list:pharo7/repository' ].
 			spec
 				project: 'Roassal2'
 				with: [ spec

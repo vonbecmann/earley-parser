@@ -21,11 +21,9 @@ BaselineOfEarleyParser >> baseline: spec [
 	        	baseline: 'LinkedList'
  		   		with: [ spec repository: 'github://vonbecmann/linked-list/repository' ].
 			spec
-				project: 'Roassal2'
-				with: [ spec
-						className: 'ConfigurationOfRoassal2';
-						versionString: #stable;
-						repository: 'http://www.smalltalkhub.com/mc/ObjectProfile/Roassal2/main' ].
+	        	baseline: 'Roassal2'
+ 		   		with: [ spec repository: 'github://ObjectProfile/Roassal2/src' ].
+
 			spec
 				package: 'NoamChomsky-Core';
 				package: 'NoamChomsky-Regex' 

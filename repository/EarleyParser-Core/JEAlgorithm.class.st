@@ -9,7 +9,7 @@ Class {
 	#instVars : [
 		'grammar'
 	],
-	#category : 'EarleyParser-Core-Implementation'
+	#category : #'EarleyParser-Core-Implementation'
 }
 
 { #category : #'instance creation' }
@@ -64,10 +64,7 @@ JEAlgorithm >> initializeGrammar: aGrammar [
 JEAlgorithm >> newChartOf: nColumns [
 	" a new chart of n columns "
 
-	| chart |
-	chart := Array new: nColumns.
-	1 to: nColumns do: [ :index | chart at: index put: (JEColumn number: index) ].
-	^ chart
+	^ (1 to: nColumns) collect: [ :index | JEColumn number: index ]
 ]
 
 { #category : #'private operations' }

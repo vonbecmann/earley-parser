@@ -34,21 +34,20 @@ JEAlgorithm >> complete: item [
 JEAlgorithm >> evaluate: words [
 	| n chart |
 	n := words size + 1.
-	chart := self newChartOf: n.
-	chart first add: (grammar startRule dotAtBeginning startedAt: chart first).
+	chart := (1 to: n) collect: [ :index | JEColumn number: index ].
+	chart first
+		add: (grammar startRule dotAtBeginning startedAt: chart first).
 	1 to: n do: [ :i | 
 		| column |
 		column := chart at: i.
-		column isEmpty 
+		column isEmpty
 			ifTrue: [ ^ JEFailure failedAt: (chart at: i - 1) got: (words at: i - 1) ].
 		column
 			processItems: [ :item | 
 				item isFinal
 					ifTrue: [ self complete: item ]
-					ifFalse: [ 
-						item symbolAtDot isTerminal
-							ifTrue: [ 
-								(i < n and: [ item symbolAtDot matches: (words at: i) ])
+					ifFalse: [ item symbolAtDot isTerminal
+							ifTrue: [ (i < n and: [ item symbolAtDot matches: (words at: i) ])
 									ifTrue: [ self scan: item with: (words at: i) at: (chart at: i + 1) ] ]
 							ifFalse: [ self predict: item ] ] ] ].
 	^ chart
@@ -58,13 +57,6 @@ JEAlgorithm >> evaluate: words [
 JEAlgorithm >> initializeGrammar: aGrammar [ 
 	self initialize.
 	grammar := aGrammar
-]
-
-{ #category : #initialization }
-JEAlgorithm >> newChartOf: nColumns [
-	" a new chart of n columns "
-
-	^ (1 to: nColumns) collect: [ :index | JEColumn number: index ]
 ]
 
 { #category : #'private operations' }

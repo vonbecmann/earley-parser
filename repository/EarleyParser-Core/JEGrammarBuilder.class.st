@@ -31,13 +31,12 @@ JEGrammarBuilder >> build [
 	| nonterminals terminals lineup unique index newGrammar |
 	self assert: productionRules isNotEmpty.
 	self assert: representations isNotEmpty.
-	nonterminals := Set new.
-	terminals := Set new.
-	productionRules do: [ :each | nonterminals add: each head ].
-	representations 
-		do: [ :assoc | 
-					nonterminals add: (NCNonterminal named: assoc key).
-					terminals add: assoc value ].
+	terminals := representations
+		collect: [ :assoc | assoc value ]
+		as: Set.
+	nonterminals := (representations
+		collect: [ :assoc | NCNonterminal named: assoc key ]
+		as: Set) , (productionRules collect: [ :each | each head ] as: Set).
 	lineup := OrderedCollection new.
 	unique := Set new.
 	productionRules
@@ -48,7 +47,7 @@ JEGrammarBuilder >> build [
 					(each body
 						collect: [ :notion | 
 							nonterminals
-								like: notion 
+								like: notion
 								ifAbsent: [ self unknowNonterminal: notion in: each ] ]) ]
 		thenDo: [ :rule | 
 			lineup add: rule.
@@ -56,7 +55,8 @@ JEGrammarBuilder >> build [
 	representations
 		collect: [ :assoc | 
 			NCProductionRule
-				head: (nonterminals detect: [ :nonterminal | nonterminal named = assoc key ])
+				head:
+					(nonterminals detect: [ :nonterminal | nonterminal named = assoc key ])
 				body: {(terminals like: assoc value)} ]
 		thenDo: [ :rule | 
 			lineup add: rule.

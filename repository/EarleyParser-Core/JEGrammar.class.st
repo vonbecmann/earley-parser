@@ -131,7 +131,14 @@ JEGrammar >> initializeNonterminals: nonterminalSet terminals: terminalSet produ
 JEGrammar >> nonterminal: aNonterminalNamed [
 	^ nonterminals
 		detect: [ :each | each named = aNonterminalNamed ]
-		ifNone: [ Error signal: 'Unknown Nonterminal ', aNonterminalNamed asString ]
+		ifNone: [ 
+			Error
+				signal:
+					(String
+						streamContents: [ :s | 
+							s
+								nextPutAll: 'Unknown Nonterminal ';
+								nextPutAll: aNonterminalNamed asString ]) ]
 ]
 
 { #category : #accessing }

@@ -73,8 +73,7 @@ JEFailure >> failedAtEnd [
 { #category : #initialization }
 JEFailure >> initialize [
 	super initialize.
-	failedAtEnd := false.
-	position := actual := nil
+	failedAtEnd := false
 ]
 
 { #category : #accessing }

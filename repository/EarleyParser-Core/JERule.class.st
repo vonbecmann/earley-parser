@@ -25,7 +25,7 @@ Class {
 		'body',
 		'dottedRules'
 	],
-	#category : 'EarleyParser-Core-Implementation'
+	#category : #'EarleyParser-Core-Implementation'
 }
 
 { #category : #'instance creation' }
@@ -94,9 +94,7 @@ JERule >> head [
 JERule >> initializeHead: aNonterminal body: aCollection [
 	head := aNonterminal.
 	body := aCollection asArray.
-	dottedRules := Array new: body size + 1.
-	1 to: dottedRules size 
-	  		do: [ :index | dottedRules at: index put: (JEDottedRule given: self withDotAt: index) ].
+	dottedRules := (1 to: body size + 1) collect: [ :index | JEDottedRule given: self withDotAt: index ].
 	dottedRules reversed
 		inject: nil
 		into: [ :nextDottedRule :each | 

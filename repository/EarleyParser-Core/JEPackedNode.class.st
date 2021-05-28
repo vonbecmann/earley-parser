@@ -54,9 +54,9 @@ JEPackedNode >> addEmptyFamily [
 	familiesByKey
 		jeAt: nil
 		at: nil
-		ifAbsentPut: 
-			[	families addLast: (JEFamily emptyWithParent: self).
-				true ]
+		ifAbsentPut: [ families addLast: (JEFamily emptyWithParent: self).
+			true ].
+	^ self
 ]
 
 { #category : #accessing }

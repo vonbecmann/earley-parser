@@ -38,6 +38,13 @@ JEColumn class >> number: anInteger [
 	^ self basicNew initializeNumber: anInteger
 ]
 
+{ #category : #'instance creation' }
+JEColumn class >> numberOneWith: aJEDottedRule [
+	^ (self number: 1)
+		addDottedRule: aJEDottedRule;
+		yourself
+]
+
 { #category : #comparing }
 JEColumn >> <= column [ 
 	^ number <= column number

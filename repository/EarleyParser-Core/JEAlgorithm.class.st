@@ -34,13 +34,13 @@ JEAlgorithm >> complete: item [
 JEAlgorithm >> evaluate: words [
 	| n chart |
 	n := words size + 1.
-	chart := (1 to: n) collect: [ :index | JEColumn number: index ].
-	chart first
-		add: (grammar startRule dotAtBeginning startedAt: chart first).
+	chart := {(JEColumn numberOneWith: grammar startRule dotAtBeginning)}
+		, ((2 to: n) collect: [ :index | JEColumn number: index ]).
 	1 to: n do: [ :i | 
 		| column |
 		column := chart at: i.
-		column ifEmpty: [ ^ JEFailure failedAt: (chart at: i - 1) got: (words at: i - 1) ].
+		column
+			ifEmpty: [ ^ JEFailure failedAt: (chart at: i - 1) got: (words at: i - 1) ].
 		column
 			processItems: [ :item | 
 				item isFinal

@@ -39,9 +39,9 @@ JEColumn class >> number: anInteger [
 ]
 
 { #category : #'instance creation' }
-JEColumn class >> numberOneWith: aJEDottedRule [
+JEColumn class >> numberOneWith: aDottedRule [
 	^ (self number: 1)
-		addDottedRule: aJEDottedRule;
+		addDottedRule: aDottedRule;
 		yourself
 ]
 

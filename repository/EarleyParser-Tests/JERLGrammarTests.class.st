@@ -4,7 +4,7 @@ Class {
 	#category : #'EarleyParser-Tests-Grammar'
 }
 
-{ #category : #initialization }
+{ #category : #running }
 JERLGrammarTests >> setUp [
 	super setUp.
 	grammar := JEExemplar RL

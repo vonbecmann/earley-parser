@@ -8,8 +8,9 @@ Class {
 	#category : #'EarleyParser-Tests-BSPPForest'
 }
 
-{ #category : #initialization }
+{ #category : #running }
 JEDepthFirstVisitorTest >> setUp [
+	super setUp.
 	parser := JEBSPPFParser given: JEExemplar UBDA.
 	forest := nil
 ]

@@ -15,6 +15,7 @@ Class {
 
 { #category : #running }
 JEFamilyTest >> setUp [
+	super setUp.
 	parentNode := ((JERule 
 							head: (NCNonterminal named: 'C') 
 							body: {(NCNonterminal named: 'A'). (NCNonterminal named: 'B')}) dotAtEnd
@@ -50,12 +51,11 @@ JEFamilyTest >> testEqualsEmptyFamily [
 	| one another |
 	one := JEFamily emptyWithParent: nil.
 	another := JEFamily emptyWithParent: nil.
-
 	self assert: one equals: another.
 	self assert: one hash equals: another hash.
 	self assert: another equals: one.
 	self assert: another hash equals: one hash.
-	self deny: one == another
+	self deny: one identicalTo: another
 ]
 
 { #category : #tests }
@@ -63,11 +63,11 @@ JEFamilyTest >> testEqualsEmptyFamilyWithDifferentParent [
 	| one another |
 	one := JEFamily emptyWithParent: parentNode.
 	another := JEFamily emptyWithParent: nil.
-	self deny: one = another.
-	self deny: one hash = another hash.
-	self deny: another = one.
-	self deny: another hash = one hash.
-	self deny: one == another
+	self deny: one equals: another.
+	self deny: one hash equals: another hash.
+	self deny: another equals: one.
+	self deny: another hash equals: one hash.
+	self deny: one identicalTo: another
 ]
 
 { #category : #tests }
@@ -79,7 +79,7 @@ JEFamilyTest >> testEqualsEmptyFamilyWithSameParent [
 	self assert: one hash equals: another hash.
 	self assert: another equals: one.
 	self assert: another hash equals: one hash.
-	self deny: one == another
+	self deny: one identicalTo: another
 ]
 
 { #category : #tests }
@@ -87,12 +87,11 @@ JEFamilyTest >> testEqualsFamilyWithOneMember [
 	| one another |
 	one := JEFamily parent: nil first: firstPackedNode.
 	another := JEFamily parent: nil first: firstPackedNode.
-
 	self assert: one equals: another.
 	self assert: one hash equals: another hash.
 	self assert: another equals: one.
 	self assert: another hash equals: one hash.
-	self deny: one == another
+	self deny: one identicalTo: another
 ]
 
 { #category : #tests }
@@ -100,11 +99,11 @@ JEFamilyTest >> testEqualsFamilyWithOneMemberAndDifferentParent [
 	| one another |
 	one := JEFamily parent: parentNode first: firstPackedNode.
 	another := JEFamily parent: nil first: firstPackedNode.
-	self deny: one = another.
-	self deny: one hash = another hash.
-	self deny: another = one.
-	self deny: another hash = one hash.
-	self deny: one == another
+	self deny: one equals: another.
+	self deny: one hash equals: another hash.
+	self deny: another equals: one.
+	self deny: another hash equals: one hash.
+	self deny: one identicalTo: another
 ]
 
 { #category : #tests }
@@ -116,44 +115,61 @@ JEFamilyTest >> testEqualsFamilyWithOneMemberAndSameParent [
 	self assert: one hash equals: another hash.
 	self assert: another equals: one.
 	self assert: another hash equals: one hash.
-	self deny: one == another
+	self deny: one identicalTo: another
 ]
 
 { #category : #tests }
 JEFamilyTest >> testEqualsFamilyWithTwoMembers [
 	| one another |
-	one := JEFamily parent: nil first: firstPackedNode second: secondPackedNode.
-	another := JEFamily parent: nil first: firstPackedNode second: secondPackedNode.
-
+	one := JEFamily
+		parent: nil
+		first: firstPackedNode
+		second: secondPackedNode.
+	another := JEFamily
+		parent: nil
+		first: firstPackedNode
+		second: secondPackedNode.
 	self assert: one equals: another.
 	self assert: one hash equals: another hash.
 	self assert: another equals: one.
 	self assert: another hash equals: one hash.
-	self deny: one == another
+	self deny: one identicalTo: another
 ]
 
 { #category : #tests }
 JEFamilyTest >> testEqualsFamilyWithTwoMembersAndDifferentParent [
 	| one another |
-	one := JEFamily parent: parentNode first: firstPackedNode	second: secondPackedNode.
-	another := JEFamily parent: nil first: firstPackedNode second: secondPackedNode.
-	self deny: one = another.
-	self deny: one hash = another hash.
-	self deny: another = one.
-	self deny: another hash = one hash.
-	self deny: one == another
+	one := JEFamily
+		parent: parentNode
+		first: firstPackedNode
+		second: secondPackedNode.
+	another := JEFamily
+		parent: nil
+		first: firstPackedNode
+		second: secondPackedNode.
+	self deny: one equals: another.
+	self deny: one hash equals: another hash.
+	self deny: another equals: one.
+	self deny: another hash equals: one hash.
+	self deny: one identicalTo: another
 ]
 
 { #category : #tests }
 JEFamilyTest >> testEqualsFamilyWithTwoMembersAndSameParent [
 	| one another |
-	one := JEFamily parent: parentNode first: firstPackedNode	second: secondPackedNode.
-	another := JEFamily parent: parentNode first: firstPackedNode second: secondPackedNode.
+	one := JEFamily
+		parent: parentNode
+		first: firstPackedNode
+		second: secondPackedNode.
+	another := JEFamily
+		parent: parentNode
+		first: firstPackedNode
+		second: secondPackedNode.
 	self assert: one equals: another.
 	self assert: one hash equals: another hash.
 	self assert: another equals: one.
 	self assert: another hash equals: one hash.
-	self deny: one == another
+	self deny: one identicalTo: another
 ]
 
 { #category : #tests }

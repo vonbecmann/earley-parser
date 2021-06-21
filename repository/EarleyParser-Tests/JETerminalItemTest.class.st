@@ -44,13 +44,11 @@ JETerminalItemTest >> testEqual01 [
 		word: $H
 		startedAt: (JEColumn number: 1)
 		andEndedAt: (JEColumn number: 12).
-	
 	self assert: one equals: another.
 	self assert: one hash equals: another hash.
 	self assert: another equals: one.
 	self assert: another hash equals: one hash.
-	self deny: one == another.
-	
+	self deny: one identicalTo: another
 ]
 
 { #category : #tests }
@@ -66,13 +64,11 @@ JETerminalItemTest >> testEqual02 [
 		word: $b
 		startedAt: (JEColumn number: 1)
 		andEndedAt: (JEColumn number: 12).
-	
 	self assert: one equals: another.
 	self assert: one hash equals: another hash.
 	self assert: another equals: one.
 	self assert: another hash equals: one hash.
-	self deny: one == another.
-	
+	self deny: one identicalTo: another
 ]
 
 { #category : #tests }
@@ -88,13 +84,11 @@ JETerminalItemTest >> testEqual03 [
 		word: $H
 		startedAt: (JEColumn number: 1)
 		andEndedAt: (JEColumn number: 1).
-	
-	self deny: one = another.
-	self deny: one hash = another hash.
-	self deny: another = one.
-	self deny: another hash = one hash.
-	self deny: one == another.
-	
+	self deny: one equals: another.
+	self deny: one hash equals: another hash.
+	self deny: another equals: one.
+	self deny: another hash equals: one hash.
+	self deny: one identicalTo: another
 ]
 
 { #category : #tests }
@@ -110,13 +104,11 @@ JETerminalItemTest >> testEqual04 [
 		word: $b
 		startedAt: (JEColumn number: 1)
 		andEndedAt: (JEColumn number: 12).
-	
-	self deny: one = another.
-	self deny: one hash = another hash.
-	self deny: another = one.
-	self deny: another hash = one hash.
-	self deny: one == another.
-	
+	self deny: one equals: another.
+	self deny: one hash equals: another hash.
+	self deny: another equals: one.
+	self deny: another hash equals: one hash.
+	self deny: one identicalTo: another
 ]
 
 { #category : #tests }

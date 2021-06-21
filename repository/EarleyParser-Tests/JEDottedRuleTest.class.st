@@ -5,7 +5,7 @@ dotted rule tests.
 Class {
 	#name : #JEDottedRuleTest,
 	#superclass : #TestCase,
-	#category : 'EarleyParser-Tests-Implementation'
+	#category : #'EarleyParser-Tests-Implementation'
 }
 
 { #category : #tests }
@@ -78,7 +78,7 @@ JEDottedRuleTest >> testEquality [
 	self assert: one hash equals: another hash.
 	self assert: another equals: one.
 	self assert: another hash equals: one hash.
-	self deny: one == another
+	self deny: one identicalTo: another
 ]
 
 { #category : #tests }
@@ -98,11 +98,11 @@ JEDottedRuleTest >> testEquality02 [
 			(NCNonterminal named: 'P')}.
 	one := JEDottedRule given: rule withDotAt: 2.
 	another := JEDottedRule given: anotherRule withDotAt: 2.
-	self deny: one = another.
-	self deny: one hash = another hash.
-	self deny: another = one.
-	self deny: another hash = one hash.
-	self deny: one == another
+	self deny: one equals: another.
+	self deny: one hash equals: another hash.
+	self deny: another equals: one.
+	self deny: another hash equals: one hash.
+	self deny: one identicalTo: another
 ]
 
 { #category : #tests }
@@ -120,7 +120,7 @@ JEDottedRuleTest >> testEquality03 [
 	self assert: one hash equals: another hash.
 	self assert: another equals: one.
 	self assert: another hash equals: one hash.
-	self assert: one == another
+	self assert: one identicalTo: another
 ]
 
 { #category : #tests }
@@ -138,11 +138,11 @@ JEDottedRuleTest >> testEquality04 [
 			(NCTerminal character: $.)}.
 	one := rule dotAt: 2.
 	another := anotherRule dotAt: 2.
-	self deny: one = another.
-	self deny: one hash = another hash.
-	self deny: another = one.
-	self deny: another hash = one hash.
-	self deny: one == another
+	self deny: one equals: another.
+	self deny: one hash equals: another hash.
+	self deny: another equals: one.
+	self deny: another hash equals: one hash.
+	self deny: one identicalTo: another
 ]
 
 { #category : #tests }
@@ -160,7 +160,7 @@ JEDottedRuleTest >> testEquality05 [
 	self assert: one hash equals: another hash.
 	self assert: another equals: one.
 	self assert: another hash equals: one hash.
-	self assert: one == another
+	self assert: one identicalTo: another
 ]
 
 { #category : #tests }
@@ -177,7 +177,7 @@ JEDottedRuleTest >> testEquality06 [
 	self assert: one hash equals: another hash.
 	self assert: another equals: one.
 	self assert: another hash equals: one hash.
-	self assert: one == another
+	self assert: one identicalTo: another
 ]
 
 { #category : #tests }

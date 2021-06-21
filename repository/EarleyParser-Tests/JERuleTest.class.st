@@ -5,7 +5,7 @@ rule tests.
 Class {
 	#name : #JERuleTest,
 	#superclass : #TestCase,
-	#category : 'EarleyParser-Tests-Implementation'
+	#category : #'EarleyParser-Tests-Implementation'
 }
 
 { #category : #tests }
@@ -18,13 +18,13 @@ JERuleTest >> testAsJERule [
 			(NCNonterminal named: 'C').
 			(NCNonterminal named: 'D')}.
 	rule := productionRule asJERule.
-	self assert: productionRule head == rule head.
+	self assert: productionRule head identicalTo: rule head.
 	self assert: productionRule body size equals: rule body size.
-	self assert: productionRule body first == rule body first.
+	self assert: productionRule body first identicalTo: rule body first.
 	self assert: productionRule body first equals: rule body first.
-	self assert: productionRule body second == rule body second.
+	self assert: productionRule body second identicalTo: rule body second.
 	self assert: productionRule body second equals: rule body second.
-	self assert: productionRule body third == rule body third.
+	self assert: productionRule body third identicalTo: rule body third.
 	self assert: productionRule body third equals: rule body third
 ]
 
@@ -102,7 +102,7 @@ JERuleTest >> testEquality [
 	self assert: one hash equals: another hash.
 	self assert: another equals: one.
 	self assert: another hash equals: one hash.
-	self deny: one == another
+	self deny: one identicalTo: another
 ]
 
 { #category : #tests }
@@ -114,7 +114,7 @@ JERuleTest >> testEquality02 [
 	self assert: one hash equals: another hash.
 	self assert: another equals: one.
 	self assert: another hash equals: one hash.
-	self deny: one == another
+	self deny: one identicalTo: another
 ]
 
 { #category : #tests }
@@ -130,7 +130,7 @@ JERuleTest >> testEquality03 [
 	self assert: one hash equals: another hash.
 	self assert: another equals: one.
 	self assert: another hash equals: one hash.
-	self assert: one == another
+	self assert: one identicalTo: another
 ]
 
 { #category : #tests }

@@ -1,7 +1,7 @@
 Class {
 	#name : #JEItemEqualityTests,
 	#superclass : #TestCase,
-	#category : 'EarleyParser-Tests-Implementation'
+	#category : #'EarleyParser-Tests-Implementation'
 }
 
 { #category : #tests }
@@ -20,7 +20,7 @@ JEItemEqualityTests >> testItemEquality [
 	self assert: one hash equals: another hash.
 	self assert: another equals: one.
 	self assert: another hash equals: one hash.
-	self deny: one == another
+	self deny: one identicalTo: another
 ]
 
 { #category : #tests }
@@ -33,12 +33,16 @@ JEItemEqualityTests >> testItemEquality02 [
 			{(NCNonterminal named: 'T').
 			(NCTerminal character: $+).
 			(NCNonterminal named: 'P')}.
-	one := (rule dotAt: 2) startedAt: first andEndedAt: (JEColumn number: 3).
-	another := (rule dotAt: 2) startedAt: first andEndedAt: (JEColumn number: 4).
-	self deny: one = another.
-	self deny: one hash = another hash.
-	self deny: another = one.
-	self deny: another hash = one hash
+	one := (rule dotAt: 2)
+		startedAt: first
+		andEndedAt: (JEColumn number: 3).
+	another := (rule dotAt: 2)
+		startedAt: first
+		andEndedAt: (JEColumn number: 4).
+	self deny: one equals: another.
+	self deny: one hash equals: another hash.
+	self deny: another equals: one.
+	self deny: another hash equals: one hash
 ]
 
 { #category : #tests }
@@ -52,11 +56,13 @@ JEItemEqualityTests >> testItemEquality03 [
 			(NCTerminal character: $+).
 			(NCNonterminal named: 'P')}.
 	one := (rule dotAt: 2) startedAt: first.
-	another := (rule dotAt: 2) startedAt: first andEndedAt: (JEColumn number: 4).
-	self deny: one = another.
-	self deny: one hash = another hash.
-	self deny: another = one.
-	self deny: another hash = one hash
+	another := (rule dotAt: 2)
+		startedAt: first
+		andEndedAt: (JEColumn number: 4).
+	self deny: one equals: another.
+	self deny: one hash equals: another hash.
+	self deny: another equals: one.
+	self deny: another hash equals: one hash
 ]
 
 { #category : #tests }
@@ -69,12 +75,14 @@ JEItemEqualityTests >> testItemEquality04 [
 			{(NCNonterminal named: 'T').
 			(NCTerminal character: $+).
 			(NCNonterminal named: 'P')}.
-	one := (rule dotAt: 2) startedAt: first andEndedAt: (JEColumn number: 3).
+	one := (rule dotAt: 2)
+		startedAt: first
+		andEndedAt: (JEColumn number: 3).
 	another := (rule dotAt: 2) startedAt: first.
-	self deny: one = another.
-	self deny: one hash = another hash.
-	self deny: another = one.
-	self deny: another hash = one hash
+	self deny: one equals: another.
+	self deny: one hash equals: another hash.
+	self deny: another equals: one.
+	self deny: another hash equals: one hash
 ]
 
 { #category : #tests }
@@ -92,5 +100,5 @@ JEItemEqualityTests >> testItemEquality05 [
 	self assert: one hash equals: another hash.
 	self assert: another equals: one.
 	self assert: another hash equals: one hash.
-	self assert: one == another
+	self assert: one identicalTo: another
 ]

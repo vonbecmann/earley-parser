@@ -13,11 +13,12 @@ Class {
 		'rule',
 		'item'
 	],
-	#category : 'EarleyParser-Tests-Implementation'
+	#category : #'EarleyParser-Tests-Implementation'
 }
 
 { #category : #running }
 JEDottedItemTest >> setUp [
+	super setUp.
 	first := JEColumn number: 1.
 	rule := JERule
 		head: (NCNonterminal named: 'T')

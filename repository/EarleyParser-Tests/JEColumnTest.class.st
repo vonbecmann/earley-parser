@@ -8,11 +8,12 @@ Class {
 	#instVars : [
 		'column'
 	],
-	#category : 'EarleyParser-Tests-Implementation'
+	#category : #'EarleyParser-Tests-Implementation'
 }
 
 { #category : #running }
 JEColumnTest >> setUp [
+	super setUp.
 	column := JEColumn number: 10
 ]
 
@@ -31,10 +32,10 @@ JEColumnTest >> testEquality [
 	self assert: one hash equals: another hash.
 	self assert: another equals: one.
 	self assert: another hash equals: one hash.
-	self deny: one = other.
-	self deny: one hash = other hash.
-	self deny: other = one.
-	self deny: other hash = one hash
+	self deny: one equals: other.
+	self deny: one hash equals: other hash.
+	self deny: other equals: one.
+	self deny: other hash equals: one hash
 ]
 
 { #category : #tests }
@@ -70,13 +71,12 @@ JEColumnTest >> testLikeIfFoundIfNone02 [
 			(NCNonterminal named: 'P')}.
 	one := (rule dotAt: 2) startedAt: first.
 	column add: one.
-	self 
-		assert: (column like: one ifFound: [ :found | found ] ifNone: [ nil ]) 
+	self
+		assert: (column like: one ifFound: [ :found | found ] ifNone: [ nil ])
 		equals: one.
-	self 
-		assert: 
-		(column like: one ifFound: [ :found | found ] ifNone: [ nil ]) == 
-		(column like: one ifFound: [ :found | found ] ifNone: [ nil ])
+	self
+		assert: (column like: one ifFound: [ :found | found ] ifNone: [ nil ])
+		identicalTo: (column like: one ifFound: [ :found | found ] ifNone: [ nil ])
 ]
 
 { #category : #tests }

@@ -5,26 +5,26 @@ Y -> e | YdY
 
 "
 Class {
-	#name : #JEGREGrammarTests,
+	#name : #JEGREGrammarTest,
 	#superclass : #JERecognizeGrammarTest,
 	#category : #'EarleyParser-Tests-Grammar'
 }
 
 { #category : #running }
-JEGREGrammarTests >> setUp [
+JEGREGrammarTest >> setUp [
 	super setUp.
 	grammar := JEExemplar GRE
 ]
 
 { #category : #tests }
-JEGREGrammarTests >> testAcceptsed4eabb [
+JEGREGrammarTest >> testAcceptsed4eabb [
 	"(ed)^4eabb"
 
 	self assert: (grammar accepts: 'ededededeabb')
 ]
 
 { #category : #tests }
-JEGREGrammarTests >> testAcceptsed7eabb [
+JEGREGrammarTest >> testAcceptsed7eabb [
 	"(ed)^7eabb"
 	
 	self assert: (grammar accepts: 'edededededededeabb')
@@ -32,7 +32,7 @@ JEGREGrammarTests >> testAcceptsed7eabb [
 ]
 
 { #category : #tests }
-JEGREGrammarTests >> testAcceptsed8eabb [
+JEGREGrammarTest >> testAcceptsed8eabb [
 	"(ed)^8eabb"
 	
 	self assert: (grammar accepts: 'ededededededededeabb')
@@ -40,19 +40,19 @@ JEGREGrammarTests >> testAcceptsed8eabb [
 ]
 
 { #category : #tests }
-JEGREGrammarTests >> testAcceptsededea [
+JEGREGrammarTest >> testAcceptsededea [
 	self assert: (grammar accepts: 'ededea')
 	
 ]
 
 { #category : #tests }
-JEGREGrammarTests >> testAcceptsededeab [
+JEGREGrammarTest >> testAcceptsededeab [
 	self assert: (grammar accepts: 'ededeab')
 	
 ]
 
 { #category : #tests }
-JEGREGrammarTests >> testAcceptsededeab10 [
+JEGREGrammarTest >> testAcceptsededeab10 [
 	"ededeab^10"
 	
 	self assert: (grammar accepts: 'ededeabbbbbbbbbb')
@@ -60,7 +60,7 @@ JEGREGrammarTests >> testAcceptsededeab10 [
 ]
 
 { #category : #tests }
-JEGREGrammarTests >> testAcceptsededeab4 [
+JEGREGrammarTest >> testAcceptsededeab4 [
 	"ededeab^4"
 	
 	self assert: (grammar accepts: 'ededeabbbb')

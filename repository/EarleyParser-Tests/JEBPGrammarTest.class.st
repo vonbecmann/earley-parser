@@ -1,45 +1,46 @@
 "
-Practical Earley Parsing
-John Aycock
-R. Nigel Horspool
-page 2, figure 2
+tests for the BP Grammar 
+root: 
+P -> M N.
+M -> epsilon | M a.
+N -> epsilon |  N a.
 
-
+sentences: a ^ n (n>=0)
 
 "
 Class {
-	#name : #JEAyHoGrammarTests,
+	#name : #JEBPGrammarTest,
 	#superclass : #JERecognizeGrammarTest,
 	#category : #'EarleyParser-Tests-Grammar'
 }
 
 { #category : #running }
-JEAyHoGrammarTests >> setUp [
+JEBPGrammarTest >> setUp [
 	super setUp.
-	grammar := JEExemplar AyHo
+	grammar := JEExemplar BP
 ]
 
 { #category : #tests }
-JEAyHoGrammarTests >> testAccepts1A [
+JEBPGrammarTest >> testAccepts1A [
 	self assert: (grammar accepts: 'a')
 ]
 
 { #category : #tests }
-JEAyHoGrammarTests >> testAccepts2A [
+JEBPGrammarTest >> testAccepts2As [
 	self assert: (grammar accepts: 'aa')
 ]
 
 { #category : #tests }
-JEAyHoGrammarTests >> testAccepts3A [
+JEBPGrammarTest >> testAccepts3As [
 	self assert: (grammar accepts: 'aaa')
 ]
 
 { #category : #tests }
-JEAyHoGrammarTests >> testAccepts4A [
+JEBPGrammarTest >> testAccepts4As [
 	self assert: (grammar accepts: 'aaaa')
 ]
 
 { #category : #tests }
-JEAyHoGrammarTests >> testAcceptsEpsilon [
+JEBPGrammarTest >> testAcceptsEpsilon [
 	self assert: (grammar accepts: '')
 ]

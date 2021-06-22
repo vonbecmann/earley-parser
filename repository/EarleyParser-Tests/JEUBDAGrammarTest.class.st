@@ -6,48 +6,48 @@ sentences: x ^ n  (n >=1)
 requires time proportional to n^3
 "
 Class {
-	#name : #JEUBDAGrammarTests,
+	#name : #JEUBDAGrammarTest,
 	#superclass : #JERecognizeGrammarTest,
 	#category : #'EarleyParser-Tests-Grammar'
 }
 
 { #category : #running }
-JEUBDAGrammarTests >> setUp [
+JEUBDAGrammarTest >> setUp [
 	super setUp.
 	grammar := JEExemplar UBDA
 ]
 
 { #category : #tests }
-JEUBDAGrammarTests >> testAccepts1X [
+JEUBDAGrammarTest >> testAccepts1X [
 	self assert: (grammar accepts: 'x')
 ]
 
 { #category : #tests }
-JEUBDAGrammarTests >> testAccepts2Xs [
+JEUBDAGrammarTest >> testAccepts2Xs [
 	self assert: (grammar accepts: 'xx')
 	
 ]
 
 { #category : #tests }
-JEUBDAGrammarTests >> testAccepts3Xs [
+JEUBDAGrammarTest >> testAccepts3Xs [
 	self assert: (grammar accepts: 'xxx')
 	
 ]
 
 { #category : #tests }
-JEUBDAGrammarTests >> testAccepts4Xs [
+JEUBDAGrammarTest >> testAccepts4Xs [
 	self assert: (grammar accepts: 'xxxx')
 	
 ]
 
 { #category : #tests }
-JEUBDAGrammarTests >> testAccepts5Xs [
+JEUBDAGrammarTest >> testAccepts5Xs [
 	self assert: (grammar accepts: 'xxxxx')
 	
 ]
 
 { #category : #tests }
-JEUBDAGrammarTests >> testAccepts6Xs [
+JEUBDAGrammarTest >> testAccepts6Xs [
 	self assert: (grammar accepts: 'xxxxxx')
 	
 ]

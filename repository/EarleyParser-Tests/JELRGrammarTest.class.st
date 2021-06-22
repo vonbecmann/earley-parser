@@ -1,41 +1,41 @@
 Class {
-	#name : #JELRGrammarTests,
+	#name : #JELRGrammarTest,
 	#superclass : #JERecognizeGrammarTest,
 	#category : #'EarleyParser-Tests-Grammar'
 }
 
 { #category : #running }
-JELRGrammarTests >> setUp [
+JELRGrammarTest >> setUp [
 	super setUp.
 	grammar := JEExemplar LR
 ]
 
 { #category : #tests }
-JELRGrammarTests >> testAccepts1X [
+JELRGrammarTest >> testAccepts1X [
 	self assert: (grammar accepts: 'x')
 ]
 
 { #category : #tests }
-JELRGrammarTests >> testAccepts2X [
+JELRGrammarTest >> testAccepts2X [
 	self assert: (grammar accepts: 'xx')
 ]
 
 { #category : #tests }
-JELRGrammarTests >> testAccepts3X [
+JELRGrammarTest >> testAccepts3X [
 	self assert: (grammar accepts: 'xxx')
 ]
 
 { #category : #tests }
-JELRGrammarTests >> testAccepts4X [
+JELRGrammarTest >> testAccepts4X [
 	self assert: (grammar accepts: 'xxxx')
 ]
 
 { #category : #tests }
-JELRGrammarTests >> testAccepts5X [
+JELRGrammarTest >> testAccepts5X [
 	self assert: (grammar accepts: 'xxxxx')
 ]
 
 { #category : #tests }
-JELRGrammarTests >> testAccepts6X [
+JELRGrammarTest >> testAccepts6X [
 	self assert: (grammar accepts: 'xxxxxx')
 ]

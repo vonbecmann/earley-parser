@@ -4,49 +4,49 @@ A ->  x A | x
 
 "
 Class {
-	#name : #JERRGrammarTests,
+	#name : #JERRGrammarTest,
 	#superclass : #JERecognizeGrammarTest,
 	#category : #'EarleyParser-Tests-Grammar'
 }
 
 { #category : #running }
-JERRGrammarTests >> setUp [
+JERRGrammarTest >> setUp [
 	super setUp.
 	grammar := JEExemplar RR
 ]
 
 { #category : #tests }
-JERRGrammarTests >> testAccepts1X [
+JERRGrammarTest >> testAccepts1X [
 	self assert: (grammar accepts: 'x')
 	
 ]
 
 { #category : #tests }
-JERRGrammarTests >> testAccepts2Xs [
+JERRGrammarTest >> testAccepts2Xs [
 	self assert: (grammar accepts: 'xx')
 ]
 
 { #category : #tests }
-JERRGrammarTests >> testAccepts3Xs [
+JERRGrammarTest >> testAccepts3Xs [
 	self assert: (grammar accepts: 'xxx')
 ]
 
 { #category : #tests }
-JERRGrammarTests >> testAccepts4Xs [
+JERRGrammarTest >> testAccepts4Xs [
 	self assert: (grammar accepts: 'xxxx')
 ]
 
 { #category : #tests }
-JERRGrammarTests >> testAccepts5Xs [
+JERRGrammarTest >> testAccepts5Xs [
 	self assert: (grammar accepts: 'xxxxx')
 ]
 
 { #category : #tests }
-JERRGrammarTests >> testAccepts6Xs [
+JERRGrammarTest >> testAccepts6Xs [
 	self assert: (grammar accepts: 'xxxxxx')
 ]
 
 { #category : #tests }
-JERRGrammarTests >> testAcceptsEpsilon [
+JERRGrammarTest >> testAcceptsEpsilon [
 	self deny: (grammar accepts: '')
 ]

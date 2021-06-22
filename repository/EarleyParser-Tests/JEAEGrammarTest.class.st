@@ -8,58 +8,58 @@ root:
 
 "
 Class {
-	#name : #JEAEGrammarTests,
+	#name : #JEAEGrammarTest,
 	#superclass : #JERecognizeGrammarTest,
 	#category : #'EarleyParser-Tests-Grammar'
 }
 
 { #category : #running }
-JEAEGrammarTests >> setUp [
+JEAEGrammarTest >> setUp [
 	super setUp.
 	grammar := JEExemplar AE
 ]
 
 { #category : #tests }
-JEAEGrammarTests >> testAcceptsMixedExp [
+JEAEGrammarTest >> testAcceptsMixedExp [
 	self assert: (grammar accepts: 'a+a*a+a*a')
 ]
 
 { #category : #tests }
-JEAEGrammarTests >> testAcceptsMultiplyExp [
+JEAEGrammarTest >> testAcceptsMultiplyExp [
 	self assert: (grammar accepts: 'a*a')
 ]
 
 { #category : #tests }
-JEAEGrammarTests >> testAcceptsMultiplyTermStartingAtTerm [
+JEAEGrammarTest >> testAcceptsMultiplyTermStartingAtTerm [
 	self assert: (grammar accepts: 'a*a' startingAt: 'T')
 ]
 
 { #category : #tests }
-JEAEGrammarTests >> testAcceptsPlusExp01 [
+JEAEGrammarTest >> testAcceptsPlusExp01 [
 	self assert: (grammar accepts: 'a+a')
 ]
 
 { #category : #tests }
-JEAEGrammarTests >> testAcceptsPlusExp02 [
+JEAEGrammarTest >> testAcceptsPlusExp02 [
 	self deny: (grammar accepts: 'a+a+')
 ]
 
 { #category : #tests }
-JEAEGrammarTests >> testAcceptsProductStartingAtTerm [
+JEAEGrammarTest >> testAcceptsProductStartingAtTerm [
 	self assert: (grammar accepts: 'a' startingAt: 'T')
 ]
 
 { #category : #tests }
-JEAEGrammarTests >> testAcceptsSimpleExp01 [
+JEAEGrammarTest >> testAcceptsSimpleExp01 [
 	self assert: (grammar accepts: 'a')
 ]
 
 { #category : #tests }
-JEAEGrammarTests >> testAcceptsSimpleExp02 [
+JEAEGrammarTest >> testAcceptsSimpleExp02 [
 	self deny: (grammar accepts: 'a ')
 ]
 
 { #category : #tests }
-JEAEGrammarTests >> testAcceptsSimpleExp03 [
+JEAEGrammarTest >> testAcceptsSimpleExp03 [
 	self deny: (grammar accepts: 'a+')
 ]

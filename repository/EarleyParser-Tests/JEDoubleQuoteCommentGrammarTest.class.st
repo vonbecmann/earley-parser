@@ -7,13 +7,13 @@ comment:
 
 "
 Class {
-	#name : #JEDoubleQuoteCommentGrammarTests,
+	#name : #JEDoubleQuoteCommentGrammarTest,
 	#superclass : #JERecognizeGrammarTest,
 	#category : #'EarleyParser-Tests-Grammar'
 }
 
 { #category : #running }
-JEDoubleQuoteCommentGrammarTests >> setUp [
+JEDoubleQuoteCommentGrammarTest >> setUp [
 	super setUp.
 	grammar := JEGrammar
 		productionRules:
@@ -27,11 +27,11 @@ JEDoubleQuoteCommentGrammarTests >> setUp [
 ]
 
 { #category : #tests }
-JEDoubleQuoteCommentGrammarTests >> testAcceptsDefaultComment [
+JEDoubleQuoteCommentGrammarTest >> testAcceptsDefaultComment [
 	self assert: (grammar accepts: '"comment stating purpose of message"')
 ]
 
 { #category : #tests }
-JEDoubleQuoteCommentGrammarTests >> testAcceptsEmptyComment [
+JEDoubleQuoteCommentGrammarTest >> testAcceptsEmptyComment [
 	self assert: (grammar accepts: '""')
 ]

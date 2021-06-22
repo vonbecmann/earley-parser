@@ -11,53 +11,53 @@ sentences: x ^ n  (n >=0)
 
 "
 Class {
-	#name : #JEBKGrammarTests,
+	#name : #JEBKGrammarTest,
 	#superclass : #JERecognizeGrammarTest,
 	#category : #'EarleyParser-Tests-Grammar'
 }
 
 { #category : #running }
-JEBKGrammarTests >> setUp [
+JEBKGrammarTest >> setUp [
 	super setUp.
 	grammar := JEExemplar BK
 ]
 
 { #category : #tests }
-JEBKGrammarTests >> testAccepts1X [
+JEBKGrammarTest >> testAccepts1X [
 	self assert: (grammar accepts: 'x')
 ]
 
 { #category : #tests }
-JEBKGrammarTests >> testAccepts2Xs [
+JEBKGrammarTest >> testAccepts2Xs [
 	self assert: (grammar accepts: 'xx')
 	
 ]
 
 { #category : #tests }
-JEBKGrammarTests >> testAccepts3Xs [
+JEBKGrammarTest >> testAccepts3Xs [
 	self assert: (grammar accepts: 'xxx')
 	
 ]
 
 { #category : #tests }
-JEBKGrammarTests >> testAccepts4Xs [
+JEBKGrammarTest >> testAccepts4Xs [
 	self assert: (grammar accepts: 'xxxx')
 	
 ]
 
 { #category : #tests }
-JEBKGrammarTests >> testAccepts5Xs [
+JEBKGrammarTest >> testAccepts5Xs [
 	self assert: (grammar accepts: 'xxxxx')
 	
 ]
 
 { #category : #tests }
-JEBKGrammarTests >> testAccepts6Xs [
+JEBKGrammarTest >> testAccepts6Xs [
 	self assert: (grammar accepts: 'xxxxxx')
 	
 ]
 
 { #category : #tests }
-JEBKGrammarTests >> testAcceptsEpsilon [
+JEBKGrammarTest >> testAcceptsEpsilon [
 	self assert: (grammar accepts: '')
 ]

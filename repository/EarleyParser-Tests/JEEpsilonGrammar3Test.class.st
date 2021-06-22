@@ -4,13 +4,13 @@ Parsing Techniques, 2008
 
 "
 Class {
-	#name : #JEEpsilonGrammar3Tests,
+	#name : #JEEpsilonGrammar3Test,
 	#superclass : #JERecognizeGrammarTest,
 	#category : #'EarleyParser-Tests-Grammar'
 }
 
 { #category : #running }
-JEEpsilonGrammar3Tests >> setUp [
+JEEpsilonGrammar3Test >> setUp [
 	super setUp.
 	grammar := JEGrammar
 		productionRules: 
@@ -24,11 +24,11 @@ JEEpsilonGrammar3Tests >> setUp [
 ]
 
 { #category : #tests }
-JEEpsilonGrammar3Tests >> testAccepts02 [
+JEEpsilonGrammar3Test >> testAccepts02 [
 	self assert: (grammar accepts: 'aa/a')
 ]
 
 { #category : #tests }
-JEEpsilonGrammar3Tests >> testAcceptsAA [
+JEEpsilonGrammar3Test >> testAcceptsAA [
 	self assert: (grammar accepts: 'aa')
 ]

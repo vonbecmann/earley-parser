@@ -1,11 +1,11 @@
 Class {
-	#name : #JEEpsilonGrammarTests,
+	#name : #JEEpsilonGrammarTest,
 	#superclass : #JERecognizeGrammarTest,
 	#category : #'EarleyParser-Tests-Grammar'
 }
 
 { #category : #running }
-JEEpsilonGrammarTests >> setUp [
+JEEpsilonGrammarTest >> setUp [
 	super setUp.
 	grammar := 
 		JEGrammar
@@ -18,11 +18,11 @@ JEEpsilonGrammarTests >> setUp [
 ]
 
 { #category : #tests }
-JEEpsilonGrammarTests >> testAccepts1A [
+JEEpsilonGrammarTest >> testAccepts1A [
 	self assert: (grammar accepts: 'a')
 ]
 
 { #category : #tests }
-JEEpsilonGrammarTests >> testAcceptsEpsilon [
+JEEpsilonGrammarTest >> testAcceptsEpsilon [
 	self assert: (grammar accepts: '')
 ]

@@ -1,36 +1,36 @@
 Class {
-	#name : #JERLGrammarTests,
+	#name : #JERLGrammarTest,
 	#superclass : #JERecognizeGrammarTest,
 	#category : #'EarleyParser-Tests-Grammar'
 }
 
 { #category : #running }
-JERLGrammarTests >> setUp [
+JERLGrammarTest >> setUp [
 	super setUp.
 	grammar := JEExemplar RL
 ]
 
 { #category : #tests }
-JERLGrammarTests >> testAccepts1A [
+JERLGrammarTest >> testAccepts1A [
 	self assert: (grammar accepts: 'a')
 ]
 
 { #category : #tests }
-JERLGrammarTests >> testAccepts2A [
+JERLGrammarTest >> testAccepts2A [
 	self assert: (grammar accepts: 'aa')
 ]
 
 { #category : #tests }
-JERLGrammarTests >> testAccepts2AB [
+JERLGrammarTest >> testAccepts2AB [
 	self assert: (grammar accepts: 'aab')
 ]
 
 { #category : #tests }
-JERLGrammarTests >> testAccepts3A [
+JERLGrammarTest >> testAccepts3A [
 	self assert: (grammar accepts: 'aaa')
 ]
 
 { #category : #tests }
-JERLGrammarTests >> testAccepts4A3B [
+JERLGrammarTest >> testAccepts4A3B [
 	self assert: (grammar accepts: 'aaaabbb')
 ]

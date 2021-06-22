@@ -1,11 +1,11 @@
 Class {
-	#name : #JEEpsilonGrammar3ForestTests,
+	#name : #JEEpsilonGrammar3ForestTest,
 	#superclass : #JEParseGrammarTest,
 	#category : #'EarleyParser-Tests-Parsing'
 }
 
 { #category : #running }
-JEEpsilonGrammar3ForestTests >> setUp [
+JEEpsilonGrammar3ForestTest >> setUp [
 	super setUp.
 	grammar := JEGrammar
 		productionRules: 
@@ -19,7 +19,7 @@ JEEpsilonGrammar3ForestTests >> setUp [
 ]
 
 { #category : #tests }
-JEEpsilonGrammar3ForestTests >> testParse02 [
+JEEpsilonGrammar3ForestTest >> testParse02 [
 	
 	forest := grammar parse: 'aa/a'.
 	

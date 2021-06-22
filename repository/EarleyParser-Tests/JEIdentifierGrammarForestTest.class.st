@@ -1,17 +1,17 @@
 Class {
-	#name : #JEIdentifierGrammarTests,
+	#name : #JEIdentifierGrammarForestTest,
 	#superclass : #JEParseGrammarTest,
 	#category : #'EarleyParser-Tests-Parsing'
 }
 
 { #category : #running }
-JEIdentifierGrammarTests >> setUp [
+JEIdentifierGrammarForestTest >> setUp [
 	super setUp.
 	grammar := JEExemplar identifier
 ]
 
 { #category : #tests }
-JEIdentifierGrammarTests >> testParse01 [
+JEIdentifierGrammarForestTest >> testParse01 [
 
 	forest := grammar parse: 'word_symbol'.
 	self deny: forest isAmbiguous.
@@ -46,7 +46,7 @@ JEIdentifierGrammarTests >> testParse01 [
 ]
 
 { #category : #'tests - failure' }
-JEIdentifierGrammarTests >> testParseExpectsLetter [
+JEIdentifierGrammarForestTest >> testParseExpectsLetter [
 	self
 		should: [ grammar parse: ',' ]
 		raise: JEFailure

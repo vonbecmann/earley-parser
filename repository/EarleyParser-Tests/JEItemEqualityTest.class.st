@@ -1,11 +1,11 @@
 Class {
-	#name : #JEItemEqualityTests,
+	#name : #JEItemEqualityTest,
 	#superclass : #TestCase,
 	#category : #'EarleyParser-Tests-Implementation'
 }
 
 { #category : #tests }
-JEItemEqualityTests >> testItemEquality [
+JEItemEqualityTest >> testItemEquality [
 	| one another first rule |
 	first := JEColumn number: 1.
 	rule := JERule
@@ -24,7 +24,7 @@ JEItemEqualityTests >> testItemEquality [
 ]
 
 { #category : #tests }
-JEItemEqualityTests >> testItemEquality02 [
+JEItemEqualityTest >> testItemEquality02 [
 	| one another first rule |
 	first := JEColumn number: 1.
 	rule := JERule
@@ -46,7 +46,7 @@ JEItemEqualityTests >> testItemEquality02 [
 ]
 
 { #category : #tests }
-JEItemEqualityTests >> testItemEquality03 [
+JEItemEqualityTest >> testItemEquality03 [
 	| one another first rule |
 	first := JEColumn number: 1.
 	rule := JERule
@@ -66,7 +66,7 @@ JEItemEqualityTests >> testItemEquality03 [
 ]
 
 { #category : #tests }
-JEItemEqualityTests >> testItemEquality04 [
+JEItemEqualityTest >> testItemEquality04 [
 	| one another first rule |
 	first := JEColumn number: 1.
 	rule := JERule
@@ -86,7 +86,7 @@ JEItemEqualityTests >> testItemEquality04 [
 ]
 
 { #category : #tests }
-JEItemEqualityTests >> testItemEquality05 [
+JEItemEqualityTest >> testItemEquality05 [
 	| one another first rule |
 	first := JEColumn number: 1.
 	rule := JERule

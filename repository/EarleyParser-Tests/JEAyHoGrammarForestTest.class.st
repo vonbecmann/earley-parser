@@ -1,24 +1,24 @@
 Class {
-	#name : #JEAyHoGrammarForestTests,
+	#name : #JEAyHoGrammarForestTest,
 	#superclass : #JEParseGrammarTest,
 	#category : #'EarleyParser-Tests-Parsing'
 }
 
 { #category : #running }
-JEAyHoGrammarForestTests >> setUp [
+JEAyHoGrammarForestTest >> setUp [
 	super setUp.
 	grammar := JEExemplar AyHo
 ]
 
 { #category : #tests }
-JEAyHoGrammarForestTests >> testParse1A [
+JEAyHoGrammarForestTest >> testParse1A [
 	forest := grammar parse: 'a'.
 	self assert: forest isAmbiguous.
 	self assert: forest numberOfTrees equals: 4
 ]
 
 { #category : #tests }
-JEAyHoGrammarForestTests >> testParse2A [
+JEAyHoGrammarForestTest >> testParse2A [
 	forest := grammar parse: 'aa'.
 	
 	self assert: forest isAmbiguous.
@@ -26,7 +26,7 @@ JEAyHoGrammarForestTests >> testParse2A [
 ]
 
 { #category : #tests }
-JEAyHoGrammarForestTests >> testParse3A [
+JEAyHoGrammarForestTest >> testParse3A [
 	forest := grammar parse: 'aaa'.
 
 	self assert: forest isAmbiguous.
@@ -34,7 +34,7 @@ JEAyHoGrammarForestTests >> testParse3A [
 ]
 
 { #category : #tests }
-JEAyHoGrammarForestTests >> testParse4A [
+JEAyHoGrammarForestTest >> testParse4A [
 	forest := grammar parse: 'aaaa'.
 	self deny: forest isAmbiguous.
 	self assert: forest numberOfTrees equals: 1.
@@ -55,7 +55,7 @@ JEAyHoGrammarForestTests >> testParse4A [
 ]
 
 { #category : #tests }
-JEAyHoGrammarForestTests >> testParseEpsilon [
+JEAyHoGrammarForestTest >> testParseEpsilon [
 	forest := grammar parse: ''.
 	
 	self deny: forest isAmbiguous.

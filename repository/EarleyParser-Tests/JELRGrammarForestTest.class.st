@@ -1,17 +1,17 @@
 Class {
-	#name : #JELRGrammarForestTests,
+	#name : #JELRGrammarForestTest,
 	#superclass : #JEParseGrammarTest,
 	#category : #'EarleyParser-Tests-Parsing'
 }
 
 { #category : #running }
-JELRGrammarForestTests >> setUp [
+JELRGrammarForestTest >> setUp [
 	super setUp.
 	grammar := JEExemplar LR
 ]
 
 { #category : #tests }
-JELRGrammarForestTests >> testParse1X [
+JELRGrammarForestTest >> testParse1X [
 	forest := grammar parse: 'x'.
 
 	self deny: forest isAmbiguous.
@@ -21,7 +21,7 @@ JELRGrammarForestTests >> testParse1X [
 ]
 
 { #category : #tests }
-JELRGrammarForestTests >> testParse2X [
+JELRGrammarForestTest >> testParse2X [
 	forest := grammar parse: 'xx'.
 
 	self deny: forest isAmbiguous.

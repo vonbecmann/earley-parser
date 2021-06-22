@@ -1,17 +1,17 @@
 Class {
-	#name : #JERRGrammarForestTests,
+	#name : #JERRGrammarForestTest,
 	#superclass : #JEParseGrammarTest,
 	#category : #'EarleyParser-Tests-Parsing'
 }
 
 { #category : #running }
-JERRGrammarForestTests >> setUp [
+JERRGrammarForestTest >> setUp [
 	super setUp.
 	grammar := JEExemplar RR
 ]
 
 { #category : #tests }
-JERRGrammarForestTests >> testParse1X [
+JERRGrammarForestTest >> testParse1X [
 	forest := grammar parse: 'x'.
 
 	self deny: forest isAmbiguous.
@@ -21,7 +21,7 @@ JERRGrammarForestTests >> testParse1X [
 ]
 
 { #category : #tests }
-JERRGrammarForestTests >> testParse2Xs [
+JERRGrammarForestTest >> testParse2Xs [
 	forest := grammar parse: 'xx'.
 	self deny: forest isAmbiguous.
 	self
@@ -36,7 +36,7 @@ JERRGrammarForestTests >> testParse2Xs [
 ]
 
 { #category : #tests }
-JERRGrammarForestTests >> testParse3Xs [
+JERRGrammarForestTest >> testParse3Xs [
 	forest := grammar parse: 'xxx'.
 	self deny: forest isAmbiguous.
 	self
@@ -53,7 +53,7 @@ JERRGrammarForestTests >> testParse3Xs [
 ]
 
 { #category : #tests }
-JERRGrammarForestTests >> testParse4Xs [
+JERRGrammarForestTest >> testParse4Xs [
 	forest := grammar parse: 'xxxx'.
 	self deny: forest isAmbiguous.
 	self
@@ -72,7 +72,7 @@ JERRGrammarForestTests >> testParse4Xs [
 ]
 
 { #category : #tests }
-JERRGrammarForestTests >> testParse5Xs [
+JERRGrammarForestTest >> testParse5Xs [
 	forest := grammar parse: 'xxxxx'.
 	self deny: forest isAmbiguous.
 	self
@@ -93,7 +93,7 @@ JERRGrammarForestTests >> testParse5Xs [
 ]
 
 { #category : #tests }
-JERRGrammarForestTests >> testParse6Xs [
+JERRGrammarForestTest >> testParse6Xs [
 	forest := grammar parse: 'xxxxxx'.
 	self deny: forest isAmbiguous.
 	self

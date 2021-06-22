@@ -1,17 +1,17 @@
 Class {
-	#name : #JEAEGrammarForestTests,
+	#name : #JEAEGrammarForestTest,
 	#superclass : #JEParseGrammarTest,
 	#category : #'EarleyParser-Tests-Parsing'
 }
 
 { #category : #running }
-JEAEGrammarForestTests >> setUp [
+JEAEGrammarForestTest >> setUp [
 	super setUp.
 	grammar := JEExemplar AE
 ]
 
 { #category : #tests }
-JEAEGrammarForestTests >> testLeftmostDerivationMixedExp [
+JEAEGrammarForestTest >> testLeftmostDerivationMixedExp [
 	forest := grammar parse: 'a+a*a+a*a'.
 	
 	self deny: forest isAmbiguous.
@@ -47,7 +47,7 @@ JEAEGrammarForestTests >> testLeftmostDerivationMixedExp [
 ]
 
 { #category : #tests }
-JEAEGrammarForestTests >> testLeftmostDerivationMultiplyExp [
+JEAEGrammarForestTest >> testLeftmostDerivationMultiplyExp [
 	forest := grammar parse: 'a*a'.
 	
 	self deny: forest isAmbiguous.
@@ -69,7 +69,7 @@ JEAEGrammarForestTests >> testLeftmostDerivationMultiplyExp [
 ]
 
 { #category : #tests }
-JEAEGrammarForestTests >> testLeftmostDerivationPlusExp [
+JEAEGrammarForestTest >> testLeftmostDerivationPlusExp [
 	forest := grammar parse: 'a+a'.
 
 	self deny: forest isAmbiguous.
@@ -92,7 +92,7 @@ JEAEGrammarForestTests >> testLeftmostDerivationPlusExp [
 ]
 
 { #category : #tests }
-JEAEGrammarForestTests >> testParseMixedExp [
+JEAEGrammarForestTest >> testParseMixedExp [
 	forest := grammar parse: 'a+a*a+a*a'.
 
 	self deny: forest isAmbiguous.
@@ -100,7 +100,7 @@ JEAEGrammarForestTests >> testParseMixedExp [
 ]
 
 { #category : #tests }
-JEAEGrammarForestTests >> testParseMultiplyExp [
+JEAEGrammarForestTest >> testParseMultiplyExp [
 	forest := grammar parse: 'a*a'.
 
 	self deny: forest isAmbiguous.
@@ -108,7 +108,7 @@ JEAEGrammarForestTests >> testParseMultiplyExp [
 ]
 
 { #category : #tests }
-JEAEGrammarForestTests >> testParsePlusExp [
+JEAEGrammarForestTest >> testParsePlusExp [
 	forest := grammar parse: 'a+a'.
 	
 	self deny: forest isAmbiguous.
@@ -116,7 +116,7 @@ JEAEGrammarForestTests >> testParsePlusExp [
 ]
 
 { #category : #tests }
-JEAEGrammarForestTests >> testParseSimpleExp01 [
+JEAEGrammarForestTest >> testParseSimpleExp01 [
 	forest := grammar parse: 'a'.
 
 	self deny: forest isAmbiguous.
@@ -124,7 +124,7 @@ JEAEGrammarForestTests >> testParseSimpleExp01 [
 ]
 
 { #category : #'tests - failure' }
-JEAEGrammarForestTests >> testParseSimpleExp02 [
+JEAEGrammarForestTest >> testParseSimpleExp02 [
 	self 
 		should: [ grammar parse: 'a ' ] 
 		raise: JEFailure 
@@ -139,7 +139,7 @@ JEAEGrammarForestTests >> testParseSimpleExp02 [
 ]
 
 { #category : #'tests - failure' }
-JEAEGrammarForestTests >> testParseSimpleExp03 [
+JEAEGrammarForestTest >> testParseSimpleExp03 [
 	self
 		should: [ grammar parse: 'a+' ]
 		raise: JEFailure
@@ -152,7 +152,7 @@ JEAEGrammarForestTests >> testParseSimpleExp03 [
 ]
 
 { #category : #'tests - failure' }
-JEAEGrammarForestTests >> testParseSimpleExp04 [
+JEAEGrammarForestTest >> testParseSimpleExp04 [
 	self 
 		should: [ grammar parse: 'a++' ] 
 		raise: JEFailure 
@@ -167,7 +167,7 @@ JEAEGrammarForestTests >> testParseSimpleExp04 [
 ]
 
 { #category : #tests }
-JEAEGrammarForestTests >> testRighmostDerivationMultiplyExp [
+JEAEGrammarForestTest >> testRighmostDerivationMultiplyExp [
 	forest := grammar parse: 'a*a'.
 	
 	self deny: forest isAmbiguous.
@@ -188,7 +188,7 @@ JEAEGrammarForestTests >> testRighmostDerivationMultiplyExp [
 ]
 
 { #category : #tests }
-JEAEGrammarForestTests >> testRightmostDerivationMixedExp [
+JEAEGrammarForestTest >> testRightmostDerivationMixedExp [
 	forest := grammar parse: 'a+a*a+a*a'.
 	
 	self deny: forest isAmbiguous.
@@ -223,7 +223,7 @@ JEAEGrammarForestTests >> testRightmostDerivationMixedExp [
 ]
 
 { #category : #tests }
-JEAEGrammarForestTests >> testRightmostDerivationSimpleExp01 [
+JEAEGrammarForestTest >> testRightmostDerivationSimpleExp01 [
 	forest := grammar parse: 'a'.
 
 	self deny: forest isAmbiguous.

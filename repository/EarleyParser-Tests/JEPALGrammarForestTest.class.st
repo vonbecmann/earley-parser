@@ -1,17 +1,17 @@
 Class {
-	#name : #JEPALGrammarForestTests,
+	#name : #JEPALGrammarForestTest,
 	#superclass : #JEParseGrammarTest,
 	#category : #'EarleyParser-Tests-Parsing'
 }
 
 { #category : #running }
-JEPALGrammarForestTests >> setUp [
+JEPALGrammarForestTest >> setUp [
 	super setUp.
 	grammar := JEExemplar PAL
 ]
 
 { #category : #tests }
-JEPALGrammarForestTests >> testParse3Xs [
+JEPALGrammarForestTest >> testParse3Xs [
 	forest := grammar parse: 'xxx'.
 	self deny: forest isAmbiguous.
 	self
@@ -27,7 +27,7 @@ JEPALGrammarForestTests >> testParse3Xs [
 ]
 
 { #category : #tests }
-JEPALGrammarForestTests >> testParse5Xs [
+JEPALGrammarForestTest >> testParse5Xs [
 	forest := grammar parse: 'xxxxx'.
 	self deny: forest isAmbiguous.
 	self
@@ -46,7 +46,7 @@ JEPALGrammarForestTests >> testParse5Xs [
 ]
 
 { #category : #tests }
-JEPALGrammarForestTests >> testParse7Xs [
+JEPALGrammarForestTest >> testParse7Xs [
 	forest := grammar parse: 'xxxxxxx'.
 	self deny: forest isAmbiguous.
 	self

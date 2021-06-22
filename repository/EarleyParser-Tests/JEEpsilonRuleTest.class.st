@@ -1,54 +1,54 @@
 Class {
-	#name : #JEEpsilonRuleTests,
+	#name : #JEEpsilonRuleTest,
 	#superclass : #TestCase,
 	#instVars : [
 		'epsilonRule'
 	],
-	#category : 'EarleyParser-Tests-Implementation'
+	#category : #'EarleyParser-Tests-Implementation'
 }
 
 { #category : #running }
-JEEpsilonRuleTests >> setUp [
+JEEpsilonRuleTest >> setUp [
 	super setUp.
 	epsilonRule := JERule head: (NCNonterminal named: 'T') body: #()
 ]
 
 { #category : #tests }
-JEEpsilonRuleTests >> testEpsilonRuleAsString [
+JEEpsilonRuleTest >> testEpsilonRuleAsString [
 	self assert: epsilonRule asString equals: 'T: .'
 ]
 
 { #category : #tests }
-JEEpsilonRuleTests >> testEpsilonRuleIsEpsilon [
+JEEpsilonRuleTest >> testEpsilonRuleIsEpsilon [
 	self assert: epsilonRule isEpsilon
 ]
 
 { #category : #tests }
-JEEpsilonRuleTests >> testEpsilonRuleWithDotAtBeginningAsString [
+JEEpsilonRuleTest >> testEpsilonRuleWithDotAtBeginningAsString [
 	self assert: epsilonRule dotAtBeginning asString equals: 'T: ·.'
 ]
 
 { #category : #tests }
-JEEpsilonRuleTests >> testEpsilonRuleWithDotAtBeginningIsFinal [
+JEEpsilonRuleTest >> testEpsilonRuleWithDotAtBeginningIsFinal [
 	self assert: epsilonRule dotAtBeginning isFinal
 ]
 
 { #category : #tests }
-JEEpsilonRuleTests >> testEpsilonRuleWithDotAtBeginningIsNotPredicted [
+JEEpsilonRuleTest >> testEpsilonRuleWithDotAtBeginningIsNotPredicted [
 	self deny: epsilonRule dotAtBeginning isPredicted
 ]
 
 { #category : #tests }
-JEEpsilonRuleTests >> testEpsilonRuleWithDotAtEndAsString [
+JEEpsilonRuleTest >> testEpsilonRuleWithDotAtEndAsString [
 	self assert: epsilonRule dotAtEnd asString equals: 'T: ·.'
 ]
 
 { #category : #tests }
-JEEpsilonRuleTests >> testEpsilonRuleWithDotAtEndIsFinal [
+JEEpsilonRuleTest >> testEpsilonRuleWithDotAtEndIsFinal [
 	self assert: epsilonRule dotAtEnd isFinal
 ]
 
 { #category : #tests }
-JEEpsilonRuleTests >> testEpsilonRuleWithDotAtEndIsNotPredicted [
+JEEpsilonRuleTest >> testEpsilonRuleWithDotAtEndIsNotPredicted [
 	self deny: epsilonRule dotAtEnd isPredicted
 ]

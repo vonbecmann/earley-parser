@@ -1,17 +1,17 @@
 Class {
-	#name : #JEUBDAGrammarForestTests,
+	#name : #JEUBDAGrammarForestTest,
 	#superclass : #JEParseGrammarTest,
 	#category : #'EarleyParser-Tests-Parsing'
 }
 
 { #category : #running }
-JEUBDAGrammarForestTests >> setUp [
+JEUBDAGrammarForestTest >> setUp [
 	super setUp.
 	grammar := JEExemplar UBDA
 ]
 
 { #category : #tests }
-JEUBDAGrammarForestTests >> testParse1X [
+JEUBDAGrammarForestTest >> testParse1X [
 	forest := grammar parse: 'x'.
 
 	self deny: forest isAmbiguous.
@@ -22,7 +22,7 @@ JEUBDAGrammarForestTests >> testParse1X [
 ]
 
 { #category : #tests }
-JEUBDAGrammarForestTests >> testParse2X [
+JEUBDAGrammarForestTest >> testParse2X [
 	forest := grammar parse: 'xx'.
 
 	self deny: forest isAmbiguous.
@@ -40,7 +40,7 @@ JEUBDAGrammarForestTests >> testParse2X [
 ]
 
 { #category : #tests }
-JEUBDAGrammarForestTests >> testParse3Xs [
+JEUBDAGrammarForestTest >> testParse3Xs [
 	forest := grammar parse: 'xxx'.
 	self assert: forest isAmbiguous.
 	self assert: forest numberOfTrees equals: 2.
@@ -48,7 +48,7 @@ JEUBDAGrammarForestTests >> testParse3Xs [
 ]
 
 { #category : #tests }
-JEUBDAGrammarForestTests >> testParse4Xs [
+JEUBDAGrammarForestTest >> testParse4Xs [
 	forest := grammar parse: 'xxxx'.
 	self assert: forest isAmbiguous.
 	self assert: forest numberOfTrees equals: 5.
@@ -56,7 +56,7 @@ JEUBDAGrammarForestTests >> testParse4Xs [
 ]
 
 { #category : #tests }
-JEUBDAGrammarForestTests >> testParse5Xs [
+JEUBDAGrammarForestTest >> testParse5Xs [
 	forest := grammar parse: 'xxxxx'.
 	self assert: forest isAmbiguous.
 	self assert: forest numberOfTrees equals: 14.
@@ -64,7 +64,7 @@ JEUBDAGrammarForestTests >> testParse5Xs [
 ]
 
 { #category : #tests }
-JEUBDAGrammarForestTests >> testParse6Xs [
+JEUBDAGrammarForestTest >> testParse6Xs [
 	forest := grammar parse: 'xxxxxx'.
 	self assert: forest isAmbiguous.
 	self assert: forest numberOfTrees equals: 42.
@@ -72,7 +72,7 @@ JEUBDAGrammarForestTests >> testParse6Xs [
 ]
 
 { #category : #tests }
-JEUBDAGrammarForestTests >> testParse7Xs [
+JEUBDAGrammarForestTest >> testParse7Xs [
 	forest := grammar parse: 'xxxxxxx'.
 	self assert: forest isAmbiguous.
 	self assert: forest numberOfTrees equals: 132.

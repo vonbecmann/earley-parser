@@ -3,19 +3,19 @@ arithmetic grammar parse tests.
 
 "
 Class {
-	#name : #JEAEGrammarParseTests,
+	#name : #JEAEGrammarParseTest,
 	#superclass : #JEParseGrammarTest,
 	#category : #'EarleyParser-Tests-Parsing'
 }
 
 { #category : #running }
-JEAEGrammarParseTests >> setUp [
+JEAEGrammarParseTest >> setUp [
 	super setUp.
 	grammar := JEExemplar AE
 ]
 
 { #category : #'tests - failure' }
-JEAEGrammarParseTests >> testParseEmpty [
+JEAEGrammarParseTest >> testParseEmpty [
 	self
 		should: [ grammar parse: '' ]
 		raise: JEFailure
@@ -27,7 +27,7 @@ JEAEGrammarParseTests >> testParseEmpty [
 ]
 
 { #category : #tests }
-JEAEGrammarParseTests >> testParseMixedExp [
+JEAEGrammarParseTest >> testParseMixedExp [
 	forest := grammar parse: 'a+a*a+a*a'.
 
 	self deny: forest isAmbiguous.
@@ -35,7 +35,7 @@ JEAEGrammarParseTests >> testParseMixedExp [
 ]
 
 { #category : #tests }
-JEAEGrammarParseTests >> testParseMultiplyExp [
+JEAEGrammarParseTest >> testParseMultiplyExp [
 	forest := grammar parse: 'a*a'.
 
 	self deny: forest isAmbiguous.
@@ -43,7 +43,7 @@ JEAEGrammarParseTests >> testParseMultiplyExp [
 ]
 
 { #category : #tests }
-JEAEGrammarParseTests >> testParsePlusExp [
+JEAEGrammarParseTest >> testParsePlusExp [
 	forest := grammar parse: 'a+a'.
 	
 	self deny: forest isAmbiguous.
@@ -51,7 +51,7 @@ JEAEGrammarParseTests >> testParsePlusExp [
 ]
 
 { #category : #tests }
-JEAEGrammarParseTests >> testParseSimpleExp01 [
+JEAEGrammarParseTest >> testParseSimpleExp01 [
 	forest := grammar parse: 'a'.
 
 	self deny: forest isAmbiguous.
@@ -59,7 +59,7 @@ JEAEGrammarParseTests >> testParseSimpleExp01 [
 ]
 
 { #category : #'tests - failure' }
-JEAEGrammarParseTests >> testParseSimpleExp02 [
+JEAEGrammarParseTest >> testParseSimpleExp02 [
 	self
 		should: [ grammar parse: 'a ' ]
 		raise: JEFailure
@@ -74,7 +74,7 @@ JEAEGrammarParseTests >> testParseSimpleExp02 [
 ]
 
 { #category : #'tests - failure' }
-JEAEGrammarParseTests >> testParseSimpleExp03 [
+JEAEGrammarParseTest >> testParseSimpleExp03 [
 	self
 		should: [ grammar parse: 'a+' ]
 		raise: JEFailure
@@ -87,7 +87,7 @@ JEAEGrammarParseTests >> testParseSimpleExp03 [
 ]
 
 { #category : #'tests - failure' }
-JEAEGrammarParseTests >> testParseSimpleExp04 [
+JEAEGrammarParseTest >> testParseSimpleExp04 [
 	self
 		should: [ grammar parse: 'a++' ]
 		raise: JEFailure
@@ -103,7 +103,7 @@ JEAEGrammarParseTests >> testParseSimpleExp04 [
 ]
 
 { #category : #'tests - failure' }
-JEAEGrammarParseTests >> testParseSimpleExp05 [
+JEAEGrammarParseTest >> testParseSimpleExp05 [
 	self
 		should: [ grammar parse: 'a+*' ]
 		raise: JEFailure
@@ -119,7 +119,7 @@ JEAEGrammarParseTests >> testParseSimpleExp05 [
 ]
 
 { #category : #'tests - failure' }
-JEAEGrammarParseTests >> testParseSimpleExp06 [
+JEAEGrammarParseTest >> testParseSimpleExp06 [
 	self
 		should: [ grammar parse: 'a*' ]
 		raise: JEFailure

@@ -1,17 +1,17 @@
 Class {
-	#name : #JEGREGrammarForestTests,
+	#name : #JEGREGrammarForestTest,
 	#superclass : #JEParseGrammarTest,
 	#category : #'EarleyParser-Tests-Parsing'
 }
 
 { #category : #running }
-JEGREGrammarForestTests >> setUp [
+JEGREGrammarForestTest >> setUp [
 	super setUp.
 	grammar := JEExemplar GRE
 ]
 
 { #category : #tests }
-JEGREGrammarForestTests >> testParse_ededeab10 [
+JEGREGrammarForestTest >> testParse_ededeab10 [
 	"ededeab^10"
 
 	forest := grammar parse: 'ededeabbbbbbbbbb'.

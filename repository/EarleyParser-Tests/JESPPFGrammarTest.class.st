@@ -5,13 +5,13 @@ Elizabeth Scott
 
 "
 Class {
-	#name : #JESPPFGrammarTests,
+	#name : #JESPPFGrammarTest,
 	#superclass : #JEParseGrammarTest,
 	#category : #'EarleyParser-Tests-Parsing'
 }
 
 { #category : #tests }
-JESPPFGrammarTests >> testExample2 [
+JESPPFGrammarTest >> testExample2 [
 
 	grammar := JEGrammar
 		productionRules: 

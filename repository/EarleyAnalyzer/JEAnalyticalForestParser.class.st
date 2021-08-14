@@ -3,7 +3,7 @@ to help in analize Earley's forest parser.
 "
 Class {
 	#name : #JEAnalyticalForestParser,
-	#superclass : #JEBSPPFParser,
+	#superclass : #JEForestParser,
 	#category : #'EarleyAnalyzer-Core'
 }
 

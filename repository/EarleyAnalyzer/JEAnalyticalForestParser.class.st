@@ -7,7 +7,7 @@ Class {
 	#category : #'EarleyAnalyzer-Core'
 }
 
-{ #category : #parsing }
+{ #category : #public }
 JEAnalyticalForestParser >> parse: words [
 	"it returns some stats"
 

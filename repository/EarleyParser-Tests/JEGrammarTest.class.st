@@ -4,7 +4,7 @@ Class {
 	#instVars : [
 		'grammar'
 	],
-	#category : 'EarleyParser-Tests-Public'
+	#category : #'EarleyParser-Tests-Public'
 }
 
 { #category : #'tests - accessing' }
@@ -203,5 +203,5 @@ JEGrammarTest >> testUnknownNonterminal01 [
 				productionRules: #(#('A' #('B')) #('A' #('letter x symbol')))
 				representations: {('letter x symbol' -> (NCTerminal character: $x))} ]
 		raise: Error
-		withExceptionDo: [ :ex | self assert: ex messageText equals: 'Unknown Nonterminal B in A: B.' ]
+		withExceptionDo: [ :ex | self assert: ex messageText equals: 'Unknown Nonterminal B' ]
 ]

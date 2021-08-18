@@ -74,12 +74,7 @@ JEGrammar class >> productionRules: productionRuleArray representations: termina
 	"
 
 	^ JEGrammarBuilder new
-		productionRules:
-			(productionRuleArray
-				collect: [ :each | 
-					NCProductionRule
-						headNamed: each first
-						body: (each second collect: [ :notion | NCNonterminal named: notion ]) ]);
+		productionRules: (productionRuleArray collect: [ :each | each asProductionRule ]);
 		representations: terminalNotionToRepresentationList;
 		build
 ]

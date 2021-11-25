@@ -16,6 +16,16 @@ JEItem >> gtDisplayValueString [
 ]
 
 { #category : #'*EarleyParser-InspectorExtensions' }
+JEItem >> gtInspectorBrowserIn: composite [
+	<gtInspectorPresentationOrder: 2>
+	^ composite tree
+		title: 'Browse';
+		display: [ self ];
+		children: [ :each | each children ];
+		yourself
+]
+
+{ #category : #'*EarleyParser-InspectorExtensions' }
 JEItem >> gtInspectorPureIn: composite [
 	<gtInspectorPresentationOrder: 1>
 	^ composite table

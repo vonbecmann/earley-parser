@@ -87,11 +87,6 @@ JETerminalItem >> isActive [
 ]
 
 { #category : #testing }
-JETerminalItem >> isEpsilon [
-	^ false
-]
-
-{ #category : #testing }
 JETerminalItem >> isFinal [
 	^ true
 ]

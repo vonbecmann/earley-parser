@@ -97,7 +97,9 @@ JEDottedItem >> head [
 JEDottedItem >> initializeDottedRule: aRule start: column [
 	dottedRule := aRule.
 	start := column.
-	self initializeFamilies
+	self initializeFamilies.
+	self isEpsilon
+		ifTrue: [ self addEmptyFamily ]
 ]
 
 { #category : #testing }

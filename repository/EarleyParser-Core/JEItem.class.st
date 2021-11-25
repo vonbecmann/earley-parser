@@ -115,18 +115,11 @@ JEItem >> firstKey [
 { #category : #initialization }
 JEItem >> initializeFamilies [
 	families := DoublyLinkedList new.
-	familiesByKey := IdentityDictionary new.
-	(self isNonterminal and: [ self isEpsilon ])
-		ifTrue: [ self addEmptyFamily ]
+	familiesByKey := IdentityDictionary new
 ]
 
 { #category : #testing }
 JEItem >> isActive [
-	^ self subclassResponsibility
-]
-
-{ #category : #testing }
-JEItem >> isEpsilon [
 	^ self subclassResponsibility
 ]
 

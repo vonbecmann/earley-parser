@@ -20,13 +20,13 @@ JEFamilyTest >> setUp [
 							head: (NCNonterminal named: 'C') 
 							body: {(NCNonterminal named: 'A'). (NCNonterminal named: 'B')}) dotAtEnd
 		startedAt: (JEColumn number: 1)
-		andEndedAt: (JEColumn number: 3)) node.
+		andEndedAt: (JEColumn number: 3)).
 	firstPackedNode := ((JERule head: (NCNonterminal named: 'A') body: {}) dotAtEnd
 		startedAt: (JEColumn number: 1)
-		andEndedAt: (JEColumn number: 2)) node.
+		andEndedAt: (JEColumn number: 2)).
 	secondPackedNode := ((JERule head: (NCNonterminal named: 'B') body: {}) dotAtEnd
 		startedAt: (JEColumn number: 2)
-		andEndedAt: (JEColumn number: 3)) node
+		andEndedAt: (JEColumn number: 3))
 ]
 
 { #category : #tests }
@@ -36,14 +36,14 @@ JEFamilyTest >> testAsStringEmptyFamily [
 
 { #category : #tests }
 JEFamilyTest >> testAsStringFamilyWithOneMember [
-	self assert: (JEFamily parent: nil first: firstPackedNode) asString equals: '(([A: ·. @ [1, 2]]))'
+	self assert: (JEFamily parent: nil first: firstPackedNode) asString equals: '([A: ·. @ [1, 2]])'
 ]
 
 { #category : #tests }
 JEFamilyTest >> testAsStringFamilyWithTwoMembers [
 	self
 		assert: (JEFamily parent: nil first: firstPackedNode second: secondPackedNode) asString
-		equals: '(([A: ·. @ [1, 2]]), ([B: ·. @ [2, 3]]))'
+		equals: '([A: ·. @ [1, 2]], [B: ·. @ [2, 3]])'
 ]
 
 { #category : #tests }

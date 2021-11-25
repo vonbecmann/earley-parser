@@ -7,7 +7,14 @@ end: the column that contains this item or nil. but an item always belongs to a 
 firstKey :
 secondKey:  a composed key useful to know if this item already exists in a column.
 
-node : a packed parse node of myself, only used during parsing that's why it is lazy initialized.
+Also a packed parse node of myself, only used during parsing.
+
+a packed parse node.
+
+families - a set of families. a family is unique, it cannot be duplicated.
+
+each family represents a derivation of the parse node.
+and the members (of a family) represents the sequence of items that constitute  a derivation.
 
 
 
@@ -146,11 +153,6 @@ JEItem >> isRepresentation [
 { #category : #testing }
 JEItem >> isTerminal [
 	^ self subclassResponsibility
-]
-
-{ #category : #parsing }
-JEItem >> node [
-	^ node ifNil: [ node := JEPackedNode model: self ]
 ]
 
 { #category : #printing }

@@ -28,7 +28,6 @@ Class {
 	#instVars : [
 		'start',
 		'end',
-		'node',
 		'families',
 		'familiesByKey'
 	],
@@ -171,7 +170,6 @@ JEItem >> printIntervalOn: aStream [
 JEItem >> release [
 	start := nil.
 	end := nil.
-	node := nil.
 	families
 		ifNotNil: 
 			[	families do: [ :family | family release ].

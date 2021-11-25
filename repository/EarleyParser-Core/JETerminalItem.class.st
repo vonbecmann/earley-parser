@@ -77,11 +77,17 @@ JETerminalItem >> hash [
 JETerminalItem >> initializeTerminal: aTerminal word: aWord startedAt: column [
 	terminal := aTerminal.
 	word := aWord.
-	start := column
+	start := column.
+	self initializeFamilies 
 ]
 
 { #category : #testing }
 JETerminalItem >> isActive [
+	^ false
+]
+
+{ #category : #testing }
+JETerminalItem >> isEpsilon [
 	^ false
 ]
 

@@ -21,10 +21,62 @@ Class {
 	#instVars : [
 		'start',
 		'end',
-		'node'
+		'node',
+		'families',
+		'familiesByKey'
 	],
-	#category : 'EarleyParser-Core-Implementation'
+	#category : #'EarleyParser-Core-Implementation'
 }
+
+{ #category : #visiting }
+JEItem >> acceptPostOrderVisitor: aVisitor [
+	aVisitor visitPostOrderPackedNode: self
+]
+
+{ #category : #visiting }
+JEItem >> acceptPreOrderVisitor: aVisitor [
+	aVisitor visitPreOrderPackedNode: self
+]
+
+{ #category : #visiting }
+JEItem >> acceptVisitor: aVisitor [
+	aVisitor visitNode: self
+]
+
+{ #category : #parsing }
+JEItem >> addEmptyFamily [
+	familiesByKey
+		jeAt: nil
+		at: nil
+		ifAbsentPut: [ families addLast: (JEFamily emptyWithParent: self).
+			true ].
+	^ self
+]
+
+{ #category : #parsing }
+JEItem >> addFamilyWith: completeItem [
+	familiesByKey
+		jeAt: completeItem
+		at: nil
+		ifAbsentPut: [ 
+			families addLast: (JEFamily parent: self first: completeItem).
+			true ]
+]
+
+{ #category : #parsing }
+JEItem >> addFamilyWith: previousItem and: completeItem [
+	familiesByKey
+		jeAt: previousItem
+		at: completeItem
+		ifAbsentPut: [ 
+			families addLast: (JEFamily parent: self first: previousItem second: completeItem).
+			true ]
+]
+
+{ #category : #visiting }
+JEItem >> children [
+	^ self families 
+]
 
 { #category : #accessing }
 JEItem >> end [
@@ -46,12 +98,35 @@ JEItem >> equals: anItem [
 ]
 
 { #category : #accessing }
+JEItem >> families [
+	^ families
+]
+
+{ #category : #accessing }
+JEItem >> familiesSize [
+	^ self families size
+]
+
+{ #category : #accessing }
 JEItem >> firstKey [
 	self subclassResponsibility
 ]
 
+{ #category : #initialization }
+JEItem >> initializeFamilies [
+	families := DoublyLinkedList new.
+	familiesByKey := IdentityDictionary new.
+	(self isNonterminal and: [ self isEpsilon ])
+		ifTrue: [ self addEmptyFamily ]
+]
+
 { #category : #testing }
 JEItem >> isActive [
+	^ self subclassResponsibility
+]
+
+{ #category : #testing }
+JEItem >> isEpsilon [
 	^ self subclassResponsibility
 ]
 
@@ -102,6 +177,11 @@ JEItem >> release [
 	start := nil.
 	end := nil.
 	node := nil.
+	families
+		ifNotNil: 
+			[	families do: [ :family | family release ].
+				families := nil ].
+	familiesByKey := nil.
 	super release
 ]
 

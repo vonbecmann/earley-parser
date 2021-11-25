@@ -45,8 +45,8 @@ JEParseForest >> leftmostDerivation [
 	derivation := SinglyLinkedList new.
 	JEDepthFirstVisitor new
 		preOrderFamilyBlock: [ :family | 
-			(family parent model isNonterminal and: [ family parent model isFinal ])
-				ifTrue: [ derivation addLast: (grammar productionRuleAt: family parent model rule) ] ];
+			(family parent isNonterminal and: [ family parent isFinal ])
+				ifTrue: [ derivation addLast: (grammar productionRuleAt: family parent rule) ] ];
 		visit: syntaxForest.
 	^ derivation asArray
 ]
@@ -70,8 +70,8 @@ JEParseForest >> rightmostDerivation [
 	derivation := SinglyLinkedList new.
 	JEDepthFirstVisitor new
 		postOrderFamilyBlock: [ :family | 
-			(family parent model isNonterminal and: [ family parent model isFinal ])
-				ifTrue: [ derivation addFirst: (grammar productionRuleAt: family parent model rule) ] ];
+			(family parent isNonterminal and: [ family parent isFinal ])
+				ifTrue: [ derivation addFirst: (grammar productionRuleAt: family parent rule) ] ];
 		visit: syntaxForest.
 	^ derivation asArray
 ]

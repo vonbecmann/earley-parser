@@ -21,7 +21,7 @@ Class {
 	#instVars : [
 		'dottedRule'
 	],
-	#category : 'EarleyParser-Core-Implementation'
+	#category : #'EarleyParser-Core-Implementation'
 }
 
 { #category : #'instance creation' }
@@ -56,16 +56,6 @@ JEDottedItem >> = anItem [
 ]
 
 { #category : #parsing }
-JEDottedItem >> addFamilyWith: completeItem [ 
-	self node addFamilyWith: completeItem node
-]
-
-{ #category : #parsing }
-JEDottedItem >> addFamilyWith: previousItem and: completeItem [
-	self node addFamilyWith: previousItem node and: completeItem node
-]
-
-{ #category : #parsing }
 JEDottedItem >> addFamilyWith: completeItem to: parentItem [
 	self isPredicted
 		ifTrue: [ parentItem addFamilyWith: completeItem ]
@@ -80,16 +70,6 @@ JEDottedItem >> dottedRule [
 { #category : #comparing }
 JEDottedItem >> equals: anItem [
 	^ (super equals: anItem) and: [ dottedRule = anItem dottedRule ]
-]
-
-{ #category : #parsing }
-JEDottedItem >> families [
-	^ self node families 
-]
-
-{ #category : #parsing }
-JEDottedItem >> familiesSize [
-	^ self node familiesSize
 ]
 
 { #category : #enumerating }
@@ -116,7 +96,8 @@ JEDottedItem >> head [
 { #category : #initialization }
 JEDottedItem >> initializeDottedRule: aRule start: column [
 	dottedRule := aRule.
-	start := column
+	start := column.
+	self initializeFamilies
 ]
 
 { #category : #testing }

@@ -9,16 +9,16 @@ JEParseForest >> extractSingleParseTree [
 	stack := SinglyLinkedStack new.
 	JETreeDepthFirstVisitor new
 		postOrderNodeBlock: [ :node | 
-			node model isTerminal
-				ifTrue: [ stack push: (ESTreeNode	model: node model asSyntaxNode) ]
+			node isTerminal
+				ifTrue: [ stack push: (ESTreeNode	model: node asSyntaxNode) ]
 				ifFalse: [ 
-					node model isFinal
+					node isFinal
 						ifTrue: [ 
 							stack
 								push:
 									(ESTreeNode
-										model: (node model asSyntaxNodeOf: grammar)
-										children: (stack popReversed: node model dottedRule body size)) ] ] ];
+										model: (node asSyntaxNodeOf: grammar)
+										children: (stack popReversed: node dottedRule body size)) ] ] ];
 		visit: syntaxForest.
 	self assert: [ stack size = 1 ].
 	^ ESParseTree given: (ESTree rootNode: stack pop) of: grammar

@@ -58,9 +58,24 @@ JETerminalItem >> = anObject [
 	^ true
 ]
 
+{ #category : #visiting }
+JETerminalItem >> children [
+	^ #()
+]
+
 { #category : #comparing }
 JETerminalItem >> equals: anItem [
 	^ (super equals: anItem) and: [ terminal = anItem terminal ]
+]
+
+{ #category : #accessing }
+JETerminalItem >> families [
+	^ #()
+]
+
+{ #category : #accessing }
+JETerminalItem >> familiesSize [
+	^ 0
 ]
 
 { #category : #accessing }
@@ -77,8 +92,7 @@ JETerminalItem >> hash [
 JETerminalItem >> initializeTerminal: aTerminal word: aWord startedAt: column [
 	terminal := aTerminal.
 	word := aWord.
-	start := column.
-	self initializeFamilies 
+	start := column
 ]
 
 { #category : #testing }

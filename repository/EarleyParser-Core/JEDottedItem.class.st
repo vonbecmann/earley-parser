@@ -19,7 +19,9 @@ Class {
 	#name : #JEDottedItem,
 	#superclass : #JEItem,
 	#instVars : [
-		'dottedRule'
+		'dottedRule',
+		'families',
+		'familiesByKey'
 	],
 	#category : #'EarleyParser-Core-Implementation'
 }
@@ -56,10 +58,45 @@ JEDottedItem >> = anItem [
 ]
 
 { #category : #parsing }
+JEDottedItem >> addEmptyFamily [
+	familiesByKey
+		jeAt: nil
+		at: nil
+		ifAbsentPut: [ families addLast: (JEFamily emptyWithParent: self).
+			true ].
+	^ self
+]
+
+{ #category : #parsing }
+JEDottedItem >> addFamilyWith: completeItem [
+	familiesByKey
+		jeAt: completeItem
+		at: nil
+		ifAbsentPut: [ 
+			families addLast: (JEFamily parent: self first: completeItem).
+			true ]
+]
+
+{ #category : #parsing }
+JEDottedItem >> addFamilyWith: previousItem and: completeItem [
+	familiesByKey
+		jeAt: previousItem
+		at: completeItem
+		ifAbsentPut: [ 
+			families addLast: (JEFamily parent: self first: previousItem second: completeItem).
+			true ]
+]
+
+{ #category : #parsing }
 JEDottedItem >> addFamilyWith: completeItem to: parentItem [
 	self isPredicted
 		ifTrue: [ parentItem addFamilyWith: completeItem ]
 		ifFalse: [ parentItem addFamilyWith: self and: completeItem ]
+]
+
+{ #category : #visiting }
+JEDottedItem >> children [
+	^ self families 
 ]
 
 { #category : #accessing }
@@ -70,6 +107,16 @@ JEDottedItem >> dottedRule [
 { #category : #comparing }
 JEDottedItem >> equals: anItem [
 	^ (super equals: anItem) and: [ dottedRule = anItem dottedRule ]
+]
+
+{ #category : #accessing }
+JEDottedItem >> families [
+	^ families
+]
+
+{ #category : #accessing }
+JEDottedItem >> familiesSize [
+	^ self families size
 ]
 
 { #category : #enumerating }
@@ -100,6 +147,12 @@ JEDottedItem >> initializeDottedRule: aRule start: column [
 	self initializeFamilies.
 	self isEpsilon
 		ifTrue: [ self addEmptyFamily ]
+]
+
+{ #category : #initialization }
+JEDottedItem >> initializeFamilies [
+	families := DoublyLinkedList new.
+	familiesByKey := IdentityDictionary new
 ]
 
 { #category : #testing }
@@ -168,6 +221,10 @@ JEDottedItem >> printOn: aStream [
 { #category : #'initialize-release' }
 JEDottedItem >> release [
 	dottedRule := nil.
+	families
+		ifNotNil: [ families do: [ :family | family release ].
+			families := nil ].
+	familiesByKey := nil.
 	super release
 ]
 

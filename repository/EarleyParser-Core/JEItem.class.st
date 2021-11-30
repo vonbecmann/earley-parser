@@ -27,9 +27,7 @@ Class {
 	#superclass : #Object,
 	#instVars : [
 		'start',
-		'end',
-		'families',
-		'familiesByKey'
+		'end'
 	],
 	#category : #'EarleyParser-Core-Implementation'
 }
@@ -49,39 +47,9 @@ JEItem >> acceptVisitor: aVisitor [
 	aVisitor visitNode: self
 ]
 
-{ #category : #parsing }
-JEItem >> addEmptyFamily [
-	familiesByKey
-		jeAt: nil
-		at: nil
-		ifAbsentPut: [ families addLast: (JEFamily emptyWithParent: self).
-			true ].
-	^ self
-]
-
-{ #category : #parsing }
-JEItem >> addFamilyWith: completeItem [
-	familiesByKey
-		jeAt: completeItem
-		at: nil
-		ifAbsentPut: [ 
-			families addLast: (JEFamily parent: self first: completeItem).
-			true ]
-]
-
-{ #category : #parsing }
-JEItem >> addFamilyWith: previousItem and: completeItem [
-	familiesByKey
-		jeAt: previousItem
-		at: completeItem
-		ifAbsentPut: [ 
-			families addLast: (JEFamily parent: self first: previousItem second: completeItem).
-			true ]
-]
-
 { #category : #visiting }
 JEItem >> children [
-	^ self families 
+	^ self subclassResponsibility
 ]
 
 { #category : #accessing }
@@ -105,23 +73,17 @@ JEItem >> equals: anItem [
 
 { #category : #accessing }
 JEItem >> families [
-	^ families
+	^ self subclassResponsibility
 ]
 
 { #category : #accessing }
 JEItem >> familiesSize [
-	^ self families size
+	^ self subclassResponsibility
 ]
 
 { #category : #accessing }
 JEItem >> firstKey [
 	self subclassResponsibility
-]
-
-{ #category : #initialization }
-JEItem >> initializeFamilies [
-	families := DoublyLinkedList new.
-	familiesByKey := IdentityDictionary new
 ]
 
 { #category : #testing }
@@ -170,11 +132,6 @@ JEItem >> printIntervalOn: aStream [
 JEItem >> release [
 	start := nil.
 	end := nil.
-	families
-		ifNotNil: 
-			[	families do: [ :family | family release ].
-				families := nil ].
-	familiesByKey := nil.
 	super release
 ]
 

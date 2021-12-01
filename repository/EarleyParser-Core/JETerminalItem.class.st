@@ -58,11 +58,6 @@ JETerminalItem >> = anObject [
 	^ true
 ]
 
-{ #category : #visiting }
-JETerminalItem >> children [
-	^ #()
-]
-
 { #category : #comparing }
 JETerminalItem >> equals: anItem [
 	^ (super equals: anItem) and: [ terminal = anItem terminal ]

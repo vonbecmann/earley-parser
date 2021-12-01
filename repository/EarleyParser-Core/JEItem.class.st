@@ -49,7 +49,7 @@ JEItem >> acceptVisitor: aVisitor [
 
 { #category : #visiting }
 JEItem >> children [
-	^ self subclassResponsibility
+	^ self families 
 ]
 
 { #category : #accessing }

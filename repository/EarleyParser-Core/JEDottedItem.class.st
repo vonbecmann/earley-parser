@@ -94,11 +94,6 @@ JEDottedItem >> addFamilyWith: completeItem to: parentItem [
 		ifFalse: [ parentItem addFamilyWith: self and: completeItem ]
 ]
 
-{ #category : #visiting }
-JEDottedItem >> children [
-	^ self families 
-]
-
 { #category : #accessing }
 JEDottedItem >> dottedRule [
 	^ dottedRule

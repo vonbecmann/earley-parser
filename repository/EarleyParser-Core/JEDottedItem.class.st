@@ -139,15 +139,10 @@ JEDottedItem >> head [
 JEDottedItem >> initializeDottedRule: aRule start: column [
 	dottedRule := aRule.
 	start := column.
-	self initializeFamilies.
+	families := DoublyLinkedList new.
+	familiesByKey := IdentityDictionary new.
 	self isEpsilon
 		ifTrue: [ self addEmptyFamily ]
-]
-
-{ #category : #initialization }
-JEDottedItem >> initializeFamilies [
-	families := DoublyLinkedList new.
-	familiesByKey := IdentityDictionary new
 ]
 
 { #category : #testing }

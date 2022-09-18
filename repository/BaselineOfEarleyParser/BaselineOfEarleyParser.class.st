@@ -22,7 +22,7 @@ BaselineOfEarleyParser >> baseline: spec [
  		   		with: [ spec repository: 'github://vonbecmann/linked-list:pharo9/repository' ].
 			spec
 	        	baseline: 'Roassal2'
- 		   		with: [ spec repository: 'github://ObjectProfile/Roassal2/src' ].
+ 		   		with: [ spec repository: 'github://ObjectProfile/Roassal2:v2.0.2/src' ].
 
 			spec
 				package: 'NoamChomsky-Core';

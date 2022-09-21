@@ -1,26 +1,40 @@
 Extension { #name : #JERule }
 
 { #category : #'*EarleyParser-InspectorExtensions' }
-JERule >> gtInspectorDottedRulesIn: composite [
-	<gtInspectorPresentationOrder: 2>
-	^ composite table
-		title: [ 'Dotted Rules' ];
-		display: [ dottedRules ];
-		column: 'Dot Index' evaluated: [ :each | each dotIndex ] width: 75;
-		column: 'Dotted Rule' evaluated: [ :each | each ];
-		showOnly: 50;
-		yourself
+JERule >> inspectionDottedRulesIn: aBuilder [
+
+	<inspectorPresentationOrder: 2 title: 'Dotted Rules'>
+	^ aBuilder newTable
+		  addColumn: (SpStringTableColumn new
+				   title: 'Dot Index';
+				   evaluated: [ :each | each dotIndex ];
+				   width: 75;
+				   yourself);
+		  addColumn:
+		  (SpStringTableColumn
+			   title: 'Dotted Rule'
+			   evaluated: [ :each | each ]);
+		  items: dottedRules;
+		  yourself
 ]
 
 { #category : #'*EarleyParser-InspectorExtensions' }
-JERule >> gtInspectorPureIn: composite [
-	<gtInspectorPresentationOrder: 1>
-	^ composite table
-		title: [ 'Pure' ];
-		display: [ {('head' -> self head)}
-				, (self body withIndexCollect: [ :each :index | ('body at: ' , index asString) -> each ]) ];
-		column: 'Name' evaluated: [ :each | each key ] width: 100;
-		column: 'Value' evaluated: [ :each | each value ];
-		send: [ :each | each value ];
-		yourself
+JERule >> inspectionPureIn: aBuilder [
+
+	<inspectorPresentationOrder: 1 title: 'Pure'>
+	^ aBuilder newTable
+		  addColumn: (SpStringTableColumn new
+				   title: 'Name';
+				   evaluated: [ :each | each key ];
+				   width: 100;
+				   yourself);
+		  addColumn:
+		  (SpStringTableColumn
+			   title: 'Value'
+			   evaluated: [ :each | each value ]);
+		  items: ({ ('head' -> self head) }
+			   , (self body withIndexCollect: [ :each :index | 
+					    'body at: ' , index asString -> each ]) collect: [ :each | 
+				   StInspectorAssociationNode hostObject: each ]);
+		  yourself
 ]

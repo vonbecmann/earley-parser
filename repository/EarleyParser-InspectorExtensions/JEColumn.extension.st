@@ -26,18 +26,6 @@ JEColumn >> gtInspectorCompletedItemsIn: composite [
 ]
 
 { #category : #'*EarleyParser-InspectorExtensions' }
-JEColumn >> gtInspectorItemsIn: composite [
-	<gtInspectorPresentationOrder: 0>
-	^ composite table
-		title: [ self size asString , ' items' ];
-		display: [ self sortedItems ];
-		column: '@ [start, end]' evaluated: [ :each | each gtDisplayIntervalString ] width: 100;
-		column: 'Value' evaluated: [ :each | each gtDisplayValueString ];
-		showOnly: 50;
-		yourself
-]
-
-{ #category : #'*EarleyParser-InspectorExtensions' }
 JEColumn >> gtInspectorPredictionItemsIn: composite [
 	<gtInspectorPresentationOrder: 1>
 	^ composite table
@@ -49,6 +37,23 @@ JEColumn >> gtInspectorPredictionItemsIn: composite [
 			evaluated: [ :each | GTObjectPrinter new asTruncatedTextFrom: each value ];
 		showOnly: 50;
 		yourself
+]
+
+{ #category : #'*EarleyParser-InspectorExtensions' }
+JEColumn >> inspectionItemsIn: aBuilder [
+
+	<inspectorPresentationOrder: 0 title: 'Items'>
+	^ aBuilder newTable
+		  addColumn: (SpStringTableColumn new
+				   title: '@ [start, end]';
+				   evaluated: [ :each | each gtDisplayIntervalString ];
+				   width: 100;
+				   yourself);
+		  addColumn: (SpStringTableColumn
+				   title: 'Value'
+				   evaluated: [ :each | each gtDisplayValueString ]);
+		  items: self sortedItems;
+		  yourself
 ]
 
 { #category : #'*EarleyParser-InspectorExtensions' }

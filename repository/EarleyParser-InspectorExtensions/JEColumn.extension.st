@@ -12,17 +12,20 @@ JEColumn >> finalItemsByNonterminalAssociations [
 ]
 
 { #category : #'*EarleyParser-InspectorExtensions' }
-JEColumn >> gtInspectorCompletedItemsIn: composite [
-	<gtInspectorPresentationOrder: 2>
-	^ composite table
-		title: [ 'Completed Here' ];
-		display: [ self finalItemsByNonterminalAssociations ];
-		send: [ :each | each value ];
-		column: 'Nonterminal' evaluated: [ :each | GTObjectPrinter new asTruncatedTextFrom: each key ];
-		column: 'Completed(final) Item'
-			evaluated: [ :each | GTObjectPrinter new asTruncatedTextFrom: each value ];
-		showOnly: 50;
-		yourself
+JEColumn >> inspectionCompletedItemsIn: aBuilder [
+
+	<inspectorPresentationOrder: 2 title: 'Completed Here'>
+	^ aBuilder newTable
+		  addColumn: (SpStringTableColumn new
+				   title: 'Nonterminal';
+				   evaluated: [ :each | each key ];
+				   width: 100;
+				   yourself);
+		  addColumn: (SpStringTableColumn
+				   title: 'Completed(final) Item'
+				   evaluated: [ :each | each value ]);
+		  items: self finalItemsByNonterminalAssociations;
+		  yourself
 ]
 
 { #category : #'*EarleyParser-InspectorExtensions' }

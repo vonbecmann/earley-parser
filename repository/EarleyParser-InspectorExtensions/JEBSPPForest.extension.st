@@ -1,11 +1,13 @@
 Extension { #name : #JEBSPPForest }
 
 { #category : #'*EarleyParser-InspectorExtensions' }
-JEBSPPForest >> gtInspectorBrowserIn: composite [
-	<gtInspectorPresentationOrder: 9>
-	^ composite tree
-		title: 'Browse';
-		display: [ root ];
-		children: [ :each | each children ];
-		yourself
+JEBSPPForest >> inspectionBrowserIn: aBuilder [
+
+	"to be fix: use asArray for the moment. a linked list doesn't implement sum"
+
+	<inspectorPresentationOrder: 9 title: 'Browse'>
+	^ aBuilder newTree
+		  roots: { root };
+		  children: [ :each | each children asArray ];
+		  yourself
 ]

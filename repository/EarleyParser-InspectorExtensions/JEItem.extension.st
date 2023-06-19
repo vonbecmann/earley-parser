@@ -16,25 +16,18 @@ JEItem >> gtDisplayValueString [
 ]
 
 { #category : #'*EarleyParser-InspectorExtensions' }
-JEItem >> gtInspectorBrowserIn: composite [
-	<gtInspectorPresentationOrder: 2>
-	^ composite tree
-		title: 'Browse';
-		display: [ self ];
-		children: [ :each | each children ];
-		yourself
-]
+JEItem >> inspectionPureIn: aBuilder [
 
-{ #category : #'*EarleyParser-InspectorExtensions' }
-JEItem >> gtInspectorPureIn: composite [
-	<gtInspectorPresentationOrder: 1>
-	^ composite table
-		title: [ 'Pure' ];
-		column: 'Name'
-			evaluated: [ :each | GTObjectPrinter new asTruncatedTextFrom: each key ]
-			width: 100;
-		column: 'Value'
-			evaluated: [ :each | GTObjectPrinter new asTruncatedTextFrom: each value ];
-		send: [ :each | each value ];
-		yourself
+	<inspectorPresentationOrder: 1 title: 'Pure'>
+	^ aBuilder newTable
+		  addColumn: (SpStringTableColumn new
+				   title: 'Name';
+				   evaluated: [ :each | each key ];
+				   width: 100;
+				   yourself);
+		  addColumn:
+		  (SpStringTableColumn
+			   title: 'Value'
+			   evaluated: [ :each | each value ]);
+		  yourself
 ]

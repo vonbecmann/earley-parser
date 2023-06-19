@@ -6,12 +6,14 @@ JETerminalItem >> displayValueOn: aStream [
 ]
 
 { #category : #'*EarleyParser-InspectorExtensions' }
-JETerminalItem >> gtInspectorPureIn: composite [
-	^ (super gtInspectorPureIn: composite)
-		display: 
-			[ {('terminal' -> self terminal).
-				('word' -> word).
-				(#start -> self start).
-				(#end -> self end)} ];
-		yourself
+JETerminalItem >> inspectionPureIn: aBuilder [
+
+	^ (super inspectionPureIn: aBuilder)
+		  items: ({ 
+				   ('terminal' -> self terminal).
+				   ('word' -> word).
+				   (#start -> self start).
+				   (#end -> self end) } collect: [ :each | 
+					   StInspectorAssociationNode hostObject: each ]);
+		  yourself
 ]

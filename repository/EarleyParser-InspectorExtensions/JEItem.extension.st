@@ -1,17 +1,17 @@
 Extension { #name : #JEItem }
 
 { #category : #'*EarleyParser-InspectorExtensions' }
+JEItem >> displayIntervalString [
+	^ String streamContents: [ :s | self printIntervalOn: s ]
+]
+
+{ #category : #'*EarleyParser-InspectorExtensions' }
 JEItem >> displayValueOn: aStream [
 	^ self subclassResponsibility
 ]
 
 { #category : #'*EarleyParser-InspectorExtensions' }
-JEItem >> gtDisplayIntervalString [
-	^ String streamContents: [ :s | self printIntervalOn: s ]
-]
-
-{ #category : #'*EarleyParser-InspectorExtensions' }
-JEItem >> gtDisplayValueString [
+JEItem >> displayValueString [
 	^ String streamContents: [ :s | self displayValueOn: s ]
 ]
 

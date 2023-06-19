@@ -35,12 +35,12 @@ JEColumn >> inspectionItemsIn: aBuilder [
 	^ aBuilder newTable
 		  addColumn: (SpStringTableColumn new
 				   title: '@ [start, end]';
-				   evaluated: [ :each | each gtDisplayIntervalString ];
+				   evaluated: [ :each | each displayIntervalString ];
 				   width: 100;
 				   yourself);
 		  addColumn: (SpStringTableColumn
 				   title: 'Value'
-				   evaluated: [ :each | each gtDisplayValueString ]);
+				   evaluated: [ :each | each displayValueString ]);
 		  items: self sortedItems;
 		  yourself
 ]

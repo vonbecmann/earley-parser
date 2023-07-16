@@ -1,20 +1,24 @@
 Extension { #name : #ESSyntaxNode }
 
 { #category : #'*EarleySyntaxTree-InspectorExtensions' }
-ESSyntaxNode >> gtInspectorPureIn: composite [
-	<gtInspectorPresentationOrder: 1>
-	^ composite table
-		title: [ 'Pure' ];
-		display: 
-			[ {('symbol' -> symbol).
-				('reason' -> reason).
-				('start index' -> start).
-				('end index' -> end)} ];
-		column: 'Name'
-			evaluated: [ :each | GTObjectPrinter new asTruncatedTextFrom: each key ]
-			width: 100;
-		column: 'Value'
-			evaluated: [ :each | GTObjectPrinter new asTruncatedTextFrom: each value ];
-		send: [ :each | each value ];
-		yourself
+ESSyntaxNode >> inspectionPureIn: aBuilder [
+
+	<inspectorPresentationOrder: 1 title: 'Pure'>
+	^ aBuilder newTable
+		  addColumn: (SpStringTableColumn new
+				   title: 'Name';
+				   evaluated: [ :each | each key ];
+				   width: 100;
+				   yourself);
+		  addColumn:
+		  (SpStringTableColumn
+			   title: 'Value'
+			   evaluated: [ :each | each value ]);
+		  items: ({ 
+				   ('symbol' -> symbol).
+				   ('reason' -> reason).
+				   ('start index' -> start).
+				   ('end index' -> end) } collect: [ :each | 
+				   StInspectorAssociationNode hostObject: each ]);
+		  yourself
 ]

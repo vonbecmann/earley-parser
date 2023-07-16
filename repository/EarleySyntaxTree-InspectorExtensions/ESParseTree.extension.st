@@ -22,10 +22,8 @@ ESParseTree >> gtInspectorASTWordsIn: composite [
 ]
 
 { #category : #'*EarleySyntaxTree-InspectorExtensions' }
-ESParseTree >> gtInspectorBrowserIn: composite [
-	<gtInspectorPresentationOrder: 1>
-	^ (tree gtInspectorBrowserIn: composite)
-		title: 'Browse';
-		send: [ :each | each model ];
-		yourself
+ESParseTree >> inspectionBrowserIn: aBuilder [
+
+	<inspectorPresentationOrder: 1 title: 'Browse'>
+	^ tree inspectionBrowserIn: aBuilder
 ]

@@ -1,7 +1,7 @@
 Extension { #name : #ESSingleSynthesizedAttributeEvaluator }
 
 { #category : #'*EarleySyntaxTree-InspectorExtensions' }
-ESSingleSynthesizedAttributeEvaluator >> inspertionActionsIn: aBuilder [
+ESSingleSynthesizedAttributeEvaluator >> inspectionActionsIn: aBuilder [
 
 	<inspectorPresentationOrder: 1 title: 'Actions'>
 	^ aBuilder newTable

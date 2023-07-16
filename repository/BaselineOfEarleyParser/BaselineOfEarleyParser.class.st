@@ -16,13 +16,10 @@ BaselineOfEarleyParser >> baseline: spec [
 		do: [ 
 			spec
 	        	baseline: 'MultiValuedDictionary'
- 		   		with: [ spec repository: 'github://vonbecmann/multi-valued-dictionary:pharo9/repository' ].
+ 		   		with: [ spec repository: 'github://vonbecmann/multi-valued-dictionary:pharo10/repository' ].
 			spec
 	        	baseline: 'LinkedList'
- 		   		with: [ spec repository: 'github://vonbecmann/linked-list:pharo9/repository' ].
-			spec
-	        	baseline: 'Roassal2'
- 		   		with: [ spec repository: 'github://ObjectProfile/Roassal2:v2.0.2/src' ].
+ 		   		with: [ spec repository: 'github://vonbecmann/linked-list:pharo10/repository' ].
 
 			spec
 				package: 'NoamChomsky-Core';
@@ -36,7 +33,7 @@ BaselineOfEarleyParser >> baseline: spec [
 				package: 'EarleyParser-InspectorExtensions'
 					with: [ spec requires: #('EarleyParser-Core') ];
 				package: 'EarleyParser-UI' 
-					with: [ spec requires: #('EarleyParser-Core' 'Roassal2') ];
+					with: [ spec requires: #('EarleyParser-Core') ];
 				package: 'EarleyParser-Tests' 
 					with: [ spec requires: #('EarleyParser-Core') ];
 				package: 'EarleyAnalyzer' 
@@ -46,7 +43,7 @@ BaselineOfEarleyParser >> baseline: spec [
 				package: 'EarleySyntaxTree-InspectorExtensions'
 					with: [ spec requires: #('EarleySyntaxTree') ];
 				package: 'EarleySyntaxTree-UI' 
-					with: [ spec requires: #('EarleySyntaxTree' 'Roassal2') ];
+					with: [ spec requires: #('EarleySyntaxTree') ];
 				package: 'EarleySyntaxTree-Tests' 
 					with: [ spec requires: #('EarleySyntaxTree') ];
 				package: 'Earley1VW' 

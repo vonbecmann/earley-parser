@@ -15,6 +15,7 @@ NCRxCharacterSetTerminalTest >> testAsString [
 
 { #category : #tests }
 NCRxCharacterSetTerminalTest >> testEquality [
+
 	| one another |
 	one := NCTerminal rxCharSet: '[\w]'.
 	another := NCTerminal rxCharSet: '[\w]'.
@@ -22,19 +23,20 @@ NCRxCharacterSetTerminalTest >> testEquality [
 	self assert: one hash equals: another hash.
 	self assert: another equals: one.
 	self assert: another hash equals: one hash.
-	self deny: one == another
+	self deny: one identicalTo: another
 ]
 
 { #category : #tests }
 NCRxCharacterSetTerminalTest >> testEquality01 [
+
 	| one another |
 	one := NCTerminal rxCharSet: '[\w]'.
 	another := NCTerminal rxCharSet: '[\W]'.
-	self deny: one = another.
-	self deny: one hash = another hash.
-	self deny: another = one.
-	self deny: another hash = one hash.
-	self deny: one == another
+	self deny: one equals: another.
+	self deny: one hash equals: another hash.
+	self deny: another equals: one.
+	self deny: another hash equals: one hash.
+	self deny: one identicalTo: another
 ]
 
 { #category : #tests }

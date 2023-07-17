@@ -1,7 +1,7 @@
 Class {
 	#name : #NCCharacterSetTerminalTest,
 	#superclass : #TestCase,
-	#category : #'NoamChomsky-Tests'
+	#category : #'NoamChomsky-Tests-Base'
 }
 
 { #category : #tests }
@@ -18,6 +18,7 @@ NCCharacterSetTerminalTest >> testAsString [
 
 { #category : #tests }
 NCCharacterSetTerminalTest >> testEquals [
+
 	| one another |
 	one := NCCharacterSetTerminal charSet: ($a to: $z).
 	another := NCCharacterSetTerminal charSet: ($a to: $z).
@@ -25,19 +26,20 @@ NCCharacterSetTerminalTest >> testEquals [
 	self assert: one hash equals: another hash.
 	self assert: another equals: one.
 	self assert: another hash equals: one hash.
-	self deny: one == another
+	self deny: one identicalTo: another
 ]
 
 { #category : #tests }
 NCCharacterSetTerminalTest >> testEquals01 [
+
 	| one another |
 	one := NCCharacterSetTerminal charSet: ($a to: $z).
 	another := NCCharacterSetTerminal charSet: ($A to: $Z).
-	self deny: one = another.
-	self deny: one hash = another hash.
-	self deny: another = one.
-	self deny: another hash = one hash.
-	self deny: one == another
+	self deny: one equals: another.
+	self deny: one hash equals: another hash.
+	self deny: another equals: one.
+	self deny: another hash equals: one hash.
+	self deny: one identicalTo: another
 ]
 
 { #category : #tests }

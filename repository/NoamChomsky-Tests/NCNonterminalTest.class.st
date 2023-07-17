@@ -5,7 +5,7 @@ nonterminal tests.
 Class {
 	#name : #NCNonterminalTest,
 	#superclass : #TestCase,
-	#category : #'NoamChomsky-Tests'
+	#category : #'NoamChomsky-Tests-Base'
 }
 
 { #category : #tests }
@@ -17,6 +17,7 @@ NCNonterminalTest >> testAsString [
 
 { #category : #tests }
 NCNonterminalTest >> testEquals [
+
 	| one another |
 	one := NCNonterminal named: 'E'.
 	another := NCNonterminal named: 'E'.
@@ -24,12 +25,17 @@ NCNonterminalTest >> testEquals [
 	self assert: one hash equals: another hash.
 	self assert: another equals: one.
 	self assert: another hash equals: one hash.
-	self deny: (NCNonterminal named: 'E') = (NCTerminal character: $E).
-	self deny: (NCNonterminal named: 'E') hash = (NCTerminal character: $E) hash
+	self
+		deny: (NCNonterminal named: 'E')
+		equals: (NCTerminal character: $E).
+	self
+		deny: (NCNonterminal named: 'E') hash
+		equals: (NCTerminal character: $E) hash
 ]
 
 { #category : #tests }
 NCNonterminalTest >> testEquals01 [
+
 	| one another |
 	one := NCNonterminal named: 'E'.
 	another := one.
@@ -37,8 +43,12 @@ NCNonterminalTest >> testEquals01 [
 	self assert: one hash equals: another hash.
 	self assert: another equals: one.
 	self assert: another hash equals: one hash.
-	self deny: (NCNonterminal named: 'E') = (NCTerminal character: $E).
-	self deny: (NCNonterminal named: 'E') hash = (NCTerminal character: $E) hash
+	self
+		deny: (NCNonterminal named: 'E')
+		equals: (NCTerminal character: $E).
+	self
+		deny: (NCNonterminal named: 'E') hash
+		equals: (NCTerminal character: $E) hash
 ]
 
 { #category : #tests }

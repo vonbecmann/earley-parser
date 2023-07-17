@@ -1,7 +1,7 @@
 Class {
 	#name : #NCCharacterTerminalTest,
 	#superclass : #TestCase,
-	#category : #'NoamChomsky-Tests'
+	#category : #'NoamChomsky-Tests-Base'
 }
 
 { #category : #tests }
@@ -22,13 +22,14 @@ NCCharacterTerminalTest >> testEquals [
 
 { #category : #tests }
 NCCharacterTerminalTest >> testEquals01 [
+
 	| one another |
 	one := NCCharacterTerminal character: $+.
 	another := NCCharacterTerminal character: $*.
-	self deny: one = another.
-	self deny: one hash = another hash.
-	self deny: another = one.
-	self deny: another hash = one hash
+	self deny: one equals: another.
+	self deny: one hash equals: another hash.
+	self deny: another equals: one.
+	self deny: another hash equals: one hash
 ]
 
 { #category : #tests }

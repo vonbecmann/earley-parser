@@ -5,7 +5,7 @@ browse earley environment
 Class {
 	#name : #JEEarleyUI,
 	#superclass : #Object,
-	#category : 'EarleyParser-UI'
+	#category : #'EarleyParser-UI'
 }
 
 { #category : #environment }
@@ -21,15 +21,18 @@ JEEarleyUI class >> earleyEnvironment [
 
 { #category : #'menu declaring' }
 JEEarleyUI class >> earleyToolsOn: aBuilder [
+
 	<worldMenu>
 	(aBuilder group: #EarleyTools)
 		withSeparatorAfter;
 		order: 1;
-		with: [ (aBuilder item: #Earley)
-				with: [ (aBuilder item: #EarleyBrowser)
+		with: [
+			(aBuilder item: #Earley) with: [
+					(aBuilder item: #EarleyBrowser)
 						label: 'System Browser';
 						action: [ self openBrowserInEarleyEnvironment ];
-						icon: Smalltalk tools browser taskbarIcon.
+						icon: (Smalltalk tools browser iconNamed:
+									 Smalltalk tools browser taskbarIconName).
 					(aBuilder item: #Workspace)
 						label: 'Workspace';
 						action: [ Workspace open ].

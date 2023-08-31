@@ -1,1 +1,1 @@
-(pb:project 'pharo10-64-stable-vm 'pharo-10-64)
+(pb:project 'pharo11-64-stable-vm 'pharo-11-64)

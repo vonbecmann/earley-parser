@@ -5,7 +5,7 @@ Jay Clark Earley Parser [[https://github.com/vonbecmann/earley-parser/actions/wo
 #+BEGIN_SRC
 Metacello new
     baseline: 'EarleyParser';
-    repository: 'github://vonbecmann/earley-parser/repository';
+    repository: 'github://vonbecmann/earley-parser:pharo10/repository';
     load.
 #+END_SRC
 

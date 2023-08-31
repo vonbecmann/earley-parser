@@ -16,10 +16,10 @@ BaselineOfEarleyParser >> baseline: spec [
 		do: [ 
 			spec
 	        	baseline: 'MultiValuedDictionary'
- 		   		with: [ spec repository: 'github://vonbecmann/multi-valued-dictionary:pharo10/repository' ].
+ 		   		with: [ spec repository: 'github://vonbecmann/multi-valued-dictionary/repository' ].
 			spec
 	        	baseline: 'LinkedList'
- 		   		with: [ spec repository: 'github://vonbecmann/linked-list:pharo10/repository' ].
+ 		   		with: [ spec repository: 'github://vonbecmann/linked-list/repository' ].
 
 			spec
 				package: 'NoamChomsky-Core';

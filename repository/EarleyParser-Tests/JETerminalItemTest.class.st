@@ -16,7 +16,7 @@ JETerminalItemTest >> testAsString [
 		word: $H
 		startedAt: (JEColumn number: 1)
 		andEndedAt: (JEColumn number: 12).
-	
+
 	self assert: terminal asString equals: '[$H @ [1, 12]]'
 ]
 
@@ -27,7 +27,7 @@ JETerminalItemTest >> testAsString02 [
 		given: (NCTerminal character: $H)
 		word: $H
 		startedAt: (JEColumn number: 1).
-	
+
 	self assert: terminal asString equals: '[$H @ 1]'
 ]
 
@@ -132,7 +132,7 @@ JETerminalItemTest >> testIsFinal [
 		startedAt: (JEColumn number: 1)
 		andEndedAt: (JEColumn number: 12).
 
-	self assert: terminal isFinal 
+	self assert: terminal isFinal
 ]
 
 { #category : #tests }
@@ -144,7 +144,7 @@ JETerminalItemTest >> testIsNonterminal [
 		startedAt: (JEColumn number: 1)
 		andEndedAt: (JEColumn number: 12).
 
-	self deny: terminal isNonterminal 
+	self deny: terminal isNonterminal
 ]
 
 { #category : #tests }
@@ -168,7 +168,7 @@ JETerminalItemTest >> testIsRepresentation [
 		startedAt: (JEColumn number: 1)
 		andEndedAt: (JEColumn number: 12).
 
-	self deny: terminal isRepresentation 
+	self deny: terminal isRepresentation
 ]
 
 { #category : #tests }

@@ -25,29 +25,24 @@ JEUBDAGrammarTest >> testAccepts1X [
 { #category : #tests }
 JEUBDAGrammarTest >> testAccepts2Xs [
 	self assert: (grammar accepts: 'xx')
-	
 ]
 
 { #category : #tests }
 JEUBDAGrammarTest >> testAccepts3Xs [
 	self assert: (grammar accepts: 'xxx')
-	
 ]
 
 { #category : #tests }
 JEUBDAGrammarTest >> testAccepts4Xs [
 	self assert: (grammar accepts: 'xxxx')
-	
 ]
 
 { #category : #tests }
 JEUBDAGrammarTest >> testAccepts5Xs [
 	self assert: (grammar accepts: 'xxxxx')
-	
 ]
 
 { #category : #tests }
 JEUBDAGrammarTest >> testAccepts6Xs [
 	self assert: (grammar accepts: 'xxxxxx')
-	
 ]

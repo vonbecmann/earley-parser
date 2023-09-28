@@ -24,17 +24,17 @@ JEDepthFirstVisitor >> visitNode: aPackedOrFamilyNode [
 			element := visitStack top.
 			status := visited at: element ifAbsent: #notvisited.
 			status == #notvisited
-				ifTrue: [ 
+				ifTrue: [
 					visited at: element put: #visited.
 					element acceptPreOrderVisitor: self.
 					element children reverseDo: [ :child | visitStack push: child ] ]
-				ifFalse: [ 
+				ifFalse: [
 					status == #visited
-						ifTrue: [ 
+						ifTrue: [
 							visitStack pop.
 							element acceptPostOrderVisitor: self.
 							visited at: element put: #done ]
-						ifFalse: [ 
+						ifFalse: [
 							status == #done
 								ifTrue: [ visitStack pop ] ] ] ]
 ]

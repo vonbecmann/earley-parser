@@ -23,16 +23,16 @@ JETreeDepthFirstVisitor >> visitNode: aPackedOrFamilyNode [
 	| visitStack |
 	visitStack := SinglyLinkedStack with: (OrderedPair first: aPackedOrFamilyNode second: false).
 	[ visitStack isEmpty ]
-		whileFalse: 
+		whileFalse:
 		[ | element node visited |
 			element := visitStack top.
 			node := element first.
 			visited := element second.
 			visited
-				ifTrue: 
+				ifTrue:
 					[	visitStack pop.
 						node acceptPostOrderVisitor: self ]
-				ifFalse: 
+				ifFalse:
 					[ 	element second: true.
 						node acceptPreOrderVisitor: self.
 						node children reverseDo: [ :child | visitStack push: (OrderedPair first: child second: false) ] ] ]

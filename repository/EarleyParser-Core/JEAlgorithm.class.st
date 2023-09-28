@@ -13,7 +13,7 @@ Class {
 }
 
 { #category : #'instance creation' }
-JEAlgorithm class >> given: aGrammar [ 
+JEAlgorithm class >> given: aGrammar [
 	^ self basicNew initializeGrammar: aGrammar
 ]
 
@@ -21,8 +21,8 @@ JEAlgorithm class >> given: aGrammar [
 JEAlgorithm >> complete: item [
 	"
 	Complete:
-		For every state in S(k) of the form (X -> y *, j), 
-		find states in S(j) of the form (Y -> a * X b, i) and 
+		For every state in S(k) of the form (X -> y *, j),
+		find states in S(j) of the form (Y -> a * X b, i) and
 			add (Y -> a X * b, i) to S(k).
 	Optimized for efficiency.
 	"
@@ -36,13 +36,13 @@ JEAlgorithm >> evaluate: words [
 	n := words size + 1.
 	chart := {(JEColumn numberOneWith: grammar startRule dotAtBeginning)}
 		, ((2 to: n) collect: [ :index | JEColumn number: index ]).
-	1 to: n do: [ :i | 
+	1 to: n do: [ :i |
 		| column |
 		column := chart at: i.
 		column
 			ifEmpty: [ ^ JEFailure failedAt: (chart at: i - 1) got: (words at: i - 1) ].
 		column
-			processItems: [ :item | 
+			processItems: [ :item |
 				item isFinal
 					ifTrue: [ self complete: item ]
 					ifFalse: [ item symbolAtDot isTerminal
@@ -53,7 +53,7 @@ JEAlgorithm >> evaluate: words [
 ]
 
 { #category : #initialization }
-JEAlgorithm >> initializeGrammar: aGrammar [ 
+JEAlgorithm >> initializeGrammar: aGrammar [
 	self initialize.
 	grammar := aGrammar
 ]
@@ -65,14 +65,14 @@ JEAlgorithm >> predict: item [
 		For every state in S(k) of the form (X -> a * Y b, j),
 		add (Y -> * y, k) to S(k)
  	 		for every production in the grammar with Y on the left-hand side (Y -> y).
-		
+
 	i.e. add all respective predicted items for the given collection of dotted rules
-	
+
 	Complete Again:
 		For every state in S(k) of the form (X -> a * Y b, j),
-		For every state in S(k) of the form (Y -> y *, k),	
+		For every state in S(k) of the form (Y -> y *, k),
 			Complete (Y -> y *, k) in S(k).
-	
+
 	i.e. when predicting an nonterminal Y in item set k
 			if there's a completed item with head Y (created in k) in the item set k
 			then
@@ -91,9 +91,9 @@ JEAlgorithm >> scan: item with: word at: column [
 	"scan: add a new item with the dot move forward, over the recently scan terminal.
 	If a is the next input symbol
 	then
-		For every state in S(k) of the form (X -> alpha *a beta, j), 
+		For every state in S(k) of the form (X -> alpha *a beta, j),
 			add (X -> alpha a *beta, j) to S(k+1).
 	 Optimized fo efficiency. "
 
-	self subclassResponsibility 
+	self subclassResponsibility
 ]

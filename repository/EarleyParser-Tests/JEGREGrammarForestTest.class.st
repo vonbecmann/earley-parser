@@ -17,6 +17,5 @@ JEGREGrammarForestTest >> testParse_ededeab10 [
 	forest := grammar parse: 'ededeabbbbbbbbbb'.
 
 	self assert: forest isAmbiguous.
-	self assert: forest numberOfTrees equals: 2.
-	
+	self assert: forest numberOfTrees equals: 2
 ]

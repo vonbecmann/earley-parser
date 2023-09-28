@@ -32,7 +32,7 @@ JEParseForest >> initializeSyntaxForest: aBSPPForest andGrammar: aJEGrammar [
 { #category : #testing }
 JEParseForest >> isAmbiguous [
 	JEDepthFirstVisitor new
-		preOrderNodeBlock: [ :packed | 
+		preOrderNodeBlock: [ :packed |
 			packed familiesSize > 1
 				ifTrue: [ ^ true ] ];
 		visit: syntaxForest.
@@ -44,7 +44,7 @@ JEParseForest >> leftmostDerivation [
 	| derivation |
 	derivation := SinglyLinkedList new.
 	JEDepthFirstVisitor new
-		preOrderFamilyBlock: [ :family | 
+		preOrderFamilyBlock: [ :family |
 			(family parent isNonterminal and: [ family parent isFinal ])
 				ifTrue: [ derivation addLast: (grammar productionRuleAt: family parent rule) ] ];
 		visit: syntaxForest.
@@ -69,7 +69,7 @@ JEParseForest >> rightmostDerivation [
 	| derivation |
 	derivation := SinglyLinkedList new.
 	JEDepthFirstVisitor new
-		postOrderFamilyBlock: [ :family | 
+		postOrderFamilyBlock: [ :family |
 			(family parent isNonterminal and: [ family parent isFinal ])
 				ifTrue: [ derivation addFirst: (grammar productionRuleAt: family parent rule) ] ];
 		visit: syntaxForest.

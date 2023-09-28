@@ -72,7 +72,7 @@ JEDottedItem >> addFamilyWith: completeItem [
 	familiesByKey
 		jeAt: completeItem
 		at: nil
-		ifAbsentPut: [ 
+		ifAbsentPut: [
 			families addLast: (JEFamily parent: self first: completeItem).
 			true ]
 ]
@@ -82,7 +82,7 @@ JEDottedItem >> addFamilyWith: previousItem and: completeItem [
 	familiesByKey
 		jeAt: previousItem
 		at: completeItem
-		ifAbsentPut: [ 
+		ifAbsentPut: [
 			families addLast: (JEFamily parent: self first: previousItem second: completeItem).
 			true ]
 ]
@@ -120,8 +120,8 @@ JEDottedItem >> finalItemsWithHeadIsSymbolAtDotDo: aBlock [
 ]
 
 { #category : #accessing }
-JEDottedItem >> firstKey [ 
-	^ dottedRule 
+JEDottedItem >> firstKey [
+	^ dottedRule
 ]
 
 { #category : #comparing }
@@ -132,7 +132,6 @@ JEDottedItem >> hash [
 { #category : #accessing }
 JEDottedItem >> head [
 	^ dottedRule head
-	
 ]
 
 { #category : #initialization }

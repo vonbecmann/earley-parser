@@ -14,7 +14,7 @@ Class {
 { #category : #'private operations' }
 JEForestParser >> complete: item [
 	item
-		predictionItemsWithSymbolAtDotIsHeadDo: [ :previous | 
+		predictionItemsWithSymbolAtDotIsHeadDo: [ :previous |
 			previous addFamilyWith: item to: (item end moveDotForward: previous) ]
 ]
 
@@ -44,8 +44,8 @@ JEForestParser >> parse: words [
 { #category : #'private operations' }
 JEForestParser >> scan: item with: word at: column [
 	item
-		addFamilyWith: 
-			(column 
+		addFamilyWith:
+			(column
 				addTerminalItem: (item symbolAtDot match: word startedAt: item end))
 		to: (column moveDotForward: item)
 ]

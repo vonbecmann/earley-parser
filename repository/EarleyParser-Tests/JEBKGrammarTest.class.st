@@ -30,31 +30,26 @@ JEBKGrammarTest >> testAccepts1X [
 { #category : #tests }
 JEBKGrammarTest >> testAccepts2Xs [
 	self assert: (grammar accepts: 'xx')
-	
 ]
 
 { #category : #tests }
 JEBKGrammarTest >> testAccepts3Xs [
 	self assert: (grammar accepts: 'xxx')
-	
 ]
 
 { #category : #tests }
 JEBKGrammarTest >> testAccepts4Xs [
 	self assert: (grammar accepts: 'xxxx')
-	
 ]
 
 { #category : #tests }
 JEBKGrammarTest >> testAccepts5Xs [
 	self assert: (grammar accepts: 'xxxxx')
-	
 ]
 
 { #category : #tests }
 JEBKGrammarTest >> testAccepts6Xs [
 	self assert: (grammar accepts: 'xxxxxx')
-	
 ]
 
 { #category : #tests }

@@ -8,9 +8,9 @@ Class {
 JEEpsilonGrammar3ForestTest >> setUp [
 	super setUp.
 	grammar := JEGrammar
-		productionRules: 
-			#(	#(E #(E Q F)) 
-				#(E #(F)) 
+		productionRules:
+			#(	#(E #(E Q F))
+				#(E #(F))
 				#(Q #()))
 		representations:
 			{	('F' -> (NCTerminal character: $a)).
@@ -20,9 +20,9 @@ JEEpsilonGrammar3ForestTest >> setUp [
 
 { #category : #tests }
 JEEpsilonGrammar3ForestTest >> testParse02 [
-	
+
 	forest := grammar parse: 'aa/a'.
-	
+
 	self deny: forest isAmbiguous.
 	self assert: forest numberOfTrees equals: 1
 ]

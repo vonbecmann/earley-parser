@@ -4,7 +4,7 @@ some typical grammar examples
 Class {
 	#name : #JEExemplar,
 	#superclass : #Object,
-	#category : 'EarleyParser-Tests-Grammar'
+	#category : #'EarleyParser-Tests-Grammar'
 }
 
 { #category : #'instance creation' }
@@ -13,10 +13,10 @@ JEExemplar class >> AE [
 
 	^ JEGrammar
 		productionRules:
-			#(#('E' #('T')) 
-			  #('E' #('E' 'plus symbol' 'T')) 
-			  #('T' #('P')) 
-			  #('T' #('T' 'star symbol' 'P')) 
+			#(#('E' #('T'))
+			  #('E' #('E' 'plus symbol' 'T'))
+			  #('T' #('P'))
+			  #('T' #('T' 'star symbol' 'P'))
 			  #('P' #('letter a symbol')))
 		representations:
 			{('plus symbol' -> (NCTerminal character: $+)).
@@ -35,9 +35,9 @@ JEExemplar class >> AyHo [
 
 	^ JEGrammar
 		productionRules:
-			#(	#('S' #('A' 'A' 'A' 'A')) 
-				#('A' #('E')) 
-				#('A' #('letter a symbol')) 
+			#(	#('S' #('A' 'A' 'A' 'A'))
+				#('A' #('E'))
+				#('A' #('letter a symbol'))
 				#('E' #()))
 		representations: {('letter a symbol' -> (NCTerminal character: $a))}
 ]
@@ -45,16 +45,16 @@ JEExemplar class >> AyHo [
 { #category : #'instance creation' }
 JEExemplar class >> BK [
 	"has unbounded ambiguity, yet it is a time n grammar. page 39.
-	Tomita's An Efficient Context-free Parsing Algorithm For Natural Languages. 
+	Tomita's An Efficient Context-free Parsing Algorithm For Natural Languages.
 	page 762. figure 23: Grammar G1."
 
 	^ JEGrammar
 		productionRules:
-			#(	#('K' #()) 
-				#('K' #('K' 'J')) 
-				#('J' #('F')) 
-				#('J' #('I')) 
-				#('F' #('letter x symbol')) 
+			#(	#('K' #())
+				#('K' #('K' 'J'))
+				#('J' #('F'))
+				#('J' #('I'))
+				#('F' #('letter x symbol'))
 				#('I' #('letter x symbol')))
 		representations: {('letter x symbol' -> (NCTerminal character: $x))}
 ]
@@ -65,10 +65,10 @@ JEExemplar class >> BP [
 
 	^ JEGrammar
 		productionRules:
-			#(	#('P' #('M' 'N')) 
-				#('M' #()) 
-				#('M' #('M' 'letter a symbol')) 
-				#('N' #()) 
+			#(	#('P' #('M' 'N'))
+				#('M' #())
+				#('M' #('M' 'letter a symbol'))
+				#('N' #())
 				#('N' #('N' 'letter a symbol')))
 		representations: {('letter a symbol' -> (NCTerminal character: $a))}
 ]
@@ -77,10 +77,10 @@ JEExemplar class >> BP [
 JEExemplar class >> GRE [
 	^ JEGrammar
 		productionRules:
-			#(	#('X' #('letter a symbol')) 
-				#('X' #('X' 'letter b symbol')) 
-				#('X' #('Y' 'letter a symbol')) 
-				#('Y' #('letter e symbol')) 
+			#(	#('X' #('letter a symbol'))
+				#('X' #('X' 'letter b symbol'))
+				#('X' #('Y' 'letter a symbol'))
+				#('Y' #('letter e symbol'))
 				#('Y' #('Y' 'letter d symbol' 'Y')))
 		representations:
 			{('letter a symbol' -> (NCTerminal character: $a)).
@@ -104,7 +104,7 @@ JEExemplar class >> PAL [
 
 	^ JEGrammar
 		productionRules:
-			#(	#('A' #('letter x symbol')) 
+			#(	#('A' #('letter x symbol'))
 				#('A' #('letter x symbol' 'A' 'letter x symbol')))
 		representations: {('letter x symbol' -> (NCTerminal character: $x))}
 ]
@@ -113,12 +113,12 @@ JEExemplar class >> PAL [
 JEExemplar class >> RL [
 	"	page 63.
 	 	sentences: a^n a^m b^n (m >= 0, n >= 1)"
-	
+
 	^ JEGrammar
 		productionRules:
-			#(	#('R' #('A')) 
-				#('R' #('letter a symbol' 'R' 'letter b symbol')) 
-				#('A' #('letter a symbol')) 
+			#(	#('R' #('A'))
+				#('R' #('letter a symbol' 'R' 'letter b symbol'))
+				#('A' #('letter a symbol'))
 				#('A' #('A' 'letter a symbol')))
 		representations:
 			{	('letter a symbol' -> (NCTerminal character: $a)).
@@ -148,8 +148,8 @@ JEExemplar class >> UBDA [
 JEExemplar class >> identifier [
 	^ JEGrammar
 		productionRules:
-			#(	#('identifier' #('letter symbol' 'word symbol star')) 
-				#('word symbol star' #('word symbol' 'word symbol star')) 
+			#(	#('identifier' #('letter symbol' 'word symbol star'))
+				#('word symbol star' #('word symbol' 'word symbol star'))
 				#('word symbol star' #()))
 		representations:
 			{('letter symbol' -> (NCTerminal charSet: ($a to: $z) , ($A to: $Z))).

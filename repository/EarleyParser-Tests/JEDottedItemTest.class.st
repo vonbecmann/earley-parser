@@ -41,12 +41,12 @@ JEDottedItemTest >> testAddFamilyWithTo [
 		startedAt: third
 		andEndedAt: fourth.
 	item := (rule dotAt: 3) startedAt: first andEndedAt: fourth.
-	
+
 	self assert: item familiesSize equals: 0.
 	previous addFamilyWith: terminal to: item.
 	self assert: item familiesSize equals: 1.
 	previous addFamilyWith: terminal to: item.
-	self assert: item familiesSize equals: 1	
+	self assert: item familiesSize equals: 1
 ]
 
 { #category : #tests }
@@ -59,11 +59,11 @@ JEDottedItemTest >> testAddFamilyWithTo01 [
 		body: 	{(NCNonterminal named: 'T'). (NCTerminal character: $+). (NCNonterminal named: 'P')}.
 
 	previous := (rule dotAt: 3) startedAt: first andEndedAt: third.
-	complete := 
+	complete :=
 		(JERule head: (NCNonterminal named: 'P') body: {(NCNonterminal named: 'a')})
 			dotAtEnd startedAt: third andEndedAt: fourth.
 	item := rule dotAtEnd startedAt: first andEndedAt: fourth.
-	
+
 	self assert: item familiesSize equals: 0.
 	previous addFamilyWith: complete to: item.
 	self assert: item familiesSize equals: 1.
@@ -80,11 +80,11 @@ JEDottedItemTest >> testAddFamilyWithTo02 [
 		body: 	{(NCNonterminal named: 'T'). (NCTerminal character: $+). (NCNonterminal named: 'P')}.
 
 	previous := rule dotAtBeginning startedAt: first.
-	complete := 
+	complete :=
 		(JERule head: (NCNonterminal named: 'T') body: {(NCNonterminal named: 'a')})
 			dotAtEnd startedAt: first andEndedAt: second.
 	item := (rule dotAt: 2) startedAt: first andEndedAt: second.
-	
+
 	self assert: item familiesSize equals: 0.
 	previous addFamilyWith: complete to: item.
 	self assert: item familiesSize equals: 1.
@@ -113,7 +113,7 @@ JEDottedItemTest >> testIsActive [
 	self assert: item isActive.
 	self deny: item isPredicted.
 	self deny: item isFinal.
-		
+
 	item := (rule dotAt: 3) startedAt: first.
 	self assert: item isActive.
 	self deny: item isPredicted.
@@ -134,8 +134,7 @@ JEDottedItemTest >> testIsFinal [
 
 	self assert: item isFinal.
 	self deny: item isPredicted.
-	self deny: item isActive.
-	
+	self deny: item isActive
 ]
 
 { #category : #tests }
@@ -143,7 +142,7 @@ JEDottedItemTest >> testIsNonterminal [
 	item := (rule dotAt: 2) startedAt: first.
 
 	self assert: item isNonterminal.
-	self deny: item isTerminal 
+	self deny: item isTerminal
 ]
 
 { #category : #tests }
@@ -152,8 +151,7 @@ JEDottedItemTest >> testIsPredicted [
 
 	self assert: item isPredicted.
 	self deny: item isActive.
-	self deny: item isFinal.
-	
+	self deny: item isFinal
 ]
 
 { #category : #tests }
@@ -172,7 +170,7 @@ JEDottedItemTest >> testIsRepresentation [
 { #category : #tests }
 JEDottedItemTest >> testIsTerminal [
 	item := (rule dotAt: 2) startedAt: first.
-	
+
 	self deny: item isTerminal.
-	self assert: item isNonterminal 
+	self assert: item isNonterminal
 ]

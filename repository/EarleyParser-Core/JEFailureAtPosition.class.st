@@ -21,8 +21,8 @@ JEFailureAtPosition >> actual [
 ]
 
 { #category : #initialization }
-JEFailureAtPosition >> actual: anObject [ 
-	actual := anObject 
+JEFailureAtPosition >> actual: anObject [
+	actual := anObject
 ]
 
 { #category : #accessing }
@@ -30,9 +30,9 @@ JEFailureAtPosition >> messageText [
 	"Return an exception's message text."
 
 	^ messageText
-		ifNil: [ 
+		ifNil: [
 			messageText := String
-				streamContents: [ :s | 
+				streamContents: [ :s |
 					s
 						nextPutAll: 'Failed at position ';
 						print: position;

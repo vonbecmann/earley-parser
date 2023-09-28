@@ -28,7 +28,7 @@ Class {
 
 { #category : #building }
 JEGrammarBuilder >> build [
-	"	given the production and representation rules builds a grammar 
+	"	given the production and representation rules builds a grammar
 		according to the conditions. see class comment "
 
 	| lineup unique index |
@@ -37,7 +37,7 @@ JEGrammarBuilder >> build [
 	self initializeTerminals.
 	self initializeNonterminals.
 	self initializeStartNonterminal.
-	lineup := 
+	lineup :=
 		(productionRules collect: [ :each | each makeCopyGiven: self ]),
 		(representations collect: [ :assoc | assoc buildProductionRuleGiven: self ]).
 	unique := lineup asSet.
@@ -105,8 +105,8 @@ JEGrammarBuilder >> productionRules: productionRuleCollection [
 
 { #category : #accessing }
 JEGrammarBuilder >> representations: terminalNotionToRepresentationList [
-	self 
-		assert: terminalNotionToRepresentationList isNotEmpty 
+	self
+		assert: terminalNotionToRepresentationList isNotEmpty
 		description: 'The collection of representation rules cannot be empty.'.
 	representations := terminalNotionToRepresentationList
 ]

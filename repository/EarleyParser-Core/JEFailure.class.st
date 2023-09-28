@@ -49,7 +49,7 @@ JEFailure >> expectedSymbols: aSymbolCollection [
 
 { #category : #accessing }
 JEFailure >> wasAtEnd [
-	" 
+	"
 	- true if it failed at the end of the input sentence.
 	- false if it failed in the middle of the input sentence.
 	"

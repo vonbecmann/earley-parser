@@ -45,7 +45,7 @@ JERule >> = aRule [
 		ifFalse: [ ^ false ].
 	body
 		with: aRule body
-		do: [ :first :second | 
+		do: [ :first :second |
 			first = second
 				ifFalse: [ ^ false ] ].
 	^ true
@@ -97,7 +97,7 @@ JERule >> initializeHead: aNonterminal body: aCollection [
 	dottedRules := (1 to: body size + 1) collect: [ :index | JEDottedRule given: self withDotAt: index ].
 	dottedRules reversed
 		inject: nil
-		into: [ :nextDottedRule :each | 
+		into: [ :nextDottedRule :each |
 			each
 				next: nextDottedRule;
 				yourself ]
@@ -124,6 +124,8 @@ JERule >> printOn: aStream [
 
 	head printOn: aStream.
 	aStream nextPutAll: ': '.
-	body do: [ :each | each printOn: aStream ] separatedBy: [ aStream nextPutAll: ', ' ].
+	body
+		do: [ :each | each printOn: aStream ]
+		separatedBy: [ aStream nextPutAll: ', ' ].
 	aStream nextPut: $.
 ]

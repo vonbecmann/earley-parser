@@ -37,6 +37,5 @@ JEPackedNodeTest >> testAddFamilyEmpty02 [
 	first := JEColumn number: 1.
 	node := rule dotAtEnd startedAt: first.
 
-	self assert: node familiesSize equals: 1.
-
+	self assert: node familiesSize equals: 1
 ]

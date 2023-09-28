@@ -32,6 +32,8 @@ JE1VWGrammarTest >> assertGrammarAt: aGrammar accepts: words [
 
 { #category : #running }
 JE1VWGrammarTest >> setUp [
+
+	super setUp.
 	grammar := JE1VWParser oneLevelVWGrammar.
 	rule := grammar startAt: 'rule'.
 	notion := grammar startAt: 'notion'.

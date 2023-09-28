@@ -50,11 +50,11 @@ JEIdentifierGrammarForestTest >> testParseExpectsLetter [
 	self
 		should: [ grammar parse: ',' ]
 		raise: JEFailure
-		withExceptionDo: [ :failure | 
-			self deny: failure wasAtEnd.						
+		withExceptionDo: [ :failure |
+			self deny: failure wasAtEnd.
 			self assert: failure position equals: 1.
 			self assert: failure actual equals: $,.
-			self 
-				assertCollection: failure expectedSymbols 
+			self
+				assertCollection: failure expectedSymbols
 				hasSameElements: {(NCNonterminal named: 'letter symbol')} ]
 ]

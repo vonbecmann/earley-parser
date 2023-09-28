@@ -16,8 +16,8 @@ Class {
 { #category : #running }
 JEFamilyTest >> setUp [
 	super setUp.
-	parentNode := ((JERule 
-							head: (NCNonterminal named: 'C') 
+	parentNode := ((JERule
+							head: (NCNonterminal named: 'C')
 							body: {(NCNonterminal named: 'A'). (NCNonterminal named: 'B')}) dotAtEnd
 		startedAt: (JEColumn number: 1)
 		andEndedAt: (JEColumn number: 3)).

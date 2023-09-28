@@ -57,14 +57,14 @@ JEGrammar class >> productionRules: productionRuleArray representations: termina
 		term: term, star symbol, product.
 		product: letter a symbol.
 	""
-	equals 
+	equals
 	#(	#('expression' #('term'))
 		#('expression' #('expression' 'plus symbol' 'term'))
 		#('term' #('product'))
 		#('term' #('term' 'star symbol' 'product'))
 		#('product' #('letter a symbol'))
 		).
-		
+
 	Representation Rules
 	""
 		{	('plus symbol' -> (NCTerminal character: $+)).
@@ -103,7 +103,6 @@ JEGrammar >> initialize [
 	productionRules := ArrayMultiValuedDictionary dictionary: OrderedDictionary.
 	predictedAlternatives := ArrayMultiValuedDictionary dictionary: IdentityDictionary.
 	ruleToProductionDict := IdentityDictionary new
-	
 ]
 
 { #category : #initialization }
@@ -112,25 +111,25 @@ JEGrammar >> initializeNonterminals: nonterminalSet terminals: terminalSet produ
 	nonterminals := nonterminalSet.
 	terminals := terminalSet.
 	productionRuleCollection
-		do: [ :each | 
+		do: [ :each |
 			| newRule |
 			productionRules at: each head put: each.
 			newRule := each asJERule.
 			predictedAlternatives at: newRule head put: newRule dotAtBeginning.
 			ruleToProductionDict at: newRule put: each ].
 	startSymbol := aNonterminal.
-	startRule := JERule head: (NCNonterminal named: 'START') body: {startSymbol}.
+	startRule := JERule head: (NCNonterminal named: 'START') body: {startSymbol}
 ]
 
 { #category : #private }
 JEGrammar >> nonterminal: aNonterminalNamed [
 	^ nonterminals
 		detect: [ :each | each named = aNonterminalNamed ]
-		ifNone: [ 
+		ifNone: [
 			Error
 				signal:
 					(String
-						streamContents: [ :s | 
+						streamContents: [ :s |
 							s
 								nextPutAll: 'Unknown Nonterminal ';
 								nextPutAll: aNonterminalNamed asString ]) ]
@@ -156,7 +155,7 @@ JEGrammar >> parse: words [
 
 { #category : #printing }
 JEGrammar >> printOn: aStream [
-	"Append to the argument, aStream, a sequence of characters that  
+	"Append to the argument, aStream, a sequence of characters that
 	identifies the receiver."
 
 	aStream
@@ -184,16 +183,16 @@ JEGrammar >> ruleAt: anAssociation [
 		aNamedNonterminal -> index   : the rule at index for a named nonterminal
 	example:
 		'A' -> 1  : the rule at 1 for nonterminal named 'A'
-		
+
 	returns the rule definition at position index for a named nonterminal"
 
 	^ (productionRules at: (self nonterminal: anAssociation key))
 		at: anAssociation value
-		ifAbsent: [ 
+		ifAbsent: [
 			Error
 				signal:
 					(String
-						streamContents: [ :s | 
+						streamContents: [ :s |
 							s
 								nextPutAll: 'Unknown rule''s definition at index ';
 								print: anAssociation value;
@@ -222,7 +221,7 @@ JEGrammar >> rulesSize [
 
 { #category : #'instance creation' }
 JEGrammar >> startAt: aNonterminalNamed [
-	" a new subgrammar based on a collection of rules, 
+	" a new subgrammar based on a collection of rules,
 	starting at the given nonterminal that acts as the new start symbol."
 
 	^ self class

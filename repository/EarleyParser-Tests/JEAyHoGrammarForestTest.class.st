@@ -20,7 +20,7 @@ JEAyHoGrammarForestTest >> testParse1A [
 { #category : #tests }
 JEAyHoGrammarForestTest >> testParse2A [
 	forest := grammar parse: 'aa'.
-	
+
 	self assert: forest isAmbiguous.
 	self assert: forest numberOfTrees equals: 6
 ]
@@ -57,10 +57,10 @@ JEAyHoGrammarForestTest >> testParse4A [
 { #category : #tests }
 JEAyHoGrammarForestTest >> testParseEpsilon [
 	forest := grammar parse: ''.
-	
+
 	self deny: forest isAmbiguous.
 	self assert: forest numberOfTrees equals: 1.
-	self 
-		assertCollection: (grammar rulesAtAll: {('S'->1). ('A'->1). ('E'->1)}) 
+	self
+		assertCollection: (grammar rulesAtAll: {('S'->1). ('A'->1). ('E'->1)})
 		equals: forest leftmostDerivation
 ]

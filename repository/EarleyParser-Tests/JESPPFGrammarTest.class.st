@@ -14,10 +14,10 @@ Class {
 JESPPFGrammarTest >> testExample2 [
 
 	grammar := JEGrammar
-		productionRules: 
-			#(	#('S' #('S' 'S')) 
+		productionRules:
+			#(	#('S' #('S' 'S'))
 				#('S' #('letter b symbol')))
-		representations: 
+		representations:
 			{('letter b symbol' -> (NCTerminal character: $b))}.
 
 	self assert: (grammar accepts: 'bbb').

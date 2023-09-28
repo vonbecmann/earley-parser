@@ -24,15 +24,15 @@ Dictionary >> jeAt: firstKey at: secondKey ifAbsentPut: absentBlock [
 Dictionary >> jeAt: firstKey at: secondKey ifPresent: aPresentBlock ifAbsent: absentBlock [
 	^ (array at: (self findElementOrNil: firstKey))
 		ifNil: [ absentBlock value ]
-		ifNotNil: [ :assoc | 
+		ifNotNil: [ :assoc |
 							assoc value jeAt: secondKey ifPresent: aPresentBlock ifAbsent: absentBlock ]
 ]
 
 { #category : #'*EarleyParser-Core' }
 Dictionary >> jeAt: key ifAbsentPut: absentBlock [
 	"
-	Return the value at the given key. 
-	If key is not included in the receiver store the result 
+	Return the value at the given key.
+	If key is not included in the receiver store the result
 	of evaluating aBlock as new value.
 	"
 
@@ -56,8 +56,8 @@ Dictionary >> jeAt: key ifPresent: aPresentBlock ifAbsent: absentBlock [
 { #category : #'*EarleyParser-Core' }
 Dictionary >> jeAt: key ifPresent: aPresentBlock ifAbsentPut: absentBlock [
 	"
-	Return the value at the given key. 
-	If key is not included in the receiver store the result 
+	Return the value at the given key.
+	If key is not included in the receiver store the result
 	of evaluating aBlock as new value.
 	"
 

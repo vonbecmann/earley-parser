@@ -5,14 +5,15 @@ Class {
 		'parser',
 		'rules'
 	],
-	#category : 'Earley1VW-Tests'
+	#category : #'Earley1VW-Tests'
 }
 
 { #category : #running }
 JE1VWParserTest >> setUp [
+
+	super setUp.
 	parser := JE1VWParser new.
 	rules := nil
-	
 ]
 
 { #category : #'tests - parsing' }

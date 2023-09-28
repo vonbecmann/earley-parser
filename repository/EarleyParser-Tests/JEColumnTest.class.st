@@ -54,8 +54,8 @@ JEColumnTest >> testLikeIfFoundIfNone [
 			(NCTerminal character: $+).
 			(NCNonterminal named: 'P')}.
 	one := (rule dotAt: 2) startedAt: first.
-	self 
-		assert: (column like: one ifFound: [ :found | found ] ifNone: [ nil ]) 
+	self
+		assert: (column like: one ifFound: [ :found | found ] ifNone: [ nil ])
 		equals: nil
 ]
 

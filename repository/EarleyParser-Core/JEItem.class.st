@@ -49,7 +49,7 @@ JEItem >> acceptVisitor: aVisitor [
 
 { #category : #visiting }
 JEItem >> children [
-	^ self families 
+	^ self families
 ]
 
 { #category : #accessing }
@@ -120,7 +120,7 @@ JEItem >> isTerminal [
 JEItem >> printIntervalOn: aStream [
 	end
 		ifNil: [ 	start shortPrintOn: aStream ]
-		ifNotNil: [ 
+		ifNotNil: [
 			aStream nextPut: $[.
 			start shortPrintOn: aStream.
 			aStream nextPutAll: ', '.

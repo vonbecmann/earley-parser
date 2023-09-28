@@ -34,7 +34,7 @@ Class {
 }
 
 { #category : #'instance creation' }
-JEColumn class >> number: anInteger [ 
+JEColumn class >> number: anInteger [
 	^ self basicNew initializeNumber: anInteger
 ]
 
@@ -46,7 +46,7 @@ JEColumn class >> numberOneWith: aDottedRule [
 ]
 
 { #category : #comparing }
-JEColumn >> <= column [ 
+JEColumn >> <= column [
 	^ number <= column number
 ]
 
@@ -59,7 +59,7 @@ JEColumn >> = column [
 
 { #category : #adding }
 JEColumn >> add: aDottedItem [
-	" Optimize for efficiency. 
+	" Optimize for efficiency.
 		if the item doesn't exist then add it last.
 		this is a predicted item "
 
@@ -72,16 +72,16 @@ JEColumn >> add: aDottedItem [
 { #category : #private }
 JEColumn >> addDottedItem: dottedItem [
 	dottedItem isFinal
-		ifTrue: [ 
+		ifTrue: [
 			dottedItem start = self
 				ifTrue: [ self finalItemsByNonterminalAt: dottedItem head put: dottedItem ] ]
-		ifFalse: [ 
+		ifFalse: [
 			dottedItem symbolAtDot isNonterminal
-				ifTrue: [ 
+				ifTrue: [
 					predictionItemsByNonterminal
 						jeAt: dottedItem symbolAtDot
 						ifPresent: [ :list | list addLast: dottedItem ]
-						ifAbsentPut: 
+						ifAbsentPut:
 							[	SinglyLinkedList new
 									addLast: dottedItem;
 									yourself ] ] ].
@@ -108,7 +108,7 @@ JEColumn >> addTerminalItem: terminalItem [
 	^ itemsByKey
 		jeAt: terminalItem firstKey
 		at: terminalItem secondKey
-		ifAbsentPut: [ 
+		ifAbsentPut: [
 			terminalItem end: self.
 			items addLast: terminalItem ]
 ]
@@ -118,7 +118,7 @@ JEColumn >> expectedSymbols [
 	| expectedSymbols |
 	expectedSymbols := Set new.
 	items
-		do: [ :item | 
+		do: [ :item |
 			item isActive
 				ifTrue: [ expectedSymbols add: item symbolAtDot ].
 			(item isPredicted and: [ item isRepresentation ])
@@ -131,7 +131,7 @@ JEColumn >> finalItemsByNonterminalAt: nonterminal put: anItem [
 	finalItemsByNonterminal
 		jeAt: nonterminal
 		ifPresent: [ :list | list addLast: anItem ]
-		ifAbsentPut: 
+		ifAbsentPut:
 			[	SinglyLinkedList new
 					addLast: anItem;
 					yourself ]
@@ -192,7 +192,7 @@ JEColumn >> isEmpty [
 { #category : #accessing }
 JEColumn >> like: anItem ifFound: foundBlock ifNone: exceptionBlock [
 	" Optimize for efficiency.
-	 ^ itemsByKey 
+	 ^ itemsByKey
 			detect: [ :item | item equals: anItem ]
 			ifFound: foundBlock
 			ifNone: exceptionBlock "
@@ -200,7 +200,7 @@ JEColumn >> like: anItem ifFound: foundBlock ifNone: exceptionBlock [
 	^ itemsByKey
 		jeAt: anItem firstKey
 		at: anItem secondKey
-		ifPresent: [ :found | 
+		ifPresent: [ :found |
 			(found equals: anItem)
 				ifTrue: [ foundBlock cull: found ]
 				ifFalse: [ exceptionBlock value ] ]
@@ -209,14 +209,14 @@ JEColumn >> like: anItem ifFound: foundBlock ifNone: exceptionBlock [
 
 { #category : #adding }
 JEColumn >> moveDotForward: previousItem [
-	" Optimize for efficiency. 
-		if the item already exits 
-			then return it 
+	" Optimize for efficiency.
+		if the item already exits
+			then return it
 			else add it last"
 
 	^ itemsByKey
 		jeAt: previousItem dottedRule moveDotForward
-		at: previousItem secondKey 
+		at: previousItem secondKey
 		ifAbsentPut: [ self addDottedItem: previousItem moveDotForward ]
 ]
 

@@ -19,7 +19,7 @@ JEAEGrammarParseTest >> testParseEmpty [
 	self
 		should: [ grammar parse: '' ]
 		raise: JEFailure
-		withExceptionDo: [ :failure | 
+		withExceptionDo: [ :failure |
 			self assert: failure wasAtEnd.
 			self
 				assertCollection: failure expectedSymbols
@@ -45,7 +45,7 @@ JEAEGrammarParseTest >> testParseMultiplyExp [
 { #category : #tests }
 JEAEGrammarParseTest >> testParsePlusExp [
 	forest := grammar parse: 'a+a'.
-	
+
 	self deny: forest isAmbiguous.
 	self assert: forest numberOfTrees equals: 1
 ]
@@ -63,8 +63,8 @@ JEAEGrammarParseTest >> testParseSimpleExp02 [
 	self
 		should: [ grammar parse: 'a ' ]
 		raise: JEFailure
-		withExceptionDo: [ :failure | 
-			self deny: failure wasAtEnd.			
+		withExceptionDo: [ :failure |
+			self deny: failure wasAtEnd.
 			self assert: failure position equals: 2.
 			self assert: failure actual equals: Character space.
 			self
@@ -78,8 +78,8 @@ JEAEGrammarParseTest >> testParseSimpleExp03 [
 	self
 		should: [ grammar parse: 'a+' ]
 		raise: JEFailure
-		withExceptionDo: [ :failure | 
-			self assert: failure wasAtEnd.			
+		withExceptionDo: [ :failure |
+			self assert: failure wasAtEnd.
 			self
 				assertCollection: failure expectedSymbols
 				hasSameElements: {	(NCNonterminal named: 'T').
@@ -91,8 +91,8 @@ JEAEGrammarParseTest >> testParseSimpleExp04 [
 	self
 		should: [ grammar parse: 'a++' ]
 		raise: JEFailure
-		withExceptionDo: [ :failure | 
-			self deny: failure wasAtEnd.			
+		withExceptionDo: [ :failure |
+			self deny: failure wasAtEnd.
 			self assert: failure position equals: 3.
 			self assert: failure actual equals: $+.
 			self
@@ -107,8 +107,8 @@ JEAEGrammarParseTest >> testParseSimpleExp05 [
 	self
 		should: [ grammar parse: 'a+*' ]
 		raise: JEFailure
-		withExceptionDo: [ :failure | 
-			self deny: failure wasAtEnd.						
+		withExceptionDo: [ :failure |
+			self deny: failure wasAtEnd.
 			self assert: failure position equals: 3.
 			self assert: failure actual equals: $*.
 			self
@@ -123,8 +123,8 @@ JEAEGrammarParseTest >> testParseSimpleExp06 [
 	self
 		should: [ grammar parse: 'a*' ]
 		raise: JEFailure
-		withExceptionDo: [ :failure | 
-			self assert: failure wasAtEnd.						
+		withExceptionDo: [ :failure |
+			self assert: failure wasAtEnd.
 			self
 				assertCollection: failure expectedSymbols
 				hasSameElements:

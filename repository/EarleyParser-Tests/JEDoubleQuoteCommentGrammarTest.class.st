@@ -17,9 +17,9 @@ JEDoubleQuoteCommentGrammarTest >> setUp [
 	super setUp.
 	grammar := JEGrammar
 		productionRules:
-#(	#('comment' 
-		#('double quote mark symbol' '(not double quote) star' 'double quote mark symbol')) 
-	#('(not double quote) star' #('not double quote mark symbol' '(not double quote) star')) 
+#(	#('comment'
+		#('double quote mark symbol' '(not double quote) star' 'double quote mark symbol'))
+	#('(not double quote) star' #('not double quote mark symbol' '(not double quote) star'))
 	#('(not double quote) star' #()))
 		representations:
 			{('double quote mark symbol' -> (NCTerminal character: $")).

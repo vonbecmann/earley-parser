@@ -21,7 +21,7 @@ JEDottedRuleTest >> testAsString01 [
 	rule := JERule
 		head: (NCNonterminal named: 'T')
 		body: 	{(NCNonterminal named: 'F'). (NCNonterminal named: 'P'). (NCNonterminal named: 'G')}.
-			
+
 	self assert: (rule dotAt: 1) asString equals: 'T: ·F, P, G.'.
 	self assert: rule dotAtBeginning asString equals: 'T: ·F, P, G.'
 ]

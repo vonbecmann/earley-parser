@@ -12,9 +12,9 @@ JEFailureAtEnd >> messageText [
 	"Return an exception's message text."
 
 	^ messageText
-		ifNil: [ 
+		ifNil: [
 			messageText := String
-				streamContents: [ :s | 
+				streamContents: [ :s |
 					s nextPutAll: 'Failed at end and expected one of {'.
 					expectedSymbols
 						do: [ :each | s print: each ]

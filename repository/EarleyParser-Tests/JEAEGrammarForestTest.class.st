@@ -13,7 +13,7 @@ JEAEGrammarForestTest >> setUp [
 { #category : #tests }
 JEAEGrammarForestTest >> testLeftmostDerivationMixedExp [
 	forest := grammar parse: 'a+a*a+a*a'.
-	
+
 	self deny: forest isAmbiguous.
 	self assert: forest numberOfTrees equals: 1.
 	self
@@ -43,13 +43,13 @@ JEAEGrammarForestTest >> testLeftmostDerivationMixedExp [
 					('P' -> 1).
 					('letter a symbol' -> 1).
 					})
-		equals: forest leftmostDerivation 
+		equals: forest leftmostDerivation
 ]
 
 { #category : #tests }
 JEAEGrammarForestTest >> testLeftmostDerivationMultiplyExp [
 	forest := grammar parse: 'a*a'.
-	
+
 	self deny: forest isAmbiguous.
 	self assert: forest numberOfTrees equals: 1.
 	self
@@ -65,7 +65,6 @@ JEAEGrammarForestTest >> testLeftmostDerivationMultiplyExp [
 					('P' -> 1).
 					('letter a symbol' -> 1).})
 		equals: forest leftmostDerivation
-		
 ]
 
 { #category : #tests }
@@ -88,7 +87,6 @@ JEAEGrammarForestTest >> testLeftmostDerivationPlusExp [
 					('P' -> 1).
 					('letter a symbol' -> 1).})
 		equals: forest leftmostDerivation
-		
 ]
 
 { #category : #tests }
@@ -110,7 +108,7 @@ JEAEGrammarForestTest >> testParseMultiplyExp [
 { #category : #tests }
 JEAEGrammarForestTest >> testParsePlusExp [
 	forest := grammar parse: 'a+a'.
-	
+
 	self deny: forest isAmbiguous.
 	self assert: forest numberOfTrees equals: 1
 ]
@@ -125,16 +123,16 @@ JEAEGrammarForestTest >> testParseSimpleExp01 [
 
 { #category : #'tests - failure' }
 JEAEGrammarForestTest >> testParseSimpleExp02 [
-	self 
-		should: [ grammar parse: 'a ' ] 
-		raise: JEFailure 
-		withExceptionDo: [ :failure | 
+	self
+		should: [ grammar parse: 'a ' ]
+		raise: JEFailure
+		withExceptionDo: [ :failure |
 			self deny: failure wasAtEnd.
 			self assert: failure position equals: 2.
 			self assert: failure actual equals: Character space.
 			self
 				assertCollection: failure expectedSymbols
-				hasSameElements: {	(NCNonterminal named: 'plus symbol'). 
+				hasSameElements: {	(NCNonterminal named: 'plus symbol').
 										(NCNonterminal named: 'star symbol')}	]
 ]
 
@@ -143,33 +141,33 @@ JEAEGrammarForestTest >> testParseSimpleExp03 [
 	self
 		should: [ grammar parse: 'a+' ]
 		raise: JEFailure
-		withExceptionDo: [ :failure | 
+		withExceptionDo: [ :failure |
 			self assert: failure wasAtEnd.
 			self
 				assertCollection: failure expectedSymbols
-				hasSameElements: {	(NCNonterminal named: 'T'). 
+				hasSameElements: {	(NCNonterminal named: 'T').
 										(NCNonterminal named: 'letter a symbol')}	]
 ]
 
 { #category : #'tests - failure' }
 JEAEGrammarForestTest >> testParseSimpleExp04 [
-	self 
-		should: [ grammar parse: 'a++' ] 
-		raise: JEFailure 
-		withExceptionDo: [ :failure | 
-			self deny: failure wasAtEnd.			
+	self
+		should: [ grammar parse: 'a++' ]
+		raise: JEFailure
+		withExceptionDo: [ :failure |
+			self deny: failure wasAtEnd.
 			self assert: failure position equals: 3.
 			self assert: failure actual equals: $+.
 			self
 				assertCollection: failure expectedSymbols
-				hasSameElements: {	(NCNonterminal named: 'T'). 
+				hasSameElements: {	(NCNonterminal named: 'T').
 										(NCNonterminal named: 'letter a symbol')}	]
 ]
 
 { #category : #tests }
 JEAEGrammarForestTest >> testRighmostDerivationMultiplyExp [
 	forest := grammar parse: 'a*a'.
-	
+
 	self deny: forest isAmbiguous.
 	self assert: forest numberOfTrees equals: 1.
 	self
@@ -190,7 +188,7 @@ JEAEGrammarForestTest >> testRighmostDerivationMultiplyExp [
 { #category : #tests }
 JEAEGrammarForestTest >> testRightmostDerivationMixedExp [
 	forest := grammar parse: 'a+a*a+a*a'.
-	
+
 	self deny: forest isAmbiguous.
 	self assert: forest numberOfTrees equals: 1.
 	self

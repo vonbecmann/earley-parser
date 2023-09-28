@@ -13,9 +13,9 @@ Class {
 JEEpsilonGrammar3Test >> setUp [
 	super setUp.
 	grammar := JEGrammar
-		productionRules: 
-			#(	#(E #(E Q F)) 
-				#(E #(F)) 
+		productionRules:
+			#(	#(E #(E Q F))
+				#(E #(F))
 				#(Q #()))
 		representations:
 			{	('F' -> (NCTerminal character: $a)).

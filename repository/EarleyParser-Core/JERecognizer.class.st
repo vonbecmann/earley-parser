@@ -6,12 +6,12 @@ recognition is not parsing.
 Class {
 	#name : #JERecognizer,
 	#superclass : #JEAlgorithm,
-	#category : 'EarleyParser-Core-Implementation'
+	#category : #'EarleyParser-Core-Implementation'
 }
 
 { #category : #public }
 JERecognizer >> accepts: words [
-	^ [ 
+	^ [
 	| chart |
 	chart := self evaluate: words.
 	chart last includes: (grammar startRule dotAtEnd startedAt: chart first) ]

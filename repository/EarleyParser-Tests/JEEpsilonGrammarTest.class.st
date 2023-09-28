@@ -7,14 +7,14 @@ Class {
 { #category : #running }
 JEEpsilonGrammarTest >> setUp [
 	super setUp.
-	grammar := 
+	grammar :=
 		JEGrammar
-			productionRules: 
+			productionRules:
 				#(	#(S #(A B A B))
 			  		#(A #(E))
 			  		#(B #(E))
 			  		#(E #()))
-			representations: {('A' -> (NCTerminal character: $a))}.
+			representations: {('A' -> (NCTerminal character: $a))}
 ]
 
 { #category : #tests }

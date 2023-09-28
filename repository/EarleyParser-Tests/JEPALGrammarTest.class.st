@@ -20,23 +20,19 @@ JEPALGrammarTest >> setUp [
 { #category : #tests }
 JEPALGrammarTest >> testAccepts1X [
 	self assert: (grammar accepts: 'x')
-	
 ]
 
 { #category : #tests }
 JEPALGrammarTest >> testAccepts3Xs [
 	self assert: (grammar accepts: 'xxx')
-	
 ]
 
 { #category : #tests }
 JEPALGrammarTest >> testAccepts5Xs [
 	self assert: (grammar accepts: 'xxxxx')
-	
 ]
 
 { #category : #tests }
 JEPALGrammarTest >> testAccepts7Xs [
 	self assert: (grammar accepts: 'xxxxxxx')
-	
 ]

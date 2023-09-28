@@ -28,7 +28,7 @@ Class {
 { #category : #'instance creation' }
 JEFamily class >> emptyWithParent: parentPackedNode [
 	^ self basicNew
-		initializeParent: parentPackedNode 
+		initializeParent: parentPackedNode
 		members: #(nil nil)
 		andChildren: #()
 ]
@@ -55,7 +55,7 @@ JEFamily class >> parent: parentPackedNode first: firstChildPackedNode second: s
 JEFamily >> = anObject [
 	^ self class == anObject class
 		and: [ parent == anObject parent
-				and: [ self first == anObject first 
+				and: [ self first == anObject first
 					and: [ self second == anObject second ] ] ]
 ]
 
@@ -127,8 +127,7 @@ JEFamily >> release [
 
 { #category : #accessing }
 JEFamily >> second [
-	^ members second 
-	
+	^ members second
 ]
 
 { #category : #accessing }

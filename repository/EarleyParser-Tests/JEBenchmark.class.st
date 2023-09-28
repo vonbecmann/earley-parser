@@ -19,7 +19,7 @@ Class {
 
 { #category : #public }
 JEBenchmark >> acceptsBK [
-	" 
+	"
 | date        | time to run    |
 | 17 May 2016 | 0:00:00:00.052 |
 | 19 May 2016 | 0:00:00:00.053 |
@@ -51,7 +51,7 @@ JEBenchmark >> acceptsPAL [
 	"
 | date        | time to run    |
 | 11 May 2016 | 0:00:00:05.916 |
-| 13 May 2016 | 0:00:00:03.747 | 
+| 13 May 2016 | 0:00:00:03.747 |
 | 18 May 2016 | 0:00:00:06.052 |
 | 19 May 2016 | 0:00:00:06.345 |
 | 20 May 2016 | 0:00:00:09.169 |
@@ -81,7 +81,7 @@ JEBenchmark >> acceptsPAL [
 
 { #category : #public }
 JEBenchmark >> acceptsRR [
-	" 
+	"
 | date        | time to run    |
 | 18 October 2016 | 0:00:00:05.493 |
 | 21 October 2016 | 0:00:00:05.341 |
@@ -99,7 +99,7 @@ JEBenchmark >> acceptsRR [
 
 { #category : #public }
 JEBenchmark >> acceptsUBDA [
-	" 
+	"
 | date        | time to run    |
 | 11 May 2016 | 0:00:00:04.974 |
 | 13 May 2016 | 0:00:00:04.386 |
@@ -131,7 +131,7 @@ JEBenchmark >> acceptsUBDA [
 
 { #category : #public }
 JEBenchmark >> parseBK [
-	" 
+	"
 | date        | time to run    |
 | 8 June 2016 | 0:00:00:00.516 |
 | 1 September 2016 | 0:00:00:00.855 |
@@ -178,7 +178,7 @@ JEBenchmark >> parsePAL [
 
 { #category : #public }
 JEBenchmark >> parseRR [
-	" 
+	"
 | date        | time to run    |
 | 21 October 2016 | 0:00:00:15.372 |
 | 21 October 2016 | 0:00:00:15.401 |

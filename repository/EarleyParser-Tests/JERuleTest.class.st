@@ -66,7 +66,6 @@ JERuleTest >> testDotAtBeginning [
 			(NCTerminal character: $*).
 			(NCNonterminal named: 'P')}.
 	self assert: rule dotAtBeginning equals: (JEDottedRule given: rule withDotAt: 1)
-
 ]
 
 { #category : #tests }
@@ -79,8 +78,6 @@ JERuleTest >> testDotAtEnd [
 			(NCTerminal character: $*).
 			(NCNonterminal named: 'P')}.
 	self assert: rule dotAtEnd equals: (JEDottedRule given: rule withDotAt: 4)
-	
-
 ]
 
 { #category : #tests }

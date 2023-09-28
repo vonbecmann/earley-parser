@@ -18,7 +18,6 @@ JERRGrammarTest >> setUp [
 { #category : #tests }
 JERRGrammarTest >> testAccepts1X [
 	self assert: (grammar accepts: 'x')
-	
 ]
 
 { #category : #tests }

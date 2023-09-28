@@ -24,7 +24,7 @@ Class {
 { #category : #'instance creation' }
 JETerminalItem class >> given: aTerminal word: aWord startedAt: firstColumn [
 	"
-	a terminal item for the given terminal 
+	a terminal item for the given terminal
 	that started its recognition at first column
 	"
 
@@ -34,7 +34,7 @@ JETerminalItem class >> given: aTerminal word: aWord startedAt: firstColumn [
 { #category : #'instance creation' }
 JETerminalItem class >> given: aTerminal word: aWord startedAt: firstColumn andEndedAt: secondColumn [
 	"
-	a terminal item for the given terminal 
+	a terminal item for the given terminal
 	that started its recognition at first column and ended at second column
 	"
 

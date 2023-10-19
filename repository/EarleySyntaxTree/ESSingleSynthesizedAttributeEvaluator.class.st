@@ -12,14 +12,14 @@ Class {
 		'grammar',
 		'ruleToAction'
 	],
-	#category : 'EarleySyntaxTree-Public'
+	#category : #'EarleySyntaxTree-Public'
 }
 
 { #category : #'instance creation' }
 ESSingleSynthesizedAttributeEvaluator class >> grammar: aGrammar actions: ruleAndActionAssociationCollection [
 	"
 	rule -> aBlockWithOneArgument.
-	rule is an association like (Nonterminal -> index)	
+	rule is an association like (Nonterminal -> index)
 	"
 
 	^ self basicNew
@@ -42,17 +42,17 @@ ESSingleSynthesizedAttributeEvaluator >> evaluateTree: aParseTree [
 	| stack |
 	stack := SinglyLinkedStack new.
 	ESTreeVisitor depthFirst new
-		postOrderBlock: [ :node | 
+		postOrderBlock: [ :node |
 			node model isTerminal
 				ifTrue: [ stack push: node model reason ]
-				ifFalse: [ 
+				ifFalse: [
 					(ruleToAction at: node model reason ifAbsent: nil)
-						ifNotNil: [ :action | 
+						ifNotNil: [ :action |
 							| actual |
-							actual := 
+							actual :=
 								node children isEmpty
 									ifTrue: [ #() ]
-									ifFalse: [ 
+									ifFalse: [
 										node children size = 1
 											ifTrue: [ {stack pop} ]
 											ifFalse: [ {(stack popReversed: node children size)} ] ].
@@ -75,7 +75,7 @@ ESSingleSynthesizedAttributeEvaluator >> initialize [
 ESSingleSynthesizedAttributeEvaluator >> initializeGrammar: aGrammar andRuleToAction: ruleAndActionAssociationCollection [
 	"
 	rule -> aBlockWithOneArgument.
-	rule is an association like (Nonterminal -> index)	
+	rule is an association like (Nonterminal -> index)
 	"
 
 	self initialize.

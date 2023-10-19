@@ -2,18 +2,18 @@ Extension { #name : #JEParseForest }
 
 { #category : #'*EarleySyntaxTree' }
 JEParseForest >> extractSingleParseTree [
-	"the forest has one binary tree, so we need to extract it from the forest. 
+	"the forest has one binary tree, so we need to extract it from the forest.
 	 but flatten as the production rules and using syntax nodes."
 
 	| stack |
 	stack := SinglyLinkedStack new.
 	JETreeDepthFirstVisitor new
-		postOrderNodeBlock: [ :node | 
+		postOrderNodeBlock: [ :node |
 			node isTerminal
 				ifTrue: [ stack push: (ESTreeNode	model: node asSyntaxNode) ]
-				ifFalse: [ 
+				ifFalse: [
 					node isFinal
-						ifTrue: [ 
+						ifTrue: [
 							stack
 								push:
 									(ESTreeNode

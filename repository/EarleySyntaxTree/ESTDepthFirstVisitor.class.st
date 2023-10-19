@@ -18,14 +18,14 @@ ESTDepthFirstVisitor >> visitNode: aGivenTreeNode [
 			node := element first.
 			visited := element second.
 			visited
-				ifTrue: 
+				ifTrue:
 					[ 	visitStack pop.
 						postOrderBlock ifNotNil: [ postOrderBlock cull: node ] ]
-				ifFalse: 
+				ifFalse:
 					[	element second: true.
 						preOrderBlock ifNotNil: [ preOrderBlock cull: node ].
-						self 
-							withChildrenOf: node 
+						self
+							withChildrenOf: node
 							do: [ :child | visitStack push: (OrderedPair first: child second: false) ] ] ]
 ]
 

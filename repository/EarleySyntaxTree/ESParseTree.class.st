@@ -10,7 +10,7 @@ Class {
 		'tree',
 		'grammar'
 	],
-	#category : 'EarleySyntaxTree-Public'
+	#category : #'EarleySyntaxTree-Public'
 }
 
 { #category : #'instance creation' }
@@ -21,8 +21,8 @@ ESParseTree class >> given: aTree of: aJEGrammar [
 ]
 
 { #category : #visiting }
-ESParseTree >> acceptVisitor: anESTreeVisitor [ 
-	tree acceptVisitor: anESTreeVisitor 
+ESParseTree >> acceptVisitor: anESTreeVisitor [
+	tree acceptVisitor: anESTreeVisitor
 ]
 
 { #category : #converting }
@@ -32,12 +32,12 @@ ESParseTree >> asArrayRepresentation [
 	| stack |
 	stack := SinglyLinkedStack new.
 	ESTreeVisitor depthFirst new
-		postOrderBlock: [ :node | 
+		postOrderBlock: [ :node |
 			stack
 				push:
 					(node model isTerminal
 						ifTrue: [ node model reason ]
-						ifFalse: [ 
+						ifFalse: [
 							node children isEmpty
 								ifTrue: [ #() ]
 								ifFalse: [ stack popReversed: node children size ] ]) ];
@@ -57,7 +57,7 @@ ESParseTree >> leftmostDerivation [
 	| derivation |
 	derivation := SinglyLinkedList new.
 	ESTreeVisitor depthFirst new
-		preOrderBlock: [ :node | 
+		preOrderBlock: [ :node |
 			node model isNonterminal
 				ifTrue: [ derivation addLast: node model reason ] ];
 		visit: tree.
@@ -77,7 +77,7 @@ ESParseTree >> rightmostDerivation [
 	| derivation |
 	derivation := SinglyLinkedList new.
 	ESTreeVisitor rightToLeftDepthFirst new
-		preOrderBlock: [ :node | 
+		preOrderBlock: [ :node |
 			node model isNonterminal
 				ifTrue: [ derivation addLast: node model reason ] ];
 		visit: tree.

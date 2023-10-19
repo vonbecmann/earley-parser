@@ -16,7 +16,7 @@ Class {
 }
 
 { #category : #'instance creation' }
-ESTreeNode class >> model: anObject [ 
+ESTreeNode class >> model: anObject [
 	^ self basicNew initializeModel: anObject andChildren: #()
 ]
 

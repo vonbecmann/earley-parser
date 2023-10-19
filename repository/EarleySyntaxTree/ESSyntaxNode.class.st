@@ -18,7 +18,7 @@ Class {
 		'start',
 		'end'
 	],
-	#category : 'EarleySyntaxTree-Public'
+	#category : #'EarleySyntaxTree-Public'
 }
 
 { #category : #'instance creation' }
@@ -51,7 +51,7 @@ ESSyntaxNode >> isNonterminal [
 
 { #category : #testing }
 ESSyntaxNode >> isTerminal [
-	^ symbol isTerminal 
+	^ symbol isTerminal
 ]
 
 { #category : #printing }

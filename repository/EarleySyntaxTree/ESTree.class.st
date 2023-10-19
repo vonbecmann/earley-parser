@@ -8,7 +8,7 @@ Class {
 	#instVars : [
 		'root'
 	],
-	#category : 'EarleySyntaxTree-Implementation'
+	#category : #'EarleySyntaxTree-Implementation'
 }
 
 { #category : #'instance creation' }
@@ -17,8 +17,8 @@ ESTree class >> rootNode: aTreeNode [
 ]
 
 { #category : #visiting }
-ESTree >> acceptVisitor: anESTreeVisitor [ 
-	anESTreeVisitor visitNode: root 
+ESTree >> acceptVisitor: anESTreeVisitor [
+	anESTreeVisitor visitNode: root
 ]
 
 { #category : #initialization }

@@ -2,12 +2,13 @@
 print lines of code in the transcript
 "
 Class {
-	#name : #JEStats,
-	#superclass : #Object,
-	#category : 'EarleyParser-UI'
+	#name : 'JEStats',
+	#superclass : 'Object',
+	#category : 'EarleyParser-UI',
+	#package : 'EarleyParser-UI'
 }
 
-{ #category : #printing }
+{ #category : 'printing' }
 JEStats class >> printLinesOfCode [
 	<script>
 	| earleyParserCore message |

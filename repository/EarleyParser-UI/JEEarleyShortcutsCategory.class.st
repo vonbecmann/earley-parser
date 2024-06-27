@@ -3,18 +3,19 @@ global shortcuts.
 
 "
 Class {
-	#name : #JEEarleyShortcutsCategory,
-	#superclass : #KMCategory,
-	#category : 'EarleyParser-UI'
+	#name : 'JEEarleyShortcutsCategory',
+	#superclass : 'KMCategory',
+	#category : 'EarleyParser-UI',
+	#package : 'EarleyParser-UI'
 }
 
-{ #category : #testing }
+{ #category : 'testing' }
 JEEarleyShortcutsCategory class >> isGlobalCategory [
 
 	^ true 
 ]
 
-{ #category : #keymaps }
+{ #category : 'keymaps' }
 JEEarleyShortcutsCategory >> openBrowserInEarleyEnvironmentShortcut [
 	<shortcut>
 	^ KMKeymap

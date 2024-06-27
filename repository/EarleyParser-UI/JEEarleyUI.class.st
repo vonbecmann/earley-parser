@@ -3,12 +3,13 @@ browse earley environment
 
 "
 Class {
-	#name : #JEEarleyUI,
-	#superclass : #Object,
-	#category : #'EarleyParser-UI'
+	#name : 'JEEarleyUI',
+	#superclass : 'Object',
+	#category : 'EarleyParser-UI',
+	#package : 'EarleyParser-UI'
 }
 
-{ #category : #environment }
+{ #category : 'environment' }
 JEEarleyUI class >> earleyEnvironment [
 	| packages |
 	packages := OrderedCollection with: BaselineOfEarleyParser package.
@@ -19,7 +20,7 @@ JEEarleyUI class >> earleyEnvironment [
 	^ packages
 ]
 
-{ #category : #'menu declaring' }
+{ #category : 'menu declaring' }
 JEEarleyUI class >> earleyToolsOn: aBuilder [
 
 	<worldMenu>
@@ -35,13 +36,13 @@ JEEarleyUI class >> earleyToolsOn: aBuilder [
 									 Smalltalk tools browser taskbarIconName).
 					(aBuilder item: #Workspace)
 						label: 'Workspace';
-						action: [ Workspace open ].
+						action: [ Smalltalk tools workspace open ].
 					(aBuilder item: #EarleyCode)
 						label: 'Lines Of Code';
 						action: [ JEStats printLinesOfCode ] ] ]
 ]
 
-{ #category : #environment }
+{ #category : 'environment' }
 JEEarleyUI class >> openBrowserInEarleyEnvironment [
 	^ Smalltalk tools browser
 		openWithState: [ :browser | browser switchToPackageScopeOf: self earleyEnvironment ]

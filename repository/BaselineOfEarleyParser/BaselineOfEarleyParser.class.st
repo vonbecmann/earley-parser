@@ -3,12 +3,13 @@ baseline of Earley Parser
 
 "
 Class {
-	#name : #BaselineOfEarleyParser,
-	#superclass : #BaselineOf,
-	#category : #BaselineOfEarleyParser
+	#name : 'BaselineOfEarleyParser',
+	#superclass : 'BaselineOf',
+	#category : 'BaselineOfEarleyParser',
+	#package : 'BaselineOfEarleyParser'
 }
 
-{ #category : #baselines }
+{ #category : 'baselines' }
 BaselineOfEarleyParser >> baseline: spec [
 	<baseline>
 	spec
@@ -16,10 +17,10 @@ BaselineOfEarleyParser >> baseline: spec [
 		do: [ 
 			spec
 	        	baseline: 'MultiValuedDictionary'
- 		   		with: [ spec repository: 'github://vonbecmann/multi-valued-dictionary/repository' ].
+ 		   		with: [ spec repository: 'github://vonbecmann/multi-valued-dictionary:pharo12/repository' ].
 			spec
 	        	baseline: 'LinkedList'
- 		   		with: [ spec repository: 'github://vonbecmann/linked-list/repository' ].
+ 		   		with: [ spec repository: 'github://vonbecmann/linked-list:pharo12/repository' ].
 
 			spec
 				package: 'NoamChomsky-Core';

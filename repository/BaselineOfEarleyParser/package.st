@@ -1,1 +1,1 @@
-Package { #name : #BaselineOfEarleyParser }
+Package { #name : 'BaselineOfEarleyParser' }

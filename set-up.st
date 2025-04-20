@@ -1,4 +1,3 @@
-Author fullName: 'BernardoContreras'.
 
 Metacello new
     baseline: 'EarleyParser';

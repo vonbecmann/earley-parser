@@ -11,12 +11,12 @@ Class {
 
 { #category : 'environment' }
 JEEarleyUI class >> earleyEnvironment [
+
 	| packages |
 	packages := OrderedCollection with: BaselineOfEarleyParser package.
-	packages
-		addAll:
-			(BaselineOfEarleyParser allPackageNames
-				collect: [ :each | RPackage organizer packageNamed: each ]).
+	packages addAll:
+		(BaselineOfEarleyParser allPackageNames collect: [ :each |
+			 self packageOrganizer packageNamed: each ]).
 	^ packages
 ]
 

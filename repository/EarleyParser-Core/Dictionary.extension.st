@@ -1,6 +1,6 @@
-Extension { #name : #Dictionary }
+Extension { #name : 'Dictionary' }
 
-{ #category : #'*EarleyParser-Core' }
+{ #category : '*EarleyParser-Core' }
 Dictionary >> jeAt: firstKey at: secondKey ifAbsentPut: absentBlock [
 	| index |
 	index := self findElementOrNil: firstKey.
@@ -20,7 +20,7 @@ Dictionary >> jeAt: firstKey at: secondKey ifAbsentPut: absentBlock [
 		ifNotNil: [:assoc | assoc value jeAt: secondKey ifAbsentPut: absentBlock ]
 ]
 
-{ #category : #'*EarleyParser-Core' }
+{ #category : '*EarleyParser-Core' }
 Dictionary >> jeAt: firstKey at: secondKey ifPresent: aPresentBlock ifAbsent: absentBlock [
 	^ (array at: (self findElementOrNil: firstKey))
 		ifNil: [ absentBlock value ]
@@ -28,7 +28,7 @@ Dictionary >> jeAt: firstKey at: secondKey ifPresent: aPresentBlock ifAbsent: ab
 							assoc value jeAt: secondKey ifPresent: aPresentBlock ifAbsent: absentBlock ]
 ]
 
-{ #category : #'*EarleyParser-Core' }
+{ #category : '*EarleyParser-Core' }
 Dictionary >> jeAt: key ifAbsentPut: absentBlock [
 	"
 	Return the value at the given key.
@@ -46,14 +46,14 @@ Dictionary >> jeAt: key ifAbsentPut: absentBlock [
 		ifNotNil: [ :assoc | assoc ]) value
 ]
 
-{ #category : #'*EarleyParser-Core' }
+{ #category : '*EarleyParser-Core' }
 Dictionary >> jeAt: key ifPresent: aPresentBlock ifAbsent: absentBlock [
 	^ (array at: (self findElementOrNil: key))
 		ifNil: [ absentBlock value ]
 		ifNotNil: [ :assoc | aPresentBlock cull: assoc value ]
 ]
 
-{ #category : #'*EarleyParser-Core' }
+{ #category : '*EarleyParser-Core' }
 Dictionary >> jeAt: key ifPresent: aPresentBlock ifAbsentPut: absentBlock [
 	"
 	Return the value at the given key.
@@ -71,7 +71,7 @@ Dictionary >> jeAt: key ifPresent: aPresentBlock ifAbsentPut: absentBlock [
 		ifNotNil: [ :assoc | aPresentBlock cull: assoc value ]
 ]
 
-{ #category : #'*EarleyParser-Core' }
+{ #category : '*EarleyParser-Core' }
 Dictionary >> jeAt: key put: anObject [
 	"Set the value at key to be anObject.  If key is not found, create a
 	new entry for key and set is value to anObject. Answer anObject."

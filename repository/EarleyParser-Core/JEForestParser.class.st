@@ -6,19 +6,21 @@ Binary Shared Packed Parse Forest (BSPPF)
 	with its root is the final item.
 "
 Class {
-	#name : #JEForestParser,
-	#superclass : #JEAlgorithm,
-	#category : #'EarleyParser-Core-Implementation'
+	#name : 'JEForestParser',
+	#superclass : 'JEAlgorithm',
+	#category : 'EarleyParser-Core-Implementation',
+	#package : 'EarleyParser-Core',
+	#tag : 'Implementation'
 }
 
-{ #category : #'private operations' }
+{ #category : 'private operations' }
 JEForestParser >> complete: item [
 	item
 		predictionItemsWithSymbolAtDotIsHeadDo: [ :previous |
 			previous addFamilyWith: item to: (item end moveDotForward: previous) ]
 ]
 
-{ #category : #'private operations' }
+{ #category : 'private operations' }
 JEForestParser >> newForestFrom: finalItem [
 	"remove the START symbol from the forest, so the root is the first nonterminal of the grammar"
 
@@ -28,7 +30,7 @@ JEForestParser >> newForestFrom: finalItem [
 	^ JEBSPPForest root: finalItem families first first
 ]
 
-{ #category : #public }
+{ #category : 'public' }
 JEForestParser >> parse: words [
 	"returns a parse forest"
 
@@ -41,7 +43,7 @@ JEForestParser >> parse: words [
 	^ JEParseForest given: syntaxForest of: grammar
 ]
 
-{ #category : #'private operations' }
+{ #category : 'private operations' }
 JEForestParser >> scan: item with: word at: column [
 	item
 		addFamilyWith:

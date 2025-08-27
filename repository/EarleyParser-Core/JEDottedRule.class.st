@@ -17,8 +17,8 @@ next - the next dotted rule (myself with the dot move forward)
 
 "
 Class {
-	#name : #JEDottedRule,
-	#superclass : #Object,
+	#name : 'JEDottedRule',
+	#superclass : 'Object',
 	#instVars : [
 		'rule',
 		'dotIndex',
@@ -29,15 +29,17 @@ Class {
 		'epsilon',
 		'next'
 	],
-	#category : #'EarleyParser-Core-Implementation'
+	#category : 'EarleyParser-Core-Implementation',
+	#package : 'EarleyParser-Core',
+	#tag : 'Implementation'
 }
 
-{ #category : #'instance creation' }
+{ #category : 'instance creation' }
 JEDottedRule class >> given: aRule withDotAt: index [
 	^ self basicNew initializeRule: aRule dotAt: index
 ]
 
-{ #category : #comparing }
+{ #category : 'comparing' }
 JEDottedRule >> = aDottedRule [
 	self == aDottedRule
 		ifTrue: [ ^ true ].
@@ -46,27 +48,27 @@ JEDottedRule >> = aDottedRule [
 	^ dotIndex == aDottedRule dotIndex and: [ rule == aDottedRule rule ]
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 JEDottedRule >> body [
 	^ rule body
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 JEDottedRule >> dotIndex [
 	^ dotIndex
 ]
 
-{ #category : #comparing }
+{ #category : 'comparing' }
 JEDottedRule >> hash [
 	^ (rule identityHash + dotIndex hash) hashMultiply
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 JEDottedRule >> head [
 	^ rule head
 ]
 
-{ #category : #initialization }
+{ #category : 'initialization' }
 JEDottedRule >> initializeRule: aRule dotAt: index [
 	rule := aRule.
 	dotIndex := index.
@@ -79,50 +81,50 @@ JEDottedRule >> initializeRule: aRule dotAt: index [
 		ifFalse: [ rule body at: dotIndex ]
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 JEDottedRule >> isActive [
 	"when dot is in the middle of the rule"
 
 	^ active
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 JEDottedRule >> isEpsilon [
 	^ epsilon
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 JEDottedRule >> isFinal [
 	"when dot is at the end of the rule"
 
 	^ final
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 JEDottedRule >> isPredicted [
 	"when dot is at the beginning of the rule"
 
 	^ predicted
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 JEDottedRule >> isRepresentation [
 	^ rule isRepresentation
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 JEDottedRule >> moveDotForward [
 	"a dotted rule of myself with dot move forward"
 
 	^ next
 ]
 
-{ #category : #initialization }
+{ #category : 'initialization' }
 JEDottedRule >> next: aDottedRule [
 	next := aDottedRule
 ]
 
-{ #category : #printing }
+{ #category : 'printing' }
 JEDottedRule >> printOn: aStream [
 	"head: body with dot.
 	 head: ·. "
@@ -139,26 +141,26 @@ JEDottedRule >> printOn: aStream [
 	aStream nextPut: $.
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 JEDottedRule >> rule [
 	^ rule
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 JEDottedRule >> startedAt: column [
 	"an item of myself that started at the given column"
 
 	^ JEDottedItem given: self startedAt: column
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 JEDottedRule >> startedAt: firstColumn andEndedAt: secondColumn [
 	"an item of myself that started and ended at the given columns"
 
 	^ JEDottedItem given: self startedAt: firstColumn andEndedAt: secondColumn
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 JEDottedRule >> symbolAtDot [
 	^ symbolAtDot
 ]

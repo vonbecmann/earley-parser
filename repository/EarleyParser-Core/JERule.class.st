@@ -18,22 +18,24 @@ in the same way nonterminals should be unique.
 
 "
 Class {
-	#name : #JERule,
-	#superclass : #Object,
+	#name : 'JERule',
+	#superclass : 'Object',
 	#instVars : [
 		'head',
 		'body',
 		'dottedRules'
 	],
-	#category : #'EarleyParser-Core-Implementation'
+	#category : 'EarleyParser-Core-Implementation',
+	#package : 'EarleyParser-Core',
+	#tag : 'Implementation'
 }
 
-{ #category : #'instance creation' }
+{ #category : 'instance creation' }
 JERule class >> head: aNonterminal body: aCollection [
 	^ self basicNew initializeHead: aNonterminal body: aCollection
 ]
 
-{ #category : #comparing }
+{ #category : 'comparing' }
 JERule >> = aRule [
 	self == aRule
 		ifTrue: [ ^ true ].
@@ -51,33 +53,33 @@ JERule >> = aRule [
 	^ true
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 JERule >> body [
 	^ body
 ]
 
-{ #category : #'instance creation' }
+{ #category : 'instance creation' }
 JERule >> dotAt: index [
 	"a dotted rule of myself with dot at index"
 
 	^ dottedRules at: index
 ]
 
-{ #category : #'instance creation' }
+{ #category : 'instance creation' }
 JERule >> dotAtBeginning [
 	"a dotted rule of myself with dot at the beginning"
 
 	^ dottedRules first
 ]
 
-{ #category : #'instance creation' }
+{ #category : 'instance creation' }
 JERule >> dotAtEnd [
 	"a dotted rule of myself with dot at the end"
 
 	^ dottedRules last
 ]
 
-{ #category : #comparing }
+{ #category : 'comparing' }
 JERule >> hash [
 	| hash |
 	hash := (self class hash + head hash) hashMultiply.
@@ -85,12 +87,12 @@ JERule >> hash [
 	^ hash
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 JERule >> head [
 	^ head
 ]
 
-{ #category : #initialization }
+{ #category : 'initialization' }
 JERule >> initializeHead: aNonterminal body: aCollection [
 	head := aNonterminal.
 	body := aCollection asArray.
@@ -103,21 +105,21 @@ JERule >> initializeHead: aNonterminal body: aCollection [
 				yourself ]
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 JERule >> isEpsilon [
 	"am i an epsilon(empty) rule?"
 
 	^ body isEmpty
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 JERule >> isRepresentation [
 	"am i a representation rule?"
 
 	^ body size = 1 and: [ body first isTerminal ]
 ]
 
-{ #category : #printing }
+{ #category : 'printing' }
 JERule >> printOn: aStream [
 	"head: body.
 	 head: . "

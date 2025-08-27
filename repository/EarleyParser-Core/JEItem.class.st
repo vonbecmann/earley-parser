@@ -23,100 +23,102 @@ and the members (of a family) represents the sequence of items that constitute  
 
 "
 Class {
-	#name : #JEItem,
-	#superclass : #Object,
+	#name : 'JEItem',
+	#superclass : 'Object',
 	#instVars : [
 		'start',
 		'end'
 	],
-	#category : #'EarleyParser-Core-Implementation'
+	#category : 'EarleyParser-Core-Implementation',
+	#package : 'EarleyParser-Core',
+	#tag : 'Implementation'
 }
 
-{ #category : #visiting }
+{ #category : 'visiting' }
 JEItem >> acceptPostOrderVisitor: aVisitor [
 	aVisitor visitPostOrderPackedNode: self
 ]
 
-{ #category : #visiting }
+{ #category : 'visiting' }
 JEItem >> acceptPreOrderVisitor: aVisitor [
 	aVisitor visitPreOrderPackedNode: self
 ]
 
-{ #category : #visiting }
+{ #category : 'visiting' }
 JEItem >> acceptVisitor: aVisitor [
 	aVisitor visitNode: self
 ]
 
-{ #category : #visiting }
+{ #category : 'visiting' }
 JEItem >> children [
 	^ self families
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 JEItem >> end [
 	"the column that contains this item or nil"
 
 	^ end
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 JEItem >> end: column [
 	"the column that contains this item"
 
 	end := column
 ]
 
-{ #category : #comparing }
+{ #category : 'comparing' }
 JEItem >> equals: anItem [
 	^ self class == anItem class and: [ start = anItem start ]
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 JEItem >> families [
 	^ self subclassResponsibility
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 JEItem >> familiesSize [
 	^ self subclassResponsibility
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 JEItem >> firstKey [
 	self subclassResponsibility
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 JEItem >> isActive [
 	^ self subclassResponsibility
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 JEItem >> isFinal [
 	^ self subclassResponsibility
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 JEItem >> isNonterminal [
 	^ self subclassResponsibility
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 JEItem >> isPredicted [
 	^ self subclassResponsibility
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 JEItem >> isRepresentation [
 	^ self subclassResponsibility
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 JEItem >> isTerminal [
 	^ self subclassResponsibility
 ]
 
-{ #category : #printing }
+{ #category : 'printing' }
 JEItem >> printIntervalOn: aStream [
 	end
 		ifNil: [ 	start shortPrintOn: aStream ]
@@ -128,19 +130,19 @@ JEItem >> printIntervalOn: aStream [
 			aStream nextPut: $] ]
 ]
 
-{ #category : #'initialize-release' }
+{ #category : 'initialize-release' }
 JEItem >> release [
 	start := nil.
 	end := nil.
 	super release
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 JEItem >> secondKey [
 	self subclassResponsibility
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 JEItem >> start [
 	^ start
 ]

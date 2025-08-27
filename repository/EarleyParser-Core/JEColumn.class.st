@@ -20,8 +20,8 @@ itemsByKey - items by key. useful for testing if a item already exists.
 
 "
 Class {
-	#name : #JEColumn,
-	#superclass : #Object,
+	#name : 'JEColumn',
+	#superclass : 'Object',
 	#instVars : [
 		'number',
 		'items',
@@ -30,34 +30,36 @@ Class {
 		'finalItemsByNonterminal',
 		'itemsByKey'
 	],
-	#category : #'EarleyParser-Core-Implementation'
+	#category : 'EarleyParser-Core-Implementation',
+	#package : 'EarleyParser-Core',
+	#tag : 'Implementation'
 }
 
-{ #category : #'instance creation' }
+{ #category : 'instance creation' }
 JEColumn class >> number: anInteger [
 	^ self basicNew initializeNumber: anInteger
 ]
 
-{ #category : #'instance creation' }
+{ #category : 'instance creation' }
 JEColumn class >> numberOneWith: aDottedRule [
 	^ (self number: 1)
 		addDottedRule: aDottedRule;
 		yourself
 ]
 
-{ #category : #comparing }
+{ #category : 'comparing' }
 JEColumn >> <= column [
 	^ number <= column number
 ]
 
-{ #category : #comparing }
+{ #category : 'comparing' }
 JEColumn >> = column [
 	self == column
 		ifTrue: [ ^ true ].
 	^ self class == column class and: [ number == column number ]
 ]
 
-{ #category : #adding }
+{ #category : 'adding' }
 JEColumn >> add: aDottedItem [
 	" Optimize for efficiency.
 		if the item doesn't exist then add it last.
@@ -69,7 +71,7 @@ JEColumn >> add: aDottedItem [
 		ifAbsentPut: [ self addDottedItem: aDottedItem ]
 ]
 
-{ #category : #private }
+{ #category : 'private' }
 JEColumn >> addDottedItem: dottedItem [
 	dottedItem isFinal
 		ifTrue: [
@@ -90,7 +92,7 @@ JEColumn >> addDottedItem: dottedItem [
 	^ items addLast: dottedItem
 ]
 
-{ #category : #adding }
+{ #category : 'adding' }
 JEColumn >> addDottedRule: dottedRule [
 	" Optimize for efficiency.
 	  add an item with this dotted rule starting at this column "
@@ -101,7 +103,7 @@ JEColumn >> addDottedRule: dottedRule [
 		ifAbsentPut: [ self addDottedItem: (dottedRule startedAt: self) ]
 ]
 
-{ #category : #parsing }
+{ #category : 'parsing' }
 JEColumn >> addTerminalItem: terminalItem [
 	" add a scanned terminal while parsing "
 
@@ -113,20 +115,21 @@ JEColumn >> addTerminalItem: terminalItem [
 			items addLast: terminalItem ]
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 JEColumn >> expectedSymbols [
+
 	| expectedSymbols |
 	expectedSymbols := Set new.
 	items
-		do: [ :item |
-			item isActive
-				ifTrue: [ expectedSymbols add: item symbolAtDot ].
-			(item isPredicted and: [ item isRepresentation ])
-				ifTrue: [ expectedSymbols add: item head ] ].
+		select: [ :item | item isActive ]
+		thenDo: [ :item | expectedSymbols add: item symbolAtDot ].
+	items
+		select: [ :item | item isPredicted and: [ item isRepresentation ] ]
+		thenDo: [ :item | expectedSymbols add: item head ].
 	^ expectedSymbols asArray
 ]
 
-{ #category : #private }
+{ #category : 'private' }
 JEColumn >> finalItemsByNonterminalAt: nonterminal put: anItem [
 	finalItemsByNonterminal
 		jeAt: nonterminal
@@ -137,17 +140,17 @@ JEColumn >> finalItemsByNonterminalAt: nonterminal put: anItem [
 					yourself ]
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 JEColumn >> finalItemsWithHeadIs: aNonterminal [
 	^ finalItemsByNonterminal at: aNonterminal ifAbsent: #()
 ]
 
-{ #category : #comparing }
+{ #category : 'comparing' }
 JEColumn >> hash [
 	^ number hash
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 JEColumn >> ifEmpty: aBlock [
 	"Evaluate the given block, answering its value if the receiver is empty, otherwise answer the receiver."
 
@@ -156,7 +159,7 @@ JEColumn >> ifEmpty: aBlock [
 		ifFalse: [ self ]
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 JEColumn >> includes: anItem [
 	"Answer whether an Item is present.
 	Optimize for efficiency.
@@ -169,7 +172,7 @@ JEColumn >> includes: anItem [
 		ifAbsent: [ false ]
 ]
 
-{ #category : #initialization }
+{ #category : 'initialization' }
 JEColumn >> initialize [
 	itemsToProcess := SinglyLinkedQueue new.
 	items := SinglyLinkedList new.
@@ -178,18 +181,18 @@ JEColumn >> initialize [
 	itemsByKey := IdentityDictionary new
 ]
 
-{ #category : #initialization }
+{ #category : 'initialization' }
 JEColumn >> initializeNumber: anInteger [
 	self initialize.
 	number := anInteger
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 JEColumn >> isEmpty [
 	^ items isEmpty
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 JEColumn >> like: anItem ifFound: foundBlock ifNone: exceptionBlock [
 	" Optimize for efficiency.
 	 ^ itemsByKey
@@ -207,7 +210,7 @@ JEColumn >> like: anItem ifFound: foundBlock ifNone: exceptionBlock [
 		ifAbsent: exceptionBlock
 ]
 
-{ #category : #adding }
+{ #category : 'adding' }
 JEColumn >> moveDotForward: previousItem [
 	" Optimize for efficiency.
 		if the item already exits
@@ -220,17 +223,17 @@ JEColumn >> moveDotForward: previousItem [
 		ifAbsentPut: [ self addDottedItem: previousItem moveDotForward ]
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 JEColumn >> number [
 	^ number
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 JEColumn >> predictionItemsWithSymbolAtDotIs: aNonterminal [
 	^ predictionItemsByNonterminal at: aNonterminal ifAbsent: #()
 ]
 
-{ #category : #printing }
+{ #category : 'printing' }
 JEColumn >> printOn: aStream [
 	"Column [number]"
 
@@ -239,14 +242,14 @@ JEColumn >> printOn: aStream [
 	aStream nextPut: $]
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 JEColumn >> processItems: aBlock [
 	"process each item in order"
 
 	[ itemsToProcess isEmpty ] whileFalse: [ aBlock value: itemsToProcess next ]
 ]
 
-{ #category : #'initialize-release' }
+{ #category : 'initialize-release' }
 JEColumn >> release [
 	"a column has references to items and an item has references to a column"
 
@@ -258,14 +261,14 @@ JEColumn >> release [
 	super release
 ]
 
-{ #category : #printing }
+{ #category : 'printing' }
 JEColumn >> shortPrintOn: aStream [
 	"number"
 
 	number printOn: aStream
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 JEColumn >> size [
 	^ items size
 ]

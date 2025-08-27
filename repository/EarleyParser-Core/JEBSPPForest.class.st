@@ -7,30 +7,32 @@ Forest
 
 "
 Class {
-	#name : #JEBSPPForest,
-	#superclass : #Object,
+	#name : 'JEBSPPForest',
+	#superclass : 'Object',
 	#instVars : [
 		'root'
 	],
-	#category : #'EarleyParser-Core-BSPPForest'
+	#category : 'EarleyParser-Core-BSPPForest',
+	#package : 'EarleyParser-Core',
+	#tag : 'BSPPForest'
 }
 
-{ #category : #'instance creation' }
+{ #category : 'instance creation' }
 JEBSPPForest class >> root: aPackedNode [
 	^ self basicNew initializeRoot: aPackedNode
 ]
 
-{ #category : #visiting }
+{ #category : 'visiting' }
 JEBSPPForest >> acceptVisitor: aVisitor [
 	aVisitor visitNode: root
 ]
 
-{ #category : #initialization }
+{ #category : 'initialization' }
 JEBSPPForest >> initializeRoot: aPackedNode [
 	root := aPackedNode
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 JEBSPPForest >> numberOfTrees [
 	"depth visit from the root node. return the number of trees from the root node"
 
@@ -52,7 +54,7 @@ JEBSPPForest >> numberOfTrees [
 	^ numberOfTrees at: root
 ]
 
-{ #category : #printing }
+{ #category : 'printing' }
 JEBSPPForest >> printOn: aStream [
 	aStream
 		print: self class;
@@ -61,7 +63,7 @@ JEBSPPForest >> printOn: aStream [
 		nextPut: $)
 ]
 
-{ #category : #'initialize-release' }
+{ #category : 'initialize-release' }
 JEBSPPForest >> release [
 	root release.
 	root := nil.

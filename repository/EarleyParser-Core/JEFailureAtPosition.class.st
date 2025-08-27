@@ -6,26 +6,28 @@ actual - actual character found in the input sentence.
 
 "
 Class {
-	#name : #JEFailureAtPosition,
-	#superclass : #JEFailure,
+	#name : 'JEFailureAtPosition',
+	#superclass : 'JEFailure',
 	#instVars : [
 		'position',
 		'actual'
 	],
-	#category : #'EarleyParser-Core-Implementation'
+	#category : 'EarleyParser-Core-Implementation',
+	#package : 'EarleyParser-Core',
+	#tag : 'Implementation'
 }
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 JEFailureAtPosition >> actual [
 	^ actual
 ]
 
-{ #category : #initialization }
+{ #category : 'initialization' }
 JEFailureAtPosition >> actual: anObject [
 	actual := anObject
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 JEFailureAtPosition >> messageText [
 	"Return an exception's message text."
 
@@ -45,19 +47,19 @@ JEFailureAtPosition >> messageText [
 					s nextPut: $} ] ]
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 JEFailureAtPosition >> position [
 	"return the error location"
 
 	^ position
 ]
 
-{ #category : #initialization }
+{ #category : 'initialization' }
 JEFailureAtPosition >> position: anInteger [
 	position := anInteger
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 JEFailureAtPosition >> wasAtEnd [
 	" false because it failed in the middle of the input sentence. "
 

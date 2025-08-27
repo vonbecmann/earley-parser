@@ -12,16 +12,18 @@ node
 
 "
 Class {
-	#name : #JETerminalItem,
-	#superclass : #JEItem,
+	#name : 'JETerminalItem',
+	#superclass : 'JEItem',
 	#instVars : [
 		'terminal',
 		'word'
 	],
-	#category : #'EarleyParser-Core-Implementation'
+	#category : 'EarleyParser-Core-Implementation',
+	#package : 'EarleyParser-Core',
+	#tag : 'Implementation'
 }
 
-{ #category : #'instance creation' }
+{ #category : 'instance creation' }
 JETerminalItem class >> given: aTerminal word: aWord startedAt: firstColumn [
 	"
 	a terminal item for the given terminal
@@ -31,7 +33,7 @@ JETerminalItem class >> given: aTerminal word: aWord startedAt: firstColumn [
 	^ self basicNew initializeTerminal: aTerminal word: aWord startedAt: firstColumn
 ]
 
-{ #category : #'instance creation' }
+{ #category : 'instance creation' }
 JETerminalItem class >> given: aTerminal word: aWord startedAt: firstColumn andEndedAt: secondColumn [
 	"
 	a terminal item for the given terminal
@@ -43,7 +45,7 @@ JETerminalItem class >> given: aTerminal word: aWord startedAt: firstColumn andE
 		yourself
 ]
 
-{ #category : #comparing }
+{ #category : 'comparing' }
 JETerminalItem >> = anObject [
 	self == anObject
 		ifTrue: [ ^ true ].
@@ -58,69 +60,69 @@ JETerminalItem >> = anObject [
 	^ true
 ]
 
-{ #category : #comparing }
+{ #category : 'comparing' }
 JETerminalItem >> equals: anItem [
 	^ (super equals: anItem) and: [ terminal = anItem terminal ]
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 JETerminalItem >> families [
 	^ #()
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 JETerminalItem >> familiesSize [
 	^ 0
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 JETerminalItem >> firstKey [
 	^ terminal
 ]
 
-{ #category : #comparing }
+{ #category : 'comparing' }
 JETerminalItem >> hash [
 	^ (terminal hash + (start hash + end hash) hashMultiply) hashMultiply
 ]
 
-{ #category : #initialization }
+{ #category : 'initialization' }
 JETerminalItem >> initializeTerminal: aTerminal word: aWord startedAt: column [
 	terminal := aTerminal.
 	word := aWord.
 	start := column
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 JETerminalItem >> isActive [
 	^ false
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 JETerminalItem >> isFinal [
 	^ true
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 JETerminalItem >> isNonterminal [
 	^ false
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 JETerminalItem >> isPredicted [
 	^ false
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 JETerminalItem >> isRepresentation [
 	^ false
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 JETerminalItem >> isTerminal [
 	^ true
 ]
 
-{ #category : #printing }
+{ #category : 'printing' }
 JETerminalItem >> printOn: aStream [
 	"[ terminal @ [ start, end ] ]"
 
@@ -131,24 +133,24 @@ JETerminalItem >> printOn: aStream [
 	aStream nextPut: $]
 ]
 
-{ #category : #'initialize-release' }
+{ #category : 'initialize-release' }
 JETerminalItem >> release [
 	terminal := nil.
 	word := nil.
 	super release
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 JETerminalItem >> secondKey [
 	^ start
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 JETerminalItem >> terminal [
 	^ terminal
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 JETerminalItem >> word [
 	^ word
 ]

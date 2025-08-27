@@ -7,12 +7,14 @@ a binary shared packed parse forest.
 
 "
 Class {
-	#name : #JEDepthFirstVisitor,
-	#superclass : #JEBSPPFVisitor,
-	#category : #'EarleyParser-Core-BSPPForest'
+	#name : 'JEDepthFirstVisitor',
+	#superclass : 'JEBSPPFVisitor',
+	#category : 'EarleyParser-Core-BSPPForest',
+	#package : 'EarleyParser-Core',
+	#tag : 'BSPPForest'
 }
 
-{ #category : #visiting }
+{ #category : 'visiting' }
 JEDepthFirstVisitor >> visitNode: aPackedOrFamilyNode [
 	" status: notvisited(0) -> visited(1) -> done(2)"
 

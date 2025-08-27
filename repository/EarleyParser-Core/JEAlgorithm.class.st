@@ -4,20 +4,22 @@ look-ahead will not be considered
 
 "
 Class {
-	#name : #JEAlgorithm,
-	#superclass : #Object,
+	#name : 'JEAlgorithm',
+	#superclass : 'Object',
 	#instVars : [
 		'grammar'
 	],
-	#category : #'EarleyParser-Core-Implementation'
+	#category : 'EarleyParser-Core-Implementation',
+	#package : 'EarleyParser-Core',
+	#tag : 'Implementation'
 }
 
-{ #category : #'instance creation' }
+{ #category : 'instance creation' }
 JEAlgorithm class >> given: aGrammar [
 	^ self basicNew initializeGrammar: aGrammar
 ]
 
-{ #category : #'private operations' }
+{ #category : 'private operations' }
 JEAlgorithm >> complete: item [
 	"
 	Complete:
@@ -30,7 +32,7 @@ JEAlgorithm >> complete: item [
 	self subclassResponsibility
 ]
 
-{ #category : #'private template' }
+{ #category : 'private template' }
 JEAlgorithm >> evaluate: words [
 	| n chart |
 	n := words size + 1.
@@ -52,13 +54,13 @@ JEAlgorithm >> evaluate: words [
 	^ chart
 ]
 
-{ #category : #initialization }
+{ #category : 'initialization' }
 JEAlgorithm >> initializeGrammar: aGrammar [
 	self initialize.
 	grammar := aGrammar
 ]
 
-{ #category : #'private operations' }
+{ #category : 'private operations' }
 JEAlgorithm >> predict: item [
 	"
 	Prediction:
@@ -86,7 +88,7 @@ JEAlgorithm >> predict: item [
 	item finalItemsWithHeadIsSymbolAtDotDo: [ :again | self complete: again ]
 ]
 
-{ #category : #'private operations' }
+{ #category : 'private operations' }
 JEAlgorithm >> scan: item with: word at: column [
 	"scan: add a new item with the dot move forward, over the recently scan terminal.
 	If a is the next input symbol

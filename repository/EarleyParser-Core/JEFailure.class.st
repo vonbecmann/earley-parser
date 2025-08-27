@@ -7,15 +7,17 @@ expected symbols - terminals or nonterminals expected next in the input sentence
 
 "
 Class {
-	#name : #JEFailure,
-	#superclass : #Error,
+	#name : 'JEFailure',
+	#superclass : 'Error',
 	#instVars : [
 		'expectedSymbols'
 	],
-	#category : #'EarleyParser-Core-Implementation'
+	#category : 'EarleyParser-Core-Implementation',
+	#package : 'EarleyParser-Core',
+	#tag : 'Implementation'
 }
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 JEFailure class >> failedAt: column got: anObject [
 	" failed at the given column because it got an object that it isn't one of the expected symbols. "
 
@@ -26,7 +28,7 @@ JEFailure class >> failedAt: column got: anObject [
 		signal
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 JEFailure class >> failedAtLast: column [
 	" failed at last column. the position is not relevant and there is no actual object because we are at the end "
 
@@ -35,19 +37,19 @@ JEFailure class >> failedAtLast: column [
 		signal
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 JEFailure >> expectedSymbols [
 	"expected symbols (terminals or nonterminals)"
 
 	^ expectedSymbols
 ]
 
-{ #category : #initialization }
+{ #category : 'initialization' }
 JEFailure >> expectedSymbols: aSymbolCollection [
 	expectedSymbols := aSymbolCollection
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 JEFailure >> wasAtEnd [
 	"
 	- true if it failed at the end of the input sentence.

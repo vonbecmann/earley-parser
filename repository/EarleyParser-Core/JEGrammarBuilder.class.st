@@ -14,8 +14,8 @@ Representation Rules are like these
 
 "
 Class {
-	#name : #JEGrammarBuilder,
-	#superclass : #Object,
+	#name : 'JEGrammarBuilder',
+	#superclass : 'Object',
 	#instVars : [
 		'productionRules',
 		'representations',
@@ -23,10 +23,12 @@ Class {
 		'nonterminals',
 		'startNonterminal'
 	],
-	#category : #'EarleyParser-Core-Public'
+	#category : 'EarleyParser-Core-Public',
+	#package : 'EarleyParser-Core',
+	#tag : 'Public'
 }
 
-{ #category : #building }
+{ #category : 'building' }
 JEGrammarBuilder >> build [
 	"	given the production and representation rules builds a grammar
 		according to the conditions. see class comment "
@@ -47,31 +49,31 @@ JEGrammarBuilder >> build [
 		newGrammarWith: (unique sorted: [ :a :b | (index at: a) < (index at: b) ])
 ]
 
-{ #category : #initialization }
+{ #category : 'initialization' }
 JEGrammarBuilder >> initialize [
 	productionRules := representations := #()
 ]
 
-{ #category : #initialization }
+{ #category : 'initialization' }
 JEGrammarBuilder >> initializeNonterminals [
 	nonterminals := (representations
 		collect: [ :assoc | NCNonterminal named: assoc key ]
 		as: Set) , (productionRules collect: [ :each | each head ] as: Set)
 ]
 
-{ #category : #initialization }
+{ #category : 'initialization' }
 JEGrammarBuilder >> initializeStartNonterminal [
 	startNonterminal := self nonterminalLike: productionRules first head
 ]
 
-{ #category : #initialization }
+{ #category : 'initialization' }
 JEGrammarBuilder >> initializeTerminals [
 	terminals := representations
 		collect: [ :assoc | assoc value ]
 		as: Set
 ]
 
-{ #category : #private }
+{ #category : 'private' }
 JEGrammarBuilder >> newGrammarWith: sortedRules [
 	| newGrammar |
 	newGrammar := JEGrammar
@@ -83,19 +85,19 @@ JEGrammarBuilder >> newGrammarWith: sortedRules [
 	^ newGrammar
 ]
 
-{ #category : #private }
+{ #category : 'private' }
 JEGrammarBuilder >> nonTerminalNamed: symbol [
 	^ nonterminals detect: [ :nonterminal | nonterminal named = symbol ]
 ]
 
-{ #category : #private }
+{ #category : 'private' }
 JEGrammarBuilder >> nonterminalLike: aGivenNonterminal [
 	^ nonterminals
 		like: aGivenNonterminal
 		ifAbsent: [ Error signal: 'Unknown Nonterminal ' , aGivenNonterminal asString ]
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 JEGrammarBuilder >> productionRules: productionRuleCollection [
 	self
 		assert: productionRuleCollection isNotEmpty
@@ -103,7 +105,7 @@ JEGrammarBuilder >> productionRules: productionRuleCollection [
 	productionRules := productionRuleCollection
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 JEGrammarBuilder >> representations: terminalNotionToRepresentationList [
 	self
 		assert: terminalNotionToRepresentationList isNotEmpty
@@ -111,13 +113,13 @@ JEGrammarBuilder >> representations: terminalNotionToRepresentationList [
 	representations := terminalNotionToRepresentationList
 ]
 
-{ #category : #initialization }
+{ #category : 'initialization' }
 JEGrammarBuilder >> reset [
 	productionRules := representations := #().
 	terminals := nonterminals := startNonterminal := nil
 ]
 
-{ #category : #private }
+{ #category : 'private' }
 JEGrammarBuilder >> terminalLike: aGivenTerminal [
 	^ terminals like: aGivenTerminal
 ]

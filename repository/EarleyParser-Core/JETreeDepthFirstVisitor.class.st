@@ -11,12 +11,14 @@ it is useful because it is faster.
 
 "
 Class {
-	#name : #JETreeDepthFirstVisitor,
-	#superclass : #JEBSPPFVisitor,
-	#category : #'EarleyParser-Core-BSPPForest'
+	#name : 'JETreeDepthFirstVisitor',
+	#superclass : 'JEBSPPFVisitor',
+	#category : 'EarleyParser-Core-BSPPForest',
+	#package : 'EarleyParser-Core',
+	#tag : 'BSPPForest'
 }
 
-{ #category : #visiting }
+{ #category : 'visiting' }
 JETreeDepthFirstVisitor >> visitNode: aPackedOrFamilyNode [
 	" visited: false -> true "
 

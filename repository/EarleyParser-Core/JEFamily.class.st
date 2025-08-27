@@ -15,17 +15,19 @@ members represent  the sequence of items that constitute  a derivation.
 
 "
 Class {
-	#name : #JEFamily,
-	#superclass : #Object,
+	#name : 'JEFamily',
+	#superclass : 'Object',
 	#instVars : [
 		'parent',
 		'children',
 		'members'
 	],
-	#category : #'EarleyParser-Core-BSPPForest'
+	#category : 'EarleyParser-Core-BSPPForest',
+	#package : 'EarleyParser-Core',
+	#tag : 'BSPPForest'
 }
 
-{ #category : #'instance creation' }
+{ #category : 'instance creation' }
 JEFamily class >> emptyWithParent: parentPackedNode [
 	^ self basicNew
 		initializeParent: parentPackedNode
@@ -33,7 +35,7 @@ JEFamily class >> emptyWithParent: parentPackedNode [
 		andChildren: #()
 ]
 
-{ #category : #'instance creation' }
+{ #category : 'instance creation' }
 JEFamily class >> parent: parentPackedNode first: firstChildPackedNode [
 	^ self basicNew
 		initializeParent: parentPackedNode
@@ -41,7 +43,7 @@ JEFamily class >> parent: parentPackedNode first: firstChildPackedNode [
 		andChildren: {firstChildPackedNode}
 ]
 
-{ #category : #'instance creation' }
+{ #category : 'instance creation' }
 JEFamily class >> parent: parentPackedNode first: firstChildPackedNode second: secondChildPackedNode [
 	| children |
 	children := {firstChildPackedNode. secondChildPackedNode}.
@@ -51,7 +53,7 @@ JEFamily class >> parent: parentPackedNode first: firstChildPackedNode second: s
 		andChildren: children
 ]
 
-{ #category : #comparing }
+{ #category : 'comparing' }
 JEFamily >> = anObject [
 	^ self class == anObject class
 		and: [ parent == anObject parent
@@ -59,56 +61,56 @@ JEFamily >> = anObject [
 					and: [ self second == anObject second ] ] ]
 ]
 
-{ #category : #visiting }
+{ #category : 'visiting' }
 JEFamily >> acceptPostOrderVisitor: aVisitor [
 	aVisitor visitPostOrderFamily: self
 ]
 
-{ #category : #visiting }
+{ #category : 'visiting' }
 JEFamily >> acceptPreOrderVisitor: aVisitor [
 	aVisitor visitPreOrderFamily: self
 ]
 
-{ #category : #visiting }
+{ #category : 'visiting' }
 JEFamily >> acceptVisitor: aVisitor [
 	aVisitor visitNode: self
 ]
 
-{ #category : #visiting }
+{ #category : 'visiting' }
 JEFamily >> children [
 	^ children
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 JEFamily >> first [
 	^ members first
 ]
 
-{ #category : #comparing }
+{ #category : 'comparing' }
 JEFamily >> hash [
 	^ children
 		inject: (self class hash + parent identityHash) hashMultiply
 		into: [ :hash :each | (hash + each identityHash) hashMultiply ]
 ]
 
-{ #category : #initialization }
+{ #category : 'initialization' }
 JEFamily >> initializeParent: parentPackedNode members: nilPackedNodes andChildren: notNilPackedNodes [
 	parent := parentPackedNode.
 	members := nilPackedNodes.
 	children := notNilPackedNodes
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 JEFamily >> isEmpty [
 	^ children isEmpty
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 JEFamily >> parent [
 	^ parent
 ]
 
-{ #category : #printing }
+{ #category : 'printing' }
 JEFamily >> printOn: aStream [
 	aStream nextPut: $(.
 	children
@@ -117,7 +119,7 @@ JEFamily >> printOn: aStream [
 	aStream nextPut: $)
 ]
 
-{ #category : #'initialize-release' }
+{ #category : 'initialize-release' }
 JEFamily >> release [
 	parent := nil.
 	children := nil.
@@ -125,12 +127,12 @@ JEFamily >> release [
 	super release
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 JEFamily >> second [
 	^ members second
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 JEFamily >> size [
 	^ children size
 ]

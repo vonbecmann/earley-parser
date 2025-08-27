@@ -16,24 +16,26 @@ end: the item set that contains this item or nil. but an item always belongs to 
 
 "
 Class {
-	#name : #JEDottedItem,
-	#superclass : #JEItem,
+	#name : 'JEDottedItem',
+	#superclass : 'JEItem',
 	#instVars : [
 		'dottedRule',
 		'families',
 		'familiesByKey'
 	],
-	#category : #'EarleyParser-Core-Implementation'
+	#category : 'EarleyParser-Core-Implementation',
+	#package : 'EarleyParser-Core',
+	#tag : 'Implementation'
 }
 
-{ #category : #'instance creation' }
+{ #category : 'instance creation' }
 JEDottedItem class >> given: aDottedRule startedAt: column [
 	"an item for the given dotted rule that started its recognition at the given column"
 
 	^ self basicNew initializeDottedRule: aDottedRule start: column
 ]
 
-{ #category : #'instance creation' }
+{ #category : 'instance creation' }
 JEDottedItem class >> given: aDottedRule startedAt: firstColumn andEndedAt: secondColumn [
 	"an item for the given dotted rule that started its recognition at the given columns"
 
@@ -42,7 +44,7 @@ JEDottedItem class >> given: aDottedRule startedAt: firstColumn andEndedAt: seco
 		yourself
 ]
 
-{ #category : #comparing }
+{ #category : 'comparing' }
 JEDottedItem >> = anItem [
 	self == anItem
 		ifTrue: [ ^ true ].
@@ -57,7 +59,7 @@ JEDottedItem >> = anItem [
 	^ true
 ]
 
-{ #category : #parsing }
+{ #category : 'parsing' }
 JEDottedItem >> addEmptyFamily [
 	familiesByKey
 		jeAt: nil
@@ -67,7 +69,7 @@ JEDottedItem >> addEmptyFamily [
 	^ self
 ]
 
-{ #category : #parsing }
+{ #category : 'parsing' }
 JEDottedItem >> addFamilyWith: completeItem [
 	familiesByKey
 		jeAt: completeItem
@@ -77,7 +79,7 @@ JEDottedItem >> addFamilyWith: completeItem [
 			true ]
 ]
 
-{ #category : #parsing }
+{ #category : 'parsing' }
 JEDottedItem >> addFamilyWith: previousItem and: completeItem [
 	familiesByKey
 		jeAt: previousItem
@@ -87,54 +89,54 @@ JEDottedItem >> addFamilyWith: previousItem and: completeItem [
 			true ]
 ]
 
-{ #category : #parsing }
+{ #category : 'parsing' }
 JEDottedItem >> addFamilyWith: completeItem to: parentItem [
 	self isPredicted
 		ifTrue: [ parentItem addFamilyWith: completeItem ]
 		ifFalse: [ parentItem addFamilyWith: self and: completeItem ]
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 JEDottedItem >> dottedRule [
 	^ dottedRule
 ]
 
-{ #category : #comparing }
+{ #category : 'comparing' }
 JEDottedItem >> equals: anItem [
 	^ (super equals: anItem) and: [ dottedRule = anItem dottedRule ]
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 JEDottedItem >> families [
 	^ families
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 JEDottedItem >> familiesSize [
 	^ self families size
 ]
 
-{ #category : #enumerating }
+{ #category : 'enumerating' }
 JEDottedItem >> finalItemsWithHeadIsSymbolAtDotDo: aBlock [
 	(end finalItemsWithHeadIs: dottedRule symbolAtDot) do: aBlock
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 JEDottedItem >> firstKey [
 	^ dottedRule
 ]
 
-{ #category : #comparing }
+{ #category : 'comparing' }
 JEDottedItem >> hash [
 	^ ((dottedRule hash + start hash) hashMultiply + end hash) hashMultiply
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 JEDottedItem >> head [
 	^ dottedRule head
 ]
 
-{ #category : #initialization }
+{ #category : 'initialization' }
 JEDottedItem >> initializeDottedRule: aRule start: column [
 	dottedRule := aRule.
 	start := column.
@@ -144,57 +146,57 @@ JEDottedItem >> initializeDottedRule: aRule start: column [
 		ifTrue: [ self addEmptyFamily ]
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 JEDottedItem >> isActive [
 	^ dottedRule isActive
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 JEDottedItem >> isEpsilon [
 	^ dottedRule isEpsilon
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 JEDottedItem >> isFinal [
 	^ dottedRule isFinal
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 JEDottedItem >> isNonterminal [
 	^ true
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 JEDottedItem >> isPredicted [
 	^ dottedRule isPredicted
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 JEDottedItem >> isRepresentation [
 	^ dottedRule isRepresentation
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 JEDottedItem >> isTerminal [
 	^ false
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 JEDottedItem >> moveDotForward [
 	^ self class given: dottedRule moveDotForward startedAt: start
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 JEDottedItem >> predictionItemsWithSymbolAtDotIsHead [
 	^ start predictionItemsWithSymbolAtDotIs: dottedRule head
 ]
 
-{ #category : #enumerating }
+{ #category : 'enumerating' }
 JEDottedItem >> predictionItemsWithSymbolAtDotIsHeadDo: aBlock [
 	(start predictionItemsWithSymbolAtDotIs: dottedRule head) do: aBlock
 ]
 
-{ #category : #printing }
+{ #category : 'printing' }
 JEDottedItem >> printOn: aStream [
 	"[ dotted rule @ start ]"
 
@@ -207,7 +209,7 @@ JEDottedItem >> printOn: aStream [
 	aStream nextPut: $]
 ]
 
-{ #category : #'initialize-release' }
+{ #category : 'initialize-release' }
 JEDottedItem >> release [
 	dottedRule := nil.
 	families
@@ -217,17 +219,17 @@ JEDottedItem >> release [
 	super release
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 JEDottedItem >> rule [
 	^ dottedRule rule
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 JEDottedItem >> secondKey [
 	^ start
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 JEDottedItem >> symbolAtDot [
 	^ dottedRule symbolAtDot
 ]

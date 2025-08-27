@@ -1,6 +1,6 @@
-Extension { #name : #Association }
+Extension { #name : 'Association' }
 
-{ #category : #'*EarleyParser-Core' }
+{ #category : '*EarleyParser-Core' }
 Association >> buildProductionRuleGiven: grammarBuilder [
 	^ NCProductionRule
 		head: (grammarBuilder nonTerminalNamed: self key)

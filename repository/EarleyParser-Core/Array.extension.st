@@ -1,6 +1,6 @@
-Extension { #name : #Array }
+Extension { #name : 'Array' }
 
-{ #category : #'*EarleyParser-Core' }
+{ #category : '*EarleyParser-Core' }
 Array >> asProductionRule [
 	^ NCProductionRule
 		headNamed: self first

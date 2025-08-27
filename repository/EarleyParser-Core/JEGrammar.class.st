@@ -20,8 +20,8 @@ ruleToProductionDict - maps algorithm's rule to production rules.
 	useful when you get a derivation.
 "
 Class {
-	#name : #JEGrammar,
-	#superclass : #Object,
+	#name : 'JEGrammar',
+	#superclass : 'Object',
 	#instVars : [
 		'nonterminals',
 		'terminals',
@@ -31,10 +31,12 @@ Class {
 		'predictedAlternatives',
 		'ruleToProductionDict'
 	],
-	#category : #'EarleyParser-Core-Public'
+	#category : 'EarleyParser-Core-Public',
+	#package : 'EarleyParser-Core',
+	#tag : 'Public'
 }
 
-{ #category : #private }
+{ #category : 'private' }
 JEGrammar class >> nonterminals: nonterminalSet terminals: terminalSet productionRules: productionRuleCollection startNonterminal: aNonterminal [
 	" see grammar builder and use it "
 
@@ -46,7 +48,7 @@ JEGrammar class >> nonterminals: nonterminalSet terminals: terminalSet productio
 		yourself
 ]
 
-{ #category : #'instance creation' }
+{ #category : 'instance creation' }
 JEGrammar class >> productionRules: productionRuleArray representations: terminalNotionToRepresentationList [
 	"	a grammar based on a collection of rules, starting at the first rule's left hand.
 	Production Rules
@@ -79,33 +81,33 @@ JEGrammar class >> productionRules: productionRuleArray representations: termina
 		build
 ]
 
-{ #category : #public }
+{ #category : 'public' }
 JEGrammar >> accepts: words [
 	"answer if the grammar accepts the given words"
 
 	^ (JERecognizer given: self) accepts: words
 ]
 
-{ #category : #public }
+{ #category : 'public' }
 JEGrammar >> accepts: words startingAt: aNonterminalNamed [
 	"answer if the grammar accepts the given words starting at a nonterminal"
 
 	^ (self startAt: aNonterminalNamed) accepts: words
 ]
 
-{ #category : #private }
+{ #category : 'private' }
 JEGrammar >> alternativesOf: aNonterminal [
 	^ predictedAlternatives at: aNonterminal ifAbsent: #()
 ]
 
-{ #category : #initialization }
+{ #category : 'initialization' }
 JEGrammar >> initialize [
 	productionRules := ArrayMultiValuedDictionary dictionary: OrderedDictionary.
 	predictedAlternatives := ArrayMultiValuedDictionary dictionary: IdentityDictionary.
 	ruleToProductionDict := IdentityDictionary new
 ]
 
-{ #category : #initialization }
+{ #category : 'initialization' }
 JEGrammar >> initializeNonterminals: nonterminalSet terminals: terminalSet productionRules: productionRuleCollection startNonterminal: aNonterminal [
 	self initialize.
 	nonterminals := nonterminalSet.
@@ -121,7 +123,7 @@ JEGrammar >> initializeNonterminals: nonterminalSet terminals: terminalSet produ
 	startRule := JERule head: (NCNonterminal named: 'START') body: {startSymbol}
 ]
 
-{ #category : #private }
+{ #category : 'private' }
 JEGrammar >> nonterminal: aNonterminalNamed [
 	^ nonterminals
 		detect: [ :each | each named = aNonterminalNamed ]
@@ -135,17 +137,17 @@ JEGrammar >> nonterminal: aNonterminalNamed [
 								nextPutAll: aNonterminalNamed asString ]) ]
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 JEGrammar >> nonterminals [
 	^ nonterminals asArray
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 JEGrammar >> nonterminalsSize [
 	^ nonterminals size
 ]
 
-{ #category : #public }
+{ #category : 'public' }
 JEGrammar >> parse: words [
 	"returns a parse forest"
 	"returns a Binary Shared Packed Parse Forest"
@@ -153,7 +155,7 @@ JEGrammar >> parse: words [
 	^ (JEForestParser given: self) parse: words
 ]
 
-{ #category : #printing }
+{ #category : 'printing' }
 JEGrammar >> printOn: aStream [
 	"Append to the argument, aStream, a sequence of characters that
 	identifies the receiver."
@@ -165,19 +167,19 @@ JEGrammar >> printOn: aStream [
 		nextPut: $)
 ]
 
-{ #category : #private }
+{ #category : 'private' }
 JEGrammar >> productionRuleAt: rule [
 	"return the production rule associated with algorithm's rule"
 
 	^ ruleToProductionDict at: rule
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 JEGrammar >> productionRules [
 	^ productionRules values
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 JEGrammar >> ruleAt: anAssociation [
 	"an association like
 		aNamedNonterminal -> index   : the rule at index for a named nonterminal
@@ -200,7 +202,7 @@ JEGrammar >> ruleAt: anAssociation [
 								nextPutAll: 	anAssociation key ]) ]
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 JEGrammar >> rulesAtAll: associationCollection [
 	"Answer a new collection of rules which contains all rules at the associations of associationCollection.
 	an association like
@@ -214,12 +216,12 @@ JEGrammar >> rulesAtAll: associationCollection [
 		streamContents: [ :s | associationCollection do: [ :each | s nextPut: (self ruleAt: each) ] ]
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 JEGrammar >> rulesSize [
 	^ productionRules size
 ]
 
-{ #category : #'instance creation' }
+{ #category : 'instance creation' }
 JEGrammar >> startAt: aNonterminalNamed [
 	" a new subgrammar based on a collection of rules,
 	starting at the given nonterminal that acts as the new start symbol."
@@ -231,17 +233,17 @@ JEGrammar >> startAt: aNonterminalNamed [
 		startNonterminal: (self nonterminal: aNonterminalNamed)
 ]
 
-{ #category : #private }
+{ #category : 'private' }
 JEGrammar >> startRule [
 	^ startRule
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 JEGrammar >> startSymbol [
 	^ startSymbol
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 JEGrammar >> terminals [
 	^ terminals asArray
 ]

@@ -2,12 +2,14 @@
 failure at the end of the input string
 "
 Class {
-	#name : #JEFailureAtEnd,
-	#superclass : #JEFailure,
-	#category : #'EarleyParser-Core-Implementation'
+	#name : 'JEFailureAtEnd',
+	#superclass : 'JEFailure',
+	#category : 'EarleyParser-Core-Implementation',
+	#package : 'EarleyParser-Core',
+	#tag : 'Implementation'
 }
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 JEFailureAtEnd >> messageText [
 	"Return an exception's message text."
 
@@ -22,7 +24,7 @@ JEFailureAtEnd >> messageText [
 					s nextPut: $} ] ]
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 JEFailureAtEnd >> wasAtEnd [
 	" true because it failed at the end of the input sentence. "
 

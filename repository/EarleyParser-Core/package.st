@@ -1,1 +1,1 @@
-Package { #name : #'EarleyParser-Core' }
+Package { #name : 'EarleyParser-Core' }

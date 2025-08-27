@@ -4,12 +4,14 @@ recognition is not parsing.
 
 "
 Class {
-	#name : #JERecognizer,
-	#superclass : #JEAlgorithm,
-	#category : #'EarleyParser-Core-Implementation'
+	#name : 'JERecognizer',
+	#superclass : 'JEAlgorithm',
+	#category : 'EarleyParser-Core-Implementation',
+	#package : 'EarleyParser-Core',
+	#tag : 'Implementation'
 }
 
-{ #category : #public }
+{ #category : 'public' }
 JERecognizer >> accepts: words [
 	^ [
 	| chart |
@@ -19,12 +21,12 @@ JERecognizer >> accepts: words [
 		do: [ :ex | false ]
 ]
 
-{ #category : #'private operations' }
+{ #category : 'private operations' }
 JERecognizer >> complete: item [
 	item predictionItemsWithSymbolAtDotIsHeadDo: [ :previous | item end moveDotForward: previous ]
 ]
 
-{ #category : #'private operations' }
+{ #category : 'private operations' }
 JERecognizer >> scan: item with: word at: column [
 	column moveDotForward: item
 ]

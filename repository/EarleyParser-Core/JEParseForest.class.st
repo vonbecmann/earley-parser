@@ -7,29 +7,31 @@ grammar is a Context Free Grammar.
 
 "
 Class {
-	#name : #JEParseForest,
-	#superclass : #Object,
+	#name : 'JEParseForest',
+	#superclass : 'Object',
 	#instVars : [
 		'grammar',
 		'syntaxForest'
 	],
-	#category : #'EarleyParser-Core-Public'
+	#category : 'EarleyParser-Core-Public',
+	#package : 'EarleyParser-Core',
+	#tag : 'Public'
 }
 
-{ #category : #'instance creation' }
+{ #category : 'instance creation' }
 JEParseForest class >> given: aBSPPForest of: aJEGrammar [
 	"given a syntax forest of a grammar"
 
 	^ self basicNew initializeSyntaxForest: aBSPPForest andGrammar: aJEGrammar
 ]
 
-{ #category : #initialization }
+{ #category : 'initialization' }
 JEParseForest >> initializeSyntaxForest: aBSPPForest andGrammar: aJEGrammar [
 	syntaxForest := aBSPPForest.
 	grammar := aJEGrammar
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 JEParseForest >> isAmbiguous [
 	JEDepthFirstVisitor new
 		preOrderNodeBlock: [ :packed |
@@ -39,7 +41,7 @@ JEParseForest >> isAmbiguous [
 	^ false
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 JEParseForest >> leftmostDerivation [
 	| derivation |
 	derivation := SinglyLinkedList new.
@@ -51,12 +53,12 @@ JEParseForest >> leftmostDerivation [
 	^ derivation asArray
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 JEParseForest >> numberOfTrees [
 	^ syntaxForest numberOfTrees
 ]
 
-{ #category : #'initialize-release' }
+{ #category : 'initialize-release' }
 JEParseForest >> release [
 	syntaxForest release.
 	syntaxForest := nil.
@@ -64,7 +66,7 @@ JEParseForest >> release [
 	super release
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 JEParseForest >> rightmostDerivation [
 	| derivation |
 	derivation := SinglyLinkedList new.

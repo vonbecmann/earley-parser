@@ -1,18 +1,22 @@
 Class {
-	#name : #JEAnalysisAEGrammarTest,
-	#superclass : #TestCase,
+	#name : 'JEAnalysisAEGrammarTest',
+	#superclass : 'TestCase',
 	#instVars : [
 		'grammar'
 	],
-	#category : #'EarleyAnalyzer-Tests'
+	#category : 'EarleyAnalyzer-Tests',
+	#package : 'EarleyAnalyzer',
+	#tag : 'Tests'
 }
 
-{ #category : #initialization }
+{ #category : 'running' }
 JEAnalysisAEGrammarTest >> setUp [
+
+	super setUp.
 	grammar := JEExemplar AE
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 JEAnalysisAEGrammarTest >> testAnalizeAcceptsExpression [
 	| stats chart |
 	stats := grammar analyzeAccepts: 'a+a*a'.
@@ -27,8 +31,9 @@ JEAnalysisAEGrammarTest >> testAnalizeAcceptsExpression [
 	self assert: chart sixth size equals: 9
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 JEAnalysisAEGrammarTest >> testAnalizeParseExpression [
+
 	| stats chart forest |
 	stats := grammar analyzeParse: 'a+a*a'.
 	self assert: (stats at: 'accepts').
@@ -44,5 +49,4 @@ JEAnalysisAEGrammarTest >> testAnalizeParseExpression [
 	self assert: forest isNotNil.
 	self deny: forest isAmbiguous.
 	self assert: forest numberOfTrees equals: 1
-	
 ]

@@ -1,18 +1,22 @@
 Class {
-	#name : #JEAnalysisBKGrammarTest,
-	#superclass : #TestCase,
+	#name : 'JEAnalysisBKGrammarTest',
+	#superclass : 'TestCase',
 	#instVars : [
 		'grammar'
 	],
-	#category : #'EarleyAnalyzer-Tests'
+	#category : 'EarleyAnalyzer-Tests',
+	#package : 'EarleyAnalyzer',
+	#tag : 'Tests'
 }
 
-{ #category : #initialization }
+{ #category : 'running' }
 JEAnalysisBKGrammarTest >> setUp [
+
+	super setUp.
 	grammar := JEExemplar BK
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 JEAnalysisBKGrammarTest >> testAnalizeAccepts1X [
 	| stats chart |
 	stats := grammar analyzeAccepts: 'x'.
@@ -22,7 +26,7 @@ JEAnalysisBKGrammarTest >> testAnalizeAccepts1X [
 	self assert: chart second size equals: 13
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 JEAnalysisBKGrammarTest >> testAnalizeAccepts2X [
 	| stats chart |
 	stats := grammar analyzeAccepts: 'xx'.
@@ -33,7 +37,7 @@ JEAnalysisBKGrammarTest >> testAnalizeAccepts2X [
 	self assert: chart third size equals: 13
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 JEAnalysisBKGrammarTest >> testAnalizeAccepts3X [
 	| stats chart |
 	stats := grammar analyzeAccepts: 'xxx'.
@@ -45,7 +49,7 @@ JEAnalysisBKGrammarTest >> testAnalizeAccepts3X [
 	self assert: chart fourth size equals: 13
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 JEAnalysisBKGrammarTest >> testAnalizeAccepts4X [
 	| stats chart |
 	stats := grammar analyzeAccepts: 'xxxx'.
@@ -58,7 +62,7 @@ JEAnalysisBKGrammarTest >> testAnalizeAccepts4X [
 	self assert: chart fifth size equals: 13
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 JEAnalysisBKGrammarTest >> testAnalizeAcceptsEpsilon [
 	| stats chart |
 	stats := grammar analyzeAccepts: ''.

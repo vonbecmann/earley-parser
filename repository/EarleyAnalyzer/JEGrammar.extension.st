@@ -1,11 +1,11 @@
-Extension { #name : #JEGrammar }
+Extension { #name : 'JEGrammar' }
 
-{ #category : #'*EarleyAnalyzer' }
+{ #category : '*EarleyAnalyzer' }
 JEGrammar >> analyzeAccepts: words [
 	^ (JEAnalyticalRecognizer given: self) accepts: words
 ]
 
-{ #category : #'*EarleyAnalyzer' }
+{ #category : '*EarleyAnalyzer' }
 JEGrammar >> analyzeParse: words [
 	^ (JEAnalyticalForestParser given: self) parse: words
 ]

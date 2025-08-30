@@ -1,1 +1,1 @@
-Package { #name : #EarleyAnalyzer }
+Package { #name : 'EarleyAnalyzer' }

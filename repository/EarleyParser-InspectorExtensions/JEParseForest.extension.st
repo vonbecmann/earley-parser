@@ -1,6 +1,6 @@
-Extension { #name : #JEParseForest }
+Extension { #name : 'JEParseForest' }
 
-{ #category : #'*EarleyParser-InspectorExtensions' }
+{ #category : '*EarleyParser-InspectorExtensions' }
 JEParseForest >> inspectionBrowserIn: aBuilder [
 
 	<inspectorPresentationOrder: 1 title: 'Browse'>

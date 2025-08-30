@@ -1,6 +1,6 @@
-Extension { #name : #JEDottedRule }
+Extension { #name : 'JEDottedRule' }
 
-{ #category : #'*EarleyParser-InspectorExtensions' }
+{ #category : '*EarleyParser-InspectorExtensions' }
 JEDottedRule >> inspectionPureIn: aBuilder [
 
 	<inspectorPresentationOrder: 1 title: 'Pure'>

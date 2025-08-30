@@ -1,6 +1,6 @@
-Extension { #name : #JERule }
+Extension { #name : 'JERule' }
 
-{ #category : #'*EarleyParser-InspectorExtensions' }
+{ #category : '*EarleyParser-InspectorExtensions' }
 JERule >> inspectionDottedRulesIn: aBuilder [
 
 	<inspectorPresentationOrder: 2 title: 'Dotted Rules'>
@@ -18,7 +18,7 @@ JERule >> inspectionDottedRulesIn: aBuilder [
 		  yourself
 ]
 
-{ #category : #'*EarleyParser-InspectorExtensions' }
+{ #category : '*EarleyParser-InspectorExtensions' }
 JERule >> inspectionPureIn: aBuilder [
 
 	<inspectorPresentationOrder: 1 title: 'Pure'>

@@ -1,11 +1,11 @@
-Extension { #name : #JETerminalItem }
+Extension { #name : 'JETerminalItem' }
 
-{ #category : #'*EarleyParser-InspectorExtensions' }
+{ #category : '*EarleyParser-InspectorExtensions' }
 JETerminalItem >> displayValueOn: aStream [
 	terminal printOn: aStream
 ]
 
-{ #category : #'*EarleyParser-InspectorExtensions' }
+{ #category : '*EarleyParser-InspectorExtensions' }
 JETerminalItem >> inspectionPureIn: aBuilder [
 
 	^ (super inspectionPureIn: aBuilder)

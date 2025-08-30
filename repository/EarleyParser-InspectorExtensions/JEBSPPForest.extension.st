@@ -1,6 +1,6 @@
-Extension { #name : #JEBSPPForest }
+Extension { #name : 'JEBSPPForest' }
 
-{ #category : #'*EarleyParser-InspectorExtensions' }
+{ #category : '*EarleyParser-InspectorExtensions' }
 JEBSPPForest >> inspectionBrowserIn: aBuilder [
 
 	"to be fix: use asArray for the moment. a linked list doesn't implement sum"

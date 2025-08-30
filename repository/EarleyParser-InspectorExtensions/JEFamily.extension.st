@@ -1,6 +1,6 @@
-Extension { #name : #JEFamily }
+Extension { #name : 'JEFamily' }
 
-{ #category : #'*EarleyParser-InspectorExtensions' }
+{ #category : '*EarleyParser-InspectorExtensions' }
 JEFamily >> inspectionBrowserIn: aBuilder [
 
 	"to be fix: use asArray for the moment. a linked list doesn't implement sum"

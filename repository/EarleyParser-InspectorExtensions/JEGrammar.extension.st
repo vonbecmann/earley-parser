@@ -1,6 +1,6 @@
-Extension { #name : #JEGrammar }
+Extension { #name : 'JEGrammar' }
 
-{ #category : #'*EarleyParser-InspectorExtensions' }
+{ #category : '*EarleyParser-InspectorExtensions' }
 JEGrammar >> inspectionNonterminalsIn: aBuilder [
 
 	<inspectorPresentationOrder: 2 title: 'nonterminals'>
@@ -14,7 +14,7 @@ JEGrammar >> inspectionNonterminalsIn: aBuilder [
 		  yourself
 ]
 
-{ #category : #'*EarleyParser-InspectorExtensions' }
+{ #category : '*EarleyParser-InspectorExtensions' }
 JEGrammar >> inspectionProductionRulesIn: aBuilder [
 
 	<inspectorPresentationOrder: 1 title: 'production rules'>
@@ -26,7 +26,7 @@ JEGrammar >> inspectionProductionRulesIn: aBuilder [
 		  yourself
 ]
 
-{ #category : #'*EarleyParser-InspectorExtensions' }
+{ #category : '*EarleyParser-InspectorExtensions' }
 JEGrammar >> inspectionRulesIn: aBuilder [
 
 	<inspectorPresentationOrder: 0 title: 'rules'>

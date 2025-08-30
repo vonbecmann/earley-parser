@@ -1,6 +1,6 @@
-Extension { #name : #JEColumn }
+Extension { #name : 'JEColumn' }
 
-{ #category : #'*EarleyParser-InspectorExtensions' }
+{ #category : '*EarleyParser-InspectorExtensions' }
 JEColumn >> finalItemsByNonterminalAssociations [
 	^ Array
 		streamContents: [ :s | 
@@ -11,11 +11,12 @@ JEColumn >> finalItemsByNonterminalAssociations [
 							do: [ :each | s nextPut: (Association key: assoc key value: each) ] ] ]
 ]
 
-{ #category : #'*EarleyParser-InspectorExtensions' }
+{ #category : '*EarleyParser-InspectorExtensions' }
 JEColumn >> inspectionCompletedItemsIn: aBuilder [
 
 	<inspectorPresentationOrder: 2 title: 'Completed Here'>
 	^ aBuilder newTable
+		  alternateRowsColor;
 		  addColumn: (SpStringTableColumn new
 				   title: 'Nonterminal';
 				   evaluated: [ :each | each key ];
@@ -28,11 +29,12 @@ JEColumn >> inspectionCompletedItemsIn: aBuilder [
 		  yourself
 ]
 
-{ #category : #'*EarleyParser-InspectorExtensions' }
+{ #category : '*EarleyParser-InspectorExtensions' }
 JEColumn >> inspectionItemsIn: aBuilder [
 
 	<inspectorPresentationOrder: 0 title: 'Items'>
 	^ aBuilder newTable
+		  alternateRowsColor;
 		  addColumn: (SpStringTableColumn new
 				   title: '@ [start, end]';
 				   evaluated: [ :each | each displayIntervalString ];
@@ -45,11 +47,12 @@ JEColumn >> inspectionItemsIn: aBuilder [
 		  yourself
 ]
 
-{ #category : #'*EarleyParser-InspectorExtensions' }
+{ #category : '*EarleyParser-InspectorExtensions' }
 JEColumn >> inspectionPredictionItemsIn: aBuilder [
 
 	<inspectorPresentationOrder: 1 title: 'Prediction'>
 	^ aBuilder newTable
+		  alternateRowsColor;
 		  addColumn: (SpStringTableColumn new
 				   title: 'Nonterminal';
 				   evaluated: [ :each | each key ];
@@ -62,7 +65,7 @@ JEColumn >> inspectionPredictionItemsIn: aBuilder [
 		  yourself
 ]
 
-{ #category : #'*EarleyParser-InspectorExtensions' }
+{ #category : '*EarleyParser-InspectorExtensions' }
 JEColumn >> predictionItemsByNonterminalAssociations [
 	^ Array
 		streamContents: [ :s | 
@@ -73,7 +76,7 @@ JEColumn >> predictionItemsByNonterminalAssociations [
 							do: [ :each | s nextPut: (Association key: assoc key value: each) ] ] ]
 ]
 
-{ #category : #'*EarleyParser-InspectorExtensions' }
+{ #category : '*EarleyParser-InspectorExtensions' }
 JEColumn >> sortedItems [
 	| sortedItems |
 	sortedItems := SortedCollection new.

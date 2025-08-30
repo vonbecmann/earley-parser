@@ -1,11 +1,11 @@
-Extension { #name : #JEDottedItem }
+Extension { #name : 'JEDottedItem' }
 
-{ #category : #'*EarleyParser-InspectorExtensions' }
+{ #category : '*EarleyParser-InspectorExtensions' }
 JEDottedItem >> displayValueOn: aStream [
 	dottedRule printOn: aStream
 ]
 
-{ #category : #'*EarleyParser-InspectorExtensions' }
+{ #category : '*EarleyParser-InspectorExtensions' }
 JEDottedItem >> inspectionBrowserIn: aBuilder [
 
 	"to be fix: use asArray for the moment. a linked list doesn't implement sum"
@@ -17,7 +17,7 @@ JEDottedItem >> inspectionBrowserIn: aBuilder [
 		  yourself
 ]
 
-{ #category : #'*EarleyParser-InspectorExtensions' }
+{ #category : '*EarleyParser-InspectorExtensions' }
 JEDottedItem >> inspectionPureIn: aBuilder [
 
 	^ (super inspectionPureIn: aBuilder)

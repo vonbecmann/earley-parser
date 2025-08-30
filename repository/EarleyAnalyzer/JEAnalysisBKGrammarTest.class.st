@@ -28,13 +28,21 @@ JEAnalysisBKGrammarTest >> testAnalizeAccepts1X [
 
 { #category : 'tests' }
 JEAnalysisBKGrammarTest >> testAnalizeAccepts2X [
-	| stats chart |
+
+	| stats chart startColumnNumbers |
 	stats := grammar analyzeAccepts: 'xx'.
 	self assert: (stats at: 'accepts').
 	chart := stats at: 'chart'.
 	self assert: chart first size equals: 10.
 	self assert: chart second size equals: 13.
-	self assert: chart third size equals: 13
+	self assert: chart third size equals: 13.
+	startColumnNumbers := stats
+		                      at: 'chart stats'
+		                      at: 'each column item start column number'.
+	self
+		assert: startColumnNumbers
+		equals: #( #( 1 1 1 1 1 1 1 1 1 1 ) #( 1 1 1 1 1 1 1 1 2 2 2 2 2 )
+			   #( 2 2 2 2 2 1 1 1 3 3 3 3 3 ) )
 ]
 
 { #category : 'tests' }

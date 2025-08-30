@@ -32,6 +32,8 @@ JEAnalyticalRecognizer >> accepts: words [
 				  ('chart stats' -> (OrderedDictionary newFrom: {
 						    ('each column size'
 						     -> (chart collect: [ :each | each size ])).
+						    ('each column item start column number'
+						     -> (chart collect: [ :each | each itemStartColumnNumbers ])).
 						    ('total item count'
 						     -> (chart collect: [ :each | each size ]) sum) })).
 				  ('column stats' -> (OrderedDictionary newFrom: {

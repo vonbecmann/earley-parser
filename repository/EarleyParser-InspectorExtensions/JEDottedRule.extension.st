@@ -5,6 +5,7 @@ JEDottedRule >> inspectionPureIn: aBuilder [
 
 	<inspectorPresentationOrder: 1 title: 'Pure'>
 	^ aBuilder newTable
+		  alternateRowsColor;
 		  addColumn: (SpStringTableColumn new
 				   title: 'Name';
 				   evaluated: [ :each | each key ];
@@ -14,14 +15,14 @@ JEDottedRule >> inspectionPureIn: aBuilder [
 		  (SpStringTableColumn
 			   title: 'Value'
 			   evaluated: [ :each | each value ]);
-		  items: ({ 
+		  items: ({
 				   ('rule' -> self rule).
 				   ('dotIndex' -> self dotIndex).
 				   ('symbolAtDot' -> self symbolAtDot).
 				   ('predicted' -> self isPredicted).
 				   ('active' -> self isActive).
 				   ('final' -> self isFinal).
-				   ('next Dotted Rule' -> next) } collect: [ :each | 
+				   ('next Dotted Rule' -> next) } collect: [ :each |
 				   StInspectorAssociationNode hostObject: each ]);
 		  yourself
 ]

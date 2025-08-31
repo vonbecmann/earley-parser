@@ -5,6 +5,7 @@ JERule >> inspectionDottedRulesIn: aBuilder [
 
 	<inspectorPresentationOrder: 2 title: 'Dotted Rules'>
 	^ aBuilder newTable
+		  alternateRowsColor;
 		  addColumn: (SpStringTableColumn new
 				   title: 'Dot Index';
 				   evaluated: [ :each | each dotIndex ];
@@ -23,6 +24,7 @@ JERule >> inspectionPureIn: aBuilder [
 
 	<inspectorPresentationOrder: 1 title: 'Pure'>
 	^ aBuilder newTable
+		  alternateRowsColor;
 		  addColumn: (SpStringTableColumn new
 				   title: 'Name';
 				   evaluated: [ :each | each key ];
@@ -33,8 +35,8 @@ JERule >> inspectionPureIn: aBuilder [
 			   title: 'Value'
 			   evaluated: [ :each | each value ]);
 		  items: ({ ('head' -> self head) }
-			   , (self body withIndexCollect: [ :each :index | 
-					    'body at: ' , index asString -> each ]) collect: [ :each | 
+			   , (self body withIndexCollect: [ :each :index |
+					    'body at: ' , index asString -> each ]) collect: [ :each |
 				   StInspectorAssociationNode hostObject: each ]);
 		  yourself
 ]

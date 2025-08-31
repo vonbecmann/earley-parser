@@ -20,6 +20,7 @@ JEItem >> inspectionPureIn: aBuilder [
 
 	<inspectorPresentationOrder: 1 title: 'Pure'>
 	^ aBuilder newTable
+		  alternateRowsColor;
 		  addColumn: (SpStringTableColumn new
 				   title: 'Name';
 				   evaluated: [ :each | each key ];
